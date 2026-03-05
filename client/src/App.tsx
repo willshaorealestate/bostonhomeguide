@@ -5,31 +5,53 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-
+import BuyerPage from "./pages/Buyer";
+import SellerPage from "./pages/Seller";
+import ContactPage from "./pages/Contact";
+import NeighborhoodsPage from "./pages/Neighborhoods";
+import MarketPage from "./pages/Market";
+import MortgagePage from "./pages/Mortgage";
+import BlogPage from "./pages/Blog";
+import AboutPage from "./pages/About";
+import SearchPage from "./pages/Search";
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      {/* Buyer routes */}
+      <Route path="/buy" component={BuyerPage} />
+      <Route path="/buyer" component={BuyerPage} />
+      {/* Seller routes */}
+      <Route path="/sell" component={SellerPage} />
+      <Route path="/seller" component={SellerPage} />
+      {/* Contact */}
+      <Route path="/contact" component={ContactPage} />
+      {/* Neighborhoods — index and detail */}
+      <Route path="/neighborhoods/:slug" component={NeighborhoodsPage} />
+      <Route path="/neighborhoods" component={NeighborhoodsPage} />
+      {/* Market Reports */}
+      <Route path="/market" component={MarketPage} />
+      {/* Mortgage Calculator */}
+      <Route path="/mortgage" component={MortgagePage} />
+      {/* Blog — index and articles */}
+      <Route path="/blog/:slug" component={BlogPage} />
+      <Route path="/blog" component={BlogPage} />
+      {/* About */}
+      <Route path="/about" component={AboutPage} />
+      {/* Search */}
+      <Route path="/search" component={SearchPage} />
+      {/* 404 */}
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
