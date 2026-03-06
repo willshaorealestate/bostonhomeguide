@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import SocialProofTicker from "@/components/SocialProofTicker";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import FloatingCTA from "@/components/FloatingCTA";
+import BuyingProcessGuide from "@/components/BuyingProcessGuide";
 import { toast } from "sonner";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-hero-QUAvLWQJDdVc4F5dNh4SWw.webp";
@@ -669,6 +670,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── BUYING PROCESS GUIDE ── */}
+      <BuyingProcessGuide />
 
       {/* ── BLOG POSTS ── */}
       <section className="py-20 bg-white">
