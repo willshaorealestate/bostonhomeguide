@@ -14,8 +14,8 @@ import MortgagePage from "./pages/Mortgage";
 import BlogPage from "./pages/Blog";
 import AboutPage from "./pages/About";
 import SearchPage from "./pages/Search";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path="/" component={Home} />
