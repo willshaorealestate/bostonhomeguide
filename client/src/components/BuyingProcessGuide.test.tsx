@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import BuyingProcessGuide from "./BuyingProcessGuide";
 
 // Mock framer-motion to avoid animation issues in tests
@@ -10,6 +11,17 @@ vi.mock("framer-motion", () => ({
   AnimatePresence: ({ children }: any) => <>{children}</>,
 }));
 
+// Extend expect with jest-dom matchers
+expect.extend({
+  toBeInTheDocument(received: any) {
+    const pass = received && received.parentElement;
+    return {
+      pass,
+      message: () => `expected element ${pass ? "to be" : "not to be"} in the document`,
+    };
+  },
+});
+
 describe("BuyingProcessGuide", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -17,14 +29,14 @@ describe("BuyingProcessGuide", () => {
 
   it("renders the component with header", () => {
     render(<BuyingProcessGuide />);
-    expect(screen.getByText("Your Home Buying Journey")).toBeInTheDocument();
-    expect(screen.getByText(/Step-by-Step Guide/i)).toBeInTheDocument();
+    expect(screen.getByText("Your Home Buying Journey")).toBeDefined();
+    expect(screen.getByText(/Step-by-Step Guide/i)).toBeDefined();
   });
 
   it("displays the first step by default in carousel view", () => {
     render(<BuyingProcessGuide />);
-    expect(screen.getByText("Get Pre-Approved")).toBeInTheDocument();
-    expect(screen.getByText(/Step 1 of 9/)).toBeInTheDocument();
+    expect(screen.getByText("Get Pre-Approved")).toBeDefined();
+    expect(screen.getByText(/Step 1 of 9/)).toBeDefined();
   });
 
   it("navigates to next step when Next button is clicked", async () => {
@@ -34,8 +46,8 @@ describe("BuyingProcessGuide", () => {
     fireEvent.click(nextButton);
     
     await waitFor(() => {
-      expect(screen.getByText("Define Your Priorities")).toBeInTheDocument();
-      expect(screen.getByText(/Step 2 of 9/)).toBeInTheDocument();
+      expect(screen.getByText("Define Your Priorities")).toBeDefined();
+      expect(screen.getByText(/Step 2 of 9/)).toBeDefined();
     });
   });
 
@@ -47,7 +59,7 @@ describe("BuyingProcessGuide", () => {
     fireEvent.click(nextButton);
     
     await waitFor(() => {
-      expect(screen.getByText("Define Your Priorities")).toBeInTheDocument();
+      expect(screen.getByText("Define Your Priorities")).toBeDefined();
     });
     
     // Then go back to step 1
@@ -55,7 +67,7 @@ describe("BuyingProcessGuide", () => {
     fireEvent.click(prevButton);
     
     await waitFor(() => {
-      expect(screen.getByText("Get Pre-Approved")).toBeInTheDocument();
+      expect(screen.getByText("Get Pre-Approved")).toBeDefined();
     });
   });
 
@@ -75,7 +87,7 @@ describe("BuyingProcessGuide", () => {
     }
     
     await waitFor(() => {
-      expect(screen.getByText("Closing Day")).toBeInTheDocument();
+      expect(screen.getByText("Closing Day")).toBeDefined();
       const nextBtn = screen.getByText("Next") as HTMLButtonElement;
       expect(nextBtn.disabled).toBe(true);
     });
@@ -89,8 +101,8 @@ describe("BuyingProcessGuide", () => {
     
     await waitFor(() => {
       // Timeline view should show all steps
-      expect(screen.getByText("Get Pre-Approved")).toBeInTheDocument();
-      expect(screen.getByText("Closing Day")).toBeInTheDocument();
+      expect(screen.getByText("Get Pre-Approved")).toBeDefined();
+      expect(screen.getByText("Closing Day")).toBeDefined();
     });
   });
 
@@ -101,14 +113,14 @@ describe("BuyingProcessGuide", () => {
     fireEvent.click(timelineButton);
     
     await waitFor(() => {
-      expect(screen.getByText("Get Pre-Approved")).toBeInTheDocument();
+      expect(screen.getByText("Get Pre-Approved")).toBeDefined();
     });
     
     const carouselButton = screen.getByText("Interactive View");
     fireEvent.click(carouselButton);
     
     await waitFor(() => {
-      expect(screen.getByText(/Step 1 of 9/)).toBeInTheDocument();
+      expect(screen.getByText(/Step 1 of 9/)).toBeDefined();
     });
   });
 
@@ -116,19 +128,19 @@ describe("BuyingProcessGuide", () => {
     render(<BuyingProcessGuide />);
     
     // Check that details are shown
-    expect(screen.getByText("Choose a local lender familiar with MA transactions")).toBeInTheDocument();
-    expect(screen.getByText("Get pre-approved, not just pre-qualified")).toBeInTheDocument();
-    expect(screen.getByText("Lock in your rate when you find the right home")).toBeInTheDocument();
+    expect(screen.getByText("Choose a local lender familiar with MA transactions")).toBeDefined();
+    expect(screen.getByText("Get pre-approved, not just pre-qualified")).toBeDefined();
+    expect(screen.getByText("Lock in your rate when you find the right home")).toBeDefined();
   });
 
   it("shows duration for each step", () => {
     render(<BuyingProcessGuide />);
-    expect(screen.getByText("Typically takes 1-2 weeks")).toBeInTheDocument();
+    expect(screen.getByText("Typically takes 1-2 weeks")).toBeDefined();
   });
 
   it("displays share button in carousel view", () => {
     render(<BuyingProcessGuide />);
-    expect(screen.getByText("Share")).toBeInTheDocument();
+    expect(screen.getByText("Share")).toBeDefined();
   });
 
   it("navigates to specific step when dot indicator is clicked", async () => {
@@ -141,8 +153,8 @@ describe("BuyingProcessGuide", () => {
     fireEvent.click(dots[4]);
     
     await waitFor(() => {
-      expect(screen.getByText("Negotiate & Accept")).toBeInTheDocument();
-      expect(screen.getByText(/Step 5 of 9/)).toBeInTheDocument();
+      expect(screen.getByText("Negotiate & Accept")).toBeDefined();
+      expect(screen.getByText(/Step 5 of 9/)).toBeDefined();
     });
   });
 
@@ -151,7 +163,7 @@ describe("BuyingProcessGuide", () => {
     
     // Check for progress bar element
     const progressBar = container.querySelector(".bg-gray-200.rounded-full");
-    expect(progressBar).toBeInTheDocument();
+    expect(progressBar).toBeDefined();
   });
 
   it("renders all 9 steps correctly", async () => {
@@ -177,6 +189,6 @@ describe("BuyingProcessGuide", () => {
     }
     
     // At least verify the first and last steps exist
-    expect(screen.getByText("Get Pre-Approved")).toBeInTheDocument();
+    expect(screen.getByText("Get Pre-Approved")).toBeDefined();
   });
 });
