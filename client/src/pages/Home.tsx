@@ -175,7 +175,7 @@ export default function HomePage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search by city, neighborhood, or ZIP code..."
-                  className="w-full pl-12 pr-4 py-4 rounded text-[#0D2137] font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B3C] shadow-lg"
+                  className="w-full pl-12 pr-4 py-4 rounded bg-white text-[#0D2137] font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B3C] shadow-lg"
                 />
               </div>
               <button
