@@ -22,14 +22,14 @@ const CONSULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/
 const METROWEST_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
 
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "$1.28M", schools: "A+", img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&q=80" },
-  { name: "Wellesley", type: "Town", medianPrice: "$1.55M", schools: "A+", img: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&q=80" },
-  { name: "Brookline", type: "Town", medianPrice: "$1.12M", schools: "A", img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&q=80" },
-  { name: "Natick", type: "Town", medianPrice: "$875K", schools: "A", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" },
-  { name: "Lexington", type: "Town", medianPrice: "$1.35M", schools: "A+", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" },
-  { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" },
-  { name: "Needham", type: "Town", medianPrice: "$1.13M", schools: "A", img: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=400&q=80" },
-  { name: "Framingham", type: "City", medianPrice: "$695K", schools: "B+", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
+  { name: "Newton", type: "City", medianPrice: "$1.28M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/newton-colonial-8zvnLiEb3r97UyKd2Z4928.webp" },
+  { name: "Wellesley", type: "Town", medianPrice: "$1.55M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/wellesley-estate-3xDcHtdwUWs2WKST8LsnTX.webp" },
+  { name: "Brookline", type: "Town", medianPrice: "$1.12M", schools: "A", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/brookline-townhouse-jGk67mYpAwahCvehawG8Lx.webp" },
+  { name: "Natick", type: "Town", medianPrice: "$875K", schools: "A", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/natick-cape-cod-nLiERSfJ8eHvjKioyWytCP.webp" },
+  { name: "Lexington", type: "Town", medianPrice: "$1.35M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/lexington-colonial-9PduwqFLgTiNDHcCknU9o6.webp" },
+  { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/concord-farmhouse-a6bYbStKPWAY2fEkQhUk3i.webp" },
+  { name: "Needham", type: "Town", medianPrice: "$1.13M", schools: "A", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/needham-ranch-SKFL8qZGatkSapKLPLLBuw.webp" },
+  { name: "Framingham", type: "City", medianPrice: "$695K", schools: "B+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/framingham-victorian-aWvCGGeqjgB5d3bWQ3JqFB.webp" },
 ];
 
 const featuredListings = [
