@@ -75,11 +75,19 @@ const buyingSteps = [
   },
   {
     step: "08",
-    title: "Close & Get Your Keys",
+    title: "Final Walkthrough",
+    icon: CheckCircle,
+    description:
+      "Before heading to the closing table, Will walks through the home with you to confirm it's in agreed-upon condition and any negotiated repairs are complete. We'll also send you utility transfer contacts and mailing address change info ahead of time so you're ready from day one.",
+    tips: ["Confirm all agreed-upon repairs are done", "Check utilities are on and functioning", "Will sends utility and mailing contacts in advance"],
+  },
+  {
+    step: "09",
+    title: "Closing Day & Celebration!",
     icon: Key,
     description:
-      "This is what you've been working toward! From the final walkthrough to closing day, Will and his team are with you through every step. You'll walk away with the keys to your new home — it's time to celebrate!",
-    tips: ["Final walkthrough the day of closing", "Bring a certified check or wire funds in advance", "🎉 Celebrate — you're a homeowner!"],
+      "This is what you've been working toward! Your attorney handles the closing table and the HUD. Will and his team are with you to make sure everything goes smoothly — and then you get the keys to your new home. Time to celebrate! 🎉",
+    tips: ["Attorney handles closing documents and HUD", "Bring a certified check or wire funds in advance", "🎉 Celebrate — you're a homeowner!"],
   },
 ];
 
