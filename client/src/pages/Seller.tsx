@@ -15,6 +15,7 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PhotoComparisonCarousel from "@/components/PhotoComparisonCarousel";
 import { toast } from "sonner";
 import { submitToFub, getFelloUrl } from "@/lib/fub";
+import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
 
@@ -89,6 +90,21 @@ const marketingItems = [
 ];
 
 export default function SellerPage() {
+  useSEO({
+    title: "Sell Your Greater Boston Home for Top Dollar | Will Shao, RE/MAX",
+    description: "Will Shao's proven marketing strategy gets sellers maximum value — 103.4% list-to-sale ratio, avg 18 days on market, 212+ homes sold. Free home valuation. Greater Boston & MetroWest MA.",
+    canonical: "https://bostonhomeguide.com/sell",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "When is the best time to sell in Greater Boston?", "acceptedAnswer": { "@type": "Answer", "text": "Spring (March–June) is traditionally the strongest selling season in Greater Boston, with high buyer demand and multiple offers common. However, the right time to sell is when you're ready." } },
+        { "@type": "Question", "name": "How does Will determine my home's value?", "acceptedAnswer": { "@type": "Answer", "text": "Will uses a Comparative Market Analysis (CMA) that analyzes recent sales of similar homes in your neighborhood, current active listings, market trends, and your home's specific features." } },
+        { "@type": "Question", "name": "How long will it take to sell my home?", "acceptedAnswer": { "@type": "Answer", "text": "In Greater Boston's current market, well-priced homes in high demand areas can sell in 7–21 days. Our strategic pricing and marketing approach is designed to attract qualified buyers as efficiently as possible." } },
+        { "@type": "Question", "name": "What is your marketing strategy?", "acceptedAnswer": { "@type": "Answer", "text": "Professional photography, MLS listing, syndication across Zillow, Realtor.com, and Homes.com, social media marketing, and global reach through the RE/MAX network spanning 110 countries." } }
+      ]
+    }
+  });
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [form, setForm] = useState({
     name: "", email: "", phone: "", address: "", city: "",

@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
+import { useSEO } from "@/lib/seo";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
 function formatCurrency(n: number) {
@@ -173,6 +174,11 @@ function SliderInput({
 }
 
 export default function MortgagePage() {
+  useSEO({
+    title: "Mortgage Calculator | Greater Boston Home Buying | Will Shao",
+    description: "Estimate your monthly mortgage payment for Greater Boston homes. Includes principal, interest, taxes, and insurance. Free calculator with MA property tax estimates.",
+    canonical: "https://bostonhomeguide.com/mortgage",
+  });
   const [homePrice, setHomePrice] = useState(875000);
   const [downPct, setDownPct] = useState(20);
   const [rate, setRate] = useState(6.75);

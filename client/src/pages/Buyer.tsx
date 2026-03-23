@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { submitToFub } from "@/lib/fub";
+import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
 
@@ -115,6 +116,22 @@ const faqs = [
 ];
 
 export default function BuyerPage() {
+  useSEO({
+    title: "Buying a Home in Greater Boston | Buyer's Guide | Will Shao",
+    description: "Your complete guide to buying a home in Greater Boston and MetroWest MA. Pre-approval, home search, offers, P&S, and closing — step-by-step with Will Shao, RE/MAX.",
+    canonical: "https://bostonhomeguide.com/buy",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much do I need for a down payment in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "Conventional loans typically require 5-20% down. FHA loans require 3.5% with a 580+ credit score. First-time buyers may qualify for MassHousing programs with as little as 3% down." } },
+        { "@type": "Question", "name": "How long does it take to buy a home in Greater Boston?", "acceptedAnswer": { "@type": "Answer", "text": "Closings can happen in as little as 30 days, with 45 days being the current average. A realistic range is 30–60 days from accepted offer to closing." } },
+        { "@type": "Question", "name": "Do I need a buyer's agent in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "While not legally required, working with a dedicated buyer's agent is strongly recommended. A buyer's agent represents your interests exclusively and their fee is typically paid by the seller." } },
+        { "@type": "Question", "name": "What are closing costs in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "Buyers typically pay 2–4% of the purchase price in closing costs, including lender fees, title insurance, attorney fees, and prepaid items." } },
+        { "@type": "Question", "name": "Can Will help Mandarin-speaking buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Will can conduct his part of the process in Mandarin, and works with a network of fluent Mandarin-speaking attorneys and lenders." } }
+      ]
+    }
+  });
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [form, setForm] = useState({
     name: "", email: "", phone: "", timeline: "", budget: "",

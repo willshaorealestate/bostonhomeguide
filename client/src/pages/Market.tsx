@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { submitToFub } from "@/lib/fub";
+import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-skyline-night-k5Nv97BwMFAzzw7y57EB26.webp";
 
@@ -52,6 +53,11 @@ const formatPrice = (v: number) => `$${(v / 1000).toFixed(0)}K`;
 const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
 export default function MarketPage() {
+  useSEO({
+    title: "Greater Boston Real Estate Market Report | March 2026",
+    description: "Monthly market data for Greater Boston and MetroWest MA. Median prices, days on market, inventory, and list-to-sale ratios for Newton, Wellesley, Natick, Lexington, and more.",
+    canonical: "https://bostonhomeguide.com/market",
+  });
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [activeTab, setActiveTab] = useState<"price" | "dom" | "towns">("price");
