@@ -213,7 +213,7 @@ export default function SellerPage() {
               { value: "103.4%", label: "Avg. List-to-Sale Ratio" },
               { value: "18 days", label: "Avg. Days on Market" },
               { value: "212+", label: "Homes Sold" },
-              { value: "$0", label: "Cost to Sellers" },
+              { value: "5.0★", label: "Zillow Rating" },
             ].map((s) => (
               <div key={s.label}>
                 <p className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{s.value}</p>
