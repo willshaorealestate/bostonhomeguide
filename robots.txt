@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /js/fub-config.js
+
+Sitemap: https://bostonhomeguide.com/sitemap.xml

@@ -2,7 +2,7 @@
  * Mortgage.tsx — BostonHomeGuide.com
  * Full interactive mortgage calculator with amortization schedule
  */
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { DollarSign, Percent, Calendar, Home, TrendingDown, ChevronDown, ChevronUp } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -65,6 +65,113 @@ function buildAmortization(principal: number, rate: number, termYears: number) {
   return rows;
 }
 
+const SLIDER_CSS = `
+  input[type=range].calc-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  input[type=range].calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #C89B3C;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    margin-top: -8px;
+  }
+  input[type=range].calc-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #C89B3C;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+  input[type=range].calc-slider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px;
+  }
+  input[type=range].calc-slider::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+    background: #E5E7EB;
+  }
+`;
+
+function SliderInput({
+  label, value, min, max, step, onChange, format, icon,
+}: {
+  label: string; value: number; min: number; max: number; step: number;
+  onChange: (v: number) => void; format: (v: number) => string; icon: React.ReactNode;
+}) {
+  const [text, setText] = useState(String(value));
+  const [editing, setEditing] = useState(false);
+
+  useEffect(() => {
+    if (!editing) setText(String(value));
+  }, [value, editing]);
+
+  const pct = ((value - min) / (max - min)) * 100;
+  const trackBg = `linear-gradient(to right, #C89B3C 0%, #C89B3C ${pct}%, #E5E7EB ${pct}%, #E5E7EB 100%)`;
+
+  const commit = (raw: string) => {
+    const n = parseFloat(raw);
+    if (!isNaN(n)) {
+      const clamped = Math.min(max, Math.max(min, n));
+      onChange(clamped);
+      setText(String(clamped));
+    } else {
+      setText(String(value));
+    }
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-1">
+        <label className="flex items-center gap-2 text-xs font-semibold text-[#0D2137] font-body uppercase tracking-wide">
+          {icon}{label}
+        </label>
+        <input
+          type="number"
+          min={min}
+          max={max}
+          step={step}
+          value={editing ? text : value}
+          onFocus={() => { setEditing(true); setText(String(value)); }}
+          onChange={(e) => setText(e.target.value)}
+          onBlur={() => { setEditing(false); commit(text); }}
+          onKeyDown={(e) => { if (e.key === "Enter") (e.target as HTMLInputElement).blur(); }}
+          className="w-32 text-right text-sm font-bold text-[#0D2137] font-body border border-gray-200 rounded px-2 py-1 focus:outline-none focus:border-[#C89B3C]"
+        />
+      </div>
+      <div className="text-xs text-[#C89B3C] font-body text-right mb-2">{format(value)}</div>
+      <input
+        type="range"
+        className="calc-slider"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        style={{ background: trackBg }}
+      />
+      <div className="flex justify-between text-xs text-gray-400 font-body mt-1">
+        <span>{format(min)}</span>
+        <span>{format(max)}</span>
+      </div>
+    </div>
+  );
+}
+
 export default function MortgagePage() {
   const [homePrice, setHomePrice] = useState(875000);
   const [downPct, setDownPct] = useState(20);
@@ -102,38 +209,9 @@ export default function MortgagePage() {
     setLeadForm({ name: "", email: "", phone: "" });
   };
 
-  const SliderInput = ({
-    label, value, min, max, step, onChange, format, icon
-  }: {
-    label: string; value: number; min: number; max: number; step: number;
-    onChange: (v: number) => void; format: (v: number) => string; icon: React.ReactNode;
-  }) => (
-    <div>
-      <div className="flex items-center justify-between mb-2">
-        <label className="flex items-center gap-2 text-xs font-semibold text-[#0D2137] font-body uppercase tracking-wide">
-          {icon}{label}
-        </label>
-        <span className="text-sm font-bold text-[#0D2137] font-body">{format(value)}</span>
-      </div>
-      <input
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
-        style={{ accentColor: "#C89B3C" }}
-      />
-      <div className="flex justify-between text-xs text-gray-400 font-body mt-1">
-        <span>{format(min)}</span>
-        <span>{format(max)}</span>
-      </div>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-[#FAF8F4]">
+      <style>{SLIDER_CSS}</style>
       <Navigation />
       <FloatingCTA />
 
@@ -165,7 +243,7 @@ export default function MortgagePage() {
                     label="Home Price"
                     value={homePrice}
                     min={200000}
-                    max={3000000}
+                    max={10000000}
                     step={25000}
                     onChange={setHomePrice}
                     format={(v) => formatCurrency(v)}
@@ -175,7 +253,7 @@ export default function MortgagePage() {
                     label="Down Payment"
                     value={downPct}
                     min={3}
-                    max={50}
+                    max={100}
                     step={1}
                     onChange={setDownPct}
                     format={(v) => `${v}% (${formatCurrency((homePrice * v) / 100)})`}
@@ -184,8 +262,8 @@ export default function MortgagePage() {
                   <SliderInput
                     label="Interest Rate"
                     value={rate}
-                    min={3}
-                    max={12}
+                    min={2}
+                    max={20}
                     step={0.125}
                     onChange={setRate}
                     format={(v) => `${v.toFixed(3)}%`}
@@ -223,7 +301,7 @@ export default function MortgagePage() {
                     label="Annual Property Tax"
                     value={tax}
                     min={0}
-                    max={30000}
+                    max={300000}
                     step={500}
                     onChange={setTax}
                     format={(v) => formatCurrency(v)}
@@ -233,7 +311,7 @@ export default function MortgagePage() {
                     label="Annual Home Insurance"
                     value={insurance}
                     min={0}
-                    max={10000}
+                    max={100000}
                     step={100}
                     onChange={setInsurance}
                     format={(v) => formatCurrency(v)}
@@ -243,7 +321,7 @@ export default function MortgagePage() {
                     label="Monthly HOA"
                     value={hoa}
                     min={0}
-                    max={2000}
+                    max={20000}
                     step={50}
                     onChange={setHoa}
                     format={(v) => formatCurrency(v)}

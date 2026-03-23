@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
             <p className="text-sm leading-relaxed mb-5 text-white/60">
               Your trusted guide to buying and selling homes in Greater Boston &
-              MetroWest Massachusetts. Serving 37+ communities with expertise and care.
+              Massachusetts — where every town has its own flavor. Serving Greater Boston with expertise and care.
             </p>
             <div className="flex items-center gap-1 mb-2">
               {[1, 2, 3, 4, 5].map((i) => (
@@ -87,7 +87,7 @@ export default function Footer() {
               href="/neighborhoods"
               className="mt-3 inline-block text-xs text-[#C89B3C] hover:underline"
             >
-              View all 37+ communities →
+              Explore all neighborhoods →
             </Link>
           </div>
 
@@ -122,9 +122,10 @@ export default function Footer() {
               <div className="flex gap-3">
                 {[
                   { label: "Zillow", href: "https://zillow.com/profile/willshao" },
-                  { label: "Instagram", href: "#" },
-                  { label: "Facebook", href: "#" },
-                  { label: "LinkedIn", href: "#" },
+                  { label: "Google", href: "https://www.google.com/maps/place/Will+Shao+-+Greater+Boston+Real+Estate+Agent/@42.396144,-71.5891231,10z/data=!4m16!1m9!3m8!1s0x89e389477f2c7b09:0x6c87515ce456b0de!2sWill+Shao+-+Greater+Boston+Real+Estate+Agent!8m2!3d42.396109!4d-71.2594615!9m1!1b1!16s%2Fg%2F11qswmf7zz!3m5!1s0x89e389477f2c7b09:0x6c87515ce456b0de!8m2!3d42.396109!4d-71.2594615!16s%2Fg%2F11qswmf7zz?hl=en-US&entry=ttu" },
+                  { label: "Instagram", href: "https://www.instagram.com/willshaorealestate/" },
+                  { label: "Facebook", href: "https://facebook.com/shaorealestate" },
+                  { label: "LinkedIn", href: "https://www.linkedin.com/in/willshao" },
                 ].map((s) => (
                   <a
                     key={s.label}
@@ -140,8 +141,8 @@ export default function Footer() {
             </div>
 
             <div className="mt-5">
-              <p className="text-xs text-white/40 mb-1">Languages</p>
-              <p className="text-sm text-white/60">English · 普通话 (Mandarin)</p>
+              <p className="text-xs text-white/40 mb-1">Language</p>
+              <p className="text-sm text-white/60">English · Conversational Mandarin</p>
             </div>
           </div>
         </div>

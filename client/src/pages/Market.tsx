@@ -12,38 +12,40 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
+import { submitToFub } from "@/lib/fub";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-skyline-night-k5Nv97BwMFAzzw7y57EB26.webp";
 
+// Last updated: March 2026 — Sources: MAR, Redfin, Dorchester Post, Boston Agent Magazine
 const priceData = [
-  { month: "Sep '25", median: 825000, sales: 312 },
-  { month: "Oct '25", median: 842000, sales: 298 },
-  { month: "Nov '25", median: 835000, sales: 245 },
-  { month: "Dec '25", median: 820000, sales: 198 },
-  { month: "Jan '26", median: 848000, sales: 215 },
-  { month: "Feb '26", median: 862000, sales: 267 },
-  { month: "Mar '26", median: 875000, sales: 334 },
+  { month: "Sep '25", median: 880000, sales: 1850 },
+  { month: "Oct '25", median: 800000, sales: 1420 },
+  { month: "Nov '25", median: 780000, sales: 1050 },
+  { month: "Dec '25", median: 762000, sales: 820 },
+  { month: "Jan '26", median: 825000, sales: 780 },
+  { month: "Feb '26", median: 813000, sales: 960 },
+  { month: "Mar '26", median: 850000, sales: 1380 },
 ];
 
 const domData = [
-  { month: "Sep '25", dom: 22 },
-  { month: "Oct '25", dom: 24 },
-  { month: "Nov '25", dom: 28 },
-  { month: "Dec '25", dom: 32 },
-  { month: "Jan '26", dom: 26 },
-  { month: "Feb '26", dom: 20 },
-  { month: "Mar '26", dom: 18 },
+  { month: "Sep '25", dom: 28 },
+  { month: "Oct '25", dom: 32 },
+  { month: "Nov '25", dom: 38 },
+  { month: "Dec '25", dom: 44 },
+  { month: "Jan '26", dom: 47 },
+  { month: "Feb '26", dom: 39 },
+  { month: "Mar '26", dom: 33 },
 ];
 
 const townData = [
-  { town: "Newton", medianPrice: 1285000, dom: 12, listToSale: 105.2, inventory: 34 },
-  { town: "Wellesley", medianPrice: 1550000, dom: 10, listToSale: 106.8, inventory: 18 },
-  { town: "Brookline", medianPrice: 1120000, dom: 14, listToSale: 104.5, inventory: 28 },
-  { town: "Natick", medianPrice: 875000, dom: 16, listToSale: 103.8, inventory: 42 },
-  { town: "Lexington", medianPrice: 1350000, dom: 11, listToSale: 105.9, inventory: 22 },
-  { town: "Needham", medianPrice: 1130000, dom: 13, listToSale: 104.1, inventory: 25 },
-  { town: "Framingham", medianPrice: 695000, dom: 20, listToSale: 102.4, inventory: 68 },
-  { town: "Waltham", medianPrice: 825000, dom: 17, listToSale: 103.2, inventory: 38 },
+  { town: "Newton",     medianPrice: 1500000, dom: 43, listToSale: 101.2, inventory: 35 },
+  { town: "Wellesley",  medianPrice: 1650000, dom: 38, listToSale: 102.1, inventory: 22 },
+  { town: "Brookline",  medianPrice: 1600000, dom: 21, listToSale:  98.0, inventory: 16 },
+  { town: "Natick",     medianPrice:  933000, dom: 41, listToSale: 101.5, inventory: 48 },
+  { town: "Lexington",  medianPrice: 1270000, dom: 50, listToSale: 100.8, inventory: 32 },
+  { town: "Needham",    medianPrice: 1350000, dom: 32, listToSale: 101.3, inventory: 85 },
+  { town: "Framingham", medianPrice:  672000, dom: 45, listToSale: 100.2, inventory: 68 },
+  { town: "Waltham",    medianPrice:  750000, dom: 36, listToSale: 100.8, inventory: 42 },
 ];
 
 const formatPrice = (v: number) => `$${(v / 1000).toFixed(0)}K`;
@@ -51,12 +53,27 @@ const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
 export default function MarketPage() {
   const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [activeTab, setActiveTab] = useState<"price" | "dom" | "towns">("price");
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("You're subscribed! The next market report will be in your inbox.");
-    setEmail("");
+    if (!email) return;
+    setSubmitting(true);
+    try {
+      await submitToFub({
+        source: "Website — Market Reports",
+        firstName: email.split("@")[0],
+        email,
+        interest: "market-report",
+      });
+      toast.success("You're subscribed! The next market report will be in your inbox.");
+      setEmail("");
+    } catch {
+      toast.error("Something went wrong. Please try again or call (781) 456-3541.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleDownload = () => {
@@ -81,8 +98,7 @@ export default function MarketPage() {
               Greater Boston Real Estate Market Report
             </h1>
             <p className="text-white/80 font-body text-lg mb-6">
-              Monthly data-driven insights on prices, inventory, and trends across 37+
-              Greater Boston and MetroWest communities.
+              Monthly data-driven insights on prices, inventory, and trends across Greater Boston's most sought-after towns.
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm font-body">
               <Calendar className="w-4 h-4" />
@@ -97,10 +113,10 @@ export default function MarketPage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "$875,000", label: "Median Sale Price", change: "+6.2% YoY" },
-              { value: "18 days", label: "Avg. Days on Market", change: "-4 days YoY" },
-              { value: "103.4%", label: "List-to-Sale Ratio", change: "+1.2% YoY" },
-              { value: "1,240", label: "Active Listings", change: "-8% YoY" },
+              { value: "$813,000", label: "Median Sale Price", change: "-2.7% YoY" },
+              { value: "39 days", label: "Avg. Days on Market", change: "+7 days YoY" },
+              { value: "~100.5%", label: "List-to-Sale Ratio", change: "Varies by town" },
+              { value: "2.8 mo", label: "Months of Supply", change: "+0.9 mo YoY" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
@@ -277,7 +293,7 @@ export default function MarketPage() {
                 <p className="font-semibold text-[#0D2137] text-sm font-body">Will Shao</p>
                 <p className="text-xs text-gray-400 font-body">REMAX Executive Realty · (781) 456-3541</p>
               </div>
-              <a href="https://calendar.app.google/rp3dJPWTjzaV9W1W7" target="_blank" rel="noopener noreferrer" className="btn-gold text-xs">
+              <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-xs">
                 Discuss the Market
               </a>
             </div>
@@ -304,8 +320,8 @@ export default function MarketPage() {
               required
               className="flex-1 bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-sm font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
             />
-            <button type="submit" className="btn-gold text-sm whitespace-nowrap">
-              Subscribe Free
+            <button type="submit" disabled={submitting} className="btn-gold text-sm whitespace-nowrap">
+              {submitting ? "Subscribing..." : "Subscribe Free"}
             </button>
           </form>
         </div>

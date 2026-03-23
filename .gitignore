@@ -108,3 +108,15 @@ temp/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
+
+# FUB secrets — never commit
+client/public/js/fub-config.js
+.env
+.env.local
+*.env
+
+# Firebase (no longer used)
+.firebase/
+firebase.json
+.firebaserc
+firebase-debug.log

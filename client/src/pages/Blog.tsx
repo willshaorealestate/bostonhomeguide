@@ -23,11 +23,11 @@ const articles = [
     img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80",
     content: `Greater Boston is one of the best regions in the country for families, thanks to its world-class school districts, safe communities, and abundant recreational opportunities. Whether you're relocating from out of state or moving from the city to the suburbs, choosing the right town is one of the most important decisions you'll make.
 
-**Newton** consistently ranks as one of the best towns for families in Massachusetts. With a top-rated public school system, the Green Line T access, and multiple village centers offering restaurants, shops, and community events, Newton offers the perfect blend of suburban comfort and urban convenience. Median home prices hover around $1.28M.
+**Newton** consistently ranks as one of the best towns for families in Massachusetts. With a top-rated public school system, the Green Line T access, and multiple village centers offering restaurants, shops, and community events, Newton offers the perfect blend of suburban comfort and urban convenience. Median home prices hover around $1.5M.
 
-**Lexington** offers exceptional schools — consistently ranked among the top 5 in Massachusetts — along with a charming historic town center and a strong sense of community. The town's Revolutionary War heritage adds a unique cultural dimension that families appreciate. Median prices are around $1.35M.
+**Lexington** offers exceptional schools — consistently ranked among the top 5 in Massachusetts — along with a charming historic town center and a strong sense of community. The town's Revolutionary War heritage adds a unique cultural dimension that families appreciate. Median prices are around $1.27M.
 
-**Natick** is one of the best values in MetroWest for families. With excellent schools, the Natick Collection mall, Lake Cochituate for recreation, and commuter rail access to South Station, Natick offers a high quality of life at a more accessible price point — with median prices around $875K.
+**Natick** is one of the best values in MetroWest for families. With excellent schools, the Natick Collection mall, Lake Cochituate for recreation, and commuter rail access to South Station, Natick offers a high quality of life at a more accessible price point — with median prices around $933K.
 
 **Wellesley** is perhaps the gold standard for school districts in Greater Boston. The Wellesley Public Schools consistently rank #1 in Massachusetts, and the town's beautiful neighborhoods, Wellesley College campus, and upscale shopping make it one of the most desirable communities in the region.
 
@@ -50,7 +50,7 @@ The minimum down payment depends on your loan type:
 - VA loan: 0% for eligible veterans
 - MassHousing: As low as 3% for first-time buyers
 
-For a median-priced Greater Boston home at $875,000, a 20% down payment is $175,000. Many buyers in the $500K-$800K range put down 10-15%.
+For a median-priced Greater Boston home at $813,000, a 20% down payment is $162,600. Many buyers in the $500K-$800K range put down 10-15%.
 
 **Closing Costs**
 Massachusetts closing costs typically run 2-4% of the purchase price:
@@ -160,7 +160,7 @@ Will works closely with lenders who specialize in first-time buyer programs. Con
 Boston proper offers walkability, cultural amenities, and proximity to world-class restaurants, museums, and entertainment. Neighborhoods like South End, Back Bay, and Jamaica Plain offer vibrant urban lifestyles. However, space comes at a premium — a 3-bedroom condo in Back Bay can cost $1.5M+.
 
 **The Case for the Suburbs**
-For families with children, the suburbs offer compelling advantages: more space for the money, top-rated school districts, and a quieter lifestyle. A $875K budget that buys a 2-bedroom condo in Boston can buy a 4-bedroom colonial in Natick or Framingham.
+For families with children, the suburbs offer compelling advantages: more space for the money, top-rated school districts, and a quieter lifestyle. A $813K budget that buys a 2-bedroom condo in Boston can buy a 4-bedroom colonial in Natick or Framingham.
 
 **The Commute Question**
 Greater Boston's commuter rail network connects many suburbs directly to South Station and North Station. Newton, Wellesley, and Natick offer Green Line or commuter rail access. Many MetroWest towns are 35-50 minutes from downtown Boston by train.
@@ -188,19 +188,19 @@ There's no universal right answer. Will helps clients evaluate their priorities 
 Consistently ranked #1 or #2 in Massachusetts, Acton-Boxborough offers exceptional academics, strong STEM programs, and a diverse student body. Home prices in Acton range from $800K-$1.2M.
 
 **Wellesley Public Schools**
-Wellesley's schools are legendary — the district consistently ranks among the top 5 in Massachusetts. The high school offers 27 AP courses and has a 99% college acceptance rate. Median home prices: $1.55M.
+Wellesley's schools are legendary — the district consistently ranks among the top 5 in Massachusetts. The high school offers 27 AP courses and has a 99% college acceptance rate. Median home prices: $1.65M.
 
 **Sudbury-Lincoln (Lincoln-Sudbury Regional)**
 Lincoln-Sudbury Regional High School is one of the most respected high schools in Massachusetts, known for its academic rigor and strong arts programs. Median prices in Sudbury: $1.05M.
 
 **Natick Public Schools**
-Natick offers excellent schools at a more accessible price point than Wellesley or Newton. The district has strong academic programs and excellent extracurricular activities. Median prices: $875K.
+Natick offers excellent schools at a more accessible price point than Wellesley or Newton. The district has strong academic programs and excellent extracurricular activities. Median prices: $933K.
 
 **Hopkinton Public Schools**
-Hopkinton has rapidly improved its school system over the past decade. The district offers excellent academics, newer school facilities, and great value — with median prices around $785K.
+Hopkinton has rapidly improved its school system over the past decade. The district offers excellent academics, newer school facilities, and great value — with median prices around $800K.
 
 **Framingham Public Schools**
-Framingham's schools have improved significantly in recent years. The district offers strong bilingual programs and diverse academic offerings. Best value in MetroWest with median prices around $695K.
+Framingham's schools have improved significantly in recent years. The district offers strong bilingual programs and diverse academic offerings. Best value in MetroWest with median prices around $672K.
 
 **Choosing Based on Schools**
 When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. Will can provide detailed school data for any community you're considering.`,
@@ -372,11 +372,11 @@ function ArticleDetail({ slug }: { slug: string }) {
                   Ready to Take the Next Step?
                 </h3>
                 <p className="text-white/70 font-body text-sm mb-5">
-                  Will Shao has 18 years of experience helping buyers and sellers navigate the
+                  Will Shao has nearly 20 years of experience helping buyers and sellers navigate the
                   Greater Boston market. Get personalized guidance today.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <a href="https://calendar.app.google/rp3dJPWTjzaV9W1W7" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
+                  <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
                     Book a Free Consultation
                   </a>
                   <a href="tel:+17814563541" className="btn-outline-gold text-sm">

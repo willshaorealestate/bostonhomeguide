@@ -2,12 +2,25 @@
  * Home.tsx — BostonHomeGuide.com
  * Refined Coastal Luxury: Full-bleed hero, social proof, neighborhoods, listings, CTAs, testimonials
  */
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import {
   Search, Star, Home, TrendingUp, MapPin, ChevronRight,
   ArrowRight, Play, Users, Award, Clock, CheckCircle
 } from "lucide-react";
+
+declare global {
+  namespace React.JSX {
+    interface IntrinsicElements {
+      "realscout-your-listings": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        "agent-encoded-id": string;
+        "sort-order": string;
+        "listing-status": string;
+        "property-types": string;
+      };
+    }
+  }
+}
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SocialProofTicker from "@/components/SocialProofTicker";
@@ -15,58 +28,54 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import FloatingCTA from "@/components/FloatingCTA";
 import BuyingProcessGuide from "@/components/BuyingProcessGuide";
 import { toast } from "sonner";
+import { submitToFub, getFelloUrl } from "@/lib/fub";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-hero-QUAvLWQJDdVc4F5dNh4SWw.webp";
 const NEIGHBORHOOD_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
-const CONSULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/will-shao-bg-NysPAKtyBRYzwefUMrznta.webp";
+const CONSULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/photo_fb4939e0.jpg";
 const METROWEST_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
 
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "$1.28M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/newton-colonial-8zvnLiEb3r97UyKd2Z4928.webp" },
-  { name: "Wellesley", type: "Town", medianPrice: "$1.55M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/wellesley-estate-3xDcHtdwUWs2WKST8LsnTX.webp" },
-  { name: "Brookline", type: "Town", medianPrice: "$1.12M", schools: "A", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/brookline-townhouse-jGk67mYpAwahCvehawG8Lx.webp" },
-  { name: "Natick", type: "Town", medianPrice: "$875K", schools: "A", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/natick-cape-cod-nLiERSfJ8eHvjKioyWytCP.webp" },
-  { name: "Lexington", type: "Town", medianPrice: "$1.35M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/lexington-colonial-9PduwqFLgTiNDHcCknU9o6.webp" },
-  { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/concord-farmhouse-a6bYbStKPWAY2fEkQhUk3i.webp" },
-  { name: "Needham", type: "Town", medianPrice: "$1.13M", schools: "A", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/needham-ranch-SKFL8qZGatkSapKLPLLBuw.webp" },
-  { name: "Framingham", type: "City", medianPrice: "$695K", schools: "B+", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/framingham-victorian-aWvCGGeqjgB5d3bWQ3JqFB.webp" },
+  { name: "Newton", type: "City", medianPrice: "$1.28M", schools: "A+", img: "/images/newton.jpeg" },
+  { name: "Wellesley", type: "Town", medianPrice: "$1.55M", schools: "A+", img: "/images/wellesley.jpeg" },
+  { name: "Brookline", type: "Town", medianPrice: "$1.12M", schools: "A", img: "/images/brookline.jpeg" },
+  { name: "Natick", type: "Town", medianPrice: "$875K", schools: "A", img: "/images/natick.jpeg" },
+  { name: "Lexington", type: "Town", medianPrice: "$1.35M", schools: "A+", img: "/images/lexington.jpeg" },
+  { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/concord.jpeg" },
+  { name: "Needham", type: "Town", medianPrice: "$1.13M", schools: "A", img: "/images/needham.jpeg" },
+  { name: "Framingham", type: "City", medianPrice: "$695K", schools: "B+", img: "/images/framingham.jpeg" },
 ];
 
-const featuredListings = [
-  { id: 1, address: "42 Maple Street", city: "Newton, MA", price: "$1,285,000", beds: 4, baths: 3, sqft: "2,840", type: "Colonial", status: "For Sale", img: METROWEST_IMAGE },
-  { id: 2, address: "18 Oak Lane", city: "Natick, MA", price: "$875,000", beds: 3, baths: 2, sqft: "1,950", type: "Cape Cod", status: "For Sale", img: NEIGHBORHOOD_IMAGE },
-  { id: 3, address: "7 Elm Court", city: "Wellesley, MA", price: "$1,650,000", beds: 5, baths: 4, sqft: "3,600", type: "Colonial", status: "For Sale", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" },
-];
 
 const testimonials = [
   {
-    name: "Sarah & Michael T.",
-    location: "Newton, MA",
+    name: "Jake Uminski",
+    location: "Greater Boston, MA",
     rating: 5,
-    text: "Will made our home search seamless. His deep knowledge of Newton's neighborhoods and school districts was invaluable. We found our dream home in just 6 weeks!",
-    source: "Zillow",
-  },
-  {
-    name: "Jennifer L.",
-    location: "Natick, MA",
-    rating: 5,
-    text: "As a first-time buyer, I was nervous about the process. Will walked me through every step with patience and expertise. I couldn't have done it without him.",
+    text: "Will Shao is attentive, knowledgeable, and tenacious. Not only did he curate an extensive list of homes catered to our needs and wants, but he was able to help us easily navigate all the complexities of the home buying process. We were so grateful to have Will in our corner!",
     source: "Google",
   },
   {
-    name: "David & Amy C.",
-    location: "Wellesley, MA",
+    name: "Tackle2thePeople",
+    location: "Greater Boston, MA",
     rating: 5,
-    text: "Will sold our home in 8 days at 12% over asking. His marketing strategy and negotiation skills are exceptional. Highly recommend!",
-    source: "Zillow",
+    text: "Will helped us navigate an incredibly competitive market in the Spring of 2024 — it ended with us purchasing our very first home! As someone who entered the real estate industry during the 2008 Housing Crisis, he has seen everything under the sun. Will had loads of expertise on everything that could go right or wrong, and helped us navigate a fairly unique situation that resulted in us purchasing our dream house.",
+    source: "Google",
+  },
+  {
+    name: "Jason Hou",
+    location: "Newton, MA",
+    rating: 5,
+    text: "Will helped us so much in our home buying experience in this crazy market. He is patient, calm, knowledgeable, and honest. He won't push you to do something you are not comfortable doing. I feel he takes the customer's requirements extremely seriously. Thanks Will!",
+    source: "Google",
   },
 ];
 
 const stats = [
-  { value: "18", label: "Years Experience", icon: Clock },
+  { value: "20", label: "Years Experience", icon: Clock },
   { value: "212+", label: "Homes Sold", icon: Home },
   { value: "5.0★", label: "Zillow Rating", icon: Star },
-  { value: "37+", label: "Communities", icon: MapPin },
+  { value: "70+", label: "Towns Served", icon: MapPin },
 ];
 
 const blogPosts = [
@@ -109,23 +118,53 @@ function useIntersection(threshold = 0.1) {
   return { ref, visible };
 }
 
+function useRealScoutSearch() {
+  useEffect(() => {
+    const existing = document.querySelector(".rs-embedded-script");
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.className = "rs-embedded-script";
+    script.async = true;
+    script.src = "https://em.realscout.com/assets/em/v3/all.js";
+    document.head.appendChild(script);
+  }, []);
+}
+
 export default function HomePage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [emailInput, setEmailInput] = useState("");
+  useRealScoutSearch();
+  const [fubForm, setFubForm] = useState({
+    firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: ""
+  });
+  const [fubSubmitting, setFubSubmitting] = useState(false);
   const { ref: statsRef, visible: statsVisible } = useIntersection();
   const { ref: neighborhoodsRef, visible: neighborhoodsVisible } = useIntersection();
   const { ref: listingsRef, visible: listingsVisible } = useIntersection();
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleFubSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
-  };
-
-  const handleEmailSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!emailInput) return;
-    toast.success("You're subscribed to the Boston Market Report!");
-    setEmailInput("");
+    if (!fubForm.email || !fubForm.firstName) {
+      toast.error("Please fill in your first name and email.");
+      return;
+    }
+    setFubSubmitting(true);
+    try {
+      await submitToFub({
+        source: "Website — BostonHomeGuide.com Home",
+        firstName: fubForm.firstName,
+        lastName: fubForm.lastName,
+        email: fubForm.email,
+        phone: fubForm.phone,
+        interest: fubForm.interest,
+        language: fubForm.language,
+        message: fubForm.message,
+      });
+      toast.success("Got it! Will will be in touch within 24 hours.");
+      setFubForm({ firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please call (781) 456-3541 directly.");
+    } finally {
+      setFubSubmitting(false);
+    }
   };
 
   return (
@@ -159,32 +198,19 @@ export default function HomePage() {
               in Greater Boston
             </h1>
             <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto font-body animate-fade-up delay-200">
-              Expert guidance from Will Shao — 18 years, 212+ homes sold, serving 37+ communities
-              across Greater Boston and MetroWest MA.
+              Expert guidance from Will Shao — nearly 20 years, 212+ homes sold, serving Greater Boston's most sought-after towns.
             </p>
 
-            {/* Search bar */}
-            <form
-              onSubmit={handleSearch}
-              className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto mb-8 animate-fade-up delay-300"
-            >
-              <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search by city, neighborhood, or ZIP code..."
-                  className="w-full pl-12 pr-4 py-4 rounded bg-white text-[#0D2137] font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B3C] shadow-lg"
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn-gold px-8 py-4 text-sm whitespace-nowrap shadow-lg"
-              >
-                Search Homes
-              </button>
-            </form>
+            {/* RealScout Search Widget */}
+            <div className="relative z-10 max-w-2xl mx-auto mb-6 animate-fade-up delay-300">
+              <div
+                className="realscout-search simple"
+                data-rep="willshao"
+                data-button-color="#C89B3C"
+                data-button-font="#0D2137"
+                data-background-color="rgba(255,255,255,0.95)"
+              />
+            </div>
 
             {/* Quick links */}
             <div className="flex flex-wrap justify-center gap-3 animate-fade-up delay-400">
@@ -307,8 +333,7 @@ export default function HomePage() {
                 Find Your Perfect Neighborhood
               </h2>
               <p className="text-gray-500 font-body mt-3 max-w-xl">
-                From vibrant city neighborhoods to peaceful MetroWest suburbs — explore 37+
-                communities with hyper-local guides, school ratings, and live listings.
+                Like ice cream flavors, every Greater Boston town has its own unique character — explore guides for 70+ communities with school ratings, market data, and local flavor.
               </p>
             </div>
             <Link
@@ -377,59 +402,18 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredListings.map((listing, i) => (
-              <div
-                key={listing.id}
-                className={`bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 card-hover ${
-                  listingsVisible ? "animate-fade-up" : "opacity-0"
-                }`}
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="relative overflow-hidden aspect-[4/3]">
-                  <img
-                    src={listing.img}
-                    alt={listing.address}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-[#C89B3C] text-[#0D2137] text-xs font-bold px-2.5 py-1 rounded font-body">
-                      {listing.status}
-                    </span>
-                  </div>
-                  <div className="absolute top-3 right-3">
-                    <span className="bg-[#0D2137]/80 text-white text-xs px-2.5 py-1 rounded font-body">
-                      {listing.type}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <p
-                    className="text-xl font-bold text-[#0D2137] mb-1"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {listing.price}
-                  </p>
-                  <p className="text-sm text-gray-600 font-body mb-3">
-                    {listing.address}, {listing.city}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm text-gray-500 font-body border-t border-gray-100 pt-3">
-                    <span>{listing.beds} bd</span>
-                    <span>·</span>
-                    <span>{listing.baths} ba</span>
-                    <span>·</span>
-                    <span>{listing.sqft} sqft</span>
-                  </div>
-                  <Link
-                    href="/search"
-                    className="mt-4 flex items-center justify-center gap-2 w-full py-2.5 border border-[#0D2137] text-[#0D2137] text-sm font-semibold font-body rounded hover:bg-[#0D2137] hover:text-white transition-colors"
-                  >
-                    View Details <ChevronRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          <style>{`
+            realscout-your-listings {
+              --rs-listing-divider-color: rgb(101, 141, 172);
+              width: 100%;
+            }
+          `}</style>
+          <realscout-your-listings
+            agent-encoded-id="QWdlbnQtMTUzMjg1"
+            sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
+            listing-status="For Sale,For Rent,In Contract,Sold"
+            property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
+          />
         </div>
       </section>
 
@@ -485,11 +469,19 @@ export default function HomePage() {
                 </h3>
                 <p className="text-white/70 font-body text-sm mb-6 leading-relaxed">
                   Get a free, no-obligation home valuation based on real-time market data
-                  and Will's 18 years of local expertise.
+                  and Will's nearly 20 years of local expertise.
                 </p>
-                <Link href="/sell" className="btn-gold text-sm">
-                  Get My Home's Value →
-                </Link>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={getFelloUrl()}
+                    className="btn-gold text-sm fello-cta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Your Free Home Valuation →
+                  </a>
+                  <p className="text-xs text-white/50 font-body">Instant market analysis · Powered by Fello</p>
+                </div>
               </div>
             </div>
           </div>
@@ -501,11 +493,11 @@ export default function HomePage() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
+              <div className="aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
                 <img
                   src={CONSULT_IMAGE}
                   alt="Will Shao — Real Estate Expert"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               {/* Floating badge */}
@@ -530,21 +522,21 @@ export default function HomePage() {
                 Will Shao — Your Greater Boston Expert
               </h2>
               <p className="text-gray-600 font-body leading-relaxed mb-4">
-                With 18 years of experience and 212+ successful transactions, Will Shao has
+                With nearly 20 years of experience and 212+ successful transactions, Will Shao has
                 built a reputation as the trusted guide for buyers and sellers across Greater
                 Boston and MetroWest Massachusetts.
               </p>
               <p className="text-gray-600 font-body leading-relaxed mb-6">
-                Fluent in both English and Mandarin, Will serves the diverse communities of
-                Greater Boston — from first-time buyers to luxury home sellers. His approach
-                is educational first: he believes an informed client makes the best decisions.
+                Will serves the diverse communities of Greater Boston — from first-time buyers
+                to experienced home sellers. His approach is educational first: he believes
+                an informed client makes the best decisions.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
                   "REMAX Executive Realty",
-                  "English & Mandarin",
-                  "37+ Communities",
+                  "REMAX Executive Realty",
+                  "70+ Towns Served",
                   "5.0★ Zillow · 48 Reviews",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
@@ -559,7 +551,7 @@ export default function HomePage() {
                   Learn More About Will
                 </Link>
                 <a
-                  href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
+                  href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline-gold text-sm"
@@ -625,7 +617,7 @@ export default function HomePage() {
                 <Star key={i} className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" />
               ))}
               <span className="text-white/70 font-body text-sm ml-1">
-                5.0 · 48 Reviews on Zillow
+                5.0 · 48 Reviews on Zillow &amp; Google
               </span>
             </div>
           </div>
@@ -658,14 +650,22 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="flex flex-wrap justify-center gap-3 mt-10">
             <a
               href="https://zillow.com/profile/willshao"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline-gold text-sm"
             >
-              Read All 48 Reviews on Zillow →
+              Read Reviews on Zillow →
+            </a>
+            <a
+              href="https://www.google.com/maps/place/Will+Shao+-+Greater+Boston+Real+Estate+Agent/@42.396144,-71.5891231,10z/data=!4m16!1m9!3m8!1s0x89e389477f2c7b09:0x6c87515ce456b0de!2sWill+Shao+-+Greater+Boston+Real+Estate+Agent!8m2!3d42.396109!4d-71.2594615!9m1!1b1!16s%2Fg%2F11qswmf7zz!3m5!1s0x89e389477f2c7b09:0x6c87515ce456b0de!8m2!3d42.396109!4d-71.2594615!16s%2Fg%2F11qswmf7zz?hl=en-US&entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-gold text-sm"
+            >
+              Read Reviews on Google →
             </a>
           </div>
         </div>
@@ -729,40 +729,88 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── EMAIL CAPTURE ── */}
+      {/* ── FUB LEAD FORM ── */}
       <section className="py-16 bg-[#FAF8F4] border-t border-gray-100">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <Award className="w-10 h-10 text-[#C89B3C] mx-auto mb-4" />
-            <h2
-              className="text-2xl md:text-3xl font-bold text-[#0D2137] mb-3"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Get the Monthly Boston Market Report
-            </h2>
-            <p className="text-gray-500 font-body text-sm mb-6">
-              Data-driven insights on prices, inventory, and trends across 37+ Greater Boston
-              communities — delivered to your inbox every month.
-            </p>
-            <form
-              onSubmit={handleEmailSignup}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
-                placeholder="Your email address"
-                required
-                className="flex-1 border border-gray-200 rounded px-4 py-3 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
-              />
-              <button type="submit" className="btn-gold text-sm whitespace-nowrap">
-                Subscribe Free
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+              <Award className="w-10 h-10 text-[#C89B3C] mx-auto mb-4" />
+              <h2
+                className="text-2xl md:text-3xl font-bold text-[#0D2137] mb-3"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Ready to Make Your Move?
+              </h2>
+              <p className="text-gray-500 font-body text-sm">
+                Tell Will a bit about what you're looking for and he'll reach out within 24 hours.
+              </p>
+            </div>
+            <form onSubmit={handleFubSubmit} className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">First Name *</label>
+                  <input type="text" required value={fubForm.firstName}
+                    onChange={(e) => setFubForm({ ...fubForm, firstName: e.target.value })}
+                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    placeholder="Jane" />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Last Name</label>
+                  <input type="text" value={fubForm.lastName}
+                    onChange={(e) => setFubForm({ ...fubForm, lastName: e.target.value })}
+                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    placeholder="Smith" />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Email *</label>
+                  <input type="email" required value={fubForm.email}
+                    onChange={(e) => setFubForm({ ...fubForm, email: e.target.value })}
+                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    placeholder="jane@email.com" />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Phone</label>
+                  <input type="tel" value={fubForm.phone}
+                    onChange={(e) => setFubForm({ ...fubForm, phone: e.target.value })}
+                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    placeholder="(617) 000-0000" />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">I'm Interested In</label>
+                  <select value={fubForm.interest} onChange={(e) => setFubForm({ ...fubForm, interest: e.target.value })}
+                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
+                    <option value="">Select one</option>
+                    <option value="buying">Buying a Home</option>
+                    <option value="selling">Selling My Home</option>
+                    <option value="both">Buying &amp; Selling</option>
+                    <option value="investing">Investment Property</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Preferred Language</label>
+                  <select value={fubForm.language} onChange={(e) => setFubForm({ ...fubForm, language: e.target.value })}
+                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
+                    <option value="english">English</option>
+                    <option value="mandarin">Mandarin 普通话</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Message (optional)</label>
+                <textarea rows={3} value={fubForm.message}
+                  onChange={(e) => setFubForm({ ...fubForm, message: e.target.value })}
+                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
+                  placeholder="Tell Will a bit about what you're looking for..." />
+              </div>
+              <button type="submit" disabled={fubSubmitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
+                {fubSubmitting ? "Sending..." : "Send Message — Will Responds Within 24 Hours"}
               </button>
+              <p className="text-xs text-gray-400 font-body text-center">Your information is private and will never be shared.</p>
             </form>
-            <p className="text-xs text-gray-400 mt-3 font-body">
-              No spam. Unsubscribe anytime. Your privacy is protected.
-            </p>
           </div>
         </div>
       </section>

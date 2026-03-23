@@ -95,8 +95,7 @@ export default function ExitIntentPopup() {
             Get the Free Boston Market Report
           </p>
           <p className="text-gray-500 text-sm mb-5 font-body">
-            Monthly data on prices, inventory, and trends across 37+ Greater Boston
-            communities — delivered to your inbox.
+            Monthly data on prices, inventory, and trends across Greater Boston's unique towns — delivered to your inbox.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <input

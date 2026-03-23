@@ -36,7 +36,7 @@ export default function FloatingCTA() {
               (781) 456-3541
             </a>
             <a
-              href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
+              href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm text-[#0D2137] hover:text-[#C89B3C] font-body transition-colors"
