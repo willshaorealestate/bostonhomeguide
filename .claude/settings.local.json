@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx pnpm:*)",
+      "WebSearch",
+      "Bash(npx tsc:*)",
+      "WebFetch(domain:willshao.realscout.me)",
+      "Bash(curl -s \"https://willshao.realscout.me/\")",
+      "Bash(curl -s \"https://em.realscout.com/assets/em/v3/all.js\")",
+      "WebFetch(domain:www2.census.gov)",
+      "WebFetch(domain:www.weather.gov)",
+      "WebFetch(domain:www.atqed.com)"
+    ]
+  }
+}

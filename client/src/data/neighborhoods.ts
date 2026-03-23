@@ -31,7 +31,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 90,
     description: "The heart of New England, Boston offers world-class culture, dining, and neighborhoods for every lifestyle.",
     highlights: ["World-class culture", "Excellent dining", "Historic neighborhoods", "Easy T access"],
-    img: "/images/boston.jpeg",
+    img: "/images/towns/boston.jpeg",
     nearby: ["cambridge", "brookline", "quincy", "milton", "somerville"],
     resources: [
       { label: "Town Website", url: "https://www.boston.gov" },
@@ -50,7 +50,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 85,
     description: "A vibrant, diverse neighborhood with excellent value, diverse dining, and easy access to downtown Boston.",
     highlights: ["Excellent value", "Diverse community", "Green Line access", "Vibrant restaurant scene"],
-    img: "/images/allston-brighton.jpeg",
+    img: "/images/towns/allston-brighton.jpeg",
     nearby: ["cambridge", "brookline", "newton", "boston", "waltham"],
     resources: [
       { label: "Town Website", url: "https://www.boston.gov/neighborhoods/allston-brighton" },
@@ -69,7 +69,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 92,
     description: "Home to Harvard and MIT, Cambridge is a world-class city with exceptional culture, dining, and walkability.",
     highlights: ["Harvard and MIT", "Highly walkable", "World-class dining", "Red Line access"],
-    img: "/images/cambridge.jpeg",
+    img: "/images/towns/cambridge.jpeg",
     nearby: ["somerville", "medford", "arlington", "belmont", "boston", "brookline"],
     resources: [
       { label: "Town Website", url: "https://www.cambridgema.gov" },
@@ -88,7 +88,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 88,
     description: "A highly walkable, vibrant city with excellent restaurants, breweries, and easy access to Cambridge and Boston.",
     highlights: ["Highly walkable neighborhoods", "Vibrant restaurant scene", "Red Line access", "Arts and culture"],
-    img: "/images/somerville.jpeg",
+    img: "/images/towns/somerville.jpeg",
     nearby: ["cambridge", "medford", "arlington", "malden", "boston"],
     resources: [
       { label: "Town Website", url: "https://www.somervillema.gov" },
@@ -107,7 +107,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 85,
     description: "A walkable, vibrant town surrounded by Boston, Brookline offers excellent schools, diverse dining, and Green Line access throughout.",
     highlights: ["Coolidge Corner village", "Green Line throughout", "Excellent public schools", "Vibrant restaurant scene"],
-    img: "/images/brookline.jpeg",
+    img: "/images/towns/brookline.jpeg",
     nearby: ["newton", "cambridge", "boston", "needham", "dedham"],
     resources: [
       { label: "Town Website", url: "https://www.brooklinema.gov" },
@@ -126,7 +126,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 68,
     description: "A vibrant community with strong schools, easy T access, and a growing restaurant and retail scene.",
     highlights: ["Easy Orange Line access", "Affordable inner suburb", "Growing downtown", "Community programs"],
-    img: "/images/medford.jpeg",
+    img: "/images/towns/medford.jpeg",
     nearby: ["cambridge", "somerville", "arlington", "malden", "woburn"],
     resources: [
       { label: "Town Website", url: "https://www.medfordma.org" },
@@ -145,7 +145,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 70,
     description: "A diverse, affordable community with good schools, Orange Line access, and a growing downtown.",
     highlights: ["Affordable community", "Orange Line access", "Diverse neighborhoods", "Growing downtown"],
-    img: "/images/malden.jpeg",
+    img: "/images/towns/malden.jpeg",
     nearby: ["medford", "somerville", "melrose", "stoneham", "woburn"],
     resources: [
       { label: "Town Website", url: "https://www.cityofmalden.org" },
@@ -164,7 +164,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 68,
     description: "A diverse, affordable city with good schools, Red Line access, and a vibrant downtown waterfront.",
     highlights: ["Affordable city", "Red Line access", "Waterfront downtown", "Diverse community"],
-    img: "/images/quincy.jpeg",
+    img: "/images/towns/quincy.jpeg",
     nearby: ["braintree", "milton", "boston", "canton"],
     resources: [
       { label: "Town Website", url: "https://www.quincyma.gov" },
@@ -183,7 +183,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 78,
     description: "A walkable, progressive community with excellent schools, diverse dining, and easy access to Cambridge and Boston.",
     highlights: ["Highly walkable", "Excellent schools", "Vibrant Mass Ave corridor", "Easy Cambridge access"],
-    img: "/images/arlington.jpeg",
+    img: "/images/towns/arlington.jpeg",
     nearby: ["cambridge", "medford", "belmont", "lexington", "woburn"],
     resources: [
       { label: "Town Website", url: "https://www.arlingtonma.gov" },
@@ -202,7 +202,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 70,
     description: "A charming residential town between Cambridge and Lexington, known for excellent schools and easy Boston access.",
     highlights: ["Excellent schools", "Easy Boston access", "Charming town center", "Strong community"],
-    img: "/images/belmont.jpeg",
+    img: "/images/towns/belmont.jpeg",
     nearby: ["cambridge", "arlington", "lexington", "waltham", "newton"],
     resources: [
       { label: "Town Website", url: "https://www.belmont-ma.gov" },
@@ -221,7 +221,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 65,
     description: "A vibrant city with a growing restaurant scene, Brandeis University, and excellent value for Greater Boston.",
     highlights: ["Vibrant restaurant scene", "Brandeis University", "Route 128 tech corridor", "Commuter rail"],
-    img: "/images/waltham.jpeg",
+    img: "/images/towns/waltham.jpeg",
     nearby: ["newton", "belmont", "lexington", "weston", "arlington"],
     resources: [
       { label: "Town Website", url: "https://www.city.waltham.ma.us" },
@@ -240,7 +240,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 72,
     description: "One of Boston's most prestigious suburbs, Newton offers top-rated schools, diverse neighborhoods, and easy access to Boston via the Green Line.",
     highlights: ["Top-rated Newton Public Schools", "Green Line T access", "Village centers: Newton Centre, Chestnut Hill", "Strong appreciation history"],
-    img: "/images/newton.jpeg",
+    img: "/images/towns/newton.jpeg",
     nearby: ["brookline", "wellesley", "needham", "waltham", "weston", "belmont"],
     resources: [
       { label: "Town Website", url: "https://www.newtonma.gov" },
@@ -261,7 +261,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 55,
     description: "Home to Wellesley College and consistently ranked among Massachusetts' top towns for schools, safety, and quality of life.",
     highlights: ["#1 ranked school district", "Wellesley College campus", "Upscale shopping on Linden Street", "Commuter rail to South Station"],
-    img: "/images/wellesley.jpeg",
+    img: "/images/towns/wellesley.jpeg",
     nearby: ["newton", "needham", "natick", "wayland", "weston", "westwood"],
     resources: [
       { label: "Town Website", url: "https://www.wellesleyma.gov" },
@@ -280,7 +280,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 48,
     description: "A thriving MetroWest community with excellent schools, the Natick Collection mall, and strong community spirit.",
     highlights: ["Excellent value for MetroWest", "Natick Collection mall", "Lake Cochituate recreation", "Commuter rail access"],
-    img: "/images/natick.jpeg",
+    img: "/images/towns/natick.jpeg",
     nearby: ["framingham", "wayland", "needham", "wellesley", "ashland"],
     resources: [
       { label: "Town Website", url: "https://www.natickma.gov" },
@@ -299,7 +299,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 52,
     description: "MetroWest's largest city offers excellent value, diverse communities, and strong amenities including Framingham State University.",
     highlights: ["Best value in MetroWest", "Diverse community", "Commuter rail to South Station", "Major employers nearby"],
-    img: "/images/framingham.jpeg",
+    img: "/images/towns/framingham.jpeg",
     nearby: ["natick", "wayland", "sudbury", "marlborough", "ashland"],
     resources: [
       { label: "Town Website", url: "https://www.framinghamma.gov" },
@@ -318,7 +318,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 30,
     description: "A quiet, upscale suburb known for excellent schools, beautiful natural landscapes, and a strong sense of community.",
     highlights: ["Excellent schools", "Beautiful natural setting", "Low density living", "Strong community"],
-    img: "/images/wayland.jpeg",
+    img: "/images/towns/wayland.jpeg",
     nearby: ["framingham", "sudbury", "natick", "lincoln", "weston"],
     resources: [
       { label: "Town Website", url: "https://www.wayland.ma.us" },
@@ -337,7 +337,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 50,
     description: "A family-friendly suburb with excellent schools, strong community programs, and convenient highway access.",
     highlights: ["Excellent public schools", "Strong community programs", "Route 128 access", "Commuter rail"],
-    img: "/images/needham.jpeg",
+    img: "/images/towns/needham.jpeg",
     nearby: ["newton", "wellesley", "dedham", "westwood", "dover"],
     resources: [
       { label: "Town Website", url: "https://www.needhamma.gov" },
@@ -356,7 +356,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 55,
     description: "An affordable inner suburb with good schools, easy highway access, and a charming historic town center.",
     highlights: ["Affordable inner suburb", "Legacy Place shopping", "Easy highway access", "Historic courthouse square"],
-    img: "/images/dedham.jpeg",
+    img: "/images/towns/dedham.jpeg",
     nearby: ["needham", "westwood", "norwood", "canton", "milton", "brookline"],
     resources: [
       { label: "Town Website", url: "https://www.dedham-ma.gov" },
@@ -375,7 +375,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 35,
     description: "A prestigious suburb known for its excellent schools, low crime rate, and beautiful residential neighborhoods.",
     highlights: ["Top-ranked schools", "Low crime rate", "University Station development", "Commuter rail"],
-    img: "/images/westwood.jpeg",
+    img: "/images/towns/westwood.jpeg",
     nearby: ["needham", "dedham", "norwood", "dover", "canton"],
     resources: [
       { label: "Town Website", url: "https://www.westwood.ma.us" },
@@ -394,7 +394,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 35,
     description: "An upscale, quiet suburb with exceptional schools, large estates, and beautiful natural surroundings.",
     highlights: ["Top-ranked schools", "Large estates", "Nature trails", "Quiet neighborhoods"],
-    img: "/images/weston.jpeg",
+    img: "/images/towns/weston.jpeg",
     nearby: ["lincoln", "wayland", "natick", "wellesley", "sudbury", "newton"],
     resources: [
       { label: "Town Website", url: "https://www.westonma.gov" },
@@ -413,7 +413,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 28,
     description: "A beautiful, historic town with exceptional schools, large lots, and strong community character.",
     highlights: ["Exceptional schools", "Historic character", "Large lots", "Nature trails"],
-    img: "/images/lincoln.jpeg",
+    img: "/images/towns/lincoln.jpeg",
     nearby: ["weston", "concord", "lexington", "sudbury", "wayland"],
     resources: [
       { label: "Town Website", url: "https://www.lincolntown.org" },
@@ -432,7 +432,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 22,
     description: "A beautiful rural suburb with excellent schools, large lots, and a strong community identity.",
     highlights: ["Lincoln-Sudbury school district", "Large lot sizes", "Rural character", "Strong community"],
-    img: "/images/sudbury.jpeg",
+    img: "/images/towns/sudbury.jpeg",
     nearby: ["lincoln", "wayland", "framingham", "stow", "concord", "maynard"],
     resources: [
       { label: "Town Website", url: "https://www.sudbury.ma.us" },
@@ -451,7 +451,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "A family-friendly suburb with excellent schools and convenient shopping.",
     highlights: ["Excellent schools", "Family-friendly", "Shopping centers", "Community programs"],
-    img: "/images/shrewsbury.jpeg",
+    img: "/images/towns/shrewsbury.jpeg",
     nearby: ["westborough", "northborough", "marlborough", "southborough"],
     resources: [
       { label: "Town Website", url: "https://www.shrewsbury-ma.gov" },
@@ -472,7 +472,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 52,
     description: "Historic Lexington combines Revolutionary War heritage with exceptional schools and a strong sense of community.",
     highlights: ["Battle Road historic sites", "Top-ranked schools", "Strong tech community", "Vibrant town center"],
-    img: "/images/lexington.jpeg",
+    img: "/images/towns/lexington.jpeg",
     geoId: "2501735215",
     nearby: ["concord", "bedford", "lincoln", "belmont", "arlington", "winchester"],
     resources: [
@@ -492,7 +492,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "Steeped in literary and Revolutionary history, Concord offers a charming town center, excellent schools, and natural beauty.",
     highlights: ["Walden Pond State Reservation", "Historic town center", "Excellent schools", "Commuter rail to North Station"],
-    img: "/images/concord.jpeg",
+    img: "/images/towns/concord.jpeg",
     nearby: ["lexington", "bedford", "lincoln", "acton", "carlisle", "sudbury"],
     resources: [
       { label: "Town Website", url: "https://www.concordma.gov" },
@@ -511,7 +511,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 58,
     description: "An elegant suburb with a beautiful town center, excellent schools, and a strong sense of community pride.",
     highlights: ["Beautiful town center", "Top-ranked schools", "Commuter rail to North Station", "Mystic Lakes"],
-    img: "/images/winchester.jpeg",
+    img: "/images/towns/winchester.jpeg",
     nearby: ["lexington", "woburn", "stoneham", "medford", "belmont"],
     resources: [
       { label: "Town Website", url: "https://www.winchester.us" },
@@ -530,7 +530,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 38,
     description: "A family-friendly suburb with strong schools, a welcoming community, and easy access to both Route 3 and 128.",
     highlights: ["Excellent public schools", "Hanscom Air Force Base proximity", "Great youth sports programs", "Close to Concord and Lexington"],
-    img: "/images/bedford.jpeg",
+    img: "/images/towns/bedford.jpeg",
     nearby: ["lexington", "concord", "lincoln", "carlisle", "billerica", "burlington"],
     resources: [
       { label: "Town Website", url: "https://www.bedfordma.gov" },
@@ -549,7 +549,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 20,
     description: "A quiet, rural town with excellent schools, beautiful landscapes, and a strong sense of community.",
     highlights: ["Excellent schools", "Rural character", "Beautiful landscapes", "Community spirit"],
-    img: "/images/carlisle.jpeg",
+    img: "/images/towns/carlisle.jpeg",
     nearby: ["concord", "acton", "chelmsford", "billerica", "stow"],
     resources: [
       { label: "Town Website", url: "https://www.carlislema.gov" },
@@ -568,7 +568,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 28,
     description: "A family-friendly suburb with exceptional schools, including the top-ranked Acton-Boxborough Regional School District.",
     highlights: ["Top-ranked school district", "Family-friendly community", "Commuter rail", "Natural recreation"],
-    img: "/images/acton.jpeg",
+    img: "/images/towns/acton.jpeg",
     nearby: ["concord", "sudbury", "stow", "boxborough", "westford", "littleton"],
     resources: [
       { label: "Town Website", url: "https://www.acton-ma.gov" },
@@ -587,7 +587,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 20,
     description: "A rural, family-friendly town with excellent schools and beautiful natural areas.",
     highlights: ["Excellent schools", "Rural character", "Nature trails", "Family-friendly"],
-    img: "/images/stow.jpeg",
+    img: "/images/towns/stow.jpeg",
     nearby: ["acton", "sudbury", "marlborough", "hudson", "bolton", "boxborough"],
     resources: [
       { label: "Town Website", url: "https://www.stow-ma.gov" },
@@ -606,7 +606,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 25,
     description: "A quiet, upscale suburb with exceptional schools and beautiful natural surroundings.",
     highlights: ["Exceptional schools", "Quiet neighborhoods", "Natural beauty", "Family-friendly"],
-    img: "/images/boxborough.jpeg",
+    img: "/images/towns/boxborough.jpeg",
     nearby: ["acton", "stow", "littleton", "westford", "harvard"],
     resources: [
       { label: "Town Website", url: "https://www.boxborough-ma.gov" },
@@ -625,7 +625,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 25,
     description: "A quiet, rural town with good schools and beautiful natural areas.",
     highlights: ["Good schools", "Rural character", "Nature trails", "Quiet neighborhoods"],
-    img: "/images/bolton.jpeg",
+    img: "/images/towns/bolton.jpeg",
     nearby: ["stow", "harvard", "hudson", "northborough", "marlborough"],
     resources: [
       { label: "Town Website", url: "https://www.townofbolton.com" },
@@ -644,7 +644,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 20,
     description: "A quiet, rural town with excellent schools and beautiful natural surroundings.",
     highlights: ["Excellent schools", "Rural character", "Nature trails", "Quiet neighborhoods"],
-    img: "/images/harvard.jpeg",
+    img: "/images/towns/harvard.jpeg",
     nearby: ["bolton", "groton", "ayer", "littleton", "boxborough"],
     resources: [
       { label: "Town Website", url: "https://www.harvard.ma.us" },
@@ -663,7 +663,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "An affordable, historic town with good schools and a charming downtown area.",
     highlights: ["Affordable town", "Good schools", "Historic character", "Charming downtown"],
-    img: "/images/maynard.jpeg",
+    img: "/images/towns/maynard.jpeg",
     nearby: ["stow", "sudbury", "marlborough", "hudson", "acton"],
     resources: [
       { label: "Town Website", url: "https://www.maynardma.gov" },
@@ -682,7 +682,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 25,
     description: "A quiet, family-friendly town with excellent schools and beautiful natural areas.",
     highlights: ["Excellent schools", "Family-friendly", "Nature trails", "Quiet neighborhoods"],
-    img: "/images/littleton.jpeg",
+    img: "/images/towns/littleton.jpeg",
     nearby: ["acton", "stow", "boxborough", "westford", "harvard", "groton"],
     resources: [
       { label: "Town Website", url: "https://www.littletonma.org" },
@@ -701,7 +701,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 22,
     description: "A quiet, family-friendly town with excellent schools and beautiful natural areas.",
     highlights: ["Excellent schools", "Family-friendly", "Nature trails", "Rural character"],
-    img: "/images/groton.jpeg",
+    img: "/images/towns/groton.jpeg",
     nearby: ["harvard", "ayer", "westford", "littleton"],
     resources: [
       { label: "Town Website", url: "https://www.townofgroton.org" },
@@ -720,7 +720,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 40,
     description: "An affordable town with good schools and convenient shopping and dining.",
     highlights: ["Affordable town", "Good schools", "Shopping centers", "Commuter rail"],
-    img: "/images/ayer.jpeg",
+    img: "/images/towns/ayer.jpeg",
     nearby: ["harvard", "groton", "westford", "stow", "boxborough"],
     resources: [
       { label: "Town Website", url: "https://www.ayer.ma.us" },
@@ -739,7 +739,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 40,
     description: "A family-friendly suburb with excellent schools and beautiful natural areas.",
     highlights: ["Excellent schools", "Family-friendly", "Nature trails", "Community programs"],
-    img: "/images/westford.jpeg",
+    img: "/images/towns/westford.jpeg",
     nearby: ["chelmsford", "billerica", "acton", "groton", "littleton"],
     resources: [
       { label: "Town Website", url: "https://www.westfordma.gov" },
@@ -758,7 +758,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 42,
     description: "An affordable suburb with excellent schools and a charming downtown area.",
     highlights: ["Excellent schools", "Affordable suburb", "Charming downtown", "Family-friendly"],
-    img: "/images/chelmsford.jpeg",
+    img: "/images/towns/chelmsford.jpeg",
     nearby: ["westford", "billerica", "tewksbury", "carlisle"],
     resources: [
       { label: "Town Website", url: "https://www.chelmsfordma.gov" },
@@ -777,7 +777,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 48,
     description: "An affordable suburb with good schools and convenient highway access.",
     highlights: ["Affordable suburb", "Good schools", "Highway access", "Family-friendly"],
-    img: "/images/billerica.jpeg",
+    img: "/images/towns/billerica.jpeg",
     nearby: ["tewksbury", "chelmsford", "wilmington", "woburn", "carlisle"],
     resources: [
       { label: "Town Website", url: "https://www.billerica.org" },
@@ -798,7 +798,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 50,
     description: "An affordable community with good schools and convenient highway access.",
     highlights: ["Affordable community", "Good schools", "Highway access", "Commercial hub"],
-    img: "/images/tewksbury.jpeg",
+    img: "/images/towns/tewksbury.jpeg",
     nearby: ["wilmington", "andover", "billerica", "chelmsford"],
     resources: [
       { label: "Town Website", url: "https://www.tewksbury-ma.gov" },
@@ -817,7 +817,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 50,
     description: "An affordable suburb with good schools and convenient shopping and dining.",
     highlights: ["Affordable suburb", "Good schools", "Shopping centers", "Commuter rail"],
-    img: "/images/wilmington.jpeg",
+    img: "/images/towns/wilmington.jpeg",
     nearby: ["woburn", "stoneham", "north-reading", "tewksbury", "billerica"],
     resources: [
       { label: "Town Website", url: "https://www.wilmingtonma.gov" },
@@ -836,7 +836,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 60,
     description: "A diverse, affordable community with good schools, Route 128 access, and strong commercial development.",
     highlights: ["Affordable community", "Good schools", "Route 128 access", "Commercial hub"],
-    img: "/images/woburn.jpeg",
+    img: "/images/towns/woburn.jpeg",
     nearby: ["stoneham", "winchester", "malden", "billerica", "wilmington"],
     resources: [
       { label: "Town Website", url: "https://www.woburnma.gov" },
@@ -855,7 +855,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 55,
     description: "An affordable suburb with good schools, convenient highway access, and family-friendly amenities.",
     highlights: ["Affordable suburb", "Good schools", "Highway access", "Family-friendly"],
-    img: "/images/stoneham.jpeg",
+    img: "/images/towns/stoneham.jpeg",
     nearby: ["woburn", "malden", "medford", "melrose", "wakefield"],
     resources: [
       { label: "Town Website", url: "https://www.stoneham-ma.gov" },
@@ -874,7 +874,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 62,
     description: "An affordable inner suburb with good schools, charming downtown, and easy commuter rail access.",
     highlights: ["Affordable inner suburb", "Good schools", "Charming downtown", "Commuter rail"],
-    img: "/images/melrose.jpeg",
+    img: "/images/towns/melrose.jpeg",
     nearby: ["stoneham", "malden", "wakefield", "reading"],
     resources: [
       { label: "Town Website", url: "https://www.cityofmelrose.org" },
@@ -893,7 +893,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 55,
     description: "An affordable suburb with good schools, charming downtown, and excellent commuter rail access.",
     highlights: ["Affordable suburb", "Good schools", "Charming downtown", "Commuter rail"],
-    img: "/images/wakefield.jpeg",
+    img: "/images/towns/wakefield.jpeg",
     nearby: ["reading", "lynnfield", "melrose", "stoneham", "north-reading"],
     resources: [
       { label: "Town Website", url: "https://www.wakefield.ma.us" },
@@ -912,7 +912,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 50,
     description: "A family-friendly suburb with excellent schools, low crime, and strong community programs.",
     highlights: ["Excellent schools", "Low crime", "Community programs", "Commuter rail"],
-    img: "/images/reading.jpeg",
+    img: "/images/towns/reading.jpeg",
     nearby: ["north-reading", "stoneham", "wakefield", "wilmington", "woburn"],
     resources: [
       { label: "Town Website", url: "https://www.readingma.gov" },
@@ -931,7 +931,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "A quiet, family-friendly suburb with excellent schools and a strong sense of community.",
     highlights: ["Excellent schools", "Family-friendly", "Quiet neighborhoods", "Strong community"],
-    img: "/images/northreading.jpeg",
+    img: "/images/towns/northreading.jpeg",
     nearby: ["reading", "wilmington", "andover", "tewksbury", "lynnfield"],
     resources: [
       { label: "Town Website", url: "https://www.northreadingma.gov" },
@@ -950,7 +950,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "An affordable suburb with excellent schools and convenient shopping.",
     highlights: ["Excellent schools", "Affordable suburb", "Shopping centers", "Family-friendly"],
-    img: "/images/lynnfield.jpeg",
+    img: "/images/towns/lynnfield.jpeg",
     nearby: ["wakefield", "north-reading", "andover"],
     resources: [
       { label: "Town Website", url: "https://www.lynnfield.ma.us" },
@@ -969,7 +969,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "A family-friendly suburb with excellent schools and a charming downtown area.",
     highlights: ["Excellent schools", "Charming downtown", "Family-friendly", "Community programs"],
-    img: "/images/andover.jpeg",
+    img: "/images/towns/andover.jpeg",
     nearby: ["north-andover", "billerica", "tewksbury", "wilmington", "north-reading"],
     resources: [
       { label: "Town Website", url: "https://www.andoverma.gov" },
@@ -988,7 +988,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 40,
     description: "An affordable suburb with excellent schools and a strong sense of community.",
     highlights: ["Excellent schools", "Affordable suburb", "Community spirit", "Family-friendly"],
-    img: "/images/northandover.jpeg",
+    img: "/images/towns/northandover.jpeg",
     nearby: ["andover", "billerica"],
     resources: [
       { label: "Town Website", url: "https://www.northandoverma.gov" },
@@ -1009,7 +1009,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 35,
     description: "An affordable suburb with excellent schools and a charming downtown area.",
     highlights: ["Excellent schools", "Affordable suburb", "Charming downtown", "Family-friendly"],
-    img: "/images/ashland.jpeg",
+    img: "/images/towns/ashland.jpeg",
     nearby: ["framingham", "natick", "holliston", "hopkinton", "millis"],
     resources: [
       { label: "Town Website", url: "https://www.ashlandmass.com" },
@@ -1028,7 +1028,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 25,
     description: "Famous as the start of the Boston Marathon, Hopkinton offers excellent schools, newer construction, and great value.",
     highlights: ["Boston Marathon start line", "Excellent schools", "Newer construction", "Great value"],
-    img: "/images/hopkinton.jpeg",
+    img: "/images/towns/hopkinton.jpeg",
     nearby: ["ashland", "milford", "millis", "sherborn", "holliston", "westborough"],
     resources: [
       { label: "Town Website", url: "https://www.hopkintonma.gov" },
@@ -1047,7 +1047,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 20,
     description: "An upscale, quiet town with exceptional schools and beautiful natural surroundings.",
     highlights: ["Exceptional schools", "Upscale community", "Nature trails", "Quiet neighborhoods"],
-    img: "/images/sherborn.jpeg",
+    img: "/images/towns/sherborn.jpeg",
     nearby: ["natick", "holliston", "hopkinton", "millis", "dover", "milford"],
     resources: [
       { label: "Town Website", url: "https://www.sherbornma.org" },
@@ -1066,7 +1066,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 30,
     description: "A family-friendly suburb with excellent schools and beautiful natural areas.",
     highlights: ["Excellent schools", "Family-friendly", "Nature trails", "Community programs"],
-    img: "/images/holliston.jpeg",
+    img: "/images/towns/holliston.jpeg",
     nearby: ["ashland", "hopkinton", "medway", "millis", "milford"],
     resources: [
       { label: "Town Website", url: "https://www.hollistonma.gov" },
@@ -1085,7 +1085,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 30,
     description: "An affordable suburb with good schools and family-friendly amenities.",
     highlights: ["Affordable suburb", "Good schools", "Family-friendly", "Community programs"],
-    img: "/images/medway.jpeg",
+    img: "/images/towns/medway.jpeg",
     nearby: ["millis", "milford", "holliston", "hopkinton", "dover", "medfield"],
     resources: [
       { label: "Town Website", url: "https://www.medwayma.gov" },
@@ -1104,7 +1104,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 28,
     description: "An affordable, rural town with good schools and beautiful natural areas.",
     highlights: ["Affordable town", "Good schools", "Nature trails", "Rural character"],
-    img: "/images/millis.jpeg",
+    img: "/images/towns/millis.jpeg",
     nearby: ["ashland", "medway", "milford", "holliston", "sherborn", "medfield"],
     resources: [
       { label: "Town Website", url: "https://www.millisma.gov" },
@@ -1123,7 +1123,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "An affordable city with good schools and convenient shopping and dining.",
     highlights: ["Affordable city", "Good schools", "Shopping centers", "Commuter rail"],
-    img: "/images/milford.jpeg",
+    img: "/images/towns/milford.jpeg",
     nearby: ["hopkinton", "holliston", "medway", "millis", "northborough"],
     resources: [
       { label: "Town Website", url: "https://www.milfordma.gov" },
@@ -1142,7 +1142,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 40,
     description: "An affordable MetroWest community with good schools and convenient shopping and dining.",
     highlights: ["Affordable community", "Good schools", "Shopping centers", "Commuter rail"],
-    img: "/images/hudson.jpeg",
+    img: "/images/towns/hudson.jpeg",
     nearby: ["marlborough", "stow", "maynard", "northborough", "bolton"],
     resources: [
       { label: "Town Website", url: "https://www.hudson.ma.us" },
@@ -1161,7 +1161,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 50,
     description: "An affordable city with good schools, commercial development, and convenient highway access.",
     highlights: ["Affordable city", "Good schools", "Commercial hub", "Highway access"],
-    img: "/images/marlborough.jpeg",
+    img: "/images/towns/marlborough.jpeg",
     nearby: ["framingham", "hudson", "northborough", "westborough", "southborough"],
     resources: [
       { label: "Town Website", url: "https://www.marlboroughma.gov" },
@@ -1180,7 +1180,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 35,
     description: "A family-friendly suburb with excellent schools and a charming town center.",
     highlights: ["Excellent schools", "Family-friendly", "Charming town center", "Community programs"],
-    img: "/images/southborough.jpeg",
+    img: "/images/towns/southborough.jpeg",
     nearby: ["westborough", "northborough", "marlborough", "framingham", "hopkinton"],
     resources: [
       { label: "Town Website", url: "https://www.southboroughma.gov" },
@@ -1199,7 +1199,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 40,
     description: "An affordable suburb with good schools and convenient highway access.",
     highlights: ["Affordable suburb", "Good schools", "Highway access", "Commercial hub"],
-    img: "/images/westborough.jpeg",
+    img: "/images/towns/westborough.jpeg",
     nearby: ["southborough", "northborough", "marlborough", "framingham", "shrewsbury"],
     resources: [
       { label: "Town Website", url: "https://www.westboroughma.gov" },
@@ -1218,7 +1218,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 38,
     description: "An affordable suburb with good schools and strong commercial development.",
     highlights: ["Affordable suburb", "Good schools", "Commercial hub", "Highway access"],
-    img: "/images/northborough.jpeg",
+    img: "/images/towns/northborough.jpeg",
     nearby: ["westborough", "southborough", "marlborough", "hudson", "shrewsbury"],
     resources: [
       { label: "Town Website", url: "https://www.northboroughma.gov" },
@@ -1239,7 +1239,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 25,
     description: "An upscale suburb with excellent schools, beautiful estates, and quiet neighborhoods.",
     highlights: ["Excellent schools", "Upscale community", "Beautiful estates", "Quiet neighborhoods"],
-    img: "/images/dover.jpeg",
+    img: "/images/towns/dover.jpeg",
     nearby: ["westwood", "needham", "sherborn", "medfield", "norwood", "millis"],
     resources: [
       { label: "Town Website", url: "https://www.doverma.org" },
@@ -1258,7 +1258,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 35,
     description: "A family-friendly suburb with excellent schools and beautiful natural surroundings.",
     highlights: ["Excellent schools", "Family-friendly", "Nature trails", "Quiet neighborhoods"],
-    img: "/images/medfield.jpeg",
+    img: "/images/towns/medfield.jpeg",
     nearby: ["dover", "millis", "sherborn", "medway", "norwood"],
     resources: [
       { label: "Town Website", url: "https://www.medfield.net" },
@@ -1277,7 +1277,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 45,
     description: "An affordable suburb with good schools and convenient shopping and dining.",
     highlights: ["Affordable suburb", "Good schools", "Shopping centers", "Commuter rail"],
-    img: "/images/canton.jpeg",
+    img: "/images/towns/canton.jpeg",
     nearby: ["norwood", "westwood", "stoughton", "milton", "dedham"],
     resources: [
       { label: "Town Website", url: "https://www.town.canton.ma.us" },
@@ -1296,7 +1296,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 40,
     description: "An affordable suburb with good schools and family-friendly amenities.",
     highlights: ["Affordable suburb", "Good schools", "Family-friendly", "Community programs"],
-    img: "/images/sharon.jpeg",
+    img: "/images/towns/sharon.jpeg",
     nearby: ["canton", "stoughton", "norwood"],
     resources: [
       { label: "Town Website", url: "https://www.townofsharon.org" },
@@ -1315,7 +1315,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 50,
     description: "An affordable city with good schools and convenient shopping and dining.",
     highlights: ["Affordable city", "Good schools", "Shopping centers", "Commuter rail"],
-    img: "/images/stoughton.jpeg",
+    img: "/images/towns/stoughton.jpeg",
     nearby: ["sharon", "canton", "braintree"],
     resources: [
       { label: "Town Website", url: "https://www.stoughton.org" },
@@ -1334,7 +1334,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 60,
     description: "An affordable suburb with good schools and convenient shopping and dining.",
     highlights: ["Affordable suburb", "Good schools", "Shopping centers", "Commuter rail"],
-    img: "/images/norwood.jpeg",
+    img: "/images/towns/norwood.jpeg",
     nearby: ["dedham", "westwood", "canton", "dover", "medfield"],
     resources: [
       { label: "Town Website", url: "https://www.norwood-ma.gov" },
@@ -1353,7 +1353,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 50,
     description: "A family-friendly suburb with good schools, beautiful Blue Hills, and easy highway access.",
     highlights: ["Good schools", "Blue Hills recreation", "Family-friendly", "Highway access"],
-    img: "/images/milton.jpeg",
+    img: "/images/towns/milton.jpeg",
     nearby: ["quincy", "canton", "boston", "braintree", "dedham"],
     resources: [
       { label: "Town Website", url: "https://www.townofmilton.org" },
@@ -1372,7 +1372,7 @@ export const allNeighborhoods: Neighborhood[] = [
     walkScore: 55,
     description: "An affordable suburb with good schools, shopping centers, and convenient highway access.",
     highlights: ["Affordable suburb", "Good schools", "Shopping centers", "Highway access"],
-    img: "/images/braintree.jpeg",
+    img: "/images/towns/braintree.jpeg",
     nearby: ["quincy", "milton", "canton", "stoughton"],
     resources: [
       { label: "Town Website", url: "https://www.braintreema.gov" },
