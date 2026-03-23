@@ -35,7 +35,7 @@ jobs:
       - name: Build
         env:
           VITE_FUB_API_KEY: ${{ secrets.VITE_FUB_API_KEY }}
-        run: npm run build
+        run: npx vite build
 
       - name: Copy CNAME to build output
         run: cp CNAME dist/public/CNAME
