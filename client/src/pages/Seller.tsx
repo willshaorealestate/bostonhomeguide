@@ -226,6 +226,54 @@ export default function SellerPage() {
         </div>
       </section>
 
+      <PhotoComparisonCarousel />
+
+      {/* Staging Before/After */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <span className="gold-rule mx-auto" />
+            <p className="section-label mb-2">Staging Makes the Difference</p>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              See the Transformation
+            </h2>
+            <p className="text-gray-500 font-body text-sm mt-3 max-w-xl mx-auto">
+              Staged homes sell faster and for more money. Drag the slider to see the same
+              room — before and after professional staging.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <BeforeAfterSlider
+              afterSrc="/images/staging/staging-after.jpg"
+              beforeSrc="/images/staging/staging-before.jpg"
+              afterLabel="Staged"
+              beforeLabel="Unstaged"
+            />
+            <div className="mt-6 grid grid-cols-3 gap-4 text-center">
+              {[
+                { value: "17%", label: "Higher sale price on average" },
+                { value: "73%", label: "Of buyers' agents say staging helps" },
+                { value: "50%", label: "Fewer days on market" },
+              ].map((stat) => (
+                <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4">
+                  <p
+                    className="text-2xl font-bold text-[#C89B3C]"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-gray-500 font-body mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Selling Process */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -332,54 +380,6 @@ export default function SellerPage() {
           </div>
         </div>
       </section>
-
-      {/* Staging Before/After */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <div className="text-center mb-12">
-            <span className="gold-rule mx-auto" />
-            <p className="section-label mb-2">Staging Makes the Difference</p>
-            <h2
-              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              See the Transformation
-            </h2>
-            <p className="text-gray-500 font-body text-sm mt-3 max-w-xl mx-auto">
-              Staged homes sell faster and for more money. Drag the slider to see the same
-              room — before and after professional staging.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <BeforeAfterSlider
-              afterSrc="/images/staging/staging-after.jpg"
-              beforeSrc="/images/staging/staging-before.jpg"
-              afterLabel="Staged"
-              beforeLabel="Unstaged"
-            />
-            <div className="mt-6 grid grid-cols-3 gap-4 text-center">
-              {[
-                { value: "17%", label: "Higher sale price on average" },
-                { value: "73%", label: "Of buyers' agents say staging helps" },
-                { value: "50%", label: "Fewer days on market" },
-              ].map((stat) => (
-                <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4">
-                  <p
-                    className="text-2xl font-bold text-[#C89B3C]"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-gray-500 font-body mt-1">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <PhotoComparisonCarousel />
 
       {/* Marketing Comparison */}
       <section className="py-20 bg-[#FAF8F4]">
