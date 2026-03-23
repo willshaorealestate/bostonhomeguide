@@ -14,12 +14,12 @@ interface PhotoPair {
 
 const pairs: PhotoPair[] = [
   {
-    before: "/images/marketing-before-1.jpg",
-    after:  "/images/marketing-after-1.jpg",
+    before: "/images/marketing/marketing-before-1.jpg",
+    after:  "/images/marketing/marketing-after-1.jpg",
     room:   "Living Room",
   },
   // Add more pairs here as you have photos:
-  // { before: "/images/marketing-before-2.jpg", after: "/images/marketing-after-2.jpg", room: "Dining Room" },
+  // { before: "/images/marketing/marketing-before-2.jpg", after: "/images/marketing/marketing-after-2.jpg", room: "Dining Room" },
 ];
 
 export default function PhotoComparisonCarousel() {

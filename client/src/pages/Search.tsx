@@ -7,7 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 
-const HERO_IMAGE = "/images/boston.jpeg";
+const HERO_IMAGE = "/images/towns/boston.jpeg";
 
 // TypeScript declaration for RealScout web components
 declare global {

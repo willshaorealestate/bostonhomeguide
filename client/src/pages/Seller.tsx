@@ -353,8 +353,8 @@ export default function SellerPage() {
 
           <div className="max-w-3xl mx-auto">
             <BeforeAfterSlider
-              afterSrc="/images/staging-after.jpg"
-              beforeSrc="/images/staging-before.jpg"
+              afterSrc="/images/staging/staging-after.jpg"
+              beforeSrc="/images/staging/staging-before.jpg"
               afterLabel="Staged"
               beforeLabel="Unstaged"
             />
