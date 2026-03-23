@@ -59,7 +59,7 @@ const steps = [
     number: 5,
     title: "Negotiate & Accept",
     description: "The seller may counter your offer. Your agent will guide negotiations until both parties reach an agreement.",
-    duration: "1-7 days",
+    duration: "1-3 days",
     icon: "🤝",
     details: [
       "Review seller's counter-offer",
