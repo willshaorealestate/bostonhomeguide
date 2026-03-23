@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
+import { useSEO } from "@/lib/seo";
 
 const NEIGHBORHOOD_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
 
@@ -34,6 +35,17 @@ declare global {
 function NeighborhoodDetail({ slug }: { slug: string }) {
   const neighborhood = allNeighborhoods.find((n) => n.slug === slug);
   const [email, setEmail] = useState("");
+  useSEO({
+    title: neighborhood
+      ? `${neighborhood.name} MA Real Estate & Homes for Sale | Will Shao`
+      : "Neighborhood Guide | BostonHomeGuide.com",
+    description: neighborhood
+      ? `Explore homes for sale in ${neighborhood.name}, MA. ${neighborhood.description?.slice(0, 120) ?? "Local market data, school info, and expert guidance from Will Shao, RE/MAX Executive Realty."}`
+      : "Find homes in Greater Boston and MetroWest neighborhoods.",
+    canonical: neighborhood
+      ? `https://bostonhomeguide.com/neighborhoods/${neighborhood.slug}`
+      : "https://bostonhomeguide.com/neighborhoods",
+  });
 
   useEffect(() => {
     const existing = document.querySelector(".rs-embedded-script");
@@ -301,6 +313,12 @@ export default function NeighborhoodsPage() {
   if (slug) {
     return <NeighborhoodDetail slug={slug} />;
   }
+
+  useSEO({
+    title: "Greater Boston & MetroWest Neighborhood Guides | Will Shao",
+    description: "Explore homes and real estate in Newton, Wellesley, Brookline, Natick, Lexington, Concord, and 60+ Greater Boston and MetroWest towns. Local market data and expert guidance.",
+    canonical: "https://bostonhomeguide.com/neighborhoods",
+  });
 
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("All");

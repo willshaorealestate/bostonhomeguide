@@ -9,6 +9,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
+import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
 
@@ -437,6 +438,11 @@ function ArticleDetail({ slug }: { slug: string }) {
 }
 
 export default function BlogPage() {
+  useSEO({
+    title: "Greater Boston Real Estate Blog | Market Insights | Will Shao",
+    description: "Real estate tips, market insights, and neighborhood guides for Greater Boston and MetroWest MA homebuyers and sellers. Expert advice from Will Shao, RE/MAX Executive Realty.",
+    canonical: "https://bostonhomeguide.com/blog",
+  });
   const params = useParams<{ slug?: string }>();
   const slug = params?.slug;
 

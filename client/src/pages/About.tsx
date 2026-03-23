@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import {
   Award, Star, Users, Home, Globe, Heart, CheckCircle, Quote
 } from "lucide-react";
+import { useSEO } from "@/lib/seo";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -81,6 +82,23 @@ const stats = [
 ];
 
 export default function AboutPage() {
+  useSEO({
+    title: "About Will Shao | RE/MAX Executive Realty | Greater Boston Realtor",
+    description: "Nearly 20 years experience, 212+ homes sold across Greater Boston and MetroWest MA. Will Shao is a top-rated RE/MAX agent with a 5.0★ Zillow rating. Bilingual English & Mandarin.",
+    canonical: "https://bostonhomeguide.com/about",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Will Shao",
+      "jobTitle": "Real Estate Agent",
+      "url": "https://bostonhomeguide.com/about",
+      "telephone": "(781) 456-3541",
+      "email": "will@willshao.com",
+      "knowsLanguage": ["en", "zh"],
+      "worksFor": { "@type": "Organization", "name": "RE/MAX Executive Realty" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "212", "bestRating": "5" }
+    }
+  });
   return (
     <div className="min-h-screen bg-[#FAF8F4]">
       <Navigation />

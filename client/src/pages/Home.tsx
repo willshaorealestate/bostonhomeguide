@@ -3,6 +3,7 @@
  * Refined Coastal Luxury: Full-bleed hero, social proof, neighborhoods, listings, CTAs, testimonials
  */
 import React, { useState, useEffect, useRef } from "react";
+import { useSEO } from "@/lib/seo";
 import { Link } from "wouter";
 import {
   Search, Star, Home, TrendingUp, MapPin, ChevronRight,
@@ -131,6 +132,33 @@ function useRealScoutSearch() {
 }
 
 export default function HomePage() {
+  useSEO({
+    title: "Greater Boston & MetroWest Real Estate | Will Shao, RE/MAX",
+    description: "Nearly 20 years experience, 212+ homes sold across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, RE/MAX Executive Realty. 5.0★ Zillow.",
+    canonical: "https://bostonhomeguide.com/",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Will Shao",
+      "url": "https://bostonhomeguide.com",
+      "telephone": "(781) 456-3541",
+      "email": "will@willshao.com",
+      "description": "Nearly 20 years of experience, 212+ homes sold across Greater Boston and MetroWest MA.",
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "212", "bestRating": "5" },
+      "areaServed": [
+        { "@type": "City", "name": "Boston" },
+        { "@type": "AdministrativeArea", "name": "MetroWest MA" },
+        { "@type": "City", "name": "Newton" },
+        { "@type": "City", "name": "Wellesley" },
+        { "@type": "City", "name": "Brookline" },
+        { "@type": "City", "name": "Natick" },
+        { "@type": "City", "name": "Lexington" }
+      ],
+      "knowsLanguage": ["en", "zh"],
+      "memberOf": { "@type": "Organization", "name": "RE/MAX Executive Realty" },
+      "sameAs": ["https://zillow.com/profile/willshao"]
+    }
+  });
   useRealScoutSearch();
   const [fubForm, setFubForm] = useState({
     firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: ""
