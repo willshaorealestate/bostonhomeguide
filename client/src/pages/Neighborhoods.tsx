@@ -2,9 +2,9 @@
  * Neighborhoods.tsx — BostonHomeGuide.com
  * Neighborhood Guides index + individual town pages
  */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "wouter";
-import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home } from "lucide-react";
+import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -13,12 +13,37 @@ import { allNeighborhoods, regions } from "@/data/neighborhoods";
 
 const NEIGHBORHOOD_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
 
+// TypeScript declaration for RealScout web component
+declare global {
+  namespace React.JSX {
+    interface IntrinsicElements {
+      "realscout-office-listings": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        "agent-encoded-id": string;
+        "sort-order": string;
+        "listing-status": string;
+        "property-types": string;
+        "market-areas"?: string;
+      };
+    }
+  }
+}
+
 // All neighborhoods imported from data file
 
 // Individual neighborhood detail page
 function NeighborhoodDetail({ slug }: { slug: string }) {
   const neighborhood = allNeighborhoods.find((n) => n.slug === slug);
   const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const existing = document.querySelector(".rs-embedded-script");
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.className = "rs-embedded-script";
+    script.async = true;
+    script.src = "https://em.realscout.com/assets/em/v3/all.js";
+    document.head.appendChild(script);
+  }, [slug]);
 
   if (!neighborhood) {
     return (
@@ -131,36 +156,41 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 </div>
               </div>
 
-              {/* Current listings placeholder */}
+              {/* Live listings from RealScout */}
               <div className="bg-white rounded-lg p-6 border border-gray-100">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Homes for Sale in {neighborhood.name}
+                    Homes for Sale in Greater Boston and MetroWest
                   </h2>
-                  <Link href="/search" className="text-[#C89B3C] text-sm font-semibold font-body hover:underline">
-                    View All →
-                  </Link>
+                  {neighborhood.geoId && (
+                    <a
+                      href={`https://willshao.realscout.com/homesearch/map?geo_type=township&geo_id=${neighborhood.geoId}&for_sale=1&for_rent=0`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#C89B3C] text-sm font-semibold font-body hover:underline"
+                    >
+                      View All →
+                    </a>
+                  )}
+                  {!neighborhood.geoId && (
+                    <Link href="/search" className="text-[#C89B3C] text-sm font-semibold font-body hover:underline">
+                      View All →
+                    </Link>
+                  )}
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    { price: neighborhood.medianPrice, beds: 4, baths: 3, sqft: "2,400", type: "Colonial" },
-                    { price: "$" + (parseInt(neighborhood.medianPrice.replace(/[$,]/g, "")) * 0.85).toLocaleString(), beds: 3, baths: 2, sqft: "1,850", type: "Cape Cod" },
-                  ].map((listing, i) => (
-                    <div key={i} className="border border-gray-100 rounded-lg overflow-hidden">
-                      <div className="h-32 bg-gray-100 relative overflow-hidden">
-                        <img src={neighborhood.img} alt="" className="w-full h-full object-cover" />
-                        <div className="absolute top-2 left-2">
-                          <span className="bg-[#C89B3C] text-[#0D2137] text-xs font-bold px-2 py-0.5 rounded font-body">For Sale</span>
-                        </div>
-                      </div>
-                      <div className="p-3">
-                        <p className="font-bold text-[#0D2137] text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>{listing.price}</p>
-                        <p className="text-xs text-gray-500 font-body">{listing.beds}bd · {listing.baths}ba · {listing.sqft} sqft · {listing.type}</p>
-                        <Link href="/search" className="mt-2 text-xs text-[#C89B3C] font-semibold font-body hover:underline">View Details →</Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <style>{`
+                  realscout-office-listings {
+                    --rs-listing-divider-color: rgb(101, 141, 172);
+                    width: 100%;
+                  }
+                `}</style>
+                <realscout-office-listings
+                  agent-encoded-id="QWdlbnQtMTUzMjg1"
+                  sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
+                  listing-status="For Sale,In Contract"
+                  property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
+                  market-areas={`${neighborhood.name}, MA`}
+                />
               </div>
             </div>
 
@@ -201,11 +231,36 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   <a href="tel:+17814563541" className="btn-navy w-full text-sm text-center block">
                     Call (781) 456-3541
                   </a>
-                  <a href="https://calendar.app.google/rp3dJPWTjzaV9W1W7" target="_blank" rel="noopener noreferrer" className="btn-outline-gold w-full text-sm text-center block">
+                  <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-outline-gold w-full text-sm text-center block">
                     Book a Consultation
                   </a>
                 </div>
               </div>
+
+              {/* Town resources */}
+              {neighborhood.resources && neighborhood.resources.length > 0 && (
+                <div className="bg-white rounded-lg p-6 border border-gray-100">
+                  <h3 className="text-[#0D2137] font-bold text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {neighborhood.name} Resources
+                  </h3>
+                  <div className="space-y-2.5">
+                    {neighborhood.resources.map((r) => (
+                      <a
+                        key={r.label}
+                        href={r.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between group"
+                      >
+                        <span className="text-sm text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body font-medium">
+                          {r.label}
+                        </span>
+                        <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#C89B3C] transition-colors shrink-0" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Nearby towns */}
               <div className="bg-[#FAF8F4] rounded-lg p-6 border border-gray-100">
@@ -213,8 +268,9 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   Explore Nearby Towns
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {allNeighborhoods
-                    .filter((n) => n.slug !== slug && n.region === neighborhood.region)
+                  {(neighborhood.nearby ?? [])
+                    .map((nearSlug) => allNeighborhoods.find((n) => n.slug === nearSlug))
+                    .filter((n): n is typeof allNeighborhoods[0] => !!n)
                     .slice(0, 6)
                     .map((n) => (
                       <Link
@@ -272,8 +328,7 @@ export default function NeighborhoodsPage() {
             Neighborhood Guides
           </h1>
           <p className="text-white/80 font-body text-lg max-w-2xl mx-auto mb-8">
-            Hyper-local guides for 67 Greater Boston, MetroWest, North Shore, and South Shore communities — with school
-            ratings, market data, commute times, and current listings.
+            Like ice cream flavors, every Greater Boston town has its own unique character. Explore hyper-local guides for 70+ communities — with school ratings, market data, commute times, and local flavor.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
             <div className="flex-1 relative">
@@ -372,10 +427,9 @@ export default function NeighborhoodsPage() {
             Not Sure Which Town is Right for You?
           </h2>
           <p className="text-white/70 font-body text-sm mb-6 max-w-xl mx-auto">
-            Will has lived and worked in Greater Boston for 18 years. Let him help you find
-            the perfect community for your lifestyle, budget, and family.
+            Every town has its own unique flavor — and Will knows them all. With nearly 20 years exploring Greater Boston's communities, he'll help you find the one that's just right for your family.
           </p>
-          <a href="https://calendar.app.google/rp3dJPWTjzaV9W1W7" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
+          <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
             Book a Free Neighborhood Consultation
           </a>
         </div>

@@ -14,66 +14,69 @@ const WILL_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQne
 
 const testimonials = [
   {
-    name: "Michael & Jennifer Chen",
-    location: "Newton, MA",
+    name: "Jake Uminski",
+    location: "Greater Boston, MA",
     stars: 5,
-    text: "Will helped us buy our first home in Newton. As first-time buyers, we were nervous, but Will explained every step in both English and Mandarin. He found us a home we love, under budget, in a competitive market. We can't recommend him enough.",
-    date: "January 2026",
+    text: "Will Shao is attentive, knowledgeable, and tenacious. Not only did he curate an extensive list of homes catered to our needs and wants, but he was able to help us easily navigate all the complexities of the home buying process. We were so grateful to have Will in our corner!",
+    date: "February 2025 · Google",
   },
   {
-    name: "David & Sarah Thompson",
-    location: "Wellesley, MA",
+    name: "Meng-Ju Wu",
+    location: "Westborough, MA",
     stars: 5,
-    text: "We were relocating from California and needed someone who truly knew Greater Boston. Will was incredibly knowledgeable about every town — schools, commutes, market trends. He helped us find the perfect home in Wellesley in just 3 weeks.",
-    date: "December 2025",
+    text: "This was our first time purchasing a single-family home and we were quite nervous. From the start, Will provided clear, honest guidance and helped us understand every step, from house hunting to closing. He took the time to visit every property and patiently explained the pros and cons of each one. What really stood out was the personal touch — Will was genuinely invested in helping us find not just a house, but the right home for our family.",
+    date: "October 2024 · Google",
   },
   {
-    name: "Robert & Lisa Park",
-    location: "Natick, MA",
+    name: "V.R.",
+    location: "Greater Boston, MA",
     stars: 5,
-    text: "Will sold our Natick home in 8 days for 6% over asking. His marketing strategy was exceptional — professional photos, 3D tour, and targeted advertising. He made the whole process stress-free.",
-    date: "November 2025",
+    text: "Once we found our dream home, Will offered great advice on how to structure the offer and make it compelling — allowing our offer to stand out amongst multiple interested parties. Throughout this process, Will was super engaged, prompt, and courteous. Within three months we went from initiating a search to closing on a beautiful home. I highly recommend this team to any prospective buyers or sellers.",
+    date: "July 2023 · Google",
   },
   {
-    name: "Wei & Mei Zhang",
-    location: "Lexington, MA",
+    name: "Shang S.",
+    location: "Sold a condo in Boston, MA",
     stars: 5,
-    text: "作为中国移民，我们非常感激能找到一位说普通话的经纪人。Will不仅语言上帮助了我们，更用他对大波士顿市场的深刻了解帮助我们在Lexington找到了完美的家。强烈推荐！",
-    date: "October 2025",
+    text: "Will is a consummate professional who went above and beyond to make sure I sold my house. I was away during most of the selling process — I'd already moved across the country — yet everything went as smoothly as it could. Will is honest, informative, and clear. Throughout inspection and negotiation he remained calm, knowledgeable, and creative. He communicates clearly, follows up on all open items, and worked around my busy schedule with full flexibility. I highly recommend Will as a trusted professional for both selling and buying.",
+    date: "August 2012 · Yelp",
   },
   {
-    name: "James & Patricia O'Brien",
-    location: "Framingham, MA",
+    name: "Michael Baker",
+    location: "Eastern Massachusetts",
     stars: 5,
-    text: "Will helped us downsize after our kids left for college. He was patient, understanding, and found us the perfect condo in Framingham. The whole process was smooth and he got us a great price.",
-    date: "September 2025",
+    text: "Truly exceptional service by Will and his teammate Rachael. Our move was from out of state during an extremely difficult market for buyers. Will's expert advice, patience, and dedication to finding our next home made all the difference. His professionalism is second to none — I wouldn't want to purchase a home with anyone else.",
+    date: "October 2021 · Google",
   },
   {
-    name: "Anita & Raj Patel",
-    location: "Needham, MA",
+    name: "Mark Fung-a-fat",
+    location: "Greater Boston, MA",
     stars: 5,
-    text: "We interviewed 4 agents before choosing Will. His market knowledge, communication, and professionalism were head and shoulders above the rest. He helped us win a competitive offer in Needham — our dream neighborhood.",
-    date: "August 2025",
+    text: "Will's mantra was 'be prepared, be patient, and be persistent — all of my clients will get a house.' I was skeptical but his calm confidence and sound advice landed us a home in one of the best school districts in a fantastic neighborhood. In fact, the seller said 'you got this house because of your agent — he really knows what he is doing.' Thank you Will for helping us remain calm in this nutty market.",
+    date: "June 2021 · Google",
   },
 ];
 
 const credentials = [
   "Licensed Massachusetts Real Estate Agent",
   "REMAX Executive Realty — Top Producer",
-  "18+ Years Greater Boston Experience",
-  "Fluent English & Mandarin (普通话)",
-  "Certified Buyer's Representative (CBR)",
+  "REMAX Hall of Fame Award",
+  "REMAX Platinum Level",
+  "Top 100 Real Estate Agent in MA — 2025 (out of ~1,000 MA agents)",
+  "Consistently Top 20 in Office (150+ agents)",
+  "Nearly 20 Years Greater Boston Experience",
   "Zillow Premier Agent — 5.0 Stars",
+  "Conversational Mandarin",
   "MLSPIN Member",
   "National Association of REALTORS® Member",
 ];
 
 const stats = [
   { value: "212+", label: "Homes Sold" },
-  { value: "18 yrs", label: "Experience" },
+  { value: "~20 yrs", label: "Experience" },
   { value: "5.0★", label: "Zillow Rating" },
   { value: "48", label: "Reviews" },
-  { value: "37+", label: "Communities Served" },
+  { value: "70+", label: "Towns Served" },
   { value: "103.4%", label: "Avg. List-to-Sale" },
 ];
 
@@ -84,43 +87,47 @@ export default function AboutPage() {
       <FloatingCTA />
 
       {/* Hero */}
-      <section
-        className="relative pt-32 pb-20 min-h-[55vh] flex items-center"
-        style={{
-          backgroundImage: `url(${WILL_BG})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D2137]/90 via-[#0D2137]/70 to-transparent" />
-        <div className="relative z-10 container">
-          <div className="max-w-xl">
-            <p className="section-label mb-3">Meet Your Agent</p>
-            <h1
-              className="text-4xl md:text-5xl font-bold text-white mb-4"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Will Shao
-            </h1>
-            <p className="text-[#C89B3C] font-body text-lg font-semibold mb-2">
-              Buyer's Agent · REMAX Executive Realty
-            </p>
-            <p className="text-white/80 font-body text-base leading-relaxed mb-6">
-              18 years of experience. 212+ homes sold. Fluent in English and Mandarin.
-              Serving Greater Boston and MetroWest MA with integrity and expertise.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold text-sm"
+      <section className="bg-[#0D2137] pt-28 pb-0">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
+            {/* Text */}
+            <div className="py-12 lg:py-16 pr-0 lg:pr-12">
+              <p className="section-label mb-3">Meet Your Agent</p>
+              <h1
+                className="text-4xl md:text-5xl font-bold text-white mb-4"
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                Book a Consultation
-              </a>
-              <a href="tel:+17814563541" className="btn-outline-gold text-sm">
-                Call (781) 456-3541
-              </a>
+                Will Shao
+              </h1>
+              <p className="text-[#C89B3C] font-body text-lg font-semibold mb-2">
+                REALTOR® · Buyer &amp; Seller Representation · REMAX Executive Realty
+              </p>
+              <p className="text-white/80 font-body text-base leading-relaxed mb-6">
+                Nearly 20 years of experience. 212+ homes sold.
+                Serving Greater Boston and MetroWest MA with integrity and expertise.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gold text-sm"
+                >
+                  Book a Consultation
+                </a>
+                <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+                  Call (781) 456-3541
+                </a>
+              </div>
+            </div>
+            {/* Photo */}
+            <div className="flex items-end justify-center lg:justify-end">
+              <img
+                src={WILL_BG}
+                alt="Will Shao — Greater Boston REALTOR®"
+                className="w-full max-w-sm lg:max-w-md object-cover object-top rounded-t-lg"
+                style={{ maxHeight: "480px" }}
+              />
             </div>
           </div>
         </div>
@@ -156,32 +163,33 @@ export default function AboutPage() {
                 className="text-3xl font-bold text-[#0D2137] mb-6"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                A Trusted Guide for Greater Boston Home Buyers
+                A Trusted Guide for Greater Boston Buyers &amp; Sellers
               </h2>
               <div className="space-y-4 text-sm text-gray-600 font-body leading-relaxed">
                 <p>
                   Will Shao has been helping buyers and sellers navigate the Greater Boston
-                  real estate market for over 18 years. Born in China and raised in Boston,
-                  Will brings a unique perspective to real estate — combining deep local
-                  knowledge with the ability to serve both English and Mandarin-speaking clients.
+                  real estate market for nearly 20 years. He represents clients on both sides
+                  of the transaction — from first-time buyers finding their perfect home to
+                  sellers maximizing their return in a competitive market.
                 </p>
                 <p>
-                  After graduating from Boston University, Will began his real estate career
-                  at REMAX Executive Realty, where he quickly established himself as one of
-                  the region's top buyer's agents. His approach is simple: listen carefully,
-                  educate thoroughly, and negotiate relentlessly on behalf of his clients.
+                  At REMAX Executive Realty, Will has earned the REMAX Hall of Fame Award
+                  and REMAX Platinum level — recognition reserved for agents who consistently
+                  deliver exceptional results. In 2025, he was named one of the Top 100 Real
+                  Estate Agents in Massachusetts out of approximately 1,000 licensed agents
+                  statewide, and he is consistently ranked in the Top 20 within his own office
+                  of more than 150 agents.
                 </p>
                 <p>
-                  Will specializes in helping buyers find their perfect home in Greater Boston
-                  and MetroWest — from first-time buyers navigating the process for the first
-                  time to experienced investors expanding their portfolios. His bilingual
-                  capabilities have made him the go-to agent for Greater Boston's growing
-                  Mandarin-speaking community.
+                  His approach is simple: listen carefully, educate thoroughly, and negotiate
+                  relentlessly on behalf of his clients. Will also assists clients who prefer
+                  to communicate in Mandarin on a conversational basis.
                 </p>
                 <p>
-                  When he's not helping clients, Will is actively involved in the Greater
-                  Boston community — volunteering with local housing nonprofits, mentoring
-                  new agents, and exploring the neighborhoods he loves.
+                  Outside of real estate, Will is deeply rooted in the community. He coaches
+                  youth basketball, serves in his church, attends Chinese school with his kids,
+                  plays pick-up basketball, and cheers his children on at their various sporting
+                  and recreational activities.
                 </p>
               </div>
             </div>
@@ -212,15 +220,12 @@ export default function AboutPage() {
                   className="text-white font-bold text-lg mb-2"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
-                  Bilingual Service
+                  Language
                 </h3>
                 <p className="text-white/70 font-body text-sm leading-relaxed">
-                  Will provides full real estate services in both <strong className="text-white">English</strong> and{" "}
-                  <strong className="text-white">Mandarin (普通话)</strong>. All communications,
-                  contracts, and guidance are available in your preferred language.
-                </p>
-                <p className="text-white/50 text-xs font-body mt-3">
-                  威尔邵为大波士顿地区的中文客户提供全面的房地产服务。
+                  Will conducts all real estate services in <strong className="text-white">English</strong> and
+                  has conversational <strong className="text-white">Mandarin</strong> ability —
+                  helpful for clients who prefer some Mandarin communication during the process.
                 </p>
               </div>
             </div>
@@ -243,24 +248,24 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: Users,
-                title: "Client-First",
-                desc: "Every decision is made with your best interests at heart. Will's loyalty is 100% to you — never to the seller.",
+                icon: CheckCircle,
+                title: "Integrity & Honesty",
+                desc: "Will tells you what you need to hear, not just what you want to hear — honest guidance at every step of the transaction.",
               },
               {
                 icon: Award,
-                title: "Expertise",
-                desc: "18 years of Greater Boston market knowledge means Will can identify opportunities and risks that others miss.",
+                title: "Professional Expertise",
+                desc: "Nearly 20 years of Greater Boston market knowledge, Top 100 in MA, and consistently Top 20 in his office of 150+ agents.",
               },
               {
-                icon: Globe,
-                title: "Inclusivity",
-                desc: "Bilingual service in English and Mandarin ensures every client receives the same quality of guidance.",
+                icon: Users,
+                title: "Respect & Fairness",
+                desc: "Every client deserves equal care, transparency, and respect — regardless of background, budget, or experience level.",
               },
               {
                 icon: Heart,
                 title: "Community",
-                desc: "Will is deeply invested in the communities he serves — not just as an agent, but as a neighbor and community member.",
+                desc: "Will is deeply invested in the communities he serves — coaching youth basketball, serving in his church, and raising his family here.",
               },
             ].map((v) => {
               const Icon = v.icon;
@@ -299,7 +304,7 @@ export default function AboutPage() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" />
               ))}
-              <span className="text-[#0D2137] font-semibold font-body ml-1">5.0 · 48 reviews on Zillow</span>
+              <span className="text-[#0D2137] font-semibold font-body ml-1">5.0 · 48 Reviews on Zillow &amp; Google</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -324,14 +329,22 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
             <a
               href="https://zillow.com/profile/willshao"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline-gold text-sm"
             >
-              Read All 48 Reviews on Zillow →
+              Read Reviews on Zillow →
+            </a>
+            <a
+              href="https://www.google.com/maps/place/Will+Shao+-+Greater+Boston+Real+Estate+Agent/@42.396144,-71.5891231,10z/data=!4m16!1m9!3m8!1s0x89e389477f2c7b09:0x6c87515ce456b0de!2sWill+Shao+-+Greater+Boston+Real+Estate+Agent!8m2!3d42.396109!4d-71.2594615!9m1!1b1!16s%2Fg%2F11qswmf7zz!3m5!1s0x89e389477f2c7b09:0x6c87515ce456b0de!8m2!3d42.396109!4d-71.2594615!16s%2Fg%2F11qswmf7zz?hl=en-US&entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-gold text-sm"
+            >
+              Read Reviews on Google →
             </a>
           </div>
         </div>
@@ -352,7 +365,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
+              href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold text-sm"

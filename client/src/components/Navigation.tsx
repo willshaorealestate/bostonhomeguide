@@ -33,7 +33,7 @@ const navLinks = [
       { label: "Wellesley", href: "/neighborhoods/wellesley" },
       { label: "Brookline", href: "/neighborhoods/brookline" },
       { label: "Natick", href: "/neighborhoods/natick" },
-      { label: "View All 37+ Towns", href: "/neighborhoods" },
+      { label: "Explore All Neighborhoods", href: "/neighborhoods" },
     ],
   },
   {
@@ -53,7 +53,7 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const isHome = location === "/";
 
   useEffect(() => {
@@ -102,21 +102,46 @@ export default function Navigation() {
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button className="flex items-center gap-1 px-3 py-2 text-white/90 hover:text-white text-sm font-medium font-body transition-colors">
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    className="flex items-center gap-1 px-3 py-2 text-white/90 hover:text-white text-sm font-medium font-body transition-colors"
+                  >
                     {link.label}
                     <ChevronDown className="w-3.5 h-3.5" />
                   </button>
                   {openDropdown === link.label && (
-                    <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded shadow-xl border border-gray-100 py-1 z-50">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-sm text-[#0D2137] hover:bg-[#FAF8F4] hover:text-[#C89B3C] font-body transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                    <div className="absolute top-full left-0 w-52 pt-2 z-50">
+                      <div className="bg-white rounded shadow-xl border border-gray-100 py-1">
+                        {link.children.map((child) => {
+                          const [path, hash] = child.href.split("#");
+                          if (hash) {
+                            return (
+                              <button
+                                key={child.href}
+                                onClick={() => {
+                                  setOpenDropdown(null);
+                                  navigate(path);
+                                  setTimeout(() => {
+                                    document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+                                  }, 120);
+                                }}
+                                className="block w-full text-left px-4 py-2.5 text-sm text-[#0D2137] hover:bg-[#FAF8F4] hover:text-[#C89B3C] font-body transition-colors"
+                              >
+                                {child.label}
+                              </button>
+                            );
+                          }
+                          return (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="block px-4 py-2.5 text-sm text-[#0D2137] hover:bg-[#FAF8F4] hover:text-[#C89B3C] font-body transition-colors"
+                            >
+                              {child.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -181,15 +206,35 @@ export default function Navigation() {
                   </button>
                   {openDropdown === link.label && (
                     <div className="pl-4 flex flex-col gap-1">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="px-3 py-2.5 text-sm text-white/70 hover:text-[#C89B3C] font-body"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {link.children.map((child) => {
+                        const [path, hash] = child.href.split("#");
+                        if (hash) {
+                          return (
+                            <button
+                              key={child.href}
+                              onClick={() => {
+                                setMobileOpen(false);
+                                navigate(path);
+                                setTimeout(() => {
+                                  document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+                                }, 120);
+                              }}
+                              className="px-3 py-2.5 text-sm text-left text-white/70 hover:text-[#C89B3C] font-body"
+                            >
+                              {child.label}
+                            </button>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="px-3 py-2.5 text-sm text-white/70 hover:text-[#C89B3C] font-body"
+                          >
+                            {child.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

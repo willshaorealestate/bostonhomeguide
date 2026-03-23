@@ -12,6 +12,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
+import { submitToFub } from "@/lib/fub";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
 
@@ -21,15 +22,15 @@ const buyingSteps = [
     title: "Get Pre-Approved",
     icon: DollarSign,
     description:
-      "Before you start touring homes, get pre-approved by a lender. This tells you exactly what you can afford and makes your offer competitive in Boston's fast-moving market.",
-    tips: ["Choose a local lender familiar with MA transactions", "Get pre-approved, not just pre-qualified", "Lock in your rate when you find the right home"],
+      "Before you start touring homes, get pre-approved by a lender. This tells you exactly what you can afford and makes your offer competitive in Boston's fast-moving market. Paying cash? A proof of funds letter is your equivalent and carries serious weight with sellers.",
+    tips: ["Choose a local lender familiar with MA transactions", "Get pre-approved, not just pre-qualified", "Cash buyers: have a proof of funds letter ready"],
   },
   {
     step: "02",
     title: "Define Your Priorities",
     icon: Search,
     description:
-      "Work with Will to clarify your must-haves vs. nice-to-haves. Location, school district, commute, home size — we'll map out your ideal community and property type.",
+      "Work with our team to clarify your must-haves vs. nice-to-haves. Location, school district, commute, home size — we'll map out your ideal community and property type.",
     tips: ["Consider commute to Boston/major employers", "Research school districts in advance", "Think about 5-year plans, not just today"],
   },
   {
@@ -37,7 +38,7 @@ const buyingSteps = [
     title: "Tour Homes",
     icon: Home,
     description:
-      "Access the full MLSPIN database with Will's guidance. We'll schedule private showings and open houses, and Will will provide candid assessments of every property.",
+      "Access the full MLSPIN database with our team's guidance. We'll schedule private showings and open houses and provide candid, honest assessments of every property.",
     tips: ["Visit at different times of day", "Ask about utility costs and HOA fees", "Look beyond staging to the bones of the home"],
   },
   {
@@ -45,24 +46,40 @@ const buyingSteps = [
     title: "Make a Winning Offer",
     icon: FileText,
     description:
-      "In Greater Boston's competitive market, offer strategy matters. Will will analyze comparable sales, advise on price and terms, and help you craft an offer that wins.",
-    tips: ["Escalation clauses in hot markets", "Waiving contingencies strategically", "Personal letters can make a difference"],
+      "Our team analyzes comparable sales, advises on price and terms, and helps you craft an offer that wins. A good-faith deposit (typically $1,000 or more) is submitted with the offer to bind it — this is usually refundable if a contingency such as the home inspection or mortgage contingency is exercised.",
+    tips: ["Escalation clauses in hot markets", "Key contingencies protect your deposit", "Personal letters can make a difference"],
   },
   {
     step: "05",
     title: "Inspections & Due Diligence",
     icon: CheckCircle,
     description:
-      "Will coordinates home inspections, reviews the Purchase & Sale Agreement, and ensures you understand every clause before you sign.",
-    tips: ["Always get a home inspection", "Consider radon, oil tank, and sewer scope", "Review the P&S carefully with your attorney"],
+      "Once your offer is accepted, you'll have a due diligence period to conduct inspections. Our team reviews the findings with you and advises on which items to address before moving forward.",
+    tips: ["Always get a home inspection", "Consider radon, oil tank, and sewer scope", "Use this period to make informed decisions"],
   },
   {
     step: "06",
+    title: "Purchase & Sale Agreement",
+    icon: FileText,
+    description:
+      "The P&S is Massachusetts' second step — the binding contract that replaces the original offer. Your attorney prepares and reviews it; our team coordinates to get it signed by all parties. A larger deposit of typically 5% of the purchase price is due at signing. Both deposits are applied toward your down payment at closing.",
+    tips: ["Work with a MA real estate attorney", "5% deposit due at P&S signing", "Deposits apply toward your down payment"],
+  },
+  {
+    step: "07",
+    title: "Mortgage Commitment",
+    icon: DollarSign,
+    description:
+      "After the P&S is signed, the baton passes to your lender. They'll request documents, order an appraisal if needed, and issue your mortgage commitment — a process that typically takes 2–4 weeks. Our team works in the background to make sure everything stays on track.",
+    tips: ["Respond to lender document requests quickly", "Avoid major financial changes during this period", "Our team monitors the timeline throughout"],
+  },
+  {
+    step: "08",
     title: "Close & Get Your Keys",
     icon: Key,
     description:
-      "From final walkthrough to closing day, Will is with you every step. We'll ensure a smooth closing and hand you the keys to your new Greater Boston home.",
-    tips: ["Final walkthrough 24 hours before closing", "Bring certified funds or wire transfer", "Review HUD-1 closing disclosure carefully"],
+      "This is what you've been working toward! From the final walkthrough to closing day, Will and his team are with you through every step. You'll walk away with the keys to your new home — it's time to celebrate!",
+    tips: ["Final walkthrough the day of closing", "Bring a certified check or wire funds in advance", "🎉 Celebrate — you're a homeowner!"],
   },
 ];
 
@@ -73,7 +90,7 @@ const faqs = [
   },
   {
     q: "How long does it take to buy a home in Greater Boston?",
-    a: "From pre-approval to closing typically takes 60-90 days. Finding the right home can take 2-8 weeks depending on the market and your criteria. In competitive situations, offers are often due within 24-48 hours of listing.",
+    a: "Closings can happen in as little as 30 days, with 45 days being the current average. A realistic range is 30–60 days from accepted offer to closing. Finding the right home varies — in competitive situations, offers are often due within 24–48 hours of listing.",
   },
   {
     q: "Do I need a buyer's agent in Massachusetts?",
@@ -81,11 +98,11 @@ const faqs = [
   },
   {
     q: "What are closing costs in Massachusetts?",
-    a: "Buyers typically pay 2-4% of the purchase price in closing costs, including lender fees, title insurance, attorney fees, and prepaid items. Will provides a detailed estimate early in the process so there are no surprises.",
+    a: "Buyers typically pay 2–4% of the purchase price in closing costs, including lender fees, title insurance, attorney fees, and prepaid items. Your lender will provide a Good Faith Estimate (GFE) outlining these costs — the exact amount depends on your loan type, lender, and transaction specifics. Will refers buyers to trusted local lenders who can walk you through the numbers.",
   },
   {
     q: "Can Will help Mandarin-speaking buyers?",
-    a: "Absolutely. Will is fluent in Mandarin (普通话) and has helped many Chinese-speaking families navigate the Greater Boston real estate market. All communications, documents, and guidance are available in both English and Mandarin.",
+    a: "Yes. Will can conduct his part of the process in Mandarin, and works with a network of fluent Mandarin-speaking attorneys and lenders who can explain the financing and legal aspects of the transaction in detail. Mandarin-speaking buyers are well supported throughout the entire process.",
   },
 ];
 
@@ -95,11 +112,39 @@ export default function BuyerPage() {
     name: "", email: "", phone: "", timeline: "", budget: "",
     towns: "", bedrooms: "", message: "", language: "english"
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! Will will be in touch within 1 business day. You've been tagged as a Buyer Lead.");
-    setForm({ name: "", email: "", phone: "", timeline: "", budget: "", towns: "", bedrooms: "", message: "", language: "english" });
+    const [firstName, ...rest] = form.name.trim().split(" ");
+    if (!firstName || !form.email) {
+      toast.error("Please fill in your name and email.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await submitToFub({
+        source: "Website — Buyer's Guide",
+        firstName,
+        lastName: rest.join(" "),
+        email: form.email,
+        phone: form.phone,
+        interest: "buying",
+        language: form.language,
+        extraNote: [
+          form.budget   ? "Budget: " + form.budget   : "",
+          form.towns    ? "Towns: " + form.towns      : "",
+          form.timeline ? "Timeline: " + form.timeline: "",
+          form.message  ? "Notes: " + form.message    : "",
+        ].filter(Boolean).join(" | "),
+      });
+      toast.success("Thank you! Will will be in touch within 1 business day.");
+      setForm({ name: "", email: "", phone: "", timeline: "", budget: "", towns: "", bedrooms: "", message: "", language: "english" });
+    } catch {
+      toast.error("Something went wrong. Please call (781) 456-3541 directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -135,7 +180,7 @@ export default function BuyerPage() {
                 Start My Home Search
               </a>
               <a
-                href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
+                href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline-gold text-sm"
@@ -152,9 +197,9 @@ export default function BuyerPage() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: "🏆", title: "18 Years of Expertise", desc: "Deep knowledge of every neighborhood, school district, and market trend across 37+ Greater Boston communities." },
+              { icon: "🏆", title: "Nearly 20 Years of Expertise", desc: "Deep knowledge of every neighborhood, school district, and market trend across Greater Boston's most sought-after towns." },
               { icon: "🤝", title: "Buyer-First Advocacy", desc: "As your dedicated buyer's agent, Will represents only your interests — never the seller's. Your goals come first." },
-              { icon: "🗣️", title: "English & Mandarin", desc: "Fluent in both English and Mandarin, Will serves Greater Boston's diverse communities with full language support." },
+              { icon: "🗣️", title: "Clear Communication", desc: "Will keeps you informed at every step — plain-language explanations, no jargon, and always available to answer questions." },
             ].map((item) => (
               <div key={item.title} className="text-center p-6 bg-[#FAF8F4] rounded-lg">
                 <div className="text-4xl mb-4">{item.icon}</div>
@@ -178,11 +223,14 @@ export default function BuyerPage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">The Buying Process</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+              className="text-3xl md:text-4xl font-bold text-[#0D2137] mb-5"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              How Will Guides You Home
+              How We Guide You Home
             </h2>
+            <p className="text-gray-500 font-body text-sm leading-relaxed max-w-2xl mx-auto">
+              Think of buying a home like a relay race. Will and his team carry the baton in the early stages — touring homes, crafting your offer, and guiding you through inspections. Your attorney steps in for the Purchase & Sale Agreement, then your lender takes the lead to secure your mortgage commitment. Through every handoff, our team stays in the background making sure everything stays on track all the way to closing day.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -407,8 +455,8 @@ export default function BuyerPage() {
                 placeholder="School districts, commute requirements, must-haves..."
               />
             </div>
-            <button type="submit" className="btn-gold w-full text-center text-sm py-3">
-              Submit — Will Will Respond Within 1 Business Day
+            <button type="submit" disabled={submitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
+              {submitting ? "Sending..." : "Get Buyer Consultation — Free"}
             </button>
             <p className="text-xs text-gray-400 font-body text-center">
               Your information is private and will never be shared.
@@ -428,7 +476,7 @@ export default function BuyerPage() {
               Book a free 30-minute consultation with Will at a time that works for you.
             </p>
             <a
-              href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
+              href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold text-sm"

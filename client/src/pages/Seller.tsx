@@ -12,58 +12,77 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
+import { submitToFub, getFelloUrl } from "@/lib/fub";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
 
 const sellingSteps = [
   {
     step: "01",
-    title: "Free Home Valuation",
-    icon: DollarSign,
-    description: "Will provides a comprehensive Comparative Market Analysis (CMA) using real-time MLSPIN data to determine your home's optimal listing price.",
+    title: "Discuss Your Goals & Plans",
+    icon: FileText,
+    description: "Before anything else, Will and his team take the time to understand what you need — your timeline, where you're headed next, and what a smooth transition looks like for you. Every plan starts with your goals.",
   },
   {
     step: "02",
-    title: "Prepare Your Home",
-    icon: Home,
-    description: "Will's pre-listing checklist covers staging, repairs, and improvements that maximize your sale price. He'll connect you with trusted contractors and stagers.",
+    title: "Free Home Valuation",
+    icon: DollarSign,
+    description: "We provide a comprehensive Comparative Market Analysis (CMA) using real-time MLSPIN data to determine your home's optimal listing price and position it competitively in the current market.",
   },
   {
     step: "03",
-    title: "Professional Marketing",
-    icon: Camera,
-    description: "Professional photography, 3D virtual tours, targeted digital advertising, MLS listing, and Will's extensive buyer network ensure maximum exposure.",
+    title: "Prepare Your Home",
+    icon: Home,
+    description: "Our pre-listing checklist covers staging, repairs, and targeted improvements that maximize your sale price. We'll connect you with trusted contractors and stagers to get your home ready to impress.",
   },
   {
     step: "04",
-    title: "Attract Qualified Buyers",
-    icon: Users,
-    description: "Will's marketing strategy targets qualified buyers through Zillow, Realtor.com, social media, email campaigns, and his network of 37+ community contacts.",
+    title: "Professional Marketing",
+    icon: Camera,
+    description: "Professional photography, targeted digital advertising, MLS listing, and syndication across Zillow, Realtor.com, Homes.com, and the REMAX global network — reaching buyers across 110 countries.",
   },
   {
     step: "05",
-    title: "Negotiate the Best Offer",
-    icon: TrendingUp,
-    description: "Will's negotiation expertise has consistently achieved above-asking prices. He analyzes every offer and advises on the best strategy to maximize your proceeds.",
+    title: "Coming Soon & Strategic Launch",
+    icon: Calendar,
+    description: "When timing allows, our team runs a Coming Soon campaign to build early buyer interest before the listing goes live. We carefully select your launch date, coordinate open houses, and — when conditions are right — set an offer deadline to generate a focused, competitive offer process.",
   },
   {
     step: "06",
-    title: "Close Successfully",
+    title: "Weekly Updates & Communication",
+    icon: Users,
+    description: "Our team sends you a weekly property report covering showings, buyer feedback, online views, and market activity. You're never left in the dark — clear, consistent communication is one of our biggest commitments to you.",
+  },
+  {
+    step: "07",
+    title: "Negotiate the Best Outcome",
+    icon: TrendingUp,
+    description: "The best offer isn't always the highest price — it's the one that best matches your goals. Our team reviews every offer with you across price, contingencies, closing date, and terms, then negotiates to get you the outcome that matters most.",
+  },
+  {
+    step: "08",
+    title: "Pre-Closing Coordination",
+    icon: FileText,
+    description: "As closing approaches, our team coordinates all the required items to get you to the finish line — inspections, final readings, and any documentation needed by the buyer's side. We also stay in close contact with the buyer's lender to monitor the mortgage commitment and keep the timeline on track.",
+  },
+  {
+    step: "09",
+    title: "Close & Celebrate!",
     icon: Key,
-    description: "From accepted offer to closing day, Will manages every detail — inspections, attorney coordination, final walkthrough, and a smooth transfer of ownership.",
+    description: "Your attorney handles the closing table — our team is there to ensure a smooth final walkthrough and hand over the keys. You've done it! Selling your home and moving on to the next chapter is a big deal, and it deserves to be celebrated.",
   },
 ];
 
 const marketingItems = [
   "Professional photography & video tour",
-  "3D Matterport virtual walkthrough",
   "MLS listing on MLSPIN",
-  "Zillow, Realtor.com, Trulia syndication",
+  "Zillow, Realtor.com & Homes.com syndication",
+  "REMAX global network — 110 countries",
   "Targeted Facebook & Instagram ads",
   "Email blast to Will's buyer database",
+  "Weekly seller property report",
   "Open house coordination",
   "Coming Soon pre-marketing strategy",
-  "Chinese-language marketing materials",
   "Yard sign & lockbox installation",
 ];
 
@@ -73,14 +92,41 @@ export default function SellerPage() {
     name: "", email: "", phone: "", address: "", city: "",
     beds: "", baths: "", sqft: "", timeline: "", reason: "", message: ""
   });
+  const [submitting, setSubmitting] = useState(false);
   const [netCalc, setNetCalc] = useState({
     salePrice: "", mortgage: "", agentFee: "5", closingCosts: "2"
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! Will will contact you within 1 business day with your free home valuation. Tagged as Seller Lead.");
-    setForm({ name: "", email: "", phone: "", address: "", city: "", beds: "", baths: "", sqft: "", timeline: "", reason: "", message: "" });
+    const [firstName, ...rest] = form.name.trim().split(" ");
+    if (!firstName || !form.email) {
+      toast.error("Please fill in your name and email.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await submitToFub({
+        source: "Website — Seller's Guide",
+        firstName,
+        lastName: rest.join(" "),
+        email: form.email,
+        phone: form.phone,
+        interest: "selling",
+        extraNote: [
+          form.address  ? "Address: " + form.address + (form.city ? ", " + form.city : "") : "",
+          form.beds     ? `Beds: ${form.beds} / Baths: ${form.baths} / SqFt: ${form.sqft}` : "",
+          form.timeline ? "Timeline: " + form.timeline : "",
+          form.message  ? "Notes: " + form.message : "",
+        ].filter(Boolean).join(" | "),
+      });
+      toast.success("Thank you! Will will contact you within 1 business day with your free home valuation.");
+      setForm({ name: "", email: "", phone: "", address: "", city: "", beds: "", baths: "", sqft: "", timeline: "", reason: "", message: "" });
+    } catch {
+      toast.error("Something went wrong. Please call (781) 456-3541 directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const calcNetProceeds = () => {
@@ -96,8 +142,8 @@ export default function SellerPage() {
   const faqs = [
     { q: "When is the best time to sell in Greater Boston?", a: "Spring (March–June) is traditionally the strongest selling season in Greater Boston, with high buyer demand and multiple offers common. However, Will has successfully sold homes in every season. The right time to sell is when you're ready." },
     { q: "How does Will determine my home's value?", a: "Will uses a Comparative Market Analysis (CMA) that analyzes recent sales of similar homes in your neighborhood, current active listings, market trends, and your home's specific features. This data-driven approach ensures accurate pricing." },
-    { q: "What is Will's marketing strategy?", a: "Will's comprehensive marketing plan includes professional photography, 3D virtual tours, MLS listing, Zillow/Realtor.com syndication, targeted social media advertising, email campaigns to his buyer database, and Chinese-language marketing materials for Greater Boston's Mandarin-speaking community." },
-    { q: "How long will it take to sell my home?", a: "In Greater Boston's current market, well-priced homes typically sell in 7–21 days. Will's strategic pricing and marketing approach has consistently resulted in quick sales at or above asking price." },
+    { q: "What is your marketing strategy?", a: "Our goal is to cast the widest possible net to reach the most qualified buyers for your home. Every element of our marketing is designed with that in mind — professional photography, MLS listing, and syndication across Zillow, Realtor.com, and Homes.com puts your home in front of active buyers locally. And as part of REMAX — present in 110 countries — your listing has global reach that few independent agents can match. We pair that exposure with targeted social media advertising and direct outreach to our buyer database to make sure the right buyers find your home." },
+    { q: "How long will it take to sell my home?", a: "In Greater Boston's current market, well-priced homes in high demand areas can sell in 7–21 days. However, timing varies depending on the type of property, location, and current market conditions — some homes take longer, and the market can shift. Our team's strategic pricing and marketing approach is designed to attract qualified buyers as efficiently as possible, but we'll always give you an honest assessment of what to expect for your specific home." },
   ];
 
   return (
@@ -128,18 +174,32 @@ export default function SellerPage() {
               Will Shao's proven marketing strategy and negotiation expertise have helped
               212+ homeowners achieve top dollar in Greater Boston and MetroWest MA.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-6">
               <a href="#valuation" className="btn-gold text-sm">
                 Get My Free Home Valuation
               </a>
               <a
-                href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
+                href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline-gold text-sm"
               >
                 Book a Listing Consultation
               </a>
+            </div>
+            <div>
+              <a
+                href={getFelloUrl()}
+                className="btn-gold text-sm fello-cta inline-block"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: "1rem", padding: "16px 32px" }}
+              >
+                Get Your Instant Home Valuation →
+              </a>
+              <p className="text-xs text-white/50 font-body mt-2">
+                Instant estimate · No obligation · Powered by Fello
+              </p>
             </div>
           </div>
         </div>
@@ -213,9 +273,7 @@ export default function SellerPage() {
                 Maximum Exposure for Your Home
               </h2>
               <p className="text-white/70 font-body text-sm leading-relaxed mb-6">
-                Will's comprehensive marketing strategy ensures your home reaches every
-                qualified buyer in Greater Boston — including the growing Mandarin-speaking
-                community that represents a significant buyer pool.
+                Our comprehensive marketing strategy ensures your home reaches every qualified buyer — locally and globally. As part of REMAX, your listing is backed by a network spanning 110 countries. Throughout the process, you'll receive a weekly property report with showings, buyer feedback, and online activity so you're always in the loop.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {marketingItems.map((item) => (
@@ -373,8 +431,8 @@ export default function SellerPage() {
                 className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                 placeholder="Recent renovations, unique features, reason for selling..." />
             </div>
-            <button type="submit" className="btn-gold w-full text-center text-sm py-3">
-              Get My Free Home Valuation
+            <button type="submit" disabled={submitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
+              {submitting ? "Sending..." : "Get Free Home Valuation Consultation"}
             </button>
           </form>
 
@@ -386,7 +444,7 @@ export default function SellerPage() {
             <p className="text-white/60 text-sm font-body mb-4">
               Schedule a free, no-obligation listing consultation with Will.
             </p>
-            <a href="https://calendar.app.google/rp3dJPWTjzaV9W1W7" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
+            <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
               Schedule Now
             </a>
           </div>

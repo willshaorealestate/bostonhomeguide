@@ -4,39 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>BostonHomeGuide.com — Greater Boston & MetroWest Real Estate</title>
-    <meta name="description" content="Your complete guide to buying and selling homes in Greater Boston and MetroWest Massachusetts. Expert guidance from Will Shao, REMAX Executive Realty. 18 years experience, 212+ homes sold, 5.0★ Zillow." />
+    <meta name="description" content="Your complete guide to buying and selling homes in Greater Boston and MetroWest Massachusetts. Expert guidance from Will Shao, RE/MAX Executive Realty. Nearly 20 years experience, 212+ homes sold, 5.0★ Zillow." />
     <meta name="keywords" content="Greater Boston real estate, MetroWest MA homes for sale, buy home Newton MA, Natick real estate, Will Shao REMAX, Boston buyer agent" />
-    <meta property="og:title" content="BostonHomeGuide.com — Greater Boston Real Estate" />
-    <meta property="og:description" content="Your complete guide to buying and selling in Greater Boston & MetroWest MA." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://bostonhomeguide.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title"       content="BostonHomeGuide.com — Greater Boston & MetroWest Real Estate" />
+    <meta property="og:description" content="Nearly 20 years, 212+ homes sold. RE/MAX Executive Realty. Greater Boston & MetroWest MA." />
+    <meta property="og:image"       content="https://bostonhomeguide.com/bostonhero.webp" />
+    <meta property="og:url"         content="https://bostonhomeguide.com/" />
+    <meta property="og:type"        content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="BostonHomeGuide.com — Greater Boston & MetroWest Real Estate" />
+    <meta name="twitter:description" content="212+ homes sold, nearly 20 years experience. Greater Boston & MetroWest MA." />
+    <meta name="twitter:image"       content="https://bostonhomeguide.com/bostonhero.webp" />
+
+    <!-- Schema: RealEstateAgent -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
-      "name": "Will Shao — BostonHomeGuide.com",
+      "name": "Will Shao",
       "url": "https://bostonhomeguide.com",
-      "telephone": "+17814563541",
+      "telephone": "(781) 456-3541",
       "email": "will@willshao.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "MA",
-        "addressCountry": "US"
+      "description": "Nearly 20 years of experience, 212+ homes sold across Greater Boston and MetroWest MA.",
+      "areaServed": [
+        { "@type": "City", "name": "Boston", "sameAs": "https://www.wikidata.org/wiki/Q100" },
+        { "@type": "AdministrativeArea", "name": "MetroWest MA" }
+      ],
+      "knowsLanguage": ["en", "zh"],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "RE/MAX Executive Realty"
       },
-      "areaServed": "Greater Boston and MetroWest Massachusetts",
-      "description": "Expert real estate agent serving 37+ communities in Greater Boston and MetroWest MA. 18 years experience, 212+ homes sold."
+      "sameAs": [
+        "https://zillow.com/profile/willshao"
+      ]
     }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+    <!-- RealScout Widgets -->
+    <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module"></script>
+    <script id="rs-embedded">(function(){var s=document.createElement("script");s.className="rs-embedded-script";s.async=true;s.src="https://em.realscout.com/assets/em/v3/all.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(s,e);})();</script>
+
+    <!-- FUB Config (local only, not committed — copy from js/fub-config.EXAMPLE.js) -->
+    <script src="/js/fub-config.js" onerror="console.info('FUB config not found — copy js/fub-config.EXAMPLE.js to js/fub-config.js')"></script>
+    <!-- FUB Pixel + Fello CTA wiring -->
+    <script src="/js/fub-forms.js" defer></script>
+    <!-- GitHub Pages SPA routing: restore path from 404 redirect -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      }(window.location));
     </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
   </body>
 </html>

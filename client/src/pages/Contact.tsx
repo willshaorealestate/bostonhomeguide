@@ -7,16 +7,40 @@ import { Phone, Mail, MapPin, Clock, Calendar, ExternalLink } from "lucide-react
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
+import { submitToFub } from "@/lib/fub";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", subject: "general", message: "", language: "english"
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! Will responds within 1 business day.");
-    setForm({ name: "", email: "", phone: "", subject: "general", message: "", language: "english" });
+    const [firstName, ...rest] = form.name.trim().split(" ");
+    if (!firstName || !form.email) {
+      toast.error("Please fill in your name and email.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await submitToFub({
+        source: "Website — Contact Page",
+        firstName,
+        lastName: rest.join(" "),
+        email: form.email,
+        phone: form.phone,
+        interest: form.subject,
+        language: form.language,
+        message: form.message,
+      });
+      toast.success("Message sent! Will responds within 1 business day.");
+      setForm({ name: "", email: "", phone: "", subject: "general", message: "", language: "english" });
+    } catch {
+      toast.error("Something went wrong. Please call (781) 456-3541 directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -35,7 +59,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-white/70 font-body text-lg max-w-xl mx-auto">
             Whether you're buying, selling, or just exploring your options — Will responds
-            within 1 business day. Available in English and Mandarin.
+            within 1 business day.
           </p>
         </div>
       </section>
@@ -115,10 +139,11 @@ export default function ContactPage() {
                 <div className="space-y-2.5">
                   {[
                     { label: "Zillow Profile", href: "https://zillow.com/profile/willshao", desc: "48 Reviews · 5.0★" },
-                    { label: "Instagram", href: "#", desc: "@willshao_realestate" },
-                    { label: "Facebook", href: "#", desc: "BostonHomeGuide" },
-                    { label: "LinkedIn", href: "#", desc: "Will Shao, REMAX" },
-                    { label: "TikTok", href: "#", desc: "@bostonhomeguide" },
+                    { label: "Google Reviews", href: "https://www.google.com/maps/place/Will+Shao+-+Greater+Boston+Real+Estate+Agent/@42.396144,-71.5891231,10z/data=!4m16!1m9!3m8!1s0x89e389477f2c7b09:0x6c87515ce456b0de!2sWill+Shao+-+Greater+Boston+Real+Estate+Agent!8m2!3d42.396109!4d-71.2594615!9m1!1b1!16s%2Fg%2F11qswmf7zz!3m5!1s0x89e389477f2c7b09:0x6c87515ce456b0de!8m2!3d42.396109!4d-71.2594615!16s%2Fg%2F11qswmf7zz?hl=en-US&entry=ttu", desc: "5.0★ on Google" },
+                    { label: "Instagram", href: "https://www.instagram.com/willshaorealestate/", desc: "@willshaorealestate" },
+                    { label: "Facebook", href: "https://facebook.com/shaorealestate", desc: "shaorealestate" },
+                    { label: "LinkedIn", href: "https://www.linkedin.com/in/willshao", desc: "linkedin.com/in/willshao" },
+                    { label: "TikTok", href: "https://www.tiktok.com/@willshaorealestate", desc: "@willshaorealestate" },
                   ].map((s) => (
                     <a
                       key={s.label}
@@ -143,8 +168,7 @@ export default function ContactPage() {
               <div className="bg-[#0D2137] rounded-lg p-6">
                 <p className="text-[#C89B3C] text-xs font-body uppercase tracking-wider mb-2">Languages</p>
                 <p className="text-white font-body text-sm">
-                  Will is fluent in <strong>English</strong> and <strong>Mandarin (普通话)</strong>.
-                  All communications, documents, and guidance are available in both languages.
+                  Will works primarily in <strong>English</strong> and has conversational <strong>Mandarin</strong> ability for clients who prefer some Mandarin communication.
                 </p>
               </div>
             </div>
@@ -254,8 +278,8 @@ export default function ContactPage() {
                       placeholder="Tell Will about your real estate goals..."
                     />
                   </div>
-                  <button type="submit" className="btn-gold w-full text-center text-sm py-3">
-                    Send Message — Will Responds Within 1 Business Day
+                  <button type="submit" disabled={submitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
+                    {submitting ? "Sending..." : "Send Message — Will Responds Within 1 Business Day"}
                   </button>
                 </form>
               </div>
@@ -273,10 +297,10 @@ export default function ContactPage() {
                     </h3>
                     <p className="text-white/60 font-body text-sm mb-5">
                       Schedule a free 30-minute consultation with Will — by phone, video, or
-                      in person. Available in English and Mandarin.
+                      in person.
                     </p>
                     <a
-                      href="https://calendar.app.google/rp3dJPWTjzaV9W1W7"
+                      href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-gold text-sm"
@@ -287,29 +311,35 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Map placeholder */}
-              <div className="bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm">
-                <div className="h-64 bg-[#FAF8F4] flex items-center justify-center relative">
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backgroundImage: `url(https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800&q=60)`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      opacity: 0.3,
-                    }}
-                  />
-                  <div className="relative z-10 text-center">
-                    <MapPin className="w-8 h-8 text-[#C89B3C] mx-auto mb-2" />
-                    <p
-                      className="text-[#0D2137] font-bold text-lg"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    >
-                      Greater Boston & MetroWest, MA
-                    </p>
-                    <p className="text-gray-500 text-sm font-body">Serving 37+ communities</p>
-                  </div>
+              {/* Service area */}
+              <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
+                <h3 className="text-lg font-bold text-[#0D2137] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Service Area
+                </h3>
+                <p className="text-sm text-gray-500 font-body mb-5">
+                  Will serves buyers and sellers across Greater Boston and surrounding communities — 70+ towns spanning six regions.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { region: "Boston & Inner Suburbs", towns: "Boston, Cambridge, Brookline, Newton, Arlington, Belmont, Waltham, Quincy" },
+                    { region: "West of Boston", towns: "Wellesley, Natick, Framingham, Needham, Wayland, Weston, Dedham, Westwood" },
+                    { region: "Northwest of Boston", towns: "Lexington, Concord, Winchester, Bedford, Acton, Westford, Chelmsford, Carlisle" },
+                    { region: "North of Boston", towns: "Andover, North Andover, Woburn, Stoneham, Melrose, Reading, Wakefield, Lynnfield" },
+                    { region: "Southwest of Boston", towns: "Ashland, Hopkinton, Holliston, Milford, Hudson, Marlborough, Southborough, Westborough" },
+                    { region: "South of Boston", towns: "Dover, Medfield, Canton, Milton, Norwood, Braintree, Sharon, Stoughton" },
+                  ].map((area) => (
+                    <div key={area.region} className="bg-[#FAF8F4] rounded p-3">
+                      <p className="text-xs font-semibold text-[#C89B3C] font-body uppercase tracking-wide mb-1">{area.region}</p>
+                      <p className="text-xs text-gray-500 font-body leading-relaxed">{area.towns}</p>
+                    </div>
+                  ))}
                 </div>
+                <a
+                  href="/neighborhoods"
+                  className="mt-4 inline-block text-sm text-[#C89B3C] font-semibold font-body hover:underline"
+                >
+                  Explore all 70+ neighborhood guides →
+                </a>
               </div>
             </div>
           </div>
