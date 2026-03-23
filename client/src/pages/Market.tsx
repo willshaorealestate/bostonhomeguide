@@ -7,7 +7,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, Legend
 } from "recharts";
-import { TrendingUp, Download, Mail, BarChart2, Calendar } from "lucide-react";
+import { TrendingUp, Mail, BarChart2, Calendar } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -76,10 +76,6 @@ export default function MarketPage() {
     }
   };
 
-  const handleDownload = () => {
-    toast.info("PDF download coming soon — subscribe to receive it by email.");
-  };
-
   return (
     <div className="min-h-screen bg-[#FAF8F4]">
       <Navigation />
@@ -131,20 +127,11 @@ export default function MarketPage() {
       {/* Charts */}
       <section className="py-16 bg-white">
         <div className="container">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <span className="gold-rule" />
-              <h2 className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Market Trends — Greater Boston
-              </h2>
-            </div>
-            <button
-              onClick={handleDownload}
-              className="flex items-center gap-2 text-sm text-[#C89B3C] font-semibold font-body hover:underline"
-            >
-              <Download className="w-4 h-4" />
-              Download PDF
-            </button>
+          <div className="mb-8">
+            <span className="gold-rule" />
+            <h2 className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Market Trends — Greater Boston
+            </h2>
           </div>
 
           {/* Tab nav */}

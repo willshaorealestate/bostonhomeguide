@@ -331,6 +331,115 @@ export default function SellerPage() {
         </div>
       </section>
 
+      {/* Marketing Comparison */}
+      <section className="py-20 bg-[#FAF8F4]">
+        <div className="container">
+          <div className="text-center mb-14">
+            <span className="gold-rule mx-auto" />
+            <p className="section-label mb-2">Why It Matters</p>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Not All Listings Are Created Equal
+            </h2>
+            <p className="text-gray-500 font-body text-sm mt-3 max-w-xl mx-auto">
+              The way your home is presented and marketed directly impacts how quickly it sells and for how much. Here's how our approach compares.
+            </p>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-0 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+              {/* Header Row */}
+              <div className="bg-[#FAF8F4] p-5 border-b border-gray-100" />
+              <div className="bg-gray-100 p-5 border-b border-gray-200 text-center">
+                <p className="text-xs font-semibold text-gray-400 font-body uppercase tracking-wider">Typical Agent</p>
+              </div>
+              <div className="bg-[#0D2137] p-5 border-b border-[#1A3A5C] text-center">
+                <p className="text-xs font-semibold text-[#C89B3C] font-body uppercase tracking-wider">Will Shao</p>
+                <p className="text-xs text-white/50 font-body mt-0.5">RE/MAX Executive Realty</p>
+              </div>
+
+              {/* Rows */}
+              {[
+                {
+                  feature: "Photography",
+                  typical: "Agent's phone or basic photos",
+                  will: "Professional photographer — magazine-quality images",
+                  highlight: true,
+                },
+                {
+                  feature: "Home Staging",
+                  typical: "Listed as-is",
+                  will: "Staging consultation + trusted stager referrals",
+                  highlight: false,
+                },
+                {
+                  feature: "Video Tour",
+                  typical: "Rarely included",
+                  will: "Professional video walkthrough",
+                  highlight: true,
+                },
+                {
+                  feature: "Pre-Market Strategy",
+                  typical: "Straight to MLS",
+                  will: "Coming Soon campaign builds buyer interest first",
+                  highlight: false,
+                },
+                {
+                  feature: "Digital Advertising",
+                  typical: "MLS listing only",
+                  will: "Targeted Facebook, Instagram & Google ads",
+                  highlight: true,
+                },
+                {
+                  feature: "Global Reach",
+                  typical: "Local market only",
+                  will: "RE/MAX network — 110 countries worldwide",
+                  highlight: false,
+                },
+                {
+                  feature: "Seller Communication",
+                  typical: "Updates when asked",
+                  will: "Weekly property reports: showings, feedback & views",
+                  highlight: true,
+                },
+                {
+                  feature: "Offer Strategy",
+                  typical: "Accept first reasonable offer",
+                  will: "Structured offer deadlines to drive competition",
+                  highlight: false,
+                },
+              ].map((row, i) => (
+                <div key={row.feature} className="contents">
+                  <div className={`p-4 border-b border-gray-100 flex items-center ${i % 2 === 0 ? "bg-white" : "bg-[#FAF8F4]"}`}>
+                    <p className="text-sm font-semibold text-[#0D2137] font-body">{row.feature}</p>
+                  </div>
+                  <div className={`p-4 border-b border-gray-200 flex items-center justify-center text-center ${i % 2 === 0 ? "bg-gray-50" : "bg-gray-100/60"}`}>
+                    <p className="text-xs text-gray-400 font-body leading-snug">{row.typical}</p>
+                  </div>
+                  <div className={`p-4 border-b border-[#1A3A5C]/40 flex items-center gap-2 ${i % 2 === 0 ? "bg-[#0D2137]" : "bg-[#112840]"}`}>
+                    <span className="text-[#C89B3C] font-bold shrink-0">✓</span>
+                    <p className="text-xs text-white/80 font-body leading-snug">{row.will}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="mt-10 text-center">
+              <p className="text-gray-500 font-body text-sm mb-4">
+                Ready to see what a fully-marketed listing looks like for your home?
+              </p>
+              <a href="#valuation" className="btn-gold text-sm">
+                Get Your Free Home Valuation
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-20 bg-white">
         <div className="container max-w-3xl">
