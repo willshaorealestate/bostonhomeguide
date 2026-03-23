@@ -81,7 +81,7 @@ const marketingItems = [
   "MLS listing on MLSPIN",
   "Zillow, Realtor.com & Homes.com syndication",
   "REMAX global network — 110 countries",
-  "Targeted Facebook & Instagram ads",
+  "Social media posts promoting your listing across Facebook & Instagram",
   "Email blast to Will's buyer database",
   "Weekly seller property report",
   "Open house coordination",
