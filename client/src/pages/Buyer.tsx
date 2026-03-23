@@ -236,9 +236,70 @@ export default function BuyerPage() {
             >
               How We Guide You Home
             </h2>
-            <p className="text-gray-500 font-body text-sm leading-relaxed max-w-2xl mx-auto">
-              Think of buying a home like a relay race. Will and his team carry the baton in the early stages — touring homes, crafting your offer, and guiding you through inspections. Your attorney steps in for the Purchase & Sale Agreement, then your lender takes the lead to secure your mortgage commitment. Through every handoff, our team stays in the background making sure everything stays on track all the way to closing day.
+            <p className="text-gray-500 font-body text-sm leading-relaxed max-w-2xl mx-auto mb-10">
+              Buying a home is a team effort — like a relay race where every handoff matters.
             </p>
+
+            {/* Relay Race Visual */}
+            <div className="max-w-4xl mx-auto mb-14">
+              <div className="flex flex-col md:flex-row items-stretch gap-0">
+
+                {/* Agent */}
+                <div className="flex-1 bg-[#0D2137] text-white rounded-t-lg md:rounded-l-lg md:rounded-tr-none p-6 text-center">
+                  <div className="text-3xl mb-2">🏃</div>
+                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Will & Team</p>
+                  <p className="text-white/60 text-xs font-body mb-3">Search → Offer → Inspections</p>
+                  <p className="text-white/80 text-xs font-body leading-relaxed">We find the home, craft the winning offer, and guide you through due diligence.</p>
+                </div>
+
+                {/* Arrow */}
+                <div className="flex items-center justify-center bg-[#C89B3C] px-3 py-2 md:py-0">
+                  <span className="text-white font-bold text-lg rotate-90 md:rotate-0">→</span>
+                </div>
+
+                {/* Attorney - P&S */}
+                <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
+                  <div className="text-3xl mb-2">⚖️</div>
+                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Attorney</p>
+                  <p className="text-white/60 text-xs font-body mb-3">Purchase & Sale Agreement</p>
+                  <p className="text-white/80 text-xs font-body leading-relaxed">Your attorney prepares and reviews the binding P&S contract.</p>
+                </div>
+
+                {/* Arrow */}
+                <div className="flex items-center justify-center bg-[#C89B3C] px-3 py-2 md:py-0">
+                  <span className="text-white font-bold text-lg rotate-90 md:rotate-0">→</span>
+                </div>
+
+                {/* Lender */}
+                <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
+                  <div className="text-3xl mb-2">🏦</div>
+                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Lender</p>
+                  <p className="text-white/60 text-xs font-body mb-3">Mortgage Commitment</p>
+                  <p className="text-white/80 text-xs font-body leading-relaxed">Your lender takes the lead to secure your mortgage commitment.</p>
+                </div>
+
+                {/* Arrow */}
+                <div className="flex items-center justify-center bg-[#C89B3C] px-3 py-2 md:py-0">
+                  <span className="text-white font-bold text-lg rotate-90 md:rotate-0">→</span>
+                </div>
+
+                {/* Attorney - Closing */}
+                <div className="flex-1 bg-[#1A3A5C] text-white rounded-b-lg md:rounded-r-lg md:rounded-bl-none p-6 text-center">
+                  <div className="text-3xl mb-2">🎉</div>
+                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Attorney</p>
+                  <p className="text-white/60 text-xs font-body mb-3">Closing Table</p>
+                  <p className="text-white/80 text-xs font-body leading-relaxed">Your attorney handles the closing. You walk away with the keys.</p>
+                </div>
+
+              </div>
+
+              {/* Guide thread */}
+              <div className="mt-4 bg-[#C89B3C]/10 border border-[#C89B3C]/30 rounded-lg px-6 py-4 text-center">
+                <p className="text-[#0D2137] font-body text-sm">
+                  <span className="font-semibold text-[#C89B3C]">Will & his team</span> guide you through every handoff — keeping the process on track from the first showing all the way to the closing table.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
