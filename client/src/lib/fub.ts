@@ -10,6 +10,7 @@ declare global {
       felloUrl?: string;
       realscoutAgentId?: string;
       calendarUrl?: string;
+      assignedTo?: string;
     };
   }
 }
@@ -62,6 +63,11 @@ export async function submitToFub(payload: FubLeadPayload): Promise<void> {
 
   if (note) {
     body.message = note;
+  }
+
+  const assignedTo = window.FUB_CONFIG?.assignedTo || import.meta.env.VITE_FUB_ASSIGNED_TO;
+  if (assignedTo) {
+    body.assignedTo = assignedTo;
   }
 
   const res = await fetch('https://api.followupboss.com/v1/events', {
