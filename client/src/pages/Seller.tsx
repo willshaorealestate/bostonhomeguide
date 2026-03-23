@@ -12,6 +12,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import PhotoComparisonCarousel from "@/components/PhotoComparisonCarousel";
 import { toast } from "sonner";
 import { submitToFub, getFelloUrl } from "@/lib/fub";
 
@@ -377,6 +378,8 @@ export default function SellerPage() {
           </div>
         </div>
       </section>
+
+      <PhotoComparisonCarousel />
 
       {/* Marketing Comparison */}
       <section className="py-20 bg-[#FAF8F4]">
