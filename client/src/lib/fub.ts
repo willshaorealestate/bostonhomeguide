@@ -23,6 +23,23 @@ export function getFelloUrl(): string {
   return window.FUB_CONFIG?.felloUrl || import.meta.env.VITE_FELLO_URL || 'https://consumer.hifello.com/lp/69a0591ae983dff8dafd6b6f';
 }
 
+const FAKE_PHONES = new Set(['1234567890','0987654321','1111111111','2222222222','3333333333','4444444444','5555555555','6666666666','7777777777','8888888888','9999999999','0000000000']);
+
+export function isValidEmail(email: string): boolean {
+  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.trim());
+}
+
+export function isValidPhone(phone: string): boolean {
+  const digits = phone.replace(/\D/g, '');
+  if (digits.length < 10 || digits.length > 11) return false;
+  const ten = digits.length === 11 ? digits.slice(1) : digits;
+  if (FAKE_PHONES.has(ten)) return false;
+  // area code and exchange can't start with 0 or 1
+  if (ten[0] === '0' || ten[0] === '1') return false;
+  if (ten[3] === '0' || ten[3] === '1') return false;
+  return true;
+}
+
 export interface FubLeadPayload {
   source: string;
   firstName: string;

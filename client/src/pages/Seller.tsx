@@ -14,7 +14,7 @@ import FloatingCTA from "@/components/FloatingCTA";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PhotoComparisonCarousel from "@/components/PhotoComparisonCarousel";
 import { toast } from "sonner";
-import { submitToFub, getFelloUrl } from "@/lib/fub";
+import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
 import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
@@ -120,6 +120,14 @@ export default function SellerPage() {
     const [firstName, ...rest] = form.name.trim().split(" ");
     if (!firstName || !form.email) {
       toast.error("Please fill in your name and email.");
+      return;
+    }
+    if (!isValidEmail(form.email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    if (form.phone && !isValidPhone(form.phone)) {
+      toast.error("Please enter a valid phone number.");
       return;
     }
     setSubmitting(true);

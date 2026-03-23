@@ -7,7 +7,7 @@ import { Phone, Mail, MapPin, Clock, Calendar, ExternalLink } from "lucide-react
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
-import { submitToFub } from "@/lib/fub";
+import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { useSEO } from "@/lib/seo";
 
 export default function ContactPage() {
@@ -26,6 +26,14 @@ export default function ContactPage() {
     const [firstName, ...rest] = form.name.trim().split(" ");
     if (!firstName || !form.email) {
       toast.error("Please fill in your name and email.");
+      return;
+    }
+    if (!isValidEmail(form.email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    if (form.phone && !isValidPhone(form.phone)) {
+      toast.error("Please enter a valid phone number.");
       return;
     }
     setSubmitting(true);
