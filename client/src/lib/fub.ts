@@ -47,7 +47,9 @@ export async function submitToFub(payload: FubLeadPayload): Promise<void> {
   if (payload.message)   noteParts.push('Message: ' + payload.message);
   if (payload.extraNote) noteParts.push(payload.extraNote);
 
-  const body = {
+  const note = noteParts.join(' | ');
+
+  const body: Record<string, unknown> = {
     source: payload.source,
     person: {
       firstName: payload.firstName,
@@ -55,9 +57,12 @@ export async function submitToFub(payload: FubLeadPayload): Promise<void> {
       emails:    [{ value: payload.email }],
       phones:    payload.phone ? [{ value: payload.phone }] : [],
       tags:      [payload.interest || 'website-lead'],
-      note:      noteParts.join(' | '),
     },
   };
+
+  if (note) {
+    body.message = note;
+  }
 
   const res = await fetch('https://api.followupboss.com/v1/events', {
     method: 'POST',
