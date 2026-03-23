@@ -86,8 +86,8 @@ const buyingSteps = [
     title: "Closing Day & Celebration!",
     icon: Key,
     description:
-      "This is what you've been working toward! Your attorney handles the closing table and the HUD. Will and his team are with you to make sure everything goes smoothly — and then you get the keys to your new home. Time to celebrate! 🎉",
-    tips: ["Attorney handles closing documents and HUD", "Bring a certified check or wire funds in advance", "🎉 Celebrate — you're a homeowner!"],
+      "This is what you've been working toward! Your attorney handles the closing table while Will and his team are with you to make sure everything goes smoothly. Sign the final documents, hand over your funds, and get the keys to your new home. Time to celebrate! 🎉",
+    tips: ["Attorney handles all closing documents", "Bring a certified check or wire funds in advance", "🎉 Celebrate — you're a homeowner!"],
   },
 ];
 
