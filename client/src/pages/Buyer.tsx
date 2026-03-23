@@ -78,8 +78,8 @@ const buyingSteps = [
     title: "Final Walkthrough",
     icon: CheckCircle,
     description:
-      "Before heading to the closing table, Will walks through the home with you to confirm it's in agreed-upon condition and any negotiated repairs are complete. We'll also send you utility transfer contacts and mailing address change info ahead of time so you're ready from day one.",
-    tips: ["Confirm all agreed-upon repairs are done", "Check utilities are on and functioning", "Will sends utility and mailing contacts in advance"],
+      "Before heading to the closing table, Will walks through the home with you to confirm it's in agreed-upon condition and any negotiated repairs are complete. Our team will also send you utility transfer contacts and mailing address change info ahead of time so you're ready from day one.",
+    tips: ["Confirm all agreed-upon repairs are done", "Check utilities are on and functioning", "Our team sends utility and mailing contacts in advance"],
   },
   {
     step: "09",
