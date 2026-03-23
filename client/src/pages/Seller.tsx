@@ -428,19 +428,19 @@ export default function SellerPage() {
                 {
                   feature: "Video Tour",
                   typical: "Rarely included",
-                  will: "Professional video walkthrough",
+                  will: "Professional video for higher-end & luxury properties",
                   highlight: true,
                 },
                 {
                   feature: "Pre-Market Strategy",
-                  typical: "Straight to MLS",
-                  will: "Coming Soon campaign builds buyer interest first",
+                  typical: "No coming soon or off-market marketing",
+                  will: "Coming Soon campaign when timing allows — builds buyer interest before launch",
                   highlight: false,
                 },
                 {
-                  feature: "Digital Advertising",
+                  feature: "Online & Social Media",
                   typical: "MLS listing only",
-                  will: "Targeted Facebook, Instagram & Google ads",
+                  will: "Social media marketing + dedicated website presence across platforms",
                   highlight: true,
                 },
                 {
