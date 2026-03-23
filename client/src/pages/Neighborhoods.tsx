@@ -9,6 +9,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
+import { isValidEmail } from "@/lib/fub";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 
@@ -76,6 +77,10 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
 
   const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isValidEmail(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
     toast.success(`You'll receive new listings in ${neighborhood.name} directly to your inbox!`);
     setEmail("");
   };

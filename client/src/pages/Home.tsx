@@ -29,7 +29,7 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import FloatingCTA from "@/components/FloatingCTA";
 import BuyingProcessGuide from "@/components/BuyingProcessGuide";
 import { toast } from "sonner";
-import { submitToFub, getFelloUrl } from "@/lib/fub";
+import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-hero-QUAvLWQJDdVc4F5dNh4SWw.webp";
 const NEIGHBORHOOD_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
@@ -172,6 +172,14 @@ export default function HomePage() {
     e.preventDefault();
     if (!fubForm.email || !fubForm.firstName) {
       toast.error("Please fill in your first name and email.");
+      return;
+    }
+    if (!isValidEmail(fubForm.email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    if (fubForm.phone && !isValidPhone(fubForm.phone)) {
+      toast.error("Please enter a valid phone number.");
       return;
     }
     setFubSubmitting(true);

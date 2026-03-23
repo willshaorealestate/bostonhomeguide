@@ -5,6 +5,7 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { toast } from "sonner";
+import { isValidEmail } from "@/lib/fub";
 
 export default function ExitIntentPopup() {
   const [visible, setVisible] = useState(false);
@@ -41,6 +42,10 @@ export default function ExitIntentPopup() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    if (!isValidEmail(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
     toast.success("You're subscribed! Check your inbox for the Boston Market Report.");
     setVisible(false);
     setDismissed(true);
