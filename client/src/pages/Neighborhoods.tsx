@@ -122,8 +122,8 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
               return (
                 <div key={s.label}>
                   <Icon className="w-5 h-5 text-[#C89B3C] mx-auto mb-1.5" />
-                  <p className="text-xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{s.value}</p>
-                  <p className="text-xs text-white/50 font-body mt-0.5">{s.label}</p>
+                  <p className="text-2xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{s.value}</p>
+                  <p className="text-sm text-white/50 font-body mt-0.5">{s.label}</p>
                 </div>
               );
             })}
@@ -145,7 +145,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   {neighborhood.highlights.map((h) => (
                     <div key={h} className="flex items-center gap-2">
                       <Star className="w-4 h-4 text-[#C89B3C] shrink-0" />
-                      <span className="text-sm text-gray-600 font-body">{h}</span>
+                      <span className="text-base text-gray-600 font-body">{h}</span>
                     </div>
                   ))}
                 </div>
@@ -167,7 +167,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   ].map((m) => (
                     <div key={m.label} className="bg-[#FAF8F4] rounded p-3">
                       <p className="text-lg font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
-                      <p className="text-xs text-gray-500 font-body mt-0.5">{m.label}</p>
+                      <p className="text-sm text-gray-500 font-body mt-0.5">{m.label}</p>
                     </div>
                   ))}
                 </div>
@@ -218,7 +218,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 <h3 className="text-white font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Get New Listings in {neighborhood.name}
                 </h3>
-                <p className="text-white/60 text-sm font-body mb-4">
+                <p className="text-white/60 text-base font-body mb-4">
                   Be the first to know when homes hit the market in {neighborhood.name}.
                 </p>
                 <form onSubmit={handleSignup} className="space-y-3">
@@ -228,7 +228,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
                     required
-                    className="w-full bg-[#1A3A5C] border border-white/20 rounded px-4 py-2.5 text-sm font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
                   />
                   <button type="submit" className="btn-gold w-full text-sm text-center">
                     Get Listing Alerts
@@ -241,7 +241,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 <h3 className="text-[#0D2137] font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Ask Will About {neighborhood.name}
                 </h3>
-                <p className="text-gray-500 text-sm font-body mb-4">
+                <p className="text-gray-500 text-base font-body mb-4">
                   Will has helped many clients navigate the market in {neighborhood.name}. Every town has its own unique flavor — let Will help you find the right fit.
                 </p>
                 <div className="space-y-2">
@@ -384,7 +384,7 @@ export default function NeighborhoodsPage() {
               {r}
             </button>
           ))}
-          <span className="ml-auto text-xs text-gray-400 font-body">{filtered.length} communities</span>
+          <span className="ml-auto text-sm text-gray-400 font-body">{filtered.length} communities</span>
         </div>
       </section>
 
@@ -416,15 +416,15 @@ export default function NeighborhoodsPage() {
                     {n.name}
                   </h3>
                   <div className="space-y-1">
-                    <div className="flex justify-between text-xs font-body">
+                    <div className="flex justify-between text-sm font-body">
                       <span className="text-gray-500">Median Price</span>
                       <span className="font-semibold text-[#0D2137]">{n.medianPrice}</span>
                     </div>
-                    <div className="flex justify-between text-xs font-body">
+                    <div className="flex justify-between text-sm font-body">
                       <span className="text-gray-500">Schools</span>
                       <span className="font-semibold text-green-600">{n.schools}</span>
                     </div>
-                    <div className="flex justify-between text-xs font-body">
+                    <div className="flex justify-between text-sm font-body">
                       <span className="text-gray-500">Commute</span>
                       <span className="font-semibold text-[#0D2137]">{n.commute}</span>
                     </div>
@@ -449,7 +449,7 @@ export default function NeighborhoodsPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
             Not Sure Which Town is Right for You?
           </h2>
-          <p className="text-white/70 font-body text-sm mb-6 max-w-xl mx-auto">
+          <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
             Every town has its own unique flavor — and Will knows them all. With nearly 20 years exploring Greater Boston's communities, he'll help you find the one that's just right for your family.
           </p>
           <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">

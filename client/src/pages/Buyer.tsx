@@ -242,7 +242,7 @@ export default function BuyerPage() {
                 >
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500 font-body leading-relaxed">{item.desc}</p>
+                <p className="text-base text-gray-500 font-body leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -256,12 +256,12 @@ export default function BuyerPage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">The Buying Process</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#0D2137] mb-5"
+              className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-5"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               How We Guide You Home
             </h2>
-            <p className="text-gray-500 font-body text-sm leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-gray-500 font-body text-base leading-relaxed max-w-2xl mx-auto mb-10">
               Buying a home is a team effort — like a relay race where every handoff matters.
             </p>
 
@@ -273,8 +273,8 @@ export default function BuyerPage() {
                 <div className="flex-1 bg-[#0D2137] text-white rounded-t-lg md:rounded-l-lg md:rounded-tr-none p-6 text-center">
                   <div className="text-3xl mb-2">🏃</div>
                   <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Will & Team</p>
-                  <p className="text-white/60 text-xs font-body mb-3">Search → Offer → Inspections</p>
-                  <p className="text-white/80 text-xs font-body leading-relaxed">We find the home, craft the winning offer, and guide you through due diligence.</p>
+                  <p className="text-white/60 text-sm font-body mb-3">Search → Offer → Inspections</p>
+                  <p className="text-white/80 text-sm font-body leading-relaxed">We find the home, craft the winning offer, and guide you through due diligence.</p>
                 </div>
 
                 {/* Arrow */}
@@ -286,8 +286,8 @@ export default function BuyerPage() {
                 <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
                   <div className="text-3xl mb-2">⚖️</div>
                   <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Attorney</p>
-                  <p className="text-white/60 text-xs font-body mb-3">Purchase & Sale Agreement</p>
-                  <p className="text-white/80 text-xs font-body leading-relaxed">Your attorney prepares and reviews the binding P&S contract.</p>
+                  <p className="text-white/60 text-sm font-body mb-3">Purchase & Sale Agreement</p>
+                  <p className="text-white/80 text-sm font-body leading-relaxed">Your attorney prepares and reviews the binding P&S contract.</p>
                 </div>
 
                 {/* Arrow */}
@@ -299,8 +299,8 @@ export default function BuyerPage() {
                 <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
                   <div className="text-3xl mb-2">🏦</div>
                   <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Lender</p>
-                  <p className="text-white/60 text-xs font-body mb-3">Mortgage Commitment</p>
-                  <p className="text-white/80 text-xs font-body leading-relaxed">Your lender takes the lead to secure your mortgage commitment.</p>
+                  <p className="text-white/60 text-sm font-body mb-3">Mortgage Commitment</p>
+                  <p className="text-white/80 text-sm font-body leading-relaxed">Your lender takes the lead to secure your mortgage commitment.</p>
                 </div>
 
                 {/* Arrow */}
@@ -312,8 +312,8 @@ export default function BuyerPage() {
                 <div className="flex-1 bg-[#1A3A5C] text-white rounded-b-lg md:rounded-r-lg md:rounded-bl-none p-6 text-center">
                   <div className="text-3xl mb-2">🎉</div>
                   <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Attorney</p>
-                  <p className="text-white/60 text-xs font-body mb-3">Closing Table</p>
-                  <p className="text-white/80 text-xs font-body leading-relaxed">Your attorney handles the closing. You walk away with the keys.</p>
+                  <p className="text-white/60 text-sm font-body mb-3">Closing Table</p>
+                  <p className="text-white/80 text-sm font-body leading-relaxed">Your attorney handles the closing. You walk away with the keys.</p>
                 </div>
 
               </div>
@@ -337,7 +337,7 @@ export default function BuyerPage() {
                       <Icon className="w-5 h-5 text-[#C89B3C]" />
                     </div>
                     <div>
-                      <p className="text-xs font-body text-[#C89B3C] font-semibold tracking-wider">
+                      <p className="text-sm font-body text-[#C89B3C] font-semibold tracking-wider">
                         STEP {step.step}
                       </p>
                       <h3
@@ -348,12 +348,12 @@ export default function BuyerPage() {
                       </h3>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 font-body leading-relaxed mb-4">
+                  <p className="text-base text-gray-600 font-body leading-relaxed mb-4">
                     {step.description}
                   </p>
                   <ul className="space-y-1.5">
                     {step.tips.map((tip) => (
-                      <li key={tip} className="flex items-start gap-2 text-xs text-gray-500 font-body">
+                      <li key={tip} className="flex items-start gap-2 text-sm text-gray-500 font-body">
                         <CheckCircle className="w-3.5 h-3.5 text-[#C89B3C] mt-0.5 shrink-0" />
                         {tip}
                       </li>
@@ -372,7 +372,7 @@ export default function BuyerPage() {
           <div className="text-center mb-12">
             <span className="gold-rule mx-auto" />
             <h2
-              className="text-3xl font-bold text-[#0D2137]"
+              className="text-4xl font-bold text-[#0D2137]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Frequently Asked Questions
@@ -386,7 +386,7 @@ export default function BuyerPage() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
                   <span
-                    className="font-semibold text-[#0D2137] text-sm pr-4"
+                    className="font-semibold text-[#0D2137] text-base pr-4"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {faq.q}
@@ -399,7 +399,7 @@ export default function BuyerPage() {
                 </button>
                 {openFaq === i && (
                   <div className="p-5 bg-white">
-                    <p className="text-sm text-gray-600 font-body leading-relaxed">{faq.a}</p>
+                    <p className="text-base text-gray-600 font-body leading-relaxed">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -415,12 +415,12 @@ export default function BuyerPage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">Get Started</p>
             <h2
-              className="text-3xl font-bold text-white"
+              className="text-4xl font-bold text-white"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Tell Will About Your Home Search
             </h2>
-            <p className="text-white/60 font-body text-sm mt-3">
+            <p className="text-white/60 font-body text-base mt-3">
               Complete this questionnaire and Will will reach out within 1 business day
               with personalized recommendations.
             </p>
@@ -429,7 +429,7 @@ export default function BuyerPage() {
           <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                   Full Name *
                 </label>
                 <input
@@ -437,12 +437,12 @@ export default function BuyerPage() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="Your full name"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                   Email *
                 </label>
                 <input
@@ -450,32 +450,32 @@ export default function BuyerPage() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                   Phone
                 </label>
                 <input
                   type="tel"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="(xxx) xxx-xxxx"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                   Budget Range
                 </label>
                 <select
                   value={form.budget}
                   onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                 >
                   <option value="">Select range</option>
                   <option value="under-500k">Under $500K</option>
@@ -488,25 +488,25 @@ export default function BuyerPage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                   Preferred Towns
                 </label>
                 <input
                   type="text"
                   value={form.towns}
                   onChange={(e) => setForm({ ...form, towns: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="e.g. Newton, Natick, Wellesley"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                   Timeline
                 </label>
                 <select
                   value={form.timeline}
                   onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                 >
                   <option value="">Select timeline</option>
                   <option value="asap">ASAP</option>
@@ -518,7 +518,7 @@ export default function BuyerPage() {
               </div>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+              <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                 Preferred Language
               </label>
               <div className="flex gap-4">
@@ -538,21 +538,21 @@ export default function BuyerPage() {
               </div>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+              <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                 Additional Notes
               </label>
               <textarea
                 rows={3}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
+                className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                 placeholder="School districts, commute requirements, must-haves..."
               />
             </div>
             <button type="submit" disabled={submitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
               {submitting ? "Sending..." : "Get Buyer Consultation — Free"}
             </button>
-            <p className="text-xs text-gray-400 font-body text-center">
+            <p className="text-sm text-gray-400 font-body text-center">
               Your information is private and will never be shared.
             </p>
           </form>
@@ -566,7 +566,7 @@ export default function BuyerPage() {
             >
               Prefer to Schedule Directly?
             </h3>
-            <p className="text-white/60 text-sm font-body mb-4">
+            <p className="text-white/60 text-base font-body mb-4">
               Book a free 30-minute consultation with Will at a time that works for you.
             </p>
             <a

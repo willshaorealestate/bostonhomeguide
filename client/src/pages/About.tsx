@@ -158,12 +158,12 @@ export default function AboutPage() {
             {stats.map((s) => (
               <div key={s.label}>
                 <p
-                  className="text-xl md:text-2xl font-bold text-[#C89B3C]"
+                  className="text-2xl md:text-3xl font-bold text-[#C89B3C]"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   {s.value}
                 </p>
-                <p className="text-xs text-white/50 font-body mt-0.5">{s.label}</p>
+                <p className="text-sm text-white/50 font-body mt-0.5">{s.label}</p>
               </div>
             ))}
           </div>
@@ -178,12 +178,12 @@ export default function AboutPage() {
               <span className="gold-rule" />
               <p className="section-label mb-2">Will's Story</p>
               <h2
-                className="text-3xl font-bold text-[#0D2137] mb-6"
+                className="text-4xl font-bold text-[#0D2137] mb-6"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 A Trusted Guide for Greater Boston Buyers &amp; Sellers
               </h2>
-              <div className="space-y-4 text-sm text-gray-600 font-body leading-relaxed">
+              <div className="space-y-4 text-base text-gray-600 font-body leading-relaxed">
                 <p>
                   Will Shao has been helping buyers and sellers navigate the Greater Boston
                   real estate market for nearly 20 years. He represents clients on both sides
@@ -225,7 +225,7 @@ export default function AboutPage() {
                   {credentials.map((c) => (
                     <div key={c} className="flex items-center gap-2.5">
                       <CheckCircle className="w-4 h-4 text-[#C89B3C] shrink-0" />
-                      <span className="text-sm text-gray-600 font-body">{c}</span>
+                      <span className="text-base text-gray-600 font-body">{c}</span>
                     </div>
                   ))}
                 </div>
@@ -240,7 +240,7 @@ export default function AboutPage() {
                 >
                   Language
                 </h3>
-                <p className="text-white/70 font-body text-sm leading-relaxed">
+                <p className="text-white/70 font-body text-base leading-relaxed">
                   Will conducts all real estate services in <strong className="text-white">English</strong> and
                   has conversational <strong className="text-white">Mandarin</strong> ability —
                   helpful for clients who prefer some Mandarin communication during the process.
@@ -257,7 +257,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <span className="gold-rule mx-auto" />
             <h2
-              className="text-3xl font-bold text-[#0D2137]"
+              className="text-4xl font-bold text-[#0D2137]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Will's Core Values
@@ -298,7 +298,7 @@ export default function AboutPage() {
                   >
                     {v.title}
                   </h3>
-                  <p className="text-sm text-gray-500 font-body leading-relaxed">{v.desc}</p>
+                  <p className="text-base text-gray-500 font-body leading-relaxed">{v.desc}</p>
                 </div>
               );
             })}
@@ -313,7 +313,7 @@ export default function AboutPage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">Client Reviews</p>
             <h2
-              className="text-3xl font-bold text-[#0D2137]"
+              className="text-4xl font-bold text-[#0D2137]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               What Clients Say About Will
@@ -334,15 +334,15 @@ export default function AboutPage() {
                     <Star key={i} className="w-3.5 h-3.5 fill-[#C89B3C] text-[#C89B3C]" />
                   ))}
                 </div>
-                <p className="text-sm text-gray-600 font-body leading-relaxed mb-4 italic">
+                <p className="text-base text-gray-600 font-body leading-relaxed mb-4 italic">
                   "{t.text}"
                 </p>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-bold text-[#0D2137] font-body">{t.name}</p>
-                    <p className="text-xs text-gray-400 font-body">{t.location}</p>
+                    <p className="text-base font-bold text-[#0D2137] font-body">{t.name}</p>
+                    <p className="text-sm text-gray-400 font-body">{t.location}</p>
                   </div>
-                  <p className="text-xs text-gray-400 font-body">{t.date}</p>
+                  <p className="text-sm text-gray-400 font-body">{t.date}</p>
                 </div>
               </div>
             ))}
@@ -377,7 +377,7 @@ export default function AboutPage() {
           >
             Ready to Work with Will?
           </h2>
-          <p className="text-white/70 font-body text-sm mb-6 max-w-xl mx-auto">
+          <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
             Whether you're buying your first home or selling a longtime family property,
             Will is ready to guide you every step of the way.
           </p>

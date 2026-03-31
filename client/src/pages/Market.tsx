@@ -121,9 +121,9 @@ export default function MarketPage() {
               { value: "2.8 mo", label: "Months of Supply", change: "+0.9 mo YoY" },
             ].map((m) => (
               <div key={m.label}>
-                <p className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
-                <p className="text-xs text-[#0D2137]/70 font-body mt-0.5">{m.label}</p>
-                <p className="text-xs font-semibold text-[#0D2137]/80 font-body mt-0.5">{m.change}</p>
+                <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
+                <p className="text-sm text-[#0D2137]/70 font-body mt-0.5">{m.label}</p>
+                <p className="text-sm font-semibold text-[#0D2137]/80 font-body mt-0.5">{m.change}</p>
               </div>
             ))}
           </div>
@@ -217,11 +217,11 @@ export default function MarketPage() {
                 <table className="w-full text-sm font-body">
                   <thead>
                     <tr className="border-b border-gray-100">
-                      <th className="text-left py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Town</th>
-                      <th className="text-right py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Median Price</th>
-                      <th className="text-right py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Days on Market</th>
-                      <th className="text-right py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">List/Sale %</th>
-                      <th className="text-right py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Inventory</th>
+                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Town</th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Median Price</th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Days on Market</th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">List/Sale %</th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Inventory</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -251,13 +251,13 @@ export default function MarketPage() {
                 <TrendingUp className="w-5 h-5 text-[#C89B3C]" />
               </div>
               <div>
-                <p className="text-xs text-[#C89B3C] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
+                <p className="text-sm text-[#C89B3C] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
                 <h3 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
                   March 2026 — What This Means for You
                 </h3>
               </div>
             </div>
-            <div className="space-y-4 text-sm text-gray-600 font-body leading-relaxed">
+            <div className="space-y-4 text-base text-gray-600 font-body leading-relaxed">
               <p>
                 Greater Boston's spring market is off to a strong start. Median prices have
                 risen 6.2% year-over-year to $875,000, while days on market have compressed
@@ -283,8 +283,8 @@ export default function MarketPage() {
             </div>
             <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
               <div>
-                <p className="font-semibold text-[#0D2137] text-sm font-body">Will Shao</p>
-                <p className="text-xs text-gray-400 font-body">REMAX Executive Realty · (781) 456-3541</p>
+                <p className="font-semibold text-[#0D2137] text-base font-body">Will Shao</p>
+                <p className="text-sm text-gray-400 font-body">REMAX Executive Realty · (781) 456-3541</p>
               </div>
               <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-xs">
                 Discuss the Market
@@ -301,7 +301,7 @@ export default function MarketPage() {
           <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
             Get the Monthly Market Report
           </h2>
-          <p className="text-white/60 font-body text-sm mb-6">
+          <p className="text-white/60 font-body text-base mb-6">
             Data-driven insights delivered to your inbox every month. Free, no spam, unsubscribe anytime.
           </p>
           <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3">
@@ -311,7 +311,7 @@ export default function MarketPage() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               required
-              className="flex-1 bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-sm font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
+              className="flex-1 bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
             />
             <button type="submit" disabled={submitting} className="btn-gold text-sm whitespace-nowrap">
               {submitting ? "Subscribing..." : "Subscribe Free"}

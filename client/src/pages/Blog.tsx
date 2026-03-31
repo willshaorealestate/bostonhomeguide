@@ -340,7 +340,7 @@ function ArticleDetail({ slug }: { slug: string }) {
             <span className="text-xs bg-[#C89B3C] text-[#0D2137] font-bold px-2.5 py-1 rounded font-body">{article.category}</span>
             <span className="text-white/60 text-xs font-body">{article.readTime} read · {article.date}</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white max-w-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-white max-w-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
             {article.title}
           </h1>
         </div>
@@ -361,7 +361,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                   }
                   const formatted = para.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
                   return (
-                    <p key={i} className="text-gray-600 font-body text-sm leading-relaxed mb-4"
+                    <p key={i} className="text-gray-600 font-body text-base leading-relaxed mb-4"
                       dangerouslySetInnerHTML={{ __html: formatted }} />
                   );
                 })}
@@ -372,7 +372,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                 <h3 className="text-white font-bold text-xl mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Ready to Take the Next Step?
                 </h3>
-                <p className="text-white/70 font-body text-sm mb-5">
+                <p className="text-white/70 font-body text-base mb-5">
                   Will Shao has nearly 20 years of experience helping buyers and sellers navigate the
                   Greater Boston market. Get personalized guidance today.
                 </p>
@@ -393,7 +393,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                 <h3 className="text-white font-bold text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Get More Insights
                 </h3>
-                <p className="text-white/60 text-sm font-body mb-4">
+                <p className="text-white/60 text-base font-body mb-4">
                   Subscribe to Will's monthly market report and real estate guides.
                 </p>
                 <form onSubmit={handleSignup} className="space-y-3">
@@ -403,7 +403,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
                     required
-                    className="w-full bg-[#1A3A5C] border border-white/20 rounded px-4 py-2.5 text-sm font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
                   />
                   <button type="submit" className="btn-gold w-full text-sm text-center">Subscribe Free</button>
                 </form>
@@ -418,10 +418,10 @@ function ArticleDetail({ slug }: { slug: string }) {
                     <Link key={a.slug} href={`/blog/${a.slug}`} className="flex items-start gap-3 group">
                       <img src={a.img} alt="" className="w-14 h-14 rounded object-cover shrink-0" />
                       <div>
-                        <p className="text-xs font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body leading-snug">
+                        <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body leading-snug">
                           {a.title}
                         </p>
-                        <p className="text-xs text-gray-400 font-body mt-1">{a.readTime} read</p>
+                        <p className="text-sm text-gray-400 font-body mt-1">{a.readTime} read</p>
                       </div>
                     </Link>
                   ))}
@@ -529,10 +529,10 @@ export default function BlogPage() {
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="flex items-center gap-1 text-xs text-gray-400 font-body">
+                    <span className="flex items-center gap-1 text-sm text-gray-400 font-body">
                       <Clock className="w-3 h-3" />{article.readTime} read
                     </span>
-                    <span className="text-xs text-gray-400 font-body">{article.date}</span>
+                    <span className="text-sm text-gray-400 font-body">{article.date}</span>
                   </div>
                   <h3
                     className="font-bold text-[#0D2137] text-base mb-2 group-hover:text-[#1976A8] transition-colors leading-snug"
@@ -540,7 +540,7 @@ export default function BlogPage() {
                   >
                     {article.title}
                   </h3>
-                  <p className="text-sm text-gray-500 font-body leading-relaxed">{article.excerpt}</p>
+                  <p className="text-base text-gray-500 font-body leading-relaxed">{article.excerpt}</p>
                   <div className="mt-4 flex items-center gap-1 text-[#C89B3C] text-sm font-semibold font-body">
                     Read Article <ChevronRight className="w-4 h-4" />
                   </div>

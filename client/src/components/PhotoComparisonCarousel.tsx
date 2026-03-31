@@ -62,44 +62,44 @@ export default function PhotoComparisonCarousel() {
           </p>
         </div>
 
-        {/* Column labels */}
-        <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto mb-3">
-          <div className="text-center">
-            <span className="inline-block bg-white/10 text-white/60 font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded">
-              Listed with Other Agent
-            </span>
-          </div>
-          <div className="text-center">
-            <span className="inline-block bg-[#C89B3C] text-[#0D2137] font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded">
-              Listed with Will Shao
-            </span>
-          </div>
-        </div>
-
-        {/* Images */}
-        <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
-          <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/3] bg-[#1A3A5C]">
-            <img
-              key={pair.before}
-              src={pair.before}
-              alt={`${pair.room} — other agent`}
-              className="w-full h-full object-cover opacity-0 transition-opacity duration-700"
-              onLoad={(e) => (e.currentTarget.style.opacity = "1")}
-            />
-            <div className="absolute bottom-3 left-3 bg-black/60 text-white/70 text-xs font-body px-2.5 py-1 rounded">
-              346 days · Did not sell
+        {/* Images — stacked on mobile, side-by-side on md+ */}
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
+          <div className="flex flex-col gap-2">
+            <div className="text-center">
+              <span className="inline-block bg-white/10 text-white/60 font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded">
+                Listed with Other Agent
+              </span>
+            </div>
+            <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/3] bg-[#1A3A5C]">
+              <img
+                key={pair.before}
+                src={pair.before}
+                alt={`${pair.room} — other agent`}
+                className="w-full h-full object-cover opacity-0 transition-opacity duration-700"
+                onLoad={(e) => (e.currentTarget.style.opacity = "1")}
+              />
+              <div className="absolute bottom-3 left-3 bg-black/60 text-white/70 text-sm font-body px-3 py-1.5 rounded">
+                346 days · Did not sell
+              </div>
             </div>
           </div>
-          <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/3] bg-[#1A3A5C]">
-            <img
-              key={pair.after}
-              src={pair.after}
-              alt={`${pair.room} — Will Shao`}
-              className="w-full h-full object-cover opacity-0 transition-opacity duration-700"
-              onLoad={(e) => (e.currentTarget.style.opacity = "1")}
-            />
-            <div className="absolute bottom-3 left-3 bg-[#C89B3C] text-[#0D2137] text-xs font-body font-bold px-2.5 py-1 rounded">
-              SOLD in 32 days
+          <div className="flex flex-col gap-2">
+            <div className="text-center">
+              <span className="inline-block bg-[#C89B3C] text-[#0D2137] font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded">
+                Listed with Will Shao
+              </span>
+            </div>
+            <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/3] bg-[#1A3A5C]">
+              <img
+                key={pair.after}
+                src={pair.after}
+                alt={`${pair.room} — Will Shao`}
+                className="w-full h-full object-cover opacity-0 transition-opacity duration-700"
+                onLoad={(e) => (e.currentTarget.style.opacity = "1")}
+              />
+              <div className="absolute bottom-3 left-3 bg-[#C89B3C] text-[#0D2137] text-sm font-body font-bold px-3 py-1.5 rounded">
+                SOLD in 32 days
+              </div>
             </div>
           </div>
         </div>

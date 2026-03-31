@@ -299,7 +299,7 @@ export default function HomePage() {
                   >
                     {stat.value}
                   </span>
-                  <span className="text-xs text-white/50 font-body uppercase tracking-wider">
+                  <span className="text-sm text-white/50 font-body uppercase tracking-wider">
                     {stat.label}
                   </span>
                 </div>
@@ -337,7 +337,7 @@ export default function HomePage() {
                   >
                     {metric.value}
                   </p>
-                  <p className="text-xs text-gray-500 font-body">{metric.label}</p>
+                  <p className="text-sm text-gray-500 font-body">{metric.label}</p>
                   <p
                     className={`text-xs font-semibold mt-0.5 ${
                       metric.up ? "text-green-600" : "text-red-500"
@@ -363,7 +363,7 @@ export default function HomePage() {
               <span className="gold-rule" />
               <p className="section-label mb-2">Explore Communities</p>
               <h2
-                className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+                className="text-4xl md:text-5xl font-bold text-[#0D2137]"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Find Your Perfect Neighborhood
@@ -404,8 +404,8 @@ export default function HomePage() {
                     {n.name}
                   </h3>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-white/70 text-xs font-body">{n.medianPrice} median</span>
-                    <span className="text-[#C89B3C] text-xs font-semibold font-body">
+                    <span className="text-white/70 text-sm font-body">{n.medianPrice} median</span>
+                    <span className="text-[#C89B3C] text-sm font-semibold font-body">
                       Schools: {n.schools}
                     </span>
                   </div>
@@ -424,7 +424,7 @@ export default function HomePage() {
               <span className="gold-rule" />
               <p className="section-label mb-2">Featured Properties</p>
               <h2
-                className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+                className="text-4xl md:text-5xl font-bold text-[#0D2137]"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Homes for Sale in Greater Boston
@@ -475,7 +475,7 @@ export default function HomePage() {
                 >
                   Find Your Dream Home
                 </h3>
-                <p className="text-white/70 font-body text-sm mb-6 leading-relaxed">
+                <p className="text-white/70 font-body text-base mb-6 leading-relaxed">
                   Access the complete Greater Boston MLS, get personalized neighborhood
                   recommendations, and work with a buyer's agent who knows every street.
                 </p>
@@ -503,7 +503,7 @@ export default function HomePage() {
                 >
                   What's My Home Worth?
                 </h3>
-                <p className="text-white/70 font-body text-sm mb-6 leading-relaxed">
+                <p className="text-white/70 font-body text-base mb-6 leading-relaxed">
                   Get a free, no-obligation home valuation based on real-time market data
                   and Will's nearly 20 years of local expertise.
                 </p>
@@ -516,7 +516,7 @@ export default function HomePage() {
                   >
                     Get Your Free Home Valuation →
                   </a>
-                  <p className="text-xs text-white/50 font-body">Instant market analysis · Powered by Fello</p>
+                  <p className="text-sm text-white/50 font-body">Instant market analysis · Powered by Fello</p>
                 </div>
               </div>
             </div>
@@ -552,7 +552,7 @@ export default function HomePage() {
               <span className="gold-rule" />
               <p className="section-label mb-2">Meet Your Agent</p>
               <h2
-                className="text-3xl md:text-4xl font-bold text-[#0D2137] mb-5"
+                className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-5"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Will Shao — Your Greater Boston Expert
@@ -577,7 +577,7 @@ export default function HomePage() {
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4 text-[#C89B3C] shrink-0" />
-                    <span className="text-sm text-gray-600 font-body">{item}</span>
+                    <span className="text-base text-gray-600 font-body">{item}</span>
                   </div>
                 ))}
               </div>
@@ -607,7 +607,7 @@ export default function HomePage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">Video Introduction</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+              className="text-4xl md:text-5xl font-bold text-[#0D2137]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Hear From Will Directly
@@ -643,7 +643,7 @@ export default function HomePage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">Client Stories</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-white"
+              className="text-4xl md:text-5xl font-bold text-white"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               What Clients Say About Will
@@ -670,7 +670,7 @@ export default function HomePage() {
                   ))}
                   <span className="text-white/40 text-xs ml-2 font-body">{t.source}</span>
                 </div>
-                <p className="text-white/80 font-body text-sm leading-relaxed mb-5 italic">
+                <p className="text-white/80 font-body text-base leading-relaxed mb-5 italic">
                   "{t.text}"
                 </p>
                 <div className="flex items-center gap-3">
@@ -678,8 +678,8 @@ export default function HomePage() {
                     <Users className="w-4 h-4 text-[#C89B3C]" />
                   </div>
                   <div>
-                    <p className="text-white text-sm font-semibold font-body">{t.name}</p>
-                    <p className="text-white/50 text-xs font-body">{t.location}</p>
+                    <p className="text-white text-base font-semibold font-body">{t.name}</p>
+                    <p className="text-white/50 text-sm font-body">{t.location}</p>
                   </div>
                 </div>
               </div>
@@ -718,7 +718,7 @@ export default function HomePage() {
               <span className="gold-rule" />
               <p className="section-label mb-2">Resources & Insights</p>
               <h2
-                className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+                className="text-4xl md:text-5xl font-bold text-[#0D2137]"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Greater Boston Real Estate Guides
@@ -752,7 +752,7 @@ export default function HomePage() {
                   >
                     {post.title}
                   </h3>
-                  <p className="text-sm text-gray-500 font-body leading-relaxed">
+                  <p className="text-base text-gray-500 font-body leading-relaxed">
                     {post.excerpt}
                   </p>
                   <div className="mt-4 flex items-center gap-1 text-[#C89B3C] text-sm font-semibold font-body">
@@ -777,48 +777,48 @@ export default function HomePage() {
               >
                 Ready to Make Your Move?
               </h2>
-              <p className="text-gray-500 font-body text-sm">
+              <p className="text-gray-500 font-body text-base">
                 Tell Will a bit about what you're looking for and he'll reach out within 24 hours.
               </p>
             </div>
             <form onSubmit={handleFubSubmit} className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">First Name *</label>
+                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">First Name *</label>
                   <input type="text" required value={fubForm.firstName}
                     onChange={(e) => setFubForm({ ...fubForm, firstName: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                     placeholder="Jane" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Last Name</label>
+                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Last Name</label>
                   <input type="text" value={fubForm.lastName}
                     onChange={(e) => setFubForm({ ...fubForm, lastName: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                     placeholder="Smith" />
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Email *</label>
+                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Email *</label>
                   <input type="email" required value={fubForm.email}
                     onChange={(e) => setFubForm({ ...fubForm, email: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                     placeholder="jane@email.com" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Phone</label>
+                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Phone</label>
                   <input type="tel" value={fubForm.phone}
                     onChange={(e) => setFubForm({ ...fubForm, phone: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                     placeholder="(617) 000-0000" />
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">I'm Interested In</label>
+                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">I'm Interested In</label>
                   <select value={fubForm.interest} onChange={(e) => setFubForm({ ...fubForm, interest: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
+                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
                     <option value="">Select one</option>
                     <option value="buying">Buying a Home</option>
                     <option value="selling">Selling My Home</option>
@@ -827,25 +827,25 @@ export default function HomePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Preferred Language</label>
+                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Preferred Language</label>
                   <select value={fubForm.language} onChange={(e) => setFubForm({ ...fubForm, language: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
+                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
                     <option value="english">English</option>
                     <option value="mandarin">Mandarin 普通话</option>
                   </select>
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Message (optional)</label>
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Message (optional)</label>
                 <textarea rows={3} value={fubForm.message}
                   onChange={(e) => setFubForm({ ...fubForm, message: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                   placeholder="Tell Will a bit about what you're looking for..." />
               </div>
               <button type="submit" disabled={fubSubmitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
                 {fubSubmitting ? "Sending..." : "Send Message — Will Responds Within 24 Hours"}
               </button>
-              <p className="text-xs text-gray-400 font-body text-center">Your information is private and will never be shared.</p>
+              <p className="text-sm text-gray-400 font-body text-center">Your information is private and will never be shared.</p>
             </form>
           </div>
         </div>

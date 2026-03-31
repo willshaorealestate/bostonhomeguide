@@ -99,8 +99,8 @@ export default function ContactPage() {
                       <Phone className="w-4 h-4 text-[#C89B3C]" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400 font-body uppercase tracking-wide mb-0.5">Phone</p>
-                      <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
+                      <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Phone</p>
+                      <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
                         (781) 456-3541
                       </p>
                     </div>
@@ -113,8 +113,8 @@ export default function ContactPage() {
                       <Mail className="w-4 h-4 text-[#C89B3C]" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400 font-body uppercase tracking-wide mb-0.5">Email</p>
-                      <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
+                      <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Email</p>
+                      <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
                         will@willshao.com
                       </p>
                     </div>
@@ -124,8 +124,8 @@ export default function ContactPage() {
                       <MapPin className="w-4 h-4 text-[#C89B3C]" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400 font-body uppercase tracking-wide mb-0.5">Service Area</p>
-                      <p className="text-sm text-[#0D2137] font-body">
+                      <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Service Area</p>
+                      <p className="text-base text-[#0D2137] font-body">
                         Greater Boston & MetroWest, MA
                       </p>
                     </div>
@@ -135,8 +135,8 @@ export default function ContactPage() {
                       <Clock className="w-4 h-4 text-[#C89B3C]" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400 font-body uppercase tracking-wide mb-0.5">Response Time</p>
-                      <p className="text-sm text-[#0D2137] font-body">Within 1 business day</p>
+                      <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Response Time</p>
+                      <p className="text-base text-[#0D2137] font-body">Within 1 business day</p>
                     </div>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export default function ContactPage() {
                         <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
                           {s.label}
                         </p>
-                        <p className="text-xs text-gray-400 font-body">{s.desc}</p>
+                        <p className="text-sm text-gray-400 font-body">{s.desc}</p>
                       </div>
                       <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#C89B3C] transition-colors" />
                     </a>
@@ -180,8 +180,8 @@ export default function ContactPage() {
 
               {/* Languages */}
               <div className="bg-[#0D2137] rounded-lg p-6">
-                <p className="text-[#C89B3C] text-xs font-body uppercase tracking-wider mb-2">Languages</p>
-                <p className="text-white font-body text-sm">
+                <p className="text-[#C89B3C] text-sm font-body uppercase tracking-wider mb-2">Languages</p>
+                <p className="text-white font-body text-base">
                   Will works primarily in <strong>English</strong> and has conversational <strong>Mandarin</strong> ability for clients who prefer some Mandarin communication.
                 </p>
               </div>
@@ -199,7 +199,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                      <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                         Full Name *
                       </label>
                       <input
@@ -207,12 +207,12 @@ export default function ContactPage() {
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                         placeholder="Your full name"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                      <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                         Email *
                       </label>
                       <input
@@ -220,32 +220,32 @@ export default function ContactPage() {
                         required
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                         placeholder="your@email.com"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                      <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                         Phone
                       </label>
                       <input
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                         placeholder="(xxx) xxx-xxxx"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                      <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                         I'm Interested In
                       </label>
                       <select
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                       >
                         <option value="buying">Buying a Home</option>
                         <option value="selling">Selling My Home</option>
@@ -256,7 +256,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                    <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                       Preferred Language
                     </label>
                     <div className="flex gap-4">
@@ -280,7 +280,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
+                    <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
                       Message *
                     </label>
                     <textarea
@@ -288,7 +288,7 @@ export default function ContactPage() {
                       required
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
+                      className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                       placeholder="Tell Will about your real estate goals..."
                     />
                   </div>
@@ -309,7 +309,7 @@ export default function ContactPage() {
                     >
                       Book a Free Consultation
                     </h3>
-                    <p className="text-white/60 font-body text-sm mb-5">
+                    <p className="text-white/60 font-body text-base mb-5">
                       Schedule a free 30-minute consultation with Will — by phone, video, or
                       in person.
                     </p>
@@ -330,7 +330,7 @@ export default function ContactPage() {
                 <h3 className="text-lg font-bold text-[#0D2137] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Service Area
                 </h3>
-                <p className="text-sm text-gray-500 font-body mb-5">
+                <p className="text-base text-gray-500 font-body mb-5">
                   Will serves buyers and sellers across Greater Boston and surrounding communities — 70+ towns spanning six regions.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
@@ -343,8 +343,8 @@ export default function ContactPage() {
                     { region: "South of Boston", towns: "Dover, Medfield, Canton, Milton, Norwood, Braintree, Sharon, Stoughton" },
                   ].map((area) => (
                     <div key={area.region} className="bg-[#FAF8F4] rounded p-3">
-                      <p className="text-xs font-semibold text-[#C89B3C] font-body uppercase tracking-wide mb-1">{area.region}</p>
-                      <p className="text-xs text-gray-500 font-body leading-relaxed">{area.towns}</p>
+                      <p className="text-sm font-semibold text-[#C89B3C] font-body uppercase tracking-wide mb-1">{area.region}</p>
+                      <p className="text-sm text-gray-500 font-body leading-relaxed">{area.towns}</p>
                     </div>
                   ))}
                 </div>

@@ -138,7 +138,7 @@ function SliderInput({
   return (
     <div>
       <div className="flex items-center justify-between mb-1">
-        <label className="flex items-center gap-2 text-xs font-semibold text-[#0D2137] font-body uppercase tracking-wide">
+        <label className="flex items-center gap-2 text-sm font-semibold text-[#0D2137] font-body uppercase tracking-wide">
           {icon}{label}
         </label>
         <input
@@ -154,7 +154,7 @@ function SliderInput({
           className="w-32 text-right text-sm font-bold text-[#0D2137] font-body border border-gray-200 rounded px-2 py-1 focus:outline-none focus:border-[#C89B3C]"
         />
       </div>
-      <div className="text-xs text-[#C89B3C] font-body text-right mb-2">{format(value)}</div>
+      <div className="text-sm text-[#C89B3C] font-body text-right mb-2">{format(value)}</div>
       <input
         type="range"
         className="calc-slider"
@@ -165,7 +165,7 @@ function SliderInput({
         onChange={(e) => onChange(Number(e.target.value))}
         style={{ background: trackBg }}
       />
-      <div className="flex justify-between text-xs text-gray-400 font-body mt-1">
+      <div className="flex justify-between text-sm text-gray-400 font-body mt-1">
         <span>{format(min)}</span>
         <span>{format(max)}</span>
       </div>
@@ -276,7 +276,7 @@ export default function MortgagePage() {
                     icon={<Percent className="w-3.5 h-3.5 text-[#C89B3C]" />}
                   />
                   <div>
-                    <label className="block text-xs font-semibold text-[#0D2137] mb-2 font-body uppercase tracking-wide">
+                    <label className="block text-sm font-semibold text-[#0D2137] mb-2 font-body uppercase tracking-wide">
                       Loan Term
                     </label>
                     <div className="flex gap-3">
@@ -352,10 +352,10 @@ export default function MortgagePage() {
                     <table className="w-full text-sm font-body">
                       <thead>
                         <tr className="bg-[#FAF8F4] border-y border-gray-100">
-                          <th className="text-left py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Year</th>
-                          <th className="text-right py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Principal</th>
-                          <th className="text-right py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Interest</th>
-                          <th className="text-right py-3 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wide">Balance</th>
+                          <th className="text-left py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Year</th>
+                          <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Principal</th>
+                          <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Interest</th>
+                          <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Balance</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -378,13 +378,13 @@ export default function MortgagePage() {
             <div className="space-y-5">
               {/* Monthly payment */}
               <div className="bg-[#0D2137] rounded-lg p-6 text-center">
-                <p className="text-white/60 font-body text-xs uppercase tracking-wider mb-2">
+                <p className="text-white/60 font-body text-sm uppercase tracking-wider mb-2">
                   Estimated Monthly Payment
                 </p>
                 <p className="text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
                   {formatCurrency(result.total)}
                 </p>
-                <p className="text-white/50 text-xs font-body">/month</p>
+                <p className="text-white/50 text-sm font-body">/month</p>
 
                 <div className="mt-5 pt-5 border-t border-white/10 space-y-2.5">
                   {[
@@ -438,7 +438,7 @@ export default function MortgagePage() {
                 <h3 className="font-bold text-[#0D2137] text-base mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Get Pre-Approved
                 </h3>
-                <p className="text-xs text-gray-500 font-body mb-4">
+                <p className="text-sm text-gray-500 font-body mb-4">
                   Will works with trusted local lenders who offer competitive rates for Greater
                   Boston buyers. Get connected today.
                 </p>
@@ -455,10 +455,10 @@ export default function MortgagePage() {
                       value={leadForm[f.key as keyof typeof leadForm]}
                       onChange={(e) => setLeadForm({ ...leadForm, [f.key]: e.target.value })}
                       required={f.key !== "phone"}
-                      className="w-full border border-gray-200 rounded px-3 py-2 text-xs font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                      className="w-full border border-gray-200 rounded px-3 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                     />
                   ))}
-                  <button type="submit" className="btn-gold w-full text-xs text-center py-2.5">
+                  <button type="submit" className="btn-gold w-full text-sm text-center py-2.5">
                     Connect Me with a Lender
                   </button>
                 </form>
