@@ -30,6 +30,7 @@ import MortgagePage from "./pages/Mortgage";
 import BlogPage from "./pages/Blog";
 import AboutPage from "./pages/About";
 import SearchPage from "./pages/Search";
+import SoldPage from "./pages/Sold";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -41,6 +42,8 @@ function Router() {
       {/* Seller routes */}
       <Route path="/sell" component={SellerPage} />
       <Route path="/seller" component={SellerPage} />
+      {/* Expired listing prospecting */}
+      <Route path="/sold" component={SoldPage} />
       {/* Contact */}
       <Route path="/contact" component={ContactPage} />
       {/* Neighborhoods — index and detail */}

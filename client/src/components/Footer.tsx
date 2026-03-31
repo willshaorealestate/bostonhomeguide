@@ -21,7 +21,7 @@ export default function Footer() {
                 Boston<span style={{ color: "#C89B3C" }}>Home</span>Guide
               </span>
             </div>
-            <p className="text-sm leading-relaxed mb-5 text-white/60">
+            <p className="text-base leading-relaxed mb-5 text-white/60">
               Your trusted guide to buying and selling homes in Greater Boston &
               Massachusetts — where every town has its own flavor. Serving Greater Boston with expertise and care.
             </p>
@@ -31,7 +31,7 @@ export default function Footer() {
               ))}
               <span className="text-sm text-white/70 ml-1">5.0 · 48 Reviews</span>
             </div>
-            <p className="text-xs text-white/50">Zillow · Google · Realtor.com</p>
+            <p className="text-sm text-white/50">Zillow · Google · Realtor.com</p>
           </div>
 
           {/* Quick links */}
@@ -53,7 +53,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/60 hover:text-[#C89B3C] transition-colors"
+                    className="text-base text-white/60 hover:text-[#C89B3C] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -77,7 +77,7 @@ export default function Footer() {
                 <Link
                   key={town}
                   href={`/neighborhoods/${town.toLowerCase()}`}
-                  className="text-xs text-white/55 hover:text-[#C89B3C] transition-colors"
+                  className="text-sm text-white/55 hover:text-[#C89B3C] transition-colors"
                 >
                   {town}
                 </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
             </div>
             <Link
               href="/neighborhoods"
-              className="mt-3 inline-block text-xs text-[#C89B3C] hover:underline"
+              className="mt-3 inline-block text-sm text-[#C89B3C] hover:underline"
             >
               Explore all neighborhoods →
             </Link>
@@ -99,26 +99,26 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href="tel:+17814563541"
-                className="flex items-start gap-2.5 text-sm text-white/60 hover:text-white transition-colors"
+                className="flex items-start gap-2.5 text-base text-white/60 hover:text-white transition-colors"
               >
                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-[#C89B3C]" />
                 (781) 456-3541
               </a>
               <a
                 href="mailto:will@willshao.com"
-                className="flex items-start gap-2.5 text-sm text-white/60 hover:text-white transition-colors"
+                className="flex items-start gap-2.5 text-base text-white/60 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 mt-0.5 shrink-0 text-[#C89B3C]" />
                 will@willshao.com
               </a>
-              <div className="flex items-start gap-2.5 text-sm text-white/60">
+              <div className="flex items-start gap-2.5 text-base text-white/60">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#C89B3C]" />
                 Greater Boston & MetroWest, MA
               </div>
             </div>
 
             <div className="mt-5">
-              <p className="text-xs text-white/40 mb-2 uppercase tracking-wider">Follow</p>
+              <p className="text-sm text-white/40 mb-2 uppercase tracking-wider">Follow</p>
               <div className="flex gap-3">
                 {[
                   { label: "Zillow", href: "https://zillow.com/profile/willshao" },
@@ -132,7 +132,7 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-white/50 hover:text-[#C89B3C] transition-colors"
+                    className="text-sm text-white/50 hover:text-[#C89B3C] transition-colors"
                   >
                     {s.label}
                   </a>
@@ -141,8 +141,8 @@ export default function Footer() {
             </div>
 
             <div className="mt-5">
-              <p className="text-xs text-white/40 mb-1">Language</p>
-              <p className="text-sm text-white/60">English · Conversational Mandarin</p>
+              <p className="text-sm text-white/40 mb-1">Language</p>
+              <p className="text-base text-white/60">English · Conversational Mandarin</p>
             </div>
           </div>
         </div>
@@ -151,12 +151,12 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="container py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-4 text-xs text-white/40">
+          <div className="flex items-center gap-4 text-sm text-white/40">
             <span>© {new Date().getFullYear()} BostonHomeGuide.com</span>
             <span>·</span>
             <span>Will Shao, REMAX Executive Realty</span>
           </div>
-          <div className="flex items-center gap-4 text-xs text-white/40">
+          <div className="flex items-center gap-4 text-sm text-white/40">
             <span>Equal Housing Opportunity</span>
             <span>·</span>
             <a href="#" className="hover:text-white/60">Privacy Policy</a>

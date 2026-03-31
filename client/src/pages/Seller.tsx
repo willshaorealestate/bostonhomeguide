@@ -223,7 +223,7 @@ export default function SellerPage() {
               >
                 Get Your Instant Home Valuation →
               </a>
-              <p className="text-xs text-white/50 font-body mt-2">
+              <p className="text-sm text-white/50 font-body mt-2">
                 Instant estimate · No obligation · Powered by Fello
               </p>
             </div>
@@ -242,8 +242,8 @@ export default function SellerPage() {
               { value: "5.0★", label: "Zillow Rating" },
             ].map((s) => (
               <div key={s.label}>
-                <p className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{s.value}</p>
-                <p className="text-xs text-[#0D2137]/70 font-body mt-1">{s.label}</p>
+                <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{s.value}</p>
+                <p className="text-sm text-[#0D2137]/70 font-body mt-1">{s.label}</p>
               </div>
             ))}
           </div>
@@ -259,12 +259,12 @@ export default function SellerPage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">Staging Makes the Difference</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+              className="text-4xl md:text-5xl font-bold text-[#0D2137]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               See the Transformation
             </h2>
-            <p className="text-gray-500 font-body text-sm mt-3 max-w-xl mx-auto">
+            <p className="text-gray-500 font-body text-base mt-3 max-w-xl mx-auto">
               Staged homes sell faster and for more money. Drag the slider to see the same
               room — before and after professional staging.
             </p>
@@ -285,12 +285,12 @@ export default function SellerPage() {
               ].map((stat) => (
                 <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4">
                   <p
-                    className="text-2xl font-bold text-[#C89B3C]"
+                    className="text-3xl font-bold text-[#C89B3C]"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {stat.value}
                   </p>
-                  <p className="text-xs text-gray-500 font-body mt-1">{stat.label}</p>
+                  <p className="text-sm text-gray-500 font-body mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -305,7 +305,7 @@ export default function SellerPage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">The Selling Process</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+              className="text-4xl md:text-5xl font-bold text-[#0D2137]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Will's Proven Selling System
@@ -321,11 +321,11 @@ export default function SellerPage() {
                       <Icon className="w-4 h-4 text-[#C89B3C]" />
                     </div>
                     <div>
-                      <p className="text-xs font-body text-[#C89B3C] font-semibold tracking-wider">STEP {step.step}</p>
+                      <p className="text-sm font-body text-[#C89B3C] font-semibold tracking-wider">STEP {step.step}</p>
                       <h3 className="text-base font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{step.title}</h3>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 font-body leading-relaxed">{step.description}</p>
+                  <p className="text-base text-gray-600 font-body leading-relaxed">{step.description}</p>
                 </div>
               );
             })}
@@ -341,19 +341,19 @@ export default function SellerPage() {
               <span className="gold-rule" />
               <p className="section-label mb-2">Marketing Plan</p>
               <h2
-                className="text-3xl font-bold text-white mb-5"
+                className="text-4xl font-bold text-white mb-5"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Maximum Exposure for Your Home
               </h2>
-              <p className="text-white/70 font-body text-sm leading-relaxed mb-6">
+              <p className="text-white/70 font-body text-base leading-relaxed mb-6">
                 Our comprehensive marketing strategy ensures your home reaches every qualified buyer — locally and globally. As part of REMAX, your listing is backed by a network spanning 110 countries. Throughout the process, you'll receive a weekly property report with showings, buyer feedback, and online activity so you're always in the loop.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {marketingItems.map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4 text-[#C89B3C] shrink-0" />
-                    <span className="text-sm text-white/70 font-body">{item}</span>
+                    <span className="text-base text-white/70 font-body">{item}</span>
                   </div>
                 ))}
               </div>
@@ -373,21 +373,21 @@ export default function SellerPage() {
                   { label: "Closing Costs (%)", key: "closingCosts", placeholder: "2" },
                 ].map((field) => (
                   <div key={field.key}>
-                    <label className="block text-xs text-white/60 font-body mb-1">{field.label}</label>
+                    <label className="block text-sm text-white/60 font-body mb-1">{field.label}</label>
                     <input
                       type="text"
                       value={netCalc[field.key as keyof typeof netCalc]}
                       onChange={(e) => setNetCalc({ ...netCalc, [field.key]: e.target.value })}
                       placeholder={field.placeholder}
-                      className="w-full bg-[#0D2137] border border-white/20 rounded px-4 py-2.5 text-sm font-body text-white focus:outline-none focus:border-[#C89B3C]"
+                      className="w-full bg-[#0D2137] border border-white/20 rounded px-4 py-3 text-base font-body text-white focus:outline-none focus:border-[#C89B3C]"
                     />
                   </div>
                 ))}
                 <div className="border-t border-white/20 pt-4 mt-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-white/70 font-body text-sm">Estimated Net Proceeds</span>
+                    <span className="text-white/70 font-body text-base">Estimated Net Proceeds</span>
                     <span
-                      className="text-2xl font-bold text-[#C89B3C]"
+                      className="text-3xl font-bold text-[#C89B3C]"
                       style={{ fontFamily: "'Playfair Display', serif" }}
                     >
                       {netProceeds > 0
@@ -395,7 +395,7 @@ export default function SellerPage() {
                         : "—"}
                     </span>
                   </div>
-                  <p className="text-xs text-white/40 font-body mt-2">
+                  <p className="text-sm text-white/40 font-body mt-2">
                     Estimate only. Contact Will for a precise analysis.
                   </p>
                 </div>
@@ -412,12 +412,12 @@ export default function SellerPage() {
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">Why It Matters</p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#0D2137]"
+              className="text-4xl md:text-5xl font-bold text-[#0D2137]"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Not All Listings Are Created Equal
             </h2>
-            <p className="text-gray-500 font-body text-sm mt-3 max-w-xl mx-auto">
+            <p className="text-gray-500 font-body text-base mt-3 max-w-xl mx-auto">
               The way your home is presented and marketed directly impacts how quickly it sells and for how much. Here's how our approach compares.
             </p>
           </div>
@@ -428,11 +428,11 @@ export default function SellerPage() {
               {/* Header Row */}
               <div className="bg-[#FAF8F4] p-5 border-b border-gray-100" />
               <div className="bg-gray-100 p-5 border-b border-gray-200 text-center">
-                <p className="text-xs font-semibold text-gray-400 font-body uppercase tracking-wider">Typical Agent</p>
+                <p className="text-sm font-semibold text-gray-400 font-body uppercase tracking-wider">Typical Agent</p>
               </div>
               <div className="bg-[#0D2137] p-5 border-b border-[#1A3A5C] text-center">
-                <p className="text-xs font-semibold text-[#C89B3C] font-body uppercase tracking-wider">Will Shao</p>
-                <p className="text-xs text-white/50 font-body mt-0.5">RE/MAX Executive Realty</p>
+                <p className="text-sm font-semibold text-[#C89B3C] font-body uppercase tracking-wider">Will Shao</p>
+                <p className="text-sm text-white/50 font-body mt-0.5">RE/MAX Executive Realty</p>
               </div>
 
               {/* Rows */}
@@ -491,11 +491,11 @@ export default function SellerPage() {
                     <p className="text-sm font-semibold text-[#0D2137] font-body">{row.feature}</p>
                   </div>
                   <div className={`p-4 border-b border-gray-200 flex items-center justify-center text-center ${i % 2 === 0 ? "bg-gray-50" : "bg-gray-100/60"}`}>
-                    <p className="text-xs text-gray-400 font-body leading-snug">{row.typical}</p>
+                    <p className="text-sm text-gray-400 font-body leading-snug">{row.typical}</p>
                   </div>
                   <div className={`p-4 border-b border-[#1A3A5C]/40 flex items-center gap-2 ${i % 2 === 0 ? "bg-[#0D2137]" : "bg-[#112840]"}`}>
                     <span className="text-[#C89B3C] font-bold shrink-0">✓</span>
-                    <p className="text-xs text-white/80 font-body leading-snug">{row.will}</p>
+                    <p className="text-sm text-white/80 font-body leading-snug">{row.will}</p>
                   </div>
                 </div>
               ))}
@@ -503,7 +503,7 @@ export default function SellerPage() {
 
             {/* Bottom CTA */}
             <div className="mt-10 text-center">
-              <p className="text-gray-500 font-body text-sm mb-4">
+              <p className="text-gray-500 font-body text-base mb-4">
                 Ready to see what a fully-marketed listing looks like for your home?
               </p>
               <a href="#valuation" className="btn-gold text-sm">
@@ -519,7 +519,7 @@ export default function SellerPage() {
         <div className="container max-w-3xl">
           <div className="text-center mb-12">
             <span className="gold-rule mx-auto" />
-            <h2 className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-4xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
               Seller FAQ
             </h2>
           </div>
@@ -530,12 +530,12 @@ export default function SellerPage() {
                   className="w-full flex items-center justify-between p-5 text-left bg-[#FAF8F4] hover:bg-[#F0EDE6] transition-colors"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-semibold text-[#0D2137] text-sm pr-4" style={{ fontFamily: "'Playfair Display', serif" }}>{faq.q}</span>
+                  <span className="font-semibold text-[#0D2137] text-base pr-4" style={{ fontFamily: "'Playfair Display', serif" }}>{faq.q}</span>
                   {openFaq === i ? <ChevronUp className="w-4 h-4 text-[#C89B3C] shrink-0" /> : <ChevronDown className="w-4 h-4 text-[#C89B3C] shrink-0" />}
                 </button>
                 {openFaq === i && (
                   <div className="p-5 bg-white">
-                    <p className="text-sm text-gray-600 font-body leading-relaxed">{faq.a}</p>
+                    <p className="text-base text-gray-600 font-body leading-relaxed">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -550,10 +550,10 @@ export default function SellerPage() {
           <div className="text-center mb-10">
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">Free Valuation</p>
-            <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-4xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
               What's Your Home Worth?
             </h2>
-            <p className="text-white/60 font-body text-sm mt-3">
+            <p className="text-white/60 font-body text-base mt-3">
               Get a free, no-obligation home valuation from Will. No pressure, just data.
             </p>
           </div>
@@ -561,26 +561,26 @@ export default function SellerPage() {
           <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Full Name *</label>
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Full Name *</label>
                 <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="Your name" />
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="Your name" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Email *</label>
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Email *</label>
                 <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="your@email.com" />
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="your@email.com" />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Phone</label>
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Phone</label>
                 <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="(xxx) xxx-xxxx" />
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="(xxx) xxx-xxxx" />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Timeline to Sell</label>
+                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Timeline to Sell</label>
                 <select value={form.timeline} onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
+                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
                   <option value="">Select timeline</option>
                   <option value="asap">ASAP</option>
                   <option value="1-3months">1–3 months</option>
@@ -591,9 +591,9 @@ export default function SellerPage() {
               </div>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Property Address *</label>
+              <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Property Address *</label>
               <input type="text" required value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })}
-                className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="Street address" />
+                className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="Street address" />
             </div>
             <div className="grid grid-cols-3 gap-4">
               {[
@@ -602,16 +602,16 @@ export default function SellerPage() {
                 { label: "Sq Ft", key: "sqft", placeholder: "1,800" },
               ].map((f) => (
                 <div key={f.key}>
-                  <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">{f.label}</label>
+                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">{f.label}</label>
                   <input type="text" value={form[f.key as keyof typeof form]} onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder={f.placeholder} />
+                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder={f.placeholder} />
                 </div>
               ))}
             </div>
             <div>
-              <label className="block text-xs font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Additional Notes</label>
+              <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Additional Notes</label>
               <textarea rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full border border-gray-200 rounded px-4 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
+                className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                 placeholder="Recent renovations, unique features, reason for selling..." />
             </div>
             <button type="submit" disabled={submitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
@@ -624,7 +624,7 @@ export default function SellerPage() {
             <h3 className="text-white font-bold text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
               Book a Listing Consultation
             </h3>
-            <p className="text-white/60 text-sm font-body mb-4">
+            <p className="text-white/60 text-base font-body mb-4">
               Schedule a free, no-obligation listing consultation with Will.
             </p>
             <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
