@@ -115,8 +115,8 @@ export default function ExitIntentPopup() {
               Send Me the Report
             </button>
           </form>
-          <p className="text-xs text-gray-400 mt-3 font-body text-center">
-            No spam. Unsubscribe anytime.
+          <p className="text-xs text-gray-400 mt-3 font-body text-center leading-relaxed">
+            By submitting, you agree to be contacted by Will Shao at RE/MAX Executive Realty by phone, text, or email. No spam. Unsubscribe anytime.
           </p>
         </div>
       </div>

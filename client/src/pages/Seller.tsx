@@ -617,6 +617,9 @@ export default function SellerPage() {
             <button type="submit" disabled={submitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
               {submitting ? "Sending..." : "Get Free Home Valuation Consultation"}
             </button>
+            <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
+              By submitting this form, you agree to be contacted by Will Shao at RE/MAX Executive Realty by phone, text, or email regarding your real estate inquiry. Your information is private and will never be shared with third parties.
+            </p>
           </form>
 
           <div className="mt-8 bg-[#1A3A5C] rounded-lg p-6 text-center">
