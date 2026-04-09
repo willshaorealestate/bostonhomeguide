@@ -156,21 +156,16 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 <h2 className="text-xl font-bold text-[#0D2137] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                   {neighborhood.name} Real Estate Market
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {[
-                    { label: "Median Sale Price", value: neighborhood.medianPrice },
-                    { label: "Avg. Days on Market", value: "14 days" },
-                    { label: "List-to-Sale Ratio", value: "104.2%" },
-                    { label: "Active Listings", value: "23" },
-                    { label: "Price Per Sq Ft", value: "$425" },
-                    { label: "YoY Appreciation", value: "+7.3%" },
-                  ].map((m) => (
-                    <div key={m.label} className="bg-[#FAF8F4] rounded p-3">
-                      <p className="text-lg font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
-                      <p className="text-sm text-gray-500 font-body mt-0.5">{m.label}</p>
-                    </div>
-                  ))}
+                <div className="bg-[#FAF8F4] rounded p-4 mb-4 inline-block">
+                  <p className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{neighborhood.medianPrice}</p>
+                  <p className="text-sm text-gray-500 font-body mt-0.5">Average Home Value</p>
                 </div>
+                <p className="text-sm text-gray-500 font-body">
+                  For current pricing trends, inventory, and days on market,{" "}
+                  <a href="/market" className="text-[#C89B3C] font-semibold hover:underline">
+                    see the Monthly Market Report
+                  </a>.
+                </p>
               </div>
 
               {/* Live listings from RealScout */}
