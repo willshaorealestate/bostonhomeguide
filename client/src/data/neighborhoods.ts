@@ -486,7 +486,7 @@ export const allNeighborhoods: Neighborhood[] = [
     slug: "concord",
     name: "Concord",
     region: "Northwest of Boston",
-    medianPrice: "$1,500,000",
+    medianPrice: "$1,420,000",
     schools: "A+",
     commute: "40 min",
     walkScore: 45,
