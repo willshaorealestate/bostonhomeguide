@@ -37,14 +37,14 @@ const CONSULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/
 const METROWEST_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
 
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "$1.28M", schools: "A+", img: "/images/towns/newton.jpeg" },
-  { name: "Wellesley", type: "Town", medianPrice: "$1.55M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
-  { name: "Brookline", type: "Town", medianPrice: "$1.12M", schools: "A", img: "/images/towns/brookline.jpeg" },
-  { name: "Natick", type: "Town", medianPrice: "$875K", schools: "A", img: "/images/towns/natick.jpeg" },
-  { name: "Lexington", type: "Town", medianPrice: "$1.35M", schools: "A+", img: "/images/towns/lexington.jpeg" },
+  { name: "Newton", type: "City", medianPrice: "$1.45M", schools: "A+", img: "/images/towns/newton.jpeg" },
+  { name: "Wellesley", type: "Town", medianPrice: "$1.83M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
+  { name: "Brookline", type: "Town", medianPrice: "$1.68M", schools: "A", img: "/images/towns/brookline.jpeg" },
+  { name: "Natick", type: "Town", medianPrice: "$915K", schools: "A", img: "/images/towns/natick.jpeg" },
+  { name: "Lexington", type: "Town", medianPrice: "$1.72M", schools: "A+", img: "/images/towns/lexington.jpeg" },
   { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Needham", type: "Town", medianPrice: "$1.13M", schools: "A", img: "/images/towns/needham.jpeg" },
-  { name: "Framingham", type: "City", medianPrice: "$695K", schools: "B+", img: "/images/towns/framingham.jpeg" },
+  { name: "Needham", type: "Town", medianPrice: "$2.26M", schools: "A", img: "/images/towns/needham.jpeg" },
+  { name: "Framingham", type: "City", medianPrice: "$728K", schools: "B+", img: "/images/towns/framingham.jpeg" },
 ];
 
 
@@ -325,10 +325,10 @@ export default function HomePage() {
             </div>
             <div className="flex flex-wrap gap-6 md:gap-10">
               {[
-                { label: "Median Sale Price", value: "$875,000", change: "+6.2%", up: true },
-                { label: "Days on Market", value: "18 days", change: "-4 days", up: true },
-                { label: "List-to-Sale Ratio", value: "103.4%", change: "+1.2%", up: true },
-                { label: "Active Inventory", value: "1,240", change: "-8%", up: false },
+                { label: "Median Sale Price", value: "$810,000", change: "Mar 2026", up: true },
+                { label: "Days on Market", value: "57 days", change: "Greater Boston", up: false },
+                { label: "List-to-Sale Ratio", value: "100%", change: "At asking", up: true },
+                { label: "Active Inventory", value: "1,437", change: "Mar 2026", up: false },
               ].map((metric) => (
                 <div key={metric.label} className="text-center">
                   <p
