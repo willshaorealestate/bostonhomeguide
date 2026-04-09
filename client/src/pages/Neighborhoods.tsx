@@ -113,7 +113,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { label: "Median Home Price", value: neighborhood.medianPrice, icon: Home },
+              { label: "Avg. Home Value", value: neighborhood.medianPrice, icon: Home },
               { label: "School Rating", value: neighborhood.schools, icon: School },
               { label: "Commute to Boston", value: neighborhood.commute, icon: Train },
               { label: "Walk Score", value: `${neighborhood.walkScore}/100`, icon: MapPin },
@@ -412,7 +412,7 @@ export default function NeighborhoodsPage() {
                   </h3>
                   <div className="space-y-1">
                     <div className="flex justify-between text-sm font-body">
-                      <span className="text-gray-500">Median Price</span>
+                      <span className="text-gray-500">Avg. Home Value</span>
                       <span className="font-semibold text-[#0D2137]">{n.medianPrice}</span>
                     </div>
                     <div className="flex justify-between text-sm font-body">
