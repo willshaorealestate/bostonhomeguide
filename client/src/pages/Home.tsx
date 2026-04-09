@@ -404,7 +404,7 @@ export default function HomePage() {
                     {n.name}
                   </h3>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-white/70 text-sm font-body">{n.medianPrice} median</span>
+                    <span className="text-white/70 text-sm font-body">{n.medianPrice} avg.</span>
                     <span className="text-[#C89B3C] text-sm font-semibold font-body">
                       Schools: {n.schools}
                     </span>
