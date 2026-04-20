@@ -105,7 +105,7 @@ export default function MarketPage() {
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm font-body">
               <Calendar className="w-4 h-4" />
-              <span>Updated March 2026 · Next report: April 1, 2026</span>
+              <span>Updated March 2026 · Next report: May 2026</span>
             </div>
           </div>
         </div>
