@@ -320,6 +320,23 @@ function ArticleDetail({ slug }: { slug: string }) {
     setEmail("");
   };
 
+  const townLinks: Record<string, string> = {
+    "Newton": "/neighborhoods/newton",
+    "Wellesley": "/neighborhoods/wellesley",
+    "Brookline": "/neighborhoods/brookline",
+    "Natick": "/neighborhoods/natick",
+    "Lexington": "/neighborhoods/lexington",
+    "Needham": "/neighborhoods/needham",
+    "Framingham": "/neighborhoods/framingham",
+    "Waltham": "/neighborhoods/waltham",
+    "Concord": "/neighborhoods/concord",
+    "Cambridge": "/neighborhoods/cambridge",
+    "Arlington": "/neighborhoods/arlington",
+    "Belmont": "/neighborhoods/belmont",
+    "Medford": "/neighborhoods/medford",
+    "Quincy": "/neighborhoods/quincy",
+  };
+
   const paragraphs = article.content.split("\n\n");
 
   return (
@@ -359,7 +376,13 @@ function ArticleDetail({ slug }: { slug: string }) {
                       </h3>
                     );
                   }
-                  const formatted = para.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                  let formatted = para.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                  Object.entries(townLinks).forEach(([town, href]) => {
+                    formatted = formatted.replace(
+                      new RegExp(`\\b${town}\\b`, "g"),
+                      `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline">${town}</a>`
+                    );
+                  });
                   return (
                     <p key={i} className="text-gray-600 font-body text-base leading-relaxed mb-4"
                       dangerouslySetInnerHTML={{ __html: formatted }} />
