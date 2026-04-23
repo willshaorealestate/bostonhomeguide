@@ -139,20 +139,33 @@ export default function HomePage() {
     schema: {
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
-      "name": "Will Shao",
+      "name": "Will Shao — RE/MAX Executive Realty",
       "url": "https://bostonhomeguide.com",
       "telephone": "(781) 456-3541",
       "email": "will@willshao.com",
       "description": "Nearly 20 years of experience, 212+ homes sold across Greater Boston and MetroWest MA.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "969 Concord Street",
+        "addressLocality": "Framingham",
+        "addressRegion": "MA",
+        "postalCode": "01701",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "16:00" }
+      ],
+      "priceRange": "$$",
       "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "212", "bestRating": "5" },
       "areaServed": [
-        { "@type": "City", "name": "Boston" },
-        { "@type": "AdministrativeArea", "name": "MetroWest MA" },
-        { "@type": "City", "name": "Newton" },
-        { "@type": "City", "name": "Wellesley" },
-        { "@type": "City", "name": "Brookline" },
-        { "@type": "City", "name": "Natick" },
-        { "@type": "City", "name": "Lexington" }
+        "Boston","Newton","Wellesley","Brookline","Natick","Lexington","Needham","Framingham",
+        "Waltham","Concord","Cambridge","Somerville","Arlington","Belmont","Medford","Quincy",
+        "Dedham","Westwood","Weston","Lincoln","Sudbury","Shrewsbury","Winchester","Andover",
+        "Acton","Westford","Chelmsford","Billerica","Woburn","Stoneham","Melrose","Wakefield",
+        "Reading","Lynnfield","Ashland","Hopkinton","Holliston","Medway","Millis","Milford",
+        "Hudson","Marlborough","Southborough","Westborough","Northborough","Dover","Medfield",
+        "Canton","Sharon","Stoughton","Norwood","Milton","Braintree"
       ],
       "knowsLanguage": ["en", "zh"],
       "memberOf": { "@type": "Organization", "name": "RE/MAX Executive Realty" },

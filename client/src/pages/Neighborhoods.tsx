@@ -58,6 +58,27 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
     document.head.appendChild(script);
   }, [slug]);
 
+  useEffect(() => {
+    if (!neighborhood) return;
+    let el = document.getElementById("breadcrumb-schema") as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement("script");
+      el.id = "breadcrumb-schema";
+      el.type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bostonhomeguide.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://bostonhomeguide.com/neighborhoods" },
+        { "@type": "ListItem", "position": 3, "name": `${neighborhood.name}, MA`, "item": `https://bostonhomeguide.com/neighborhoods/${neighborhood.slug}` },
+      ],
+    });
+    return () => { document.getElementById("breadcrumb-schema")?.remove(); };
+  }, [neighborhood]);
+
   if (!neighborhood) {
     return (
       <div className="min-h-screen bg-[#FAF8F4]">
