@@ -295,6 +295,23 @@ Contact Will for referrals to trusted home inspectors in Greater Boston.`,
 
 const categories = ["All", "Buyer Guide", "Seller Guide", "Finance", "Strategy", "Neighborhoods"];
 
+const townLinks: Record<string, string> = {
+  "Newton": "/neighborhoods/newton",
+  "Wellesley": "/neighborhoods/wellesley",
+  "Brookline": "/neighborhoods/brookline",
+  "Natick": "/neighborhoods/natick",
+  "Lexington": "/neighborhoods/lexington",
+  "Needham": "/neighborhoods/needham",
+  "Framingham": "/neighborhoods/framingham",
+  "Waltham": "/neighborhoods/waltham",
+  "Concord": "/neighborhoods/concord",
+  "Cambridge": "/neighborhoods/cambridge",
+  "Arlington": "/neighborhoods/arlington",
+  "Belmont": "/neighborhoods/belmont",
+  "Medford": "/neighborhoods/medford",
+  "Quincy": "/neighborhoods/quincy",
+};
+
 function ArticleDetail({ slug }: { slug: string }) {
   const article = articles.find((a) => a.slug === slug);
   const [email, setEmail] = useState("");
@@ -318,23 +335,6 @@ function ArticleDetail({ slug }: { slug: string }) {
     e.preventDefault();
     toast.success("You're subscribed to Will's Boston Real Estate Newsletter!");
     setEmail("");
-  };
-
-  const townLinks: Record<string, string> = {
-    "Newton": "/neighborhoods/newton",
-    "Wellesley": "/neighborhoods/wellesley",
-    "Brookline": "/neighborhoods/brookline",
-    "Natick": "/neighborhoods/natick",
-    "Lexington": "/neighborhoods/lexington",
-    "Needham": "/neighborhoods/needham",
-    "Framingham": "/neighborhoods/framingham",
-    "Waltham": "/neighborhoods/waltham",
-    "Concord": "/neighborhoods/concord",
-    "Cambridge": "/neighborhoods/cambridge",
-    "Arlington": "/neighborhoods/arlington",
-    "Belmont": "/neighborhoods/belmont",
-    "Medford": "/neighborhoods/medford",
-    "Quincy": "/neighborhoods/quincy",
   };
 
   const paragraphs = article.content.split("\n\n");
