@@ -468,11 +468,10 @@ export default function BlogPage() {
   });
   const params = useParams<{ slug?: string }>();
   const slug = params?.slug;
-
-  if (slug) return <ArticleDetail slug={slug} />;
-
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+
+  if (slug) return <ArticleDetail slug={slug} />;
 
   const filtered = articles.filter((a) => {
     const matchSearch = a.title.toLowerCase().includes(search.toLowerCase()) || a.excerpt.toLowerCase().includes(search.toLowerCase());
