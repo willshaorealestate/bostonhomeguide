@@ -279,9 +279,9 @@ export default function SellerPage() {
             />
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               {[
-                { value: "17%", label: "Higher sale price on average" },
-                { value: "73%", label: "Of buyers' agents say staging helps" },
-                { value: "50%", label: "Fewer days on market" },
+                { value: "1–10%", label: "Higher sale price for staged homes" },
+                { value: "86%", label: "Of buyers' agents say staging affects buyers" },
+                { value: "83%", label: "Of agents report staged homes sell faster" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4">
                   <p
