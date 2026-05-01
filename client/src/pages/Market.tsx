@@ -17,7 +17,7 @@ import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-skyline-night-k5Nv97BwMFAzzw7y57EB26.webp";
 
-// Last updated: March 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
+// Last updated: April 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [
   { month: "Sep '25", median: 779500, sales: 1678 },
   { month: "Oct '25", median: 810000, sales: 1871 },
@@ -26,6 +26,7 @@ const priceData = [
   { month: "Jan '26", median: 805000, sales: 1105 },
   { month: "Feb '26", median: 750000, sales:  943 },
   { month: "Mar '26", median: 810000, sales: 1233 },
+  { month: "Apr '26", median: 860000, sales: 1494 },
 ];
 
 const domData = [
@@ -36,18 +37,19 @@ const domData = [
   { month: "Jan '26", dom: 61 },
   { month: "Feb '26", dom: 63 },
   { month: "Mar '26", dom: 57 },
+  { month: "Apr '26", dom: 43 },
 ];
 
 const townData = [
-  { town: "Boston",     medianPrice:  775000, dom: 67, listToSale:  98.0, inventory: 554 },
-  { town: "Newton",     medianPrice: 1450000, dom: 56, listToSale:  99.0, inventory:  90 },
-  { town: "Wellesley",  medianPrice: 1825000, dom: 85, listToSale:  98.0, inventory:  24 },
-  { town: "Brookline",  medianPrice: 1675000, dom: 60, listToSale: 100.0, inventory:  70 },
-  { town: "Natick",     medianPrice:  915000, dom: 53, listToSale: 101.0, inventory:  16 },
-  { town: "Lexington",  medianPrice: 1715000, dom: 39, listToSale: 102.0, inventory:  26 },
-  { town: "Needham",    medianPrice: 2260000, dom: 80, listToSale:  99.0, inventory:  16 },
-  { town: "Framingham", medianPrice:  728000, dom: 31, listToSale: 103.0, inventory:  20 },
-  { town: "Waltham",    medianPrice:  815000, dom: 63, listToSale:  99.0, inventory:  13 },
+  { town: "Boston",     medianPrice:  830000, dom: 60, listToSale:  99.0, inventory: 838 },
+  { town: "Newton",     medianPrice: 1744450, dom: 43, listToSale: 100.0, inventory: 111 },
+  { town: "Wellesley",  medianPrice: 1902500, dom: 35, listToSale: 103.0, inventory:  41 },
+  { town: "Brookline",  medianPrice: 1425000, dom: 46, listToSale: 101.0, inventory:  81 },
+  { town: "Natick",     medianPrice:  960000, dom: 34, listToSale: 103.0, inventory:  44 },
+  { town: "Lexington",  medianPrice: 2125000, dom: 63, listToSale: 100.0, inventory:  71 },
+  { town: "Needham",    medianPrice: 1800000, dom: 38, listToSale: 102.0, inventory:  32 },
+  { town: "Framingham", medianPrice:  720000, dom: 51, listToSale: 102.0, inventory:  47 },
+  { town: "Waltham",    medianPrice:  850000, dom: 51, listToSale: 102.0, inventory:  33 },
 ];
 
 const formatPrice = (v: number) => `$${(v / 1000).toFixed(0)}K`;
@@ -55,7 +57,7 @@ const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
 export default function MarketPage() {
   useSEO({
-    title: "Greater Boston Real Estate Market Report | March 2026",
+    title: "Greater Boston Real Estate Market Report | April 2026",
     description: "Monthly market data for Greater Boston and MetroWest MA. Median prices, days on market, inventory, and list-to-sale ratios for Newton, Wellesley, Natick, Lexington, and more.",
     canonical: "https://bostonhomeguide.com/market",
   });
@@ -105,7 +107,7 @@ export default function MarketPage() {
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm font-body">
               <Calendar className="w-4 h-4" />
-              <span>Updated March 2026 · Next report: May 2026</span>
+              <span>Updated April 2026 · Next report: June 2026</span>
             </div>
           </div>
         </div>
@@ -116,10 +118,10 @@ export default function MarketPage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "$810,000", label: "Median Sale Price", change: "MLSPIN, Mar 2026" },
-              { value: "57 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
-              { value: "100%", label: "List-to-Sale Ratio", change: "At asking, on average" },
-              { value: "1.2 mo", label: "Months of Supply", change: "1,437 active / 1,233 sold" },
+              { value: "$860,000", label: "Median Sale Price", change: "MLSPIN, Apr 2026" },
+              { value: "43 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
+              { value: "102%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
+              { value: "1.7 mo", label: "Months of Supply", change: "2,590 active / 1,494 sold" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
@@ -165,7 +167,7 @@ export default function MarketPage() {
           {activeTab === "price" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                Median sale price trend across Greater Boston — Sep '25 through Mar '26
+                Median sale price trend across Greater Boston — Sep '25 through Apr '26
               </p>
               <ResponsiveContainer width="100%" height={320}>
                 <LineChart data={priceData}>
@@ -212,7 +214,7 @@ export default function MarketPage() {
           {activeTab === "towns" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                March 2026 market data by town — Source: MLSPIN
+                April 2026 market data by town — Source: MLSPIN
               </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm font-body">
@@ -254,36 +256,38 @@ export default function MarketPage() {
               <div>
                 <p className="text-sm text-[#C89B3C] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
                 <h3 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  March 2026 — What This Means for You
+                  April 2026 — What This Means for You
                 </h3>
               </div>
             </div>
             <div className="space-y-4 text-base text-gray-600 font-body leading-relaxed">
               <p>
-                Greater Boston's March market came in at a $810,000 median sale price across
-                single-family and condo sales — with 1,233 closed transactions and 1,437 active
-                listings, translating to just 1.2 months of supply. That's an extremely tight
-                market heading into spring.
+                April confirmed what March hinted at: spring 2026 is a strong seller's market.
+                The Greater Boston median sale price jumped to $860,000 — up $50,000 from March —
+                with 1,494 closed transactions and 2,590 active listings (1.7 months of supply).
+                The overall list-to-sale ratio hit 102%, meaning buyers are paying above asking
+                on average across the region.
               </p>
               <p>
-                <strong className="text-[#0D2137]">For Buyers:</strong> Days on market averaged
-                57 days, but that number masks significant variation by town. Lexington
-                (39 days) and Framingham (31 days) are moving fastest. Lexington is also running
-                at 102% list-to-sale, meaning expect to bid over asking. Come pre-approved and
-                with a clear price ceiling.
+                <strong className="text-[#0D2137]">For Buyers:</strong> Days on market dropped
+                sharply to 43 days — the fastest pace since last fall. Natick (34 days) and
+                Wellesley (35 days) are the hottest markets right now, both running at 103%
+                list-to-sale. Expect multiple-offer situations in these towns. Come fully
+                pre-approved, know your ceiling, and be ready to move quickly.
               </p>
               <p>
-                <strong className="text-[#0D2137]">For Sellers:</strong> The overall list-to-sale
-                ratio hit 100% in March — homes are selling right at asking price on average.
-                Wellesley and Newton are slightly below asking (98–99%), while Framingham and
-                Natick are above asking (101–103%), reflecting stronger relative demand at those
-                price points. Pricing strategy matters more than ever.
+                <strong className="text-[#0D2137]">For Sellers:</strong> April is an excellent
+                time to list. Every town tracked exceeded 99% list-to-sale, and six of nine
+                came in at 100% or above. Wellesley, Natick, Framingham, and Waltham all averaged
+                102–103%, meaning well-priced homes are drawing competitive offers. Inventory is
+                rising — list now to capture peak spring demand before more competition enters.
               </p>
               <p>
-                <strong className="text-[#0D2137]">Notable Standout:</strong> Needham's median
-                hit $2,260,000 in March — the highest among tracked towns. With only 16 active
-                listings, inventory is razor-thin. If you're considering Needham, acting early
-                in the season gives you the best selection.
+                <strong className="text-[#0D2137]">Notable Standout:</strong> Lexington's median
+                reached $2,125,000 in April with 71 active listings — the most inventory among
+                tracked towns, giving buyers slightly more breathing room at the top end. Still,
+                at 100% list-to-sale and 63 days on market, quality homes are moving. If you've
+                had Lexington on your list, now is a reasonable window to explore.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
