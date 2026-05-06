@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { isValidEmail } from "@/lib/fub";
+import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 
@@ -103,6 +104,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
       return;
     }
     toast.success(`You'll receive new listings in ${neighborhood.name} directly to your inbox!`);
+    trackLead("neighborhood-listing-alert");
     setEmail("");
   };
 

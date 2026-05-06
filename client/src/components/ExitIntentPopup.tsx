@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { toast } from "sonner";
 import { isValidEmail } from "@/lib/fub";
+import { trackLead } from "@/lib/analytics";
 
 export default function ExitIntentPopup() {
   const [visible, setVisible] = useState(false);
@@ -47,6 +48,7 @@ export default function ExitIntentPopup() {
       return;
     }
     toast.success("You're subscribed! Check your inbox for the Boston Market Report.");
+    trackLead("exit-intent-popup");
     setVisible(false);
     setDismissed(true);
   };

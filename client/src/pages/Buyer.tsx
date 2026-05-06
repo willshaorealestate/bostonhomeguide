@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
+import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
@@ -172,6 +173,7 @@ export default function BuyerPage() {
         ].filter(Boolean).join(" | "),
       });
       toast.success("Thank you! Will will be in touch within 1 business day.");
+      trackLead("buyer-inquiry");
       setForm({ name: "", email: "", phone: "", timeline: "", budget: "", towns: "", bedrooms: "", message: "", language: "english" });
     } catch {
       toast.error("Something went wrong. Please call (781) 456-3541 directly.");

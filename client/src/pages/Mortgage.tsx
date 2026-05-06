@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { useSEO } from "@/lib/seo";
+import { trackLead } from "@/lib/analytics";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
 function formatCurrency(n: number) {
@@ -212,6 +213,7 @@ export default function MortgagePage() {
   const handleLeadSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Great! Will will connect you with a trusted local lender within 1 business day.");
+    trackLead("mortgage-lender-connect");
     setLeadForm({ name: "", email: "", phone: "" });
   };
 
