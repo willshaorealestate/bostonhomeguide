@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
 import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
+import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
 export default function ContactPage() {
@@ -49,6 +50,7 @@ export default function ContactPage() {
         message: form.message,
       });
       toast.success("Message sent! Will responds within 1 business day.");
+      trackLead("contact-form");
       setForm({ name: "", email: "", phone: "", subject: "general", message: "", language: "english" });
     } catch {
       toast.error("Something went wrong. Please call (781) 456-3541 directly.");

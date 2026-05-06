@@ -15,6 +15,7 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PhotoComparisonCarousel from "@/components/PhotoComparisonCarousel";
 import { toast } from "sonner";
 import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
+import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
@@ -147,6 +148,7 @@ export default function SellerPage() {
         ].filter(Boolean).join(" | "),
       });
       toast.success("Thank you! Will will contact you within 1 business day with your free home valuation.");
+      trackLead("seller-valuation");
       setForm({ name: "", email: "", phone: "", address: "", city: "", beds: "", baths: "", sqft: "", timeline: "", reason: "", message: "" });
     } catch {
       toast.error("Something went wrong. Please call (781) 456-3541 directly.");

@@ -30,6 +30,7 @@ import FloatingCTA from "@/components/FloatingCTA";
 import BuyingProcessGuide from "@/components/BuyingProcessGuide";
 import { toast } from "sonner";
 import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
+import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-hero-QUAvLWQJDdVc4F5dNh4SWw.webp";
 const NEIGHBORHOOD_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
@@ -208,6 +209,7 @@ export default function HomePage() {
         message: fubForm.message,
       });
       toast.success("Got it! Will will be in touch within 24 hours.");
+      trackLead("home-contact");
       setFubForm({ firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: "" });
     } catch {
       toast.error("Something went wrong. Please call (781) 456-3541 directly.");

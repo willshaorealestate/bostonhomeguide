@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { useSEO } from "@/lib/seo";
+import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
 
@@ -334,6 +335,7 @@ function ArticleDetail({ slug }: { slug: string }) {
   const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("You're subscribed to Will's Boston Real Estate Newsletter!");
+    trackLead("blog-newsletter-signup");
     setEmail("");
   };
 

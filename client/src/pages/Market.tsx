@@ -14,6 +14,7 @@ import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { submitToFub } from "@/lib/fub";
 import { useSEO } from "@/lib/seo";
+import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-skyline-night-k5Nv97BwMFAzzw7y57EB26.webp";
 
@@ -77,6 +78,7 @@ export default function MarketPage() {
         interest: "market-report",
       });
       toast.success("You're subscribed! The next market report will be in your inbox.");
+      trackLead("market-report-signup");
       setEmail("");
     } catch {
       toast.error("Something went wrong. Please try again or call (781) 456-3541.");
