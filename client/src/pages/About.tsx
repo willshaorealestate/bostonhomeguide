@@ -4,7 +4,7 @@
  */
 import { Link } from "wouter";
 import {
-  Award, Star, Users, Home, Globe, Heart, CheckCircle, Quote
+  Award, Star, Users, Globe, Heart, CheckCircle, Quote
 } from "lucide-react";
 import { useSEO } from "@/lib/seo";
 import Navigation from "@/components/Navigation";
@@ -64,7 +64,7 @@ const credentials = [
   "REMAX Hall of Fame Award",
   "REMAX Platinum Level",
   "Top 100 Real Estate Agent in MA — 2025 (out of ~1,000 MA agents)",
-  "Consistently Top 20 in Office (150+ agents)",
+  "Consistently Top 20 in Office (170+ agents)",
   "Nearly 20 Years Greater Boston Experience",
   "Zillow Premier Agent — 5.0 Stars",
   "Conversational Mandarin",
@@ -73,7 +73,7 @@ const credentials = [
 ];
 
 const stats = [
-  { value: "212+", label: "Homes Sold" },
+  { value: "$120M+", label: "In Transactions" },
   { value: "~20 yrs", label: "Experience" },
   { value: "5.0★", label: "Zillow Rating" },
   { value: "48", label: "Reviews" },
@@ -84,7 +84,7 @@ const stats = [
 export default function AboutPage() {
   useSEO({
     title: "About Will Shao | RE/MAX Executive Realty | Greater Boston Realtor",
-    description: "Nearly 20 years experience, 212+ homes sold across Greater Boston and MetroWest MA. Will Shao is a top-rated RE/MAX agent with a 5.0★ Zillow rating. Bilingual English & Mandarin.",
+    description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Will Shao is a top-rated RE/MAX agent with a 5.0★ Zillow rating. Bilingual English & Mandarin.",
     canonical: "https://bostonhomeguide.com/about",
     schema: {
       "@context": "https://schema.org",
@@ -96,7 +96,7 @@ export default function AboutPage() {
       "email": "will@willshao.com",
       "knowsLanguage": ["en", "zh"],
       "worksFor": { "@type": "Organization", "name": "RE/MAX Executive Realty" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "212", "bestRating": "5" }
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "48", "bestRating": "5" }
     }
   });
   return (
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 REALTOR® · Buyer &amp; Seller Representation · REMAX Executive Realty
               </p>
               <p className="text-white/80 font-body text-base leading-relaxed mb-6">
-                Nearly 20 years of experience. 212+ homes sold.
+                Nearly 20 years of experience. $120M+ in transactions.
                 Serving Greater Boston and MetroWest MA with integrity and expertise.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -196,7 +196,7 @@ export default function AboutPage() {
                   deliver exceptional results. In 2025, he was named one of the Top 100 Real
                   Estate Agents in Massachusetts out of approximately 1,000 licensed agents
                   statewide, and he is consistently ranked in the Top 20 within his own office
-                  of more than 150 agents.
+                  of more than 170 agents.
                 </p>
                 <p>
                   His approach is simple: listen carefully, educate thoroughly, and negotiate
@@ -273,7 +273,7 @@ export default function AboutPage() {
               {
                 icon: Award,
                 title: "Professional Expertise",
-                desc: "Nearly 20 years of Greater Boston market knowledge, Top 100 in MA, and consistently Top 20 in his office of 150+ agents.",
+                desc: "Nearly 20 years of Greater Boston market knowledge, Top 100 in MA, and consistently Top 20 in his office of 170+ agents.",
               },
               {
                 icon: Users,

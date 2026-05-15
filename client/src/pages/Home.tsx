@@ -75,7 +75,7 @@ const testimonials = [
 
 const stats = [
   { value: "20", label: "Years Experience", icon: Clock },
-  { value: "212+", label: "Homes Sold", icon: Home },
+  { value: "$120M+", label: "In Transactions", icon: Home },
   { value: "5.0★", label: "Zillow Rating", icon: Star },
   { value: "70+", label: "Towns Served", icon: MapPin },
 ];
@@ -135,7 +135,7 @@ function useRealScoutSearch() {
 export default function HomePage() {
   useSEO({
     title: "Greater Boston & MetroWest Real Estate | Will Shao, RE/MAX",
-    description: "Nearly 20 years experience, 212+ homes sold across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, RE/MAX Executive Realty. 5.0★ Zillow.",
+    description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, RE/MAX Executive Realty. 5.0★ Zillow.",
     canonical: "https://bostonhomeguide.com/",
     schema: {
       "@context": "https://schema.org",
@@ -144,7 +144,7 @@ export default function HomePage() {
       "url": "https://bostonhomeguide.com",
       "telephone": "(781) 456-3541",
       "email": "will@willshao.com",
-      "description": "Nearly 20 years of experience, 212+ homes sold across Greater Boston and MetroWest MA.",
+      "description": "Nearly 20 years of experience, $120M+ in transactions across Greater Boston and MetroWest MA.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "969 Concord Street",
@@ -158,7 +158,7 @@ export default function HomePage() {
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "16:00" }
       ],
       "priceRange": "$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "212", "bestRating": "5" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "48", "bestRating": "5" },
       "areaServed": [
         "Boston","Newton","Wellesley","Brookline","Natick","Lexington","Needham","Framingham",
         "Waltham","Concord","Cambridge","Somerville","Arlington","Belmont","Medford","Quincy",
@@ -249,7 +249,7 @@ export default function HomePage() {
               in Greater Boston
             </h1>
             <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto font-body animate-fade-up delay-200">
-              Expert guidance from Will Shao — nearly 20 years, 212+ homes sold, serving Greater Boston's most sought-after towns.
+              Expert guidance from Will Shao — nearly 20 years, $120M+ in transactions, serving Greater Boston's most sought-after towns.
             </p>
 
             {/* RealScout Search Widget */}
@@ -573,7 +573,7 @@ export default function HomePage() {
                 Will Shao — Your Greater Boston Expert
               </h2>
               <p className="text-gray-600 font-body leading-relaxed mb-4">
-                With nearly 20 years of experience and 212+ successful transactions, Will Shao has
+                With nearly 20 years of experience and $120M+ in closed transactions, Will Shao has
                 built a reputation as the trusted guide for buyers and sellers across Greater
                 Boston and MetroWest Massachusetts.
               </p>
