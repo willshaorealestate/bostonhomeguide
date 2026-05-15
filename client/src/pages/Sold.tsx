@@ -122,7 +122,7 @@ export default function SoldPage() {
           <div className="grid grid-cols-3 gap-8 md:gap-16 text-center">
             {[
               { value: "103.4%", label: "Avg. List-to-Sale" },
-              { value: "212+", label: "Homes Sold" },
+              { value: "$120M+", label: "In Transactions" },
               { value: "5.0★", label: "Zillow Rating" },
             ].map((s) => (
               <div key={s.label}>

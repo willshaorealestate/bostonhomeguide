@@ -93,7 +93,7 @@ const marketingItems = [
 export default function SellerPage() {
   useSEO({
     title: "Sell Your Greater Boston Home for Top Dollar | Will Shao, RE/MAX",
-    description: "Will Shao's proven marketing strategy gets sellers maximum value — 103.4% list-to-sale ratio, avg 18 days on market, 212+ homes sold. Free home valuation. Greater Boston & MetroWest MA.",
+    description: "Will Shao's proven marketing strategy gets sellers maximum value — 103.4% list-to-sale ratio, avg 18 days on market, $120M+ in transactions. Free home valuation. Greater Boston & MetroWest MA.",
     canonical: "https://bostonhomeguide.com/sell",
     schema: {
       "@context": "https://schema.org",
@@ -200,7 +200,7 @@ export default function SellerPage() {
             </h1>
             <p className="text-white/80 font-body text-lg mb-8">
               Will Shao's proven marketing strategy and negotiation expertise have helped
-              212+ homeowners achieve top dollar in Greater Boston and MetroWest MA.
+              hundreds of homeowners achieve top dollar in Greater Boston and MetroWest MA.
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
               <a href="#valuation" className="btn-gold text-sm">
@@ -240,7 +240,7 @@ export default function SellerPage() {
             {[
               { value: "103.4%", label: "Avg. List-to-Sale Ratio" },
               { value: "18 days", label: "Avg. Days on Market" },
-              { value: "212+", label: "Homes Sold" },
+              { value: "$120M+", label: "In Transactions" },
               { value: "5.0★", label: "Zillow Rating" },
             ].map((s) => (
               <div key={s.label}>
