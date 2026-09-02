@@ -264,32 +264,36 @@ August 2026 — What This Means for You
             </div>
             <div className="space-y-4 text-base text-gray-600 font-body leading-relaxed">
               <p>
-                June 2026 was the strongest month of the year — 2,699 closed transactions
-                across Greater Boston, the highest volume since last summer. Inventory tightened
-                to just 0.7 months of supply (1,863 active listings), and the median sale price
-                rebounded to $860,000, matching April's peak. Days on market compressed further
-                to 33 days, and the region-wide list-to-sale ratio held at 102%.
+                August 2026 shows a market that's still tight but beginning to breathe. Closed
+                sales came in at 2,010 — down from July's peak of 2,701, which is typical seasonal
+                pullback as buyers and sellers step back before fall. The median sale price held
+                firm at $860,000, matching June's high, and months of supply compressed further to
+                just 0.6 months (1,264 active listings vs. 2,010 sales). Days on market ticked up
+                to 40, the first meaningful rise since winter.
               </p>
               <p>
-                <strong className="text-[#0D2137]">For Buyers:</strong> Competition is intense.
-                Waltham is the fastest market this month at just 23 days, and Natick and Wellesley
-                are both at 28–29 days. Brookline is the only town running below asking at 99% —
-                the best opportunity for a negotiation right now. Every other market is at 101%
-                or above. Come fully pre-approved and be prepared to move fast.
+                <strong className="text-[#0D2137]">For Buyers:</strong> The slight uptick in days
+                on market is the first sign of breathing room in months — but don't mistake it for
+                a buyer's market. Framingham leads all towns at 102% list-to-sale, and Natick and
+                Waltham are at 100%. Wellesley is the outlier: 97% list-to-sale and only 9 active
+                listings, but 33-day DOM suggests even that premium market is moving briskly. If
+                you've been waiting for leverage, Brookline and Newton (both at 98–99%) offer the
+                most room to negotiate right now.
               </p>
               <p>
-                <strong className="text-[#0D2137]">For Sellers:</strong> Summer 2026 is a
-                seller's market. With only 0.7 months of supply — the tightest reading in over
-                a year — demand is clearly outpacing supply. Needham (102%), Framingham (101%),
-                and Newton (101%) are all producing strong results. If you're thinking about
-                listing, the window before the fall slowdown is now.
+                <strong className="text-[#0D2137]">For Sellers:</strong> August is still your
+                market. Supply at 0.6 months is historically low — well below the 3–4 months that
+                would signal a balanced market. Prices are holding at year highs. The window
+                narrows once school starts and buyer urgency fades into October; if your home is
+                ready, list now rather than waiting for spring.
               </p>
               <p>
-                <strong className="text-[#0D2137]">Notable Standout:</strong> Needham's median
-                jumped to $1,758,000 in June — its highest reading this year — on 35 closed
-                sales. With only 19 active listings in town, Needham buyers face near-zero
-                inventory. If you're targeting Needham, expect a competitive process and plan
-                to act the moment a suitable home comes to market.
+                <strong className="text-[#0D2137]">Notable Standout:</strong> Wellesley's median
+                of $2,165,000 on only 9 active listings makes it the most constrained market in
+                the region. At 33 days on market and 97% list-to-sale, even luxury buyers in
+                Wellesley are not seeing significant discounts. Framingham continues to outperform
+                at 102% — the most competitive pricing dynamic of any town tracked this month, and
+                a strong signal for sellers in that price range.
               </p>
             </div>
             <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
