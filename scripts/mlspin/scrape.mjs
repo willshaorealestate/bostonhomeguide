@@ -183,47 +183,6 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
   return page.innerText('body');
 }
 
-async function findFrameWithForm(page) {
-  // Check main page first
-  if (await page.locator('a[href*="searchnow"]').count() > 0) return page;
-
-  // MLSPIN uses HTML framesets — search all child frames
-  for (const frame of page.frames()) {
-    if (frame === page.mainFrame()) continue;
-    try {
-      const count = await frame.locator('a[href*="searchnow"]').count();
-      if (count > 0) {
-        console.log(`    Found edit form in frame: ${frame.url()}`);
-        return frame;
-      }
-    } catch { /* frame not ready */ }
-  }
-
-  // Wait a moment and retry once (frame may still be loading)
-  await page.waitForTimeout(2000);
-  for (const frame of page.frames()) {
-    try {
-      const count = await frame.locator('a[href*="searchnow"]').count();
-      if (count > 0) return frame;
-    } catch { continue; }
-  }
-
-  console.log('    Warning: Search Now anchor not found in any frame — using main page');
-  return page;
-}
-
-async function findFrameWithResults(page) {
-  // Results page has "Active Listings" or "Sold Listings" text
-  if (await page.locator('text=Active Listings').count() > 0) return page;
-  for (const frame of page.frames()) {
-    if (frame === page.mainFrame()) continue;
-    try {
-      const count = await frame.locator('text=Active Listings').count();
-      if (count > 0) return frame;
-    } catch { continue; }
-  }
-  return page;
-}
 
 async function fillDates(page, startDate, endDate) {
   // Try filling the visible labeled inputs first ("Start Date:" / "End Date:" labels).
