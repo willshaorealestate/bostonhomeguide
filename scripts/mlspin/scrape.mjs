@@ -67,11 +67,19 @@ export async function scrapeMonth(username, password, year, month) {
 }
 
 async function dismissCookieConsent(page) {
-  // Remove the cookie consent modal from the DOM entirely so it can't
-  // intercept clicks intended for the Sign In button
+  const modal = page.locator('#cookieConsentBootstrapModal');
+  if (await modal.count() === 0) return;
+
+  // Must click the accept button — MLSPIN sets a consent cookie server-side
+  // that is required for login. JS-only removal skips this and breaks auth.
+  const btn = modal.getByRole('button').first();
+  if (await btn.count() > 0) {
+    await btn.click();
+    await modal.waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+  }
+
+  // Force-clear any remaining backdrop so it can't intercept the Sign In click
   await page.evaluate(() => {
-    const m = document.getElementById('cookieConsentBootstrapModal');
-    if (m) m.remove();
     document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
     document.body.classList.remove('modal-open');
     document.body.style.overflow = '';
