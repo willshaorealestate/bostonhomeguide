@@ -14,7 +14,7 @@ import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 
-const NEIGHBORHOOD_IMAGE = "https://images.unsplash.com/photo-1569701813229-33284b643e3c?w=1400&q=80";
+const NEIGHBORHOOD_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
 
 // TypeScript declaration for RealScout web component
 declare global {
