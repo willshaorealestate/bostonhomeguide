@@ -18,7 +18,7 @@ import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub"
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
+const HERO_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
 
 const sellingSteps = [
   {

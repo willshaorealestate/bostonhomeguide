@@ -16,7 +16,7 @@ import { submitToFub } from "@/lib/fub";
 import { useSEO } from "@/lib/seo";
 import { trackLead } from "@/lib/analytics";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-skyline-night-k5Nv97BwMFAzzw7y57EB26.webp";
+const HERO_IMAGE = "https://images.unsplash.com/photo-1501979376754-1ff6b5461f48?w=1400&q=80";
 
 // Last updated: August 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [

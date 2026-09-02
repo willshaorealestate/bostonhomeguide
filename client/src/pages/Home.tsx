@@ -32,10 +32,10 @@ import { toast } from "sonner";
 import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-hero-QUAvLWQJDdVc4F5dNh4SWw.webp";
-const NEIGHBORHOOD_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
-const CONSULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/photo_fb4939e0.jpg";
-const METROWEST_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
+const HERO_IMAGE = "/images/site/boston-hero.webp";
+const NEIGHBORHOOD_IMAGE = "https://images.unsplash.com/photo-1569701813229-33284b643e3c?w=1400&q=80";
+const CONSULT_IMAGE = "/images/site/photo.jpg";
+const METROWEST_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
 
 const neighborhoods = [
   { name: "Newton", type: "City", medianPrice: "{ name: "Newton", type: "City", medianPrice: .8M"Newton", type: "City", medianPrice: .4M", schools: "A+", img: "/images/towns/newton.jpeg" },

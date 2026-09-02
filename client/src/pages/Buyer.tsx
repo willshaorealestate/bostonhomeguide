@@ -16,7 +16,7 @@ import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-neighborhood-DGmdQCZgdpvwWuXmyhsZGU.webp";
+const HERO_IMAGE = "https://images.unsplash.com/photo-1569701813229-33284b643e3c?w=1400&q=80";
 
 const buyingSteps = [
   {
