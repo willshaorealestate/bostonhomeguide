@@ -13,7 +13,12 @@ const DEBUG = process.env.DEBUG === '1';
 const SCREENSHOT_DIR = resolve(__dirname, '../../debug-screenshots');
 
 const BASE_URL = 'https://h3b.mlspin.com';
-const MSHARE_URL = `${BASE_URL}/tools/mshare/`;
+
+// Edit form URLs — navigate directly, bypassing the mshare list entirely
+const REPORT_EDIT_URLS = {
+  'BostonHomeGuide - Monthly Market': `${BASE_URL}/tools/mshare/search.asp?ReportId=678031`,
+  'BostonHomeGuide - Towns monthly':  `${BASE_URL}/tools/mshare/search.asp?ReportId=678032`,
+};
 
 const TOWNS = [
   'Boston', 'Brookline', 'Framingham', 'Lexington',
@@ -155,44 +160,27 @@ async function login(page, username, password) {
 }
 
 async function runReport(page, searchName, startDate, endDate, townFilter, tag) {
-  await page.goto(MSHARE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await shot(page, `${tag}-01-mshare`);
+  const editUrl = REPORT_EDIT_URLS[searchName];
+  if (!editUrl) throw new Error(`No edit URL configured for: "${searchName}"`);
 
-  // Clicking a saved search by name runs the report and lands on results.asp.
-  // The ReportId is in that URL — use it to navigate directly to the edit form.
-  const row = page.locator('tr, li').filter({ hasText: searchName }).first();
-  await row.locator('a').first().click();
-  await page.waitForLoadState('networkidle', { timeout: 30000 });
-
-  const resultsUrl = new URL(page.url());
-  const reportId = resultsUrl.searchParams.get('ReportId');
-  if (!reportId) throw new Error(`Could not find ReportId in URL: ${page.url()}`);
-
-  const editUrl = `${BASE_URL}/tools/mshare/search.asp?ReportId=${reportId}`;
-  console.log(`    Edit form: ${editUrl}`);
+  // Navigate directly to the edit form — no mshare list interaction needed
   await page.goto(editUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await shot(page, `${tag}-01-edit-form`);
 
-  const frame = await findFrameWithForm(page);
-  await shot(page, `${tag}-02-search-loaded`);
+  await fillDates(page, startDate, endDate);
+  await shot(page, `${tag}-02-dates-set`);
 
-  // Set dates in whichever frame has the form
-  await fillDates(frame, startDate, endDate);
-  await shot(page, `${tag}-03-dates-set`);
-
-  // For town reports: select only the target town
   if (townFilter) {
-    await selectOnlyTown(frame, townFilter);
-    await shot(page, `${tag}-04-town-selected`);
+    await selectOnlyTown(page, townFilter);
+    await shot(page, `${tag}-03-town-selected`);
   }
 
-  // Click Search Now — it's <a href="javascript:searchnow();"> in the toolbar
-  await frame.locator('a[href*="searchnow"]').first().click();
+  // Search Now is <a href="javascript:searchnow();"> in the Pinergy toolbar
+  await page.locator('a[href*="searchnow"]').first().click();
   await page.waitForLoadState('networkidle', { timeout: 30000 });
-  await shot(page, `${tag}-05-results`);
+  await shot(page, `${tag}-04-results`);
 
-  // Results may load in the same frame or the main page — grab whichever has content
-  const resultsFrame = await findFrameWithResults(page);
-  return resultsFrame.innerText('body');
+  return page.innerText('body');
 }
 
 async function findFrameWithForm(page) {
