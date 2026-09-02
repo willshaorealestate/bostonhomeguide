@@ -67,23 +67,15 @@ export async function scrapeMonth(username, password, year, month) {
 }
 
 async function dismissCookieConsent(page) {
-  // MLSPIN shows a cookie consent modal that blocks clicks — dismiss it first
-  const modal = page.locator('#cookieConsentBootstrapModal');
-  if (await modal.count() > 0) {
-    // Try clicking any accept/OK button inside the modal
-    const btn = modal.getByRole('button').first();
-    if (await btn.count() > 0) {
-      await btn.click().catch(() => {});
-    }
-    // Force-hide the modal via JS in case the button click didn't work
-    await page.evaluate(() => {
-      const m = document.getElementById('cookieConsentBootstrapModal');
-      if (m) m.style.display = 'none';
-      document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-      document.body.classList.remove('modal-open');
-    });
-    console.log('  Cookie consent dismissed.');
-  }
+  // Force-hide the cookie consent modal via JS — safer than clicking a button
+  // which could navigate away before credentials are filled
+  await page.evaluate(() => {
+    const m = document.getElementById('cookieConsentBootstrapModal');
+    if (m) m.style.display = 'none';
+    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+    document.body.classList.remove('modal-open');
+  });
+  console.log('  Cookie consent dismissed.');
 }
 
 async function login(page, username, password) {
@@ -101,8 +93,11 @@ async function login(page, username, password) {
   await page.waitForLoadState('networkidle', { timeout: 20000 });
   await shot(page, '03-post-login');
 
-  if (page.url().toLowerCase().includes('login') || page.url().toLowerCase().includes('signin')) {
-    throw new Error('Login failed — still on login page. Check MLSPIN_USER / MLSPIN_PASS.');
+  // Detect login failure: still has a password field visible (login form still showing)
+  const stillHasPassword = await page.locator('input[type="password"]:visible').count() > 0;
+  if (stillHasPassword) {
+    const pageUrl = page.url();
+    throw new Error(`Login failed — still on login page (${pageUrl}). Check MLSPIN_USER / MLSPIN_PASS secrets.`);
   }
   console.log('  Logged in.');
 }
