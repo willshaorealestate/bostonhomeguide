@@ -199,7 +199,7 @@ export function updateNeighborhoodTs(townMap) {
     // Match slug field, then find medianPrice within the same object (within 300 chars)
     c = c.replace(
       new RegExp(`(slug:\\s*"${slug}"[\\s\\S]{0,300}?medianPrice:\\s*)"[^"]+"`),
-      `$1"${price}"`
+      (_, prefix) => `${prefix}"${price}"`
     );
   }
 
