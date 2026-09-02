@@ -158,21 +158,13 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
   await page.goto(MSHARE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await shot(page, `${tag}-01-mshare`);
 
-  // Get the Edit link's href and navigate directly to it — more reliable than clicking
-  // because clicking can mis-navigate or race against page load.
-  const editLink = page.locator('tr').filter({ hasText: searchName })
-    .locator('a').filter({ hasText: /^edit$/i }).first();
-  const editHref = await editLink.getAttribute('href').catch(() => null);
-
-  if (editHref) {
-    const editUrl = editHref.startsWith('http')
-      ? editHref
-      : `${BASE_URL}/tools/mshare/${editHref.replace(/^\/tools\/mshare\//, '')}`;
-    console.log(`    Edit URL: ${editUrl}`);
-    await page.goto(editUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  // Click the Edit button/link next to the saved search name
+  const row = page.locator('tr, li').filter({ hasText: searchName }).first();
+  const editBtn = row.getByText('Edit', { exact: true });
+  if (await editBtn.count() > 0) {
+    await editBtn.click();
   } else {
-    // Fallback: click the Edit button
-    await editLink.click();
+    await page.getByText(searchName, { exact: false }).first().click();
   }
 
   // MLSPIN uses HTML framesets. Find the frame that contains the edit form.
