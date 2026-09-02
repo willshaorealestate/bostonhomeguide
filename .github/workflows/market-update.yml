@@ -1,0 +1,87 @@
+name: Update Market Data (MLSPIN)
+
+on:
+  schedule:
+    # 5th of each month at 9am ET (14:00 UTC) — previous month data is finalized by then
+    - cron: '0 14 5 * *'
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Year (e.g. 2026)'
+        required: true
+        default: '2026'
+      month:
+        description: 'Month number 1–12'
+        required: true
+        default: '7'
+      second_year:
+        description: 'Second month year (optional — leave blank if only one month)'
+        required: false
+        default: ''
+      second_month:
+        description: 'Second month number (optional)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  update-market:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Determine target months
+        id: months
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            # Scheduled run: target previous calendar month
+            YEAR=$(date -u -d "$(date +%Y-%m-01) -1 month" +%Y)
+            MONTH=$(date -u -d "$(date +%Y-%m-01) -1 month" +%-m)
+            echo "args=$YEAR $MONTH" >> $GITHUB_OUTPUT
+            echo "label=$(date -u -d "$(date +%Y-%m-01) -1 month" +"%B %Y")" >> $GITHUB_OUTPUT
+          else
+            ARGS="${{ inputs.year }} ${{ inputs.month }}"
+            LABEL="${{ inputs.month }}/${{ inputs.year }}"
+            if [ -n "${{ inputs.second_month }}" ]; then
+              ARGS="$ARGS ${{ inputs.second_year }} ${{ inputs.second_month }}"
+              LABEL="$LABEL and ${{ inputs.second_month }}/${{ inputs.second_year }}"
+            fi
+            echo "args=$ARGS" >> $GITHUB_OUTPUT
+            echo "label=$LABEL" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run MLSPIN scraper
+        env:
+          MLSPIN_USER: ${{ secrets.MLSPIN_USER }}
+          MLSPIN_PASS: ${{ secrets.MLSPIN_PASS }}
+        run: node scripts/mlspin/index.mjs ${{ steps.months.outputs.args }}
+
+      - name: Commit and push
+        run: |
+          git config user.name "willshaorealestate"
+          git config user.email "will@willshao.com"
+          git add client/src/pages/Market.tsx client/src/pages/Home.tsx client/src/data/neighborhoods.ts
+          if git diff --cached --quiet; then
+            echo "No changes detected — data may already be current."
+            exit 0
+          fi
+          git commit -m "Update market data to ${{ steps.months.outputs.label }} (MLSPIN)"
+          git push
