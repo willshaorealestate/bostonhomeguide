@@ -100,7 +100,6 @@ export default function WhyItDidntSell() {
             return (
               <motion.div
                 key={p.label}
-                style={cardMotion[i] as any}
                 className={`relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br ${p.gradient} flex flex-row md:flex-col items-center gap-5 md:gap-0 md:justify-between p-5 md:p-8`}
                 style={{
                   ...(cardMotion[i] as any),
