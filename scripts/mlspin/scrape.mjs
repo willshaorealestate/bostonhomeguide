@@ -116,11 +116,19 @@ async function login(page, username, password) {
 }
 
 async function runReport(page, searchName, startDate, endDate, townFilter, tag) {
-  await page.goto(MSHARE_URL, { waitUntil: 'domcontentloaded', timeout: 20000 });
+  await page.goto(MSHARE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await shot(page, `${tag}-01-mshare`);
 
-  // Click the saved search by name
-  await page.getByText(searchName, { exact: false }).first().click();
+  // Click the Edit button in the row containing the saved search name —
+  // the Edit button opens the form with date fields and run button
+  const row = page.locator('tr, li').filter({ hasText: searchName }).first();
+  const editBtn = row.getByText('Edit', { exact: true });
+  if (await editBtn.count() > 0) {
+    await editBtn.click();
+  } else {
+    // Fallback: click the report name link directly
+    await page.getByText(searchName, { exact: false }).first().click();
+  }
   await page.waitForLoadState('networkidle', { timeout: 15000 });
   await shot(page, `${tag}-02-search-loaded`);
 
