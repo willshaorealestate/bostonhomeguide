@@ -59,10 +59,29 @@ export async function scrapeMonth(username, password, year, month) {
       console.log(`    median=$${t.medianPrice.toLocaleString()}, DOM=${t.dom}, SP:LP=${t.spLp}%, inv=${t.inventory}`);
     }
 
+    // Sign out before closing
+    await signOut(page);
+
     return { area, towns };
 
   } finally {
     await browser.close();
+  }
+}
+
+async function signOut(page) {
+  try {
+    await page.goto(`${BASE_URL}/tools/mshare/`, { waitUntil: 'domcontentloaded', timeout: 15000 });
+    const signOutLink = page.getByRole('link', { name: /sign\s*out/i })
+      .or(page.locator('a[href*="signout" i], a[href*="logout" i], a[href*="sign-out" i]'))
+      .first();
+    if (await signOutLink.count() > 0) {
+      await signOutLink.click();
+      await page.waitForLoadState('domcontentloaded', { timeout: 10000 }).catch(() => {});
+      console.log('  Signed out.');
+    }
+  } catch {
+    // Non-fatal — browser closes anyway
   }
 }
 
@@ -142,17 +161,24 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
     await shot(page, `${tag}-04-town-selected`);
   }
 
-  // Click the search/submit button — try several patterns since MLSPIN's button
-  // text and type varies by page
-  const searchBtn = await findFirst(page, [
-    'input[type="submit"][value*="Search" i]',
-    'input[type="submit"][value*="Run" i]',
-    'input[type="submit"]',
-    'button[type="submit"]',
-    'a.btn:has-text("Search")',
-  ]);
-  if (!searchBtn) throw new Error('Search button not found. Run with DEBUG=1.');
-  await searchBtn.click();
+  // Click Search Now — it appears as a link/button in the Pinergy toolbar.
+  // Try the broadest selectors first, then fall back to form.submit().
+  const searchBtn = page
+    .getByRole('link', { name: /search\s*now/i })
+    .or(page.getByRole('button', { name: /search\s*now/i }))
+    .or(page.locator('a, button').filter({ hasText: /search\s*now/i })
+    .or(page.locator('input[type="image"][alt*="Search" i]'))
+    .or(page.locator('input[type="submit"]')))
+    .first();
+
+  const foundBtn = await searchBtn.count() > 0;
+  if (foundBtn) {
+    await searchBtn.click();
+  } else {
+    // Last resort: submit the form directly via JS
+    console.log('    Search Now button not found via locator — submitting form via JS');
+    await page.evaluate(() => { document.querySelector('form')?.submit(); });
+  }
   await page.waitForLoadState('networkidle', { timeout: 30000 });
   await shot(page, `${tag}-05-results`);
 
@@ -160,69 +186,102 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
 }
 
 async function fillDates(page, startDate, endDate) {
-  // MLSPIN uses hidden inputs (argStartDate / argEndDate) as the actual form values.
-  // Set them via JS to bypass visibility checks, then fire change events so any
-  // visible date picker widgets stay in sync.
+  // Try filling the visible labeled inputs first ("Start Date:" / "End Date:" labels).
+  // getByLabel matches <label for="..."> elements and implicit label wrapping.
+  const startByLabel = page.getByLabel(/start date/i);
+  const endByLabel   = page.getByLabel(/end date/i);
+
+  if (await startByLabel.count() > 0) {
+    await startByLabel.first().fill(startDate);
+    await endByLabel.first().fill(endDate);
+    // Fire change so MLSPIN's JS syncs any hidden fields
+    await startByLabel.first().dispatchEvent('change');
+    await endByLabel.first().dispatchEvent('change');
+    return;
+  }
+
+  // Fallback: set hidden argStartDate / argEndDate fields via JS
   const set = await page.evaluate(({ start, end }) => {
-    const startEl = document.querySelector('input[name="argStartDate"], input[name*="StartDate"], input[name*="startDate"]');
-    const endEl   = document.querySelector('input[name="argEndDate"],   input[name*="EndDate"],   input[name*="endDate"]');
+    const startEl = document.querySelector('input[name="argStartDate"]')
+      || document.querySelector('input[name*="StartDate"]')
+      || document.querySelector('input[name*="startDate"]');
+    const endEl = document.querySelector('input[name="argEndDate"]')
+      || document.querySelector('input[name*="EndDate"]')
+      || document.querySelector('input[name*="endDate"]');
     if (!startEl) return 'start field not found';
     if (!endEl)   return 'end field not found';
     startEl.value = start;
     endEl.value   = end;
     startEl.dispatchEvent(new Event('change', { bubbles: true }));
     endEl.dispatchEvent(new Event('change', { bubbles: true }));
+    // Also update any visible text inputs nearby
+    document.querySelectorAll('input[type="text"]').forEach(el => {
+      const ctx = el.id + el.name + el.placeholder;
+      if (/start/i.test(ctx)) { el.value = start; el.dispatchEvent(new Event('change', { bubbles: true })); }
+      if (/end/i.test(ctx))   { el.value = end;   el.dispatchEvent(new Event('change', { bubbles: true })); }
+    });
     return 'ok';
   }, { start: startDate, end: endDate });
 
   if (set !== 'ok') throw new Error(`Date fill failed: ${set}. Run with DEBUG=1.`);
-
-  // Also try to update any visible text inputs that mirror the hidden fields
-  await page.evaluate(({ start, end }) => {
-    document.querySelectorAll('input[type="text"]').forEach(el => {
-      if (/start/i.test(el.id + el.name + el.placeholder)) {
-        el.value = start;
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-      if (/end/i.test(el.id + el.name + el.placeholder)) {
-        el.value = end;
-        el.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-    });
-  }, { start: startDate, end: endDate });
 }
 
 async function selectOnlyTown(page, targetTown) {
-  // First try Playwright's smart label matching
-  let matched = false;
-  for (const town of TOWNS) {
-    const cb = page.getByLabel(town, { exact: true });
-    if (await cb.count() > 0) {
-      matched = true;
-      const checked = await cb.first().isChecked();
-      if (town === targetTown && !checked) await cb.first().check();
-      if (town !== targetTown && checked)  await cb.first().uncheck();
-    }
-  }
-  if (matched) return;
+  // MLSPIN uses a dual-listbox: Available towns (left <select>) and Selected towns
+  // (right <select>). Towns appear as "Boston, MA" with state suffix.
+  // We use JS to directly clear the right list and add only the target town.
+  const targetWithState = `${targetTown}, MA`;
 
-  // Fallback: iterate all checkboxes and match by associated label element
-  const allCheckboxes = await page.locator('input[type="checkbox"]').all();
-  for (const cb of allCheckboxes) {
-    const id = await cb.getAttribute('id').catch(() => '');
-    let labelText = '';
-    if (id) {
-      labelText = (await page.locator(`label[for="${id}"]`).textContent().catch(() => '') ?? '').trim();
-    }
-    if (!labelText) {
-      labelText = (await cb.getAttribute('value') ?? '').trim();
-    }
-    if (!TOWNS.includes(labelText)) continue;
+  const result = await page.evaluate((target) => {
+    // Find all <select> elements that contain town-like options ("City, MA")
+    const townSelects = Array.from(document.querySelectorAll('select')).filter(s =>
+      Array.from(s.options).some(o => /,\s*MA$/i.test(o.text))
+    );
 
-    const checked = await cb.isChecked();
-    if (labelText === targetTown && !checked) await cb.check();
-    if (labelText !== targetTown && checked)  await cb.uncheck();
-  }
+    if (townSelects.length === 0) return 'no town select elements found';
+
+    if (townSelects.length === 1) {
+      // Single select: just select only the target option
+      const sel = townSelects[0];
+      let found = false;
+      Array.from(sel.options).forEach(o => {
+        o.selected = o.text === target;
+        if (o.text === target) found = true;
+      });
+      return found ? 'ok-single' : `"${target}" not in single select`;
+    }
+
+    // Dual listbox: first select = available (left), last select = selected (right)
+    const available = townSelects[0];
+    const selected  = townSelects[townSelects.length - 1];
+
+    // Move everything from "selected" back to "available"
+    const toReturn = Array.from(selected.options).map(o => [o.text, o.value]);
+    while (selected.options.length > 0) selected.options[0].remove();
+    toReturn.forEach(([text, value]) => available.add(new Option(text, value)));
+
+    // Find target in available and move to selected
+    const idx = Array.from(available.options).findIndex(o => o.text === target);
+    if (idx === -1) {
+      // Try prefix match (e.g. "Boston" matches "Boston, MA")
+      const fuzzyIdx = Array.from(available.options).findIndex(o =>
+        o.text.startsWith(target.replace(', MA', ''))
+      );
+      if (fuzzyIdx === -1) return `"${target}" not found in available list`;
+      const opt = available.options[fuzzyIdx];
+      selected.add(new Option(opt.text, opt.value));
+      available.options[fuzzyIdx].remove();
+      return 'ok-fuzzy';
+    }
+
+    const opt = available.options[idx];
+    selected.add(new Option(opt.text, opt.value));
+    available.options[idx].remove();
+    return 'ok';
+  }, targetWithState);
+
+  console.log(`    Town select (${targetTown}): ${result}`);
+  if (!result.startsWith('ok')) throw new Error(`Town selection failed: ${result}`);
 }
 
 async function findFirst(page, selectors) {
