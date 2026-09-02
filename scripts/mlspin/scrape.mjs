@@ -134,13 +134,17 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
     await shot(page, `${tag}-04-town-selected`);
   }
 
-  // Click Search Now
-  const btn = page
-    .getByRole('button', { name: /search\s*now/i })
-    .or(page.locator('input[type="submit"]').filter({ hasText: /search/i }))
-    .or(page.getByText('Search Now', { exact: false }))
-    .first();
-  await btn.click();
+  // Click the search/submit button — try several patterns since MLSPIN's button
+  // text and type varies by page
+  const searchBtn = await findFirst(page, [
+    'input[type="submit"][value*="Search" i]',
+    'input[type="submit"][value*="Run" i]',
+    'input[type="submit"]',
+    'button[type="submit"]',
+    'a.btn:has-text("Search")',
+  ]);
+  if (!searchBtn) throw new Error('Search button not found. Run with DEBUG=1.');
+  await searchBtn.click();
   await page.waitForLoadState('networkidle', { timeout: 30000 });
   await shot(page, `${tag}-05-results`);
 
