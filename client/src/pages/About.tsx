@@ -139,11 +139,11 @@ export default function AboutPage() {
               </div>
             </div>
             {/* Photo */}
-            <div className="flex items-end justify-center lg:justify-end">
+            <div className="flex items-start justify-center lg:justify-end">
               <img
                 src={WILL_BG}
                 alt="Will Shao — Greater Boston REALTOR®"
-                className="w-full max-w-sm lg:max-w-md object-cover object-top rounded-t-lg"
+                className="w-full max-w-sm lg:max-w-md object-cover object-center rounded-t-lg"
                 style={{ maxHeight: "480px" }}
               />
             </div>
