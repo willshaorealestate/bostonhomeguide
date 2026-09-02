@@ -38,13 +38,13 @@ const CONSULT_IMAGE = "/images/site/photo.jpg";
 const METROWEST_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
 
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "{ name: "Newton", type: "City", medianPrice: .8M"Newton", type: "City", medianPrice: .4M", schools: "A+", img: "/images/towns/newton.jpeg" },
+  { name: "Newton", type: "City", medianPrice: "$1.8M", schools: "A+", img: "/images/towns/newton.jpeg" },
   { name: "Wellesley", type: "Town", medianPrice: "$2.17M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
-  { name: "Brookline", type: "Town", medianPrice: "{ name: "Brookline", type: "Town", medianPrice: .19M"Brookline", type: "Town", medianPrice: .44M", schools: "A", img: "/images/towns/brookline.jpeg" },
+  { name: "Brookline", type: "Town", medianPrice: "$1.19M", schools: "A", img: "/images/towns/brookline.jpeg" },
   { name: "Natick", type: "Town", medianPrice: "$858K", schools: "A", img: "/images/towns/natick.jpeg" },
-  { name: "Lexington", type: "Town", medianPrice: "{ name: "Lexington", type: "Town", medianPrice: .71M"Lexington", type: "Town", medianPrice: .58M", schools: "A+", img: "/images/towns/lexington.jpeg" },
+  { name: "Lexington", type: "Town", medianPrice: "$1.71M", schools: "A+", img: "/images/towns/lexington.jpeg" },
   { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Needham", type: "Town", medianPrice: "{ name: "Needham", type: "Town", medianPrice: .44M"Needham", type: "Town", medianPrice: .7M", schools: "A", img: "/images/towns/needham.jpeg" },
+  { name: "Needham", type: "Town", medianPrice: "$1.44M", schools: "A", img: "/images/towns/needham.jpeg" },
   { name: "Framingham", type: "City", medianPrice: "$685K", schools: "B+", img: "/images/towns/framingham.jpeg" },
 ];
 
