@@ -162,22 +162,27 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
   }
 
   // Search Now is <a href="javascript:searchnow()"> in the Pinergy toolbar.
-  // Call searchnow() directly via JS — most reliable across UI variations.
-  const ran = await page.evaluate(() => {
-    if (typeof searchnow === 'function') { searchnow(); return true; }
-    return false;
-  });
-  if (!ran) {
-    // Fallback: click the anchor by text or submit the form
-    const btn = page.locator('a').filter({ hasText: /search\s*now/i })
-      .or(page.getByRole('button', { name: /search\s*now/i }))
-      .first();
-    if (await btn.count() > 0) {
-      await btn.click();
-    } else {
-      console.log('    searchnow() not found — submitting form via JS');
-      await page.evaluate(() => { document.querySelector('form')?.submit(); });
-    }
+  // Click the anchor directly by its href — most reliable approach.
+  const searchAnchor = page.locator('a[href*="searchnow"]')
+    .or(page.locator('a').filter({ hasText: /search\s*now/i }))
+    .or(page.getByRole('button', { name: /search\s*now/i }))
+    .first();
+
+  if (await searchAnchor.count() > 0) {
+    await searchAnchor.click();
+  } else {
+    // Nuclear fallback: find the anchor in the DOM and trigger its onclick/href
+    const clicked = await page.evaluate(() => {
+      const a = Array.from(document.querySelectorAll('a')).find(
+        el => /searchnow/i.test(el.href) || /search\s*now/i.test(el.textContent)
+      );
+      if (a) { a.click(); return true; }
+      // Last resort: submit the form
+      const form = document.querySelector('form[action*="results"]') || document.querySelector('form');
+      if (form) { form.submit(); return 'form'; }
+      return false;
+    });
+    console.log(`    Search Now fallback result: ${clicked}`);
   }
   await page.waitForLoadState('networkidle', { timeout: 30000 });
   await shot(page, `${tag}-05-results`);
