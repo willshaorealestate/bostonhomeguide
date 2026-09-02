@@ -158,34 +158,20 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
   await page.goto(MSHARE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await shot(page, `${tag}-01-mshare`);
 
-  // Click the Edit button/link next to the saved search name
+  // Clicking a saved search by name runs the report and lands on results.asp.
+  // The ReportId is in that URL — use it to navigate directly to the edit form.
   const row = page.locator('tr, li').filter({ hasText: searchName }).first();
-  const editBtn = row.getByText('Edit', { exact: true });
-  if (await editBtn.count() > 0) {
-    await editBtn.click();
-  } else {
-    await page.getByText(searchName, { exact: false }).first().click();
-  }
+  await row.locator('a').first().click();
+  await page.waitForLoadState('networkidle', { timeout: 30000 });
 
-  // Diagnostics: log exactly what Playwright sees after clicking Edit
-  await page.waitForLoadState('domcontentloaded', { timeout: 15000 });
-  console.log(`    [diag] main URL: ${page.url()}`);
-  const allFrames = page.frames();
-  console.log(`    [diag] total frames: ${allFrames.length}`);
-  for (const f of allFrames) {
-    try {
-      const anchors = await f.evaluate(() =>
-        Array.from(document.querySelectorAll('a[href]'))
-          .map(a => a.getAttribute('href'))
-          .filter(h => h && h.includes('javascript'))
-          .slice(0, 5)
-      );
-      const forms = await f.locator('form').count();
-      console.log(`    [diag] frame ${f.url()} | forms:${forms} | js-hrefs:${JSON.stringify(anchors)}`);
-    } catch (e) {
-      console.log(`    [diag] frame ${f.url()} | error: ${e.message}`);
-    }
-  }
+  const resultsUrl = new URL(page.url());
+  const reportId = resultsUrl.searchParams.get('ReportId');
+  if (!reportId) throw new Error(`Could not find ReportId in URL: ${page.url()}`);
+
+  const editUrl = `${BASE_URL}/tools/mshare/search.asp?ReportId=${reportId}`;
+  console.log(`    Edit form: ${editUrl}`);
+  await page.goto(editUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+
   const frame = await findFrameWithForm(page);
   await shot(page, `${tag}-02-search-loaded`);
 
