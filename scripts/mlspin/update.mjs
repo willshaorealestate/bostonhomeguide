@@ -153,7 +153,7 @@ export function updateHomeTsx(area, townMap, year, month) {
     const price = formatPriceShort(townMap[town].medianPrice);
     c = c.replace(
       new RegExp(`(\\{ name: "${town}", type: "[^"]+", medianPrice: )"[^"]+"`),
-      `$1"${price}"`
+      (_, prefix) => `${prefix}"${price}"`
     );
   }
 
