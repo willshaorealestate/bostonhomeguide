@@ -167,8 +167,15 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
     await page.getByText(searchName, { exact: false }).first().click();
   }
 
-  // MLSPIN uses HTML framesets. Find the frame that contains the edit form.
+  // Log what page/frames Playwright sees after clicking Edit
   await page.waitForLoadState('domcontentloaded', { timeout: 15000 });
+  console.log(`    Main page URL: ${page.url()}`);
+  const allFrames = page.frames();
+  console.log(`    Frame count: ${allFrames.length}`);
+  for (const f of allFrames) {
+    const searchnowCount = await f.locator('a[href*="searchnow"]').count().catch(() => -1);
+    console.log(`    Frame: ${f.url()} | searchnow anchors: ${searchnowCount}`);
+  }
   const frame = await findFrameWithForm(page);
   await shot(page, `${tag}-02-search-loaded`);
 
