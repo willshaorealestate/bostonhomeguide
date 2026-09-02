@@ -71,7 +71,7 @@ export default function ExitIntentPopup() {
         <div
           className="relative h-40 bg-[#0D2137] flex flex-col items-center justify-center text-center px-6"
           style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1501979376754-1ff6b5461f48?w=1400&q=80)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1549728968-5aaff42193ab?w=1400&q=80)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
