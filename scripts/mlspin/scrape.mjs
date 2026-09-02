@@ -158,56 +158,88 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
   await page.goto(MSHARE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await shot(page, `${tag}-01-mshare`);
 
-  // Click the Edit button in the row containing the saved search name —
-  // the Edit button opens the form with date fields and run button
-  const row = page.locator('tr, li').filter({ hasText: searchName }).first();
-  const editBtn = row.getByText('Edit', { exact: true });
-  if (await editBtn.count() > 0) {
-    await editBtn.click();
+  // Get the Edit link's href and navigate directly to it — more reliable than clicking
+  // because clicking can mis-navigate or race against page load.
+  const editLink = page.locator('tr').filter({ hasText: searchName })
+    .locator('a').filter({ hasText: /^edit$/i }).first();
+  const editHref = await editLink.getAttribute('href').catch(() => null);
+
+  if (editHref) {
+    const editUrl = editHref.startsWith('http')
+      ? editHref
+      : `${BASE_URL}/tools/mshare/${editHref.replace(/^\/tools\/mshare\//, '')}`;
+    console.log(`    Edit URL: ${editUrl}`);
+    await page.goto(editUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
   } else {
-    // Fallback: click the report name link directly
-    await page.getByText(searchName, { exact: false }).first().click();
+    // Fallback: click the Edit button
+    await editLink.click();
   }
-  await page.waitForLoadState('networkidle', { timeout: 15000 });
+
+  // MLSPIN uses HTML framesets. Find the frame that contains the edit form.
+  await page.waitForLoadState('domcontentloaded', { timeout: 15000 });
+  const frame = await findFrameWithForm(page);
   await shot(page, `${tag}-02-search-loaded`);
 
-  // Set dates
-  await fillDates(page, startDate, endDate);
+  // Set dates in whichever frame has the form
+  await fillDates(frame, startDate, endDate);
   await shot(page, `${tag}-03-dates-set`);
 
   // For town reports: select only the target town
   if (townFilter) {
-    await selectOnlyTown(page, townFilter);
+    await selectOnlyTown(frame, townFilter);
     await shot(page, `${tag}-04-town-selected`);
   }
 
-  // Search Now is <a href="javascript:searchnow()"> in the Pinergy toolbar.
-  // Click the anchor directly by its href — most reliable approach.
-  const searchAnchor = page.locator('a[href*="searchnow"]')
-    .or(page.locator('a').filter({ hasText: /search\s*now/i }))
-    .or(page.getByRole('button', { name: /search\s*now/i }))
-    .first();
-
-  if (await searchAnchor.count() > 0) {
-    await searchAnchor.click();
-  } else {
-    // Nuclear fallback: find the anchor in the DOM and trigger its onclick/href
-    const clicked = await page.evaluate(() => {
-      const a = Array.from(document.querySelectorAll('a')).find(
-        el => /searchnow/i.test(el.href) || /search\s*now/i.test(el.textContent)
-      );
-      if (a) { a.click(); return true; }
-      // Last resort: submit the form
-      const form = document.querySelector('form[action*="results"]') || document.querySelector('form');
-      if (form) { form.submit(); return 'form'; }
-      return false;
-    });
-    console.log(`    Search Now fallback result: ${clicked}`);
-  }
+  // Click Search Now — it's <a href="javascript:searchnow();"> in the toolbar
+  await frame.locator('a[href*="searchnow"]').first().click();
   await page.waitForLoadState('networkidle', { timeout: 30000 });
   await shot(page, `${tag}-05-results`);
 
-  return page.innerText('body');
+  // Results may load in the same frame or the main page — grab whichever has content
+  const resultsFrame = await findFrameWithResults(page);
+  return resultsFrame.innerText('body');
+}
+
+async function findFrameWithForm(page) {
+  // Check main page first
+  if (await page.locator('a[href*="searchnow"]').count() > 0) return page;
+
+  // MLSPIN uses HTML framesets — search all child frames
+  for (const frame of page.frames()) {
+    if (frame === page.mainFrame()) continue;
+    try {
+      const count = await frame.locator('a[href*="searchnow"]').count();
+      if (count > 0) {
+        console.log(`    Found edit form in frame: ${frame.url()}`);
+        return frame;
+      }
+    } catch { /* frame not ready */ }
+  }
+
+  // Wait a moment and retry once (frame may still be loading)
+  await page.waitForTimeout(2000);
+  for (const frame of page.frames()) {
+    try {
+      const count = await frame.locator('a[href*="searchnow"]').count();
+      if (count > 0) return frame;
+    } catch { continue; }
+  }
+
+  console.log('    Warning: Search Now anchor not found in any frame — using main page');
+  return page;
+}
+
+async function findFrameWithResults(page) {
+  // Results page has "Active Listings" or "Sold Listings" text
+  if (await page.locator('text=Active Listings').count() > 0) return page;
+  for (const frame of page.frames()) {
+    if (frame === page.mainFrame()) continue;
+    try {
+      const count = await frame.locator('text=Active Listings').count();
+      if (count > 0) return frame;
+    } catch { continue; }
+  }
+  return page;
 }
 
 async function fillDates(page, startDate, endDate) {
