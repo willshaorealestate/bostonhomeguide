@@ -167,14 +167,24 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
     await page.getByText(searchName, { exact: false }).first().click();
   }
 
-  // Log what page/frames Playwright sees after clicking Edit
+  // Diagnostics: log exactly what Playwright sees after clicking Edit
   await page.waitForLoadState('domcontentloaded', { timeout: 15000 });
-  console.log(`    Main page URL: ${page.url()}`);
+  console.log(`    [diag] main URL: ${page.url()}`);
   const allFrames = page.frames();
-  console.log(`    Frame count: ${allFrames.length}`);
+  console.log(`    [diag] total frames: ${allFrames.length}`);
   for (const f of allFrames) {
-    const searchnowCount = await f.locator('a[href*="searchnow"]').count().catch(() => -1);
-    console.log(`    Frame: ${f.url()} | searchnow anchors: ${searchnowCount}`);
+    try {
+      const anchors = await f.evaluate(() =>
+        Array.from(document.querySelectorAll('a[href]'))
+          .map(a => a.getAttribute('href'))
+          .filter(h => h && h.includes('javascript'))
+          .slice(0, 5)
+      );
+      const forms = await f.locator('form').count();
+      console.log(`    [diag] frame ${f.url()} | forms:${forms} | js-hrefs:${JSON.stringify(anchors)}`);
+    } catch (e) {
+      console.log(`    [diag] frame ${f.url()} | error: ${e.message}`);
+    }
   }
   const frame = await findFrameWithForm(page);
   await shot(page, `${tag}-02-search-loaded`);
