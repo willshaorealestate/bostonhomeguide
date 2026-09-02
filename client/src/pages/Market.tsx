@@ -18,39 +18,39 @@ import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/boston-skyline-night-k5Nv97BwMFAzzw7y57EB26.webp";
 
-// Last updated: June 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
+// Last updated: August 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [
-  { month: "Nov '25", median: 810000, sales: 1576 },
-  { month: "Dec '25", median: 775000, sales: 1779 },
   { month: "Jan '26", median: 805000, sales: 1105 },
-  { month: "Feb '26", median: 750000, sales:  943 },
+  { month: "Feb '26", median: 750000, sales: 943 },
   { month: "Mar '26", median: 810000, sales: 1233 },
   { month: "Apr '26", median: 860000, sales: 1494 },
   { month: "May '26", median: 850000, sales: 2068 },
   { month: "Jun '26", median: 860000, sales: 2699 },
+  { month: "Jul '26", median: 850000, sales: 2701 },
+  { month: "Aug '26", median: 860000, sales: 2010 },
 ];
 
 const domData = [
-  { month: "Nov '25", dom: 43 },
-  { month: "Dec '25", dom: 51 },
   { month: "Jan '26", dom: 61 },
   { month: "Feb '26", dom: 63 },
   { month: "Mar '26", dom: 57 },
   { month: "Apr '26", dom: 43 },
   { month: "May '26", dom: 35 },
   { month: "Jun '26", dom: 33 },
+  { month: "Jul '26", dom: 35 },
+  { month: "Aug '26", dom: 40 },
 ];
 
 const townData = [
-  { town: "Boston",     medianPrice:  850000, dom: 37, listToSale: 100.0, inventory: 546 },
-  { town: "Newton",     medianPrice: 1550000, dom: 41, listToSale: 101.0, inventory:  67 },
-  { town: "Wellesley",  medianPrice: 2225000, dom: 28, listToSale: 101.0, inventory:  19 },
-  { town: "Brookline",  medianPrice: 1155000, dom: 34, listToSale:  99.0, inventory:  57 },
-  { town: "Natick",     medianPrice:  942500, dom: 29, listToSale: 101.0, inventory:  27 },
-  { town: "Lexington",  medianPrice: 1570000, dom: 37, listToSale: 101.0, inventory:  34 },
-  { town: "Needham",    medianPrice: 1758000, dom: 38, listToSale: 102.0, inventory:  19 },
-  { town: "Framingham", medianPrice:  668000, dom: 37, listToSale: 101.0, inventory:  43 },
-  { town: "Waltham",    medianPrice:  780000, dom: 23, listToSale: 101.0, inventory:  26 },
+  { town: "Boston",    medianPrice:  825000, dom: 50, listToSale: 98.0, inventory: 290 },
+  { town: "Newton",    medianPrice: 1800000, dom: 48, listToSale: 99.0, inventory:  40 },
+  { town: "Wellesley", medianPrice: 2165000, dom: 33, listToSale: 97.0, inventory:   9 },
+  { town: "Brookline", medianPrice: 1188000, dom: 49, listToSale: 98.0, inventory:  32 },
+  { town: "Natick",    medianPrice:  857500, dom: 27, listToSale: 100.0, inventory:  12 },
+  { town: "Lexington", medianPrice: 1706000, dom: 58, listToSale: 99.0, inventory:  21 },
+  { town: "Needham",   medianPrice: 1439000, dom: 38, listToSale: 99.0, inventory:  11 },
+  { town: "Framingham", medianPrice:  685000, dom: 29, listToSale: 102.0, inventory:  43 },
+  { town: "Waltham",   medianPrice:  830000, dom: 39, listToSale: 100.0, inventory:  29 },
 ];
 
 const formatPrice = (v: number) => `$${(v / 1000).toFixed(0)}K`;
@@ -58,7 +58,7 @@ const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
 export default function MarketPage() {
   useSEO({
-    title: "Greater Boston Real Estate Market Report | June 2026",
+    title: "Greater Boston Real Estate Market Report | August 2026",
     description: "Monthly market data for Greater Boston and MetroWest MA. Median prices, days on market, inventory, and list-to-sale ratios for Newton, Wellesley, Natick, Lexington, and more.",
     canonical: "https://bostonhomeguide.com/market",
   });
@@ -109,7 +109,7 @@ export default function MarketPage() {
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm font-body">
               <Calendar className="w-4 h-4" />
-              <span>Updated June 2026 · Next report: August 2026</span>
+              <span>Updated August 2026 · Next report: September 2026</span>
             </div>
           </div>
         </div>
@@ -120,10 +120,10 @@ export default function MarketPage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "$860,000", label: "Median Sale Price", change: "MLSPIN, Jun 2026" },
-              { value: "33 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
-              { value: "102%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
-              { value: "0.7 mo", label: "Months of Supply", change: "1,863 active / 2,699 sold" },
+              { value: "$860,000", label: "Median Sale Price", change: "MLSPIN, Aug 2026" },
+              { value: "40 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
+              { value: "100%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
+              { value: "0.6 mo", label: "Months of Supply", change: "1,264 active / 2,010 sold" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
@@ -169,7 +169,7 @@ export default function MarketPage() {
           {activeTab === "price" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                Median sale price trend across Greater Boston — Nov '25 through Jun '26
+                Median sale price trend across Greater Boston — Jan '26 through Aug '26
               </p>
               <ResponsiveContainer width="100%" height={320}>
                 <LineChart data={priceData}>
@@ -216,7 +216,7 @@ export default function MarketPage() {
           {activeTab === "towns" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                June 2026 market data by town — Source: MLSPIN
+August 2026 market data by town — Source: MLSPIN
               </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm font-body">
@@ -258,7 +258,7 @@ export default function MarketPage() {
               <div>
                 <p className="text-sm text-[#C89B3C] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
                 <h3 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  June 2026 — What This Means for You
+August 2026 — What This Means for You
                 </h3>
               </div>
             </div>

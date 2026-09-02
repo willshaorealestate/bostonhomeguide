@@ -38,14 +38,14 @@ const CONSULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/
 const METROWEST_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663407135735/Z2wQnep3yL9xkjTo8ZMRtX/metrowest-homes-RnrYQRpo87TWQGTtebwN6S.webp";
 
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "$1.55M", schools: "A+", img: "/images/towns/newton.jpeg" },
-  { name: "Wellesley", type: "Town", medianPrice: "$2.23M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
-  { name: "Brookline", type: "Town", medianPrice: "$1.16M", schools: "A", img: "/images/towns/brookline.jpeg" },
-  { name: "Natick", type: "Town", medianPrice: "$943K", schools: "A", img: "/images/towns/natick.jpeg" },
-  { name: "Lexington", type: "Town", medianPrice: "$1.57M", schools: "A+", img: "/images/towns/lexington.jpeg" },
+  { name: "Newton", type: "City", medianPrice: "{ name: "Newton", type: "City", medianPrice: .8M"Newton", type: "City", medianPrice: .4M", schools: "A+", img: "/images/towns/newton.jpeg" },
+  { name: "Wellesley", type: "Town", medianPrice: "$2.17M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
+  { name: "Brookline", type: "Town", medianPrice: "{ name: "Brookline", type: "Town", medianPrice: .19M"Brookline", type: "Town", medianPrice: .44M", schools: "A", img: "/images/towns/brookline.jpeg" },
+  { name: "Natick", type: "Town", medianPrice: "$858K", schools: "A", img: "/images/towns/natick.jpeg" },
+  { name: "Lexington", type: "Town", medianPrice: "{ name: "Lexington", type: "Town", medianPrice: .71M"Lexington", type: "Town", medianPrice: .58M", schools: "A+", img: "/images/towns/lexington.jpeg" },
   { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Needham", type: "Town", medianPrice: "$1.76M", schools: "A", img: "/images/towns/needham.jpeg" },
-  { name: "Framingham", type: "City", medianPrice: "$668K", schools: "B+", img: "/images/towns/framingham.jpeg" },
+  { name: "Needham", type: "Town", medianPrice: "{ name: "Needham", type: "Town", medianPrice: .44M"Needham", type: "Town", medianPrice: .7M", schools: "A", img: "/images/towns/needham.jpeg" },
+  { name: "Framingham", type: "City", medianPrice: "$685K", schools: "B+", img: "/images/towns/framingham.jpeg" },
 ];
 
 
@@ -336,14 +336,14 @@ export default function HomePage() {
               >
                 Greater Boston Market Snapshot
               </h2>
-              <p className="text-sm text-gray-500 font-body mt-1">Updated June 2026</p>
+              <p className="text-sm text-gray-500 font-body mt-1">Updated August 2026</p>
             </div>
             <div className="flex flex-wrap gap-6 md:gap-10">
               {[
-                { label: "Median Sale Price", value: "$860,000", change: "Jun 2026", up: true },
-                { label: "Days on Market", value: "33 days", change: "Greater Boston", up: false },
-                { label: "List-to-Sale Ratio", value: "102%", change: "Above asking", up: true },
-                { label: "Active Inventory", value: "1,863", change: "Jun 2026", up: false },
+                { label: "Median Sale Price", value: "$860,000", change: "Aug 2026", up: true },
+                { label: "Days on Market", value: "40 days", change: "Greater Boston", up: false },
+                { label: "List-to-Sale Ratio", value: "100%", change: "Above asking", up: true },
+                { label: "Active Inventory", value: "1,264", change: "Aug 2026", up: false },
               ].map((metric) => (
                 <div key={metric.label} className="text-center">
                   <p
