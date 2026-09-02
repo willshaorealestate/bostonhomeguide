@@ -81,7 +81,7 @@ async function dismissCookieConsent(page) {
 
 async function login(page, username, password) {
   console.log('  Logging into MLSPIN...');
-  await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await shot(page, '01-login-page');
 
   await dismissCookieConsent(page);
