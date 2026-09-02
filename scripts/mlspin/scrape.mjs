@@ -140,22 +140,36 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
 }
 
 async function fillDates(page, startDate, endDate) {
-  const startField = await findFirst(page, [
-    'input[name*="start" i]',
-    'input[id*="start" i]',
-    'input[placeholder*="start" i]',
-  ]);
-  const endField = await findFirst(page, [
-    'input[name*="end" i]',
-    'input[id*="end" i]',
-    'input[placeholder*="end" i]',
-  ]);
+  // MLSPIN uses hidden inputs (argStartDate / argEndDate) as the actual form values.
+  // Set them via JS to bypass visibility checks, then fire change events so any
+  // visible date picker widgets stay in sync.
+  const set = await page.evaluate(({ start, end }) => {
+    const startEl = document.querySelector('input[name="argStartDate"], input[name*="StartDate"], input[name*="startDate"]');
+    const endEl   = document.querySelector('input[name="argEndDate"],   input[name*="EndDate"],   input[name*="endDate"]');
+    if (!startEl) return 'start field not found';
+    if (!endEl)   return 'end field not found';
+    startEl.value = start;
+    endEl.value   = end;
+    startEl.dispatchEvent(new Event('change', { bubbles: true }));
+    endEl.dispatchEvent(new Event('change', { bubbles: true }));
+    return 'ok';
+  }, { start: startDate, end: endDate });
 
-  if (!startField) throw new Error('Start date input not found. Run with DEBUG=1.');
-  if (!endField)   throw new Error('End date input not found. Run with DEBUG=1.');
+  if (set !== 'ok') throw new Error(`Date fill failed: ${set}. Run with DEBUG=1.`);
 
-  await startField.fill(startDate);
-  await endField.fill(endDate);
+  // Also try to update any visible text inputs that mirror the hidden fields
+  await page.evaluate(({ start, end }) => {
+    document.querySelectorAll('input[type="text"]').forEach(el => {
+      if (/start/i.test(el.id + el.name + el.placeholder)) {
+        el.value = start;
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      if (/end/i.test(el.id + el.name + el.placeholder)) {
+        el.value = end;
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  }, { start: startDate, end: endDate });
 }
 
 async function selectOnlyTown(page, targetTown) {
