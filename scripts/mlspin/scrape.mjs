@@ -106,6 +106,23 @@ async function dismissCookieConsent(page) {
   console.log('  Cookie consent dismissed.');
 }
 
+async function dismissConcurrentSessionWarning(page) {
+  // MLSPIN shows a "You are already logged in on another device — proceed?" dialog.
+  // Click the confirm/proceed button if it appears.
+  try {
+    const confirmBtn = page.getByRole('button', { name: /proceed|continue|yes|ok/i })
+      .or(page.locator('a, button').filter({ hasText: /proceed|continue|yes|ok/i }))
+      .first();
+    if (await confirmBtn.count() > 0) {
+      await confirmBtn.click();
+      await page.waitForLoadState('networkidle', { timeout: 15000 });
+      console.log('  Concurrent session warning dismissed.');
+    }
+  } catch {
+    // Non-fatal — page may not have this dialog
+  }
+}
+
 async function login(page, username, password) {
   console.log('  Logging into MLSPIN...');
   await page.goto(BASE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -124,6 +141,9 @@ async function login(page, username, password) {
     .click();
   await page.waitForLoadState('networkidle', { timeout: 20000 });
   await shot(page, '03-post-login');
+
+  // Handle "you're already logged in on another device" confirmation dialog
+  await dismissConcurrentSessionWarning(page);
 
   // Detect login failure: still has a password field visible (login form still showing)
   const stillHasPassword = await page.locator('input[type="password"]:visible').count() > 0;
