@@ -67,13 +67,14 @@ export async function scrapeMonth(username, password, year, month) {
 }
 
 async function dismissCookieConsent(page) {
-  // Force-hide the cookie consent modal via JS — safer than clicking a button
-  // which could navigate away before credentials are filled
+  // Remove the cookie consent modal from the DOM entirely so it can't
+  // intercept clicks intended for the Sign In button
   await page.evaluate(() => {
     const m = document.getElementById('cookieConsentBootstrapModal');
-    if (m) m.style.display = 'none';
+    if (m) m.remove();
     document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
     document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
   });
   console.log('  Cookie consent dismissed.');
 }
@@ -89,7 +90,11 @@ async function login(page, username, password) {
   await page.locator('input[type="password"]').first().fill(password);
   await shot(page, '02-credentials-entered');
 
-  await page.locator('input[type="submit"], button[type="submit"]').first().click();
+  // Target Sign In button by text to avoid clicking hidden modal buttons
+  await page.getByRole('button', { name: /sign\s*in/i })
+    .or(page.locator('.mls-js-submit-btn'))
+    .first()
+    .click();
   await page.waitForLoadState('networkidle', { timeout: 20000 });
   await shot(page, '03-post-login');
 
