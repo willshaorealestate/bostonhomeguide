@@ -161,23 +161,23 @@ async function runReport(page, searchName, startDate, endDate, townFilter, tag) 
     await shot(page, `${tag}-04-town-selected`);
   }
 
-  // Click Search Now — it appears as a link/button in the Pinergy toolbar.
-  // Try the broadest selectors first, then fall back to form.submit().
-  const searchBtn = page
-    .getByRole('link', { name: /search\s*now/i })
-    .or(page.getByRole('button', { name: /search\s*now/i }))
-    .or(page.locator('a, button').filter({ hasText: /search\s*now/i })
-    .or(page.locator('input[type="image"][alt*="Search" i]'))
-    .or(page.locator('input[type="submit"]')))
-    .first();
-
-  const foundBtn = await searchBtn.count() > 0;
-  if (foundBtn) {
-    await searchBtn.click();
-  } else {
-    // Last resort: submit the form directly via JS
-    console.log('    Search Now button not found via locator — submitting form via JS');
-    await page.evaluate(() => { document.querySelector('form')?.submit(); });
+  // Search Now is <a href="javascript:searchnow()"> in the Pinergy toolbar.
+  // Call searchnow() directly via JS — most reliable across UI variations.
+  const ran = await page.evaluate(() => {
+    if (typeof searchnow === 'function') { searchnow(); return true; }
+    return false;
+  });
+  if (!ran) {
+    // Fallback: click the anchor by text or submit the form
+    const btn = page.locator('a').filter({ hasText: /search\s*now/i })
+      .or(page.getByRole('button', { name: /search\s*now/i }))
+      .first();
+    if (await btn.count() > 0) {
+      await btn.click();
+    } else {
+      console.log('    searchnow() not found — submitting form via JS');
+      await page.evaluate(() => { document.querySelector('form')?.submit(); });
+    }
   }
   await page.waitForLoadState('networkidle', { timeout: 30000 });
   await shot(page, `${tag}-05-results`);
