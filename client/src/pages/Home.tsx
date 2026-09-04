@@ -38,13 +38,13 @@ const CONSULT_IMAGE = "/images/site/photo.jpg";
 const METROWEST_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
 
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "$1.8M", schools: "A+", img: "/images/towns/newton.jpeg" },
+  { name: "Newton", type: "City", medianPrice: "$1.73M", schools: "A+", img: "/images/towns/newton.jpeg" },
   { name: "Wellesley", type: "Town", medianPrice: "$2.17M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
-  { name: "Brookline", type: "Town", medianPrice: "$1.19M", schools: "A", img: "/images/towns/brookline.jpeg" },
+  { name: "Brookline", type: "Town", medianPrice: "$1.15M", schools: "A", img: "/images/towns/brookline.jpeg" },
   { name: "Natick", type: "Town", medianPrice: "$858K", schools: "A", img: "/images/towns/natick.jpeg" },
   { name: "Lexington", type: "Town", medianPrice: "$1.71M", schools: "A+", img: "/images/towns/lexington.jpeg" },
   { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Needham", type: "Town", medianPrice: "$1.44M", schools: "A", img: "/images/towns/needham.jpeg" },
+  { name: "Needham", type: "Town", medianPrice: "$1.49M", schools: "A", img: "/images/towns/needham.jpeg" },
   { name: "Framingham", type: "City", medianPrice: "$685K", schools: "B+", img: "/images/towns/framingham.jpeg" },
 ];
 
@@ -343,7 +343,7 @@ export default function HomePage() {
                 { label: "Median Sale Price", value: "$860,000", change: "Aug 2026", up: true },
                 { label: "Days on Market", value: "40 days", change: "Greater Boston", up: false },
                 { label: "List-to-Sale Ratio", value: "100%", change: "Above asking", up: true },
-                { label: "Active Inventory", value: "1,264", change: "Aug 2026", up: false },
+                { label: "Active Inventory", value: "1,194", change: "Aug 2026", up: false },
               ].map((metric) => (
                 <div key={metric.label} className="text-center">
                   <p
