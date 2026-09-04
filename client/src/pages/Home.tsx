@@ -343,7 +343,7 @@ export default function HomePage() {
                 { label: "Median Sale Price", value: "$860,000", change: "Aug 2026", up: true },
                 { label: "Days on Market", value: "40 days", change: "Greater Boston", up: false },
                 { label: "List-to-Sale Ratio", value: "100%", change: "Above asking", up: true },
-                { label: "Active Inventory", value: "1,194", change: "Aug 2026", up: false },
+                { label: "Active Inventory", value: "1,193", change: "Aug 2026", up: false },
               ].map((metric) => (
                 <div key={metric.label} className="text-center">
                   <p
