@@ -11,7 +11,7 @@
  * Set DEBUG=1 to save screenshots at each Playwright step into debug-screenshots/.
  */
 import { scrapeMonth } from './scrape.mjs';
-import { updateMarketTsx, updateHomeTsx, updateNeighborhoodTs } from './update.mjs';
+import { updateMarketTsx, updateHomeTsx, updateNeighborhoodTs, updateTownHistory } from './update.mjs';
 
 // Order must match townData array in Market.tsx
 const TOWN_ORDER = [
@@ -45,15 +45,15 @@ async function main() {
     const { area, towns } = await scrapeMonth(username, password, year, month);
 
     const townRows = TOWN_ORDER.map(name => ({
-      town:       name,
+      town:        name,
       medianPrice: towns[name].medianPrice,
       dom:         towns[name].dom,
       listToSale:  towns[name].spLp,
-      inventory:   towns[name].inventory,
     }));
 
     console.log('\n  Updating source files...');
     updateMarketTsx(area, townRows, year, month);
+    updateTownHistory(towns, year, month);
     updateHomeTsx(area, towns, year, month);
     updateNeighborhoodTs(towns);
 
