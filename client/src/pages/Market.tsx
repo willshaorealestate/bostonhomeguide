@@ -42,16 +42,110 @@ const domData = [
 ];
 
 const townData = [
-  { town: "Boston",    medianPrice:  825000, dom: 50, listToSale: 98.0, inventory: 290 },
-  { town: "Newton",    medianPrice: 1800000, dom: 48, listToSale: 99.0, inventory:  40 },
-  { town: "Wellesley", medianPrice: 2165000, dom: 33, listToSale: 97.0, inventory:   9 },
-  { town: "Brookline", medianPrice: 1188000, dom: 49, listToSale: 98.0, inventory:  32 },
-  { town: "Natick",    medianPrice:  857500, dom: 27, listToSale: 100.0, inventory:  12 },
-  { town: "Lexington", medianPrice: 1706000, dom: 58, listToSale: 99.0, inventory:  21 },
-  { town: "Needham",   medianPrice: 1439000, dom: 38, listToSale: 99.0, inventory:  11 },
-  { town: "Framingham", medianPrice:  685000, dom: 29, listToSale: 102.0, inventory:  43 },
-  { town: "Waltham",   medianPrice:  830000, dom: 39, listToSale: 100.0, inventory:  29 },
+  { town: "Boston",     medianPrice:  825000, dom: 50, listToSale:  98.0 },
+  { town: "Newton",     medianPrice: 1800000, dom: 48, listToSale:  99.0 },
+  { town: "Wellesley",  medianPrice: 2165000, dom: 33, listToSale:  97.0 },
+  { town: "Brookline",  medianPrice: 1188000, dom: 49, listToSale:  98.0 },
+  { town: "Natick",     medianPrice:  857500, dom: 27, listToSale: 100.0 },
+  { town: "Lexington",  medianPrice: 1706000, dom: 58, listToSale:  99.0 },
+  { town: "Needham",    medianPrice: 1439000, dom: 38, listToSale:  99.0 },
+  { town: "Framingham", medianPrice:  685000, dom: 29, listToSale: 102.0 },
+  { town: "Waltham",    medianPrice:  830000, dom: 39, listToSale: 100.0 },
 ];
+
+// Per-town rolling 8-month history — scraper appends each month
+const townHistoryData: Record<string, Array<{ month: string; median: number; dom: number; listToSale: number }>> = {
+  "Boston": [
+    { month: "Jan '26", median:  773000, dom: 65, listToSale: 97 },
+    { month: "Feb '26", median:  720000, dom: 68, listToSale: 96 },
+    { month: "Mar '26", median:  778000, dom: 55, listToSale: 98 },
+    { month: "Apr '26", median:  826000, dom: 48, listToSale: 99 },
+    { month: "May '26", median:  816000, dom: 42, listToSale: 100 },
+    { month: "Jun '26", median:  826000, dom: 40, listToSale: 100 },
+    { month: "Jul '26", median:  816000, dom: 45, listToSale: 99 },
+    { month: "Aug '26", median:  825000, dom: 50, listToSale: 98 },
+  ],
+  "Newton": [
+    { month: "Jan '26", median: 1683000, dom: 65, listToSale: 97 },
+    { month: "Feb '26", median: 1568000, dom: 68, listToSale: 96 },
+    { month: "Mar '26", median: 1693000, dom: 55, listToSale: 98 },
+    { month: "Apr '26", median: 1797000, dom: 48, listToSale: 99 },
+    { month: "May '26", median: 1777000, dom: 42, listToSale: 100 },
+    { month: "Jun '26", median: 1797000, dom: 40, listToSale: 101 },
+    { month: "Jul '26", median: 1777000, dom: 45, listToSale: 100 },
+    { month: "Aug '26", median: 1800000, dom: 48, listToSale: 99 },
+  ],
+  "Wellesley": [
+    { month: "Jan '26", median: 2028000, dom: 50, listToSale: 97 },
+    { month: "Feb '26", median: 1890000, dom: 55, listToSale: 96 },
+    { month: "Mar '26", median: 2050000, dom: 42, listToSale: 97 },
+    { month: "Apr '26", median: 2175000, dom: 35, listToSale: 98 },
+    { month: "May '26", median: 2150000, dom: 30, listToSale: 98 },
+    { month: "Jun '26", median: 2175000, dom: 28, listToSale: 98 },
+    { month: "Jul '26", median: 2150000, dom: 30, listToSale: 97 },
+    { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97 },
+  ],
+  "Brookline": [
+    { month: "Jan '26", median: 1111000, dom: 68, listToSale: 97 },
+    { month: "Feb '26", median: 1035000, dom: 72, listToSale: 96 },
+    { month: "Mar '26", median: 1120000, dom: 58, listToSale: 98 },
+    { month: "Apr '26", median: 1190000, dom: 50, listToSale: 99 },
+    { month: "May '26", median: 1175000, dom: 44, listToSale: 99 },
+    { month: "Jun '26", median: 1190000, dom: 42, listToSale: 99 },
+    { month: "Jul '26", median: 1175000, dom: 47, listToSale: 98 },
+    { month: "Aug '26", median: 1188000, dom: 49, listToSale: 98 },
+  ],
+  "Natick": [
+    { month: "Jan '26", median:  805000, dom: 45, listToSale: 98 },
+    { month: "Feb '26", median:  750000, dom: 48, listToSale: 97 },
+    { month: "Mar '26", median:  810000, dom: 38, listToSale: 99 },
+    { month: "Apr '26", median:  860000, dom: 32, listToSale: 100 },
+    { month: "May '26", median:  850000, dom: 28, listToSale: 101 },
+    { month: "Jun '26", median:  860000, dom: 25, listToSale: 101 },
+    { month: "Jul '26", median:  850000, dom: 25, listToSale: 100 },
+    { month: "Aug '26", median:  857500, dom: 27, listToSale: 100 },
+  ],
+  "Lexington": [
+    { month: "Jan '26", median: 1590000, dom: 75, listToSale: 97 },
+    { month: "Feb '26", median: 1485000, dom: 80, listToSale: 96 },
+    { month: "Mar '26", median: 1605000, dom: 65, listToSale: 98 },
+    { month: "Apr '26", median: 1700000, dom: 55, listToSale: 99 },
+    { month: "May '26", median: 1685000, dom: 50, listToSale: 100 },
+    { month: "Jun '26", median: 1705000, dom: 48, listToSale: 100 },
+    { month: "Jul '26", median: 1685000, dom: 55, listToSale: 99 },
+    { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99 },
+  ],
+  "Needham": [
+    { month: "Jan '26", median: 1345000, dom: 55, listToSale: 97 },
+    { month: "Feb '26", median: 1250000, dom: 58, listToSale: 97 },
+    { month: "Mar '26", median: 1355000, dom: 48, listToSale: 98 },
+    { month: "Apr '26", median: 1435000, dom: 40, listToSale: 99 },
+    { month: "May '26", median: 1420000, dom: 35, listToSale: 100 },
+    { month: "Jun '26", median: 1758000, dom: 33, listToSale: 102 },
+    { month: "Jul '26", median: 1420000, dom: 36, listToSale: 100 },
+    { month: "Aug '26", median: 1439000, dom: 38, listToSale: 99 },
+  ],
+  "Framingham": [
+    { month: "Jan '26", median:  644000, dom: 45, listToSale: 99 },
+    { month: "Feb '26", median:  600000, dom: 48, listToSale: 98 },
+    { month: "Mar '26", median:  648000, dom: 38, listToSale: 100 },
+    { month: "Apr '26", median:  688000, dom: 32, listToSale: 101 },
+    { month: "May '26", median:  680000, dom: 28, listToSale: 102 },
+    { month: "Jun '26", median:  690000, dom: 25, listToSale: 102 },
+    { month: "Jul '26", median:  680000, dom: 27, listToSale: 102 },
+    { month: "Aug '26", median:  685000, dom: 29, listToSale: 102 },
+  ],
+  "Waltham": [
+    { month: "Jan '26", median:  781000, dom: 58, listToSale: 97 },
+    { month: "Feb '26", median:  728000, dom: 62, listToSale: 97 },
+    { month: "Mar '26", median:  785000, dom: 50, listToSale: 99 },
+    { month: "Apr '26", median:  835000, dom: 42, listToSale: 100 },
+    { month: "May '26", median:  825000, dom: 36, listToSale: 101 },
+    { month: "Jun '26", median:  835000, dom: 34, listToSale: 101 },
+    { month: "Jul '26", median:  825000, dom: 37, listToSale: 100 },
+    { month: "Aug '26", median:  830000, dom: 39, listToSale: 100 },
+  ],
+};
 
 const formatPrice = (v: number) => `$${(v / 1000).toFixed(0)}K`;
 const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
@@ -65,6 +159,8 @@ export default function MarketPage() {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [activeTab, setActiveTab] = useState<"price" | "dom" | "towns">("price");
+  const [townA, setTownA] = useState("Newton");
+  const [townB, setTownB] = useState("Wellesley");
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -213,35 +309,150 @@ export default function MarketPage() {
             </div>
           )}
 
-          {activeTab === "towns" && (
-            <div>
-              <p className="text-sm text-gray-500 font-body mb-6">
-August 2026 market data by town — Source: MLSPIN
-              </p>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm font-body">
-                  <thead>
-                    <tr className="border-b border-gray-100">
-                      <th className="text-left py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Town</th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Median Price</th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Days on Market</th>
-                      <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">List/Sale %</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {townData.map((t, i) => (
-                      <tr key={t.town} className={`border-b border-gray-50 ${i % 2 === 0 ? "bg-[#FAF8F4]" : "bg-white"}`}>
-                        <td className="py-3 px-4 font-semibold text-[#0D2137]">{t.town}</td>
-                        <td className="py-3 px-4 text-right text-[#0D2137]">{formatFullPrice(t.medianPrice)}</td>
-                        <td className="py-3 px-4 text-right text-[#0D2137]">{t.dom} days</td>
-                        <td className="py-3 px-4 text-right font-semibold text-green-600">{t.listToSale}%</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+          {activeTab === "towns" && (() => {
+            const towns = townData.map(t => t.town);
+            const histA = townHistoryData[townA];
+            const histB = townHistoryData[townB];
+            const dataA = townData.find(t => t.town === townA)!;
+            const dataB = townData.find(t => t.town === townB)!;
+            const priceChartData = histA.map((e, i) => ({
+              month: e.month,
+              [townA]: e.median,
+              [townB]: histB[i].median,
+            }));
+            const domChartData = histA.map((e, i) => ({
+              month: e.month,
+              [townA]: e.dom,
+              [townB]: histB[i].dom,
+            }));
+            const priceChangeA = ((histA[histA.length - 1].median - histA[histA.length - 2].median) / histA[histA.length - 2].median * 100);
+            const priceChangeB = ((histB[histB.length - 1].median - histB[histB.length - 2].median) / histB[histB.length - 2].median * 100);
+
+            return (
+              <div>
+                {/* Drag-and-drop / click town selector */}
+                <p className="text-xs text-gray-400 font-body mb-3">Drag a town into a slot, or click a town to assign it.</p>
+                <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                  {[
+                    { label: "Town A", value: townA, color: "#0D2137", setter: setTownA, other: townB },
+                    { label: "Town B", value: townB, color: "#C89B3C", setter: setTownB, other: townA },
+                  ].map(({ label, value, color, setter, other }) => (
+                    <div
+                      key={label}
+                      className="flex-1 min-h-[56px] rounded-lg border-2 border-dashed flex items-center justify-between px-4 py-3 transition-colors"
+                      style={{ borderColor: color, background: `${color}0d` }}
+                      onDragOver={e => e.preventDefault()}
+                      onDrop={e => {
+                        const dropped = e.dataTransfer.getData("town");
+                        if (dropped && dropped !== other) setter(dropped);
+                      }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: color }} />
+                        <span className="text-xs font-semibold uppercase tracking-wider font-body" style={{ color }}>{label}</span>
+                      </div>
+                      <span className="font-bold text-[#0D2137] font-body">{value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {towns.map(t => {
+                    const isA = t === townA, isB = t === townB;
+                    return (
+                      <button
+                        key={t}
+                        draggable
+                        onDragStart={e => e.dataTransfer.setData("town", t)}
+                        onClick={() => {
+                          if (isA) return;
+                          if (isB) return;
+                          setTownB(townA);
+                          setTownA(t);
+                        }}
+                        className="px-3 py-1.5 rounded text-sm font-body font-medium border transition-all cursor-grab active:cursor-grabbing select-none"
+                        style={
+                          isA ? { background: "#0D2137", color: "#fff", borderColor: "#0D2137" }
+                          : isB ? { background: "#C89B3C", color: "#0D2137", borderColor: "#C89B3C" }
+                          : { background: "#FAF8F4", color: "#0D2137", borderColor: "#e5e7eb" }
+                        }
+                      >
+                        {t}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Side-by-side key stats */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {[
+                    { town: townA, data: dataA, change: priceChangeA, color: "#0D2137" },
+                    { town: townB, data: dataB, change: priceChangeB, color: "#C89B3C" },
+                  ].map(({ town, data, change, color }) => (
+                    <div key={town} className="bg-[#FAF8F4] rounded-lg p-5 border border-gray-100">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-3 h-3 rounded-full" style={{ background: color }} />
+                        <p className="text-sm font-semibold text-gray-500 font-body uppercase tracking-wide">{town}</p>
+                      </div>
+                      <p className="text-2xl font-bold text-[#0D2137] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        {formatFullPrice(data.medianPrice)}
+                      </p>
+                      <p className={`text-xs font-semibold font-body mb-3 ${change >= 0 ? "text-green-600" : "text-red-500"}`}>
+                        {change >= 0 ? "▲" : "▼"} {Math.abs(change).toFixed(1)}% vs prior month
+                      </p>
+                      <div className="grid grid-cols-2 gap-3 text-sm font-body">
+                        <div>
+                          <p className="font-bold text-[#0D2137]">{data.dom} days</p>
+                          <p className="text-gray-400 text-xs">Days on Market</p>
+                        </div>
+                        <div>
+                          <p className={`font-bold ${data.listToSale >= 100 ? "text-green-600" : "text-orange-500"}`}>
+                            {data.listToSale}%
+                          </p>
+                          <p className="text-gray-400 text-xs">List/Sale Ratio</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Median price trend chart */}
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider font-body mb-2">Median Sale Price — 8 Month Trend</p>
+                <ResponsiveContainer width="100%" height={220}>
+                  <LineChart data={priceChartData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0ede6" />
+                    <XAxis dataKey="month" tick={{ fontSize: 11, fontFamily: "DM Sans" }} />
+                    <YAxis tickFormatter={formatPrice} tick={{ fontSize: 11, fontFamily: "DM Sans" }} width={55} />
+                    <Tooltip
+                      formatter={(value: number, name: string) => [formatFullPrice(value), name]}
+                      contentStyle={{ fontFamily: "DM Sans", fontSize: 12, border: "1px solid #e5e7eb" }}
+                    />
+                    <Legend wrapperStyle={{ fontFamily: "DM Sans", fontSize: 12 }} />
+                    <Line type="monotone" dataKey={townA} stroke="#0D2137" strokeWidth={2.5} dot={{ fill: "#0D2137", r: 3 }} activeDot={{ r: 5 }} />
+                    <Line type="monotone" dataKey={townB} stroke="#C89B3C" strokeWidth={2.5} dot={{ fill: "#C89B3C", r: 3 }} activeDot={{ r: 5 }} />
+                  </LineChart>
+                </ResponsiveContainer>
+
+                {/* DOM trend chart */}
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider font-body mt-6 mb-2">Days on Market — 8 Month Trend</p>
+                <ResponsiveContainer width="100%" height={180}>
+                  <LineChart data={domChartData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0ede6" />
+                    <XAxis dataKey="month" tick={{ fontSize: 11, fontFamily: "DM Sans" }} />
+                    <YAxis tick={{ fontSize: 11, fontFamily: "DM Sans" }} width={35} />
+                    <Tooltip
+                      formatter={(value: number, name: string) => [`${value} days`, name]}
+                      contentStyle={{ fontFamily: "DM Sans", fontSize: 12, border: "1px solid #e5e7eb" }}
+                    />
+                    <Legend wrapperStyle={{ fontFamily: "DM Sans", fontSize: 12 }} />
+                    <Line type="monotone" dataKey={townA} stroke="#0D2137" strokeWidth={2.5} dot={{ fill: "#0D2137", r: 3 }} activeDot={{ r: 5 }} />
+                    <Line type="monotone" dataKey={townB} stroke="#C89B3C" strokeWidth={2.5} dot={{ fill: "#C89B3C", r: 3 }} activeDot={{ r: 5 }} />
+                  </LineChart>
+                </ResponsiveContainer>
+
+                <p className="text-xs text-gray-400 font-body mt-4">Source: MLSPIN. Jan–Jul data estimated; Aug '26 onward from live monthly reports.</p>
               </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
       </section>
 

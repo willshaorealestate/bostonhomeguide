@@ -186,6 +186,37 @@ const SLUG_MAP = {
   needham: 'Needham', framingham: 'Framingham', waltham: 'Waltham',
 };
 
+export function updateTownHistory(townMap, year, month) {
+  let c = readFileSync(MARKET_TSX, 'utf8');
+  const short = shortLabel(year, month);
+
+  for (const [town, data] of Object.entries(townMap)) {
+    // Find this town's array in townHistoryData and roll it forward
+    const entryRe = new RegExp(
+      `("${town}":\\s*\\[\\n)([\\s\\S]*?)(\\s*\\],)`,
+    );
+    c = c.replace(entryRe, (_, open, body, close) => {
+      // Parse existing entries
+      const lineRe = /\{ month: "([^"]+)", median:\s*(\d+), dom:\s*(\d+), listToSale:\s*(\d+) \}/g;
+      const entries = [];
+      let m;
+      while ((m = lineRe.exec(body)) !== null) {
+        entries.push({ month: m[1], median: Number(m[2]), dom: Number(m[3]), listToSale: Number(m[4]) });
+      }
+      // Rolling 8-month window
+      if (entries.length >= 8) entries.shift();
+      entries.push({ month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spLp) });
+      const newBody = entries
+        .map(e => `    { month: "${e.month}", median: ${String(e.median).padStart(7)}, dom: ${e.dom}, listToSale: ${e.listToSale} }`)
+        .join(',\n');
+      return `${open}${newBody},\n  ${close}`;
+    });
+  }
+
+  writeFileSync(MARKET_TSX, c, 'utf8');
+  console.log(`  ✓ townHistoryData → ${short}`);
+}
+
 export function updateNeighborhoodTs(townMap) {
   let c = readFileSync(NEIGHBORHOODS_TS, 'utf8');
 
