@@ -20,21 +20,21 @@ const HERO_IMAGE = "https://images.unsplash.com/photo-1549728968-5aaff42193ab?w=
 
 // Last updated: August 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [
-  { month: "Mar '26", median: 810000, sales: 1233 },
-  { month: "Apr '26", median: 860000, sales: 1494 },
   { month: "May '26", median: 850000, sales: 2068 },
   { month: "Jun '26", median: 860000, sales: 2699 },
   { month: "Jul '26", median: 850000, sales: 2701 },
   { month: "Aug '26", median: 860000, sales: 2010 },
   { month: "Jul '26", median: 850000, sales: 2703 },
   { month: "Aug '26", median: 860000, sales: 2038 },
+  { month: "Jul '26", median: 850000, sales: 2703 },
+  { month: "Aug '26", median: 860000, sales: 2038 },
 ];
 
 const domData = [
-  { month: "Mar '26", dom: 57 },
-  { month: "Apr '26", dom: 43 },
   { month: "May '26", dom: 35 },
   { month: "Jun '26", dom: 33 },
+  { month: "Jul '26", dom: 35 },
+  { month: "Aug '26", dom: 40 },
   { month: "Jul '26", dom: 35 },
   { month: "Aug '26", dom: 40 },
   { month: "Jul '26", dom: 35 },
@@ -56,110 +56,128 @@ const townData = [
 // Per-town rolling 8-month history — scraper appends each month
 const townHistoryData: Record<string, Array<{ month: string; median: number; dom: number; listToSale: number }>> = {
   "Boston": [
-    { month: "Mar '26", median:  778000, dom: 55, listToSale: 98 },
-    { month: "Apr '26", median:  826000, dom: 48, listToSale: 99 },
     { month: "May '26", median:  816000, dom: 42, listToSale: 100 },
     { month: "Jun '26", median:  826000, dom: 40, listToSale: 100 },
     { month: "Jul '26", median:  816000, dom: 45, listToSale: 99 },
     { month: "Aug '26", median:  825000, dom: 50, listToSale: 98 },
     { month: "Jul '26", median:  805000, dom: 45, listToSale: 100 },
     { month: "Aug '26", median:  825000, dom: 49, listToSale: 98 },
+    { month: "Jul '26", median:  805000, dom: 45, listToSale: 100 },
+    { month: "Aug '26", median:  825000, dom: 49, listToSale: 98 },
+  
+  
   
   
   ],
   "Newton": [
-    { month: "Mar '26", median: 1693000, dom: 55, listToSale: 98 },
-    { month: "Apr '26", median: 1797000, dom: 48, listToSale: 99 },
     { month: "May '26", median: 1777000, dom: 42, listToSale: 100 },
     { month: "Jun '26", median: 1797000, dom: 40, listToSale: 101 },
     { month: "Jul '26", median: 1777000, dom: 45, listToSale: 100 },
     { month: "Aug '26", median: 1800000, dom: 48, listToSale: 99 },
     { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102 },
     { month: "Aug '26", median: 1731500, dom: 48, listToSale: 99 },
+    { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102 },
+    { month: "Aug '26", median: 1731500, dom: 48, listToSale: 99 },
+  
+  
   
   
   ],
   "Wellesley": [
-    { month: "Mar '26", median: 2050000, dom: 42, listToSale: 97 },
-    { month: "Apr '26", median: 2175000, dom: 35, listToSale: 98 },
     { month: "May '26", median: 2150000, dom: 30, listToSale: 98 },
     { month: "Jun '26", median: 2175000, dom: 28, listToSale: 98 },
     { month: "Jul '26", median: 2150000, dom: 30, listToSale: 97 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97 },
     { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97 },
+    { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101 },
+    { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97 },
+  
+  
   
   
   ],
   "Brookline": [
-    { month: "Mar '26", median: 1120000, dom: 58, listToSale: 98 },
-    { month: "Apr '26", median: 1190000, dom: 50, listToSale: 99 },
     { month: "May '26", median: 1175000, dom: 44, listToSale: 99 },
     { month: "Jun '26", median: 1190000, dom: 42, listToSale: 99 },
     { month: "Jul '26", median: 1175000, dom: 47, listToSale: 98 },
     { month: "Aug '26", median: 1188000, dom: 49, listToSale: 98 },
     { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100 },
     { month: "Aug '26", median: 1148000, dom: 51, listToSale: 99 },
+    { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100 },
+    { month: "Aug '26", median: 1148000, dom: 51, listToSale: 99 },
+  
+  
   
   
   ],
   "Natick": [
-    { month: "Mar '26", median:  810000, dom: 38, listToSale: 99 },
-    { month: "Apr '26", median:  860000, dom: 32, listToSale: 100 },
     { month: "May '26", median:  850000, dom: 28, listToSale: 101 },
     { month: "Jun '26", median:  860000, dom: 25, listToSale: 101 },
     { month: "Jul '26", median:  850000, dom: 25, listToSale: 100 },
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100 },
     { month: "Jul '26", median:  900000, dom: 24, listToSale: 100 },
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100 },
+    { month: "Jul '26", median:  900000, dom: 24, listToSale: 100 },
+    { month: "Aug '26", median:  857500, dom: 27, listToSale: 100 },
+  
+  
   
   
   ],
   "Lexington": [
-    { month: "Mar '26", median: 1605000, dom: 65, listToSale: 98 },
-    { month: "Apr '26", median: 1700000, dom: 55, listToSale: 99 },
     { month: "May '26", median: 1685000, dom: 50, listToSale: 100 },
     { month: "Jun '26", median: 1705000, dom: 48, listToSale: 100 },
     { month: "Jul '26", median: 1685000, dom: 55, listToSale: 99 },
     { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99 },
     { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101 },
     { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99 },
+    { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101 },
+    { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99 },
+  
+  
   
   
   ],
   "Needham": [
-    { month: "Mar '26", median: 1355000, dom: 48, listToSale: 98 },
-    { month: "Apr '26", median: 1435000, dom: 40, listToSale: 99 },
     { month: "May '26", median: 1420000, dom: 35, listToSale: 100 },
     { month: "Jun '26", median: 1758000, dom: 33, listToSale: 102 },
     { month: "Jul '26", median: 1420000, dom: 36, listToSale: 100 },
     { month: "Aug '26", median: 1439000, dom: 38, listToSale: 99 },
     { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100 },
     { month: "Aug '26", median: 1490750, dom: 38, listToSale: 99 },
+    { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100 },
+    { month: "Aug '26", median: 1490750, dom: 38, listToSale: 99 },
+  
+  
   
   
   ],
   "Framingham": [
-    { month: "Mar '26", median:  648000, dom: 38, listToSale: 100 },
-    { month: "Apr '26", median:  688000, dom: 32, listToSale: 101 },
     { month: "May '26", median:  680000, dom: 28, listToSale: 102 },
     { month: "Jun '26", median:  690000, dom: 25, listToSale: 102 },
     { month: "Jul '26", median:  680000, dom: 27, listToSale: 102 },
     { month: "Aug '26", median:  685000, dom: 29, listToSale: 102 },
     { month: "Jul '26", median:  675000, dom: 24, listToSale: 101 },
     { month: "Aug '26", median:  685000, dom: 29, listToSale: 102 },
+    { month: "Jul '26", median:  675000, dom: 24, listToSale: 101 },
+    { month: "Aug '26", median:  685000, dom: 29, listToSale: 102 },
+  
+  
   
   
   ],
   "Waltham": [
-    { month: "Mar '26", median:  785000, dom: 50, listToSale: 99 },
-    { month: "Apr '26", median:  835000, dom: 42, listToSale: 100 },
     { month: "May '26", median:  825000, dom: 36, listToSale: 101 },
     { month: "Jun '26", median:  835000, dom: 34, listToSale: 101 },
     { month: "Jul '26", median:  825000, dom: 37, listToSale: 100 },
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100 },
     { month: "Jul '26", median:  800000, dom: 30, listToSale: 102 },
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100 },
+    { month: "Jul '26", median:  800000, dom: 30, listToSale: 102 },
+    { month: "Aug '26", median:  830000, dom: 39, listToSale: 100 },
+  
+  
   
   
   ],
@@ -283,7 +301,7 @@ export default function MarketPage() {
           {activeTab === "price" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                Median sale price trend across Greater Boston — Mar '26 through Aug '26
+                Median sale price trend across Greater Boston — May '26 through Aug '26
               </p>
               <ResponsiveContainer width="100%" height={320}>
                 <LineChart data={priceData}>
