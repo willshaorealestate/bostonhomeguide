@@ -18,9 +18,8 @@ import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "https://images.unsplash.com/photo-1549728968-5aaff42193ab?w=1400&q=80";
 
-// Last updated: August 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
+// Last updated: July 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [
-  { month: "May '26", median: 850000, sales: 2068 },
   { month: "Jun '26", median: 860000, sales: 2699 },
   { month: "Jul '26", median: 850000, sales: 2701 },
   { month: "Aug '26", median: 860000, sales: 2010 },
@@ -28,10 +27,10 @@ const priceData = [
   { month: "Aug '26", median: 860000, sales: 2038 },
   { month: "Jul '26", median: 850000, sales: 2703 },
   { month: "Aug '26", median: 860000, sales: 2038 },
+  { month: "Jul '26", median: 850000, sales: 2703 },
 ];
 
 const domData = [
-  { month: "May '26", dom: 35 },
   { month: "Jun '26", dom: 33 },
   { month: "Jul '26", dom: 35 },
   { month: "Aug '26", dom: 40 },
@@ -39,24 +38,24 @@ const domData = [
   { month: "Aug '26", dom: 40 },
   { month: "Jul '26", dom: 35 },
   { month: "Aug '26", dom: 40 },
+  { month: "Jul '26", dom: 35 },
 ];
 
 const townData = [
-  { town: "Boston",    medianPrice:  825000, dom: 49, listToSale: 98.0 },
-  { town: "Newton",    medianPrice: 1731500, dom: 48, listToSale: 99.0 },
-  { town: "Wellesley", medianPrice: 2165000, dom: 33, listToSale: 97.0 },
-  { town: "Brookline", medianPrice: 1148000, dom: 51, listToSale: 99.0 },
-  { town: "Natick",    medianPrice:  857500, dom: 27, listToSale: 100.0 },
-  { town: "Lexington", medianPrice: 1706000, dom: 58, listToSale: 99.0 },
-  { town: "Needham",   medianPrice: 1490750, dom: 38, listToSale: 99.0 },
-  { town: "Framingham", medianPrice:  685000, dom: 29, listToSale: 102.0 },
-  { town: "Waltham",   medianPrice:  830000, dom: 39, listToSale: 100.0 },
+  { town: "Boston",    medianPrice:  805000, dom: 45, listToSale: 100.0 },
+  { town: "Newton",    medianPrice: 1402655, dom: 35, listToSale: 102.0 },
+  { town: "Wellesley", medianPrice: 2595000, dom: 28, listToSale: 101.0 },
+  { town: "Brookline", medianPrice: 1440000, dom: 40, listToSale: 100.0 },
+  { town: "Natick",    medianPrice:  900000, dom: 24, listToSale: 100.0 },
+  { town: "Lexington", medianPrice: 1580000, dom: 62, listToSale: 101.0 },
+  { town: "Needham",   medianPrice: 1700000, dom: 36, listToSale: 100.0 },
+  { town: "Framingham", medianPrice:  675000, dom: 24, listToSale: 101.0 },
+  { town: "Waltham",   medianPrice:  800000, dom: 30, listToSale: 102.0 },
 ];
 
 // Per-town rolling 8-month history — scraper appends each month
 const townHistoryData: Record<string, Array<{ month: string; median: number; dom: number; listToSale: number }>> = {
   "Boston": [
-    { month: "May '26", median:  816000, dom: 42, listToSale: 100 },
     { month: "Jun '26", median:  826000, dom: 40, listToSale: 100 },
     { month: "Jul '26", median:  816000, dom: 45, listToSale: 99 },
     { month: "Aug '26", median:  825000, dom: 50, listToSale: 98 },
@@ -64,13 +63,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median:  825000, dom: 49, listToSale: 98 },
     { month: "Jul '26", median:  805000, dom: 45, listToSale: 100 },
     { month: "Aug '26", median:  825000, dom: 49, listToSale: 98 },
+    { month: "Jul '26", median:  805000, dom: 45, listToSale: 100 },
+  
   
   
   
   
   ],
   "Newton": [
-    { month: "May '26", median: 1777000, dom: 42, listToSale: 100 },
     { month: "Jun '26", median: 1797000, dom: 40, listToSale: 101 },
     { month: "Jul '26", median: 1777000, dom: 45, listToSale: 100 },
     { month: "Aug '26", median: 1800000, dom: 48, listToSale: 99 },
@@ -78,13 +78,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median: 1731500, dom: 48, listToSale: 99 },
     { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102 },
     { month: "Aug '26", median: 1731500, dom: 48, listToSale: 99 },
+    { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102 },
+  
   
   
   
   
   ],
   "Wellesley": [
-    { month: "May '26", median: 2150000, dom: 30, listToSale: 98 },
     { month: "Jun '26", median: 2175000, dom: 28, listToSale: 98 },
     { month: "Jul '26", median: 2150000, dom: 30, listToSale: 97 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97 },
@@ -92,13 +93,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97 },
     { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97 },
+    { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101 },
+  
   
   
   
   
   ],
   "Brookline": [
-    { month: "May '26", median: 1175000, dom: 44, listToSale: 99 },
     { month: "Jun '26", median: 1190000, dom: 42, listToSale: 99 },
     { month: "Jul '26", median: 1175000, dom: 47, listToSale: 98 },
     { month: "Aug '26", median: 1188000, dom: 49, listToSale: 98 },
@@ -106,13 +108,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median: 1148000, dom: 51, listToSale: 99 },
     { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100 },
     { month: "Aug '26", median: 1148000, dom: 51, listToSale: 99 },
+    { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100 },
+  
   
   
   
   
   ],
   "Natick": [
-    { month: "May '26", median:  850000, dom: 28, listToSale: 101 },
     { month: "Jun '26", median:  860000, dom: 25, listToSale: 101 },
     { month: "Jul '26", median:  850000, dom: 25, listToSale: 100 },
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100 },
@@ -120,13 +123,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100 },
     { month: "Jul '26", median:  900000, dom: 24, listToSale: 100 },
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100 },
+    { month: "Jul '26", median:  900000, dom: 24, listToSale: 100 },
+  
   
   
   
   
   ],
   "Lexington": [
-    { month: "May '26", median: 1685000, dom: 50, listToSale: 100 },
     { month: "Jun '26", median: 1705000, dom: 48, listToSale: 100 },
     { month: "Jul '26", median: 1685000, dom: 55, listToSale: 99 },
     { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99 },
@@ -134,13 +138,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99 },
     { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101 },
     { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99 },
+    { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101 },
+  
   
   
   
   
   ],
   "Needham": [
-    { month: "May '26", median: 1420000, dom: 35, listToSale: 100 },
     { month: "Jun '26", median: 1758000, dom: 33, listToSale: 102 },
     { month: "Jul '26", median: 1420000, dom: 36, listToSale: 100 },
     { month: "Aug '26", median: 1439000, dom: 38, listToSale: 99 },
@@ -148,13 +153,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median: 1490750, dom: 38, listToSale: 99 },
     { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100 },
     { month: "Aug '26", median: 1490750, dom: 38, listToSale: 99 },
+    { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100 },
+  
   
   
   
   
   ],
   "Framingham": [
-    { month: "May '26", median:  680000, dom: 28, listToSale: 102 },
     { month: "Jun '26", median:  690000, dom: 25, listToSale: 102 },
     { month: "Jul '26", median:  680000, dom: 27, listToSale: 102 },
     { month: "Aug '26", median:  685000, dom: 29, listToSale: 102 },
@@ -162,13 +168,14 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median:  685000, dom: 29, listToSale: 102 },
     { month: "Jul '26", median:  675000, dom: 24, listToSale: 101 },
     { month: "Aug '26", median:  685000, dom: 29, listToSale: 102 },
+    { month: "Jul '26", median:  675000, dom: 24, listToSale: 101 },
+  
   
   
   
   
   ],
   "Waltham": [
-    { month: "May '26", median:  825000, dom: 36, listToSale: 101 },
     { month: "Jun '26", median:  835000, dom: 34, listToSale: 101 },
     { month: "Jul '26", median:  825000, dom: 37, listToSale: 100 },
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100 },
@@ -176,6 +183,8 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100 },
     { month: "Jul '26", median:  800000, dom: 30, listToSale: 102 },
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100 },
+    { month: "Jul '26", median:  800000, dom: 30, listToSale: 102 },
+  
   
   
   
@@ -188,7 +197,7 @@ const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
 export default function MarketPage() {
   useSEO({
-    title: "Greater Boston Real Estate Market Report | August 2026",
+    title: "Greater Boston Real Estate Market Report | July 2026",
     description: "Monthly market data for Greater Boston and MetroWest MA. Median prices, days on market, and list-to-sale ratios for Newton, Wellesley, Natick, Lexington, and more.",
     canonical: "https://bostonhomeguide.com/market",
   });
@@ -241,7 +250,7 @@ export default function MarketPage() {
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm font-body">
               <Calendar className="w-4 h-4" />
-              <span>Updated August 2026 · Next report: September 2026</span>
+              <span>Updated July 2026 · Next report: August 2026</span>
             </div>
           </div>
         </div>
@@ -252,10 +261,10 @@ export default function MarketPage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "$860,000", label: "Median Sale Price", change: "MLSPIN, Aug 2026" },
-              { value: "40 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
-              { value: "100%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
-              { value: "2,038", label: "Closed Sales", change: "MLSPIN, Aug 2026" },
+              { value: "$850,000", label: "Median Sale Price", change: "MLSPIN, Jul 2026" },
+              { value: "35 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
+              { value: "101%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
+              { value: "2,703", label: "Closed Sales", change: "MLSPIN, Jul 2026" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
@@ -301,7 +310,7 @@ export default function MarketPage() {
           {activeTab === "price" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                Median sale price trend across Greater Boston — May '26 through Aug '26
+                Median sale price trend across Greater Boston — Jun '26 through Jul '26
               </p>
               <ResponsiveContainer width="100%" height={320}>
                 <LineChart data={priceData}>
@@ -503,7 +512,7 @@ export default function MarketPage() {
               <div>
                 <p className="text-sm text-[#C89B3C] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
                 <h3 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
-August 2026 — What This Means for You
+July 2026 — What This Means for You
                 </h3>
               </div>
             </div>
