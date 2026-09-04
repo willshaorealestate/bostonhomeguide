@@ -76,8 +76,7 @@ export function updateMarketTsx(area, townRows, year, month) {
   const newTownRows = townRows.map(t => {
     const namePad = ' '.repeat(Math.max(1, 10 - t.town.length));
     const pricePad = String(t.medianPrice).padStart(7);
-    const invPad = String(t.inventory).padStart(3);
-    return `  { town: "${t.town}",${namePad}medianPrice: ${pricePad}, dom: ${t.dom}, listToSale: ${t.listToSale.toFixed(1)}, inventory: ${invPad} }`;
+    return `  { town: "${t.town}",${namePad}medianPrice: ${pricePad}, dom: ${t.dom}, listToSale: ${t.listToSale.toFixed(1)} }`;
   }).join(',\n');
   c = c.replace(/const townData = \[[\s\S]*?\n\];/, `const townData = [\n${newTownRows},\n];`);
 
@@ -94,9 +93,6 @@ export function updateMarketTsx(area, townRows, year, month) {
   );
 
   // 7. Key metrics strip (value first, then label)
-  const monthsSupply  = (area.activeListings / area.soldCount).toFixed(1);
-  const supplyChange  = `${area.activeListings.toLocaleString('en-US')} active / ${area.soldCount.toLocaleString('en-US')} sold`;
-
   c = c.replace(
     /\{ value: "\$[\d,]+", label: "Median Sale Price", change: "MLSPIN, .+?" \}/,
     `{ value: "${formatPriceFull(area.medianPrice)}", label: "Median Sale Price", change: "MLSPIN, ${abbr}" }`
@@ -110,8 +106,8 @@ export function updateMarketTsx(area, townRows, year, month) {
     `{ value: "${area.spLp}%", label: "List-to-Sale Ratio", change: "Above asking, on average" }`
   );
   c = c.replace(
-    /\{ value: "[\d.]+ mo", label: "Months of Supply", change: "[\d,]+ active \/ [\d,]+ sold" \}/,
-    `{ value: "${monthsSupply} mo", label: "Months of Supply", change: "${supplyChange}" }`
+    /\{ value: "[\d,]+", label: "Closed Sales", change: "MLSPIN, .+?" \}/,
+    `{ value: "${area.soldCount.toLocaleString('en-US')}", label: "Closed Sales", change: "MLSPIN, ${abbr}" }`
   );
 
   // 8. Price chart date range label
