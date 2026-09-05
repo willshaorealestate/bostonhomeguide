@@ -21,8 +21,11 @@ const REPORT_EDIT_URLS = {
 };
 
 const TOWNS = [
-  'Boston', 'Brookline', 'Framingham', 'Lexington',
-  'Natick', 'Needham', 'Newton', 'Waltham', 'Wellesley',
+  'Boston', 'Cambridge', 'Somerville', 'Brookline', 'Newton', 'Needham', 'Waltham', 'Watertown',
+  'Medford', 'Arlington', 'Belmont', 'Lexington', 'Winchester', 'Bedford', 'Concord', 'Burlington', 'Woburn', 'Acton', 'Westford', 'Chelmsford',
+  'Natick', 'Framingham', 'Hopkinton',
+  'Milton', 'Dedham', 'Westwood', 'Canton', 'Quincy',
+  'Wellesley',
 ];
 
 async function shot(page, name) {
@@ -58,10 +61,14 @@ export async function scrapeMonth(username, password, year, month) {
     const towns = {};
     for (const town of TOWNS) {
       console.log(`  Scraping ${town}...`);
-      const text = await runReport(page, 'BostonHomeGuide - Towns monthly', startDate, endDate, town, `town-${town.toLowerCase()}`);
-      towns[town] = parseTownReport(text);
-      const t = towns[town];
-      console.log(`    median=$${t.medianPrice.toLocaleString()}, DOM=${t.dom}, SP:LP=${t.spLp}%, inv=${t.inventory}`);
+      try {
+        const text = await runReport(page, 'BostonHomeGuide - Towns monthly', startDate, endDate, town, `town-${town.toLowerCase()}`);
+        towns[town] = parseTownReport(text);
+        const t = towns[town];
+        console.log(`    ✓ median=$${t.medianPrice.toLocaleString()}, sold=${t.soldCount}, pending=${t.pending}, DOM=${t.dom}, SP:LP=${t.spLp}%, SP:OP=${t.spOp}%`);
+      } catch (err) {
+        console.error(`  ✗ ${town} FAILED: ${err.message}`);
+      }
     }
 
     // Sign out before closing

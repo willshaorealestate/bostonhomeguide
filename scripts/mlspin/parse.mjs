@@ -17,15 +17,16 @@ export function parseAreaReport(text) {
   const medianMatch = soldSection.match(/Median Price:\s*\$([\d,]+)/);
   const medianPrice = medianMatch ? toInt(medianMatch[1]) : die('area sold median price');
 
-  // Total row: Total Properties  N  Avg. DOM  Avg. DTO  $AvgSale   $AvgList  SPLP  ...
+  // Total row: Total Properties  N  Avg. DOM  Avg. DTO  $AvgSale   $AvgList  SP:LP  [SP:OP]
   const totalMatch = soldSection.match(
-    /Total Properties\s+([\d,]+)\s+Avg\.\s+(\d+)\s+Avg\.\s+\d+\s+\$[\d,]+\s+\$[\d,]+\s+(\d+)/
+    /Total Properties\s+([\d,]+)\s+Avg\.\s+(\d+)\s+Avg\.\s+\d+\s+\$[\d,]+\s+\$[\d,]+\s+(\d+)(?:\s+(\d+))?/
   );
   const soldCount = totalMatch ? toInt(totalMatch[1]) : die('area sold count');
   const dom       = totalMatch ? Number(totalMatch[2]) : die('area DOM');
   const spLp      = totalMatch ? Number(totalMatch[3]) : die('area SP:LP');
+  const spOp      = totalMatch?.[4] ? Number(totalMatch[4]) : spLp;
 
-  return { activeListings, medianPrice, soldCount, dom, spLp };
+  return { activeListings, medianPrice, soldCount, dom, spLp, spOp };
 }
 
 /**
@@ -37,23 +38,32 @@ export function parseTownReport(text) {
   const activeMatch = activeSection.match(/Total Properties\s+([\d,]+)/);
   const inventory = activeMatch ? toInt(activeMatch[1]) : 0;
 
+  const pendingSection = extractSection(text, 'Pending', ['Sold Listings', 'Expired Listings'], true);
+  const pendingMatch = pendingSection?.match(/Total Properties\s+([\d,]+)/);
+  const pending = pendingMatch ? toInt(pendingMatch[1]) : 0;
+
   const soldSection = extractSection(text, 'Sold Listings', ['Expired Listings']);
 
   const medianMatch = soldSection.match(/Median Price:\s*\$([\d,]+)/);
   const medianPrice = medianMatch ? toInt(medianMatch[1]) : die('town sold median price');
 
   const totalMatch = soldSection.match(
-    /Total Properties\s+([\d,]+)\s+Avg\.\s+(\d+)\s+Avg\.\s+\d+\s+\$[\d,]+\s+\$[\d,]+\s+(\d+)/
+    /Total Properties\s+([\d,]+)\s+Avg\.\s+(\d+)\s+Avg\.\s+\d+\s+\$[\d,]+\s+\$[\d,]+\s+(\d+)(?:\s+(\d+))?/
   );
-  const dom  = totalMatch ? Number(totalMatch[2]) : die('town DOM');
-  const spLp = totalMatch ? Number(totalMatch[3]) : die('town SP:LP');
+  const soldCount = totalMatch ? toInt(totalMatch[1]) : die('town sold count');
+  const dom       = totalMatch ? Number(totalMatch[2]) : die('town DOM');
+  const spLp      = totalMatch ? Number(totalMatch[3]) : die('town SP:LP');
+  const spOp      = totalMatch?.[4] ? Number(totalMatch[4]) : spLp;
 
-  return { medianPrice, dom, spLp, inventory };
+  return { medianPrice, soldCount, pending, dom, spLp, spOp, inventory };
 }
 
-function extractSection(text, start, endings) {
+function extractSection(text, start, endings, optional = false) {
   const si = text.indexOf(start);
-  if (si === -1) throw new Error(`Section not found: "${start}"`);
+  if (si === -1) {
+    if (optional) return null;
+    throw new Error(`Section not found: "${start}"`);
+  }
   let ei = text.length;
   for (const end of endings) {
     const pos = text.indexOf(end, si + start.length);

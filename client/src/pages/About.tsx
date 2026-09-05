@@ -144,8 +144,7 @@ export default function AboutPage() {
                 src={WILL_BG}
                 alt="Will Shao — Greater Boston REALTOR®"
                 className="w-full max-w-sm lg:max-w-md object-cover rounded-t-lg"
-                style={{ objectPosition: "center 5%" }}
-                style={{ maxHeight: "480px" }}
+                style={{ objectPosition: "center 5%", maxHeight: "480px" }}
               />
             </div>
           </div>

@@ -196,18 +196,18 @@ export function updateTownHistory(townMap, year, month) {
       `("${town}":\\s*\\[\\n)([\\s\\S]*?)(\\s*\\],)`,
     );
     c = c.replace(entryRe, (_, open, body, close) => {
-      // Parse existing entries
-      const lineRe = /\{ month: "([^"]+)", median:\s*(\d+), dom:\s*(\d+), listToSale:\s*(\d+) \}/g;
+      // Parse existing entries (sold/pending optional for backward compat)
+      const lineRe = /\{ month: "([^"]+)", median:\s*(\d+), dom:\s*(\d+), listToSale:\s*(\d+)(?:, sold:\s*(\d+))?(?:, pending:\s*(\d+))? \}/g;
       const entries = [];
       let m;
       while ((m = lineRe.exec(body)) !== null) {
-        entries.push({ month: m[1], median: Number(m[2]), dom: Number(m[3]), listToSale: Number(m[4]) });
+        entries.push({ month: m[1], median: Number(m[2]), dom: Number(m[3]), listToSale: Number(m[4]), sold: m[5] ? Number(m[5]) : 0, pending: m[6] ? Number(m[6]) : 0 });
       }
       // Rolling 8-month window
       if (entries.length >= 8) entries.shift();
-      entries.push({ month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spLp) });
+      entries.push({ month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spOp), sold: data.soldCount, pending: data.pending });
       const newBody = entries
-        .map(e => `    { month: "${e.month}", median: ${String(e.median).padStart(7)}, dom: ${e.dom}, listToSale: ${e.listToSale} }`)
+        .map(e => `    { month: "${e.month}", median: ${String(e.median).padStart(7)}, dom: ${e.dom}, listToSale: ${e.listToSale}, sold: ${e.sold}, pending: ${e.pending} }`)
         .join(',\n');
       return `${open}${newBody},\n  ${close}`;
     });

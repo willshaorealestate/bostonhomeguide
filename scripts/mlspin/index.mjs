@@ -13,10 +13,13 @@
 import { scrapeMonth } from './scrape.mjs';
 import { updateMarketTsx, updateHomeTsx, updateNeighborhoodTs, updateTownHistory } from './update.mjs';
 
-// Order must match townData array in Market.tsx
+// Must contain every town in scrape.mjs TOWNS — order determines townData row order in Market.tsx
 const TOWN_ORDER = [
-  'Boston', 'Newton', 'Wellesley', 'Brookline', 'Natick',
-  'Lexington', 'Needham', 'Framingham', 'Waltham',
+  'Boston', 'Cambridge', 'Somerville', 'Brookline', 'Newton', 'Needham', 'Waltham', 'Watertown',
+  'Medford', 'Arlington', 'Belmont', 'Lexington', 'Winchester', 'Bedford', 'Concord', 'Burlington', 'Woburn', 'Acton', 'Westford', 'Chelmsford',
+  'Natick', 'Framingham', 'Hopkinton',
+  'Milton', 'Dedham', 'Westwood', 'Canton', 'Quincy',
+  'Wellesley',
 ];
 
 async function main() {
@@ -44,11 +47,16 @@ async function main() {
 
     const { area, towns } = await scrapeMonth(username, password, year, month);
 
-    const townRows = TOWN_ORDER.map(name => ({
+    const missing = TOWN_ORDER.filter(name => !towns[name]);
+    if (missing.length) console.warn(`  ⚠ Missing town data: ${missing.join(', ')} — skipped`);
+
+    const townRows = TOWN_ORDER.filter(name => towns[name]).map(name => ({
       town:        name,
       medianPrice: towns[name].medianPrice,
+      soldCount:   towns[name].soldCount,
+      pending:     towns[name].pending,
       dom:         towns[name].dom,
-      listToSale:  towns[name].spLp,
+      listToSale:  towns[name].spOp,
     }));
 
     console.log('\n  Updating source files...');
