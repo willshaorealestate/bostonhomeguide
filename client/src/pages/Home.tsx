@@ -336,14 +336,14 @@ export default function HomePage() {
               >
                 Greater Boston Market Snapshot
               </h2>
-              <p className="text-sm text-gray-500 font-body mt-1">Updated June 2026</p>
+              <p className="text-sm text-gray-500 font-body mt-1">Updated August 2026</p>
             </div>
             <div className="flex flex-wrap gap-6 md:gap-10">
               {[
-                { label: "Median Sale Price", value: "$860,000", change: "Jun 2026", up: true },
+                { label: "Median Sale Price", value: "$860,000", change: "Aug 2026", up: true },
                 { label: "Days on Market", value: "33 days", change: "Greater Boston", up: false },
                 { label: "List-to-Sale Ratio", value: "102%", change: "Above asking", up: true },
-                { label: "Active Inventory", value: "723", change: "Jun 2026", up: false },
+                { label: "Active Inventory", value: "1,192", change: "Aug 2026", up: false },
               ].map((metric) => (
                 <div key={metric.label} className="text-center">
                   <p
