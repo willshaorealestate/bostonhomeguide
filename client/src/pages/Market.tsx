@@ -24,8 +24,6 @@ const priceData = [
   { month: "Apr '26", median: 860000, sales: 1494 },
   { month: "May '26", median: 850000, sales: 2068 },
   { month: "Jun '26", median: 860000, sales: 2699 },
-  { month: "Jul '26", median: 850000, sales: 2701 },
-  { month: "Aug '26", median: 860000, sales: 2010 },
   { month: "Jul '26", median: 850000, sales: 2703 },
   { month: "Aug '26", median: 860000, sales: 2038 },
 ];
@@ -35,8 +33,6 @@ const domData = [
   { month: "Apr '26", dom: 43 },
   { month: "May '26", dom: 35 },
   { month: "Jun '26", dom: 33 },
-  { month: "Jul '26", dom: 35 },
-  { month: "Aug '26", dom: 40 },
   { month: "Jul '26", dom: 35 },
   { month: "Aug '26", dom: 40 },
 ];
@@ -80,10 +76,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  826000, dom: 48, listToSale: 97, sold: 150, pending: 135 },
     { month: "May '26", median:  816000, dom: 42, listToSale: 97, sold: 165, pending: 148 },
     { month: "Jun '26", median:  826000, dom: 40, listToSale: 98, sold: 175, pending: 155 },
-    { month: "Jul '26", median:  816000, dom: 45, listToSale: 97, sold: 165, pending: 140 },
-    { month: "Aug '26", median:  825000, dom: 50, listToSale: 96, sold: 135, pending: 115 },
     { month: "Jul '26", median:  805000, dom: 45, listToSale: 100, sold: 540, pending: 88 },
     { month: "Aug '26", median:  825000, dom: 49, listToSale: 98, sold: 371, pending: 239 },
+  
   
   
   ],
@@ -92,10 +87,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1797000, dom: 48, listToSale: 97, sold: 45, pending: 40 },
     { month: "May '26", median: 1777000, dom: 42, listToSale: 97, sold: 50, pending: 44 },
     { month: "Jun '26", median: 1797000, dom: 40, listToSale: 98, sold: 52, pending: 46 },
-    { month: "Jul '26", median: 1777000, dom: 45, listToSale: 97, sold: 50, pending: 42 },
-    { month: "Aug '26", median: 1800000, dom: 48, listToSale: 96, sold: 41, pending: 35 },
     { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102, sold: 116, pending: 21 },
     { month: "Aug '26", median: 1731500, dom: 48, listToSale: 99, sold: 63, pending: 31 },
+  
   
   
   ],
@@ -104,10 +98,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 2175000, dom: 35, listToSale: 96, sold: 22, pending: 19 },
     { month: "May '26", median: 2150000, dom: 30, listToSale: 96, sold: 24, pending: 21 },
     { month: "Jun '26", median: 2175000, dom: 28, listToSale: 96, sold: 25, pending: 22 },
-    { month: "Jul '26", median: 2150000, dom: 30, listToSale: 95, sold: 24, pending: 20 },
-    { month: "Aug '26", median: 2165000, dom: 33, listToSale: 95, sold: 20, pending: 17 },
     { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101, sold: 36, pending: 7 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97, sold: 42, pending: 13 },
+  
   
   
   ],
@@ -116,10 +109,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1190000, dom: 50, listToSale: 97, sold: 30, pending: 26 },
     { month: "May '26", median: 1175000, dom: 44, listToSale: 97, sold: 33, pending: 29 },
     { month: "Jun '26", median: 1190000, dom: 42, listToSale: 97, sold: 35, pending: 30 },
-    { month: "Jul '26", median: 1175000, dom: 47, listToSale: 96, sold: 33, pending: 28 },
-    { month: "Aug '26", median: 1188000, dom: 49, listToSale: 95, sold: 27, pending: 23 },
     { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100, sold: 56, pending: 9 },
     { month: "Aug '26", median: 1148000, dom: 51, listToSale: 99, sold: 46, pending: 22 },
+  
   
   
   ],
@@ -128,10 +120,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  860000, dom: 32, listToSale: 98, sold: 32, pending: 29 },
     { month: "May '26", median:  850000, dom: 28, listToSale: 99, sold: 35, pending: 32 },
     { month: "Jun '26", median:  860000, dom: 25, listToSale: 99, sold: 37, pending: 33 },
-    { month: "Jul '26", median:  850000, dom: 25, listToSale: 98, sold: 35, pending: 31 },
-    { month: "Aug '26", median:  857500, dom: 27, listToSale: 98, sold: 29, pending: 25 },
     { month: "Jul '26", median:  900000, dom: 24, listToSale: 100, sold: 55, pending: 8 },
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100, sold: 36, pending: 28 },
+  
   
   
   ],
@@ -140,10 +131,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1700000, dom: 55, listToSale: 97, sold: 28, pending: 25 },
     { month: "May '26", median: 1685000, dom: 50, listToSale: 97, sold: 31, pending: 27 },
     { month: "Jun '26", median: 1705000, dom: 48, listToSale: 97, sold: 32, pending: 28 },
-    { month: "Jul '26", median: 1685000, dom: 55, listToSale: 96, sold: 31, pending: 26 },
-    { month: "Aug '26", median: 1706000, dom: 58, listToSale: 96, sold: 25, pending: 21 },
     { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101, sold: 51, pending: 6 },
     { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99, sold: 38, pending: 19 },
+  
   
   
   ],
@@ -152,10 +142,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1435000, dom: 40, listToSale: 97, sold: 20, pending: 18 },
     { month: "May '26", median: 1420000, dom: 35, listToSale: 97, sold: 22, pending: 20 },
     { month: "Jun '26", median: 1758000, dom: 33, listToSale: 99, sold: 23, pending: 20 },
-    { month: "Jul '26", median: 1420000, dom: 36, listToSale: 97, sold: 22, pending: 19 },
-    { month: "Aug '26", median: 1439000, dom: 38, listToSale: 96, sold: 18, pending: 15 },
     { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100, sold: 41, pending: 9 },
     { month: "Aug '26", median: 1490750, dom: 38, listToSale: 99, sold: 40, pending: 19 },
+  
   
   
   ],
@@ -164,10 +153,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  688000, dom: 32, listToSale: 99, sold: 55, pending: 50 },
     { month: "May '26", median:  680000, dom: 28, listToSale: 100, sold: 61, pending: 55 },
     { month: "Jun '26", median:  690000, dom: 25, listToSale: 100, sold: 63, pending: 57 },
-    { month: "Jul '26", median:  680000, dom: 27, listToSale: 100, sold: 61, pending: 54 },
-    { month: "Aug '26", median:  685000, dom: 29, listToSale: 100, sold: 50, pending: 44 },
     { month: "Jul '26", median:  675000, dom: 24, listToSale: 101, sold: 57, pending: 7 },
     { month: "Aug '26", median:  685000, dom: 29, listToSale: 102, sold: 48, pending: 52 },
+  
   
   
   ],
@@ -176,10 +164,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  835000, dom: 42, listToSale: 98, sold: 42, pending: 38 },
     { month: "May '26", median:  825000, dom: 36, listToSale: 98, sold: 46, pending: 41 },
     { month: "Jun '26", median:  835000, dom: 34, listToSale: 99, sold: 48, pending: 43 },
-    { month: "Jul '26", median:  825000, dom: 37, listToSale: 98, sold: 46, pending: 40 },
-    { month: "Aug '26", median:  830000, dom: 39, listToSale: 97, sold: 38, pending: 33 },
     { month: "Jul '26", median:  800000, dom: 30, listToSale: 102, sold: 31, pending: 6 },
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100, sold: 39, pending: 26 },
+  
   
   
   ],
@@ -188,10 +175,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1100000, dom: 31, listToSale: 97, sold: 45, pending: 38 },
     { month: "May '26", median: 1089000, dom: 26, listToSale: 97, sold: 50, pending: 42 },
     { month: "Jun '26", median: 1100000, dom: 24, listToSale: 97, sold: 52, pending: 44 },
-    { month: "Jul '26", median: 1089000, dom: 27, listToSale: 97, sold: 50, pending: 42 },
-    { month: "Aug '26", median: 1100000, dom: 35, listToSale: 97, sold: 45, pending: 38 },
     { month: "Jul '26", median: 1287500, dom: 36, listToSale: 103, sold: 86, pending: 9 },
     { month: "Aug '26", median: 1045000, dom: 42, listToSale: 102, sold: 65, pending: 25 },
+  
   
   
   ],
@@ -200,10 +186,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  950000, dom: 26, listToSale: 98, sold: 35, pending: 30 },
     { month: "May '26", median:  941000, dom: 23, listToSale: 98, sold: 39, pending: 33 },
     { month: "Jun '26", median:  950000, dom: 20, listToSale: 98, sold: 40, pending: 34 },
-    { month: "Jul '26", median:  941000, dom: 23, listToSale: 98, sold: 39, pending: 33 },
-    { month: "Aug '26", median:  950000, dom: 30, listToSale: 98, sold: 35, pending: 30 },
     { month: "Jul '26", median: 1180000, dom: 28, listToSale: 104, sold: 48, pending: 4 },
     { month: "Aug '26", median: 1130000, dom: 31, listToSale: 102, sold: 38, pending: 19 },
+  
   
   
   ],
@@ -212,10 +197,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1200000, dom: 31, listToSale: 96, sold: 22, pending: 19 },
     { month: "May '26", median: 1188000, dom: 26, listToSale: 96, sold: 24, pending: 20 },
     { month: "Jun '26", median: 1200000, dom: 24, listToSale: 96, sold: 25, pending: 21 },
-    { month: "Jul '26", median: 1188000, dom: 27, listToSale: 96, sold: 24, pending: 20 },
-    { month: "Aug '26", median: 1200000, dom: 35, listToSale: 96, sold: 22, pending: 19 },
     { month: "Jul '26", median: 1540000, dom: 23, listToSale: 101, sold: 23, pending: 8 },
     { month: "Aug '26", median: 1377000, dom: 21, listToSale: 101, sold: 14, pending: 16 },
+  
   
   
   ],
@@ -224,10 +208,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  800000, dom: 25, listToSale: 98, sold: 40, pending: 34 },
     { month: "May '26", median:  792000, dom: 21, listToSale: 98, sold: 44, pending: 37 },
     { month: "Jun '26", median:  800000, dom: 19, listToSale: 98, sold: 46, pending: 39 },
-    { month: "Jul '26", median:  792000, dom: 22, listToSale: 98, sold: 44, pending: 37 },
-    { month: "Aug '26", median:  800000, dom: 28, listToSale: 98, sold: 40, pending: 34 },
     { month: "Jul '26", median:  805000, dom: 41, listToSale: 100, sold: 61, pending: 12 },
     { month: "Aug '26", median:  859500, dom: 32, listToSale: 100, sold: 36, pending: 18 },
+  
   
   
   ],
@@ -236,10 +219,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  720000, dom: 25, listToSale: 99, sold: 38, pending: 32 },
     { month: "May '26", median:  713000, dom: 21, listToSale: 99, sold: 42, pending: 36 },
     { month: "Jun '26", median:  720000, dom: 19, listToSale: 99, sold: 44, pending: 37 },
-    { month: "Jul '26", median:  713000, dom: 22, listToSale: 99, sold: 42, pending: 36 },
-    { month: "Aug '26", median:  720000, dom: 28, listToSale: 99, sold: 38, pending: 32 },
     { month: "Jul '26", median:  873000, dom: 28, listToSale: 103, sold: 44, pending: 9 },
     { month: "Aug '26", median:  862500, dom: 53, listToSale: 100, sold: 45, pending: 26 },
+  
   
   
   ],
@@ -248,10 +230,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  780000, dom: 26, listToSale: 98, sold: 25, pending: 21 },
     { month: "May '26", median:  772000, dom: 23, listToSale: 98, sold: 28, pending: 24 },
     { month: "Jun '26", median:  780000, dom: 20, listToSale: 98, sold: 29, pending: 25 },
-    { month: "Jul '26", median:  772000, dom: 23, listToSale: 98, sold: 28, pending: 24 },
-    { month: "Aug '26", median:  780000, dom: 30, listToSale: 98, sold: 25, pending: 22 },
     { month: "Jul '26", median:  825000, dom: 35, listToSale: 100, sold: 37, pending: 8 },
     { month: "Aug '26", median:  558000, dom: 33, listToSale: 102, sold: 22, pending: 9 },
+  
   
   
   ],
@@ -260,10 +241,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1300000, dom: 33, listToSale: 96, sold: 20, pending: 17 },
     { month: "May '26", median: 1287000, dom: 29, listToSale: 96, sold: 22, pending: 19 },
     { month: "Jun '26", median: 1300000, dom: 26, listToSale: 96, sold: 23, pending: 20 },
-    { month: "Jul '26", median: 1287000, dom: 30, listToSale: 96, sold: 22, pending: 19 },
-    { month: "Aug '26", median: 1300000, dom: 38, listToSale: 96, sold: 20, pending: 17 },
     { month: "Jul '26", median: 1924500, dom: 30, listToSale: 101, sold: 30, pending: 1 },
     { month: "Aug '26", median: 1737000, dom: 36, listToSale: 99, sold: 18, pending: 12 },
+  
   
   
   ],
@@ -272,10 +252,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  600000, dom: 26, listToSale: 99, sold: 35, pending: 30 },
     { month: "May '26", median:  594000, dom: 23, listToSale: 99, sold: 39, pending: 33 },
     { month: "Jun '26", median:  600000, dom: 20, listToSale: 99, sold: 40, pending: 34 },
-    { month: "Jul '26", median:  594000, dom: 23, listToSale: 99, sold: 39, pending: 33 },
-    { month: "Aug '26", median:  600000, dom: 30, listToSale: 99, sold: 35, pending: 30 },
     { month: "Jul '26", median:  770000, dom: 29, listToSale: 101, sold: 39, pending: 4 },
     { month: "Aug '26", median:  749500, dom: 29, listToSale: 102, sold: 32, pending: 18 },
+  
   
   
   ],
@@ -284,10 +263,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  650000, dom: 28, listToSale: 98, sold: 28, pending: 24 },
     { month: "May '26", median:  644000, dom: 24, listToSale: 98, sold: 31, pending: 26 },
     { month: "Jun '26", median:  650000, dom: 22, listToSale: 98, sold: 32, pending: 27 },
-    { month: "Jul '26", median:  644000, dom: 25, listToSale: 98, sold: 31, pending: 26 },
-    { month: "Aug '26", median:  650000, dom: 32, listToSale: 98, sold: 28, pending: 24 },
     { month: "Jul '26", median:  932500, dom: 32, listToSale: 103, sold: 28, pending: 4 },
     { month: "Aug '26", median:  815000, dom: 35, listToSale: 102, sold: 14, pending: 14 },
+  
   
   
   ],
@@ -296,10 +274,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  620000, dom: 31, listToSale: 98, sold: 35, pending: 30 },
     { month: "May '26", median:  614000, dom: 26, listToSale: 98, sold: 39, pending: 33 },
     { month: "Jun '26", median:  620000, dom: 24, listToSale: 98, sold: 40, pending: 34 },
-    { month: "Jul '26", median:  614000, dom: 27, listToSale: 98, sold: 39, pending: 33 },
-    { month: "Aug '26", median:  620000, dom: 35, listToSale: 98, sold: 35, pending: 30 },
     { month: "Jul '26", median:  677500, dom: 28, listToSale: 102, sold: 40, pending: 7 },
     { month: "Aug '26", median:  619000, dom: 31, listToSale: 100, sold: 37, pending: 33 },
+  
   
   
   ],
@@ -308,10 +285,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  800000, dom: 31, listToSale: 97, sold: 28, pending: 24 },
     { month: "May '26", median:  792000, dom: 26, listToSale: 97, sold: 31, pending: 26 },
     { month: "Jun '26", median:  800000, dom: 24, listToSale: 97, sold: 32, pending: 27 },
-    { month: "Jul '26", median:  792000, dom: 27, listToSale: 97, sold: 31, pending: 26 },
-    { month: "Aug '26", median:  800000, dom: 35, listToSale: 97, sold: 28, pending: 24 },
     { month: "Jul '26", median:  805000, dom: 30, listToSale: 102, sold: 39, pending: 1 },
     { month: "Aug '26", median:  870000, dom: 32, listToSale: 100, sold: 19, pending: 12 },
+  
   
   
   ],
@@ -320,10 +296,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  750000, dom: 33, listToSale: 97, sold: 15, pending: 13 },
     { month: "May '26", median:  743000, dom: 29, listToSale: 97, sold: 17, pending: 14 },
     { month: "Jun '26", median:  750000, dom: 26, listToSale: 97, sold: 17, pending: 15 },
-    { month: "Jul '26", median:  743000, dom: 30, listToSale: 97, sold: 17, pending: 14 },
-    { month: "Aug '26", median:  750000, dom: 38, listToSale: 97, sold: 15, pending: 13 },
     { month: "Jul '26", median: 1068000, dom: 44, listToSale: 103, sold: 21, pending: 1 },
     { month: "Aug '26", median:  955000, dom: 31, listToSale: 101, sold: 12, pending: 17 },
+  
   
   
   ],
@@ -332,10 +307,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1350000, dom: 40, listToSale: 96, sold: 18, pending: 15 },
     { month: "May '26", median: 1337000, dom: 34, listToSale: 96, sold: 20, pending: 17 },
     { month: "Jun '26", median: 1350000, dom: 31, listToSale: 96, sold: 21, pending: 18 },
-    { month: "Jul '26", median: 1337000, dom: 35, listToSale: 96, sold: 20, pending: 17 },
-    { month: "Aug '26", median: 1350000, dom: 45, listToSale: 96, sold: 18, pending: 15 },
     { month: "Jul '26", median: 1775000, dom: 54, listToSale: 99, sold: 12, pending: 6 },
     { month: "Aug '26", median: 1725000, dom: 64, listToSale: 98, sold: 23, pending: 10 },
+  
   
   
   ],
@@ -344,10 +318,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  580000, dom: 33, listToSale: 97, sold: 20, pending: 17 },
     { month: "May '26", median:  574000, dom: 29, listToSale: 97, sold: 22, pending: 19 },
     { month: "Jun '26", median:  580000, dom: 26, listToSale: 97, sold: 23, pending: 20 },
-    { month: "Jul '26", median:  574000, dom: 30, listToSale: 97, sold: 22, pending: 19 },
-    { month: "Aug '26", median:  580000, dom: 38, listToSale: 97, sold: 20, pending: 17 },
     { month: "Jul '26", median:  942500, dom: 24, listToSale: 102, sold: 30, pending: 6 },
     { month: "Aug '26", median:  799900, dom: 28, listToSale: 101, sold: 33, pending: 16 },
+  
   
   
   ],
@@ -356,10 +329,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  780000, dom: 33, listToSale: 97, sold: 22, pending: 18 },
     { month: "May '26", median:  772000, dom: 29, listToSale: 97, sold: 24, pending: 20 },
     { month: "Jun '26", median:  780000, dom: 26, listToSale: 97, sold: 25, pending: 21 },
-    { month: "Jul '26", median:  772000, dom: 30, listToSale: 97, sold: 24, pending: 20 },
-    { month: "Aug '26", median:  780000, dom: 38, listToSale: 97, sold: 22, pending: 18 },
     { month: "Jul '26", median: 1156000, dom: 40, listToSale: 102, sold: 38, pending: 4 },
     { month: "Aug '26", median: 1030000, dom: 59, listToSale: 102, sold: 27, pending: 20 },
+  
   
   
   ],
@@ -368,10 +340,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1050000, dom: 35, listToSale: 97, sold: 22, pending: 18 },
     { month: "May '26", median: 1040000, dom: 30, listToSale: 97, sold: 24, pending: 20 },
     { month: "Jun '26", median: 1050000, dom: 27, listToSale: 97, sold: 25, pending: 21 },
-    { month: "Jul '26", median: 1040000, dom: 31, listToSale: 97, sold: 24, pending: 20 },
-    { month: "Aug '26", median: 1050000, dom: 40, listToSale: 97, sold: 22, pending: 18 },
     { month: "Jul '26", median: 1010000, dom: 25, listToSale: 105, sold: 21, pending: 5 },
     { month: "Aug '26", median: 1015000, dom: 34, listToSale: 100, sold: 27, pending: 10 },
+  
   
   
   ],
@@ -380,10 +351,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1150000, dom: 33, listToSale: 96, sold: 18, pending: 15 },
     { month: "May '26", median: 1139000, dom: 29, listToSale: 96, sold: 20, pending: 17 },
     { month: "Jun '26", median: 1150000, dom: 26, listToSale: 96, sold: 21, pending: 18 },
-    { month: "Jul '26", median: 1139000, dom: 30, listToSale: 96, sold: 20, pending: 17 },
-    { month: "Aug '26", median: 1150000, dom: 38, listToSale: 96, sold: 18, pending: 15 },
     { month: "Jul '26", median: 1200000, dom: 94, listToSale: 101, sold: 11, pending: 3 },
     { month: "Aug '26", median: 1395000, dom: 32, listToSale: 100, sold: 20, pending: 9 },
+  
   
   
   ],
@@ -392,10 +362,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  700000, dom: 28, listToSale: 98, sold: 30, pending: 26 },
     { month: "May '26", median:  693000, dom: 24, listToSale: 98, sold: 33, pending: 28 },
     { month: "Jun '26", median:  700000, dom: 22, listToSale: 98, sold: 35, pending: 30 },
-    { month: "Jul '26", median:  693000, dom: 25, listToSale: 98, sold: 33, pending: 28 },
-    { month: "Aug '26", median:  700000, dom: 32, listToSale: 98, sold: 30, pending: 26 },
     { month: "Jul '26", median:  778000, dom: 37, listToSale: 101, sold: 38, pending: 6 },
     { month: "Aug '26", median:  680000, dom: 38, listToSale: 102, sold: 29, pending: 17 },
+  
   
   
   ],
@@ -404,10 +373,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  680000, dom: 31, listToSale: 97, sold: 25, pending: 21 },
     { month: "May '26", median:  673000, dom: 26, listToSale: 97, sold: 28, pending: 24 },
     { month: "Jun '26", median:  680000, dom: 24, listToSale: 97, sold: 29, pending: 25 },
-    { month: "Jul '26", median:  673000, dom: 27, listToSale: 97, sold: 28, pending: 24 },
-    { month: "Aug '26", median:  680000, dom: 35, listToSale: 97, sold: 25, pending: 21 },
     { month: "Jul '26", median:  715000, dom: 24, listToSale: 102, sold: 25, pending: 8 },
     { month: "Aug '26", median:  685850, dom: 40, listToSale: 101, sold: 30, pending: 23 },
+  
   
   
   ],
@@ -416,10 +384,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  620000, dom: 28, listToSale: 98, sold: 55, pending: 47 },
     { month: "May '26", median:  614000, dom: 24, listToSale: 98, sold: 61, pending: 52 },
     { month: "Jun '26", median:  620000, dom: 22, listToSale: 98, sold: 63, pending: 54 },
-    { month: "Jul '26", median:  614000, dom: 25, listToSale: 98, sold: 61, pending: 52 },
-    { month: "Aug '26", median:  620000, dom: 32, listToSale: 98, sold: 55, pending: 47 },
     { month: "Jul '26", median:  655000, dom: 27, listToSale: 101, sold: 63, pending: 20 },
     { month: "Aug '26", median:  660000, dom: 35, listToSale: 100, sold: 57, pending: 53 },
+  
   
   
   ],

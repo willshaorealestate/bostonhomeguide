@@ -36,7 +36,7 @@ function formatPriceFull(price) {
 // ─── Market.tsx ────────────────────────────────────────────────────────────────
 
 export function updateMarketTsx(area, townRows, year, month) {
-  let c = readFileSync(MARKET_TSX, 'utf8');
+  let c = readFileSync(MARKET_TSX, 'utf8').replace(/\r\n/g, '\n');
 
   const long     = longLabel(year, month);
   const short    = shortLabel(year, month);
@@ -49,24 +49,34 @@ export function updateMarketTsx(area, townRows, year, month) {
     `// Last updated: ${long} — Source: MLSPIN Area Market Survey`
   );
 
-  // 2. priceData — parse current, drop oldest, append new month
+  // 2. priceData — upsert: replace existing entry for this month, or roll window forward
   const priceMatch = c.match(/const priceData = \[([\s\S]*?)\n\];/);
   if (!priceMatch) throw new Error('priceData not found in Market.tsx');
   const priceEntries = parsePriceArray(priceMatch[1]);
-  priceEntries.shift();
-  priceEntries.push({ month: short, median: area.medianPrice, sales: area.soldCount });
+  const priceIdx = priceEntries.findIndex(e => e.month === short);
+  if (priceIdx !== -1) {
+    priceEntries[priceIdx] = { month: short, median: area.medianPrice, sales: area.soldCount };
+  } else {
+    if (priceEntries.length >= 8) priceEntries.shift();
+    priceEntries.push({ month: short, median: area.medianPrice, sales: area.soldCount });
+  }
   const firstMonth = priceEntries[0].month;  // used for chart label below
   const newPriceRows = priceEntries
     .map(e => `  { month: "${e.month}", median: ${e.median}, sales: ${e.sales} }`)
     .join(',\n');
   c = c.replace(/const priceData = \[[\s\S]*?\n\];/, `const priceData = [\n${newPriceRows},\n];`);
 
-  // 3. domData — same rolling-window treatment
+  // 3. domData — upsert same as priceData
   const domMatch = c.match(/const domData = \[([\s\S]*?)\n\];/);
   if (!domMatch) throw new Error('domData not found in Market.tsx');
   const domEntries = parseDomArray(domMatch[1]);
-  domEntries.shift();
-  domEntries.push({ month: short, dom: area.dom });
+  const domIdx = domEntries.findIndex(e => e.month === short);
+  if (domIdx !== -1) {
+    domEntries[domIdx] = { month: short, dom: area.dom };
+  } else {
+    if (domEntries.length >= 8) domEntries.shift();
+    domEntries.push({ month: short, dom: area.dom });
+  }
   const newDomRows = domEntries
     .map(e => `  { month: "${e.month}", dom: ${e.dom} }`)
     .join(',\n');
@@ -138,7 +148,7 @@ export function updateMarketTsx(area, townRows, year, month) {
 const HOME_TOWNS = ['Newton', 'Wellesley', 'Brookline', 'Natick', 'Lexington', 'Needham', 'Framingham'];
 
 export function updateHomeTsx(area, townMap, year, month) {
-  let c = readFileSync(HOME_TSX, 'utf8');
+  let c = readFileSync(HOME_TSX, 'utf8').replace(/\r\n/g, '\n');
 
   const long  = longLabel(year, month);
   const abbr  = `${SHORT[month - 1]} ${year}`;  // "Jul 2026"
@@ -187,7 +197,7 @@ const SLUG_MAP = {
 };
 
 export function updateTownHistory(townMap, year, month) {
-  let c = readFileSync(MARKET_TSX, 'utf8');
+  let c = readFileSync(MARKET_TSX, 'utf8').replace(/\r\n/g, '\n');
   const short = shortLabel(year, month);
 
   for (const [town, data] of Object.entries(townMap)) {
@@ -203,9 +213,14 @@ export function updateTownHistory(townMap, year, month) {
       while ((m = lineRe.exec(body)) !== null) {
         entries.push({ month: m[1], median: Number(m[2]), dom: Number(m[3]), listToSale: Number(m[4]), sold: m[5] ? Number(m[5]) : 0, pending: m[6] ? Number(m[6]) : 0 });
       }
-      // Rolling 8-month window
-      if (entries.length >= 8) entries.shift();
-      entries.push({ month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spOp), sold: data.soldCount, pending: data.pending });
+      // Upsert: replace existing entry for this month, or roll 8-month window forward
+      const existingIdx = entries.findIndex(e => e.month === short);
+      if (existingIdx !== -1) {
+        entries[existingIdx] = { month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spOp), sold: data.soldCount, pending: data.pending };
+      } else {
+        if (entries.length >= 8) entries.shift();
+        entries.push({ month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spOp), sold: data.soldCount, pending: data.pending });
+      }
       const newBody = entries
         .map(e => `    { month: "${e.month}", median: ${String(e.median).padStart(7)}, dom: ${e.dom}, listToSale: ${e.listToSale}, sold: ${e.sold}, pending: ${e.pending} }`)
         .join(',\n');
@@ -218,7 +233,7 @@ export function updateTownHistory(townMap, year, month) {
 }
 
 export function updateNeighborhoodTs(townMap) {
-  let c = readFileSync(NEIGHBORHOODS_TS, 'utf8');
+  let c = readFileSync(NEIGHBORHOODS_TS, 'utf8').replace(/\r\n/g, '\n');
 
   for (const [slug, town] of Object.entries(SLUG_MAP)) {
     if (!townMap[town]) continue;
