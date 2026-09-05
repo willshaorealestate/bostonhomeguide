@@ -18,7 +18,7 @@ import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "https://images.unsplash.com/photo-1549728968-5aaff42193ab?w=1400&q=80";
 
-// Last updated: June 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
+// Last updated: August 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [
   { month: "Jan '26", median: 800000, sales: 1111 },
   { month: "Feb '26", median: 750000, sales: 950 },
@@ -689,7 +689,7 @@ const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
 export default function MarketPage() {
   useSEO({
-    title: "Greater Boston Real Estate Market Report | June 2026",
+    title: "Greater Boston Real Estate Market Report | August 2026",
     description: "Monthly market data for Greater Boston and MetroWest MA. Median prices, days on market, and list-to-sale ratios for Newton, Wellesley, Natick, Lexington, and more.",
     canonical: "https://bostonhomeguide.com/market",
   });
@@ -742,7 +742,7 @@ export default function MarketPage() {
             </p>
             <div className="flex items-center gap-2 text-white/60 text-sm font-body">
               <Calendar className="w-4 h-4" />
-              <span>Updated June 2026 · Next report: July 2026</span>
+              <span>Updated August 2026 · Next report: September 2026</span>
             </div>
           </div>
         </div>
@@ -753,10 +753,10 @@ export default function MarketPage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "$860,000", label: "Median Sale Price", change: "MLSPIN, Jun 2026" },
-              { value: "33 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
-              { value: "102%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
-              { value: "2,761", label: "Closed Sales", change: "MLSPIN, Jun 2026" },
+              { value: "$860,000", label: "Median Sale Price", change: "MLSPIN, Aug 2026" },
+              { value: "40 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
+              { value: "100%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
+              { value: "2,038", label: "Closed Sales", change: "MLSPIN, Aug 2026" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
@@ -802,7 +802,7 @@ export default function MarketPage() {
           {activeTab === "price" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                Median sale price trend across Greater Boston — Jul '26 through Jun '26
+                Median sale price trend across Greater Boston — Jan '26 through Aug '26
               </p>
               <ResponsiveContainer width="100%" height={320}>
                 <LineChart data={priceData}>
@@ -1021,7 +1021,7 @@ export default function MarketPage() {
               <div>
                 <p className="text-sm text-[#C89B3C] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
                 <h3 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
-June 2026 — What This Means for You
+August 2026 — What This Means for You
                 </h3>
               </div>
             </div>
