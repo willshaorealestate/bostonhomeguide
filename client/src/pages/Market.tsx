@@ -42,35 +42,35 @@ const domData = [
 ];
 
 const townData = [
-  { town: "Boston",    medianPrice:  850000, dom: 40, listToSale: 100.0 },
-  { town: "Cambridge", medianPrice: 1050000, dom: 34, listToSale: 102.0 },
-  { town: "Somerville", medianPrice: 1000000, dom: 34, listToSale: 101.0 },
-  { town: "Brookline", medianPrice: 1127500, dom: 36, listToSale: 99.0 },
-  { town: "Newton",    medianPrice: 1553180, dom: 41, listToSale: 101.0 },
-  { town: "Needham",   medianPrice: 1758000, dom: 38, listToSale: 102.0 },
-  { town: "Waltham",   medianPrice:  780000, dom: 23, listToSale: 101.0 },
-  { town: "Watertown", medianPrice:  825000, dom: 41, listToSale: 100.0 },
-  { town: "Medford",   medianPrice:  780000, dom: 23, listToSale: 102.0 },
-  { town: "Arlington", medianPrice:  986000, dom: 24, listToSale: 105.0 },
-  { town: "Belmont",   medianPrice: 1516000, dom: 24, listToSale: 103.0 },
-  { town: "Lexington", medianPrice: 1570000, dom: 37, listToSale: 101.0 },
-  { town: "Winchester", medianPrice: 1608500, dom: 32, listToSale: 100.0 },
-  { town: "Bedford",   medianPrice: 1150000, dom: 26, listToSale: 103.0 },
-  { town: "Concord",   medianPrice: 1650000, dom: 56, listToSale: 100.0 },
-  { town: "Burlington", medianPrice:  879500, dom: 29, listToSale: 103.0 },
-  { town: "Woburn",    medianPrice:  775000, dom: 30, listToSale: 104.0 },
-  { town: "Acton",     medianPrice:  982500, dom: 30, listToSale: 104.0 },
-  { town: "Westford",  medianPrice:  828400, dom: 46, listToSale: 101.0 },
-  { town: "Chelmsford", medianPrice:  670000, dom: 24, listToSale: 104.0 },
-  { town: "Natick",    medianPrice:  942500, dom: 29, listToSale: 101.0 },
-  { town: "Framingham", medianPrice:  660000, dom: 36, listToSale: 101.0 },
-  { town: "Hopkinton", medianPrice: 1215000, dom: 34, listToSale: 101.0 },
-  { town: "Milton",    medianPrice: 1027500, dom: 29, listToSale: 104.0 },
-  { town: "Dedham",    medianPrice:  755000, dom: 29, listToSale: 103.0 },
-  { town: "Westwood",  medianPrice: 1526000, dom: 30, listToSale: 103.0 },
-  { town: "Canton",    medianPrice:  750000, dom: 42, listToSale: 101.0 },
-  { town: "Quincy",    medianPrice:  659500, dom: 31, listToSale: 102.0 },
-  { town: "Wellesley", medianPrice: 2225000, dom: 28, listToSale: 101.0 },
+  { town: "Boston",    medianPrice:  825000, dom: 49, listToSale: 98.0 },
+  { town: "Cambridge", medianPrice: 1045000, dom: 42, listToSale: 102.0 },
+  { town: "Somerville", medianPrice:  859500, dom: 32, listToSale: 100.0 },
+  { town: "Brookline", medianPrice: 1148000, dom: 51, listToSale: 99.0 },
+  { town: "Newton",    medianPrice: 1731500, dom: 48, listToSale: 99.0 },
+  { town: "Needham",   medianPrice: 1490750, dom: 38, listToSale: 99.0 },
+  { town: "Waltham",   medianPrice:  830000, dom: 39, listToSale: 100.0 },
+  { town: "Watertown", medianPrice:  558000, dom: 33, listToSale: 102.0 },
+  { town: "Medford",   medianPrice:  862500, dom: 53, listToSale: 100.0 },
+  { town: "Arlington", medianPrice: 1130000, dom: 31, listToSale: 102.0 },
+  { town: "Belmont",   medianPrice: 1377000, dom: 21, listToSale: 101.0 },
+  { town: "Lexington", medianPrice: 1706000, dom: 58, listToSale: 99.0 },
+  { town: "Winchester", medianPrice: 1737000, dom: 36, listToSale: 99.0 },
+  { town: "Bedford",   medianPrice:  955000, dom: 31, listToSale: 101.0 },
+  { town: "Concord",   medianPrice: 1725000, dom: 64, listToSale: 98.0 },
+  { town: "Burlington", medianPrice:  815000, dom: 35, listToSale: 102.0 },
+  { town: "Woburn",    medianPrice:  749500, dom: 29, listToSale: 102.0 },
+  { town: "Acton",     medianPrice:  870000, dom: 32, listToSale: 100.0 },
+  { town: "Westford",  medianPrice:  799900, dom: 28, listToSale: 101.0 },
+  { town: "Chelmsford", medianPrice:  619000, dom: 31, listToSale: 100.0 },
+  { town: "Natick",    medianPrice:  857500, dom: 27, listToSale: 100.0 },
+  { town: "Framingham", medianPrice:  685000, dom: 29, listToSale: 102.0 },
+  { town: "Hopkinton", medianPrice: 1030000, dom: 59, listToSale: 102.0 },
+  { town: "Milton",    medianPrice: 1015000, dom: 34, listToSale: 100.0 },
+  { town: "Dedham",    medianPrice:  680000, dom: 38, listToSale: 102.0 },
+  { town: "Westwood",  medianPrice: 1395000, dom: 32, listToSale: 100.0 },
+  { town: "Canton",    medianPrice:  685850, dom: 40, listToSale: 101.0 },
+  { town: "Quincy",    medianPrice:  660000, dom: 35, listToSale: 100.0 },
+  { town: "Wellesley", medianPrice: 2165000, dom: 33, listToSale: 97.0 },
 ];
 
 // Per-town rolling 8-month history — scraper appends each month
@@ -895,12 +895,7 @@ export default function MarketPage() {
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  {[
-                    "Boston", "Cambridge", "Somerville", "Brookline", "Newton", "Needham", "Waltham", "Watertown",
-                    "Medford", "Arlington", "Belmont", "Lexington", "Winchester", "Bedford", "Concord", "Burlington", "Woburn", "Acton", "Westford", "Chelmsford",
-                    "Natick", "Framingham", "Hopkinton",
-                    "Milton", "Dedham", "Westwood", "Canton", "Quincy",
-                  ].map(t => {
+                  {towns.map(t => {
                     const isA = t === townA, isB = t === townB;
                     return (
                       <button
