@@ -27,7 +27,7 @@ const priceData = [
   { month: "May '26", median: 850000, sales: 2116 },
   { month: "Jun '26", median: 860000, sales: 2761 },
   { month: "Jul '26", median: 850000, sales: 2703 },
-  { month: "Aug '26", median: 860000, sales: 2038 },
+  { month: "Aug '26", median: 860000, sales: 2040 },
 ];
 
 const domData = [
@@ -42,7 +42,7 @@ const domData = [
 ];
 
 const townData = [
-  { town: "Boston",    medianPrice:  825000, dom: 49, listToSale: 98.0 },
+  { town: "Boston",    medianPrice:  822500, dom: 49, listToSale: 98.0 },
   { town: "Cambridge", medianPrice: 1045000, dom: 42, listToSale: 102.0 },
   { town: "Somerville", medianPrice:  859500, dom: 32, listToSale: 100.0 },
   { town: "Brookline", medianPrice: 1148000, dom: 51, listToSale: 99.0 },
@@ -64,7 +64,7 @@ const townData = [
   { town: "Chelmsford", medianPrice:  619000, dom: 31, listToSale: 100.0 },
   { town: "Wellesley", medianPrice: 2165000, dom: 33, listToSale: 97.0 },
   { town: "Natick",    medianPrice:  857500, dom: 27, listToSale: 100.0 },
-  { town: "Framingham", medianPrice:  685000, dom: 29, listToSale: 102.0 },
+  { town: "Framingham", medianPrice:  675000, dom: 29, listToSale: 101.0 },
   { town: "Hopkinton", medianPrice: 1030000, dom: 59, listToSale: 102.0 },
   { town: "Milton",    medianPrice: 1015000, dom: 34, listToSale: 100.0 },
   { town: "Dedham",    medianPrice:  680000, dom: 38, listToSale: 102.0 },
@@ -83,7 +83,8 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "May '26", median:  820000, dom: 44, listToSale: 100, sold: 451, pending: 31 },
     { month: "Jun '26", median:  850000, dom: 40, listToSale: 100, sold: 532, pending: 47 },
     { month: "Jul '26", median:  805000, dom: 45, listToSale: 100, sold: 540, pending: 88 },
-    { month: "Aug '26", median:  825000, dom: 49, listToSale: 98, sold: 371, pending: 239 },
+    { month: "Aug '26", median:  822500, dom: 49, listToSale: 98, sold: 372, pending: 236 },
+  
   
   
   
@@ -116,6 +117,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Wellesley": [
     { month: "Jan '26", median: 1970000, dom: 82, listToSale: 97, sold: 14, pending: 0 },
@@ -126,6 +128,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median: 2225000, dom: 28, listToSale: 101, sold: 51, pending: 2 },
     { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101, sold: 36, pending: 7 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97, sold: 42, pending: 13 },
+  
   
   
   
@@ -158,6 +161,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Natick": [
     { month: "Jan '26", median:  899000, dom: 69, listToSale: 100, sold: 27, pending: 0 },
@@ -167,7 +171,8 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "May '26", median:  775000, dom: 38, listToSale: 99, sold: 39, pending: 0 },
     { month: "Jun '26", median:  942500, dom: 29, listToSale: 101, sold: 62, pending: 3 },
     { month: "Jul '26", median:  900000, dom: 24, listToSale: 100, sold: 55, pending: 8 },
-    { month: "Aug '26", median:  857500, dom: 27, listToSale: 100, sold: 36, pending: 28 },
+    { month: "Aug '26", median:  857500, dom: 27, listToSale: 100, sold: 36, pending: 27 },
+  
   
   
   
@@ -200,6 +205,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Needham": [
     { month: "Jan '26", median: 2574500, dom: 59, listToSale: 98, sold: 17, pending: 1 },
@@ -221,6 +227,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Framingham": [
     { month: "Jan '26", median:  630000, dom: 50, listToSale: 99, sold: 25, pending: 0 },
@@ -230,7 +237,8 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "May '26", median:  700000, dom: 26, listToSale: 103, sold: 46, pending: 2 },
     { month: "Jun '26", median:  660000, dom: 36, listToSale: 101, sold: 84, pending: 1 },
     { month: "Jul '26", median:  675000, dom: 24, listToSale: 101, sold: 57, pending: 7 },
-    { month: "Aug '26", median:  685000, dom: 29, listToSale: 102, sold: 48, pending: 52 },
+    { month: "Aug '26", median:  675000, dom: 29, listToSale: 101, sold: 49, pending: 51 },
+  
   
   
   
@@ -263,6 +271,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Cambridge": [
     { month: "Jan '26", median: 1500000, dom: 90, listToSale: 98, sold: 29, pending: 0 },
@@ -273,6 +282,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median: 1050000, dom: 34, listToSale: 102, sold: 102, pending: 3 },
     { month: "Jul '26", median: 1287500, dom: 36, listToSale: 103, sold: 86, pending: 9 },
     { month: "Aug '26", median: 1045000, dom: 42, listToSale: 102, sold: 65, pending: 25 },
+  
   
   
   
@@ -305,6 +315,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Belmont": [
     { month: "Jan '26", median: 1600000, dom: 80, listToSale: 102, sold: 9, pending: 0 },
@@ -326,6 +337,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Somerville": [
     { month: "Jan '26", median:  877500, dom: 66, listToSale: 99, sold: 28, pending: 0 },
@@ -335,7 +347,8 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "May '26", median: 1027500, dom: 36, listToSale: 101, sold: 50, pending: 0 },
     { month: "Jun '26", median: 1000000, dom: 34, listToSale: 101, sold: 72, pending: 4 },
     { month: "Jul '26", median:  805000, dom: 41, listToSale: 100, sold: 61, pending: 12 },
-    { month: "Aug '26", median:  859500, dom: 32, listToSale: 100, sold: 36, pending: 18 },
+    { month: "Aug '26", median:  859500, dom: 32, listToSale: 100, sold: 36, pending: 17 },
+  
   
   
   
@@ -368,6 +381,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Watertown": [
     { month: "Jan '26", median:  800000, dom: 57, listToSale: 100, sold: 11, pending: 0 },
@@ -378,6 +392,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median:  825000, dom: 41, listToSale: 100, sold: 29, pending: 0 },
     { month: "Jul '26", median:  825000, dom: 35, listToSale: 100, sold: 37, pending: 8 },
     { month: "Aug '26", median:  558000, dom: 33, listToSale: 102, sold: 22, pending: 9 },
+  
   
   
   
@@ -410,6 +425,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Woburn": [
     { month: "Jan '26", median:  689138, dom: 49, listToSale: 99, sold: 20, pending: 0 },
@@ -420,6 +436,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median:  775000, dom: 30, listToSale: 104, sold: 35, pending: 1 },
     { month: "Jul '26", median:  770000, dom: 29, listToSale: 101, sold: 39, pending: 4 },
     { month: "Aug '26", median:  749500, dom: 29, listToSale: 102, sold: 32, pending: 18 },
+  
   
   
   
@@ -452,6 +469,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Chelmsford": [
     { month: "Jan '26", median:  583953, dom: 48, listToSale: 99, sold: 20, pending: 0 },
@@ -462,6 +480,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median:  670000, dom: 24, listToSale: 104, sold: 46, pending: 0 },
     { month: "Jul '26", median:  677500, dom: 28, listToSale: 102, sold: 40, pending: 7 },
     { month: "Aug '26", median:  619000, dom: 31, listToSale: 100, sold: 37, pending: 33 },
+  
   
   
   
@@ -494,6 +513,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Bedford": [
     { month: "Jan '26", median:  926500, dom: 54, listToSale: 101, sold: 10, pending: 0 },
@@ -504,6 +524,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median: 1150000, dom: 26, listToSale: 103, sold: 11, pending: 1 },
     { month: "Jul '26", median: 1068000, dom: 44, listToSale: 103, sold: 21, pending: 1 },
     { month: "Aug '26", median:  955000, dom: 31, listToSale: 101, sold: 12, pending: 17 },
+  
   
   
   
@@ -536,6 +557,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Westford": [
     { month: "Jan '26", median:  946500, dom: 49, listToSale: 99, sold: 14, pending: 0 },
@@ -546,6 +568,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median:  828400, dom: 46, listToSale: 101, sold: 27, pending: 0 },
     { month: "Jul '26", median:  942500, dom: 24, listToSale: 102, sold: 30, pending: 6 },
     { month: "Aug '26", median:  799900, dom: 28, listToSale: 101, sold: 33, pending: 16 },
+  
   
   
   
@@ -578,6 +601,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Milton": [
     { month: "Jan '26", median:  959500, dom: 42, listToSale: 99, sold: 20, pending: 0 },
@@ -588,6 +612,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median: 1027500, dom: 29, listToSale: 104, sold: 28, pending: 3 },
     { month: "Jul '26", median: 1010000, dom: 25, listToSale: 105, sold: 21, pending: 5 },
     { month: "Aug '26", median: 1015000, dom: 34, listToSale: 100, sold: 27, pending: 10 },
+  
   
   
   
@@ -618,6 +643,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Dedham": [
     { month: "Jan '26", median:  626000, dom: 48, listToSale: 99, sold: 15, pending: 1 },
@@ -628,6 +654,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median:  755000, dom: 29, listToSale: 103, sold: 37, pending: 2 },
     { month: "Jul '26", median:  778000, dom: 37, listToSale: 101, sold: 38, pending: 6 },
     { month: "Aug '26", median:  680000, dom: 38, listToSale: 102, sold: 29, pending: 17 },
+  
   
   
   
@@ -660,6 +687,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   
   
   
+  
   ],
   "Quincy": [
     { month: "Jan '26", median:  705000, dom: 58, listToSale: 99, sold: 32, pending: 0 },
@@ -670,6 +698,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median:  659500, dom: 31, listToSale: 102, sold: 74, pending: 9 },
     { month: "Jul '26", median:  655000, dom: 27, listToSale: 101, sold: 63, pending: 20 },
     { month: "Aug '26", median:  660000, dom: 35, listToSale: 100, sold: 57, pending: 53 },
+  
   
   
   
@@ -756,7 +785,7 @@ export default function MarketPage() {
               { value: "$860,000", label: "Median Sale Price", change: "MLSPIN, Aug 2026" },
               { value: "40 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
               { value: "100%", label: "List-to-Sale Ratio", change: "Above asking, on average" },
-              { value: "2,038", label: "Closed Sales", change: "MLSPIN, Aug 2026" },
+              { value: "2,040", label: "Closed Sales", change: "MLSPIN, Aug 2026" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
