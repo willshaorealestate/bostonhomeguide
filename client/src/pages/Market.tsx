@@ -62,6 +62,7 @@ const townData = [
   { town: "Acton",     medianPrice:  870000, dom: 32, listToSale: 100.0 },
   { town: "Westford",  medianPrice:  799900, dom: 28, listToSale: 101.0 },
   { town: "Chelmsford", medianPrice:  619000, dom: 31, listToSale: 100.0 },
+  { town: "Wellesley", medianPrice: 2165000, dom: 33, listToSale: 97.0 },
   { town: "Natick",    medianPrice:  857500, dom: 27, listToSale: 100.0 },
   { town: "Framingham", medianPrice:  685000, dom: 29, listToSale: 102.0 },
   { town: "Hopkinton", medianPrice: 1030000, dom: 59, listToSale: 102.0 },
@@ -70,7 +71,6 @@ const townData = [
   { town: "Westwood",  medianPrice: 1395000, dom: 32, listToSale: 100.0 },
   { town: "Canton",    medianPrice:  685850, dom: 40, listToSale: 101.0 },
   { town: "Quincy",    medianPrice:  660000, dom: 35, listToSale: 100.0 },
-  { town: "Wellesley", medianPrice: 2165000, dom: 33, listToSale: 97.0 },
 ];
 
 // Per-town rolling 8-month history — scraper appends each month
