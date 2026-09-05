@@ -49,8 +49,20 @@ export function updateMarketTsx(area, townRows, year, month) {
   const nextLong = nextLongLabel(year, month);
   const abbr     = `${SHORT[month - 1]} ${year}`;  // "Jul 2026"
 
-  // 1. Source comment
-  c = c.replace(
+  // Determine if this month is the latest in the rolling window — only update
+  // "current display" fields (townData, labels, key metrics) for the most recent month.
+  // Backfilling older months should only update the rolling chart data.
+  const existingPriceEntries = parsePriceArray(
+    (c.match(/const priceData = \[([\s\S]*?)\n\];/) || ['', ''])[1]
+  );
+  const latestExisting = existingPriceEntries.length
+    ? Math.max(...existingPriceEntries.map(e => parseMonthLabel(e.month)))
+    : 0;
+  const thisMonthVal = parseMonthLabel(short);
+  const isLatestMonth = thisMonthVal >= latestExisting;
+
+  // 1. Source comment (only when this is the latest month)
+  if (isLatestMonth) c = c.replace(
     /\/\/ Last updated: .+? — Source: MLSPIN Area Market Survey/,
     `// Last updated: ${long} — Source: MLSPIN Area Market Survey`
   );
@@ -89,61 +101,65 @@ export function updateMarketTsx(area, townRows, year, month) {
     .join(',\n');
   c = c.replace(/const domData = \[[\s\S]*?\n\];/, `const domData = [\n${newDomRows},\n];`);
 
-  // 4. townData — replace entirely
-  const newTownRows = townRows.map(t => {
-    const namePad = ' '.repeat(Math.max(1, 10 - t.town.length));
-    const pricePad = String(t.medianPrice).padStart(7);
-    return `  { town: "${t.town}",${namePad}medianPrice: ${pricePad}, dom: ${t.dom}, listToSale: ${t.listToSale.toFixed(1)} }`;
-  }).join(',\n');
-  c = c.replace(/const townData = \[[\s\S]*?\n\];/, `const townData = [\n${newTownRows},\n];`);
+  if (isLatestMonth) {
+    // 4. townData — replace entirely
+    const newTownRows = townRows.map(t => {
+      const namePad = ' '.repeat(Math.max(1, 10 - t.town.length));
+      const pricePad = String(t.medianPrice).padStart(7);
+      return `  { town: "${t.town}",${namePad}medianPrice: ${pricePad}, dom: ${t.dom}, listToSale: ${t.listToSale.toFixed(1)} }`;
+    }).join(',\n');
+    c = c.replace(/const townData = \[[\s\S]*?\n\];/, `const townData = [\n${newTownRows},\n];`);
 
-  // 5. SEO title
-  c = c.replace(
-    /title: "Greater Boston Real Estate Market Report \| .+?"/,
-    `title: "Greater Boston Real Estate Market Report | ${long}"`
-  );
+    // 5. SEO title
+    c = c.replace(
+      /title: "Greater Boston Real Estate Market Report \| .+?"/,
+      `title: "Greater Boston Real Estate Market Report | ${long}"`
+    );
 
-  // 6. Hero span
-  c = c.replace(
-    /<span>Updated .+? · Next report: .+?<\/span>/,
-    `<span>Updated ${long} · Next report: ${nextLong}</span>`
-  );
+    // 6. Hero span
+    c = c.replace(
+      /<span>Updated .+? · Next report: .+?<\/span>/,
+      `<span>Updated ${long} · Next report: ${nextLong}</span>`
+    );
 
-  // 7. Key metrics strip (value first, then label)
-  c = c.replace(
-    /\{ value: "\$[\d,]+", label: "Median Sale Price", change: "MLSPIN, .+?" \}/,
-    `{ value: "${formatPriceFull(area.medianPrice)}", label: "Median Sale Price", change: "MLSPIN, ${abbr}" }`
-  );
-  c = c.replace(
-    /\{ value: "\d+ days", label: "Avg\. Days on Market", change: "SF \+ Condo, Greater Boston" \}/,
-    `{ value: "${area.dom} days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" }`
-  );
-  c = c.replace(
-    /\{ value: "\d+%", label: "List-to-Sale Ratio", change: "Above asking, on average" \}/,
-    `{ value: "${area.spLp}%", label: "List-to-Sale Ratio", change: "Above asking, on average" }`
-  );
-  c = c.replace(
-    /\{ value: "[\d,]+", label: "Closed Sales", change: "MLSPIN, .+?" \}/,
-    `{ value: "${area.soldCount.toLocaleString('en-US')}", label: "Closed Sales", change: "MLSPIN, ${abbr}" }`
-  );
+    // 7. Key metrics strip (value first, then label)
+    c = c.replace(
+      /\{ value: "\$[\d,]+", label: "Median Sale Price", change: "MLSPIN, .+?" \}/,
+      `{ value: "${formatPriceFull(area.medianPrice)}", label: "Median Sale Price", change: "MLSPIN, ${abbr}" }`
+    );
+    c = c.replace(
+      /\{ value: "\d+ days", label: "Avg\. Days on Market", change: "SF \+ Condo, Greater Boston" \}/,
+      `{ value: "${area.dom} days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" }`
+    );
+    c = c.replace(
+      /\{ value: "\d+%", label: "List-to-Sale Ratio", change: "Above asking, on average" \}/,
+      `{ value: "${area.spLp}%", label: "List-to-Sale Ratio", change: "Above asking, on average" }`
+    );
+    c = c.replace(
+      /\{ value: "[\d,]+", label: "Closed Sales", change: "MLSPIN, .+?" \}/,
+      `{ value: "${area.soldCount.toLocaleString('en-US')}", label: "Closed Sales", change: "MLSPIN, ${abbr}" }`
+    );
 
-  // 8. Price chart date range label
-  c = c.replace(
-    /[A-Z][a-z]{2} '\d{2} through [A-Z][a-z]{2} '\d{2}/g,
-    `${firstMonth} through ${short}`
-  );
+    // 8. Price chart date range label
+    c = c.replace(
+      /[A-Z][a-z]{2} '\d{2} through [A-Z][a-z]{2} '\d{2}/g,
+      `${firstMonth} through ${short}`
+    );
 
-  // 9. Towns table label
-  c = c.replace(
-    /.+ market data by town — Source: MLSPIN/,
-    `${long} market data by town — Source: MLSPIN`
-  );
+    // 9. Towns table label
+    c = c.replace(
+      /.+ market data by town — Source: MLSPIN/,
+      `${long} market data by town — Source: MLSPIN`
+    );
 
-  // 10. Commentary heading (body text left for manual update)
-  c = c.replace(
-    /.+ — What This Means for You/,
-    `${long} — What This Means for You`
-  );
+    // 10. Commentary heading (body text left for manual update)
+    c = c.replace(
+      /.+ — What This Means for You/,
+      `${long} — What This Means for You`
+    );
+  } else {
+    console.log(`  (skipping display labels — ${short} is not the latest month)`);
+  }
 
   writeFileSync(MARKET_TSX, c, 'utf8');
   console.log(`  ✓ Market.tsx → ${long}`);
