@@ -23,9 +23,8 @@ const REPORT_EDIT_URLS = {
 const TOWNS = [
   'Boston', 'Cambridge', 'Somerville', 'Brookline', 'Newton', 'Needham', 'Waltham', 'Watertown',
   'Medford', 'Arlington', 'Belmont', 'Lexington', 'Winchester', 'Bedford', 'Concord', 'Burlington', 'Woburn', 'Acton', 'Westford', 'Chelmsford',
-  'Natick', 'Framingham', 'Hopkinton',
+  'Wellesley', 'Natick', 'Framingham', 'Hopkinton',
   'Milton', 'Dedham', 'Westwood', 'Canton', 'Quincy',
-  'Wellesley',
 ];
 
 async function shot(page, name) {
