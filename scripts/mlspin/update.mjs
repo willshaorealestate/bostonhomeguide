@@ -12,6 +12,12 @@ const NEIGHBORHOODS_TS = resolve(ROOT, 'client/src/data/neighborhoods.ts');
 const SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const LONG  = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+function parseMonthLabel(label) {
+  const m = label.match(/^(\w{3}) '(\d{2})$/);
+  return m ? (2000 + Number(m[2])) * 12 + SHORT.indexOf(m[1]) : 0;
+}
+function sortByMonth(entries) { return entries.slice().sort((a, b) => parseMonthLabel(a.month) - parseMonthLabel(b.month)); }
+
 function shortLabel(year, month) { return `${SHORT[month - 1]} '${String(year).slice(2)}`; }
 function longLabel(year, month)  { return `${LONG[month - 1]} ${year}`; }
 
@@ -60,8 +66,9 @@ export function updateMarketTsx(area, townRows, year, month) {
     if (priceEntries.length >= 8) priceEntries.shift();
     priceEntries.push({ month: short, median: area.medianPrice, sales: area.soldCount });
   }
-  const firstMonth = priceEntries[0].month;  // used for chart label below
-  const newPriceRows = priceEntries
+  const sortedPriceEntries = sortByMonth(priceEntries);
+  const firstMonth = sortedPriceEntries[0].month;  // used for chart label below
+  const newPriceRows = sortedPriceEntries
     .map(e => `  { month: "${e.month}", median: ${e.median}, sales: ${e.sales} }`)
     .join(',\n');
   c = c.replace(/const priceData = \[[\s\S]*?\n\];/, `const priceData = [\n${newPriceRows},\n];`);
@@ -77,7 +84,7 @@ export function updateMarketTsx(area, townRows, year, month) {
     if (domEntries.length >= 8) domEntries.shift();
     domEntries.push({ month: short, dom: area.dom });
   }
-  const newDomRows = domEntries
+  const newDomRows = sortByMonth(domEntries)
     .map(e => `  { month: "${e.month}", dom: ${e.dom} }`)
     .join(',\n');
   c = c.replace(/const domData = \[[\s\S]*?\n\];/, `const domData = [\n${newDomRows},\n];`);
@@ -221,7 +228,7 @@ export function updateTownHistory(townMap, year, month) {
         if (entries.length >= 8) entries.shift();
         entries.push({ month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spOp), sold: data.soldCount, pending: data.pending });
       }
-      const newBody = entries
+      const newBody = sortByMonth(entries)
         .map(e => `    { month: "${e.month}", median: ${String(e.median).padStart(7)}, dom: ${e.dom}, listToSale: ${e.listToSale}, sold: ${e.sold}, pending: ${e.pending} }`)
         .join(',\n');
       return `${open}${newBody},\n  ${close}`;
