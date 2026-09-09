@@ -92,7 +92,7 @@ const marketingItems = [
 
 export default function SellerPage() {
   useSEO({
-    title: "Sell Your Greater Boston Home for Top Dollar | Will Shao, RE/MAX",
+    title: "Sell Your Greater Boston Home for Top Dollar | Will Shao, REMAX",
     description: "Will Shao's proven marketing strategy gets sellers maximum value — 103.4% list-to-sale ratio, avg 18 days on market, $120M+ in transactions. Free home valuation. Greater Boston & MetroWest MA.",
     canonical: "https://bostonhomeguide.com/sell",
     schema: {
@@ -102,7 +102,7 @@ export default function SellerPage() {
         { "@type": "Question", "name": "When is the best time to sell in Greater Boston?", "acceptedAnswer": { "@type": "Answer", "text": "Spring (March–June) is traditionally the strongest selling season in Greater Boston, with high buyer demand and multiple offers common. However, the right time to sell is when you're ready." } },
         { "@type": "Question", "name": "How does Will determine my home's value?", "acceptedAnswer": { "@type": "Answer", "text": "Will uses a Comparative Market Analysis (CMA) that analyzes recent sales of similar homes in your neighborhood, current active listings, market trends, and your home's specific features." } },
         { "@type": "Question", "name": "How long will it take to sell my home?", "acceptedAnswer": { "@type": "Answer", "text": "In Greater Boston's current market, well-priced homes in high demand areas can sell in 7–21 days. Our strategic pricing and marketing approach is designed to attract qualified buyers as efficiently as possible." } },
-        { "@type": "Question", "name": "What is your marketing strategy?", "acceptedAnswer": { "@type": "Answer", "text": "Professional photography, MLS listing, syndication across Zillow, Realtor.com, and Homes.com, social media marketing, and global reach through the RE/MAX network spanning 110 countries." } }
+        { "@type": "Question", "name": "What is your marketing strategy?", "acceptedAnswer": { "@type": "Answer", "text": "Professional photography, MLS listing, syndication across Zillow, Realtor.com, and Homes.com, social media marketing, and global reach through the REMAX network spanning 110 countries." } }
       ]
     }
   });
@@ -434,7 +434,7 @@ export default function SellerPage() {
               </div>
               <div className="bg-[#0D2137] p-5 border-b border-[#1A3A5C] text-center">
                 <p className="text-sm font-semibold text-[#C89B3C] font-body uppercase tracking-wider">Will Shao</p>
-                <p className="text-sm text-white/50 font-body mt-0.5">RE/MAX Executive Realty</p>
+                <p className="text-sm text-white/50 font-body mt-0.5">REMAX Executive Realty</p>
               </div>
 
               {/* Rows */}
@@ -472,7 +472,7 @@ export default function SellerPage() {
                 {
                   feature: "Global Reach",
                   typical: "Local market only",
-                  will: "RE/MAX network — 110 countries worldwide",
+                  will: "REMAX network — 110 countries worldwide",
                   highlight: false,
                 },
                 {
@@ -620,7 +620,7 @@ export default function SellerPage() {
               {submitting ? "Sending..." : "Get Free Home Valuation Consultation"}
             </button>
             <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
-              By submitting this form, you agree to be contacted by Will Shao, RE/MAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
+              By submitting this form, you agree to be contacted by Will Shao, REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
               <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
               and{" "}
               <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.

@@ -42,7 +42,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
       ? `${neighborhood.name} MA Real Estate & Homes for Sale | Will Shao`
       : "Neighborhood Guide | BostonHomeGuide.com",
     description: neighborhood
-      ? `Explore homes for sale in ${neighborhood.name}, MA. ${neighborhood.description?.slice(0, 120) ?? "Local market data, school info, and expert guidance from Will Shao, RE/MAX Executive Realty."}`
+      ? `Explore homes for sale in ${neighborhood.name}, MA. ${neighborhood.description?.slice(0, 120) ?? "Local market data, school info, and expert guidance from Will Shao, REMAX Executive Realty."}`
       : "Find homes in Greater Boston and MetroWest neighborhoods.",
     canonical: neighborhood
       ? `https://bostonhomeguide.com/neighborhoods/${neighborhood.slug}`

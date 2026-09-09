@@ -134,13 +134,13 @@ function useRealScoutSearch() {
 
 export default function HomePage() {
   useSEO({
-    title: "Greater Boston & MetroWest Real Estate | Will Shao, RE/MAX",
-    description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, RE/MAX Executive Realty. 5.0★ Zillow.",
+    title: "Greater Boston & MetroWest Real Estate | Will Shao, REMAX",
+    description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, REMAX Executive Realty. 5.0★ Zillow.",
     canonical: "https://bostonhomeguide.com/",
     schema: {
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
-      "name": "Will Shao — RE/MAX Executive Realty",
+      "name": "Will Shao — REMAX Executive Realty",
       "url": "https://bostonhomeguide.com",
       "telephone": "(781) 456-3541",
       "email": "will@willshao.com",
@@ -169,7 +169,7 @@ export default function HomePage() {
         "Canton","Sharon","Stoughton","Norwood","Milton","Braintree"
       ],
       "knowsLanguage": ["en", "zh"],
-      "memberOf": { "@type": "Organization", "name": "RE/MAX Executive Realty" },
+      "memberOf": { "@type": "Organization", "name": "REMAX Executive Realty" },
       "sameAs": ["https://zillow.com/profile/willshao"]
     }
   });
@@ -861,7 +861,7 @@ export default function HomePage() {
                 {fubSubmitting ? "Sending..." : "Send Message — Will Responds Within 24 Hours"}
               </button>
               <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
-                By submitting this form, you agree to be contacted by Will Shao, RE/MAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
+                By submitting this form, you agree to be contacted by Will Shao, REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
                 <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
                 and{" "}
                 <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.

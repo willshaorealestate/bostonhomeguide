@@ -15,7 +15,7 @@ import { useSEO } from "@/lib/seo";
 export default function ContactPage() {
   useSEO({
     title: "Contact Will Shao | Greater Boston Real Estate Agent",
-    description: "Get in touch with Will Shao, RE/MAX Executive Realty. Call (781) 456-3541 or book a free consultation. Serving Greater Boston, MetroWest, and surrounding MA communities.",
+    description: "Get in touch with Will Shao, REMAX Executive Realty. Call (781) 456-3541 or book a free consultation. Serving Greater Boston, MetroWest, and surrounding MA communities.",
     canonical: "https://bostonhomeguide.com/contact",
   });
   const [form, setForm] = useState({
@@ -299,7 +299,7 @@ export default function ContactPage() {
                     {submitting ? "Sending..." : "Send Message — Will Responds Within 1 Business Day"}
                   </button>
                   <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
-                    By submitting this form, you agree to be contacted by Will Shao, RE/MAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
+                    By submitting this form, you agree to be contacted by Will Shao, REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
                     <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
                     and{" "}
                     <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.

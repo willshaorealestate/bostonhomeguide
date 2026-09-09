@@ -465,7 +465,7 @@ function ArticleDetail({ slug }: { slug: string }) {
 export default function BlogPage() {
   useSEO({
     title: "Greater Boston Real Estate Blog | Market Insights | Will Shao",
-    description: "Real estate tips, market insights, and neighborhood guides for Greater Boston and MetroWest MA homebuyers and sellers. Expert advice from Will Shao, RE/MAX Executive Realty.",
+    description: "Real estate tips, market insights, and neighborhood guides for Greater Boston and MetroWest MA homebuyers and sellers. Expert advice from Will Shao, REMAX Executive Realty.",
     canonical: "https://bostonhomeguide.com/blog",
   });
   const params = useParams<{ slug?: string }>();
