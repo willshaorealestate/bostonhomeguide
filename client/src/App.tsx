@@ -31,6 +31,8 @@ import BlogPage from "./pages/Blog";
 import AboutPage from "./pages/About";
 import SearchPage from "./pages/Search";
 import SoldPage from "./pages/Sold";
+import PrivacyPolicyPage from "./pages/PrivacyPolicy";
+import TermsPage from "./pages/Terms";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -60,6 +62,9 @@ function Router() {
       <Route path="/about" component={AboutPage} />
       {/* Search */}
       <Route path="/search" component={SearchPage} />
+      {/* Legal */}
+      <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+      <Route path="/terms" component={TermsPage} />
       {/* 404 */}
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />

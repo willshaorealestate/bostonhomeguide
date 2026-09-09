@@ -555,7 +555,10 @@ export default function BuyerPage() {
               {submitting ? "Sending..." : "Get Buyer Consultation — Free"}
             </button>
             <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
-              By submitting this form, you agree to be contacted by Will Shao at RE/MAX Executive Realty by phone, text, or email regarding your real estate inquiry. Your information is private and will never be shared with third parties.
+              By submitting this form, you agree to be contacted by Will Shao, RE/MAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
+              <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
+              and{" "}
+              <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.
             </p>
           </form>
 
