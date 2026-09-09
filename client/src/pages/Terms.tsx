@@ -37,9 +37,9 @@ export default function TermsPage() {
         <div className="container max-w-3xl">
           <div className="bg-white rounded-lg p-8 md:p-10 border border-gray-100 shadow-sm space-y-8 font-body text-base text-gray-600 leading-relaxed">
             <p>
-              These Terms &amp; Conditions govern your use of BostonHomeGuide.com, operated by Will Shao
-              of REMAX Executive Realty (969 Concord Street, Framingham, MA 01701). By using this site
-              or submitting a form on it, you agree to these terms.
+              These Terms &amp; Conditions govern your use of BostonHomeGuide.com, operated by Firefly
+              Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty (969 Concord Street, Framingham,
+              MA 01701). By using this site or submitting a form on it, you agree to these terms.
             </p>
 
             <div>
@@ -71,8 +71,8 @@ export default function TermsPage() {
                 SMS Terms &amp; Conditions
               </h2>
               <p>
-                By providing your phone number on any form on this site, you agree that Will Shao, REMAX
-                Executive Realty ("we," "us") may contact you by call or text message (SMS) at the number
+                By providing your phone number on any form on this site, you agree that Firefly Real
+                Estate, Inc., d/b/a Will Shao at REMAX Executive Realty ("we," "us") may contact you by call or text message (SMS) at the number
                 provided, using automated technology, for real estate services — including responding to
                 your inquiry, providing home valuation or buyer/seller consultation follow-up, listing
                 alerts, appointment reminders, and market updates.
@@ -97,7 +97,7 @@ export default function TermsPage() {
               </h2>
               <p>
                 The content, design, photography, and neighborhood guides on this site are the property
-                of Will Shao / REMAX Executive Realty or their respective licensors and may not be
+                of Firefly Real Estate, Inc. / Will Shao / REMAX Executive Realty or their respective licensors and may not be
                 copied or reproduced without permission.
               </p>
             </div>
@@ -138,7 +138,7 @@ export default function TermsPage() {
                 Contact Us
               </h2>
               <p>
-                Will Shao, REMAX Executive Realty<br />
+                Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty<br />
                 969 Concord Street, Framingham, MA 01701<br />
                 <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a>{" "}
                 · <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>

@@ -154,7 +154,7 @@ export default function Footer() {
           <div className="flex items-center gap-4 text-sm text-white/40">
             <span>© {new Date().getFullYear()} BostonHomeGuide.com</span>
             <span>·</span>
-            <span>Will Shao, REMAX Executive Realty</span>
+            <span>Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty</span>
           </div>
           <div className="flex items-center gap-4 text-sm text-white/40">
             <span>Equal Housing Opportunity</span>
