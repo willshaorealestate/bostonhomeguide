@@ -93,16 +93,29 @@ export default function PrivacyPolicyPage() {
                 SMS / Text Messaging
               </h2>
               <p>
-                If you provide your phone number and agree to receive text messages, we may send you
-                SMS communications related to your real estate inquiry (for example, listing updates,
-                appointment reminders, or follow-up on a question you asked). Message frequency varies.
-                Message and data rates may apply.
+                We use SMS text messages to confirm appointments, send reminders, and notify you of
+                schedule updates or important changes related to your real estate inquiry.
               </p>
               <p className="mt-3">
-                You can opt out of text messages at any time by replying <strong>STOP</strong>. For help,
-                reply <strong>HELP</strong> or contact us at{" "}
+                You can cancel the SMS service at any time by texting <strong>STOP</strong>. After you
+                send the SMS message "STOP" to us, we will send you an SMS message to confirm that you
+                have been unsubscribed. After this, you will no longer receive SMS messages from us. If
+                you want to join again, just sign up as you did the first time, and we will start
+                sending SMS messages to you again.
+              </p>
+              <p className="mt-3">
+                If you are experiencing issues with the messaging program, you can reply with the
+                keyword <strong>HELP</strong> for more assistance, or you can get help directly at{" "}
                 <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a>{" "}
                 or <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>.
+              </p>
+              <p className="mt-3">Carriers are not liable for delayed or undelivered messages.</p>
+              <p className="mt-3">
+                As always, message and data rates may apply for any messages sent to you from us and to
+                us from you. Message frequency may vary. If you have any questions about your text plan
+                or data plan, it is best to contact your wireless provider.
+              </p>
+              <p className="mt-3">
                 No mobile information will be shared with third parties or affiliates for marketing or
                 promotional purposes. Consent to receive text messages is not a condition of purchasing
                 any property, product, or service.

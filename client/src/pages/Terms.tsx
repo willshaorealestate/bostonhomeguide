@@ -75,18 +75,19 @@ export default function TermsPage() {
                 Estate, Inc., d/b/a Will Shao at REMAX Executive Realty ("we," "us") may contact you by call or text message (SMS) at the number
                 provided, using automated technology, for real estate services — including responding to
                 your inquiry, providing home valuation or buyer/seller consultation follow-up, listing
-                alerts, appointment reminders, and market updates.
+                alerts, and market updates. Specifically, we use SMS to confirm appointments, send
+                reminders, and notify you of schedule updates or important changes.
               </p>
               <ul className="list-disc pl-6 mt-3 space-y-1.5">
                 <li>Consent to receive text messages is <strong>not</strong> a condition of using our services or submitting any form on this site.</li>
-                <li>Message frequency varies.</li>
-                <li>Message and data rates may apply.</li>
-                <li>Reply <strong>STOP</strong> at any time to opt out of text messages. Reply <strong>HELP</strong> for assistance, or contact us at <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a> or <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>.</li>
-                <li>No mobile opt-in data or phone numbers will be shared with, or sold to, any third party or affiliate for marketing or promotional purposes.</li>
+                <li>You can cancel the SMS service at any time by texting <strong>STOP</strong>. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time, and we will start sending SMS messages to you again.</li>
+                <li>If you are experiencing issues with the messaging program, reply with the keyword <strong>HELP</strong> for more assistance, or get help directly at <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a> or <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>.</li>
                 <li>Carriers are not liable for delayed or undelivered messages.</li>
+                <li>As always, message and data rates may apply for any messages sent to you from us and to us from you. Message frequency may vary. If you have any questions about your text plan or data plan, it is best to contact your wireless provider.</li>
+                <li>No mobile opt-in data or phone numbers will be shared with, or sold to, any third party or affiliate for marketing or promotional purposes.</li>
               </ul>
               <p className="mt-3">
-                For more detail on how we handle your information, see our{" "}
+                If you have any questions regarding privacy, please read our{" "}
                 <Link href="/privacy-policy" className="text-[#C89B3C] hover:underline">Privacy Policy</Link>.
               </p>
             </div>
