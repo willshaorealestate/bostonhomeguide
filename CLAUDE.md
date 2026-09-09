@@ -52,6 +52,7 @@ CNAME             # bostonhomeguide.com
 - All contact forms POST to Follow Up Boss API
 - Lead notifications go to `will.shao@followupboss.me`
 - The FUB Widget Tracker pixel (`WT-RUJPYHXU`) is in `index.html`
+- Legal pages needed for FUB's SMS carrier registration (Privacy Policy, Terms) exist in two forms: a React route (`client/src/pages/PrivacyPolicy.tsx` / `Terms.tsx`, for in-app `wouter` navigation) and a flat static HTML file (`client/public/privacy-policy.html` / `terms.html`). The static copy exists because this SPA has no prerendering — direct/bot requests to `/privacy-policy` or `/terms` would otherwise hit GitHub Pages' 404-based SPA-routing fallback and return a real HTTP 404, which compliance crawlers (like FUB's) reject even though a browser renders the React version fine. Keep both copies in sync when editing this content.
 - Form messages should appear in FUB contact notes
 
 ## GitHub Actions / Deployment
