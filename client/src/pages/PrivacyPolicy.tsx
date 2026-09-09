@@ -12,7 +12,7 @@ const LAST_UPDATED = "September 9, 2026";
 export default function PrivacyPolicyPage() {
   useSEO({
     title: "Privacy Policy | BostonHomeGuide.com",
-    description: "Privacy policy for BostonHomeGuide.com — how Will Shao, RE/MAX Executive Realty collects, uses, and protects your information, including SMS and phone consent.",
+    description: "Privacy policy for BostonHomeGuide.com — how Will Shao, REMAX Executive Realty collects, uses, and protects your information, including SMS and phone consent.",
     canonical: "https://bostonhomeguide.com/privacy-policy",
   });
 
@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
           <div className="bg-white rounded-lg p-8 md:p-10 border border-gray-100 shadow-sm space-y-8 font-body text-base text-gray-600 leading-relaxed">
             <p>
               This Privacy Policy explains how BostonHomeGuide.com ("we," "us," or "our"), operated by
-              Will Shao of RE/MAX Executive Realty (969 Concord Street, Framingham, MA 01701), collects,
+              Will Shao of REMAX Executive Realty (969 Concord Street, Framingham, MA 01701), collects,
               uses, and protects information you share with us through this website, including our
               contact, home valuation, buyer questionnaire, and newsletter forms.
             </p>
@@ -146,7 +146,7 @@ export default function PrivacyPolicyPage() {
                 Contact Us
               </h2>
               <p>
-                Will Shao, RE/MAX Executive Realty<br />
+                Will Shao, REMAX Executive Realty<br />
                 969 Concord Street, Framingham, MA 01701<br />
                 <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a>{" "}
                 · <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>

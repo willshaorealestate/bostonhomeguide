@@ -1,7 +1,7 @@
 # BostonHomeGuide — Claude Code Context
 
 ## What This Project Is
-Personal real estate website for **Will Shao**, a bilingual (English/Mandarin) RE/MAX agent serving Greater Boston and MetroWest. The site generates organic leads and captures buyer/seller inquiries. It is a **static SPA deployed to GitHub Pages** — there is no live server in production.
+Personal real estate website for **Will Shao**, a bilingual (English/Mandarin) REMAX agent serving Greater Boston and MetroWest. The site generates organic leads and captures buyer/seller inquiries. It is a **static SPA deployed to GitHub Pages** — there is no live server in production.
 
 ## Tech Stack
 - **Framework**: React 19 + TypeScript, Vite 7

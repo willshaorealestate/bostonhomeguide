@@ -119,7 +119,7 @@ const faqs = [
 export default function BuyerPage() {
   useSEO({
     title: "Buying a Home in Greater Boston | Buyer's Guide | Will Shao",
-    description: "Your complete guide to buying a home in Greater Boston and MetroWest MA. Pre-approval, home search, offers, P&S, and closing — step-by-step with Will Shao, RE/MAX.",
+    description: "Your complete guide to buying a home in Greater Boston and MetroWest MA. Pre-approval, home search, offers, P&S, and closing — step-by-step with Will Shao, REMAX.",
     canonical: "https://bostonhomeguide.com/buy",
     schema: {
       "@context": "https://schema.org",
@@ -555,7 +555,7 @@ export default function BuyerPage() {
               {submitting ? "Sending..." : "Get Buyer Consultation — Free"}
             </button>
             <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
-              By submitting this form, you agree to be contacted by Will Shao, RE/MAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
+              By submitting this form, you agree to be contacted by Will Shao, REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
               <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
               and{" "}
               <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.

@@ -43,7 +43,7 @@ export default function SoldPage() {
   }, []);
 
   useSEO({
-    title: "Your Home Didn't Sell — Let's Change That | Will Shao RE/MAX",
+    title: "Your Home Didn't Sell — Let's Change That | Will Shao REMAX",
     description:
       "If your home sat on the market and didn't sell, find out why — and how Will Shao's proven marketing process gets homes sold. Book a free 30-minute conversation.",
     canonical: "https://bostonhomeguide.com/sold",
@@ -233,7 +233,7 @@ export default function SoldPage() {
       {/* ── FOOTER ── */}
       <footer className="bg-[#060f1c] py-8 px-6 text-center">
         <p className="text-white/25 text-sm">
-          © {new Date().getFullYear()} Will Shao · RE/MAX Executive Realty · Licensed in Massachusetts
+          © {new Date().getFullYear()} Will Shao · REMAX Executive Realty · Licensed in Massachusetts
         </p>
         <p className="text-white/15 text-xs mt-2">
           <a href="https://bostonhomeguide.com" className="hover:text-white/30 transition-colors">
