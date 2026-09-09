@@ -7,6 +7,8 @@
   <url><loc>https://bostonhomeguide.com/market</loc>                  <lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq>  <priority>0.8</priority></url>
   <url><loc>https://bostonhomeguide.com/about</loc>                   <lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq> <priority>0.7</priority></url>
   <url><loc>https://bostonhomeguide.com/contact</loc>                 <lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://bostonhomeguide.com/privacy-policy</loc>          <lastmod>2026-09-09</lastmod><changefreq>yearly</changefreq>  <priority>0.3</priority></url>
+  <url><loc>https://bostonhomeguide.com/terms</loc>                   <lastmod>2026-09-09</lastmod><changefreq>yearly</changefreq>  <priority>0.3</priority></url>
   <url><loc>https://bostonhomeguide.com/blog</loc>                    <lastmod>2026-03-23</lastmod><changefreq>weekly</changefreq>  <priority>0.7</priority></url>
   <url><loc>https://bostonhomeguide.com/blog/best-neighborhoods-families</loc>              <lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bostonhomeguide.com/blog/how-much-to-buy-home-massachusetts</loc>      <lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

@@ -3,6 +3,7 @@
  * Exit intent popup: "Before you go — get our free Boston Market Report"
  */
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { X } from "lucide-react";
 import { toast } from "sonner";
 import { isValidEmail } from "@/lib/fub";
@@ -118,7 +119,8 @@ export default function ExitIntentPopup() {
             </button>
           </form>
           <p className="text-xs text-gray-400 mt-3 font-body text-center leading-relaxed">
-            By submitting, you agree to be contacted by Will Shao at RE/MAX Executive Realty by phone, text, or email. No spam. Unsubscribe anytime.
+            By submitting, you agree to receive emails from Will Shao, RE/MAX Executive Realty. No spam. Unsubscribe anytime. See our{" "}
+            <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>.
           </p>
         </div>
       </div>
