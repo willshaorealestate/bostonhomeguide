@@ -22,9 +22,8 @@ export const articles: BlogPost[] = [
     excerpt: "From top-rated schools to community parks, we break down the best towns for raising a family in the Boston metro area.",
     category: "Buyer Guide",
     date: "September 8, 2026",
-    img: "/images/towns/newton.jpeg",
+    img: "https://images.unsplash.com/photo-1785301694927-bca6526554b9?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/photo-1785301694927-bca6526554b9?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1460788150444-d9dc07fa9dba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `Greater Boston is one of the best regions in the country for families, thanks to its world-class school districts, safe communities, and abundant recreational opportunities. Whether you're relocating from out of state or moving from the city to the suburbs, choosing the right town is one of the most important decisions you'll make.
@@ -45,9 +44,8 @@ When choosing a town for your family, consider these key factors: school distric
     excerpt: "A detailed breakdown of down payments, closing costs, and monthly expenses for Boston-area home buyers.",
     category: "Finance",
     date: "September 5, 2026",
-    img: "/images/towns/natick.jpeg",
+    img: "https://images.unsplash.com/photo-1578091436046-ecd3f4fe6992?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/photo-1578091436046-ecd3f4fe6992?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1626266061368-46a8f578ddd6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `Buying a home in Greater Boston requires careful financial planning. Here's a comprehensive breakdown of what you'll need.
@@ -90,9 +88,8 @@ Will can connect you with trusted local lenders who specialize in Massachusetts 
     excerpt: "Proven strategies that have helped Will's clients win competitive offers — without overpaying.",
     category: "Strategy",
     date: "September 3, 2026",
-    img: "/images/towns/cambridge.jpeg",
+    img: "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1648712898089-4435bc87b587?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here are the strategies Will uses to help his clients win.
@@ -126,9 +123,8 @@ Will has helped dozens of clients win competitive offers in Greater Boston. Cont
     excerpt: "A complete guide to state and federal programs that can help first-time buyers in Massachusetts afford their first home.",
     category: "Finance",
     date: "January 28, 2026",
-    img: "/images/towns/framingham.jpeg",
+    img: "https://images.unsplash.com/flagged/photo-1564767609342-620cb19b2357?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/flagged/photo-1564767609342-620cb19b2357?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1714647211860-cff4bccb505a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `Massachusetts offers several excellent programs to help first-time home buyers enter the market. Here's what you need to know.
@@ -167,9 +163,8 @@ Will works closely with lenders who specialize in first-time buyer programs. Con
     excerpt: "A practical comparison of city living vs. suburban life in Greater Boston — schools, commute, value, and lifestyle.",
     category: "Buyer Guide",
     date: "September 1, 2026",
-    img: "/images/towns/boston.jpeg",
+    img: "https://images.unsplash.com/photo-1608845920884-3c88800feebc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/photo-1608845920884-3c88800feebc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `One of the most common questions Will hears from buyers is: "Should we buy in Boston or move to the suburbs?" The answer depends on your priorities, lifestyle, and life stage.
@@ -198,9 +193,8 @@ There's no universal right answer. Will helps clients evaluate their priorities 
     excerpt: "A comprehensive overview of MetroWest school districts, with context on programs, reputation, and the towns behind them.",
     category: "Neighborhoods",
     date: "September 1, 2026",
-    img: "/images/towns/acton.jpeg",
+    img: "https://images.unsplash.com/photo-1761266158207-26a70892763d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/photo-1761266158207-26a70892763d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `MetroWest Massachusetts is home to some of the best school districts in the state. Here's a comprehensive overview.
@@ -232,8 +226,8 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     excerpt: "Everything you need to know about selling your home in Massachusetts — from pricing strategy to closing day.",
     category: "Seller Guide",
     date: "December 20, 2025",
-    img: "/images/towns/lexington.jpeg",
-    images: ["/images/marketing/marketing-before2.jpg", "/images/marketing/marketing-after2.jpg"],
+    img: "/images/staging/staging-after.jpg",
+    images: ["/images/staging/staging-before.jpg"],
     content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's Will's complete guide.
 
 **Step 1: Determine Your Home's Value**
@@ -273,9 +267,8 @@ Contact Will for a free listing consultation and home valuation.`,
     excerpt: "A complete guide to the Massachusetts home inspection process — what inspectors check, common issues, and how to negotiate repairs.",
     category: "Buyer Guide",
     date: "December 10, 2025",
-    img: "/images/towns/concord.jpeg",
+    img: "https://images.unsplash.com/photo-1769776400238-cd24612240ea?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/photo-1769776400238-cd24612240ea?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1782353921981-bb73a53a7482?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `A home inspection is one of the most important steps in the Massachusetts home buying process. Here's what you need to know.
@@ -320,9 +313,8 @@ Contact Will for referrals to trusted home inspectors in Greater Boston.`,
     excerpt: "In Massachusetts, towns — not counties — run schools, zoning, and local services. Here's why that makes every town its own distinct place.",
     category: "Local Guide",
     date: "September 10, 2026",
-    img: "/images/towns/wellesley.jpeg",
+    img: "https://images.unsplash.com/photo-1668010100083-e256eb3f1df4?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
-      "https://images.unsplash.com/photo-1668010100083-e256eb3f1df4?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0",
       "https://images.unsplash.com/photo-1782556987577-8f6efdfdf9f3?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `If you're moving to Massachusetts from most of the rest of the country, there's a structural quirk that catches almost everyone off guard: counties don't really run anything here. In most of the U.S., county government handles schools, zoning, permitting, and local services across a wide area. In Massachusetts — and across New England generally — that authority sits almost entirely with the town. And because towns here are small, numerous, and self-governing, that single difference explains more about why Newton feels nothing like Wellesley, or why Concord and Acton (which share a border) have completely different personalities, than almost anything else.
