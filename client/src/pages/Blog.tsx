@@ -20,27 +20,31 @@ function ctaForCategory(category: string) {
     case "Seller Guide":
       return {
         heading: "Thinking About Selling?",
-        body: "Our team has nearly 20 years of experience helping sellers price, prepare, and market their homes across Greater Boston. Get a free home valuation.",
+        body: "Our team has nearly 20 years of experience helping sellers price, prepare, and market their homes across Greater Boston. Send us a message and we'll follow up with a free home valuation.",
         primaryLabel: "Get a Free Home Valuation",
+        primaryHref: "/sell",
       };
     case "Life Stage":
       return {
         heading: "Weighing Your Next Move?",
-        body: "Whether you're downsizing, upsizing, or just starting to think it through, we can help you map out what it actually looks like for your situation.",
-        primaryLabel: "Book a Free Consultation",
+        body: "Whether you're downsizing, upsizing, or just starting to think it through, send us a message — we can help you map out what it actually looks like for your situation.",
+        primaryLabel: "Send Us a Message",
+        primaryHref: "/contact",
       };
     case "Lifestyle":
     case "Local Guide":
       return {
         heading: "Thinking of Making This Area Home?",
-        body: "Our team has nearly 20 years of experience helping people find the right town and the right home across Greater Boston. Let's talk about what fits your life.",
-        primaryLabel: "Book a Free Consultation",
+        body: "Our team has nearly 20 years of experience helping people find the right town and the right home across Greater Boston. Send us a message about what you're looking for.",
+        primaryLabel: "Send Us a Message",
+        primaryHref: "/contact",
       };
     default:
       return {
         heading: "Ready to Take the Next Step?",
-        body: "Our team has nearly 20 years of experience helping buyers and sellers navigate the Greater Boston market. Get personalized guidance today.",
-        primaryLabel: "Book a Free Consultation",
+        body: "Our team has nearly 20 years of experience helping buyers and sellers navigate the Greater Boston market. Send us a message and we'll follow up personally.",
+        primaryLabel: "Send Us a Message",
+        primaryHref: "/contact",
       };
   }
 }
@@ -200,9 +204,9 @@ function ArticleDetail({ slug }: { slug: string }) {
                   {cta.body}
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
+                  <Link href={cta.primaryHref} className="btn-gold text-sm">
                     {cta.primaryLabel}
-                  </a>
+                  </Link>
                   <a href="tel:+17814563541" className="btn-outline-gold text-sm">
                     Call (781) 456-3541
                   </a>
