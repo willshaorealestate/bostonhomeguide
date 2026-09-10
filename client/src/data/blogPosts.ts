@@ -227,7 +227,7 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     category: "Seller Guide",
     date: "December 20, 2025",
     img: "/images/staging/staging-after.jpg",
-    images: ["/images/staging/staging-before.jpg"],
+    images: ["/images/marketing/marketing-after3.jpg"],
     content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's Will's complete guide.
 
 **Step 1: Determine Your Home's Value**
