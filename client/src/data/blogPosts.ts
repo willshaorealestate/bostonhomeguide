@@ -48,7 +48,7 @@ When choosing a town for your family, consider these key factors: school distric
     img: "/images/towns/natick.jpeg",
     images: [
       "https://images.unsplash.com/photo-1578091436046-ecd3f4fe6992?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
-      "/images/towns/framingham.jpeg",
+      "https://images.unsplash.com/photo-1626266061368-46a8f578ddd6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
     content: `Buying a home in Greater Boston requires careful financial planning. Here's a comprehensive breakdown of what you'll need.
 
