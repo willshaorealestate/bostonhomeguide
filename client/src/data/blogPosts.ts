@@ -471,7 +471,7 @@ Older homes also come with predictable tradeoffs:
 Newer homes solve a different set of problems:
 - Modern, efficient systems — heating, insulation, electrical — that lower both maintenance costs and energy bills
 - Open floor plans, larger closets, and layouts designed around how people actually live today
-- Builder warranties covering major systems and structural issues for the first several years
+- A builder warranty covering workmanship and major systems for roughly the first year
 - Little to no deferred maintenance to inherit from a previous owner
 
 **What New Construction Trades Away**
