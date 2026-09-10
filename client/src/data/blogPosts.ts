@@ -25,6 +25,7 @@ export const articles: BlogPost[] = [
     readTime: "8 min",
     date: "September 8, 2026",
     img: "/images/towns/newton.jpeg",
+    images: ["/images/towns/lexington.jpeg", "/images/towns/wellesley.jpeg"],
     content: `Greater Boston is one of the best regions in the country for families, thanks to its world-class school districts, safe communities, and abundant recreational opportunities. Whether you're relocating from out of state or moving from the city to the suburbs, choosing the right town is one of the most important decisions you'll make.
 
 **Newton** consistently ranks as one of the best towns for families in Massachusetts. With a top-rated public school system, the Green Line T access, and multiple village centers offering restaurants, shops, and community events, Newton offers the perfect blend of suburban comfort and urban convenience. Median home prices hover around $1.73M.
@@ -45,6 +46,7 @@ When choosing a town for your family, consider these key factors: school distric
     readTime: "6 min",
     date: "September 5, 2026",
     img: "/images/towns/natick.jpeg",
+    images: ["/images/towns/boston.jpeg", "/images/towns/framingham.jpeg"],
     content: `Buying a home in Greater Boston requires careful financial planning. Here's a comprehensive breakdown of what you'll need.
 
 **Down Payment**
@@ -87,6 +89,7 @@ We can connect you with trusted local lenders who specialize in Massachusetts fi
     readTime: "5 min",
     date: "September 3, 2026",
     img: "/images/towns/cambridge.jpeg",
+    images: ["/images/towns/newton.jpeg", "/images/towns/brookline.jpeg"],
     content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here are the strategies we use to help our clients win.
 
 **1. Get Fully Pre-Approved Before You Start**
@@ -120,6 +123,7 @@ We've helped dozens of clients win competitive offers in Greater Boston. [Contac
     readTime: "7 min",
     date: "January 28, 2026",
     img: "/images/towns/framingham.jpeg",
+    images: ["/images/towns/natick.jpeg", "/images/towns/ashland.jpeg"],
     content: `Massachusetts offers several excellent programs to help first-time home buyers enter the market. Here's what you need to know.
 
 **MassHousing**
@@ -158,6 +162,7 @@ We work closely with lenders who specialize in first-time buyer programs. [Conta
     readTime: "9 min",
     date: "September 1, 2026",
     img: "/images/towns/boston.jpeg",
+    images: ["/images/towns/natick.jpeg", "/images/towns/newton.jpeg"],
     content: `One of the most common questions we hear from buyers is: "Should we buy in Boston or move to the suburbs?" The answer depends on your priorities, lifestyle, and life stage.
 
 **The Case for Boston**
@@ -186,6 +191,7 @@ There's no universal right answer. We help clients evaluate their priorities —
     readTime: "6 min",
     date: "September 1, 2026",
     img: "/images/towns/acton.jpeg",
+    images: ["/images/towns/wellesley.jpeg", "/images/towns/hopkinton.jpeg"],
     content: `MetroWest Massachusetts is home to some of the best school districts in the state. Here's a comprehensive overview.
 
 **Acton-Boxborough Regional**
@@ -217,6 +223,7 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     readTime: "10 min",
     date: "December 20, 2025",
     img: "/images/towns/lexington.jpeg",
+    images: ["/images/marketing/marketing-before2.jpg", "/images/marketing/marketing-after2.jpg"],
     content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's our complete guide.
 
 **Step 1: Determine Your Home's Value**
@@ -258,6 +265,7 @@ Massachusetts closings typically take 30-60 days from accepted offer. We coordin
     readTime: "7 min",
     date: "December 10, 2025",
     img: "/images/towns/concord.jpeg",
+    images: ["/images/towns/lincoln.jpeg", "/images/towns/carlisle.jpeg"],
     content: `A home inspection is one of the most important steps in the Massachusetts home buying process. Here's what you need to know.
 
 **What Does a Home Inspector Check?**
@@ -302,6 +310,7 @@ Massachusetts has a unique inspection contingency period. Buyers typically have 
     readTime: "8 min",
     date: "September 10, 2026",
     img: "/images/towns/wellesley.jpeg",
+    images: ["/images/towns/concord.jpeg", "/images/towns/hopkinton.jpeg"],
     content: `If you're moving to Massachusetts from most of the rest of the country, there's a structural quirk that catches almost everyone off guard: counties don't really run anything here. In most of the U.S., county government handles schools, zoning, permitting, and local services across a wide area. In Massachusetts — and across New England generally — that authority sits almost entirely with the town. And because towns here are small, numerous, and self-governing, that single difference explains more about why Newton feels nothing like Wellesley, or why Concord and Acton (which share a border) have completely different personalities, than almost anything else.
 
 **How Town Government Actually Works**
