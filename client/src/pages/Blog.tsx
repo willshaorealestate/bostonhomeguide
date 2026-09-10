@@ -15,41 +15,7 @@ import { articles } from "@/data/blogPosts";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
 
-function ctaForCategory(category: string) {
-  switch (category) {
-    case "Seller Guide":
-      return {
-        heading: "Thinking About Selling?",
-        body: "Our team has nearly 20 years of experience helping sellers price, prepare, and market their homes across Greater Boston. Send us a message and we'll follow up with a free home valuation.",
-        primaryLabel: "Get a Free Home Valuation",
-        primaryHref: "/sell",
-      };
-    case "Life Stage":
-      return {
-        heading: "Weighing Your Next Move?",
-        body: "Whether you're downsizing, upsizing, or just starting to think it through, send us a message — we can help you map out what it actually looks like for your situation.",
-        primaryLabel: "Send Us a Message",
-        primaryHref: "/contact",
-      };
-    case "Lifestyle":
-    case "Local Guide":
-      return {
-        heading: "Thinking of Making This Area Home?",
-        body: "Our team has nearly 20 years of experience helping people find the right town and the right home across Greater Boston. Send us a message about what you're looking for.",
-        primaryLabel: "Send Us a Message",
-        primaryHref: "/contact",
-      };
-    default:
-      return {
-        heading: "Ready to Take the Next Step?",
-        body: "Our team has nearly 20 years of experience helping buyers and sellers navigate the Greater Boston market. Send us a message and we'll follow up personally.",
-        primaryLabel: "Send Us a Message",
-        primaryHref: "/contact",
-      };
-  }
-}
-
-const categories = ["All", "Buyer Guide", "Seller Guide", "Finance", "Strategy", "Neighborhoods", "Local Guide", "Life Stage", "Lifestyle"];
+const categories = ["All", "Buyer Guide", "Seller Guide", "Finance", "Strategy", "Neighborhoods", "Local Guide"];
 
 const townLinks: Record<string, string> = {
   "Newton": "/neighborhoods/newton",
@@ -100,8 +66,6 @@ function ArticleDetail({ slug }: { slug: string }) {
     inlineImages.map((src, k) => [Math.floor(((k + 1) * paragraphs.length) / (inlineImages.length + 1)), src])
   );
 
-  const cta = ctaForCategory(article.category);
-
   return (
     <div className="min-h-screen bg-[#FAF8F4]">
       <Navigation />
@@ -134,27 +98,12 @@ function ArticleDetail({ slug }: { slug: string }) {
                 {paragraphs.map((para, i) => {
                   const formatLine = (line: string) => {
                     let formatted = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-
-                    // Manual [text](url) links go first, pulled out behind placeholders so the
-                    // townLinks auto-linker below can't match a town name inside the link text
-                    // and nest a second <a> inside it.
-                    const manualLinks: string[] = [];
-                    formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
-                      const external = /^https?:\/\//.test(href);
-                      manualLinks.push(
-                        `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
-                      );
-                      return `@@LINK${manualLinks.length - 1}@@`;
-                    });
-
                     Object.entries(townLinks).forEach(([town, href]) => {
                       formatted = formatted.replace(
                         new RegExp(`\\b${town}\\b`, "g"),
                         `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline">${town}</a>`
                       );
                     });
-
-                    formatted = formatted.replace(/@@LINK(\d+)@@/g, (_m, idx) => manualLinks[Number(idx)]);
                     return formatted;
                   };
 
@@ -198,15 +147,16 @@ function ArticleDetail({ slug }: { slug: string }) {
               {/* Article CTA */}
               <div className="mt-8 bg-[#0D2137] rounded-lg p-8">
                 <h3 className="text-white font-bold text-xl mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {cta.heading}
+                  Ready to Take the Next Step?
                 </h3>
-                <p className="text-white/90 font-body text-base mb-5">
-                  {cta.body}
+                <p className="text-white/70 font-body text-base mb-5">
+                  Will Shao has nearly 20 years of experience helping buyers and sellers navigate the
+                  Greater Boston market. Get personalized guidance today.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Link href={cta.primaryHref} className="btn-gold text-sm">
-                    {cta.primaryLabel}
-                  </Link>
+                  <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
+                    Book a Free Consultation
+                  </a>
                   <a href="tel:+17814563541" className="btn-outline-gold text-sm">
                     Call (781) 456-3541
                   </a>
