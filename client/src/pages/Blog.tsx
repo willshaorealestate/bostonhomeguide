@@ -181,7 +181,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                 <h3 className="text-white font-bold text-xl mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                   {cta.heading}
                 </h3>
-                <p className="text-white/70 font-body text-base mb-5">
+                <p className="text-white/90 font-body text-base mb-5">
                   {cta.body}
                 </p>
                 <div className="flex flex-wrap gap-3">
