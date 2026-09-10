@@ -4,7 +4,7 @@
  */
 import { Fragment, useState } from "react";
 import { Link, useParams } from "wouter";
-import { Search, Clock, Tag, ArrowLeft, ChevronRight } from "lucide-react";
+import { Search, ArrowLeft, ChevronRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -82,7 +82,7 @@ function ArticleDetail({ slug }: { slug: string }) {
           </Link>
           <div className="flex items-center gap-3 mb-3">
             <span className="text-xs bg-[#C89B3C] text-[#0D2137] font-bold px-2.5 py-1 rounded font-body">{article.category}</span>
-            <span className="text-white/60 text-xs font-body">{article.readTime} read · {article.date}</span>
+            <span className="text-white/60 text-xs font-body">{article.date}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white max-w-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
             {article.title}
@@ -198,7 +198,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                         <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body leading-snug">
                           {a.title}
                         </p>
-                        <p className="text-sm text-gray-400 font-body mt-1">{a.readTime} read</p>
+                        <p className="text-sm text-gray-400 font-body mt-1">{a.category}</p>
                       </div>
                     </Link>
                   ))}
@@ -305,9 +305,6 @@ export default function BlogPage() {
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="flex items-center gap-1 text-sm text-gray-400 font-body">
-                      <Clock className="w-3 h-3" />{article.readTime} read
-                    </span>
                     <span className="text-sm text-gray-400 font-body">{article.date}</span>
                   </div>
                   <h3
