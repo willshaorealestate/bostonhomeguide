@@ -35,6 +35,7 @@ import { trackLead } from "@/lib/analytics";
 const HERO_IMAGE = "/images/site/boston-hero.webp";
 const NEIGHBORHOOD_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
 const CONSULT_IMAGE = "/images/site/photo.jpg";
+const INTRO_VIDEO_ID = "CnKe6hT361g";
 const METROWEST_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
 
 const neighborhoods = [
@@ -178,6 +179,7 @@ export default function HomePage() {
     firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: ""
   });
   const [fubSubmitting, setFubSubmitting] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
   const { ref: statsRef, visible: statsVisible } = useIntersection();
   const { ref: neighborhoodsRef, visible: neighborhoodsVisible } = useIntersection();
   const { ref: listingsRef, visible: listingsVisible } = useIntersection();
@@ -629,23 +631,37 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="max-w-3xl mx-auto">
-            <div
-              className="relative aspect-video rounded-lg overflow-hidden bg-[#0D2137] shadow-xl cursor-pointer group"
-              onClick={() => toast.info("Video coming soon — contact Will directly at (781) 456-3541")}
-            >
-              <img
-                src={CONSULT_IMAGE}
-                alt="Will Shao video introduction"
-                className="w-full h-full object-cover opacity-60 group-hover:opacity-50 transition-opacity"
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-[#0D2137] ml-1" />
-                </div>
-                <p className="text-white font-body text-sm mt-4 opacity-80">
-                  Watch Will's Introduction (2 min)
-                </p>
-              </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0D2137] shadow-xl">
+              {videoPlaying ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}?autoplay=1`}
+                  title="Will Shao video introduction"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setVideoPlaying(true)}
+                  className="absolute inset-0 w-full h-full cursor-pointer group"
+                  aria-label="Play video introduction"
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${INTRO_VIDEO_ID}/hqdefault.jpg`}
+                    alt="Will Shao video introduction"
+                    className="w-full h-full object-cover opacity-70 group-hover:opacity-60 transition-opacity"
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <Play className="w-8 h-8 text-[#0D2137] ml-1" />
+                    </div>
+                    <p className="text-white font-body text-sm mt-4 opacity-80">
+                      Watch Will's Introduction
+                    </p>
+                  </div>
+                </button>
+              )}
             </div>
           </div>
         </div>
