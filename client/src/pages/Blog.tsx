@@ -20,26 +20,26 @@ function ctaForCategory(category: string) {
     case "Seller Guide":
       return {
         heading: "Thinking About Selling?",
-        body: "Will Shao has nearly 20 years of experience helping sellers price, prepare, and market their homes across Greater Boston. Get a free home valuation.",
+        body: "Our team has nearly 20 years of experience helping sellers price, prepare, and market their homes across Greater Boston. Get a free home valuation.",
         primaryLabel: "Get a Free Home Valuation",
       };
     case "Life Stage":
       return {
         heading: "Weighing Your Next Move?",
-        body: "Whether you're downsizing, upsizing, or just starting to think it through, Will can help you map out what it actually looks like for your situation.",
+        body: "Whether you're downsizing, upsizing, or just starting to think it through, we can help you map out what it actually looks like for your situation.",
         primaryLabel: "Book a Free Consultation",
       };
     case "Lifestyle":
     case "Local Guide":
       return {
         heading: "Thinking of Making This Area Home?",
-        body: "Will Shao has nearly 20 years of experience helping people find the right town and the right home across Greater Boston. Let's talk about what fits your life.",
+        body: "Our team has nearly 20 years of experience helping people find the right town and the right home across Greater Boston. Let's talk about what fits your life.",
         primaryLabel: "Book a Free Consultation",
       };
     default:
       return {
         heading: "Ready to Take the Next Step?",
-        body: "Will Shao has nearly 20 years of experience helping buyers and sellers navigate the Greater Boston market. Get personalized guidance today.",
+        body: "Our team has nearly 20 years of experience helping buyers and sellers navigate the Greater Boston market. Get personalized guidance today.",
         primaryLabel: "Book a Free Consultation",
       };
   }
@@ -130,12 +130,27 @@ function ArticleDetail({ slug }: { slug: string }) {
                 {paragraphs.map((para, i) => {
                   const formatLine = (line: string) => {
                     let formatted = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+                    // Manual [text](url) links go first, pulled out behind placeholders so the
+                    // townLinks auto-linker below can't match a town name inside the link text
+                    // and nest a second <a> inside it.
+                    const manualLinks: string[] = [];
+                    formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
+                      const external = /^https?:\/\//.test(href);
+                      manualLinks.push(
+                        `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
+                      );
+                      return `@@LINK${manualLinks.length - 1}@@`;
+                    });
+
                     Object.entries(townLinks).forEach(([town, href]) => {
                       formatted = formatted.replace(
                         new RegExp(`\\b${town}\\b`, "g"),
                         `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline">${town}</a>`
                       );
                     });
+
+                    formatted = formatted.replace(/@@LINK(\d+)@@/g, (_m, idx) => manualLinks[Number(idx)]);
                     return formatted;
                   };
 

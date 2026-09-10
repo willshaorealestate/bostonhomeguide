@@ -35,7 +35,7 @@ export const articles: BlogPost[] = [
 
 **Wellesley** is perhaps the gold standard for school districts in Greater Boston. The Wellesley Public Schools consistently rank #1 in Massachusetts, and the town's beautiful neighborhoods, Wellesley College campus, and upscale shopping make it one of the most desirable communities in the region.
 
-When choosing a town for your family, consider these key factors: school district ratings (GreatSchools.org is a good resource), commute time to your workplace, proximity to recreational facilities, and the community culture. Will Shao has helped hundreds of families find their perfect Greater Boston community — contact him for personalized guidance.`,
+When choosing a town for your family, consider these key factors: school district ratings (GreatSchools.org is a good resource), commute time to your workplace, proximity to recreational facilities, and the community culture. We've helped hundreds of families find their perfect Greater Boston community — [contact us](/contact) for personalized guidance.`,
   },
   {
     slug: "how-much-to-buy-home-massachusetts",
@@ -77,32 +77,32 @@ Massachusetts offers several programs for first-time buyers:
 - ONE Mortgage: 3% down, no PMI for income-eligible buyers
 - MHFA Down Payment Assistance: Down payment assistance for eligible buyers
 
-Will can connect you with trusted local lenders who specialize in Massachusetts first-time buyer programs. Contact him for a free consultation.`,
+We can connect you with trusted local lenders who specialize in Massachusetts first-time buyer programs. [Contact us](/contact) for a free consultation.`,
   },
   {
     slug: "win-bidding-war-boston",
     title: "How to Win a Bidding War in Greater Boston",
-    excerpt: "Proven strategies that have helped Will's clients win competitive offers — without overpaying.",
+    excerpt: "Proven strategies that have helped our clients win competitive offers — without overpaying.",
     category: "Strategy",
     readTime: "5 min",
     date: "September 3, 2026",
     img: "/images/towns/cambridge.jpeg",
-    content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here are the strategies Will uses to help his clients win.
+    content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here are the strategies we use to help our clients win.
 
 **1. Get Fully Pre-Approved Before You Start**
-A pre-approval letter from a reputable local lender signals to sellers that you're a serious, qualified buyer. Will recommends working with local lenders who can close quickly and communicate directly with listing agents.
+A pre-approval letter from a reputable local lender signals to sellers that you're a serious, qualified buyer. We recommend working with local lenders who can close quickly and communicate directly with listing agents.
 
 **2. Move Fast**
-In Greater Boston's market, hesitation costs you homes. When Will identifies a strong property, he moves quickly — scheduling showings within hours and preparing offers the same day if needed.
+In Greater Boston's market, hesitation costs you homes. When we identify a strong property, we move quickly — scheduling showings within hours and preparing offers the same day if needed.
 
 **3. Offer a Strong Price**
-In competitive situations, offering at or above asking price is often necessary. Will analyzes recent comparable sales to help you understand true market value and make an informed offer.
+In competitive situations, offering at or above asking price is often necessary. We analyze recent comparable sales to help you understand true market value and make an informed offer.
 
 **4. Use an Escalation Clause**
 An escalation clause automatically increases your offer by a set amount above competing offers, up to a maximum. This can be effective in multiple-offer situations while protecting you from overpaying.
 
 **5. Minimize Contingencies Strategically**
-While contingencies protect buyers, excessive contingencies can make your offer less competitive. Will helps clients understand which contingencies are essential (inspection, financing) and which can be modified.
+While contingencies protect buyers, excessive contingencies can make your offer less competitive. We help clients understand which contingencies are essential (inspection, financing) and which can be modified.
 
 **6. Write a Personal Letter**
 In some situations, a heartfelt letter to the sellers about why you love their home can make a difference — particularly with long-time homeowners who care about who buys their home.
@@ -110,7 +110,7 @@ In some situations, a heartfelt letter to the sellers about why you love their h
 **7. Be Flexible on Closing Date**
 Offering flexibility on the closing date — whether a quick close or a leaseback to give sellers time to move — can make your offer stand out.
 
-Will has helped dozens of clients win competitive offers in Greater Boston. Contact him to discuss your specific situation.`,
+We've helped dozens of clients win competitive offers in Greater Boston. [Contact us](/contact) to discuss your specific situation.`,
   },
   {
     slug: "first-time-buyer-programs-massachusetts",
@@ -148,7 +148,7 @@ The ONE Mortgage Program, administered by MHP (Massachusetts Housing Partnership
 **How to Qualify**
 Most first-time buyer programs define "first-time buyer" as someone who hasn't owned a home in the past 3 years. Income and purchase price limits vary by program and location.
 
-Will works closely with lenders who specialize in first-time buyer programs. Contact him for a free consultation and lender referrals.`,
+We work closely with lenders who specialize in first-time buyer programs. [Contact us](/contact) for a free consultation and lender referrals.`,
   },
   {
     slug: "boston-vs-suburbs",
@@ -158,7 +158,7 @@ Will works closely with lenders who specialize in first-time buyer programs. Con
     readTime: "9 min",
     date: "September 1, 2026",
     img: "/images/towns/boston.jpeg",
-    content: `One of the most common questions Will hears from buyers is: "Should we buy in Boston or move to the suburbs?" The answer depends on your priorities, lifestyle, and life stage.
+    content: `One of the most common questions we hear from buyers is: "Should we buy in Boston or move to the suburbs?" The answer depends on your priorities, lifestyle, and life stage.
 
 **The Case for Boston**
 Boston proper offers walkability, cultural amenities, and proximity to world-class restaurants, museums, and entertainment. Neighborhoods like South End, Back Bay, and Jamaica Plain offer vibrant urban lifestyles. However, space comes at a premium in the city's most walkable neighborhoods.
@@ -175,8 +175,8 @@ This is often the deciding factor for families. Greater Boston's suburban school
 **Value Comparison**
 For the same budget, you'll get significantly more space in the suburbs than in Boston's most in-demand neighborhoods — the tradeoff is commute time and a different day-to-day lifestyle.
 
-**Will's Recommendation**
-There's no universal right answer. Will helps clients evaluate their priorities — commute, schools, lifestyle, budget — and find the community that fits their life. Contact him for a personalized consultation.`,
+**Our Recommendation**
+There's no universal right answer. We help clients evaluate their priorities — commute, schools, lifestyle, budget — and find the community that fits their life. [Contact us](/contact) for a personalized consultation.`,
   },
   {
     slug: "top-school-districts-metrowest",
@@ -207,7 +207,7 @@ Hopkinton has rapidly improved its school system over the past decade. The distr
 Framingham's schools have improved significantly in recent years. The district offers strong bilingual programs and diverse academic offerings, and remains one of the best values in MetroWest.
 
 **Choosing Based on Schools**
-When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. Will can provide detailed school data for any community you're considering.`,
+When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. [Contact us](/contact) for detailed school data on any community you're considering.`,
   },
   {
     slug: "selling-home-massachusetts-guide",
@@ -217,13 +217,13 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     readTime: "10 min",
     date: "December 20, 2025",
     img: "/images/towns/lexington.jpeg",
-    content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's Will's complete guide.
+    content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's our complete guide.
 
 **Step 1: Determine Your Home's Value**
-The most important decision in selling your home is pricing. Price too high and you'll sit on the market; price too low and you'll leave money on the table. Will provides a comprehensive Comparative Market Analysis (CMA) using real-time MLSPIN data.
+The most important decision in selling your home is pricing. Price too high and you'll sit on the market; price too low and you'll leave money on the table. We provide a comprehensive Comparative Market Analysis (CMA) using real-time MLSPIN data — [request a free CMA](/sell) to see what your home is actually worth.
 
 **Step 2: Prepare Your Home**
-First impressions matter enormously. Will's pre-listing checklist includes:
+First impressions matter enormously. Our pre-listing checklist includes:
 - Deep cleaning and decluttering
 - Fresh paint in neutral colors
 - Landscaping and curb appeal improvements
@@ -234,21 +234,21 @@ First impressions matter enormously. Will's pre-listing checklist includes:
 In today's market, the vast majority of buyers start their search online. Professional photography — including 3D virtual tours — is essential for maximizing your home's digital presence.
 
 **Step 4: Strategic Pricing**
-Will uses a data-driven pricing strategy that considers recent comparable sales, current market conditions, and your home's unique features. The goal is to attract maximum buyer interest while achieving top dollar.
+We use a data-driven pricing strategy that considers recent comparable sales, current market conditions, and your home's unique features. The goal is to attract maximum buyer interest while achieving top dollar.
 
 **Step 5: Marketing Launch**
-Will's marketing plan includes MLS listing, Zillow/Realtor.com syndication, social media advertising, email campaigns to his buyer database, and Chinese-language marketing materials.
+Our marketing plan includes MLS listing, Zillow/Realtor.com syndication, social media advertising, email campaigns to our buyer database, and Chinese-language marketing materials.
 
 **Step 6: Reviewing Offers**
-In Greater Boston's competitive market, well-priced homes often receive multiple offers. Will helps you evaluate each offer based on price, contingencies, financing, and closing timeline.
+In Greater Boston's competitive market, well-priced homes often receive multiple offers. We help you evaluate each offer based on price, contingencies, financing, and closing timeline.
 
 **Step 7: The Purchase & Sale Agreement**
-The P&S Agreement is the binding contract for your sale. Will works with your attorney to ensure all terms protect your interests.
+The P&S Agreement is the binding contract for your sale. We work with your attorney to ensure all terms protect your interests.
 
 **Step 8: Closing**
-Massachusetts closings typically take 30-60 days from accepted offer. Will coordinates inspections, appraisal, and all closing logistics to ensure a smooth transaction.
+Massachusetts closings typically take 30-60 days from accepted offer. We coordinate inspections, appraisal, and all closing logistics to ensure a smooth transaction.
 
-Contact Will for a free listing consultation and home valuation.`,
+[Contact us](/contact) for a free listing consultation and home valuation.`,
   },
   {
     slug: "home-inspection-massachusetts",
@@ -287,12 +287,12 @@ A licensed Massachusetts home inspector examines:
 - Aging HVAC systems
 
 **How to Negotiate After an Inspection**
-The inspection report gives buyers leverage to negotiate repairs or price reductions. Will helps clients distinguish between major issues (structural, safety) and minor cosmetic items, and advises on appropriate negotiation strategies.
+The inspection report gives buyers leverage to negotiate repairs or price reductions. We help clients distinguish between major issues (structural, safety) and minor cosmetic items, and advise on appropriate negotiation strategies.
 
 **Massachusetts-Specific Considerations**
-Massachusetts has a unique inspection contingency period. Buyers typically have 7-10 days to complete inspections and either accept the property, request repairs, or withdraw. Will manages this timeline carefully to protect your interests.
+Massachusetts has a unique inspection contingency period. Buyers typically have 7-10 days to complete inspections and either accept the property, request repairs, or withdraw. We manage this timeline carefully to protect your interests.
 
-Contact Will for referrals to trusted home inspectors in Greater Boston.`,
+[Contact us](/contact) for referrals to trusted home inspectors in Greater Boston.`,
   },
   {
     slug: "why-new-england-towns-arent-like-anywhere-else",
@@ -314,7 +314,7 @@ This is also why property taxes can differ meaningfully between neighboring town
 **Why Every Town Has Its Own Flavor**
 Because each town controls its own destiny — its own schools, its own building patterns, its own town center — they tend to develop real, distinct identities over time, in a way county-subdivided suburbs elsewhere often don't.
 
-A few examples from towns Will works in regularly: **Concord** built its identity around its Revolutionary and literary history — Walden Pond, the Old North Bridge — and has zoned and preserved itself accordingly, with a historic town center that still feels the part. **Lexington** carries the same Revolutionary-era thread (the Battle Road sites are right in town) but has grown into a strong tech-adjacent community layered on top of that history. **Hopkinton** is defined by something completely different — it's the starting line of the Boston Marathon, and that identity shapes the town's civic calendar every single year. **Wellesley** has built much of its character around Wellesley College and a genuinely walkable town center, distinct from neighboring towns of similar size and price point. **Newton** isn't one center at all — it's actually thirteen historic villages (Newton Centre, Chestnut Hill, Newtonville, and more), each with its own small commercial strip and personality, unified under one city government.
+A few examples from towns we work in regularly: **Concord** built its identity around its Revolutionary and literary history — Walden Pond, the Old North Bridge — and has zoned and preserved itself accordingly, with a historic town center that still feels the part. **Lexington** carries the same Revolutionary-era thread (the Battle Road sites are right in town) but has grown into a strong tech-adjacent community layered on top of that history. **Hopkinton** is defined by something completely different — it's the starting line of the Boston Marathon, and that identity shapes the town's civic calendar every single year. **Wellesley** has built much of its character around Wellesley College and a genuinely walkable town center, distinct from neighboring towns of similar size and price point. **Newton** isn't one center at all — it's actually thirteen historic villages (Newton Centre, Chestnut Hill, Newtonville, and more), each with its own small commercial strip and personality, unified under one city government.
 
 None of this happens by accident. It's downstream of towns having real control over their own zoning, historic preservation, and town-center planning — decisions a county government, operating at a much larger scale, simply wouldn't make town by town.
 
@@ -335,7 +335,7 @@ What's the difference between Town Meeting and a Town Council? Town Meeting is d
 
 Does this affect how long it takes to get a building permit? Yes, significantly — permitting speed and requirements vary by town, since each town's building department and boards operate independently.
 
-If you're relocating to the area and trying to figure out which town actually fits how you want to live — not just what you can afford — that's exactly the kind of question Will helps people work through every day. Contact him for guidance on the differences between towns you're considering.`,
+If you're relocating to the area and trying to figure out which town actually fits how you want to live — not just what you can afford — that's exactly the kind of question we help people work through every day. [Contact us](/contact) for guidance on the differences between towns you're considering.`,
   },
   {
     slug: "buying-vs-renting-greater-boston",
@@ -383,7 +383,7 @@ Why can't I just rent the kind of house I want? Because that type of home — si
 
 Is renting a good long-term option for a family? Generally not — families benefit most from the stability, control, and equity-building that ownership provides, especially once school districts and community ties are part of the picture.
 
-If you're weighing whether it's time to make the move from renting to owning, that's exactly the conversation to have. Reach out to Will for an honest, no-pressure look at what buying could look like for you.`,
+If you're weighing whether it's time to make the move from renting to owning, that's exactly the conversation to have. [Reach out to us](/contact) for an honest, no-pressure look at what buying could look like for you.`,
   },
   {
     slug: "fixer-upper-or-move-in-ready",
@@ -440,7 +440,7 @@ Can I finance renovations into my mortgage? Yes, in many cases — renovation lo
 
 Should a first-time buyer ever consider a fixer-upper? It depends entirely on bandwidth and support system, not experience level. A first-time buyer with a contractor in the family may be better positioned than a repeat buyer with none.
 
-Not sure whether a specific property is a manageable project or a money pit? Will can walk the home with you and help you think through what you're actually taking on before you write an offer.`,
+Not sure whether a specific property is a manageable project or a money pit? [We can walk the home with you](/contact) and help you think through what you're actually taking on before you write an offer.`,
   },
   {
     slug: "new-construction-vs-older-home",
@@ -494,7 +494,7 @@ Do new construction homes hold value as well as older homes in established towns
 
 Can I get the character of an older home with fewer of the maintenance headaches? Sometimes — a home that's already been thoughtfully renovated by a previous owner can offer a middle ground worth looking for.
 
-Trying to weigh a beautifully located older home against a new build farther out? That's a conversation worth having before you fall in love with either one — reach out and Will can walk through the real tradeoffs for your situation.`,
+Trying to weigh a beautifully located older home against a new build farther out? That's a conversation worth having before you fall in love with either one — [reach out](/contact) and we can walk through the real tradeoffs for your situation.`,
   },
   {
     slug: "home-improvements-that-add-value",
@@ -547,7 +547,7 @@ What's the single highest-return project? Fresh paint and thorough decluttering 
 
 Should I fix things a buyer might ask me to fix anyway? Generally yes, for small items — it's often cheaper to fix a minor issue yourself than to have it become a negotiating point after inspection.
 
-Not sure what your specific home needs before listing? Will provides a pre-listing walkthrough and can tell you exactly where your money is best spent — and where it isn't.`,
+Not sure what your specific home needs before listing? [We provide a pre-listing walkthrough](/sell) and can tell you exactly where your money is best spent — and where it isn't.`,
   },
   {
     slug: "how-to-know-when-its-time-to-sell",
@@ -589,13 +589,13 @@ That last one matters more than people expect. Sellers who are moving toward a c
 
 Should I wait for a "better" market to sell? Trying to time the market precisely is difficult even for professionals. If your home no longer fits your life and your finances support a move, waiting for a theoretically better moment often costs more in delayed life changes than it gains in price.
 
-How do I know what my home is actually worth right now? A comparative market analysis from a local agent, based on recent comparable sales in your specific town, is the most reliable starting point — online estimates are a rough guide at best.
+How do I know what my home is actually worth right now? A [comparative market analysis](/sell) from a local agent, based on recent comparable sales in your specific town, is the most reliable starting point — online estimates are a rough guide at best.
 
 What if I'm not sure where I'd move next? That's worth working through before listing, not after. Understanding your next step — even roughly — makes the whole process smoother.
 
 Is there a "wrong" time of year to sell? Timing can affect how long a home takes to sell, but a well-prepared, well-priced home can sell successfully in any season if your personal timing is right.
 
-If you're wondering whether now is your right time — not the market's — that's exactly the conversation to have before listing. Reach out to Will for a straightforward, no-pressure assessment.`,
+If you're wondering whether now is your right time — not the market's — that's exactly the conversation to have before listing. [Reach out to us](/contact) for a straightforward, no-pressure assessment.`,
   },
   {
     slug: "selling-an-inherited-home",
@@ -643,7 +643,7 @@ Will I owe a lot of capital gains tax on an inherited home? Often less than peop
 
 Should I renovate before selling an inherited home? Not necessarily — many inherited homes sell successfully as-is, particularly when heirs want a simpler, faster process.
 
-Navigating an inherited home sale alongside everything else that comes with a loss is a lot to manage. Will has helped families through this exact process and can help you figure out the right next step, at whatever pace works for your family.`,
+Navigating an inherited home sale alongside everything else that comes with a loss is a lot to manage. We've helped families through this exact process and can help you figure out the right next step, at whatever pace works for your family. [Contact us](/contact) whenever you're ready to talk it through.`,
   },
   {
     slug: "when-downsizing-makes-sense",
@@ -679,6 +679,9 @@ Downsizing doesn't have to mean a dramatic lifestyle change. Common paths includ
 - Staying in the same town but moving to a smaller home, preserving community ties
 - Relocating to a town with more single-level living options or age-targeted communities
 - A single-family home with a smaller footprint and less land to maintain
+- Selling and renting instead of buying again
+
+That last option is worth taking seriously rather than treating as a fallback — it's one of our top recommendations for a specific kind of downsizer: someone who wants to travel more, wants zero maintenance responsibility, and doesn't want their equity tied up in another property. Renting after downsizing gives you full flexibility with none of the upkeep, which is exactly the tradeoff some homeowners are looking for at this stage of life, even though it wouldn't be the right call earlier on when raising a family.
 
 Plenty of MetroWest towns have village-center condo options that let you stay close to the same community, restaurants, and friends while meaningfully reducing the home itself.
 
@@ -695,7 +698,7 @@ What are the alternatives to a full downsize? Some homeowners choose to stay in 
 
 How do I decide between a condo and a smaller single-family home? It largely comes down to how much yard work and exterior maintenance you want to keep doing versus hand off through an HOA.
 
-If you're weighing whether downsizing actually makes sense for your situation, that's a conversation worth having before you decide either way. Reach out to Will for an honest read on the real numbers and options for your town.`,
+If you're weighing whether downsizing actually makes sense for your situation, that's a conversation worth having before you decide either way. [Reach out to us](/contact) for an honest read on the real numbers and options for your town.`,
   },
   {
     slug: "when-to-upsize",
@@ -728,7 +731,9 @@ Before starting the search, it's worth getting clear on:
 One of the more stressful parts of upsizing is coordinating the sale of your current home with the purchase of your next one. A few common approaches:
 - Selling first, then renting or staying with family temporarily while you search — lower financial risk, but less convenient
 - Making a contingent offer on your next home, tied to the sale of your current one — more convenient, but can make your offer less competitive in a competitive listing
-- Bridge financing, if available to you, which lets you purchase before selling — useful but worth understanding the costs involved
+- Buying first and selling your current home after — for buyers in a strong financial position, this is a strategy we often recommend, since it means you're never rushed on either side of the transaction and you can move once, not twice
+
+If you buy before selling, a HELOC (home equity line of credit) on your current home is a common way to access the equity you've already built for a down payment on the next one, without waiting for your current home to close first. It's not the right fit for everyone — it depends on your equity position and comfort carrying two properties briefly — but for the right buyer it's one of the smoothest ways to upsize.
 
 There's no universally right approach — it depends on your risk tolerance, your current home's likely time on market, and how competitive the town you're moving to happens to be.
 
@@ -745,7 +750,7 @@ What if we can't agree on how much space we actually need? Walking through speci
 
 Is upsizing always the answer to feeling cramped? Not always — sometimes an addition, a finished basement, or better organization solves the problem without the cost and disruption of a full move. Worth ruling out before committing to a search.
 
-If you're not sure whether it's time to upsize or how to prioritize the search once you do, Will can help you think it through before you start touring homes you don't actually need.`,
+If you're not sure whether it's time to upsize or how to prioritize the search once you do, [we can help you think it through](/contact) before you start touring homes you don't actually need.`,
   },
   {
     slug: "best-bike-trails-greater-boston-metrowest",
@@ -759,19 +764,19 @@ If you're not sure whether it's time to upsize or how to prioritize the search o
     content: `Ask people who've lived in Greater Boston for a while what they'd miss most, and a surprising number mention the trails. This region has converted a remarkable amount of old rail corridor into paved, connected bike paths — genuinely one of the better recreational amenities in the area, and something worth factoring into where you choose to live.
 
 **The Minuteman Bikeway**
-The Minuteman is the trail most people think of first, and for good reason. It runs roughly from Cambridge (connecting near Alewife) through Arlington, Lexington, and up to Bedford — a flat, paved, tree-lined path that's equally popular for a serious morning ride and a slow evening walk with the family. Arlington in particular has built a lot of its everyday life around the trail passing directly through town center, and it's one of the more visible examples of a bike path genuinely shaping a community's character.
+The [Minuteman Bikeway](https://www.mass.gov/locations/minuteman-bikeway) is the trail most people think of first, and for good reason. It runs roughly from Cambridge (connecting near Alewife) through [Arlington](/neighborhoods/arlington), [Lexington](/neighborhoods/lexington), and up to Bedford — a flat, paved, tree-lined path that's equally popular for a serious morning ride and a slow evening walk with the family. Arlington in particular has built a lot of its everyday life around the trail passing directly through town center, and it's one of the more visible examples of a bike path genuinely shaping a community's character.
 
 **The Charles River Esplanade Paths**
-Closer to Boston, the Paul Dudley White Bike Path loops along both sides of the Charles River, connecting Boston and Cambridge with river views nearly the entire way. It's more urban than the Minuteman, but no less enjoyable — especially in the warmer months, when the Esplanade itself turns into one of the busiest, liveliest public spaces in the city.
+Closer to Boston, the [Paul Dudley White Bike Path](https://www.esplanade.org) loops along both sides of the Charles River, connecting Boston and Cambridge with river views nearly the entire way. It's more urban than the Minuteman, but no less enjoyable — especially in the warmer months, when the Esplanade itself turns into one of the busiest, liveliest public spaces in the city.
 
 **The Bruce Freeman Rail Trail**
-Further out into MetroWest, the Bruce Freeman Rail Trail runs through Sudbury, Concord, Acton, and up toward Westford and beyond — a quieter, more suburban ride through some of the region's most scenic small-town centers. It's a good example of how these trails aren't just recreation; they genuinely connect towns to each other in a way that a car commute doesn't.
+Further out into MetroWest, the [Bruce Freeman Rail Trail](https://www.brucefreemanrailtrail.org) runs through Sudbury, Concord, Acton, and up toward Westford and beyond — a quieter, more suburban ride through some of the region's most scenic small-town centers. It's a good example of how these trails aren't just recreation; they genuinely connect towns to each other in a way that a car commute doesn't.
 
 **The Assabet River Rail Trail**
-Covering ground through Hudson, Marlborough, and into Acton, the Assabet River Rail Trail is another well-loved rail-trail conversion, following the river for much of its length. Like the Bruce Freeman, it's a good option for a quieter, more scenic ride than the busier trails closer to Boston.
+Covering ground through Hudson, Marlborough, and into Acton, the [Assabet River Rail Trail](https://www.arrtonline.org) is another well-loved rail-trail conversion, following the river for much of its length. Like the Bruce Freeman, it's a good option for a quieter, more scenic ride than the busier trails closer to Boston.
 
 **The Nashua River Rail Trail**
-Heading north out of the immediate MetroWest area, the Nashua River Rail Trail connects several towns along the Massachusetts-New Hampshire border with a long, mostly flat ride through a more rural stretch of the region — a nice option if you want a longer ride with fewer intersections to navigate.
+Heading north out of the immediate MetroWest area, the [Nashua River Rail Trail](https://www.mass.gov/locations/nashua-river-rail-trail) connects several towns along the Massachusetts-New Hampshire border with a long, mostly flat ride through a more rural stretch of the region — a nice option if you want a longer ride with fewer intersections to navigate.
 
 **Why This Matters Beyond Recreation**
 For a lot of buyers, especially those relocating from areas without this kind of infrastructure, proximity to a trail is a genuine quality-of-life factor — a safe, car-free way to get exercise, get the kids out of the house, or even commute short distances by bike. It's worth asking about when you're touring towns, not just an afterthought once you've already settled somewhere.
@@ -786,7 +791,7 @@ Do these trails connect to each other? Some do, and regional trail networks cont
 
 Does living near a trail actually affect home value or desirability? It's a genuine amenity that many buyers specifically look for, particularly in towns like Arlington where the trail runs through the heart of town.
 
-If having trail access nearby is a priority for your next home, that's worth mentioning early in your search — Will can help you find towns and neighborhoods that put you close to the network.`,
+If having trail access nearby is a priority for your next home, that's worth mentioning early in your search — [reach out](/contact) and we can help you find towns and neighborhoods that put you close to the network.`,
   },
   {
     slug: "best-weekend-day-trips-greater-boston",
@@ -800,25 +805,25 @@ If having trail access nearby is a priority for your next home, that's worth men
     content: `Part of what makes living in Greater Boston appealing isn't just the region itself — it's everything within easy reach of it. Few U.S. metro areas pack this much variety — coastline, mountains, historic towns, classic New England charm — into a couple hours' drive. Here's what regularly makes the list for people who live here.
 
 **Cape Cod**
-The classic New England summer day trip (or weekend, if you can swing it). Beaches, seafood, small coastal towns, and the Cape Cod Rail Trail for anyone who wants to bring a bike along. It gets crowded in peak summer, but a shoulder-season trip in late spring or early fall is one of the best-kept secrets of living in this region.
+The classic New England summer day trip (or weekend, if you can swing it). Beaches, seafood, small coastal towns, and the Cape Cod Rail Trail for anyone who wants to bring a bike along. It gets crowded in peak summer, but a shoulder-season trip in late spring or early fall is one of the best-kept secrets of living in this region. The [Cape Cod Chamber of Commerce](https://www.capecodchamber.org) site is a good starting point for planning.
 
 **Salem**
-Best known for its history — both the witch trials and its long maritime past — Salem makes for an easy half-day or full-day trip, especially rich for anyone with kids old enough to be interested in history. It's also a genuinely walkable, well-preserved small city worth seeing beyond the October crowds.
+Best known for its history — both the witch trials and its long maritime past — Salem makes for an easy half-day or full-day trip, especially rich for anyone with kids old enough to be interested in history. It's also a genuinely walkable, well-preserved small city worth seeing beyond the October crowds. [Destination Salem](https://www.salem.org) has the full rundown of what's open and worth seeing.
 
 **Concord and Lexington**
-You don't have to leave the immediate area for a great day trip — Concord and Lexington, both towns Will works in regularly, are worth a dedicated day even for people who've lived nearby for years. Walden Pond, the Old North Bridge, and the Battle Road historic sites pack a genuine sense of place into a short drive from almost anywhere in Greater Boston.
+You don't have to leave the immediate area for a great day trip — [Concord](https://www.concordma.gov) and [Lexington](https://www.lexingtonma.gov), both towns we work in regularly, are worth a dedicated day even for people who've lived nearby for years. Walden Pond, the Old North Bridge, and the Battle Road historic sites pack a genuine sense of place into a short drive from almost anywhere in Greater Boston.
 
 **Newport, Rhode Island**
-About an hour and a half south, Newport offers the Gilded Age mansions along Bellevue Avenue, the Cliff Walk along the coastline, and a genuinely charming harbor town center. It's a bit further than some of the others on this list, but consistently rated as one of the best day trips (or overnight trips) from the Boston area.
+About an hour and a half south, Newport offers the Gilded Age mansions along Bellevue Avenue, the Cliff Walk along the coastline, and a genuinely charming harbor town center. It's a bit further than some of the others on this list, but consistently rated as one of the best day trips (or overnight trips) from the Boston area. [Discover Newport](https://www.discovernewport.org) has mansion tickets and Cliff Walk details.
 
 **Portsmouth, New Hampshire**
 A little over an hour north, Portsmouth offers a walkable historic downtown, a strong local restaurant scene, and easy access to the New Hampshire seacoast — a nice change of pace without needing a full weekend to make it worthwhile.
 
 **Plymouth**
-Closer to home, Plymouth offers a manageable half-day trip focused on the town's role in early American history, along with a working waterfront that makes for a pleasant afternoon regardless of your interest in the historical sites specifically.
+Closer to home, Plymouth offers a manageable half-day trip focused on the town's role in early American history, along with a working waterfront that makes for a pleasant afternoon regardless of your interest in the historical sites specifically. [See Plymouth](https://www.seeplymouth.com) is the local tourism site for hours and events.
 
 **The Berkshires**
-For a trip that requires a bit more commitment — roughly two and a half hours west — the Berkshires offer a completely different New England experience: mountains, hiking, and a surprisingly strong arts and culture scene. Best suited to an actual weekend rather than a single day, but worth the drive.
+For a trip that requires a bit more commitment — roughly two and a half hours west — the Berkshires offer a completely different New England experience: mountains, hiking, and a surprisingly strong arts and culture scene. Best suited to an actual weekend rather than a single day, but worth the drive. [1Berkshire](https://www.1berkshire.com) is a good resource for planning.
 
 **Why This Is Worth Mentioning to Buyers**
 For people relocating from areas without this kind of regional variety, it's easy to underestimate how much day-trip access adds to quality of life here. It's a genuine answer to "what do people actually do for fun" beyond the towns themselves, and it's worth factoring in alongside schools and commute time when you're evaluating whether this region is the right fit for your family.
@@ -833,6 +838,6 @@ How far is too far for a single-day trip? Most of the destinations here are unde
 
 Do any of these make sense as a short overnight rather than a day trip? Newport, the Berkshires, and Cape Cod are all strong overnight options if you want to slow the pace down rather than rushing back the same day.
 
-If regional lifestyle and access to trips like these matter to you as you're deciding where to settle, that's worth talking through — Will can help you think about commute and location tradeoffs with the bigger picture in mind, not just the house itself.`,
+If regional lifestyle and access to trips like these matter to you as you're deciding where to settle, that's worth talking through — [reach out](/contact) and we can help you think about commute and location tradeoffs with the bigger picture in mind, not just the house itself.`,
   },
 ];
