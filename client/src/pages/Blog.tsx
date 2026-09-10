@@ -15,7 +15,7 @@ import { articles } from "@/data/blogPosts";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
 
-const categories = ["All", "Buyer Guide", "Seller Guide", "Finance", "Strategy", "Neighborhoods", "Local Guide"];
+const categories = ["All", "Buyer Guide", "Seller Guide", "Finance", "Strategy", "Neighborhoods", "Local Guide", "Life Stage", "Lifestyle"];
 
 const townLinks: Record<string, string> = {
   "Newton": "/neighborhoods/newton",
