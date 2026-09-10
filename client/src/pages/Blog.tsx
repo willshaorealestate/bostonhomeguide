@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import { useSEO } from "@/lib/seo";
 import { trackLead } from "@/lib/analytics";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
+const HERO_IMAGE = "/images/site/boston-hero.webp";
 
 const articles = [
   {
@@ -21,15 +21,15 @@ const articles = [
     excerpt: "From top-rated schools to community parks, we break down the best towns for raising a family in the Boston metro area.",
     category: "Buyer Guide",
     readTime: "8 min",
-    date: "March 1, 2026",
-    img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80",
+    date: "September 8, 2026",
+    img: "/images/towns/newton.jpeg",
     content: `Greater Boston is one of the best regions in the country for families, thanks to its world-class school districts, safe communities, and abundant recreational opportunities. Whether you're relocating from out of state or moving from the city to the suburbs, choosing the right town is one of the most important decisions you'll make.
 
-**Newton** consistently ranks as one of the best towns for families in Massachusetts. With a top-rated public school system, the Green Line T access, and multiple village centers offering restaurants, shops, and community events, Newton offers the perfect blend of suburban comfort and urban convenience. Median home prices hover around $1.5M.
+**Newton** consistently ranks as one of the best towns for families in Massachusetts. With a top-rated public school system, the Green Line T access, and multiple village centers offering restaurants, shops, and community events, Newton offers the perfect blend of suburban comfort and urban convenience. Median home prices are around $1.73M.
 
-**Lexington** offers exceptional schools — consistently ranked among the top 5 in Massachusetts — along with a charming historic town center and a strong sense of community. The town's Revolutionary War heritage adds a unique cultural dimension that families appreciate. Median prices are around $1.27M.
+**Lexington** offers exceptional schools — consistently ranked among the top 5 in Massachusetts — along with a charming historic town center and a strong sense of community. The town's Revolutionary War heritage adds a unique cultural dimension that families appreciate. Median prices are around $1.71M.
 
-**Natick** is one of the best values in MetroWest for families. With excellent schools, the Natick Collection mall, Lake Cochituate for recreation, and commuter rail access to South Station, Natick offers a high quality of life at a more accessible price point — with median prices around $933K.
+**Natick** is one of the best values in MetroWest for families. With excellent schools, the Natick Collection mall, Lake Cochituate for recreation, and commuter rail access to South Station, Natick offers a high quality of life at a more accessible price point — with median prices around $858K.
 
 **Wellesley** is perhaps the gold standard for school districts in Greater Boston. The Wellesley Public Schools consistently rank #1 in Massachusetts, and the town's beautiful neighborhoods, Wellesley College campus, and upscale shopping make it one of the most desirable communities in the region.
 
@@ -41,8 +41,8 @@ When choosing a town for your family, consider these key factors: school distric
     excerpt: "A detailed breakdown of down payments, closing costs, and monthly expenses for Boston-area home buyers in 2026.",
     category: "Finance",
     readTime: "6 min",
-    date: "February 20, 2026",
-    img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",
+    date: "September 5, 2026",
+    img: "/images/towns/natick.jpeg",
     content: `Buying a home in Greater Boston requires careful financial planning. Here's a comprehensive breakdown of what you'll need.
 
 **Down Payment**
@@ -52,7 +52,7 @@ The minimum down payment depends on your loan type:
 - VA loan: 0% for eligible veterans
 - MassHousing: As low as 3% for first-time buyers
 
-For a median-priced Greater Boston home at $813,000, a 20% down payment is $162,600. Many buyers in the $500K-$800K range put down 10-15%.
+For a median-priced Boston home at $822,500, a 20% down payment is $164,500. Many buyers in the $500K-$800K range put down 10-15%.
 
 **Closing Costs**
 Massachusetts closing costs typically run 2-4% of the purchase price:
@@ -84,7 +84,7 @@ Will can connect you with trusted local lenders who specialize in Massachusetts 
     category: "Strategy",
     readTime: "5 min",
     date: "February 10, 2026",
-    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
+    img: "/images/towns/cambridge.jpeg",
     content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here are the strategies Will uses to help his clients win.
 
 **1. Get Fully Pre-Approved Before You Start**
@@ -117,7 +117,7 @@ Will has helped dozens of clients win competitive offers in Greater Boston. Cont
     category: "Finance",
     readTime: "7 min",
     date: "January 28, 2026",
-    img: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80",
+    img: "/images/towns/framingham.jpeg",
     content: `Massachusetts offers several excellent programs to help first-time home buyers enter the market. Here's what you need to know.
 
 **MassHousing**
@@ -154,15 +154,15 @@ Will works closely with lenders who specialize in first-time buyer programs. Con
     excerpt: "A data-driven comparison of city living vs. suburban life in Greater Boston — schools, commute, value, and lifestyle.",
     category: "Buyer Guide",
     readTime: "9 min",
-    date: "January 15, 2026",
-    img: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80",
+    date: "September 3, 2026",
+    img: "/images/towns/boston.jpeg",
     content: `One of the most common questions Will hears from buyers is: "Should we buy in Boston or move to the suburbs?" The answer depends on your priorities, lifestyle, and life stage.
 
 **The Case for Boston**
 Boston proper offers walkability, cultural amenities, and proximity to world-class restaurants, museums, and entertainment. Neighborhoods like South End, Back Bay, and Jamaica Plain offer vibrant urban lifestyles. However, space comes at a premium — a 3-bedroom condo in Back Bay can cost $1.5M+.
 
 **The Case for the Suburbs**
-For families with children, the suburbs offer compelling advantages: more space for the money, top-rated school districts, and a quieter lifestyle. A $813K budget that buys a 2-bedroom condo in Boston can buy a 4-bedroom colonial in Natick or Framingham.
+For families with children, the suburbs offer compelling advantages: more space for the money, top-rated school districts, and a quieter lifestyle. A budget around Boston's $822K median condo price can buy a 4-bedroom colonial in Natick ($858K median) or Framingham ($675K median).
 
 **The Commute Question**
 Greater Boston's commuter rail network connects many suburbs directly to South Station and North Station. Newton, Wellesley, and Natick offer Green Line or commuter rail access. Many MetroWest towns are 35-50 minutes from downtown Boston by train.
@@ -171,7 +171,7 @@ Greater Boston's commuter rail network connects many suburbs directly to South S
 This is often the deciding factor for families. Greater Boston's suburban school districts are among the best in the country. Newton, Wellesley, Lexington, and Concord consistently rank in the top 10 in Massachusetts.
 
 **Value Comparison**
-For the same budget, you'll get significantly more space in the suburbs. A $1M budget in Newton buys a 3-4 bedroom colonial; the same budget in Back Bay buys a 2-bedroom condo.
+For the same budget, you'll get significantly more space in the suburbs. Newton's median is now $1.73M for a single-family colonial; a comparable budget in Back Bay buys a 2-bedroom condo.
 
 **Will's Recommendation**
 There's no universal right answer. Will helps clients evaluate their priorities — commute, schools, lifestyle, budget — and find the community that fits their life. Contact him for a personalized consultation.`,
@@ -182,27 +182,27 @@ There's no universal right answer. Will helps clients evaluate their priorities 
     excerpt: "A comprehensive ranking of MetroWest school districts, with data on test scores, programs, and home prices.",
     category: "Neighborhoods",
     readTime: "6 min",
-    date: "January 5, 2026",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+    date: "September 1, 2026",
+    img: "/images/towns/acton.jpeg",
     content: `MetroWest Massachusetts is home to some of the best school districts in the state. Here's a comprehensive overview.
 
 **Acton-Boxborough Regional**
-Consistently ranked #1 or #2 in Massachusetts, Acton-Boxborough offers exceptional academics, strong STEM programs, and a diverse student body. Home prices in Acton range from $800K-$1.2M.
+Consistently ranked #1 or #2 in Massachusetts, Acton-Boxborough offers exceptional academics, strong STEM programs, and a diverse student body. Median home prices in Acton are around $870K.
 
 **Wellesley Public Schools**
-Wellesley's schools are legendary — the district consistently ranks among the top 5 in Massachusetts. The high school offers 27 AP courses and has a 99% college acceptance rate. Median home prices: $1.65M.
+Wellesley's schools are legendary — the district consistently ranks among the top 5 in Massachusetts. The high school offers 27 AP courses and has a 99% college acceptance rate. Median home prices: $2.17M.
 
 **Sudbury-Lincoln (Lincoln-Sudbury Regional)**
-Lincoln-Sudbury Regional High School is one of the most respected high schools in Massachusetts, known for its academic rigor and strong arts programs. Median prices in Sudbury: $1.05M.
+Lincoln-Sudbury Regional High School is one of the most respected high schools in Massachusetts, known for its academic rigor and strong arts programs. Median prices in Sudbury are around $1.05M.
 
 **Natick Public Schools**
-Natick offers excellent schools at a more accessible price point than Wellesley or Newton. The district has strong academic programs and excellent extracurricular activities. Median prices: $933K.
+Natick offers excellent schools at a more accessible price point than Wellesley or Newton. The district has strong academic programs and excellent extracurricular activities. Median prices: $858K.
 
 **Hopkinton Public Schools**
-Hopkinton has rapidly improved its school system over the past decade. The district offers excellent academics, newer school facilities, and great value — with median prices around $800K.
+Hopkinton has rapidly improved its school system over the past decade. The district offers excellent academics, newer school facilities, and great value — with median prices around $1.03M.
 
 **Framingham Public Schools**
-Framingham's schools have improved significantly in recent years. The district offers strong bilingual programs and diverse academic offerings. Best value in MetroWest with median prices around $672K.
+Framingham's schools have improved significantly in recent years. The district offers strong bilingual programs and diverse academic offerings. Best value in MetroWest with median prices around $675K.
 
 **Choosing Based on Schools**
 When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. Will can provide detailed school data for any community you're considering.`,
@@ -214,7 +214,7 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     category: "Seller Guide",
     readTime: "10 min",
     date: "December 20, 2025",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    img: "/images/towns/lexington.jpeg",
     content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's Will's complete guide.
 
 **Step 1: Determine Your Home's Value**
@@ -255,7 +255,7 @@ Contact Will for a free listing consultation and home valuation.`,
     category: "Buyer Guide",
     readTime: "7 min",
     date: "December 10, 2025",
-    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
+    img: "/images/towns/concord.jpeg",
     content: `A home inspection is one of the most important steps in the Massachusetts home buying process. Here's what you need to know.
 
 **What Does a Home Inspector Check?**
