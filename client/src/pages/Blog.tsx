@@ -2,7 +2,7 @@
  * Blog.tsx — BostonHomeGuide.com
  * SEO-optimized blog with articles and lead capture CTAs
  */
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Link, useParams } from "wouter";
 import { Search, Clock, Tag, ArrowLeft, ChevronRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -14,6 +14,36 @@ import { trackLead } from "@/lib/analytics";
 import { articles } from "@/data/blogPosts";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
+
+function ctaForCategory(category: string) {
+  switch (category) {
+    case "Seller Guide":
+      return {
+        heading: "Thinking About Selling?",
+        body: "Will Shao has nearly 20 years of experience helping sellers price, prepare, and market their homes across Greater Boston. Get a free home valuation.",
+        primaryLabel: "Get a Free Home Valuation",
+      };
+    case "Life Stage":
+      return {
+        heading: "Weighing Your Next Move?",
+        body: "Whether you're downsizing, upsizing, or just starting to think it through, Will can help you map out what it actually looks like for your situation.",
+        primaryLabel: "Book a Free Consultation",
+      };
+    case "Lifestyle":
+    case "Local Guide":
+      return {
+        heading: "Thinking of Making This Area Home?",
+        body: "Will Shao has nearly 20 years of experience helping people find the right town and the right home across Greater Boston. Let's talk about what fits your life.",
+        primaryLabel: "Book a Free Consultation",
+      };
+    default:
+      return {
+        heading: "Ready to Take the Next Step?",
+        body: "Will Shao has nearly 20 years of experience helping buyers and sellers navigate the Greater Boston market. Get personalized guidance today.",
+        primaryLabel: "Book a Free Consultation",
+      };
+  }
+}
 
 const categories = ["All", "Buyer Guide", "Seller Guide", "Finance", "Strategy", "Neighborhoods", "Local Guide", "Life Stage", "Lifestyle"];
 
@@ -61,6 +91,12 @@ function ArticleDetail({ slug }: { slug: string }) {
   };
 
   const paragraphs = article.content.split("\n\n");
+  const inlineImages = article.images ?? [];
+  const imageAfterIndex = new Map(
+    inlineImages.map((src, k) => [Math.floor(((k + 1) * paragraphs.length) / (inlineImages.length + 1)), src])
+  );
+
+  const cta = ctaForCategory(article.category);
 
   return (
     <div className="min-h-screen bg-[#FAF8F4]">
@@ -92,14 +128,6 @@ function ArticleDetail({ slug }: { slug: string }) {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg p-8 border border-gray-100 shadow-sm prose prose-sm max-w-none">
                 {paragraphs.map((para, i) => {
-                  if (para.startsWith("**") && para.endsWith("**")) {
-                    return (
-                      <h3 key={i} className="text-lg font-bold text-[#0D2137] mt-6 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                        {para.replace(/\*\*/g, "")}
-                      </h3>
-                    );
-                  }
-
                   const formatLine = (line: string) => {
                     let formatted = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
                     Object.entries(townLinks).forEach(([town, href]) => {
@@ -111,21 +139,39 @@ function ArticleDetail({ slug }: { slug: string }) {
                     return formatted;
                   };
 
-                  const lines = para.split("\n");
-                  const isBulletList = lines.length > 1 && lines.every((line) => /^-\s+/.test(line.trim()));
-                  if (isBulletList) {
-                    return (
-                      <ul key={i} className="list-disc pl-5 text-gray-600 font-body text-base leading-relaxed mb-4 space-y-1.5">
+                  let node: React.ReactNode;
+                  if (para.startsWith("**") && para.endsWith("**")) {
+                    node = (
+                      <h3 className="text-lg font-bold text-[#0D2137] mt-6 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        {para.replace(/\*\*/g, "")}
+                      </h3>
+                    );
+                  } else {
+                    const lines = para.split("\n");
+                    const isBulletList = lines.length > 1 && lines.every((line) => /^-\s+/.test(line.trim()));
+                    node = isBulletList ? (
+                      <ul className="list-disc pl-5 text-gray-600 font-body text-base leading-relaxed mb-4 space-y-1.5">
                         {lines.map((line, j) => (
                           <li key={j} dangerouslySetInnerHTML={{ __html: formatLine(line.trim().replace(/^-\s+/, "")) }} />
                         ))}
                       </ul>
+                    ) : (
+                      <p className="text-gray-600 font-body text-base leading-relaxed mb-4"
+                        dangerouslySetInnerHTML={{ __html: formatLine(para) }} />
                     );
                   }
 
+                  const inlineImg = imageAfterIndex.get(i);
+                  if (!inlineImg) return <Fragment key={i}>{node}</Fragment>;
                   return (
-                    <p key={i} className="text-gray-600 font-body text-base leading-relaxed mb-4"
-                      dangerouslySetInnerHTML={{ __html: formatLine(para) }} />
+                    <Fragment key={i}>
+                      {node}
+                      <img
+                        src={inlineImg}
+                        alt=""
+                        className="w-full aspect-[16/9] object-cover rounded-lg my-6"
+                      />
+                    </Fragment>
                   );
                 })}
               </div>
@@ -133,15 +179,14 @@ function ArticleDetail({ slug }: { slug: string }) {
               {/* Article CTA */}
               <div className="mt-8 bg-[#0D2137] rounded-lg p-8">
                 <h3 className="text-white font-bold text-xl mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Ready to Take the Next Step?
+                  {cta.heading}
                 </h3>
                 <p className="text-white/70 font-body text-base mb-5">
-                  Will Shao has nearly 20 years of experience helping buyers and sellers navigate the
-                  Greater Boston market. Get personalized guidance today.
+                  {cta.body}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
-                    Book a Free Consultation
+                    {cta.primaryLabel}
                   </a>
                   <a href="tel:+17814563541" className="btn-outline-gold text-sm">
                     Call (781) 456-3541

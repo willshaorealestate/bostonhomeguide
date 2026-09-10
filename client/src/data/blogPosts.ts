@@ -11,6 +11,8 @@ export interface BlogPost {
   readTime: string;
   date: string;
   img: string;
+  /** Additional images spread through the article body to break up long text. */
+  images?: string[];
   content: string;
 }
 
@@ -337,57 +339,51 @@ If you're relocating to the area and trying to figure out which town actually fi
   },
   {
     slug: "buying-vs-renting-greater-boston",
-    title: "Buying vs. Renting in Greater Boston: How to Know When You're Ready",
-    excerpt: "Buying isn't automatically better than renting — it depends on your timeline, stability, and what you're actually optimizing for. Here's how to think it through.",
+    title: "Buying vs. Renting in Greater Boston: Why Ownership Usually Wins",
+    excerpt: "Renting has its place — starting out, staying flexible, simplifying later in life. But for most people building a life here, owning is the stronger long-term move. Here's why.",
     category: "Buyer Guide",
     readTime: "7 min",
     date: "September 10, 2026",
     img: "/images/towns/somerville.jpeg",
-    content: `"You're just throwing money away renting" is one of the most repeated pieces of real estate advice — and it's not quite right. Buying is often the better long-term move, but not always, and not for everyone at every stage. The honest answer depends less on the market and more on you: your timeline, your stability, and what you're actually trying to optimize for.
+    images: ["/images/towns/brookline.jpeg", "/images/towns/newton.jpeg"],
+    content: `Renting and buying get treated like two equally valid lifestyle choices, but over the long run, they're not the same decision with different flavors — they're different outcomes. When you rent, your monthly payment builds someone else's equity. When you own, it builds yours. For most people planning to put down roots here, buying is the stronger move, and it's worth being clear-eyed about why, rather than treating the two as a coin flip.
 
-**The Breakeven Timeline Matters More Than the Market**
-Buying a home comes with real upfront costs — closing costs, moving costs, the time and money that goes into settling in — that renting doesn't. Those costs only pay for themselves if you stay long enough to build equity and let appreciation work in your favor. As a rough rule of thumb, if you're not confident you'll stay in a home for at least 3-5 years, renting is often the more financially sound choice, regardless of what the market is doing.
+**Why Ownership Wins Over Time**
+A mortgage payment and a rent payment can look similar on paper, but they do very different things. Every payment on a mortgage builds equity that's yours to keep. Every rent payment is gone the moment you pay it — it covers your housing for the month and nothing more. Over years, that difference compounds into real wealth for owners and none for renters, on top of whatever appreciation the home itself sees.
 
-This is one reason renting first makes a lot of sense for people new to the area. Greater Boston isn't one market — it's dozens of towns with genuinely different characters, and a lot of people rent in a town like Somerville or Cambridge for a year or two specifically to figure out which side of the region actually fits their life before committing to a purchase.
+Ownership also gives you something renting structurally can't: control. You're not subject to a landlord's decision to sell, renovate, or not renew your lease. You can actually make the home yours — renovate the kitchen, paint the walls, put down real roots in a school district and a community — without asking permission or worrying it'll be undone by a move you didn't choose.
 
-**Stability Counts for More Than People Expect**
-A mortgage is a long-term commitment tied to a specific location. Before buying, it's worth being honest about:
-- How stable is your job or income right now?
-- Is there a real chance you'll need to relocate for work in the next few years?
-- Are you anticipating a major life change — marriage, kids, a career shift — that could change what you need from a home?
+**Where Renting Genuinely Makes Sense**
+None of this means renting is a mistake — it's the right tool for specific situations, not a lesser version of owning:
+- Just starting out, while you're building savings, credit, and a clearer sense of where you want to settle
+- A genuinely short-term situation — a work assignment, a transition between homes, a season of real uncertainty about where you'll be next
+- Later in life, when simplifying and handing off maintenance is worth more to you than building further equity
 
-None of these are reasons to never buy. They're reasons to buy when the picture is clearer rather than rushing into it because renting "feels" like wasted money.
+What renting isn't well-suited for is raising a family long-term. That's exactly the stage where the stability, control, and equity-building of ownership matter most — and where the limits of renting show up hardest.
 
-**What Renting Actually Buys You**
-Renting isn't just the absence of owning — it has real advantages that are easy to overlook:
-- Flexibility to move if a job, relationship, or life situation changes
-- No responsibility for maintenance, repairs, or unexpected system failures
-- The ability to "test drive" a town before committing your savings to it
-- Freeing up capital that would otherwise be tied up in a down payment
+**The Supply Problem Renters Don't Always See**
+Here's something that doesn't get said enough: if what you actually want is a single-family home with a yard, good storage, and the amenities that come with raising a family in a place like this, the rental market often simply can't give it to you. Landlords rarely put that kind of home up for long-term rent — the economics favor selling it to an owner-occupant instead. Rental inventory in this region skews heavily toward apartments and multi-families, while single-family homes with yards are overwhelmingly listed for sale, not for rent.
 
-For someone still deciding between, say, a more urban lifestyle and a suburban one, renting through that decision is often smarter than buying and hoping you guessed right.
+That means for a lot of buyers, the choice isn't really "rent this home or buy that one" — it's "buy it, or don't get that kind of home in this area at all." Worth knowing before you assume renting will eventually get you what you're picturing.
 
-**Signs You're Actually Ready to Buy**
-A few practical signals worth checking before you start touring homes:
-- You have a stable income and a reasonable expectation it'll continue
-- You've saved a down payment and still have a real emergency fund left over — not one depleted by the purchase
-- You have a specific sense of which towns fit your life, not just "somewhere in Greater Boston"
-- You're planning to stay put for at least the next several years
-
-**What This Looks Like in Practice**
-A lot of buyers in this market follow a similar path: rent in or near the city first, use that time to learn the towns, build savings and a stronger credit profile, and buy once the picture — job, relationship, target town — is clearer. There's no prize for buying earlier than you're ready.
+**Getting Ready to Buy**
+None of this is an argument to buy before you're actually ready — it's an argument for treating ownership as the goal you're working toward, not an optional upgrade. A few things worth having in place:
+- A stable income and a reasonable sense it'll continue
+- A down payment saved, with a real emergency fund still intact afterward
+- A sense of which towns fit what you actually want in your life — not just a budget number
+- A plan to stay long enough for the upfront costs of buying to pay for themselves — typically a few years at minimum
 
 **Frequently Asked Questions**
 
-Is renting really "throwing money away"? Not necessarily. You're paying for housing and flexibility either way — the question is which one you need more right now, not which one is morally superior.
+Is renting ever the smarter financial choice? In specific situations — a short time horizon, real uncertainty about where you'll settle — yes, temporarily. But over the long run, ownership is what builds wealth; renting doesn't.
 
-How long should I plan to stay before buying makes sense? As a general guideline, 3-5 years is a reasonable minimum to let the upfront costs of buying pay for themselves, though it varies by situation.
+Is it okay to rent for a while before buying? Absolutely, especially early on. Renting to build savings, credit, and a clearer picture of where you want to settle is a smart step toward ownership, not an alternative to it.
 
-Does it make sense to rent in one town and buy in another? Very often, yes — renting is a low-commitment way to learn a town's character before deciding it's where you want to put down roots.
+Why can't I just rent the kind of house I want? Because that type of home — single-family, with a yard, in a good school district — is usually listed for sale rather than offered as a long-term rental. The rental market and the for-sale market skew toward different kinds of housing.
 
-What if I'm ready financially but not sure which town I want? That's a completely reasonable reason to keep renting a bit longer. Buying in the wrong town is a much more expensive mistake than paying a few more months of rent.
+Is renting a good long-term option for a family? Generally not — families benefit most from the stability, control, and equity-building that ownership provides, especially once school districts and community ties are part of the picture.
 
-If you're trying to figure out whether now's the right time for you to buy — or which towns are even worth considering — that's exactly the kind of conversation Will has with clients every day. Reach out for an honest, no-pressure read on your specific situation.`,
+If you're weighing whether it's time to make the move from renting to owning, that's exactly the conversation to have. Reach out to Will for an honest, no-pressure look at what buying could look like for you.`,
   },
   {
     slug: "fixer-upper-or-move-in-ready",
@@ -397,6 +393,7 @@ If you're trying to figure out whether now's the right time for you to buy — o
     readTime: "7 min",
     date: "September 10, 2026",
     img: "/images/towns/medford.jpeg",
+    images: ["/images/staging/staging-before.jpg", "/images/staging/staging-after.jpg"],
     content: `Greater Boston's housing stock skews old — plenty of the region's most charming towns are full of Colonials, Capes, and Victorians built well before modern building codes existed. That means the "fixer-upper vs. move-in ready" question comes up constantly, and the right answer depends far more on your own bandwidth than on the house itself.
 
 **What "Fixer-Upper" Actually Covers**
@@ -453,6 +450,7 @@ Not sure whether a specific property is a manageable project or a money pit? Wil
     readTime: "6 min",
     date: "September 10, 2026",
     img: "/images/towns/westford.jpeg",
+    images: ["/images/towns/carlisle.jpeg", "/images/towns/weston.jpeg"],
     content: `Greater Boston is unusual in how much of its housing stock predates modern construction entirely — it's not uncommon to tour homes built in the 1800s alongside listings finished last year. The choice between them isn't really about "old vs. new" as a preference — it's a set of concrete tradeoffs worth understanding before you commit.
 
 **What You Get With an Older Home**
@@ -506,6 +504,7 @@ Trying to weigh a beautifully located older home against a new build farther out
     readTime: "7 min",
     date: "September 10, 2026",
     img: "/images/towns/dedham.jpeg",
+    images: ["/images/marketing/marketing-before-1.jpg", "/images/marketing/marketing-after-1.jpg"],
     content: `One of the most common questions sellers ask is some version of: "Should I fix this up before I list?" The instinct to invest before selling makes sense — but not every dollar spent comes back at closing, and some projects can even work against you. Here's how to think about it.
 
 **The Improvements That Tend to Pay Off**
@@ -558,6 +557,7 @@ Not sure what your specific home needs before listing? Will provides a pre-listi
     readTime: "6 min",
     date: "September 10, 2026",
     img: "/images/towns/needham.jpeg",
+    images: ["/images/towns/westwood.jpeg", "/images/towns/milton.jpeg"],
     content: `Sellers often ask some version of "is now a good time to sell?" — hoping there's a market-timing answer. In practice, trying to perfectly time the market is a losing game even for professionals. The better question is whether your current home and situation are actually pointing you toward a move, regardless of what the market is doing.
 
 **Signs Your Home No Longer Fits**
@@ -605,6 +605,7 @@ If you're wondering whether now is your right time — not the market's — that
     readTime: "7 min",
     date: "September 10, 2026",
     img: "/images/towns/winchester.jpeg",
+    images: ["/images/towns/melrose.jpeg", "/images/towns/reading.jpeg"],
     content: `Selling a home you've inherited is rarely simple. Beyond the emotional weight of it, there are real legal and practical steps that differ from a typical sale — and getting the order of operations right matters.
 
 **Start With the Legal Basics**
@@ -652,6 +653,7 @@ Navigating an inherited home sale alongside everything else that comes with a lo
     readTime: "6 min",
     date: "September 10, 2026",
     img: "/images/towns/waltham.jpeg",
+    images: ["/images/towns/natick.jpeg", "/images/towns/dedham.jpeg"],
     content: `Downsizing gets treated as the obvious next step once the kids move out or retirement approaches — but it isn't automatically the right move for everyone. For some homeowners, staying put is genuinely the better financial and personal decision. Here's how to actually tell the difference.
 
 **Signs Downsizing Likely Makes Sense**
@@ -703,6 +705,7 @@ If you're weighing whether downsizing actually makes sense for your situation, t
     readTime: "6 min",
     date: "September 10, 2026",
     img: "/images/towns/bedford.jpeg",
+    images: ["/images/towns/lexington.jpeg", "/images/towns/concord.jpeg"],
     content: `Upsizing decisions often get reduced to "we need another bedroom" — but the real signs your home no longer fits are usually broader than that, and catching them early makes the eventual move much less stressful.
 
 **Signs You've Actually Outgrown Your Home**
@@ -752,6 +755,7 @@ If you're not sure whether it's time to upsize or how to prioritize the search o
     readTime: "6 min",
     date: "September 10, 2026",
     img: "/images/towns/arlington.jpeg",
+    images: ["/images/towns/concord.jpeg", "/images/towns/sudbury.jpeg"],
     content: `Ask people who've lived in Greater Boston for a while what they'd miss most, and a surprising number mention the trails. This region has converted a remarkable amount of old rail corridor into paved, connected bike paths — genuinely one of the better recreational amenities in the area, and something worth factoring into where you choose to live.
 
 **The Minuteman Bikeway**
@@ -792,6 +796,7 @@ If having trail access nearby is a priority for your next home, that's worth men
     readTime: "7 min",
     date: "September 10, 2026",
     img: "/images/towns/hopkinton.jpeg",
+    images: ["/images/towns/lexington.jpeg", "/images/towns/boston.jpeg"],
     content: `Part of what makes living in Greater Boston appealing isn't just the region itself — it's everything within easy reach of it. Few U.S. metro areas pack this much variety — coastline, mountains, historic towns, classic New England charm — into a couple hours' drive. Here's what regularly makes the list for people who live here.
 
 **Cape Cod**
