@@ -1,0 +1,47 @@
+name: Publish Next Blog Post
+
+on:
+  schedule:
+    # Tuesdays and Thursdays, 9am ET (14:00 UTC)
+    - cron: '0 14 * * 2,4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Publish next queued post
+        id: publish
+        run: node scripts/blog/publish-next.mjs | tee /tmp/publish-output.txt
+
+      - name: Commit and push
+        run: |
+          git config user.name "willshaorealestate"
+          git config user.email "will@willshao.com"
+          git add client/src/data/blogPosts.ts content/blog-queue.json sitemap.xml
+          if git diff --cached --quiet; then
+            echo "No changes — queue was empty."
+            exit 0
+          fi
+          TITLE=$(grep -oP '(?<=Published ").*(?=" \()' /tmp/publish-output.txt || echo "new post")
+          git commit -m "Publish blog post: $TITLE"
+          git push
+
+      - name: Flag low queue in job summary
+        run: |
+          if grep -q "QUEUE_LOW=true" /tmp/publish-output.txt; then
+            echo "### ⚠️ Blog queue is running low (2 or fewer posts left)" >> "$GITHUB_STEP_SUMMARY"
+            echo "Time to review and approve the next batch." >> "$GITHUB_STEP_SUMMARY"
+          fi
