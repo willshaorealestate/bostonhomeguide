@@ -46,7 +46,10 @@ When choosing a town for your family, consider these key factors: school distric
     category: "Finance",
     date: "September 5, 2026",
     img: "/images/towns/natick.jpeg",
-    images: ["/images/towns/boston.jpeg", "/images/towns/framingham.jpeg"],
+    images: [
+      "https://images.unsplash.com/photo-1578091436046-ecd3f4fe6992?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
+      "/images/towns/framingham.jpeg",
+    ],
     content: `Buying a home in Greater Boston requires careful financial planning. Here's a comprehensive breakdown of what you'll need.
 
 **Down Payment**
@@ -88,7 +91,10 @@ Will can connect you with trusted local lenders who specialize in Massachusetts 
     category: "Strategy",
     date: "September 3, 2026",
     img: "/images/towns/cambridge.jpeg",
-    images: ["/images/towns/newton.jpeg", "/images/towns/brookline.jpeg"],
+    images: [
+      "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
+      "https://images.unsplash.com/photo-1648712898089-4435bc87b587?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0",
+    ],
     content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here are the strategies Will uses to help his clients win.
 
 **1. Get Fully Pre-Approved Before You Start**
