@@ -335,4 +335,499 @@ Does this affect how long it takes to get a building permit? Yes, significantly 
 
 If you're relocating to the area and trying to figure out which town actually fits how you want to live — not just what you can afford — that's exactly the kind of question Will helps people work through every day. Contact him for guidance on the differences between towns you're considering.`,
   },
+  {
+    slug: "buying-vs-renting-greater-boston",
+    title: "Buying vs. Renting in Greater Boston: How to Know When You're Ready",
+    excerpt: "Buying isn't automatically better than renting — it depends on your timeline, stability, and what you're actually optimizing for. Here's how to think it through.",
+    category: "Buyer Guide",
+    readTime: "7 min",
+    date: "September 10, 2026",
+    img: "/images/towns/somerville.jpeg",
+    content: `"You're just throwing money away renting" is one of the most repeated pieces of real estate advice — and it's not quite right. Buying is often the better long-term move, but not always, and not for everyone at every stage. The honest answer depends less on the market and more on you: your timeline, your stability, and what you're actually trying to optimize for.
+
+**The Breakeven Timeline Matters More Than the Market**
+Buying a home comes with real upfront costs — closing costs, moving costs, the time and money that goes into settling in — that renting doesn't. Those costs only pay for themselves if you stay long enough to build equity and let appreciation work in your favor. As a rough rule of thumb, if you're not confident you'll stay in a home for at least 3-5 years, renting is often the more financially sound choice, regardless of what the market is doing.
+
+This is one reason renting first makes a lot of sense for people new to the area. Greater Boston isn't one market — it's dozens of towns with genuinely different characters, and a lot of people rent in a town like Somerville or Cambridge for a year or two specifically to figure out which side of the region actually fits their life before committing to a purchase.
+
+**Stability Counts for More Than People Expect**
+A mortgage is a long-term commitment tied to a specific location. Before buying, it's worth being honest about:
+- How stable is your job or income right now?
+- Is there a real chance you'll need to relocate for work in the next few years?
+- Are you anticipating a major life change — marriage, kids, a career shift — that could change what you need from a home?
+
+None of these are reasons to never buy. They're reasons to buy when the picture is clearer rather than rushing into it because renting "feels" like wasted money.
+
+**What Renting Actually Buys You**
+Renting isn't just the absence of owning — it has real advantages that are easy to overlook:
+- Flexibility to move if a job, relationship, or life situation changes
+- No responsibility for maintenance, repairs, or unexpected system failures
+- The ability to "test drive" a town before committing your savings to it
+- Freeing up capital that would otherwise be tied up in a down payment
+
+For someone still deciding between, say, a more urban lifestyle and a suburban one, renting through that decision is often smarter than buying and hoping you guessed right.
+
+**Signs You're Actually Ready to Buy**
+A few practical signals worth checking before you start touring homes:
+- You have a stable income and a reasonable expectation it'll continue
+- You've saved a down payment and still have a real emergency fund left over — not one depleted by the purchase
+- You have a specific sense of which towns fit your life, not just "somewhere in Greater Boston"
+- You're planning to stay put for at least the next several years
+
+**What This Looks Like in Practice**
+A lot of buyers in this market follow a similar path: rent in or near the city first, use that time to learn the towns, build savings and a stronger credit profile, and buy once the picture — job, relationship, target town — is clearer. There's no prize for buying earlier than you're ready.
+
+**Frequently Asked Questions**
+
+Is renting really "throwing money away"? Not necessarily. You're paying for housing and flexibility either way — the question is which one you need more right now, not which one is morally superior.
+
+How long should I plan to stay before buying makes sense? As a general guideline, 3-5 years is a reasonable minimum to let the upfront costs of buying pay for themselves, though it varies by situation.
+
+Does it make sense to rent in one town and buy in another? Very often, yes — renting is a low-commitment way to learn a town's character before deciding it's where you want to put down roots.
+
+What if I'm ready financially but not sure which town I want? That's a completely reasonable reason to keep renting a bit longer. Buying in the wrong town is a much more expensive mistake than paying a few more months of rent.
+
+If you're trying to figure out whether now's the right time for you to buy — or which towns are even worth considering — that's exactly the kind of conversation Will has with clients every day. Reach out for an honest, no-pressure read on your specific situation.`,
+  },
+  {
+    slug: "fixer-upper-or-move-in-ready",
+    title: "Fixer-Upper or Move-In Ready? How to Decide What's Right for You",
+    excerpt: "A lower price tag on a fixer-upper can be tempting — but it's only a good deal if you're actually set up to handle what comes with it.",
+    category: "Buyer Guide",
+    readTime: "7 min",
+    date: "September 10, 2026",
+    img: "/images/towns/medford.jpeg",
+    content: `Greater Boston's housing stock skews old — plenty of the region's most charming towns are full of Colonials, Capes, and Victorians built well before modern building codes existed. That means the "fixer-upper vs. move-in ready" question comes up constantly, and the right answer depends far more on your own bandwidth than on the house itself.
+
+**What "Fixer-Upper" Actually Covers**
+It's a broad category. On one end, it's a dated kitchen and some cosmetic updates. On the other, it's knob-and-tube wiring, an aging oil tank, and a roof that needs replacing. Before deciding a fixer-upper is right for you, get clear on which kind you're actually looking at — a home inspection is what turns "fixer-upper" from a vague label into a real, prioritized list.
+
+**When a Fixer-Upper Makes Sense**
+A fixer-upper tends to be the right call when:
+- You have real budget flexibility beyond the purchase price for renovations
+- You're not on a tight timeline and can tolerate living through some amount of work
+- You have the bandwidth (or the right contractor relationships) to manage a renovation project
+- You're buying in a competitive town where move-in-ready homes draw the most competition, and a home needing work is your way into the neighborhood at a more reachable price
+
+Renovation-specific financing, like an FHA 203(k) loan, can also make a fixer-upper more accessible by rolling renovation costs into your mortgage — worth discussing with a lender who's done these before.
+
+**When Move-In Ready Is the Better Call**
+Move-in ready tends to be the smarter choice when:
+- You're relocating for a job and need to be settled quickly
+- This is your first home and you don't yet have a network of trusted contractors
+- Your budget is fully allocated to the purchase, with little cushion for surprises
+- You value predictability over the potential upside of "sweat equity"
+
+There's no downside to being honest with yourself here. A fixer-upper that turns into a stalled, over-budget project is a worse outcome than paying more upfront for a home that's ready to live in.
+
+**New England-Specific Things to Watch For**
+Older homes in this region come with some recurring issues worth budgeting for regardless of how "fixed up" a home appears:
+- Knob-and-tube wiring or outdated electrical panels
+- Underground oil tanks, which can be costly to remove or remediate if leaking
+- Lead paint, which has specific disclosure and remediation rules for homes built before 1978
+- Basement moisture, common in homes with older foundations
+- Aging heating systems, which matter a lot given New England winters
+
+None of these are reasons to avoid an older home — they're simply costs to plan for rather than be surprised by.
+
+**A Practical Way to Decide**
+After the inspection, separate the issue list into three buckets: safety and structural items that need addressing regardless, cosmetic items you can live with for a while, and "nice to have" upgrades you can do on your own timeline. If the first bucket is small and everything else is cosmetic, you likely have more flexibility than the word "fixer-upper" implies.
+
+**Frequently Asked Questions**
+
+Is a fixer-upper always cheaper in the end? Not necessarily. A lower purchase price can be entirely offset — or exceeded — by renovation costs, especially if issues are more extensive than expected. Get a thorough inspection before assuming you're getting a deal.
+
+What's a reasonable renovation budget cushion? A common rule of thumb is to budget 10-20% above your renovation estimates for unexpected issues, particularly in older homes.
+
+Can I finance renovations into my mortgage? Yes, in many cases — renovation loan products exist specifically for this. Ask your lender what's available for the type of work you're planning.
+
+Should a first-time buyer ever consider a fixer-upper? It depends entirely on bandwidth and support system, not experience level. A first-time buyer with a contractor in the family may be better positioned than a repeat buyer with none.
+
+Not sure whether a specific property is a manageable project or a money pit? Will can walk the home with you and help you think through what you're actually taking on before you write an offer.`,
+  },
+  {
+    slug: "new-construction-vs-older-home",
+    title: "New Construction vs. an Older New England Home: What You're Really Trading Off",
+    excerpt: "New builds and 100-year-old Colonials solve different problems. Here's what actually differs day to day, beyond just age.",
+    category: "Buyer Guide",
+    readTime: "6 min",
+    date: "September 10, 2026",
+    img: "/images/towns/westford.jpeg",
+    content: `Greater Boston is unusual in how much of its housing stock predates modern construction entirely — it's not uncommon to tour homes built in the 1800s alongside listings finished last year. The choice between them isn't really about "old vs. new" as a preference — it's a set of concrete tradeoffs worth understanding before you commit.
+
+**What You Get With an Older Home**
+Established towns across the region built their character around homes that have been there for generations. That tends to come with:
+- Mature trees, established landscaping, and often larger lots than newer developments
+- Walkable proximity to historic town centers, which were built around the homes, not the other way around
+- Architectural character — real plaster walls, original woodwork, unique layouts — that's difficult or expensive to replicate in new construction
+- Often, a lower price per square foot than comparable new construction in the same town
+
+**What You're Signing Up For**
+Older homes also come with predictable tradeoffs:
+- Systems (electrical, plumbing, heating) that may need updating even if they're currently functional
+- Smaller closets, choppier floor plans, and less of the open-concept layout many buyers now expect
+- A higher likelihood of needing a specialist for issues like lead paint, asbestos, or an aging oil tank
+- Ongoing maintenance that a newer home simply doesn't require yet
+
+**What You Get With New Construction**
+Newer homes solve a different set of problems:
+- Modern, efficient systems — heating, insulation, electrical — that lower both maintenance costs and energy bills
+- Open floor plans, larger closets, and layouts designed around how people actually live today
+- Builder warranties covering major systems and structural issues for the first several years
+- Little to no deferred maintenance to inherit from a previous owner
+
+**What New Construction Trades Away**
+The tradeoffs run the other direction too:
+- New developments are often located farther from historic town centers and transit than older housing stock
+- Lot sizes tend to be smaller, and mature landscaping takes years to develop
+- Character and uniqueness are harder to come by — new construction often follows a more standardized design
+- Depending on the town, inventory of true new construction can be limited, since much of the region is already built out
+
+**How to Actually Decide**
+The honest framing: an older home is buying into an established place, with all its character and its maintenance needs. New construction is buying predictability and modern living, often at the cost of location and character. Neither is objectively right — it depends on whether you're the type of buyer who wants to spend a weekend refinishing original hardwood, or the type who'd rather never think about a furnace for the first decade.
+
+**Frequently Asked Questions**
+
+Is new construction always more expensive? Not always — it depends on the town and lot, but new construction often does carry a premium per square foot compared to an older home in the same area, partly for the reduced maintenance risk.
+
+Are older homes in Greater Boston hard to insure? Not necessarily, but insurers may ask more questions about the age of the electrical panel, roof, and heating system — items worth addressing if they haven't been updated.
+
+Do new construction homes hold value as well as older homes in established towns? Both can appreciate well; it tends to depend more on the town and school district than on the age of the specific home.
+
+Can I get the character of an older home with fewer of the maintenance headaches? Sometimes — a home that's already been thoughtfully renovated by a previous owner can offer a middle ground worth looking for.
+
+Trying to weigh a beautifully located older home against a new build farther out? That's a conversation worth having before you fall in love with either one — reach out and Will can walk through the real tradeoffs for your situation.`,
+  },
+  {
+    slug: "home-improvements-that-add-value",
+    title: "Which Home Improvements Actually Add Value Before You Sell (and Which Don't)",
+    excerpt: "Sellers often spend on the wrong things right before listing. Here's what tends to actually pay off — and what rarely does.",
+    category: "Seller Guide",
+    readTime: "7 min",
+    date: "September 10, 2026",
+    img: "/images/towns/dedham.jpeg",
+    content: `One of the most common questions sellers ask is some version of: "Should I fix this up before I list?" The instinct to invest before selling makes sense — but not every dollar spent comes back at closing, and some projects can even work against you. Here's how to think about it.
+
+**The Improvements That Tend to Pay Off**
+As a general rule, the highest-return projects before a sale are the ones that remove reasons for a buyer to hesitate or negotiate down, rather than the ones that add luxury:
+- Fresh, neutral paint throughout — one of the most consistently high-return projects there is
+- Deep cleaning, decluttering, and staging to help buyers picture themselves in the space
+- Landscaping and curb appeal — the first impression happens before a buyer walks in the door
+- Fixing small, obvious defects: leaky faucets, cracked tiles, squeaky doors, torn screens
+- A light refresh of a dated kitchen or bathroom (updated hardware, lighting, a fresh coat on cabinets) rather than a full gut renovation
+
+**The Improvements That Often Don't Pay Off**
+Just as important is knowing what tends to be a poor use of pre-sale budget:
+- A full kitchen or bathroom remodel done right before listing — you rarely recoup the full cost, and buyers may have wanted different finishes anyway
+- Highly personalized or high-end finishes that don't match the rest of the home or the neighborhood norm
+- Major structural additions undertaken purely to sell, rather than because you needed the space
+- In this climate, in-ground pools are a notoriously mixed bag — some buyers see them as a maintenance burden rather than a feature
+
+The general pattern: cosmetic, move-in-ready-feeling improvements tend to recoup a much larger share of their cost than major remodels, which are better justified by your own enjoyment of the home than by resale math.
+
+**Why Over-Improving Can Backfire**
+If your home ends up significantly nicer — and more expensive — than everything else on the street, you may struggle to get the price to reflect it. Buyers, and appraisers, tend to value a home relative to its neighborhood. It's worth asking what similar recently-sold homes nearby actually looked like before investing heavily beyond that standard.
+
+**New England-Specific Priorities**
+A few things buyers in this region tend to scrutinize closely, worth addressing before you list if they're an issue:
+- The age and condition of the heating system — not optional in a New England winter
+- Visible basement moisture or water intrusion, even minor
+- Roof age and condition, especially with the region's freeze-thaw cycles
+- Any obvious knob-and-tube wiring or outdated electrical panels
+
+**A Simple Way to Prioritize**
+Walk through your home as if you were a buyer touring it for the first time. Anything that would make you personally hesitate, or make you mentally start subtracting from your offer, is worth addressing. Anything that's simply "not to your exact taste" is probably not worth the investment — the next owner will likely want to make some choices of their own anyway.
+
+**Frequently Asked Questions**
+
+Should I remodel my kitchen before selling? Usually not a full remodel — a lighter refresh (paint, hardware, lighting) tends to offer a much better return than a full renovation right before listing.
+
+Is staging really worth it? Most sellers find it worthwhile — it's a relatively low cost that helps buyers connect with the space, and photos (where most buyers start their search) benefit significantly.
+
+What's the single highest-return project? Fresh paint and thorough decluttering consistently rank among the best returns for the cost, across almost any market.
+
+Should I fix things a buyer might ask me to fix anyway? Generally yes, for small items — it's often cheaper to fix a minor issue yourself than to have it become a negotiating point after inspection.
+
+Not sure what your specific home needs before listing? Will provides a pre-listing walkthrough and can tell you exactly where your money is best spent — and where it isn't.`,
+  },
+  {
+    slug: "how-to-know-when-its-time-to-sell",
+    title: "How to Know When It's Time to Sell",
+    excerpt: "The right time to sell has less to do with the market and more to do with whether your home still fits your life.",
+    category: "Seller Guide",
+    readTime: "6 min",
+    date: "September 10, 2026",
+    img: "/images/towns/needham.jpeg",
+    content: `Sellers often ask some version of "is now a good time to sell?" — hoping there's a market-timing answer. In practice, trying to perfectly time the market is a losing game even for professionals. The better question is whether your current home and situation are actually pointing you toward a move, regardless of what the market is doing.
+
+**Signs Your Home No Longer Fits**
+A few patterns come up again and again with sellers who end up glad they moved:
+- The layout no longer matches how you live — a home office you don't have, stairs that are harder to manage, a yard you no longer use
+- You've outgrown the space, whether from a growing family or simply accumulating more life than the home was built for
+- The maintenance burden has started to outweigh the enjoyment — an aging home asking for more time and money than you want to give it
+- The town itself no longer fits — schools you no longer need, a commute that's changed, wanting a different pace of life
+
+**Signs It's a Financial Green Light**
+Beyond how the home fits your life, it's worth checking a few practical boxes:
+- You have a clear sense of your equity position and what it gives you toward a next home
+- You understand roughly what your next move costs — not just a new purchase price, but moving costs, closing costs, and any gap between selling and buying
+- Your timeline has some flexibility — a forced, rushed sale rarely gets the best outcome
+
+**What Not to Base the Decision On**
+Trying to guess the exact top of the market is a common trap. Waiting for a "perfect" moment often means waiting indefinitely, while your actual life keeps moving forward. A more reliable approach: get clear on whether your home fits your next few years, not on predicting next month's headlines.
+
+**A Practical Readiness Checklist**
+Before listing, it's worth being able to answer:
+- Do I know roughly what my home would sell for, and does that support my next move?
+- Do I have a realistic plan for where I'm going next — buying, renting, relocating?
+- Is my timeline flexible enough to sell well, rather than rushed?
+- Am I moving toward something I want, not just away from something I don't?
+
+That last one matters more than people expect. Sellers who are moving toward a clear next chapter — more space, less maintenance, a different town — tend to navigate the process with a lot more clarity than those selling reactively.
+
+**Frequently Asked Questions**
+
+Should I wait for a "better" market to sell? Trying to time the market precisely is difficult even for professionals. If your home no longer fits your life and your finances support a move, waiting for a theoretically better moment often costs more in delayed life changes than it gains in price.
+
+How do I know what my home is actually worth right now? A comparative market analysis from a local agent, based on recent comparable sales in your specific town, is the most reliable starting point — online estimates are a rough guide at best.
+
+What if I'm not sure where I'd move next? That's worth working through before listing, not after. Understanding your next step — even roughly — makes the whole process smoother.
+
+Is there a "wrong" time of year to sell? Timing can affect how long a home takes to sell, but a well-prepared, well-priced home can sell successfully in any season if your personal timing is right.
+
+If you're wondering whether now is your right time — not the market's — that's exactly the conversation to have before listing. Reach out to Will for a straightforward, no-pressure assessment.`,
+  },
+  {
+    slug: "selling-an-inherited-home",
+    title: "Selling an Inherited Home: Where to Start",
+    excerpt: "Selling a home you've inherited is a different process from a typical sale — emotionally and legally. Here's how to approach it.",
+    category: "Seller Guide",
+    readTime: "7 min",
+    date: "September 10, 2026",
+    img: "/images/towns/winchester.jpeg",
+    content: `Selling a home you've inherited is rarely simple. Beyond the emotional weight of it, there are real legal and practical steps that differ from a typical sale — and getting the order of operations right matters.
+
+**Start With the Legal Basics**
+Before a home can be sold, ownership needs to be legally clear. In Massachusetts, this often involves the probate process, where a court confirms the will (or applies state law if there isn't one) and appoints an executor or personal representative with legal authority to act on the estate's behalf — including selling real estate. Until that authority is established, a sale generally can't move forward. This is a good reason to loop in a probate or estate attorney early, before you start thinking about listing timelines.
+
+**Get Clear on Ownership Among Heirs**
+If the home is inherited by multiple people — siblings, for example — everyone with an ownership stake needs to agree on selling, and ideally agree on the basics: timeline, listing price expectations, and how proceeds will be divided. Disagreements among heirs are one of the most common things that stall an inherited home sale, so it's worth having that conversation directly and early, separate from the emotions of the loss itself.
+
+**Understand the Tax Basics**
+Inherited property generally receives what's called a "stepped-up basis" — meaning the property's value is reset to its fair market value at the time of the original owner's passing, rather than what they originally paid for it decades earlier. This can significantly reduce capital gains taxes if you sell relatively soon after inheriting. The specifics depend on your situation, so this is worth a conversation with a tax professional or estate attorney rather than assuming — but it's an important reason not to delay the conversation.
+
+**Decide: Sell, Rent, or Keep**
+Before assuming a sale is the right move, it's worth briefly considering the alternatives:
+- Selling provides a clean break and immediate liquidity, especially useful when multiple heirs need to divide proceeds
+- Renting can make sense if the home has strong long-term value and someone is willing to manage it as a landlord
+- Keeping the home in the family works when one heir wants to live in it and can buy out the others' shares
+
+Most families land on selling, but it's worth a genuine conversation rather than defaulting to it.
+
+**Preparing the Home**
+Inherited homes have often been lived in for decades, sometimes with deferred maintenance the previous owner didn't get to. A few practical steps:
+- Clearing out personal belongings — often the most emotionally difficult and time-consuming step
+- An honest inspection to understand what condition the home is actually in
+- Deciding how much, if any, updating makes sense before listing versus selling as-is
+
+Selling as-is is a completely reasonable choice for an inherited home, particularly when heirs want to move quickly or don't want to manage a renovation from a distance.
+
+**Frequently Asked Questions**
+
+Do I need to go through probate to sell an inherited home? In most cases, yes — an executor or personal representative typically needs legal authority through the probate process before a sale can close. An estate attorney can confirm what applies to your specific situation.
+
+What if my siblings and I disagree about selling? This is common, and worth resolving directly and early — ideally with guidance from an attorney or mediator — since it can otherwise stall the process indefinitely.
+
+Will I owe a lot of capital gains tax on an inherited home? Often less than people expect, thanks to the stepped-up basis, but the specifics depend on your situation. A tax professional can give you a real answer.
+
+Should I renovate before selling an inherited home? Not necessarily — many inherited homes sell successfully as-is, particularly when heirs want a simpler, faster process.
+
+Navigating an inherited home sale alongside everything else that comes with a loss is a lot to manage. Will has helped families through this exact process and can help you figure out the right next step, at whatever pace works for your family.`,
+  },
+  {
+    slug: "when-downsizing-makes-sense",
+    title: "When Downsizing Makes Sense (and When It Doesn't)",
+    excerpt: "Downsizing isn't automatically the right move just because the kids are gone. Here's how to tell if it actually makes sense for you.",
+    category: "Life Stage",
+    readTime: "6 min",
+    date: "September 10, 2026",
+    img: "/images/towns/waltham.jpeg",
+    content: `Downsizing gets treated as the obvious next step once the kids move out or retirement approaches — but it isn't automatically the right move for everyone. For some homeowners, staying put is genuinely the better financial and personal decision. Here's how to actually tell the difference.
+
+**Signs Downsizing Likely Makes Sense**
+A few patterns show up consistently among homeowners glad they downsized:
+- Entire rooms or floors have gone largely unused for years
+- Home maintenance — yard work, repairs, a large heating bill — has become more burden than benefit
+- A meaningful share of your net worth is tied up in home equity you'd rather have access to in retirement
+- You're finding stairs, a large yard, or general upkeep physically harder to manage than you used to
+
+**Signs Downsizing Might Not Be Worth It**
+It's just as important to recognize when staying put is the smarter call:
+- Your mortgage is paid off or nearly so, and your carrying costs are genuinely low relative to your income
+- You have deep community and social ties to your current home and town that a move would disrupt
+- The math doesn't actually work in your favor once you account for moving costs, closing costs on both transactions, and the cost of a smaller home in a similarly desirable area
+- You're downsizing reactively, out of a sense that you "should," rather than because the space genuinely no longer serves you
+
+**Do the Real Math, Not the Assumed Math**
+A common misconception is that downsizing automatically frees up a large amount of cash. Depending on the town and the type of home you're moving to, a smaller home in a similarly desirable area isn't always dramatically cheaper — sometimes the real savings come more from lower ongoing maintenance and utility costs than from the sale price difference itself. It's worth running actual numbers for your specific situation rather than assuming.
+
+**What Downsizing Can Look Like**
+Downsizing doesn't have to mean a dramatic lifestyle change. Common paths include:
+- Moving from a single-family home to a condo or townhouse, often in a walkable village center
+- Staying in the same town but moving to a smaller home, preserving community ties
+- Relocating to a town with more single-level living options or age-targeted communities
+- A single-family home with a smaller footprint and less land to maintain
+
+Plenty of MetroWest towns have village-center condo options that let you stay close to the same community, restaurants, and friends while meaningfully reducing the home itself.
+
+**A Practical Way to Decide**
+Walk through your home room by room and ask honestly how often each space actually gets used. If the answer is "rarely, but I like having it," that's a values question, not a financial one — and there's nothing wrong with keeping space you value, even if it's not "efficient." Downsizing makes the most sense when the unused space has become a burden rather than a comfort.
+
+**Frequently Asked Questions**
+
+Is downsizing always the right move after retirement? No — it depends heavily on your finances, health, and how attached you are to your current home and community. Plenty of retirees are better off staying put.
+
+Will downsizing definitely save me money? Not automatically. It depends on the town, the type of home you're moving to, and transaction costs on both ends. It's worth running real numbers before assuming.
+
+What are the alternatives to a full downsize? Some homeowners choose to stay in their current home and simply close off or repurpose unused rooms, or make accessibility updates instead of moving entirely.
+
+How do I decide between a condo and a smaller single-family home? It largely comes down to how much yard work and exterior maintenance you want to keep doing versus hand off through an HOA.
+
+If you're weighing whether downsizing actually makes sense for your situation, that's a conversation worth having before you decide either way. Reach out to Will for an honest read on the real numbers and options for your town.`,
+  },
+  {
+    slug: "when-to-upsize",
+    title: "When to Upsize: The Real Signs Your Home No Longer Fits",
+    excerpt: "Upsizing is about more than square footage. Here's how to know your current home has actually become a constraint.",
+    category: "Life Stage",
+    readTime: "6 min",
+    date: "September 10, 2026",
+    img: "/images/towns/bedford.jpeg",
+    content: `Upsizing decisions often get reduced to "we need another bedroom" — but the real signs your home no longer fits are usually broader than that, and catching them early makes the eventual move much less stressful.
+
+**Signs You've Actually Outgrown Your Home**
+A few patterns are worth paying attention to:
+- You're regularly using shared or improvised spaces — a dining table doubling as an office, a hallway as storage — because there's no dedicated room for how you actually live now
+- Guests, extended family, or aging parents are staying over regularly with nowhere comfortable to put them
+- Storage has become a constant, low-grade stress rather than an occasional inconvenience
+- Remote or hybrid work has made a dedicated office space a genuine need rather than a nice-to-have
+
+**It's Not Just About Bedroom Count**
+Two homes with the same number of bedrooms can feel completely different in practice. A home that's technically "big enough" on paper but has an awkward layout — bedrooms too close together, no separation between living and work space, a kitchen that can't handle how your household actually cooks and gathers — can feel more cramped than a smaller home with a layout that actually matches your life.
+
+**Financial Readiness for an Upsize**
+Before starting the search, it's worth getting clear on:
+- How much equity your current home has built, and what that gives you toward a larger purchase
+- Whether you'll need to sell before buying, or have the flexibility to buy first — this affects both your timeline and your negotiating position
+- What your realistic budget looks like once you factor in a larger home's higher property taxes, utilities, and maintenance costs, not just the purchase price
+
+**Timing the Sale and Purchase**
+One of the more stressful parts of upsizing is coordinating the sale of your current home with the purchase of your next one. A few common approaches:
+- Selling first, then renting or staying with family temporarily while you search — lower financial risk, but less convenient
+- Making a contingent offer on your next home, tied to the sale of your current one — more convenient, but can make your offer less competitive in a competitive listing
+- Bridge financing, if available to you, which lets you purchase before selling — useful but worth understanding the costs involved
+
+There's no universally right approach — it depends on your risk tolerance, your current home's likely time on market, and how competitive the town you're moving to happens to be.
+
+**What to Prioritize in the Next Home**
+It's easy to upsize into "more of the same, but bigger." It's worth instead getting specific about what was actually constraining you — was it bedrooms, storage, a dedicated workspace, entertaining space, a yard — and prioritizing that directly, rather than just square footage in general.
+
+**Frequently Asked Questions**
+
+How do I know if we need more space or just better-organized space? If decluttering and reorganizing your current home genuinely solves the problem, you may not need to move at all. If the constraint is structural — no office, no guest space, a layout that doesn't work — that's a stronger signal you've outgrown the home itself.
+
+Should I sell my current home before buying the next one? It depends on your risk tolerance and the markets on both ends. Selling first reduces financial risk; buying first (if you can manage it) reduces the stress of a rushed search.
+
+What if we can't agree on how much space we actually need? Walking through specific scenarios — where would a home office go, where would overnight guests stay — often clarifies this faster than an abstract conversation about square footage.
+
+Is upsizing always the answer to feeling cramped? Not always — sometimes an addition, a finished basement, or better organization solves the problem without the cost and disruption of a full move. Worth ruling out before committing to a search.
+
+If you're not sure whether it's time to upsize or how to prioritize the search once you do, Will can help you think it through before you start touring homes you don't actually need.`,
+  },
+  {
+    slug: "best-bike-trails-greater-boston-metrowest",
+    title: "The Best Bike Trails in Greater Boston and MetroWest",
+    excerpt: "One of the most underrated things about living here — a genuinely excellent network of rail trails and paths connecting towns across the region.",
+    category: "Lifestyle",
+    readTime: "6 min",
+    date: "September 10, 2026",
+    img: "/images/towns/arlington.jpeg",
+    content: `Ask people who've lived in Greater Boston for a while what they'd miss most, and a surprising number mention the trails. This region has converted a remarkable amount of old rail corridor into paved, connected bike paths — genuinely one of the better recreational amenities in the area, and something worth factoring into where you choose to live.
+
+**The Minuteman Bikeway**
+The Minuteman is the trail most people think of first, and for good reason. It runs roughly from Cambridge (connecting near Alewife) through Arlington, Lexington, and up to Bedford — a flat, paved, tree-lined path that's equally popular for a serious morning ride and a slow evening walk with the family. Arlington in particular has built a lot of its everyday life around the trail passing directly through town center, and it's one of the more visible examples of a bike path genuinely shaping a community's character.
+
+**The Charles River Esplanade Paths**
+Closer to Boston, the Paul Dudley White Bike Path loops along both sides of the Charles River, connecting Boston and Cambridge with river views nearly the entire way. It's more urban than the Minuteman, but no less enjoyable — especially in the warmer months, when the Esplanade itself turns into one of the busiest, liveliest public spaces in the city.
+
+**The Bruce Freeman Rail Trail**
+Further out into MetroWest, the Bruce Freeman Rail Trail runs through Sudbury, Concord, Acton, and up toward Westford and beyond — a quieter, more suburban ride through some of the region's most scenic small-town centers. It's a good example of how these trails aren't just recreation; they genuinely connect towns to each other in a way that a car commute doesn't.
+
+**The Assabet River Rail Trail**
+Covering ground through Hudson, Marlborough, and into Acton, the Assabet River Rail Trail is another well-loved rail-trail conversion, following the river for much of its length. Like the Bruce Freeman, it's a good option for a quieter, more scenic ride than the busier trails closer to Boston.
+
+**The Nashua River Rail Trail**
+Heading north out of the immediate MetroWest area, the Nashua River Rail Trail connects several towns along the Massachusetts-New Hampshire border with a long, mostly flat ride through a more rural stretch of the region — a nice option if you want a longer ride with fewer intersections to navigate.
+
+**Why This Matters Beyond Recreation**
+For a lot of buyers, especially those relocating from areas without this kind of infrastructure, proximity to a trail is a genuine quality-of-life factor — a safe, car-free way to get exercise, get the kids out of the house, or even commute short distances by bike. It's worth asking about when you're touring towns, not just an afterthought once you've already settled somewhere.
+
+**Frequently Asked Questions**
+
+Are these trails good for kids and beginners? Yes — most of the trails mentioned here are flat, paved, and separated from car traffic, making them genuinely family-friendly, not just for experienced cyclists.
+
+Which trail is best for a casual weekend ride? The Minuteman Bikeway is the most popular for good reason — well-maintained, well-connected, and passing through several walkable town centers where you can stop for coffee or lunch.
+
+Do these trails connect to each other? Some do, and regional trail networks continue to expand connections between them — it's worth checking current trail maps for the most up-to-date connections.
+
+Does living near a trail actually affect home value or desirability? It's a genuine amenity that many buyers specifically look for, particularly in towns like Arlington where the trail runs through the heart of town.
+
+If having trail access nearby is a priority for your next home, that's worth mentioning early in your search — Will can help you find towns and neighborhoods that put you close to the network.`,
+  },
+  {
+    slug: "best-weekend-day-trips-greater-boston",
+    title: "Best Weekend Day Trips from Greater Boston",
+    excerpt: "One of the underrated perks of living here: an enormous range of genuinely great day trips within an hour or two of almost anywhere in the region.",
+    category: "Lifestyle",
+    readTime: "7 min",
+    date: "September 10, 2026",
+    img: "/images/towns/hopkinton.jpeg",
+    content: `Part of what makes living in Greater Boston appealing isn't just the region itself — it's everything within easy reach of it. Few U.S. metro areas pack this much variety — coastline, mountains, historic towns, classic New England charm — into a couple hours' drive. Here's what regularly makes the list for people who live here.
+
+**Cape Cod**
+The classic New England summer day trip (or weekend, if you can swing it). Beaches, seafood, small coastal towns, and the Cape Cod Rail Trail for anyone who wants to bring a bike along. It gets crowded in peak summer, but a shoulder-season trip in late spring or early fall is one of the best-kept secrets of living in this region.
+
+**Salem**
+Best known for its history — both the witch trials and its long maritime past — Salem makes for an easy half-day or full-day trip, especially rich for anyone with kids old enough to be interested in history. It's also a genuinely walkable, well-preserved small city worth seeing beyond the October crowds.
+
+**Concord and Lexington**
+You don't have to leave the immediate area for a great day trip — Concord and Lexington, both towns Will works in regularly, are worth a dedicated day even for people who've lived nearby for years. Walden Pond, the Old North Bridge, and the Battle Road historic sites pack a genuine sense of place into a short drive from almost anywhere in Greater Boston.
+
+**Newport, Rhode Island**
+About an hour and a half south, Newport offers the Gilded Age mansions along Bellevue Avenue, the Cliff Walk along the coastline, and a genuinely charming harbor town center. It's a bit further than some of the others on this list, but consistently rated as one of the best day trips (or overnight trips) from the Boston area.
+
+**Portsmouth, New Hampshire**
+A little over an hour north, Portsmouth offers a walkable historic downtown, a strong local restaurant scene, and easy access to the New Hampshire seacoast — a nice change of pace without needing a full weekend to make it worthwhile.
+
+**Plymouth**
+Closer to home, Plymouth offers a manageable half-day trip focused on the town's role in early American history, along with a working waterfront that makes for a pleasant afternoon regardless of your interest in the historical sites specifically.
+
+**The Berkshires**
+For a trip that requires a bit more commitment — roughly two and a half hours west — the Berkshires offer a completely different New England experience: mountains, hiking, and a surprisingly strong arts and culture scene. Best suited to an actual weekend rather than a single day, but worth the drive.
+
+**Why This Is Worth Mentioning to Buyers**
+For people relocating from areas without this kind of regional variety, it's easy to underestimate how much day-trip access adds to quality of life here. It's a genuine answer to "what do people actually do for fun" beyond the towns themselves, and it's worth factoring in alongside schools and commute time when you're evaluating whether this region is the right fit for your family.
+
+**Frequently Asked Questions**
+
+What's the best day trip for families with young kids? Salem and Plymouth both work well — manageable drive times, walkable town centers, and genuinely engaging history for kids.
+
+Is Cape Cod worth visiting outside of summer? Many locals actually prefer it in late spring or early fall — fewer crowds, still very pleasant weather, and easier restaurant reservations.
+
+How far is too far for a single-day trip? Most of the destinations here are under two hours each way, which keeps a day trip genuinely enjoyable rather than mostly spent driving. The Berkshires are the exception, better suited to a weekend.
+
+Do any of these make sense as a short overnight rather than a day trip? Newport, the Berkshires, and Cape Cod are all strong overnight options if you want to slow the pace down rather than rushing back the same day.
+
+If regional lifestyle and access to trips like these matter to you as you're deciding where to settle, that's worth talking through — Will can help you think about commute and location tradeoffs with the bigger picture in mind, not just the house itself.`,
+  },
 ];
