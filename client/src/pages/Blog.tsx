@@ -99,16 +99,33 @@ function ArticleDetail({ slug }: { slug: string }) {
                       </h3>
                     );
                   }
-                  let formatted = para.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-                  Object.entries(townLinks).forEach(([town, href]) => {
-                    formatted = formatted.replace(
-                      new RegExp(`\\b${town}\\b`, "g"),
-                      `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline">${town}</a>`
+
+                  const formatLine = (line: string) => {
+                    let formatted = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                    Object.entries(townLinks).forEach(([town, href]) => {
+                      formatted = formatted.replace(
+                        new RegExp(`\\b${town}\\b`, "g"),
+                        `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline">${town}</a>`
+                      );
+                    });
+                    return formatted;
+                  };
+
+                  const lines = para.split("\n");
+                  const isBulletList = lines.length > 1 && lines.every((line) => /^-\s+/.test(line.trim()));
+                  if (isBulletList) {
+                    return (
+                      <ul key={i} className="list-disc pl-5 text-gray-600 font-body text-base leading-relaxed mb-4 space-y-1.5">
+                        {lines.map((line, j) => (
+                          <li key={j} dangerouslySetInnerHTML={{ __html: formatLine(line.trim().replace(/^-\s+/, "")) }} />
+                        ))}
+                      </ul>
                     );
-                  });
+                  }
+
                   return (
                     <p key={i} className="text-gray-600 font-body text-base leading-relaxed mb-4"
-                      dangerouslySetInnerHTML={{ __html: formatted }} />
+                      dangerouslySetInnerHTML={{ __html: formatLine(para) }} />
                   );
                 })}
               </div>
