@@ -132,12 +132,27 @@ function ArticleDetail({ slug }: { slug: string }) {
                 {paragraphs.map((para, i) => {
                   const formatLine = (line: string) => {
                     let formatted = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+                    // Manual [text](url) links go first, pulled out behind placeholders so the
+                    // townLinks auto-linker below can't match a town name inside the link text
+                    // and nest a second <a> inside it.
+                    const manualLinks: string[] = [];
+                    formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
+                      const external = /^https?:\/\//.test(href);
+                      manualLinks.push(
+                        `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
+                      );
+                      return `@@LINK${manualLinks.length - 1}@@`;
+                    });
+
                     Object.entries(townLinks).forEach(([town, href]) => {
                       formatted = formatted.replace(
                         new RegExp(`\\b${town}\\b`, "g"),
                         `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline">${town}</a>`
                       );
                     });
+
+                    formatted = formatted.replace(/@@LINK(\d+)@@/g, (_m, idx) => manualLinks[Number(idx)]);
                     return formatted;
                   };
 
