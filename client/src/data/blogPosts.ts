@@ -745,7 +745,7 @@ If you buy before selling, a HELOC (home equity line of credit) on your current 
 There's no universally right approach — it depends on your risk tolerance, your current home's likely time on market, and how competitive the town you're moving to happens to be.
 
 **What to Prioritize in the Next Home**
-It's easy to upsize into "more of the same, but bigger." It's worth instead getting specific about what was actually constraining you — was it bedrooms, storage, a dedicated workspace, entertaining space, a yard — and prioritizing that directly, rather than just square footage in general.
+It's easy to upsize into "more of the same, but bigger." Instead, it's worth getting specific about what was actually constraining you — was it bedrooms, storage, a dedicated workspace, entertaining space, a yard — and prioritizing that directly, rather than just square footage in general.
 
 **Frequently Asked Questions**
 
