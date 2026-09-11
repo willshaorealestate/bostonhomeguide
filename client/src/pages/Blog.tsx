@@ -96,6 +96,7 @@ function ArticleDetail({ slug }: { slug: string }) {
 
   const cta = ctaForCategory(article.category);
   const paragraphs = article.content.split("\n\n");
+  const faqHeadingIndex = paragraphs.findIndex((p) => p.trim() === "**Frequently Asked Questions**");
   const inlineImages = article.images ?? [];
   const imageAfterIndex = new Map(
     inlineImages.map((src, k) => [Math.floor(((k + 1) * paragraphs.length) / (inlineImages.length + 1)), src])
@@ -156,12 +157,23 @@ function ArticleDetail({ slug }: { slug: string }) {
                     return formatted;
                   };
 
+                  const isFaqItem = faqHeadingIndex !== -1 && i > faqHeadingIndex;
+                  const faqMatch = isFaqItem ? para.match(/^(.+?\?)\s+([\s\S]+)$/) : null;
+
                   let node: React.ReactNode;
                   if (para.startsWith("**") && para.endsWith("**")) {
                     node = (
                       <h3 className="text-lg font-bold text-[#0D2137] mt-6 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                         {para.replace(/\*\*/g, "")}
                       </h3>
+                    );
+                  } else if (faqMatch) {
+                    const [, question, answer] = faqMatch;
+                    node = (
+                      <div className={`py-4 border-t border-gray-100 ${i === faqHeadingIndex + 1 ? "border-t-0 pt-0" : ""}`}>
+                        <p className="font-bold text-[#0D2137] font-body text-base mb-1.5" dangerouslySetInnerHTML={{ __html: formatLine(question) }} />
+                        <p className="text-gray-600 font-body text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: formatLine(answer) }} />
+                      </div>
                     );
                   } else {
                     const lines = para.split("\n");
