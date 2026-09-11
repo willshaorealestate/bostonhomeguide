@@ -719,11 +719,14 @@ If you're weighing whether downsizing actually makes sense for your situation, t
     content: `Upsizing decisions often get reduced to "we need another bedroom" — but the real signs your home no longer fits are usually broader than that, and catching them early makes the eventual move much less stressful.
 
 **Signs You've Actually Outgrown Your Home**
-A few patterns are worth paying attention to:
+A few patterns come up again and again with families who end up upsizing:
+- The house works fine on an ordinary day, but the moment relatives or friends come to stay, the constraints hit immediately — no guest room, kids doubling up, everyone tripping over each other. If that happens every time you have company, it's not a one-off, it's a preview of what daily life will feel like as your family keeps growing
+- Kids who were happy sharing a room are getting older and genuinely need their own space — not as a luxury, but because privacy and a sense of ownership over part of the house matter more with each passing year
 - You're regularly using shared or improvised spaces — a dining table doubling as an office, a hallway as storage — because there's no dedicated room for how you actually live now
-- Guests, extended family, or aging parents are staying over regularly with nowhere comfortable to put them
 - Storage has become a constant, low-grade stress rather than an occasional inconvenience
 - Remote or hybrid work has made a dedicated office space a genuine need rather than a nice-to-have
+
+None of these have to hit all at once to matter. Families often live with one or two of these for a while before recognizing that the pattern isn't going away — it's just going to keep getting more pronounced as kids get older and life gets busier.
 
 **It's Not Just About Bedroom Count**
 Two homes with the same number of bedrooms can feel completely different in practice. A home that's technically "big enough" on paper but has an awkward layout — bedrooms too close together, no separation between living and work space, a kitchen that can't handle how your household actually cooks and gathers — can feel more cramped than a smaller home with a layout that actually matches your life.
@@ -751,13 +754,13 @@ A useful exercise before you start touring homes: walk through your current one 
 
 **Frequently Asked Questions**
 
-How do I know if we need more space or just better-organized space? If decluttering and reorganizing your current home genuinely solves the problem, you may not need to move at all. If the constraint is structural — no office, no guest space, a layout that doesn't work — that's a stronger signal you've outgrown the home itself.
+How do I know if we need more space or just better-organized space? Reorganizing can help at the margins, but if you've already decluttered and it's still not enough — if hosting family reliably feels tight, or the kids need their own rooms and there's nowhere to put them — that's not a storage problem. That's a home that's structurally too small for how your family lives now.
 
 Should I sell my current home before buying the next one? It depends on your risk tolerance and the markets on both ends. Selling first reduces financial risk; buying first (if you can manage it) reduces the stress of a rushed search.
 
 What if we can't agree on how much space we actually need? Walking through specific scenarios — where would a home office go, where would overnight guests stay — often clarifies this faster than an abstract conversation about square footage.
 
-Is upsizing always the answer to feeling cramped? Not always — sometimes an addition, a finished basement, or better organization solves the problem without the cost and disruption of a full move. Worth ruling out before committing to a search.
+Is upsizing always the answer to feeling cramped? For some families, a finished basement or an addition genuinely solves it. But that depends on having a lot that can actually support building out, which isn't always realistic — plenty of lots in this region are too small, oddly shaped, or already built out to the setback lines. Add in permitting timelines and the disruption of living through construction, and for most families we work with, moving to a home that already has the space ends up being the more practical, less disruptive path.
 
 If you're not sure whether it's time to upsize or how to prioritize the search once you do, [we can help you think it through](/contact) before you start touring homes you don't actually need.`,
   },
