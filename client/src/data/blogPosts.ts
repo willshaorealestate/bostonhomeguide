@@ -226,8 +226,8 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     excerpt: "Everything you need to know about selling your home in Massachusetts — from pricing strategy to closing day.",
     category: "Seller Guide",
     date: "December 20, 2025",
-    img: "/images/staging/staging-after.jpg",
-    images: ["/images/marketing/marketing-after3.jpg"],
+    img: "https://images.unsplash.com/photo-1728649054288-61f332ee389b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0",
+    images: ["https://images.unsplash.com/photo-1728649060658-8e64dccf2711?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0"],
     content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's Will's complete guide.
 
 **Step 1: Determine Your Home's Value**
