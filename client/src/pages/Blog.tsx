@@ -82,7 +82,6 @@ function ArticleDetail({ slug }: { slug: string }) {
           </Link>
           <div className="flex items-center gap-3 mb-3">
             <span className="text-xs bg-[#C89B3C] text-[#0D2137] font-bold px-2.5 py-1 rounded font-body">{article.category}</span>
-            <span className="text-white/60 text-xs font-body">{article.date}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white max-w-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
             {article.title}
@@ -304,9 +303,6 @@ export default function BlogPage() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-sm text-gray-400 font-body">{article.date}</span>
-                  </div>
                   <h3
                     className="font-bold text-[#0D2137] text-base mb-2 group-hover:text-[#1976A8] transition-colors leading-snug"
                     style={{ fontFamily: "'Playfair Display', serif" }}
