@@ -656,23 +656,23 @@ Navigating an inherited home sale alongside everything else that comes with a lo
   },
   {
     slug: "when-downsizing-makes-sense",
-    title: "Why Downsizing Usually Makes Sense (and When It Doesn't)",
-    excerpt: "Living in a home sized to your actual life, not the life you had ten years ago, is usually the right call. Here's how to tell — and the real exceptions.",
+    title: "When Downsizing Makes Sense (and When It Doesn't)",
+    excerpt: "Downsizing isn't automatically the right move just because the kids are gone. Here's how to tell if it actually makes sense for you.",
     category: "Life Stage",
     date: "September 11, 2026",
     img: "https://images.unsplash.com/photo-1722928287015-a590daccf126?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: ["https://images.unsplash.com/photo-1663625318264-695d2d04f11a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0"],
-    content: `Think of it the way you'd think about clothing that no longer fits. A home that was exactly right when the kids were young and you needed every bedroom doesn't automatically stay right once they're gone — it just becomes a bigger size than your life actually calls for. For most homeowners we work with, once the unused rooms and the upkeep start outweighing what the space is giving them, downsizing turns out to be the right move. It's not universal — there are real exceptions — but it's the more common outcome than people expect going in.
+    content: `Downsizing gets treated as the obvious next step once the kids move out or retirement approaches — but it isn't automatically the right move for everyone. For some homeowners, staying put is genuinely the better financial and personal decision. Here's how to actually tell the difference.
 
 **Signs Downsizing Likely Makes Sense**
-This is the common case. A few patterns show up consistently among homeowners glad they downsized:
+A few patterns show up consistently among homeowners glad they downsized:
 - Entire rooms or floors have gone largely unused for years
 - Home maintenance — yard work, repairs, a large heating bill — has become more burden than benefit
 - A meaningful share of your net worth is tied up in home equity you'd rather have access to in retirement
 - You're finding stairs, a large yard, or general upkeep physically harder to manage than you used to
 
-**The Real Exceptions**
-Downsizing isn't universal, and it's worth being honest about the genuine cases where staying put is the smarter call:
+**Signs Downsizing Might Not Be Worth It**
+It's just as important to recognize when staying put is the smarter call:
 - Your mortgage is paid off or nearly so, and your carrying costs are genuinely low relative to your income
 - You have deep community and social ties to your current home and town that a move would disrupt
 - The math doesn't actually work in your favor once you account for moving costs, closing costs on both transactions, and the cost of a smaller home in a similarly desirable area
@@ -694,11 +694,11 @@ That last option is worth taking seriously rather than treating as a fallback �
 Plenty of MetroWest towns have village-center condo options that let you stay close to the same community, restaurants, and friends while meaningfully reducing the home itself.
 
 **A Practical Way to Decide**
-Walk through your home room by room and ask honestly how often each space actually gets used. If the answer is "rarely, but I like having it," that's a values question, not a financial one — and there's nothing wrong with keeping space you value, even if it's not "efficient." But if most of your honest answers land on "rarely, and I don't really need it," that's the wrong-size-clothing feeling showing up directly, and it's usually a sign you're ready.
+Walk through your home room by room and ask honestly how often each space actually gets used. If the answer is "rarely, but I like having it," that's a values question, not a financial one — and there's nothing wrong with keeping space you value, even if it's not "efficient." Downsizing makes the most sense when the unused space has become a burden rather than a comfort.
 
 **Frequently Asked Questions**
 
-Is downsizing always the right move after retirement? Not always, but for most people it does turn out to be the right call once the space stops matching the life being lived in it. It depends on your finances, health, and how attached you are to your current home and community — plenty of retirees are genuinely better off staying put, but they're the exception more than the rule.
+Is downsizing always the right move after retirement? No — it depends heavily on your finances, health, and how attached you are to your current home and community. Plenty of retirees are better off staying put.
 
 Will downsizing definitely save me money? Not automatically. It depends on the town, the type of home you're moving to, and transaction costs on both ends. It's worth running real numbers before assuming.
 
