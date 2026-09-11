@@ -662,7 +662,7 @@ Navigating an inherited home sale alongside everything else that comes with a lo
     date: "September 11, 2026",
     img: "https://images.unsplash.com/photo-1722928287015-a590daccf126?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: ["https://images.unsplash.com/photo-1663625318264-695d2d04f11a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0"],
-    content: `Downsizing gets treated as the obvious next step once the kids move out or retirement approaches — but it isn't automatically the right move for everyone. For some homeowners, staying put is genuinely the better financial and personal decision. Here's how to actually tell the difference.
+    content: `Downsizing gets treated as the obvious next step once the kids move out or retirement approaches, and for most homeowners in that stage, it does end up being the right call — living in a home sized to the life you're actually living beats maintaining space you no longer use. It isn't automatic for everyone, though, and it's worth knowing the real cases where staying put is genuinely the better decision. Here's how to tell the difference.
 
 **Signs Downsizing Likely Makes Sense**
 A few patterns show up consistently among homeowners glad they downsized:
