@@ -720,13 +720,13 @@ If you're weighing whether downsizing actually makes sense for your situation, t
 
 **Signs You've Actually Outgrown Your Home**
 A few patterns come up again and again with families who end up upsizing:
-- The house works fine on an ordinary day, but the moment relatives or friends come to stay, the constraints hit immediately — no guest room, kids doubling up, everyone tripping over each other. If that happens every time you have company, it's not a one-off, it's a preview of what daily life will feel like as your family keeps growing
-- Kids who were happy sharing a room are getting older and genuinely need their own space — not as a luxury, but because privacy and a sense of ownership over part of the house matter more with each passing year
-- You're regularly using shared or improvised spaces — a dining table doubling as an office, a hallway as storage — because there's no dedicated room for how you actually live now
-- Storage has become a constant, low-grade stress rather than an occasional inconvenience
-- Remote or hybrid work has made a dedicated office space a genuine need rather than a nice-to-have
+- Hosting family or friends immediately exposes the constraints — no guest room, kids doubling up, everyone tripping over each other
+- Kids who used to share a room are getting older and need their own space, not as a luxury but for basic privacy
+- You're using improvised spaces — a dining table as a desk, a hallway as storage — because there's no dedicated room for how you actually live
+- Storage has become a constant stress, not an occasional inconvenience
+- Remote or hybrid work has made a dedicated office a genuine need, not a nice-to-have
 
-None of these have to hit all at once to matter. Families often live with one or two of these for a while before recognizing that the pattern isn't going away — it's just going to keep getting more pronounced as kids get older and life gets busier.
+These patterns tend to compound over time rather than resolve on their own.
 
 **It's Not Just About Bedroom Count**
 Two homes with the same number of bedrooms can feel completely different in practice. A home that's technically "big enough" on paper but has an awkward layout — bedrooms too close together, no separation between living and work space, a kitchen that can't handle how your household actually cooks and gathers — can feel more cramped than a smaller home with a layout that actually matches your life.
