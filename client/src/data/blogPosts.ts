@@ -760,7 +760,7 @@ Should I sell my current home before buying the next one? It depends on your ris
 
 What if we can't agree on how much space we actually need? Walking through specific scenarios — where would a home office go, where would overnight guests stay — often clarifies this faster than an abstract conversation about square footage.
 
-Is upsizing always the answer to feeling cramped? For some families, a finished basement or an addition genuinely solves it. But that depends on having a lot that can actually support building out, which isn't always realistic — plenty of lots in this region are too small, oddly shaped, or already built out to the setback lines. Add in permitting timelines and the disruption of living through construction, and for most families we work with, moving to a home that already has the space ends up being the more practical, less disruptive path.
+Should we look to upsize in our current town, or is it worth considering somewhere new? Both are common, and it comes down to what's driving the move. If your town and school district are already working well for your family, staying local while sizing up is usually the simplest path. But since you're moving anyway, it's worth at least evaluating whether a neighboring town might better match what you need next — more land, a shorter commute, or a school district that's an even better fit as your kids get older.
 
 If you're not sure whether it's time to upsize or how to prioritize the search once you do, [we can help you think it through](/contact) before you start touring homes you don't actually need.`,
   },
