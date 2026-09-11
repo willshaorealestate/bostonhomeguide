@@ -176,17 +176,60 @@ function ArticleDetail({ slug }: { slug: string }) {
                       </div>
                     );
                   } else {
-                    const lines = para.split("\n");
-                    const isBulletList = lines.length > 1 && lines.every((line) => /^-\s+/.test(line.trim()));
-                    node = isBulletList ? (
-                      <ul className="list-disc pl-5 text-gray-600 font-body text-base leading-relaxed mb-4 space-y-1.5">
-                        {lines.map((line, j) => (
-                          <li key={j} dangerouslySetInnerHTML={{ __html: formatLine(line.trim().replace(/^-\s+/, "")) }} />
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-gray-600 font-body text-base leading-relaxed mb-4"
-                        dangerouslySetInnerHTML={{ __html: formatLine(para) }} />
+                    // A paragraph can mix a heading/intro line with a following bullet or
+                    // numbered list with no blank line between them. Group consecutive lines
+                    // by type so each run renders as its own <h3>/<ul>/<ol>/<p> instead of
+                    // collapsing into one flat, run-on paragraph.
+                    type LineGroup = { type: "heading" | "bullets" | "numbered" | "text"; lines: string[] };
+                    const groups: LineGroup[] = [];
+                    para.split("\n").forEach((line) => {
+                      const trimmed = line.trim();
+                      const type: LineGroup["type"] = /^\*\*.+\*\*$/.test(trimmed)
+                        ? "heading"
+                        : /^-\s+/.test(trimmed)
+                        ? "bullets"
+                        : /^\d+\.\s+/.test(trimmed)
+                        ? "numbered"
+                        : "text";
+                      const last = groups[groups.length - 1];
+                      if (last && last.type === type) last.lines.push(trimmed);
+                      else groups.push({ type, lines: [trimmed] });
+                    });
+
+                    node = (
+                      <>
+                        {groups.map((group, gi) => {
+                          if (group.type === "heading") {
+                            return (
+                              <h3 key={gi} className="text-lg font-bold text-[#0D2137] mt-6 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                                {group.lines[0].replace(/\*\*/g, "")}
+                              </h3>
+                            );
+                          }
+                          if (group.type === "bullets") {
+                            return (
+                              <ul key={gi} className="list-disc pl-5 text-gray-600 font-body text-base leading-relaxed mb-4 space-y-1.5">
+                                {group.lines.map((line, j) => (
+                                  <li key={j} dangerouslySetInnerHTML={{ __html: formatLine(line.replace(/^-\s+/, "")) }} />
+                                ))}
+                              </ul>
+                            );
+                          }
+                          if (group.type === "numbered") {
+                            return (
+                              <ol key={gi} className="list-decimal pl-5 text-gray-600 font-body text-base leading-relaxed mb-4 space-y-1.5">
+                                {group.lines.map((line, j) => (
+                                  <li key={j} dangerouslySetInnerHTML={{ __html: formatLine(line.replace(/^\d+\.\s+/, "")) }} />
+                                ))}
+                              </ol>
+                            );
+                          }
+                          return (
+                            <p key={gi} className="text-gray-600 font-body text-base leading-relaxed mb-4"
+                              dangerouslySetInnerHTML={{ __html: formatLine(group.lines.join(" ")) }} />
+                          );
+                        })}
+                      </>
                     );
                   }
 
