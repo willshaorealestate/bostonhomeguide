@@ -747,6 +747,8 @@ There's no universally right approach — it depends on your risk tolerance, you
 **What to Prioritize in the Next Home**
 It's easy to upsize into "more of the same, but bigger." Instead, it's worth getting specific about what was actually constraining you — was it bedrooms, storage, a dedicated workspace, entertaining space, a yard — and prioritizing that directly, rather than just square footage in general.
 
+A useful exercise before you start touring homes: walk through your current one room by room and write down exactly where it falls short — not "we need more space," but specifics like "no place for overnight guests" or "the kids have been sharing a room for two years and it's not working anymore." That list becomes your actual search criteria, and it'll keep you from paying for square footage that doesn't solve the problem you started with.
+
 **Frequently Asked Questions**
 
 How do I know if we need more space or just better-organized space? If decluttering and reorganizing your current home genuinely solves the problem, you may not need to move at all. If the constraint is structural — no office, no guest space, a layout that doesn't work — that's a stronger signal you've outgrown the home itself.
