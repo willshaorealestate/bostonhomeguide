@@ -39,14 +39,14 @@ const INTRO_VIDEO_ID = "CnKe6hT361g";
 const METROWEST_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
 
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "$1.73M", schools: "A+", img: "/images/towns/newton.jpeg" },
-  { name: "Wellesley", type: "Town", medianPrice: "$2.17M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
-  { name: "Brookline", type: "Town", medianPrice: "$1.15M", schools: "A", img: "/images/towns/brookline.jpeg" },
-  { name: "Natick", type: "Town", medianPrice: "$858K", schools: "A", img: "/images/towns/natick.jpeg" },
-  { name: "Lexington", type: "Town", medianPrice: "$1.71M", schools: "A+", img: "/images/towns/lexington.jpeg" },
+  { name: "Newton", type: "City", medianPrice: "$1.7M", schools: "A+", img: "/images/towns/newton.jpeg" },
+  { name: "Wellesley", type: "Town", medianPrice: "$2.95M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
+  { name: "Brookline", type: "Town", medianPrice: "$1.43M", schools: "A", img: "/images/towns/brookline.jpeg" },
+  { name: "Natick", type: "Town", medianPrice: "$874K", schools: "A", img: "/images/towns/natick.jpeg" },
+  { name: "Lexington", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/lexington.jpeg" },
   { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Needham", type: "Town", medianPrice: "$1.49M", schools: "A", img: "/images/towns/needham.jpeg" },
-  { name: "Framingham", type: "City", medianPrice: "$675K", schools: "B+", img: "/images/towns/framingham.jpeg" },
+  { name: "Needham", type: "Town", medianPrice: "$1.57M", schools: "A", img: "/images/towns/needham.jpeg" },
+  { name: "Framingham", type: "City", medianPrice: "$705K", schools: "B+", img: "/images/towns/framingham.jpeg" },
 ];
 
 
@@ -338,14 +338,14 @@ export default function HomePage() {
               >
                 Greater Boston Market Snapshot
               </h2>
-              <p className="text-sm text-gray-500 font-body mt-1">Updated August 2026</p>
+              <p className="text-sm text-gray-500 font-body mt-1">Updated September 2026</p>
             </div>
             <div className="flex flex-wrap gap-6 md:gap-10">
               {[
-                { label: "Median Sale Price", value: "$860,000", change: "Aug 2026", up: true },
-                { label: "Days on Market", value: "40 days", change: "Greater Boston", up: false },
-                { label: "List-to-Sale Ratio", value: "100%", change: "Above asking", up: true },
-                { label: "Active Inventory", value: "1,182", change: "Aug 2026", up: false },
+                { label: "Median Sale Price", value: "$790,000", change: "Sep 2026", up: true },
+                { label: "Days on Market", value: "46 days", change: "Greater Boston", up: false },
+                { label: "List-to-Sale Ratio", value: "99%", change: "Above asking", up: true },
+                { label: "Active Inventory", value: "2,749", change: "Sep 2026", up: false },
               ].map((metric) => (
                 <div key={metric.label} className="text-center">
                   <p
