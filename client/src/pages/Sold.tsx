@@ -11,7 +11,7 @@ import { trackLead } from "@/lib/analytics";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PhotoComparisonCarousel from "@/components/PhotoComparisonCarousel";
 import WhyItDidntSell from "@/components/WhyItDidntSell";
-import { Calendar, Phone, Star } from "lucide-react";
+import { Calendar, Phone, Play, Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -29,6 +29,42 @@ const testimonials = [
 ];
 
 const CALENDAR_URL = "https://calendar.app.google/13BYGTeMsaNqoLp39";
+const CASE_STUDY_VIDEO_ID = "VLY1Yofa_r8";
+
+function CaseStudyVideo() {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-[#0D2137] shadow-xl">
+      {playing ? (
+        <iframe
+          src={`https://www.youtube.com/embed/${CASE_STUDY_VIDEO_ID}?autoplay=1`}
+          title="Video tour of 264 Gleasondale Road, Stow"
+          className="w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          className="absolute inset-0 w-full h-full cursor-pointer group"
+          aria-label="Play the video tour"
+        >
+          <img
+            src={`https://img.youtube.com/vi/${CASE_STUDY_VIDEO_ID}/hqdefault.jpg`}
+            alt="Video tour of 264 Gleasondale Road, Stow"
+            className="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+              <Play className="w-8 h-8 text-[#0D2137] ml-1" />
+            </div>
+          </div>
+        </button>
+      )}
+    </div>
+  );
+}
 
 const inputClass =
   "w-full border border-gray-200 rounded-lg px-4 py-3 text-base text-[#0D2137] focus:outline-none focus:border-[#C89B3C]";
@@ -135,7 +171,7 @@ function ListingReviewForm() {
         disabled={status === "sending"}
         className="w-full bg-[#C89B3C] hover:bg-[#b8893a] text-[#0D2137] font-bold px-8 py-4 rounded-xl text-lg transition-colors disabled:opacity-60"
       >
-        {status === "sending" ? "Sending..." : "Get My Free Listing Review"}
+        {status === "sending" ? "Sending..." : "Find Out Why It Didn't Sell"}
       </button>
       <p className="text-xs text-gray-400 text-center leading-relaxed">
         By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
@@ -192,7 +228,7 @@ export default function SoldPage() {
             href="#review"
             className="inline-flex items-center gap-3 bg-[#C89B3C] hover:bg-[#b8893a] text-[#0D2137] font-bold px-10 py-5 rounded-xl text-lg transition-colors shadow-xl"
           >
-            Get a Free Listing Review
+            Find Out Why It Didn't Sell
           </a>
           <p className="text-white/40 text-sm mt-5">
             No pressure. No obligation. Or{" "}
@@ -209,6 +245,71 @@ export default function SoldPage() {
 
       {/* ── PHOTO COMPARISON ── */}
       <PhotoComparisonCarousel />
+
+      {/* ── CASE STUDY ── */}
+      <section className="py-24 md:py-32 bg-white px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-[#C89B3C] uppercase tracking-[0.2em] text-sm font-semibold mb-5">
+              Expired listing · Stow, MA
+            </p>
+            <h2
+              className="text-4xl md:text-6xl font-bold text-[#0D2137] leading-tight tracking-tight"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              It needed the right buyer, and a plan to find them.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+            <img
+              src="/images/case-studies/264-gleasondale-rd-stow.jpg"
+              alt="264 Gleasondale Road, Stow, MA"
+              loading="lazy"
+              className="w-full aspect-[3/2] object-cover rounded-2xl"
+            />
+            <div>
+              <div className="flex gap-10 mb-8">
+                <div>
+                  <p className="text-[#0D2137] text-4xl md:text-5xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    131 days
+                  </p>
+                  <p className="text-gray-400 text-sm uppercase tracking-widest mt-2">On the market, no sale</p>
+                </div>
+                <div>
+                  <p className="text-[#C89B3C] text-4xl md:text-5xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Sold
+                  </p>
+                  <p className="text-gray-400 text-sm uppercase tracking-widest mt-2">After I relisted it</p>
+                </div>
+              </div>
+              <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+                <p>
+                  264 Gleasondale Road is an older home with real character, the kind of place that needs the right
+                  buyer. It had spent 131 days on the market without selling, and the sellers were frustrated.
+                </p>
+                <p>
+                  When I relisted it, I built the marketing around what makes the home special, including a full video
+                  tour. I updated the sellers every week so they always knew where things stood. It sold to a buyer who
+                  fell for exactly the character that makes it unique.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 max-w-3xl mx-auto">
+            <CaseStudyVideo />
+            <p className="text-gray-400 text-sm text-center mt-4">The full video tour from the relaunch.</p>
+          </div>
+
+          <p
+            className="mt-16 text-center text-[#0D2137] text-2xl md:text-3xl leading-snug max-w-2xl mx-auto"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            If you list with me, you'll hear from me every week until your home sells.
+          </p>
+        </div>
+      </section>
 
       {/* ── STAGING SECTION ── */}
       <section className="py-24 md:py-32 bg-white px-6">
@@ -320,7 +421,7 @@ export default function SoldPage() {
           </h2>
           <p className="text-white/60 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
             Send me the address and I'll look at how your home was listed, including the price, the photos, and
-            the marketing, then follow up with my honest take on what held it back.
+            the marketing. Then I'll reach out to talk through what held it back and what I'd do differently.
           </p>
           <div className="mb-10">
             <ListingReviewForm />
