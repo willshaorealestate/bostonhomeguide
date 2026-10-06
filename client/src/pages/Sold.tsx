@@ -38,7 +38,7 @@ function CaseStudyVideo() {
       {playing ? (
         <iframe
           src={`https://www.youtube.com/embed/${CASE_STUDY_VIDEO_ID}?autoplay=1`}
-          title="Video tour of 264 Gleasondale Road, Stow"
+          title="Video tour of the relisted home"
           className="w-full h-full"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -52,7 +52,7 @@ function CaseStudyVideo() {
         >
           <img
             src={`https://img.youtube.com/vi/${CASE_STUDY_VIDEO_ID}/hqdefault.jpg`}
-            alt="Video tour of 264 Gleasondale Road, Stow"
+            alt="Video tour of the relisted home"
             className="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity"
           />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -251,7 +251,7 @@ export default function SoldPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-[#C89B3C] uppercase tracking-[0.2em] text-sm font-semibold mb-5">
-              Expired listing · Stow, MA
+              A recent expired listing
             </p>
             <h2
               className="text-4xl md:text-6xl font-bold text-[#0D2137] leading-tight tracking-tight"
@@ -263,8 +263,8 @@ export default function SoldPage() {
 
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
             <img
-              src="/images/case-studies/264-gleasondale-rd-stow.jpg"
-              alt="264 Gleasondale Road, Stow, MA"
+              src="/images/case-studies/relisted-character-home.jpg"
+              alt="An older home with character that sold after Will relisted it"
               loading="lazy"
               className="w-full aspect-[3/2] object-cover rounded-2xl"
             />
@@ -285,7 +285,7 @@ export default function SoldPage() {
               </div>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  264 Gleasondale Road is an older home with real character, the kind of place that needs the right
+                  This was an older home with real character, the kind of place that needs the right
                   buyer. It had spent 131 days on the market without selling, and the sellers were frustrated.
                 </p>
                 <p>
