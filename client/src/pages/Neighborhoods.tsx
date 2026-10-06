@@ -263,11 +263,11 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   Will has helped many clients navigate the market in {neighborhood.name}. Every town has its own unique flavor — let Will help you find the right fit.
                 </p>
                 <div className="space-y-2">
-                  <a href="tel:+17814563541" className="btn-navy w-full text-sm text-center block">
+                  <Link href="/contact" className="btn-navy w-full text-sm text-center block">
+                    Send a Message
+                  </Link>
+                  <a href="tel:+17814563541" className="btn-outline-gold w-full text-sm text-center block">
                     Call (781) 456-3541
-                  </a>
-                  <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-outline-gold w-full text-sm text-center block">
-                    Book a Consultation
                   </a>
                 </div>
               </div>
@@ -470,9 +470,9 @@ export default function NeighborhoodsPage() {
           <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
             Every town has its own unique flavor — and Will knows them all. With nearly 20 years exploring Greater Boston's communities, he'll help you find the one that's just right for your family.
           </p>
-          <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
-            Book a Free Neighborhood Consultation
-          </a>
+          <Link href="/contact" className="btn-gold text-sm">
+            Ask About a Neighborhood
+          </Link>
         </div>
       </section>
 

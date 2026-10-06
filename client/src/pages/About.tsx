@@ -125,14 +125,9 @@ export default function AboutPage() {
                 Serving Greater Boston and MetroWest MA with integrity and expertise.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a
-                  href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-gold text-sm"
-                >
-                  Book a Consultation
-                </a>
+                <Link href="/contact" className="btn-gold text-sm">
+                  Send a Message
+                </Link>
                 <a href="tel:+17814563541" className="btn-outline-gold text-sm">
                   Call (781) 456-3541
                 </a>
@@ -382,17 +377,12 @@ export default function AboutPage() {
             Will is ready to guide you every step of the way.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a
-              href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold text-sm"
-            >
-              Book a Free Consultation
-            </a>
-            <Link href="/contact" className="btn-outline-gold text-sm">
+            <Link href="/contact" className="btn-gold text-sm">
               Send a Message
             </Link>
+            <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+              Call (781) 456-3541
+            </a>
           </div>
         </div>
       </section>

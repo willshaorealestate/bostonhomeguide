@@ -3,6 +3,7 @@
  * Live MLS search powered by RealScout
  */
 import React, { useEffect } from "react";
+import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -114,14 +115,9 @@ export default function SearchPage() {
             Will knows every town across Greater Boston. Get personalized guidance and access to off-market opportunities.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a
-              href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold text-sm"
-            >
-              Book a Consultation →
-            </a>
+            <Link href="/contact" className="btn-gold text-sm">
+              Send a Message →
+            </Link>
             <a href="tel:+17814563541" className="btn-outline-gold text-sm">
               Call (781) 456-3541
             </a>

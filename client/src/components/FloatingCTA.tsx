@@ -3,7 +3,7 @@
  * Persistent floating "Talk to Will" CTA button
  */
 import { useState, useEffect } from "react";
-import { MessageCircle, X, Phone, Calendar } from "lucide-react";
+import { MessageCircle, X, Phone } from "lucide-react";
 import { Link } from "wouter";
 
 export default function FloatingCTA() {
@@ -34,15 +34,6 @@ export default function FloatingCTA() {
             >
               <Phone className="w-4 h-4 text-[#C89B3C]" />
               (781) 456-3541
-            </a>
-            <a
-              href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-[#0D2137] hover:text-[#C89B3C] font-body transition-colors"
-            >
-              <Calendar className="w-4 h-4 text-[#C89B3C]" />
-              Book a Consultation
             </a>
             <Link
               href="/contact"

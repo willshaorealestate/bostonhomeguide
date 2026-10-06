@@ -206,14 +206,9 @@ export default function SellerPage() {
               <a href="#valuation" className="btn-gold text-sm">
                 Get My Free Home Valuation
               </a>
-              <a
-                href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-gold text-sm"
-              >
-                Book a Listing Consultation
-              </a>
+              <Link href="/contact" className="btn-outline-gold text-sm">
+                Send a Message
+              </Link>
             </div>
             <div>
               <a
@@ -630,10 +625,10 @@ export default function SellerPage() {
           <div className="mt-8 bg-[#1A3A5C] rounded-lg p-6 text-center">
             <Calendar className="w-8 h-8 text-[#C89B3C] mx-auto mb-3" />
             <h3 className="text-white font-bold text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Book a Listing Consultation
+              Prefer to Schedule Directly?
             </h3>
             <p className="text-white/60 text-base font-body mb-4">
-              Schedule a free, no-obligation listing consultation with Will.
+              Book a free, no-obligation listing consultation with Will at a time that works for you.
             </p>
             <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
               Schedule Now

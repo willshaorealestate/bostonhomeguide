@@ -214,14 +214,9 @@ export default function BuyerPage() {
               <a href="#questionnaire" className="btn-gold text-sm">
                 Start My Home Search
               </a>
-              <a
-                href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-gold text-sm"
-              >
-                Book a Free Consultation
-              </a>
+              <Link href="/contact" className="btn-outline-gold text-sm">
+                Send a Message
+              </Link>
             </div>
           </div>
         </div>
