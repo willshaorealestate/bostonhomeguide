@@ -257,7 +257,7 @@ export default function SoldPage() {
               className="text-4xl md:text-6xl font-bold text-[#0D2137] leading-tight tracking-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              It needed the right buyer, and a plan to find them.
+              An honest plan, and the buyer it was waiting for.
             </h2>
           </div>
 
@@ -268,33 +268,33 @@ export default function SoldPage() {
               loading="lazy"
               className="w-full aspect-[3/2] object-cover rounded-2xl"
             />
-            <div>
-              <div className="flex gap-10 mb-8">
-                <div>
-                  <p className="text-[#0D2137] text-4xl md:text-5xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    131 days
-                  </p>
-                  <p className="text-gray-400 text-sm uppercase tracking-widest mt-2">On the market, no sale</p>
-                </div>
-                <div>
-                  <p className="text-[#C89B3C] text-4xl md:text-5xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Sold
-                  </p>
-                  <p className="text-gray-400 text-sm uppercase tracking-widest mt-2">After I relisted it</p>
-                </div>
-              </div>
-              <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
-                <p>
-                  This was an older home with real character, the kind of place that needs the right
-                  buyer. It had spent 131 days on the market without selling, and the sellers were frustrated.
-                </p>
-                <p>
-                  When I relisted it, I built the marketing around what makes the home special, including a full video
-                  tour. I updated the sellers every week so they always knew where things stood. It sold to a buyer who
-                  fell for exactly the character that makes it unique.
-                </p>
-              </div>
+            <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+              <p>
+                This older home had real character, and it had already come off the market once without selling. When
+                the sellers came to me, I was upfront with them: a home like this wouldn't sell to just anyone. It
+                needed a buyer who would love its age and charm, and finding that buyer could take some time.
+              </p>
+              <p>
+                So I built the marketing around what made it special, including a full video tour, and I updated the
+                sellers every week so they always knew what was happening and why. It sold to a buyer who worked with
+                the town's historical society and fell for exactly the history and character we'd been showcasing.
+              </p>
             </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-6 md:gap-10 mt-14 text-center">
+            {[
+              { value: "Upfront", label: "About the timeline" },
+              { value: "Targeted", label: "Marketing for the right buyer" },
+              { value: "Weekly", label: "Updates until it sold" },
+            ].map((d) => (
+              <div key={d.value}>
+                <p className="text-[#C89B3C] text-2xl md:text-4xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  {d.value}
+                </p>
+                <p className="text-gray-400 text-xs md:text-sm uppercase tracking-widest mt-2">{d.label}</p>
+              </div>
+            ))}
           </div>
 
           <div className="mt-16 max-w-3xl mx-auto">
