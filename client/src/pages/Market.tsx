@@ -7,6 +7,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, Legend
 } from "recharts";
+import { Link } from "wouter";
 import { TrendingUp, Mail, BarChart2, Calendar } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -1100,9 +1101,9 @@ September 2026 — What This Means for You
                 <p className="font-semibold text-[#0D2137] text-base font-body">Will Shao</p>
                 <p className="text-sm text-gray-400 font-body">REMAX Executive Realty · (781) 456-3541</p>
               </div>
-              <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-xs">
+              <Link href="/contact" className="btn-gold text-xs">
                 Discuss the Market
-              </a>
+              </Link>
             </div>
           </div>
         </div>
