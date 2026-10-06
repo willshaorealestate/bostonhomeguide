@@ -12,6 +12,7 @@
  */
 import { scrapeMonth } from './scrape.mjs';
 import { updateMarketTsx, updateHomeTsx, updateNeighborhoodTs, updateTownHistory } from './update.mjs';
+import { updateCommentary } from './commentary.mjs';
 
 // Must contain every town in scrape.mjs TOWNS — order determines townData row order in Market.tsx
 const TOWN_ORDER = [
@@ -66,6 +67,9 @@ async function main() {
 
     console.log(`  Done: ${year}-${String(month).padStart(2, '0')}`);
   }
+
+  // Runs once after all months so it reflects the latest month in priceData.
+  updateCommentary();
 
   console.log('\nAll months processed. Review diffs before committing.\n');
 }

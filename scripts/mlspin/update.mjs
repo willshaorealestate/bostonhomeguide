@@ -34,6 +34,10 @@ function formatPriceShort(price) {
   return `$${Math.round(price / 1000)}K`;
 }
 
+function askingLabel(spLp) {
+  return spLp > 100 ? 'Above asking' : spLp === 100 ? 'At asking' : 'Just under asking';
+}
+
 // "$850,000" — for full-price fields
 function formatPriceFull(price) {
   return `$${price.toLocaleString('en-US')}`;
@@ -132,8 +136,8 @@ export function updateMarketTsx(area, townRows, year, month) {
       `{ value: "${area.dom} days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" }`
     );
     c = c.replace(
-      /\{ value: "\d+%", label: "List-to-Sale Ratio", change: "Above asking, on average" \}/,
-      `{ value: "${area.spLp}%", label: "List-to-Sale Ratio", change: "Above asking, on average" }`
+      /\{ value: "\d+%", label: "List-to-Sale Ratio", change: "[^"]*" \}/,
+      `{ value: "${area.spLp}%", label: "List-to-Sale Ratio", change: "${askingLabel(area.spLp)}, on average" }`
     );
     c = c.replace(
       /\{ value: "[\d,]+", label: "Closed Sales", change: "MLSPIN, .+?" \}/,
@@ -152,11 +156,7 @@ export function updateMarketTsx(area, townRows, year, month) {
       `${long} market data by town — Source: MLSPIN`
     );
 
-    // 10. Commentary heading (body text left for manual update)
-    c = c.replace(
-      /.+ — What This Means for You/,
-      `${long} — What This Means for You`
-    );
+    // 10. Commentary heading + body are written by commentary.mjs (run from index.mjs)
   } else {
     console.log(`  (skipping display labels — ${short} is not the latest month)`);
   }
@@ -196,8 +196,8 @@ export function updateHomeTsx(area, townMap, year, month) {
     `{ label: "Days on Market", value: "${area.dom} days", change: "Greater Boston", up: false }`
   );
   c = c.replace(
-    /\{ label: "List-to-Sale Ratio", value: "\d+%", change: "Above asking", up: true \}/,
-    `{ label: "List-to-Sale Ratio", value: "${area.spLp}%", change: "Above asking", up: true }`
+    /\{ label: "List-to-Sale Ratio", value: "\d+%", change: "[^"]*", up: (?:true|false) \}/,
+    `{ label: "List-to-Sale Ratio", value: "${area.spLp}%", change: "${askingLabel(area.spLp)}", up: ${area.spLp >= 100} }`
   );
   c = c.replace(
     /\{ label: "Active Inventory", value: "[\d,]+", change: ".+?", up: false \}/,

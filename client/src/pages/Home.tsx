@@ -344,7 +344,7 @@ export default function HomePage() {
               {[
                 { label: "Median Sale Price", value: "$790,000", change: "Sep 2026", up: true },
                 { label: "Days on Market", value: "46 days", change: "Greater Boston", up: false },
-                { label: "List-to-Sale Ratio", value: "99%", change: "Above asking", up: true },
+                { label: "List-to-Sale Ratio", value: "99%", change: "Just under asking", up: false },
                 { label: "Active Inventory", value: "2,749", change: "Sep 2026", up: false },
               ].map((metric) => (
                 <div key={metric.label} className="text-center">
@@ -360,7 +360,7 @@ export default function HomePage() {
                       metric.up ? "text-green-600" : "text-red-500"
                     }`}
                   >
-                    {metric.change} YoY
+                    {metric.change}
                   </p>
                 </div>
               ))}
