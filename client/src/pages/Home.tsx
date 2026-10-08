@@ -53,21 +53,18 @@ const neighborhoods = [
 const testimonials = [
   {
     name: "Jake Uminski",
-    location: "Greater Boston, MA",
     rating: 5,
     text: "Will Shao is attentive, knowledgeable, and tenacious. Not only did he curate an extensive list of homes catered to our needs and wants, but he was able to help us easily navigate all the complexities of the home buying process. We were so grateful to have Will in our corner!",
     source: "Google",
   },
   {
     name: "Tackle2thePeople",
-    location: "Greater Boston, MA",
     rating: 5,
     text: "Will helped us navigate an incredibly competitive market in the Spring of 2024 — it ended with us purchasing our very first home! As someone who entered the real estate industry during the 2008 Housing Crisis, he has seen everything under the sun. Will had loads of expertise on everything that could go right or wrong, and helped us navigate a fairly unique situation that resulted in us purchasing our dream house.",
     source: "Google",
   },
   {
     name: "Jason Hou",
-    location: "Newton, MA",
     rating: 5,
     text: "Will helped us so much in our home buying experience in this crazy market. He is patient, calm, knowledgeable, and honest. He won't push you to do something you are not comfortable doing. I feel he takes the customer's requirements extremely seriously. Thanks Will!",
     source: "Google",
@@ -703,10 +700,7 @@ export default function HomePage() {
                   <div className="w-9 h-9 rounded-full bg-[#C89B3C]/20 flex items-center justify-center">
                     <Users className="w-4 h-4 text-[#C89B3C]" />
                   </div>
-                  <div>
-                    <p className="text-white text-base font-semibold font-body">{t.name}</p>
-                    <p className="text-white/50 text-sm font-body">{t.location}</p>
-                  </div>
+                  <p className="text-white text-base font-semibold font-body">{t.name}</p>
                 </div>
               </div>
             ))}

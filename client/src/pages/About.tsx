@@ -16,42 +16,36 @@ const WILL_BG = "/images/site/photo.jpg";
 const testimonials = [
   {
     name: "Jake Uminski",
-    location: "Greater Boston, MA",
     stars: 5,
     text: "Will Shao is attentive, knowledgeable, and tenacious. Not only did he curate an extensive list of homes catered to our needs and wants, but he was able to help us easily navigate all the complexities of the home buying process. We were so grateful to have Will in our corner!",
     date: "February 2025 · Google",
   },
   {
     name: "Meng-Ju Wu",
-    location: "Westborough, MA",
     stars: 5,
     text: "This was our first time purchasing a single-family home and we were quite nervous. From the start, Will provided clear, honest guidance and helped us understand every step, from house hunting to closing. He took the time to visit every property and patiently explained the pros and cons of each one. What really stood out was the personal touch — Will was genuinely invested in helping us find not just a house, but the right home for our family.",
     date: "October 2024 · Google",
   },
   {
     name: "V.R.",
-    location: "Greater Boston, MA",
     stars: 5,
     text: "Once we found our dream home, Will offered great advice on how to structure the offer and make it compelling — allowing our offer to stand out amongst multiple interested parties. Throughout this process, Will was super engaged, prompt, and courteous. Within three months we went from initiating a search to closing on a beautiful home. I highly recommend this team to any prospective buyers or sellers.",
     date: "July 2023 · Google",
   },
   {
     name: "Shang S.",
-    location: "Sold a condo in Boston, MA",
     stars: 5,
     text: "Will is a consummate professional who went above and beyond to make sure I sold my house. I was away during most of the selling process — I'd already moved across the country — yet everything went as smoothly as it could. Will is honest, informative, and clear. Throughout inspection and negotiation he remained calm, knowledgeable, and creative. He communicates clearly, follows up on all open items, and worked around my busy schedule with full flexibility. I highly recommend Will as a trusted professional for both selling and buying.",
     date: "August 2012 · Yelp",
   },
   {
     name: "Michael Baker",
-    location: "Eastern Massachusetts",
     stars: 5,
     text: "Truly exceptional service by Will and his teammate Rachael. Our move was from out of state during an extremely difficult market for buyers. Will's expert advice, patience, and dedication to finding our next home made all the difference. His professionalism is second to none — I wouldn't want to purchase a home with anyone else.",
     date: "October 2021 · Google",
   },
   {
     name: "Mark Fung-a-fat",
-    location: "Greater Boston, MA",
     stars: 5,
     text: "Will's mantra was 'be prepared, be patient, and be persistent — all of my clients will get a house.' I was skeptical but his calm confidence and sound advice landed us a home in one of the best school districts in a fantastic neighborhood. In fact, the seller said 'you got this house because of your agent — he really knows what he is doing.' Thank you Will for helping us remain calm in this nutty market.",
     date: "June 2021 · Google",
@@ -333,10 +327,7 @@ export default function AboutPage() {
                   "{t.text}"
                 </p>
                 <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-base font-bold text-[#0D2137] font-body">{t.name}</p>
-                    <p className="text-sm text-gray-400 font-body">{t.location}</p>
-                  </div>
+                  <p className="text-base font-bold text-[#0D2137] font-body">{t.name}</p>
                   <p className="text-sm text-gray-400 font-body">{t.date}</p>
                 </div>
               </div>
