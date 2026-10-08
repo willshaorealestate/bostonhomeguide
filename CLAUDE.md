@@ -26,8 +26,6 @@ client/public/images/
   staging/        # staging-before.jpg, staging-after.jpg
   marketing/      # marketing-before-1..5.jpg + afters (photo comparison pairs)
 
-server/           # Express server — used in dev only, not deployed
-shared/           # Shared types/constants
 
 client/public/sitemap.xml  # The only sitemap — Vite copies client/public/ into the build
 client/public/robots.txt   # Same — the only robots.txt
@@ -35,7 +33,7 @@ CNAME             # bostonhomeguide.com
 ```
 
 ## Key Constraints
-- **Static site only** — no server-side code runs in production. All API calls (FUB) happen from the browser using `VITE_FUB_API_KEY`
+- **Static site only** — there is no server, in production or in dev (`pnpm dev` is plain Vite). The original Manus template's Express/tRPC server, database schema, and login code were removed. All API calls (FUB) happen from the browser using `VITE_FUB_API_KEY`
 - **No `npm install`** — use `pnpm`. Do NOT add packages via npm; it breaks the lockfile
 - **Avoid new dependencies** — the bundle is already large. Prefer custom implementations (e.g., `useSEO` hook instead of react-helmet-async)
 - **pnpm version**: Only one version should be specified — either in the action config OR in `packageManager` in `package.json`, not both
@@ -70,6 +68,7 @@ CNAME             # bostonhomeguide.com
 
 ## Common Tasks
 - **Add a new neighborhood**: edit `client/src/data/neighborhoods.ts`, add a `.jpeg` to `client/public/images/towns/`, update `client/public/sitemap.xml`
+- **Run tests**: `pnpm test` (Vitest + jsdom, runs `client/src/**/*.test.tsx`)
 - **Edit a page**: pages are in `client/src/pages/` — each is a single TSX file
 - **Add a page/route**: pages are code-split. In `client/src/App.tsx`, wrap the import in `lazyPage(() => import("./pages/X"))` and add it to both `ROUTES` and `PAGES` — don't import pages directly. `main.tsx` loads the current page's chunk before the first render so React doesn't blank out the prerendered HTML, then preloads the other pages in the background. Also add the URL to `client/public/sitemap.xml` so it gets prerendered
 - **Add a form field**: use react-hook-form + zod schema validation, then map to FUB API payload

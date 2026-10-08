@@ -36,7 +36,7 @@ describe("BuyingProcessGuide", () => {
   it("displays the first step by default in carousel view", () => {
     render(<BuyingProcessGuide />);
     expect(screen.getByText("Get Pre-Approved")).toBeDefined();
-    expect(screen.getByText(/Step 1 of 9/)).toBeDefined();
+    expect(screen.getByText(/Step 1 of 10/)).toBeDefined();
   });
 
   it("navigates to next step when Next button is clicked", async () => {
@@ -47,7 +47,7 @@ describe("BuyingProcessGuide", () => {
     
     await waitFor(() => {
       expect(screen.getByText("Define Your Priorities")).toBeDefined();
-      expect(screen.getByText(/Step 2 of 9/)).toBeDefined();
+      expect(screen.getByText(/Step 2 of 10/)).toBeDefined();
     });
   });
 
@@ -80,10 +80,10 @@ describe("BuyingProcessGuide", () => {
   it("disables Next button on last step", async () => {
     render(<BuyingProcessGuide />);
     
-    // Click next 8 times to reach the last step
-    const nextButton = screen.getByText("Next");
-    for (let i = 0; i < 8; i++) {
-      fireEvent.click(nextButton);
+    // Click next 9 times to reach the last of the 10 steps. The step card (and its
+    // Next button) re-mounts on every step, so look the button up again each time.
+    for (let i = 0; i < 9; i++) {
+      fireEvent.click(screen.getByText("Next"));
     }
     
     await waitFor(() => {
@@ -120,7 +120,7 @@ describe("BuyingProcessGuide", () => {
     fireEvent.click(carouselButton);
     
     await waitFor(() => {
-      expect(screen.getByText(/Step 1 of 9/)).toBeDefined();
+      expect(screen.getByText(/Step 1 of 10/)).toBeDefined();
     });
   });
 
@@ -130,7 +130,7 @@ describe("BuyingProcessGuide", () => {
     // Check that details are shown
     expect(screen.getByText("Choose a local lender familiar with MA transactions")).toBeDefined();
     expect(screen.getByText("Get pre-approved, not just pre-qualified")).toBeDefined();
-    expect(screen.getByText("Lock in your rate when you find the right home")).toBeDefined();
+    expect(screen.getByText("Cash buyers: have a proof of funds letter ready")).toBeDefined();
   });
 
   it("shows duration for each step", () => {
@@ -154,7 +154,7 @@ describe("BuyingProcessGuide", () => {
     
     await waitFor(() => {
       expect(screen.getByText("Negotiate & Accept")).toBeDefined();
-      expect(screen.getByText(/Step 5 of 9/)).toBeDefined();
+      expect(screen.getByText(/Step 5 of 10/)).toBeDefined();
     });
   });
 
@@ -166,7 +166,7 @@ describe("BuyingProcessGuide", () => {
     expect(progressBar).toBeDefined();
   });
 
-  it("renders all 9 steps correctly", async () => {
+  it("renders all 10 steps correctly", async () => {
     render(<BuyingProcessGuide />);
     
     const expectedSteps = [
@@ -176,19 +176,16 @@ describe("BuyingProcessGuide", () => {
       "Make an Offer",
       "Negotiate & Accept",
       "Home Inspection",
+      "Purchase & Sale Agreement",
       "Appraisal & Underwriting",
       "Final Walkthrough",
       "Closing Day",
     ];
     
     for (const stepTitle of expectedSteps) {
-      const nextButton = screen.queryByText("Next");
-      if (nextButton && !nextButton.hasAttribute("disabled")) {
-        fireEvent.click(nextButton);
-      }
+      expect(screen.getByText(stepTitle)).toBeDefined();
+      const nextButton = screen.getByText("Next").closest("button") as HTMLButtonElement;
+      if (!nextButton.disabled) fireEvent.click(nextButton);
     }
-    
-    // At least verify the first and last steps exist
-    expect(screen.getByText("Get Pre-Approved")).toBeDefined();
   });
 });

@@ -6,16 +6,12 @@
 2. Copy `client/public/js/fub-config.EXAMPLE.js` → `client/public/js/fub-config.js`
 3. Fill in your real FUB Pixel ID, API key, Fello URL, and RealScout Agent ID
 4. Install dependencies: `pnpm install`
-5. Start dev server: `pnpm dev` → http://localhost:3000
+5. Start dev server: `pnpm dev` → http://localhost:5173
+6. Run tests: `pnpm test`
 
-## Deploy to GitHub Pages
+## Deploy
 
-1. Push repo to GitHub
-2. Go to repo **Settings → Pages**
-3. Source: **Deploy from branch** → `main` → `/ (root)` — or use the `dist/` folder after `pnpm build`
-4. Save — site goes live at `https://YOUR_USERNAME.github.io/REPO_NAME/`
-
-> **Note:** This is a Vite/React SPA. For GitHub Pages, run `pnpm build` and deploy the `dist/` folder, or use a GitHub Action to build and deploy automatically.
+Pushing to `main` deploys automatically through `.github/workflows/deploy.yml`: it builds the site, prerenders every page listed in `client/public/sitemap.xml` (so search engines and AI crawlers get real HTML), and publishes to GitHub Pages.
 
 ## Custom Domain (bostonhomeguide.com)
 
