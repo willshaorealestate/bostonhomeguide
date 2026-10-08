@@ -33,7 +33,7 @@ CNAME             # bostonhomeguide.com
 ```
 
 ## Key Constraints
-- **Static site only** — there is no server, in production or in dev (`pnpm dev` is plain Vite). The original Manus template's Express/tRPC server, database schema, and login code were removed. All API calls (FUB) happen from the browser using `VITE_FUB_API_KEY`
+- **Static site only** — there is no server, in production or in dev (`pnpm dev` is plain Vite). Don't add a backend, database, or login system. All API calls (FUB) happen from the browser using `VITE_FUB_API_KEY`
 - **No `npm install`** — use `pnpm`. Do NOT add packages via npm; it breaks the lockfile
 - **Avoid new dependencies** — the bundle is already large. Prefer custom implementations (e.g., `useSEO` hook instead of react-helmet-async)
 - **pnpm version**: Only one version should be specified — either in the action config OR in `packageManager` in `package.json`, not both
