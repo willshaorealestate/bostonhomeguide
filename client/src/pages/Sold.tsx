@@ -207,20 +207,21 @@ export default function SoldPage() {
     <div className="min-h-screen bg-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
       {/* ── HERO ── */}
-      <section className="bg-[#0D2137] text-white px-6 pt-24 pb-28 md:pt-36 md:pb-40">
+      <section className="bg-[#0D2137] text-white px-6 pt-24 pb-4 md:pt-36 md:pb-8">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#C89B3C] uppercase tracking-[0.2em] text-sm md:text-base font-semibold mb-8">
-            Your home didn't sell. Here's why.
+            For homeowners whose listing expired
           </p>
           <h1
             className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-10"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Most Listings Fail to Sell Because of Poor Marketing —{" "}
-            <em className="not-italic text-[#C89B3C]">Not the Home.</em>
+            It sat for 346 days.{" "}
+            <em className="not-italic text-[#C89B3C]">I sold it in 32.</em>
           </h1>
           <p className="text-white/60 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
-            The right agent changes everything. Let's talk.
+            Same house, a different plan: honest pricing, marketing built to reach the right buyer, and regular
+            updates until it sells.
           </p>
           <a
             href="#review"
@@ -238,11 +239,11 @@ export default function SoldPage() {
         </div>
       </section>
 
-      {/* ── SCROLL ANIMATION ── */}
-      <WhyItDidntSell />
-
       {/* ── PHOTO COMPARISON ── */}
       <PhotoComparisonCarousel />
+
+      {/* ── SCROLL ANIMATION ── */}
+      <WhyItDidntSell />
 
       {/* ── CASE STUDY ── */}
       <section className="py-24 md:py-32 bg-white px-6">
