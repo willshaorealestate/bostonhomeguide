@@ -43,7 +43,7 @@ CNAME             # bostonhomeguide.com
 ## SEO Setup
 - Custom `useSEO` hook at `client/src/lib/seo.ts` — handles title, meta tags, OG tags, canonical, and JSON-LD schema via DOM manipulation
 - Every page calls `useSEO()` — do not remove or bypass this
-- Home + About: RealEstateAgent/Person JSON-LD schema with aggregateRating (5.0★, 212 reviews)
+- Home: RealEstateAgent JSON-LD with aggregateRating (5.0★, 48 reviews). About: Person JSON-LD with no rating — Google rejects aggregateRating on a Person and flags it as an invalid Review snippets item
 - Buyer + Seller: FAQPage JSON-LD schema
 - Neighborhoods: dynamic per-town title/description/canonical
 - Sitemap submitted to Google Search Console

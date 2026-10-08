@@ -89,8 +89,7 @@ export default function AboutPage() {
       "telephone": "(781) 456-3541",
       "email": "will@willshao.com",
       "knowsLanguage": ["en", "zh"],
-      "worksFor": { "@type": "Organization", "name": "REMAX Executive Realty" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "48", "bestRating": "5" }
+      "worksFor": { "@type": "Organization", "name": "REMAX Executive Realty" }
     }
   });
   return (
