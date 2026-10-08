@@ -197,7 +197,7 @@ export default function SoldPage() {
   }, []);
 
   useSEO({
-    title: "Your Home Didn't Sell — Let's Change That | Will Shao REMAX",
+    title: "Your Home Didn't Sell? Let's Change That | Will Shao",
     description:
       "If your home sat on the market and didn't sell, find out why — and how Will Shao's proven marketing process gets homes sold. Book a free 30-minute conversation.",
     canonical: "https://bostonhomeguide.com/sold",
@@ -338,7 +338,7 @@ export default function SoldPage() {
             {[
               { value: "103.4%", label: "Avg. List-to-Sale" },
               { value: "$120M+", label: "In Transactions" },
-              { value: "5.0★", label: "Zillow Rating" },
+              { value: "5.0★", label: "48 Zillow Reviews" },
             ].map((s) => (
               <div key={s.label}>
                 <p

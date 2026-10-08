@@ -116,8 +116,8 @@ export function updateMarketTsx(area, townRows, year, month) {
 
     // 5. SEO title
     c = c.replace(
-      /title: "Greater Boston Real Estate Market Report \| .+?"/,
-      `title: "Greater Boston Real Estate Market Report | ${long}"`
+      /title: "Greater Boston Market Report: .+? \| Will Shao"/,
+      `title: "Greater Boston Market Report: ${long} | Will Shao"`
     );
 
     // 6. Hero span

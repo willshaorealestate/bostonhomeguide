@@ -749,7 +749,7 @@ const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
 export default function MarketPage() {
   useSEO({
-    title: "Greater Boston Real Estate Market Report | September 2026",
+    title: "Greater Boston Market Report: September 2026 | Will Shao",
     description: "Monthly market data for Greater Boston and MetroWest MA. Median prices, days on market, and list-to-sale ratios for Newton, Wellesley, Natick, Lexington, and more.",
     canonical: "https://bostonhomeguide.com/market",
   });

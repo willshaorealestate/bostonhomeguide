@@ -348,13 +348,13 @@ export default function BlogPage() {
   useSEO(
     current
       ? {
-          title: current.title,
+          title: current.seoTitle ?? current.title,
           description: current.excerpt,
           canonical: `${SITE_URL}/blog/${current.slug}`,
           schema: postSchema,
         }
       : {
-          title: "Greater Boston Real Estate Blog | Market Insights | Will Shao",
+          title: "Greater Boston Real Estate Blog | Will Shao",
           description: "Real estate tips, market insights, and neighborhood guides for Greater Boston and MetroWest MA homebuyers and sellers. Expert advice from Will Shao, REMAX Executive Realty.",
           canonical: `${SITE_URL}/blog`,
         }

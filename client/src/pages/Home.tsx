@@ -74,7 +74,7 @@ const testimonials = [
 const stats = [
   { value: "20", label: "Years Experience", icon: Clock },
   { value: "$120M+", label: "In Transactions", icon: Home },
-  { value: "5.0★", label: "Zillow Rating", icon: Star },
+  { value: "5.0★", label: "48 Zillow Reviews", icon: Star },
   { value: "70+", label: "Towns Served", icon: MapPin },
 ];
 
@@ -132,7 +132,7 @@ function useRealScoutSearch() {
 
 export default function HomePage() {
   useSEO({
-    title: "Greater Boston & MetroWest Real Estate | Will Shao, REMAX",
+    title: "Greater Boston & MetroWest Real Estate | Will Shao",
     description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, REMAX Executive Realty. 5.0★ Zillow.",
     canonical: "https://bostonhomeguide.com/",
     schema: {

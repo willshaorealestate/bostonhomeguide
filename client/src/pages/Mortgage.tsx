@@ -177,7 +177,7 @@ function SliderInput({
 
 export default function MortgagePage() {
   useSEO({
-    title: "Mortgage Calculator | Greater Boston Home Buying | Will Shao",
+    title: "Mortgage Calculator for Greater Boston | Will Shao",
     description: "Estimate your monthly mortgage payment for Greater Boston homes. Includes principal, interest, taxes, and insurance. Free calculator with MA property tax estimates.",
     canonical: "https://bostonhomeguide.com/mortgage",
   });

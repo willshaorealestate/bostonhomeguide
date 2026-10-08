@@ -77,7 +77,7 @@ const stats = [
 
 export default function AboutPage() {
   useSEO({
-    title: "About Will Shao | REMAX Executive Realty | Greater Boston Realtor",
+    title: "About Will Shao | Greater Boston REALTOR®, REMAX",
     description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Will Shao is a top-rated REMAX agent with a 5.0★ Zillow rating. Bilingual English & Mandarin.",
     canonical: "https://bostonhomeguide.com/about",
     schema: {

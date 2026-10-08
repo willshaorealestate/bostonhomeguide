@@ -118,7 +118,7 @@ const faqs = [
 
 export default function BuyerPage() {
   useSEO({
-    title: "Buying a Home in Greater Boston | Buyer's Guide | Will Shao",
+    title: "Buying a Home in Greater Boston | Will Shao",
     description: "Your complete guide to buying a home in Greater Boston and MetroWest MA. Pre-approval, home search, offers, P&S, and closing — step-by-step with Will Shao, REMAX.",
     canonical: "https://bostonhomeguide.com/buy",
     schema: {

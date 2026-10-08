@@ -39,7 +39,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
   const [email, setEmail] = useState("");
   useSEO({
     title: neighborhood
-      ? `${neighborhood.name} MA Real Estate & Homes for Sale | Will Shao`
+      ? `${neighborhood.name}, MA Homes for Sale | Will Shao`
       : "Neighborhood Guide | BostonHomeGuide.com",
     description: neighborhood
       ? `Explore homes for sale in ${neighborhood.name}, MA. ${neighborhood.description?.slice(0, 120) ?? "Local market data, school info, and expert guidance from Will Shao, REMAX Executive Realty."}`
@@ -338,7 +338,7 @@ export default function NeighborhoodsPage() {
   }
 
   useSEO({
-    title: "Greater Boston & MetroWest Neighborhood Guides | Will Shao",
+    title: "Greater Boston & MetroWest Town Guides | Will Shao",
     description: "Explore homes and real estate in Newton, Wellesley, Brookline, Natick, Lexington, Concord, and 60+ Greater Boston and MetroWest towns. Local market data and expert guidance.",
     canonical: "https://bostonhomeguide.com/neighborhoods",
   });

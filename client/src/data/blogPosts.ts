@@ -6,6 +6,8 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  /** Shorter title for search results when `title` runs past ~60 characters; the article headline still uses `title`. */
+  seoTitle?: string;
   excerpt: string;
   category: string;
   date: string;
@@ -355,6 +357,7 @@ If you're relocating to the area and trying to figure out which town actually fi
   {
     slug: "buying-vs-renting-greater-boston",
     title: "Buying vs. Renting in Greater Boston: Why Ownership Usually Wins",
+    seoTitle: "Buying vs. Renting in Greater Boston",
     excerpt: "Renting has its place: starting out, staying flexible, simplifying later in life. But for most people building a life here, owning is the stronger long-term move. Here's why.",
     category: "Buyer Guide",
     date: "September 11, 2026",
@@ -402,6 +405,7 @@ If you're weighing whether it's time to make the move from renting to owning, th
   {
     slug: "fixer-upper-or-move-in-ready",
     title: "Fixer-Upper or Move-In Ready? How to Decide What's Right for You",
+    seoTitle: "Fixer-Upper or Move-In Ready? How to Decide",
     excerpt: "A lower price tag on a fixer-upper can be tempting — but it's only a good deal if you're actually set up to handle what comes with it.",
     category: "Buyer Guide",
     date: "September 11, 2026",
@@ -458,6 +462,7 @@ Not sure whether a specific property is a manageable project or a money pit? [We
   {
     slug: "new-construction-vs-older-home",
     title: "New Construction vs. an Older New England Home: What You're Really Trading Off",
+    seoTitle: "New Construction vs. an Older New England Home",
     excerpt: "New builds and 100-year-old Colonials solve different problems. Here's what actually differs day to day, beyond just age.",
     category: "Buyer Guide",
     date: "September 11, 2026",
@@ -511,6 +516,7 @@ Trying to weigh a beautifully located older home against a new build farther out
   {
     slug: "home-improvements-that-add-value",
     title: "Which Home Improvements Actually Add Value Before You Sell (and Which Don't)",
+    seoTitle: "Home Improvements That Add Value Before You Sell",
     excerpt: "Sellers often spend on the wrong things right before listing. Here's what tends to actually pay off, and what rarely does.",
     category: "Seller Guide",
     date: "September 11, 2026",

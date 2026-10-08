@@ -34,8 +34,10 @@ function setSchema(id: string, data: object) {
 
 export function useSEO({ title, description, canonical, schema }: SEOProps) {
   useEffect(() => {
-    const SITE = "BostonHomeGuide.com";
-    const fullTitle = title.includes(SITE) ? title : `${title} | ${SITE}`;
+    // Google cuts titles off around 60 characters, so the name is only added when it fits.
+    const SUFFIX = " | Will Shao";
+    const fullTitle =
+      /Will Shao|BostonHomeGuide/.test(title) || title.length + SUFFIX.length > 60 ? title : title + SUFFIX;
 
     document.title = fullTitle;
     setMeta("description", description);

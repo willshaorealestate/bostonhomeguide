@@ -14,7 +14,7 @@ import { useSEO } from "@/lib/seo";
 
 export default function ContactPage() {
   useSEO({
-    title: "Contact Will Shao | Greater Boston Real Estate Agent",
+    title: "Contact Will Shao | Greater Boston Real Estate",
     description: "Get in touch with Will Shao, REMAX Executive Realty. Call (781) 456-3541 or book a free consultation. Serving Greater Boston, MetroWest, and surrounding MA communities.",
     canonical: "https://bostonhomeguide.com/contact",
   });
