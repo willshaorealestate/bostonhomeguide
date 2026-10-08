@@ -262,8 +262,8 @@ export default function SellerPage() {
               See the Transformation
             </h2>
             <p className="text-gray-500 font-body text-base mt-3 max-w-xl mx-auto">
-              Staged homes sell faster and for more money. Drag the slider to see the same
-              room — before and after professional staging.
+              Staging helps buyers see your home at its best. Drag the slider to see the same
+              room before and after professional staging.
             </p>
           </div>
 
@@ -276,9 +276,9 @@ export default function SellerPage() {
             />
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               {[
-                { value: "1–10%", label: "Higher sale price for staged homes" },
-                { value: "86%", label: "Of buyers' agents say staging affects buyers" },
-                { value: "83%", label: "Of agents report staged homes sell faster" },
+                { value: "83%", label: "of buyers' agents say staging helps buyers picture the home as their own" },
+                { value: "49%", label: "of listing agents say staging shortened time on market" },
+                { value: "29%", label: "of agents saw staging raise offers by 1% to 10%" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4">
                   <p
@@ -291,6 +291,9 @@ export default function SellerPage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-gray-400 font-body text-center mt-4">
+              Source: National Association of Realtors, 2025 Profile of Home Staging
+            </p>
           </div>
         </div>
       </section>
