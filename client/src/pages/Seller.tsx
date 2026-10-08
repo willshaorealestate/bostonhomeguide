@@ -274,24 +274,25 @@ export default function SellerPage() {
               afterLabel="Staged"
               beforeLabel="Unstaged"
             />
-            <div className="mt-6 grid grid-cols-3 gap-4 text-center">
+            {/* Phones: one row per stat (number beside its label). Wider screens: three centered tiles. */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 sm:text-center">
               {[
                 { value: "83%", label: "of buyers' agents say staging helps buyers picture the home as their own" },
                 { value: "49%", label: "of listing agents say staging shortened time on market" },
                 { value: "29%", label: "of agents saw staging raise offers by 1% to 10%" },
               ].map((stat) => (
-                <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4">
+                <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4 flex items-center gap-4 sm:block">
                   <p
-                    className="text-3xl font-bold text-[#C89B3C]"
+                    className="text-3xl font-bold text-[#C89B3C] w-20 shrink-0 sm:w-auto"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {stat.value}
                   </p>
-                  <p className="text-sm text-gray-500 font-body mt-1">{stat.label}</p>
+                  <p className="text-base sm:text-sm text-gray-600 font-body leading-snug sm:mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-gray-400 font-body text-center mt-4">
+            <p className="text-xs text-gray-500 font-body text-center mt-4">
               Source: National Association of Realtors, 2025 Profile of Home Staging
             </p>
           </div>
