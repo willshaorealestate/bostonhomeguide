@@ -16,13 +16,11 @@ import { Calendar, Phone, Play, Star } from "lucide-react";
 const testimonials = [
   {
     name: "Philip S.",
-    context: "Sold & Purchased in Greater Boston",
     quote:
       "18 groups visited during our 1-hour open house and we received two offers the same day — one of which we closed on above asking price.",
   },
   {
     name: "Shang S.",
-    context: "Sold a condo in Boston, MA",
     quote:
       "Will went above and beyond to make sure I sold my house. Calm, knowledgeable, and creative through every step.",
   },
@@ -276,8 +274,8 @@ export default function SoldPage() {
               </p>
               <p>
                 So I built the marketing around what made it special, including a full video tour, and I updated the
-                sellers every week so they always knew what was happening and why. It sold to a buyer who worked with
-                the town's historical society and fell for exactly the history and character we'd been showcasing.
+                sellers every week so they always knew what was happening and why. The plan worked: it sold to a buyer who
+                appreciated the home for exactly the character we'd been showcasing.
               </p>
             </div>
           </div>
@@ -397,10 +395,7 @@ export default function SoldPage() {
                 >
                   "{t.quote}"
                 </p>
-                <div>
-                  <p className="font-bold text-[#0D2137] text-base">{t.name}</p>
-                  <p className="text-gray-400 text-sm mt-1">{t.context}</p>
-                </div>
+                <p className="font-bold text-[#0D2137] text-base">{t.name}</p>
               </div>
             ))}
           </div>
