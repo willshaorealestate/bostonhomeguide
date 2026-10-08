@@ -1,8 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch, useLocation } from "wouter";
-import { useEffect } from "react";
+import { Route, Switch, useLocation, type RouteComponentProps } from "wouter";
+import { Suspense, useEffect, type ComponentType } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
@@ -20,55 +20,90 @@ function ScrollToTop() {
   }, [location]);
   return null;
 }
-import Home from "./pages/Home";
-import BuyerPage from "./pages/Buyer";
-import SellerPage from "./pages/Seller";
-import ContactPage from "./pages/Contact";
-import NeighborhoodsPage from "./pages/Neighborhoods";
-import MarketPage from "./pages/Market";
-import MortgagePage from "./pages/Mortgage";
-import BlogPage from "./pages/Blog";
-import AboutPage from "./pages/About";
-import SearchPage from "./pages/Search";
-import SoldPage from "./pages/Sold";
-import PrivacyPolicyPage from "./pages/PrivacyPolicy";
-import TermsPage from "./pages/Terms";
+type PageProps = RouteComponentProps;
+type PageModule = { default: ComponentType<PageProps> };
+
+// A code-split page whose chunk can be loaded ahead of time. Once loaded it renders
+// synchronously, so main.tsx can load the current page before the first render and
+// React never shows a Suspense fallback over the prerendered HTML.
+function lazyPage(load: () => Promise<PageModule>) {
+  let Loaded: ComponentType<PageProps> | null = null;
+  let pending: Promise<void> | null = null;
+  const preload = () =>
+    (pending ??= load().then((m) => {
+      Loaded = m.default;
+    }));
+  function Page(props: PageProps) {
+    if (!Loaded) throw preload();
+    return <Loaded {...props} />;
+  }
+  return Object.assign(Page, { preload });
+}
+
+const Home = lazyPage(() => import("./pages/Home"));
+const BuyerPage = lazyPage(() => import("./pages/Buyer"));
+const SellerPage = lazyPage(() => import("./pages/Seller"));
+const ContactPage = lazyPage(() => import("./pages/Contact"));
+const NeighborhoodsPage = lazyPage(() => import("./pages/Neighborhoods"));
+const MarketPage = lazyPage(() => import("./pages/Market"));
+const MortgagePage = lazyPage(() => import("./pages/Mortgage"));
+const BlogPage = lazyPage(() => import("./pages/Blog"));
+const AboutPage = lazyPage(() => import("./pages/About"));
+const SearchPage = lazyPage(() => import("./pages/Search"));
+const SoldPage = lazyPage(() => import("./pages/Sold"));
+const PrivacyPolicyPage = lazyPage(() => import("./pages/PrivacyPolicy"));
+const TermsPage = lazyPage(() => import("./pages/Terms"));
+
+const ROUTES: Array<[path: string, page: ComponentType<PageProps>]> = [
+  ["/", Home],
+  ["/buy", BuyerPage],
+  ["/buyer", BuyerPage],
+  ["/sell", SellerPage],
+  ["/seller", SellerPage],
+  ["/sold", SoldPage], // expired-listing prospecting landing page
+  ["/contact", ContactPage],
+  ["/neighborhoods/:slug", NeighborhoodsPage],
+  ["/neighborhoods", NeighborhoodsPage],
+  ["/market", MarketPage],
+  ["/mortgage", MortgagePage],
+  ["/blog/:slug", BlogPage],
+  ["/blog", BlogPage],
+  ["/about", AboutPage],
+  ["/search", SearchPage],
+  ["/privacy-policy", PrivacyPolicyPage],
+  ["/terms", TermsPage],
+  ["/404", NotFound],
+];
+
+const PAGES = [
+  Home, BuyerPage, SellerPage, ContactPage, NeighborhoodsPage, MarketPage, MortgagePage,
+  BlogPage, AboutPage, SearchPage, SoldPage, PrivacyPolicyPage, TermsPage,
+];
+
+/** Loads the code for the page at `pathname` (call before the first render). */
+export function preloadPageFor(pathname: string): Promise<void> {
+  const match = ROUTES.find(([path]) =>
+    new RegExp(`^${path.replace(/:[^/]+/g, "[^/]+")}/?$`).test(pathname)
+  );
+  const page = match?.[1];
+  return page && "preload" in page ? (page as ReturnType<typeof lazyPage>).preload() : Promise.resolve();
+}
+
+/** Loads every page's code in the background so later navigation is instant. */
+export function preloadAllPages() {
+  PAGES.forEach((page) => page.preload());
+}
+
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      {/* Buyer routes */}
-      <Route path="/buy" component={BuyerPage} />
-      <Route path="/buyer" component={BuyerPage} />
-      {/* Seller routes */}
-      <Route path="/sell" component={SellerPage} />
-      <Route path="/seller" component={SellerPage} />
-      {/* Expired listing prospecting */}
-      <Route path="/sold" component={SoldPage} />
-      {/* Contact */}
-      <Route path="/contact" component={ContactPage} />
-      {/* Neighborhoods — index and detail */}
-      <Route path="/neighborhoods/:slug" component={NeighborhoodsPage} />
-      <Route path="/neighborhoods" component={NeighborhoodsPage} />
-      {/* Market Reports */}
-      <Route path="/market" component={MarketPage} />
-      {/* Mortgage Calculator */}
-      <Route path="/mortgage" component={MortgagePage} />
-      {/* Blog — index and articles */}
-      <Route path="/blog/:slug" component={BlogPage} />
-      <Route path="/blog" component={BlogPage} />
-      {/* About */}
-      <Route path="/about" component={AboutPage} />
-      {/* Search */}
-      <Route path="/search" component={SearchPage} />
-      {/* Legal */}
-      <Route path="/privacy-policy" component={PrivacyPolicyPage} />
-      <Route path="/terms" component={TermsPage} />
-      {/* 404 */}
-      <Route path="/404" component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense fallback={<div className="min-h-screen bg-[#FAF8F4]" />}>
+      <Switch>
+        {ROUTES.map(([path, page]) => (
+          <Route key={path} path={path} component={page} />
+        ))}
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 

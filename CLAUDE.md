@@ -71,5 +71,6 @@ CNAME             # bostonhomeguide.com
 ## Common Tasks
 - **Add a new neighborhood**: edit `client/src/data/neighborhoods.ts`, add a `.jpeg` to `client/public/images/towns/`, update `client/public/sitemap.xml`
 - **Edit a page**: pages are in `client/src/pages/` — each is a single TSX file
+- **Add a page/route**: pages are code-split. In `client/src/App.tsx`, wrap the import in `lazyPage(() => import("./pages/X"))` and add it to both `ROUTES` and `PAGES` — don't import pages directly. `main.tsx` loads the current page's chunk before the first render so React doesn't blank out the prerendered HTML, then preloads the other pages in the background. Also add the URL to `client/public/sitemap.xml` so it gets prerendered
 - **Add a form field**: use react-hook-form + zod schema validation, then map to FUB API payload
 - **Update market data**: `client/src/pages/Market.tsx` contains hardcoded chart data — update monthly

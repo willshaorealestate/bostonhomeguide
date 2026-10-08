@@ -82,15 +82,20 @@ async function render(path) {
     { timeout: 15000 }
   );
   await page.waitForTimeout(300);
-  const html = await page.evaluate(({ srcs, inline }) => {
+  const html = await page.evaluate(({ srcs, inline, shellHtml }) => {
     for (const s of document.querySelectorAll('script')) {
       if (s.type === 'application/ld+json') continue;
       const src = s.getAttribute('src');
       const keep = src ? srcs.includes(src) : inline.includes(s.textContent.trim());
       if (!keep) s.remove();
     }
+    // Code-split page chunks add modulepreload hints as they load (including the
+    // background preload of every page); saving them would make visitors download all pages.
+    for (const l of document.querySelectorAll('link[rel="modulepreload"]')) {
+      if (!shellHtml.includes(`href="${l.getAttribute('href')}"`)) l.remove();
+    }
     return '<!doctype html>\n' + document.documentElement.outerHTML;
-  }, { srcs: shellScriptSrcs, inline: shellInlineScripts });
+  }, { srcs: shellScriptSrcs, inline: shellInlineScripts, shellHtml: shell });
   await page.close();
   if (errors.length) throw new Error(`${path}: ${errors[0]}`);
   return html;

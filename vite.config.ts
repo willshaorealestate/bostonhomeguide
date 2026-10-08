@@ -20,6 +20,12 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        // Pages are code-split; keep their shared icons in one file instead of dozens of tiny ones.
+        manualChunks: (id) => (id.includes("node_modules/lucide-react") ? "icons" : undefined),
+      },
+    },
   },
   server: {
     host: true,
