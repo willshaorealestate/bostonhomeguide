@@ -1,0 +1,20 @@
+# BostonHomeGuide.com
+
+> BostonHomeGuide.com is the website of Will Shao, a REMAX Executive Realty agent serving Greater Boston and MetroWest Massachusetts. Will has nearly 20 years of experience and $120M+ in transactions, represents both buyers and sellers, and speaks English and conversational Mandarin.
+
+The site covers buying and selling homes in Greater Boston, monthly market data from MLSPIN, guides to 71 towns and neighborhoods, and an evergreen blog for buyers and sellers.
+
+## Main pages
+
+- [Buyer's Guide](https://bostonhomeguide.com/buy): The home buying process in Massachusetts, from pre-approval to closing
+- [Seller's Guide](https://bostonhomeguide.com/sell): Pricing, preparing, and marketing a home, plus a free home valuation request
+- [Market Report](https://bostonhomeguide.com/market): Monthly median prices, days on market, and list-to-sale ratios by town
+- [Neighborhoods](https://bostonhomeguide.com/neighborhoods): Guides to towns across Greater Boston and MetroWest
+- [Mortgage Calculator](https://bostonhomeguide.com/mortgage): Estimate monthly payments
+- [Blog](https://bostonhomeguide.com/blog): Articles for Greater Boston buyers and sellers
+- [About Will Shao](https://bostonhomeguide.com/about): Background, experience, and client reviews
+- [Contact](https://bostonhomeguide.com/contact): Send a message or call (781) 456-3541
+
+## Optional
+
+- [Sitemap](https://bostonhomeguide.com/sitemap.xml): Every page on the site

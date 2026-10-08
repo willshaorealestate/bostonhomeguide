@@ -52,13 +52,14 @@ CNAME             # bostonhomeguide.com
 - All contact forms POST to Follow Up Boss API
 - Lead notifications go to `will.shao@followupboss.me`
 - The FUB Widget Tracker pixel (`WT-RUJPYHXU`) is in `index.html`
-- Legal pages needed for FUB's SMS carrier registration (Privacy Policy, Terms) exist in two forms: a React route (`client/src/pages/PrivacyPolicy.tsx` / `Terms.tsx`, for in-app `wouter` navigation) and a flat static HTML file (`client/public/privacy-policy.html` / `terms.html`). The static copy exists because this SPA has no prerendering — direct/bot requests to `/privacy-policy` or `/terms` would otherwise hit GitHub Pages' 404-based SPA-routing fallback and return a real HTTP 404, which compliance crawlers (like FUB's) reject even though a browser renders the React version fine. Keep both copies in sync when editing this content.
+- Legal pages needed for FUB's SMS carrier registration (Privacy Policy, Terms) exist in two forms: a React route (`client/src/pages/PrivacyPolicy.tsx` / `Terms.tsx`, for in-app `wouter` navigation) and a flat static HTML file (`client/public/privacy-policy.html` / `terms.html`). The static copy predates prerendering (see Deployment) and is still what ships for these two routes — direct/bot requests to `/privacy-policy` or `/terms` would otherwise hit GitHub Pages' 404-based SPA-routing fallback and return a real HTTP 404, which compliance crawlers (like FUB's) reject even though a browser renders the React version fine. Keep both copies in sync when editing this content.
 - Form messages should appear in FUB contact notes
 
 ## GitHub Actions / Deployment
 - Push to `main` triggers deploy
 - Build step uses `VITE_FUB_API_KEY` secret
-- `CNAME` and `404.html` (for SPA routing) are copied to build output by the deploy workflow; everything in `client/public/` (sitemap, robots.txt, images) is copied by Vite
+- `CNAME` and `404.html` (for SPA routing) are copied to build output by the deploy workflow; everything in `client/public/` (sitemap, robots.txt, llms.txt, images) is copied by Vite
+- After the build, `scripts/prerender.mjs` renders every sitemap URL in headless Chromium and saves it as `dist/public/<path>.html`, so GitHub Pages serves real HTML with a 200 (instead of the 404 SPA fallback) to Google and to AI crawlers that don't run JavaScript. **A page only gets prerendered if it's in `client/public/sitemap.xml`** — add new pages there. Routes with a hand-maintained static `.html` in `client/public/` (privacy-policy, terms) are skipped. Local run: `pnpm exec vite build && cp dist/public/index.html dist/public/404.html && node scripts/prerender.mjs`
 - Do not add a `version:` key to `pnpm/action-setup@v4` — version is already in `package.json` `packageManager` field
 
 ## Style / Design
