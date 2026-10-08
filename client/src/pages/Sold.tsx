@@ -280,20 +280,12 @@ export default function SoldPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 md:gap-10 mt-14 text-center">
-            {[
-              { value: "Upfront", label: "About the timeline" },
-              { value: "Targeted", label: "Marketing for the right buyer" },
-              { value: "Weekly", label: "Updates until it sold" },
-            ].map((d) => (
-              <div key={d.value}>
-                <p className="text-[#C89B3C] text-2xl md:text-4xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {d.value}
-                </p>
-                <p className="text-gray-400 text-xs md:text-sm uppercase tracking-widest mt-2">{d.label}</p>
-              </div>
-            ))}
-          </div>
+          <p
+            className="mt-14 text-center text-[#C89B3C] text-2xl md:text-4xl font-bold"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Upfront · Strategic · Responsive
+          </p>
 
           <div className="mt-16 max-w-3xl mx-auto">
             <CaseStudyVideo />
@@ -304,7 +296,7 @@ export default function SoldPage() {
             className="mt-16 text-center text-[#0D2137] text-2xl md:text-3xl leading-snug max-w-2xl mx-auto"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            If you list with me, you'll hear from me every week until your home sells.
+            You'll always know where things stand. I stay in close contact until your home sells.
           </p>
         </div>
       </section>
