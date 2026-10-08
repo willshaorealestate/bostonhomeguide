@@ -2,7 +2,7 @@
  * Blog.tsx — BostonHomeGuide.com
  * SEO-optimized blog with articles and lead capture CTAs
  */
-import { Fragment, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { Link, useParams } from "wouter";
 import { Search, ArrowLeft, ChevronRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -240,7 +240,8 @@ function ArticleDetail({ slug }: { slug: string }) {
                       {node}
                       <img
                         src={inlineImg}
-                        alt=""
+                        alt={`${article.title}, illustration`}
+                        loading="lazy"
                         className="w-full aspect-[16/9] object-cover rounded-lg my-6"
                       />
                     </Fragment>
@@ -296,7 +297,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                 <div className="space-y-3">
                   {articles.filter((a) => a.slug !== slug && a.category === article.category).slice(0, 3).map((a) => (
                     <Link key={a.slug} href={`/blog/${a.slug}`} className="flex items-start gap-3 group">
-                      <img src={a.img} alt="" className="w-14 h-14 rounded object-cover shrink-0" />
+                      <img src={a.img} alt={a.title} loading="lazy" className="w-14 h-14 rounded object-cover shrink-0" />
                       <div>
                         <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body leading-snug">
                           {a.title}
@@ -317,14 +318,47 @@ function ArticleDetail({ slug }: { slug: string }) {
   );
 }
 
+const SITE_URL = "https://bostonhomeguide.com";
+
+function absoluteUrl(src: string) {
+  return src.startsWith("http") ? src : `${SITE_URL}${src}`;
+}
+
+function blogPostingSchema(post: (typeof articles)[number]) {
+  const published = new Date(post.date);
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: [post.img, ...(post.images ?? [])].map(absoluteUrl),
+    ...(isNaN(published.getTime()) ? {} : { datePublished: published.toISOString().slice(0, 10) }),
+    articleSection: post.category,
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    author: { "@type": "Person", name: "Will Shao", url: `${SITE_URL}/about` },
+    publisher: { "@type": "Organization", name: "BostonHomeGuide.com", url: SITE_URL },
+  };
+}
+
 export default function BlogPage() {
-  useSEO({
-    title: "Greater Boston Real Estate Blog | Market Insights | Will Shao",
-    description: "Real estate tips, market insights, and neighborhood guides for Greater Boston and MetroWest MA homebuyers and sellers. Expert advice from Will Shao, REMAX Executive Realty.",
-    canonical: "https://bostonhomeguide.com/blog",
-  });
   const params = useParams<{ slug?: string }>();
   const slug = params?.slug;
+  const current = slug ? articles.find((a) => a.slug === slug) : undefined;
+  const postSchema = useMemo(() => (current ? blogPostingSchema(current) : undefined), [current]);
+  useSEO(
+    current
+      ? {
+          title: current.title,
+          description: current.excerpt,
+          canonical: `${SITE_URL}/blog/${current.slug}`,
+          schema: postSchema,
+        }
+      : {
+          title: "Greater Boston Real Estate Blog | Market Insights | Will Shao",
+          description: "Real estate tips, market insights, and neighborhood guides for Greater Boston and MetroWest MA homebuyers and sellers. Expert advice from Will Shao, REMAX Executive Realty.",
+          canonical: `${SITE_URL}/blog`,
+        }
+  );
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 

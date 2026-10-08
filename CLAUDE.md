@@ -29,8 +29,8 @@ client/public/images/
 server/           # Express server — used in dev only, not deployed
 shared/           # Shared types/constants
 
-sitemap.xml       # 80 URLs — root + 8 pages + 71 neighborhood slugs
-robots.txt        # At project root, copied to build output
+client/public/sitemap.xml  # The only sitemap — Vite copies client/public/ into the build
+client/public/robots.txt   # Same — the only robots.txt
 CNAME             # bostonhomeguide.com
 ```
 
@@ -58,7 +58,7 @@ CNAME             # bostonhomeguide.com
 ## GitHub Actions / Deployment
 - Push to `main` triggers deploy
 - Build step uses `VITE_FUB_API_KEY` secret
-- `CNAME`, `404.html` (for SPA routing), and `robots.txt` are copied to build output
+- `CNAME` and `404.html` (for SPA routing) are copied to build output by the deploy workflow; everything in `client/public/` (sitemap, robots.txt, images) is copied by Vite
 - Do not add a `version:` key to `pnpm/action-setup@v4` — version is already in `package.json` `packageManager` field
 
 ## Style / Design
@@ -68,7 +68,7 @@ CNAME             # bostonhomeguide.com
 - Chinese-language audience is secondary — Will is bilingual and serves Mandarin-speaking buyers
 
 ## Common Tasks
-- **Add a new neighborhood**: edit `client/src/data/neighborhoods.ts`, add a `.jpeg` to `client/public/images/towns/`, update `sitemap.xml`
+- **Add a new neighborhood**: edit `client/src/data/neighborhoods.ts`, add a `.jpeg` to `client/public/images/towns/`, update `client/public/sitemap.xml`
 - **Edit a page**: pages are in `client/src/pages/` — each is a single TSX file
 - **Add a form field**: use react-hook-form + zod schema validation, then map to FUB API payload
 - **Update market data**: `client/src/pages/Market.tsx` contains hardcoded chart data — update monthly

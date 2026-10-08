@@ -57,10 +57,13 @@ export function useSEO({ title, description, canonical, schema }: SEOProps) {
       document.head.appendChild(link);
     }
     link.href = canonicalHref;
+    setMeta("og:url", canonicalHref, "property");
 
     // Structured data
     if (schema) {
       setSchema("page-schema", schema);
+    } else {
+      document.getElementById("page-schema")?.remove();
     }
   }, [title, description, canonical, schema]);
 }

@@ -13,7 +13,7 @@ import { resolve } from 'path';
 const ROOT = resolve(import.meta.dirname, '../..');
 const QUEUE_JSON = resolve(ROOT, 'content/blog-queue.json');
 const BLOG_POSTS_TS = resolve(ROOT, 'client/src/data/blogPosts.ts');
-const SITEMAP_XML = resolve(ROOT, 'sitemap.xml');
+const SITEMAP_XML = resolve(ROOT, 'client/public/sitemap.xml');
 
 function todayLongDate() {
   return new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/New_York' });

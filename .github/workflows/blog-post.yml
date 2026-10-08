@@ -30,7 +30,7 @@ jobs:
         run: |
           git config user.name "willshaorealestate"
           git config user.email "will@willshao.com"
-          git add client/src/data/blogPosts.ts content/blog-queue.json sitemap.xml
+          git add client/src/data/blogPosts.ts content/blog-queue.json client/public/sitemap.xml
           if git diff --cached --quiet; then
             echo "No changes — queue was empty."
             exit 0
