@@ -274,7 +274,8 @@ export default function SellerPage() {
               afterLabel="Staged"
               beforeLabel="Unstaged"
             />
-            {/* Phones: one row per stat (number beside its label). Wider screens: three centered tiles. */}
+            {/* Phones: one row per stat (number beside its label). Wider screens: three centered tiles.
+                Numbers use a deeper gold than the brand #C89B3C so they meet contrast guidelines on the cream tiles. */}
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 sm:text-center">
               {[
                 { value: "83%", label: "of buyers' agents say staging helps buyers picture the home as their own" },
@@ -283,7 +284,7 @@ export default function SellerPage() {
               ].map((stat) => (
                 <div key={stat.label} className="bg-[#FAF8F4] rounded-lg p-4 flex items-center gap-4 sm:block">
                   <p
-                    className="text-3xl font-bold text-[#C89B3C] w-20 shrink-0 sm:w-auto"
+                    className="text-3xl font-bold text-[#A67C2B] w-20 shrink-0 sm:w-auto"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {stat.value}
