@@ -104,11 +104,11 @@ const faqs = [
   },
   {
     q: "Do I need a buyer's agent in Massachusetts?",
-    a: "While not legally required, working with a dedicated buyer's agent like Will is strongly recommended. Will represents your interests exclusively, provides expert market analysis, and his fee is typically paid by the seller — so there's no cost to you.",
+    a: "It isn't legally required, but a dedicated buyer's agent protects your interests from your first showing to closing. Will provides a market analysis before every offer and negotiates price and terms for you. You'll sign a written buyer agreement before touring, as MLS rules require. In your offer, Will negotiates for the seller to cover his fee, and if they won't cover all of it, he can negotiate a lower price so you come out the same.",
   },
   {
     q: "What are closing costs in Massachusetts?",
-    a: "Buyers typically pay 2–4% of the purchase price in closing costs, including lender fees, title insurance, attorney fees, and prepaid items. Your lender will provide a Good Faith Estimate (GFE) outlining these costs — the exact amount depends on your loan type, lender, and transaction specifics. Will refers buyers to trusted local lenders who can walk you through the numbers.",
+    a: "Buyers typically pay about 1.5% to 3% of the purchase price in closing costs, including lender fees, title insurance, attorney fees, and prepaid taxes and insurance. In Massachusetts, the seller usually pays the deeds excise tax. Your lender will give you a Loan Estimate within 3 business days of applying, with your exact costs. Will refers buyers to trusted local lenders who can walk you through the numbers.",
   },
   {
     q: "Can Will help Mandarin-speaking buyers?",
@@ -127,8 +127,8 @@ export default function BuyerPage() {
       "mainEntity": [
         { "@type": "Question", "name": "How much do I need for a down payment in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "Conventional loans typically require 5-20% down. FHA loans require 3.5% with a 580+ credit score. First-time buyers may qualify for MassHousing programs with as little as 3% down." } },
         { "@type": "Question", "name": "How long does it take to buy a home in Greater Boston?", "acceptedAnswer": { "@type": "Answer", "text": "Closings can happen in as little as 30 days, with 45 days being the current average. A realistic range is 30–60 days from accepted offer to closing." } },
-        { "@type": "Question", "name": "Do I need a buyer's agent in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "While not legally required, working with a dedicated buyer's agent is strongly recommended. A buyer's agent represents your interests exclusively and their fee is typically paid by the seller." } },
-        { "@type": "Question", "name": "What are closing costs in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "Buyers typically pay 2–4% of the purchase price in closing costs, including lender fees, title insurance, attorney fees, and prepaid items." } },
+        { "@type": "Question", "name": "Do I need a buyer's agent in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "It isn't legally required, but a dedicated buyer's agent protects your interests from your first showing to closing. Will provides a market analysis before every offer and negotiates price and terms for you. You'll sign a written buyer agreement before touring, as MLS rules require. In your offer, Will negotiates for the seller to cover his fee, and if they won't cover all of it, he can negotiate a lower price so you come out the same." } },
+        { "@type": "Question", "name": "What are closing costs in Massachusetts?", "acceptedAnswer": { "@type": "Answer", "text": "Buyers typically pay about 1.5% to 3% of the purchase price in closing costs, including lender fees, title insurance, attorney fees, and prepaid taxes and insurance. In Massachusetts, the seller usually pays the deeds excise tax. Your lender will give you a Loan Estimate within 3 business days of applying, with your exact costs. Will refers buyers to trusted local lenders who can walk you through the numbers." } },
         { "@type": "Question", "name": "Can Will help Mandarin-speaking buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Will can conduct his part of the process in Mandarin, and works with a network of fluent Mandarin-speaking attorneys and lenders." } }
       ]
     }

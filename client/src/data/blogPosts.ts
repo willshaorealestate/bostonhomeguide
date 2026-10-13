@@ -62,7 +62,7 @@ The minimum down payment depends on your loan type:
 For a median-priced Boston home at $822,500, a 20% down payment is $164,500. Many buyers in the $500K-$800K range put down 10-15%.
 
 **Closing Costs**
-Massachusetts closing costs typically run 2-4% of the purchase price:
+Massachusetts closing costs for buyers typically run 1.5% to 3% of the purchase price:
 - Lender fees: $1,500-$3,000
 - Title insurance: $1,000-$2,500
 - Attorney fees: $800-$1,500
