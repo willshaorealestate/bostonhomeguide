@@ -74,10 +74,10 @@ function ArticleDetail({ slug }: { slug: string }) {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-[#FAF8F4]">
+      <div className="min-h-screen bg-white">
         <Navigation />
         <div className="container pt-40 pb-20 text-center">
-          <h1 className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-3xl font-bold text-[#0D2137]">
             Article Not Found
           </h1>
           <Link href="/blog" className="mt-6 btn-gold inline-block">Back to Blog</Link>
@@ -103,7 +103,7 @@ function ArticleDetail({ slug }: { slug: string }) {
   );
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -117,9 +117,9 @@ function ArticleDetail({ slug }: { slug: string }) {
             <ArrowLeft className="w-4 h-4" /> All Articles
           </Link>
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-xs bg-[#C89B3C] text-[#0D2137] font-bold px-2.5 py-1 rounded font-body">{article.category}</span>
+            <span className="text-xs bg-white text-[#0D2137] font-bold px-2.5 py-1 rounded-xl font-body">{article.category}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white max-w-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-white max-w-3xl">
             {article.title}
           </h1>
         </div>
@@ -129,7 +129,7 @@ function ArticleDetail({ slug }: { slug: string }) {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg p-8 border border-gray-100 shadow-sm prose prose-sm max-w-none">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm prose prose-sm max-w-none">
                 {paragraphs.map((para, i) => {
                   const formatLine = (line: string) => {
                     let formatted = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
@@ -141,7 +141,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                     formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
                       const external = /^https?:\/\//.test(href);
                       manualLinks.push(
-                        `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
+                        `<a href="${href}" class="text-[#0D2137] font-semibold hover:underline"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
                       );
                       return `@@LINK${manualLinks.length - 1}@@`;
                     });
@@ -149,7 +149,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                     Object.entries(townLinks).forEach(([town, href]) => {
                       formatted = formatted.replace(
                         new RegExp(`\\b${town}\\b`, "g"),
-                        `<a href="${href}" class="text-[#C89B3C] font-semibold hover:underline">${town}</a>`
+                        `<a href="${href}" class="text-[#0D2137] font-semibold hover:underline">${town}</a>`
                       );
                     });
 
@@ -163,7 +163,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                   let node: React.ReactNode;
                   if (para.startsWith("**") && para.endsWith("**")) {
                     node = (
-                      <h3 className="text-lg font-bold text-[#0D2137] mt-6 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      <h3 className="text-lg font-bold text-[#0D2137] mt-6 mb-3">
                         {para.replace(/\*\*/g, "")}
                       </h3>
                     );
@@ -201,7 +201,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                         {groups.map((group, gi) => {
                           if (group.type === "heading") {
                             return (
-                              <h3 key={gi} className="text-lg font-bold text-[#0D2137] mt-6 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                              <h3 key={gi} className="text-lg font-bold text-[#0D2137] mt-6 mb-3">
                                 {group.lines[0].replace(/\*\*/g, "")}
                               </h3>
                             );
@@ -242,7 +242,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                         src={inlineImg}
                         alt={`${article.title}, illustration`}
                         loading="lazy"
-                        className="w-full aspect-[16/9] object-cover rounded-lg my-6"
+                        className="w-full aspect-[16/9] object-cover rounded-2xl my-6"
                       />
                     </Fragment>
                   );
@@ -250,18 +250,18 @@ function ArticleDetail({ slug }: { slug: string }) {
               </div>
 
               {/* Article CTA */}
-              <div className="mt-8 bg-[#0D2137] rounded-lg p-8">
-                <h3 className="text-white font-bold text-xl mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="mt-8 bg-[#0D2137] rounded-2xl p-8">
+                <h3 className="text-white font-bold text-xl mb-3">
                   {cta.heading}
                 </h3>
                 <p className="text-white/70 font-body text-base mb-5">
                   {cta.body}
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Link href={cta.primaryHref} className="btn-gold text-sm">
+                  <Link href={cta.primaryHref} className="btn-light text-sm">
                     {cta.primaryLabel}
                   </Link>
-                  <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+                  <a href="tel:+17814563541" className="btn-outline-light text-sm">
                     Call (781) 456-3541
                   </a>
                 </div>
@@ -270,8 +270,8 @@ function ArticleDetail({ slug }: { slug: string }) {
 
             {/* Sidebar */}
             <div className="space-y-5">
-              <div className="bg-[#0D2137] rounded-lg p-6">
-                <h3 className="text-white font-bold text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-[#0D2137] rounded-2xl p-6">
+                <h3 className="text-white font-bold text-base mb-3">
                   Get More Insights
                 </h3>
                 <p className="text-white/60 text-base font-body mb-4">
@@ -284,22 +284,22 @@ function ArticleDetail({ slug }: { slug: string }) {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
                     required
-                    className="w-full bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-white/60"
                   />
-                  <button type="submit" className="btn-gold w-full text-sm text-center">Subscribe Free</button>
+                  <button type="submit" className="btn-light w-full text-sm text-center">Subscribe Free</button>
                 </form>
               </div>
 
-              <div className="bg-white rounded-lg p-6 border border-gray-100">
-                <h3 className="text-[#0D2137] font-bold text-base mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-white rounded-2xl p-6 border border-gray-100">
+                <h3 className="text-[#0D2137] font-bold text-base mb-4">
                   Related Articles
                 </h3>
                 <div className="space-y-3">
                   {articles.filter((a) => a.slug !== slug && a.category === article.category).slice(0, 3).map((a) => (
                     <Link key={a.slug} href={`/blog/${a.slug}`} className="flex items-start gap-3 group">
-                      <img src={a.img} alt={a.title} loading="lazy" className="w-14 h-14 rounded object-cover shrink-0" />
+                      <img src={a.img} alt={a.title} loading="lazy" className="w-14 h-14 rounded-xl object-cover shrink-0" />
                       <div>
-                        <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body leading-snug">
+                        <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#1A3A5C] transition-colors font-body leading-snug">
                           {a.title}
                         </p>
                         <p className="text-sm text-gray-400 font-body mt-1">{a.category}</p>
@@ -371,7 +371,7 @@ export default function BlogPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -379,10 +379,10 @@ export default function BlogPage() {
         className="relative pt-32 pb-20 min-h-[40vh] flex items-center"
         style={{ backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/80" />
+        <div className="absolute inset-0 bg-[#0D2137]/55" />
         <div className="relative z-10 container text-center">
-          <p className="section-label mb-3">Knowledge Center</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold text-white/85 mb-3">Knowledge Center</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">
             Greater Boston Real Estate Guides
           </h1>
           <p className="text-white/80 font-body text-lg max-w-2xl mx-auto mb-8">
@@ -396,7 +396,7 @@ export default function BlogPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search articles..."
-              className="w-full pl-10 pr-4 py-3 rounded text-[#0D2137] font-body text-sm focus:outline-none"
+              className="w-full pl-10 pr-4 py-3.5 rounded-full bg-white text-[#0D2137] font-body text-base focus:outline-none"
             />
           </div>
         </div>
@@ -409,8 +409,8 @@ export default function BlogPage() {
             <button
               key={cat}
               onClick={() => setCategory(cat)}
-              className={`px-4 py-1.5 rounded text-sm font-body font-medium whitespace-nowrap transition-colors ${
-                category === cat ? "bg-[#0D2137] text-white" : "bg-[#FAF8F4] text-[#0D2137] hover:bg-gray-100"
+              className={`px-4 py-1.5 rounded-xl text-sm font-body font-medium whitespace-nowrap transition-colors ${
+                category === cat ? "bg-[#0D2137] text-white" : "bg-[#F4F6F8] text-[#0D2137] hover:bg-gray-100"
               }`}
             >
               {cat}
@@ -426,7 +426,7 @@ export default function BlogPage() {
               <Link
                 key={article.slug}
                 href={`/blog/${article.slug}`}
-                className="group bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm card-hover"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm card-hover"
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <img
@@ -435,7 +435,7 @@ export default function BlogPage() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="text-xs bg-[#C89B3C] text-[#0D2137] font-bold px-2.5 py-1 rounded font-body">
+                    <span className="text-xs bg-[#0D2137] text-white font-bold px-2.5 py-1 rounded-xl font-body">
                       {article.category}
                     </span>
                   </div>
@@ -443,12 +443,11 @@ export default function BlogPage() {
                 <div className="p-5">
                   <h3
                     className="font-bold text-[#0D2137] text-base mb-2 group-hover:text-[#1976A8] transition-colors leading-snug"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {article.title}
                   </h3>
                   <p className="text-base text-gray-500 font-body leading-relaxed">{article.excerpt}</p>
-                  <div className="mt-4 flex items-center gap-1 text-[#C89B3C] text-sm font-semibold font-body">
+                  <div className="mt-4 flex items-center gap-1 text-[#0D2137] text-sm font-semibold font-body">
                     Read Article <ChevronRight className="w-4 h-4" />
                   </div>
                 </div>

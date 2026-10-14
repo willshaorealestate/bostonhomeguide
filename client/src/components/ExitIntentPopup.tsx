@@ -84,7 +84,6 @@ export default function ExitIntentPopup() {
             </p>
             <h3
               className="text-white text-2xl font-bold leading-tight"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Before You Go...
             </h3>

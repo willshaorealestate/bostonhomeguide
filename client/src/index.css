@@ -2,7 +2,7 @@
  * BostonHomeGuide.com — Design System
  * Philosophy: Refined Coastal Luxury
  * Full-bleed photography, generous whitespace, Navy/Gold/Cream palette
- * Typography: Playfair Display (headings) + DM Sans (body)
+ * Typography: DM Sans (headings and body)
  * Diagonal clip-path section transitions, parallax hero, staggered card animations
  */
 
@@ -235,6 +235,31 @@
   .btn-outline-gold:hover {
     border-color: #0D2137;
   }
+
+  /* Buttons on a photo or dark background */
+  .btn-light {
+    background-color: #FFFFFF;
+    color: #0D2137;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+  }
+  .btn-light:hover { background-color: #EEF1F4; }
+  .btn-outline-light {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+  }
+  .btn-outline-light:hover { background-color: rgba(255, 255, 255, 0.12); }
 
   /* Scrolling ticker */
   @keyframes ticker {

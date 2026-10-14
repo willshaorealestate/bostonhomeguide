@@ -17,25 +17,24 @@ export default function TermsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
-      <section className="bg-[#0D2137] pt-32 pb-16">
+      <section className="bg-white pt-32 pb-16">
         <div className="container text-center">
           <p className="section-label mb-3">Legal</p>
           <h1
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-4"
           >
             Terms &amp; Conditions
           </h1>
-          <p className="text-white/70 font-body text-base">Last updated: {LAST_UPDATED}</p>
+          <p className="text-[#5B6270] font-body text-base">Last updated: {LAST_UPDATED}</p>
         </div>
       </section>
 
       <section className="py-16">
         <div className="container max-w-3xl">
-          <div className="bg-white rounded-lg p-8 md:p-10 border border-gray-100 shadow-sm space-y-8 font-body text-base text-gray-600 leading-relaxed">
+          <div className="bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-sm space-y-8 font-body text-base text-gray-600 leading-relaxed">
             <p>
               These Terms &amp; Conditions govern your use of BostonHomeGuide.com, operated by Firefly
               Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty (969 Concord Street, Framingham,
@@ -43,7 +42,7 @@ export default function TermsPage() {
             </p>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Use of This Site
               </h2>
               <p>
@@ -56,7 +55,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 No Guarantee of Results
               </h2>
               <p>
@@ -67,7 +66,7 @@ export default function TermsPage() {
             </div>
 
             <div id="sms-terms">
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 SMS Terms &amp; Conditions
               </h2>
               <p>
@@ -81,19 +80,19 @@ export default function TermsPage() {
               <ul className="list-disc pl-6 mt-3 space-y-1.5">
                 <li>Consent to receive text messages is <strong>not</strong> a condition of using our services or submitting any form on this site.</li>
                 <li>You can cancel the SMS service at any time by texting <strong>STOP</strong>. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time, and we will start sending SMS messages to you again.</li>
-                <li>If you are experiencing issues with the messaging program, reply with the keyword <strong>HELP</strong> for more assistance, or get help directly at <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a> or <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>.</li>
+                <li>If you are experiencing issues with the messaging program, reply with the keyword <strong>HELP</strong> for more assistance, or get help directly at <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a> or <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>.</li>
                 <li>Carriers are not liable for delayed or undelivered messages.</li>
                 <li>As always, message and data rates may apply for any messages sent to you from us and to us from you. Message frequency may vary. If you have any questions about your text plan or data plan, it is best to contact your wireless provider.</li>
                 <li>No mobile opt-in data or phone numbers will be shared with, or sold to, any third party or affiliate for marketing or promotional purposes.</li>
               </ul>
               <p className="mt-3">
                 If you have any questions regarding privacy, please read our{" "}
-                <Link href="/privacy-policy" className="text-[#C89B3C] hover:underline">Privacy Policy</Link>.
+                <Link href="/privacy-policy" className="text-[#0D2137] hover:underline">Privacy Policy</Link>.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Intellectual Property
               </h2>
               <p>
@@ -104,7 +103,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Third-Party Links &amp; Tools
               </h2>
               <p>
@@ -115,7 +114,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Equal Housing Opportunity
               </h2>
               <p>
@@ -125,7 +124,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Changes to These Terms
               </h2>
               <p>
@@ -135,14 +134,14 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Contact Us
               </h2>
               <p>
                 Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty<br />
                 969 Concord Street, Framingham, MA 01701<br />
-                <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a>{" "}
-                · <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>
+                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
+                · <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>
               </p>
             </div>
           </div>

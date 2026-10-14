@@ -1,6 +1,6 @@
 /*
  * Navigation.tsx — BostonHomeGuide.com
- * Refined Coastal Luxury: Sticky transparent-to-navy nav, gold accents, Playfair logo
+ * Clean white nav (transparent over the homepage hero), sans wordmark
  */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";

@@ -171,7 +171,6 @@ export default function BuyingProcessGuide() {
           <p className="section-label mb-2">Step-by-Step Guide</p>
           <h2
             className="text-3xl md:text-4xl font-bold text-[#0D2137] mb-3"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Your Home Buying Journey
           </h2>
@@ -185,20 +184,20 @@ export default function BuyingProcessGuide() {
         <div className="flex justify-center gap-3 mb-8">
           <button
             onClick={() => setViewMode("carousel")}
-            className={`px-4 py-2 rounded text-sm font-body font-semibold transition-all ${
+            className={`px-4 py-2 rounded-xl text-sm font-body font-semibold transition-all ${
               viewMode === "carousel"
                 ? "bg-[#0D2137] text-white"
-                : "bg-white border border-gray-200 text-[#0D2137] hover:border-[#C89B3C]"
+                : "bg-white border border-gray-200 text-[#0D2137] hover:border-[#0D2137]"
             }`}
           >
             Interactive View
           </button>
           <button
             onClick={() => setViewMode("timeline")}
-            className={`px-4 py-2 rounded text-sm font-body font-semibold transition-all ${
+            className={`px-4 py-2 rounded-xl text-sm font-body font-semibold transition-all ${
               viewMode === "timeline"
                 ? "bg-[#0D2137] text-white"
-                : "bg-white border border-gray-200 text-[#0D2137] hover:border-[#C89B3C]"
+                : "bg-white border border-gray-200 text-[#0D2137] hover:border-[#0D2137]"
             }`}
           >
             Timeline View
@@ -208,7 +207,7 @@ export default function BuyingProcessGuide() {
         {/* Carousel View */}
         {viewMode === "carousel" && (
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
               {/* Step Card */}
               <AnimatePresence mode="wait">
                 <motion.div
@@ -221,11 +220,11 @@ export default function BuyingProcessGuide() {
                 >
                   {/* Step Number & Icon */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-full bg-[#C89B3C]/10 flex items-center justify-center text-4xl">
+                    <div className="w-16 h-16 rounded-full bg-[#F4F6F8] flex items-center justify-center text-4xl">
                       {step.icon}
                     </div>
                     <div>
-                      <p className="text-[#C89B3C] font-body text-sm font-semibold uppercase tracking-wider">
+                      <p className="text-[#0D2137] font-body text-sm font-semibold uppercase tracking-wider">
                         Step {step.number} of {steps.length}
                       </p>
                       <p className="text-gray-400 font-body text-sm">
@@ -237,7 +236,6 @@ export default function BuyingProcessGuide() {
                   {/* Title */}
                   <h3
                     className="text-3xl md:text-4xl font-bold text-[#0D2137] mb-4"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {step.title}
                   </h3>
@@ -248,12 +246,12 @@ export default function BuyingProcessGuide() {
                   </p>
 
                   {/* Details */}
-                  <div className="bg-[#FAF8F4] rounded-lg p-6 mb-8">
+                  <div className="bg-[#F4F6F8] rounded-2xl p-6 mb-8">
                     <h4 className="font-semibold text-[#0D2137] mb-4 font-body">What to expect:</h4>
                     <ul className="space-y-2">
                       {step.details.map((detail, i) => (
                         <li key={i} className="flex items-start gap-3 text-gray-600 font-body">
-                          <span className="text-[#C89B3C] font-bold mt-0.5">✓</span>
+                          <span className="text-[#0D2137] font-bold mt-0.5">✓</span>
                           <span>{detail}</span>
                         </li>
                       ))}
@@ -263,7 +261,7 @@ export default function BuyingProcessGuide() {
                   {/* Progress Bar */}
                   <div className="w-full bg-gray-200 rounded-full h-2 mb-8">
                     <motion.div
-                      className="bg-[#C89B3C] h-2 rounded-full"
+                      className="bg-[#0D2137] h-2 rounded-full"
                       initial={{ width: 0 }}
                       animate={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
                       transition={{ duration: 0.5 }}
@@ -275,7 +273,7 @@ export default function BuyingProcessGuide() {
                     <button
                       onClick={handlePrev}
                       disabled={currentStep === 0}
-                      className="flex items-center gap-2 px-6 py-3 border border-gray-200 rounded text-[#0D2137] font-body font-semibold hover:border-[#C89B3C] hover:text-[#C89B3C] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                      className="flex items-center gap-2 px-6 py-3 border border-gray-200 rounded-xl text-[#0D2137] font-body font-semibold hover:border-[#0D2137] hover:text-[#1A3A5C] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                       <ChevronLeft className="w-4 h-4" />
                       Previous
@@ -287,7 +285,7 @@ export default function BuyingProcessGuide() {
                           key={i}
                           onClick={() => setCurrentStep(i)}
                           className={`w-2.5 h-2.5 rounded-full transition-all ${
-                            i === currentStep ? "bg-[#C89B3C] w-8" : "bg-gray-300 hover:bg-gray-400"
+                            i === currentStep ? "bg-[#0D2137] w-8" : "bg-gray-300 hover:bg-gray-400"
                           }`}
                           aria-label={`Go to step ${i + 1}`}
                         />
@@ -297,7 +295,7 @@ export default function BuyingProcessGuide() {
                     <button
                       onClick={handleNext}
                       disabled={currentStep === steps.length - 1}
-                      className="flex items-center gap-2 px-6 py-3 bg-[#0D2137] text-white rounded font-body font-semibold hover:bg-[#1A3A5C] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                      className="flex items-center gap-2 px-6 py-3 bg-[#0D2137] text-white rounded-xl font-body font-semibold hover:bg-[#1A3A5C] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                       Next
                       <ChevronRight className="w-4 h-4" />
@@ -307,11 +305,11 @@ export default function BuyingProcessGuide() {
               </AnimatePresence>
 
               {/* Share Button */}
-              <div className="border-t border-gray-100 px-8 md:px-12 py-4 bg-[#FAF8F4] flex items-center justify-between">
+              <div className="border-t border-gray-100 px-8 md:px-12 py-4 bg-[#F4F6F8] flex items-center justify-between">
                 <p className="text-sm text-gray-500 font-body">Share this step on social media</p>
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-4 py-2 bg-[#C89B3C] text-[#0D2137] rounded font-body font-semibold hover:bg-[#D4AF5A] transition-all"
+                  className="flex items-center gap-2 px-4 py-2 bg-[#0D2137] text-white rounded-full font-body font-semibold hover:bg-[#1A3A5C] transition-all"
                 >
                   <Share2 className="w-4 h-4" />
                   Share
@@ -341,7 +339,7 @@ export default function BuyingProcessGuide() {
                     {/* Dot */}
                     <div className="flex flex-col items-center flex-shrink-0">
                       <motion.div
-                        className="w-16 h-16 rounded-full bg-white border-4 border-[#C89B3C] flex items-center justify-center text-2xl shadow-lg"
+                        className="w-16 h-16 rounded-full bg-white border-4 border-[#0D2137] flex items-center justify-center text-2xl shadow-lg"
                         whileHover={{ scale: 1.1 }}
                       >
                         {s.icon}
@@ -350,13 +348,12 @@ export default function BuyingProcessGuide() {
 
                     {/* Content */}
                     <div className="flex-1 pb-8">
-                      <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                        <p className="text-[#C89B3C] font-body text-xs font-semibold uppercase tracking-wider mb-1">
+                      <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <p className="text-[#0D2137] font-body text-xs font-semibold uppercase tracking-wider mb-1">
                           Step {s.number}
                         </p>
                         <h3
                           className="text-xl font-bold text-[#0D2137] mb-2"
-                          style={{ fontFamily: "'Playfair Display', serif" }}
                         >
                           {s.title}
                         </h3>

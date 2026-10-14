@@ -117,10 +117,10 @@ export default function BeforeAfterSlider({
       </div>
 
       {/* Labels */}
-      <div className="absolute top-4 left-4 bg-[#0D2137]/70 text-white text-xs font-semibold font-body px-3 py-1.5 rounded pointer-events-none">
+      <div className="absolute top-4 left-4 bg-[#0D2137]/70 text-white text-xs font-semibold font-body px-3 py-1.5 rounded-xl pointer-events-none">
         {afterLabel}
       </div>
-      <div className="absolute top-4 right-4 bg-[#0D2137]/70 text-white text-xs font-semibold font-body px-3 py-1.5 rounded pointer-events-none">
+      <div className="absolute top-4 right-4 bg-[#0D2137]/70 text-white text-xs font-semibold font-body px-3 py-1.5 rounded-xl pointer-events-none">
         {beforeLabel}
       </div>
 

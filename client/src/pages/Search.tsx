@@ -40,7 +40,7 @@ export default function SearchPage() {
   useRealScoutSearch();
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -49,12 +49,11 @@ export default function SearchPage() {
         className="relative pt-32 pb-20 min-h-[45vh] flex items-center"
         style={{ backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/80" />
+        <div className="absolute inset-0 bg-[#0D2137]/55" />
         <div className="relative z-10 container text-center">
-          <p className="section-label mb-3">Live MLS Search</p>
+          <p className="text-sm font-semibold text-white/85 mb-3">Live MLS Search</p>
           <h1
             className="text-4xl md:text-5xl font-bold text-white mb-5"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Search Homes for Sale
           </h1>
@@ -67,8 +66,8 @@ export default function SearchPage() {
             <div
               className="realscout-search simple"
               data-rep="willshao"
-              data-button-color="#C89B3C"
-              data-button-font="#0D2137"
+              data-button-color="#0D2137"
+              data-button-font="#FFFFFF"
               data-background-color="rgba(255,255,255,0.95)"
             />
           </div>
@@ -80,7 +79,6 @@ export default function SearchPage() {
         <div className="container">
           <h2
             className="text-2xl font-bold text-[#0D2137] mb-2"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Greater Boston Listings
           </h2>
@@ -103,15 +101,14 @@ export default function SearchPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-[#0D2137]">
+      <section className="py-16 bg-white">
         <div className="container text-center">
           <h2
-            className="text-2xl font-bold text-white mb-3"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-2xl font-bold text-[#0D2137] mb-3"
           >
             Need Help Finding the Right Home?
           </h2>
-          <p className="text-white/70 font-body text-sm mb-6 max-w-lg mx-auto">
+          <p className="text-[#5B6270] font-body text-sm mb-6 max-w-lg mx-auto">
             Will knows every town across Greater Boston. Get personalized guidance and access to off-market opportunities.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">

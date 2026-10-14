@@ -19,20 +19,19 @@ const INTRO_VIDEO_ID = "CnKe6hT361g";
 function IntroVideo() {
   const [playing, setPlaying] = useState(false);
   return (
-    <section className="py-20 bg-[#FAF8F4]">
+    <section className="py-20 bg-[#F7F8FA]">
       <div className="container">
         <div className="text-center mb-10">
           <span className="gold-rule mx-auto" />
           <p className="section-label mb-2">Video Introduction</p>
           <h2
             className="text-4xl md:text-5xl font-bold text-[#0D2137]"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Hear From Will Directly
           </h2>
         </div>
         <div className="max-w-3xl mx-auto">
-          <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0D2137] shadow-xl">
+          <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#0D2137] shadow-xl">
             {playing ? (
               <iframe
                 src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}?autoplay=1`}
@@ -54,7 +53,7 @@ function IntroVideo() {
                   className="w-full h-full object-cover opacity-70 group-hover:opacity-60 transition-opacity"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
                     <Play className="w-8 h-8 text-[#0D2137] ml-1" />
                   </div>
                   <p className="text-white font-body text-sm mt-4 opacity-80">Watch Will's Introduction</p>
@@ -125,7 +124,7 @@ const stats = [
   { value: "$120M+", label: "In Transactions" },
   { value: "~20 yrs", label: "Experience" },
   { value: "5.0★", label: "Zillow Rating" },
-  { value: "48", label: "Reviews" },
+  { value: "50", label: "Reviews" },
   { value: "70+", label: "Towns Served" },
   { value: "101%", label: "Avg. Sale-to-List" },
 ];
@@ -148,27 +147,26 @@ export default function AboutPage() {
     }
   });
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
       {/* Hero */}
-      <section className="bg-[#0D2137] pt-28 pb-0">
+      <section className="bg-white pt-28 pb-0">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
             {/* Text */}
             <div className="py-12 lg:py-16 pr-0 lg:pr-12">
               <p className="section-label mb-3">Meet Your Agent</p>
               <h1
-                className="text-4xl md:text-5xl font-bold text-white mb-4"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-4"
               >
                 Will Shao
               </h1>
-              <p className="text-[#C89B3C] font-body text-lg font-semibold mb-2">
+              <p className="text-[#0D2137] font-body text-lg font-semibold mb-2">
                 REALTOR® · Buyer &amp; Seller Representation · REMAX Executive Realty
               </p>
-              <p className="text-white/80 font-body text-base leading-relaxed mb-6">
+              <p className="text-[#5B6270] font-body text-base leading-relaxed mb-6">
                 Nearly 20 years of experience. $120M+ in transactions.
                 Serving Greater Boston and MetroWest MA with integrity and expertise.
               </p>
@@ -195,18 +193,17 @@ export default function AboutPage() {
       </section>
 
       {/* Stats bar */}
-      <section className="bg-[#0D2137] py-8">
+      <section className="bg-white py-8">
         <div className="container">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4 text-center">
             {stats.map((s) => (
               <div key={s.label}>
                 <p
-                  className="text-2xl md:text-3xl font-bold text-[#C89B3C]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  className="text-2xl md:text-3xl font-bold text-[#0D2137]"
                 >
                   {s.value}
                 </p>
-                <p className="text-sm text-white/50 font-body mt-0.5">{s.label}</p>
+                <p className="text-sm text-[#5B6270] font-body mt-0.5">{s.label}</p>
               </div>
             ))}
           </div>
@@ -222,7 +219,6 @@ export default function AboutPage() {
               <p className="section-label mb-2">Will's Story</p>
               <h2
                 className="text-4xl font-bold text-[#0D2137] mb-6"
-                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 A Trusted Guide for Greater Boston Buyers &amp; Sellers
               </h2>
@@ -257,17 +253,16 @@ export default function AboutPage() {
 
             <div className="space-y-5">
               {/* Credentials */}
-              <div className="bg-[#FAF8F4] rounded-lg p-6 border border-gray-100">
+              <div className="bg-[#F4F6F8] rounded-2xl p-6 border border-gray-100">
                 <h3
                   className="text-lg font-bold text-[#0D2137] mb-4"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Credentials & Certifications
                 </h3>
                 <div className="space-y-2.5">
                   {credentials.map((c) => (
                     <div key={c} className="flex items-center gap-2.5">
-                      <CheckCircle className="w-4 h-4 text-[#C89B3C] shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-[#0D2137] shrink-0" />
                       <span className="text-base text-gray-600 font-body">{c}</span>
                     </div>
                   ))}
@@ -275,11 +270,10 @@ export default function AboutPage() {
               </div>
 
               {/* Languages */}
-              <div className="bg-[#0D2137] rounded-lg p-6">
-                <Globe className="w-6 h-6 text-[#C89B3C] mb-3" />
+              <div className="bg-[#0D2137] rounded-2xl p-6">
+                <Globe className="w-6 h-6 text-[#0D2137] mb-3" />
                 <h3
                   className="text-white font-bold text-lg mb-2"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Language
                 </h3>
@@ -295,13 +289,12 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-[#FAF8F4]">
+      <section className="py-20 bg-[#F7F8FA]">
         <div className="container">
           <div className="text-center mb-12">
             <span className="gold-rule mx-auto" />
             <h2
               className="text-4xl font-bold text-[#0D2137]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Will's Core Values
             </h2>
@@ -331,13 +324,12 @@ export default function AboutPage() {
             ].map((v) => {
               const Icon = v.icon;
               return (
-                <div key={v.title} className="bg-white rounded-lg p-6 border border-gray-100 text-center">
+                <div key={v.title} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
                   <div className="w-12 h-12 rounded-full bg-[#0D2137] flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-5 h-5 text-[#C89B3C]" />
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
                   <h3
                     className="font-bold text-[#0D2137] text-base mb-2"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {v.title}
                   </h3>
@@ -359,7 +351,6 @@ export default function AboutPage() {
             <p className="section-label mb-2">Client Reviews</p>
             <h2
               className="text-4xl font-bold text-[#0D2137]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               What Clients Say About Will
             </h2>
@@ -372,8 +363,8 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.map((t) => (
-              <div key={t.name} className="bg-[#FAF8F4] rounded-lg p-6 border border-gray-100 relative">
-                <Quote className="w-6 h-6 text-[#C89B3C]/30 absolute top-4 right-4" />
+              <div key={t.name} className="bg-[#F4F6F8] rounded-2xl p-6 border border-gray-100 relative">
+                <Quote className="w-6 h-6 text-[#0D2137]/30 absolute top-4 right-4" />
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(t.stars)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-[#C89B3C] text-[#C89B3C]" />
@@ -411,15 +402,14 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#0D2137]">
+      <section className="py-16 bg-white">
         <div className="container text-center">
           <h2
-            className="text-2xl md:text-3xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-2xl md:text-3xl font-bold text-[#0D2137] mb-4"
           >
             Ready to Work with Will?
           </h2>
-          <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
+          <p className="text-[#5B6270] font-body text-base mb-6 max-w-xl mx-auto">
             Whether you're buying your first home or selling a longtime family property,
             Will is ready to guide you every step of the way.
           </p>

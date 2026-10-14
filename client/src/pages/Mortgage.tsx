@@ -153,10 +153,10 @@ function SliderInput({
           onChange={(e) => setText(e.target.value)}
           onBlur={() => { setEditing(false); commit(text); }}
           onKeyDown={(e) => { if (e.key === "Enter") (e.target as HTMLInputElement).blur(); }}
-          className="w-32 text-right text-sm font-bold text-[#0D2137] font-body border border-gray-200 rounded px-2 py-1 focus:outline-none focus:border-[#C89B3C]"
+          className="w-32 text-right text-sm font-bold text-[#0D2137] font-body border border-gray-200 rounded-xl px-2 py-1 focus:outline-none focus:border-[#0D2137]"
         />
       </div>
-      <div className="text-sm text-[#C89B3C] font-body text-right mb-2">{format(value)}</div>
+      <div className="text-sm text-[#0D2137] font-body text-right mb-2">{format(value)}</div>
       <input
         type="range"
         className="calc-slider"
@@ -219,19 +219,19 @@ export default function MortgagePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <style>{SLIDER_CSS}</style>
       <Navigation />
       <FloatingCTA />
 
       {/* Hero */}
-      <section className="bg-[#0D2137] pt-32 pb-16">
+      <section className="bg-white pt-32 pb-16">
         <div className="container text-center">
           <p className="section-label mb-3">Planning Tools</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-4">
             Mortgage Calculator
           </h1>
-          <p className="text-white/70 font-body text-lg max-w-xl mx-auto">
+          <p className="text-[#5B6270] font-body text-lg max-w-xl mx-auto">
             Estimate your monthly payment, total interest, and amortization schedule for any
             Greater Boston home.
           </p>
@@ -243,8 +243,8 @@ export default function MortgagePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Calculator inputs */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
-                <h2 className="text-lg font-bold text-[#0D2137] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h2 className="text-lg font-bold text-[#0D2137] mb-6">
                   Loan Details
                 </h2>
                 <div className="space-y-6">
@@ -256,7 +256,7 @@ export default function MortgagePage() {
                     step={25000}
                     onChange={setHomePrice}
                     format={(v) => formatCurrency(v)}
-                    icon={<Home className="w-3.5 h-3.5 text-[#C89B3C]" />}
+                    icon={<Home className="w-3.5 h-3.5 text-[#0D2137]" />}
                   />
                   <SliderInput
                     label="Down Payment"
@@ -266,7 +266,7 @@ export default function MortgagePage() {
                     step={1}
                     onChange={setDownPct}
                     format={(v) => `${v}% (${formatCurrency((homePrice * v) / 100)})`}
-                    icon={<DollarSign className="w-3.5 h-3.5 text-[#C89B3C]" />}
+                    icon={<DollarSign className="w-3.5 h-3.5 text-[#0D2137]" />}
                   />
                   <SliderInput
                     label="Interest Rate"
@@ -276,7 +276,7 @@ export default function MortgagePage() {
                     step={0.125}
                     onChange={setRate}
                     format={(v) => `${v.toFixed(3)}%`}
-                    icon={<Percent className="w-3.5 h-3.5 text-[#C89B3C]" />}
+                    icon={<Percent className="w-3.5 h-3.5 text-[#0D2137]" />}
                   />
                   <div>
                     <label className="block text-sm font-semibold text-[#0D2137] mb-2 font-body uppercase tracking-wide">
@@ -287,10 +287,10 @@ export default function MortgagePage() {
                         <button
                           key={t}
                           onClick={() => setTerm(t)}
-                          className={`flex-1 py-2 rounded text-sm font-body font-medium transition-colors ${
+                          className={`flex-1 py-2 rounded-xl text-sm font-body font-medium transition-colors ${
                             term === t
                               ? "bg-[#0D2137] text-white"
-                              : "bg-[#FAF8F4] text-[#0D2137] hover:bg-gray-100"
+                              : "bg-[#F4F6F8] text-[#0D2137] hover:bg-gray-100"
                           }`}
                         >
                           {t} yr
@@ -301,8 +301,8 @@ export default function MortgagePage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
-                <h2 className="text-lg font-bold text-[#0D2137] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h2 className="text-lg font-bold text-[#0D2137] mb-6">
                   Monthly Costs
                 </h2>
                 <div className="space-y-5">
@@ -314,7 +314,7 @@ export default function MortgagePage() {
                     step={500}
                     onChange={setTax}
                     format={(v) => formatCurrency(v)}
-                    icon={<Calendar className="w-3.5 h-3.5 text-[#C89B3C]" />}
+                    icon={<Calendar className="w-3.5 h-3.5 text-[#0D2137]" />}
                   />
                   <SliderInput
                     label="Annual Home Insurance"
@@ -324,7 +324,7 @@ export default function MortgagePage() {
                     step={100}
                     onChange={setInsurance}
                     format={(v) => formatCurrency(v)}
-                    icon={<Home className="w-3.5 h-3.5 text-[#C89B3C]" />}
+                    icon={<Home className="w-3.5 h-3.5 text-[#0D2137]" />}
                   />
                   <SliderInput
                     label="Monthly HOA"
@@ -334,27 +334,27 @@ export default function MortgagePage() {
                     step={50}
                     onChange={setHoa}
                     format={(v) => formatCurrency(v)}
-                    icon={<DollarSign className="w-3.5 h-3.5 text-[#C89B3C]" />}
+                    icon={<DollarSign className="w-3.5 h-3.5 text-[#0D2137]" />}
                   />
                 </div>
               </div>
 
               {/* Amortization table */}
-              <div className="bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden">
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
                 <button
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#FAF8F4] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#F4F6F8] transition-colors"
                   onClick={() => setShowAmort(!showAmort)}
                 >
-                  <h2 className="text-lg font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  <h2 className="text-lg font-bold text-[#0D2137]">
                     Amortization Schedule
                   </h2>
-                  {showAmort ? <ChevronUp className="w-5 h-5 text-[#C89B3C]" /> : <ChevronDown className="w-5 h-5 text-[#C89B3C]" />}
+                  {showAmort ? <ChevronUp className="w-5 h-5 text-[#0D2137]" /> : <ChevronDown className="w-5 h-5 text-[#0D2137]" />}
                 </button>
                 {showAmort && (
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm font-body">
                       <thead>
-                        <tr className="bg-[#FAF8F4] border-y border-gray-100">
+                        <tr className="bg-[#F4F6F8] border-y border-gray-100">
                           <th className="text-left py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Year</th>
                           <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Principal</th>
                           <th className="text-right py-3 px-4 text-sm font-semibold text-gray-500 uppercase tracking-wide">Interest</th>
@@ -363,7 +363,7 @@ export default function MortgagePage() {
                       </thead>
                       <tbody>
                         {amortRows.map((row, i) => (
-                          <tr key={row.year} className={`border-b border-gray-50 ${i % 2 === 0 ? "" : "bg-[#FAF8F4]"}`}>
+                          <tr key={row.year} className={`border-b border-gray-50 ${i % 2 === 0 ? "" : "bg-[#F4F6F8]"}`}>
                             <td className="py-2.5 px-4 text-[#0D2137] font-medium">{row.year}</td>
                             <td className="py-2.5 px-4 text-right text-green-600">{formatCurrency(row.principal)}</td>
                             <td className="py-2.5 px-4 text-right text-red-500">{formatCurrency(row.interest)}</td>
@@ -380,11 +380,11 @@ export default function MortgagePage() {
             {/* Results sidebar */}
             <div className="space-y-5">
               {/* Monthly payment */}
-              <div className="bg-[#0D2137] rounded-lg p-6 text-center">
+              <div className="bg-[#0D2137] rounded-2xl p-6 text-center">
                 <p className="text-white/60 font-body text-sm uppercase tracking-wider mb-2">
                   Estimated Monthly Payment
                 </p>
-                <p className="text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <p className="text-4xl font-bold text-white mb-1">
                   {formatCurrency(result.total)}
                 </p>
                 <p className="text-white/50 text-sm font-body">/month</p>
@@ -405,7 +405,7 @@ export default function MortgagePage() {
               </div>
 
               {/* Loan summary */}
-              <div className="bg-white rounded-lg p-5 border border-gray-100 shadow-sm space-y-3">
+              <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm space-y-3">
                 {[
                   { label: "Loan Amount", value: formatCurrency(result.principal) },
                   { label: "Down Payment", value: `${formatCurrency(downPayment)} (${downPct}%)` },
@@ -420,7 +420,7 @@ export default function MortgagePage() {
               </div>
 
               {/* Pie chart */}
-              <div className="bg-white rounded-lg p-5 border border-gray-100 shadow-sm">
+              <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
                 <p className="text-sm font-bold text-[#0D2137] mb-3 font-body">Payment Breakdown</p>
                 <ResponsiveContainer width="100%" height={200}>
                   <PieChart>
@@ -436,9 +436,9 @@ export default function MortgagePage() {
               </div>
 
               {/* Pre-approval CTA */}
-              <div className="bg-[#FAF8F4] rounded-lg p-5 border border-gray-100">
-                <TrendingDown className="w-6 h-6 text-[#C89B3C] mb-3" />
-                <h3 className="font-bold text-[#0D2137] text-base mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-[#F4F6F8] rounded-2xl p-5 border border-gray-100">
+                <TrendingDown className="w-6 h-6 text-[#0D2137] mb-3" />
+                <h3 className="font-bold text-[#0D2137] text-base mb-2">
                   Get Pre-Approved
                 </h3>
                 <p className="text-sm text-gray-500 font-body mb-4">
@@ -458,7 +458,7 @@ export default function MortgagePage() {
                       value={leadForm[f.key as keyof typeof leadForm]}
                       onChange={(e) => setLeadForm({ ...leadForm, [f.key]: e.target.value })}
                       required={f.key !== "phone"}
-                      className="w-full border border-gray-200 rounded px-3 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
                     />
                   ))}
                   <button type="submit" className="btn-gold w-full text-sm text-center py-2.5">
@@ -466,9 +466,9 @@ export default function MortgagePage() {
                   </button>
                   <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
                     By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
-                    <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
+                    <Link href="/privacy-policy" className="underline hover:text-[#1A3A5C]">Privacy Policy</Link>{" "}
                     and{" "}
-                    <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.
+                    <Link href="/terms" className="underline hover:text-[#1A3A5C]">Terms &amp; Conditions</Link>.
                   </p>
                 </form>
               </div>

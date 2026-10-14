@@ -42,7 +42,7 @@ export default function PhotoComparisonCarousel() {
 
   return (
     <section
-      className="py-20 bg-[#0D2137]"
+      className="py-20 bg-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -52,12 +52,11 @@ export default function PhotoComparisonCarousel() {
           <span className="gold-rule mx-auto" />
           <p className="section-label mb-2">Professional Photography</p>
           <h2
-            className="text-3xl md:text-4xl font-bold text-white"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-3xl md:text-4xl font-bold text-[#0D2137]"
           >
             Does Marketing Matter?
           </h2>
-          <p className="text-white/60 font-body text-sm mt-3 max-w-xl mx-auto">
+          <p className="text-[#5B6270] font-body text-sm mt-3 max-w-xl mx-auto">
             The same home. The same rooms. Two very different results.
           </p>
         </div>
@@ -66,11 +65,11 @@ export default function PhotoComparisonCarousel() {
         <div className="flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
           <div className="flex flex-col gap-2">
             <div className="text-center">
-              <span className="inline-block bg-white/10 text-white/60 font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded">
+              <span className="inline-block bg-[#F4F6F8] text-[#5B6270] font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-xl">
                 Listed with Other Agent
               </span>
             </div>
-            <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/3] bg-[#1A3A5C]">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] bg-[#F4F6F8]">
               <img
                 key={pair.before}
                 src={pair.before}
@@ -78,18 +77,18 @@ export default function PhotoComparisonCarousel() {
                 className="w-full h-full object-cover opacity-0 transition-opacity duration-700"
                 onLoad={(e) => (e.currentTarget.style.opacity = "1")}
               />
-              <div className="absolute bottom-3 left-3 bg-black/60 text-white/70 text-sm font-body px-3 py-1.5 rounded">
+              <div className="absolute bottom-3 left-3 bg-black/60 text-white text-sm font-body px-3 py-1.5 rounded-xl">
                 346 days · Did not sell
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <div className="text-center">
-              <span className="inline-block bg-[#C89B3C] text-[#0D2137] font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded">
+              <span className="inline-block bg-[#0D2137] text-white font-body text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-xl">
                 Listed with Will Shao
               </span>
             </div>
-            <div className="relative rounded-lg overflow-hidden shadow-xl aspect-[4/3] bg-[#1A3A5C]">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] bg-[#F4F6F8]">
               <img
                 key={pair.after}
                 src={pair.after}
@@ -97,7 +96,7 @@ export default function PhotoComparisonCarousel() {
                 className="w-full h-full object-cover opacity-0 transition-opacity duration-700"
                 onLoad={(e) => (e.currentTarget.style.opacity = "1")}
               />
-              <div className="absolute bottom-3 left-3 bg-[#C89B3C] text-[#0D2137] text-sm font-body font-bold px-3 py-1.5 rounded">
+              <div className="absolute bottom-3 left-3 bg-[#0D2137] text-white text-sm font-body font-bold px-3 py-1.5 rounded-xl">
                 SOLD in 32 days
               </div>
             </div>
@@ -109,7 +108,7 @@ export default function PhotoComparisonCarousel() {
           {pairs.length > 1 && (
             <button
               onClick={prev}
-              className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#C89B3C] hover:text-[#C89B3C] transition-colors"
+              className="w-9 h-9 rounded-full border border-[#E6E9ED] flex items-center justify-center text-[#5B6270] hover:border-[#0D2137] hover:text-[#1A3A5C] transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -117,7 +116,7 @@ export default function PhotoComparisonCarousel() {
 
           {/* Room label + dots */}
           <div className="flex flex-col items-center gap-2">
-            <p className="text-white/40 font-body text-xs uppercase tracking-widest">
+            <p className="text-[#5B6270] font-body text-xs uppercase tracking-widest">
               {pair.room}
             </p>
             {pairs.length > 1 && (
@@ -127,7 +126,7 @@ export default function PhotoComparisonCarousel() {
                     key={i}
                     onClick={() => setCurrent(i)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      i === current ? "bg-[#C89B3C] w-6" : "bg-white/30 hover:bg-white/50"
+                      i === current ? "bg-[#0D2137] w-6" : "bg-[#F4F6F8] hover:bg-[#EEF1F4]"
                     }`}
                   />
                 ))}
@@ -138,7 +137,7 @@ export default function PhotoComparisonCarousel() {
           {pairs.length > 1 && (
             <button
               onClick={next}
-              className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-[#C89B3C] hover:text-[#C89B3C] transition-colors"
+              className="w-9 h-9 rounded-full border border-[#E6E9ED] flex items-center justify-center text-[#5B6270] hover:border-[#0D2137] hover:text-[#1A3A5C] transition-colors"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -146,16 +145,15 @@ export default function PhotoComparisonCarousel() {
         </div>
 
         {/* Outcome banner */}
-        <div className="mt-10 max-w-2xl mx-auto bg-[#1A3A5C] rounded-lg p-6 text-center">
+        <div className="mt-10 max-w-2xl mx-auto bg-[#F4F6F8] rounded-2xl p-6 text-center">
           <p
-            className="text-white font-bold text-lg mb-1"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-[#0D2137] font-bold text-lg mb-1"
           >
             Who you hire matters.
           </p>
-          <p className="text-white/60 font-body text-sm">
+          <p className="text-[#5B6270] font-body text-sm">
             This home sat on the market for 346 days with another agent and didn't sell.
-            Re-listed with Will Shao — <span className="text-[#C89B3C] font-semibold">sold in 32 days</span>.
+            Re-listed with Will Shao — <span className="text-[#0D2137] font-semibold">sold in 32 days</span>.
           </p>
         </div>
       </div>

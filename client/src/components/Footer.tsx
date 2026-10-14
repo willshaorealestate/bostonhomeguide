@@ -16,7 +16,6 @@ export default function Footer() {
             <div className="mb-4">
               <span
                 className="font-display text-2xl font-bold text-white"
-                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Boston<span style={{ color: "#C89B3C" }}>Home</span>Guide
               </span>

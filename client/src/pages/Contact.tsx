@@ -61,20 +61,19 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero */}
-      <section className="bg-[#0D2137] pt-32 pb-16">
+      <section className="bg-white pt-32 pb-16">
         <div className="container text-center">
           <p className="section-label mb-3">Get in Touch</p>
           <h1
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-4"
           >
             Let's Talk Real Estate
           </h1>
-          <p className="text-white/70 font-body text-lg max-w-xl mx-auto">
+          <p className="text-[#5B6270] font-body text-lg max-w-xl mx-auto">
             Whether you're buying, selling, or just exploring your options — Will responds
             within 1 business day.
           </p>
@@ -86,10 +85,9 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Contact info sidebar */}
             <div className="space-y-6">
-              <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                 <h3
                   className="text-lg font-bold text-[#0D2137] mb-5"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Contact Information
                 </h3>
@@ -98,12 +96,12 @@ export default function ContactPage() {
                     href="tel:+17814563541"
                     className="flex items-start gap-3 group"
                   >
-                    <div className="w-9 h-9 rounded-full bg-[#C89B3C]/10 flex items-center justify-center shrink-0">
-                      <Phone className="w-4 h-4 text-[#C89B3C]" />
+                    <div className="w-9 h-9 rounded-full bg-[#F4F6F8] flex items-center justify-center shrink-0">
+                      <Phone className="w-4 h-4 text-[#0D2137]" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Phone</p>
-                      <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
+                      <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#1A3A5C] transition-colors font-body">
                         (781) 456-3541
                       </p>
                     </div>
@@ -112,19 +110,19 @@ export default function ContactPage() {
                     href="mailto:will@willshao.com"
                     className="flex items-start gap-3 group"
                   >
-                    <div className="w-9 h-9 rounded-full bg-[#C89B3C]/10 flex items-center justify-center shrink-0">
-                      <Mail className="w-4 h-4 text-[#C89B3C]" />
+                    <div className="w-9 h-9 rounded-full bg-[#F4F6F8] flex items-center justify-center shrink-0">
+                      <Mail className="w-4 h-4 text-[#0D2137]" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Email</p>
-                      <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
+                      <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#1A3A5C] transition-colors font-body">
                         will@willshao.com
                       </p>
                     </div>
                   </a>
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#C89B3C]/10 flex items-center justify-center shrink-0">
-                      <MapPin className="w-4 h-4 text-[#C89B3C]" />
+                    <div className="w-9 h-9 rounded-full bg-[#F4F6F8] flex items-center justify-center shrink-0">
+                      <MapPin className="w-4 h-4 text-[#0D2137]" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Service Area</p>
@@ -134,8 +132,8 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#C89B3C]/10 flex items-center justify-center shrink-0">
-                      <Clock className="w-4 h-4 text-[#C89B3C]" />
+                    <div className="w-9 h-9 rounded-full bg-[#F4F6F8] flex items-center justify-center shrink-0">
+                      <Clock className="w-4 h-4 text-[#0D2137]" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Response Time</p>
@@ -146,10 +144,9 @@ export default function ContactPage() {
               </div>
 
               {/* Social links */}
-              <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                 <h3
                   className="text-base font-bold text-[#0D2137] mb-4"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Connect Online
                 </h3>
@@ -170,20 +167,20 @@ export default function ContactPage() {
                       className="flex items-center justify-between group"
                     >
                       <div>
-                        <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body">
+                        <p className="text-sm font-semibold text-[#0D2137] group-hover:text-[#1A3A5C] transition-colors font-body">
                           {s.label}
                         </p>
                         <p className="text-sm text-gray-400 font-body">{s.desc}</p>
                       </div>
-                      <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#C89B3C] transition-colors" />
+                      <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#1A3A5C] transition-colors" />
                     </a>
                   ))}
                 </div>
               </div>
 
               {/* Languages */}
-              <div className="bg-[#0D2137] rounded-lg p-6">
-                <p className="text-[#C89B3C] text-sm font-body uppercase tracking-wider mb-2">Languages</p>
+              <div className="bg-[#0D2137] rounded-2xl p-6">
+                <p className="text-[#0D2137] text-sm font-body uppercase tracking-wider mb-2">Languages</p>
                 <p className="text-white font-body text-base">
                   Will works primarily in <strong>English</strong> and has conversational <strong>Mandarin</strong> ability for clients who prefer some Mandarin communication.
                 </p>
@@ -192,10 +189,9 @@ export default function ContactPage() {
 
             {/* Contact form */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="bg-white rounded-lg p-8 border border-gray-100 shadow-sm">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
                 <h2
                   className="text-2xl font-bold text-[#0D2137] mb-6"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Send Will a Message
                 </h2>
@@ -210,7 +206,7 @@ export default function ContactPage() {
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
                         placeholder="Your full name"
                       />
                     </div>
@@ -223,7 +219,7 @@ export default function ContactPage() {
                         required
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -237,7 +233,7 @@ export default function ContactPage() {
                         type="tel"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
                         placeholder="(xxx) xxx-xxxx"
                       />
                     </div>
@@ -248,7 +244,7 @@ export default function ContactPage() {
                       <select
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                        className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
                       >
                         <option value="buying">Buying a Home</option>
                         <option value="selling">Selling My Home</option>
@@ -291,7 +287,7 @@ export default function ContactPage() {
                       required
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137] resize-none"
                       placeholder="Tell Will about your real estate goals..."
                     />
                   </div>
@@ -300,21 +296,20 @@ export default function ContactPage() {
                   </button>
                   <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
                     By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
-                    <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
+                    <Link href="/privacy-policy" className="underline hover:text-[#1A3A5C]">Privacy Policy</Link>{" "}
                     and{" "}
-                    <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.
+                    <Link href="/terms" className="underline hover:text-[#1A3A5C]">Terms &amp; Conditions</Link>.
                   </p>
                 </form>
               </div>
 
               {/* Calendar booking */}
-              <div className="bg-[#0D2137] rounded-lg p-8">
+              <div className="bg-[#0D2137] rounded-2xl p-8">
                 <div className="flex items-start gap-4">
-                  <Calendar className="w-8 h-8 text-[#C89B3C] shrink-0 mt-1" />
+                  <Calendar className="w-8 h-8 text-white shrink-0 mt-1" />
                   <div>
                     <h3
                       className="text-white font-bold text-xl mb-2"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
                     >
                       Book a Free Consultation
                     </h3>
@@ -326,7 +321,7 @@ export default function ContactPage() {
                       href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-gold text-sm"
+                      className="btn-light text-sm"
                     >
                       View Available Times →
                     </a>
@@ -335,8 +330,8 @@ export default function ContactPage() {
               </div>
 
               {/* Service area */}
-              <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
-                <h3 className="text-lg font-bold text-[#0D2137] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h3 className="text-lg font-bold text-[#0D2137] mb-4">
                   Service Area
                 </h3>
                 <p className="text-base text-gray-500 font-body mb-5">
@@ -351,15 +346,15 @@ export default function ContactPage() {
                     { region: "Southwest of Boston", towns: "Ashland, Hopkinton, Holliston, Milford, Hudson, Marlborough, Southborough, Westborough" },
                     { region: "South of Boston", towns: "Dover, Medfield, Canton, Milton, Norwood, Braintree, Sharon, Stoughton" },
                   ].map((area) => (
-                    <div key={area.region} className="bg-[#FAF8F4] rounded p-3">
-                      <p className="text-sm font-semibold text-[#C89B3C] font-body uppercase tracking-wide mb-1">{area.region}</p>
+                    <div key={area.region} className="bg-[#F4F6F8] rounded-xl p-3">
+                      <p className="text-sm font-semibold text-[#0D2137] font-body uppercase tracking-wide mb-1">{area.region}</p>
                       <p className="text-sm text-gray-500 font-body leading-relaxed">{area.towns}</p>
                     </div>
                   ))}
                 </div>
                 <a
                   href="/neighborhoods"
-                  className="mt-4 inline-block text-sm text-[#C89B3C] font-semibold font-body hover:underline"
+                  className="mt-4 inline-block text-sm text-[#0D2137] font-semibold font-body hover:underline"
                 >
                   Explore all 70+ neighborhood guides →
                 </a>
