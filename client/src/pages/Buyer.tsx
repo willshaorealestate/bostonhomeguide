@@ -11,12 +11,13 @@ import {
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import PullQuote from "@/components/PullQuote";
 import { toast } from "sonner";
 import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
+const HERO_IMAGE = "/images/towns/wellesley.jpeg";
 
 const buyingSteps = [
   {
@@ -183,7 +184,7 @@ export default function BuyerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -196,13 +197,12 @@ export default function BuyerPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/80" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
           <div className="max-w-2xl">
-            <p className="section-label mb-3">Buyer's Guide</p>
+            <p className="text-sm font-semibold text-white/85 mb-3">Buyer's Guide</p>
             <h1
               className="text-4xl md:text-5xl font-bold text-white mb-5"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Your Complete Guide to Buying a Home in Greater Boston
             </h1>
@@ -211,10 +211,10 @@ export default function BuyerPage() {
               of the home buying process in Massachusetts.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#questionnaire" className="btn-gold text-sm">
+              <a href="#questionnaire" className="btn-light text-sm">
                 Start My Home Search
               </a>
-              <Link href="/contact" className="btn-outline-gold text-sm">
+              <Link href="/contact" className="btn-outline-light text-sm">
                 Send a Message
               </Link>
             </div>
@@ -231,11 +231,10 @@ export default function BuyerPage() {
               { icon: "🤝", title: "Buyer-First Advocacy", desc: "As your dedicated buyer's agent, Will represents only your interests — never the seller's. Your goals come first." },
               { icon: "🗣️", title: "Clear Communication", desc: "Will keeps you informed at every step — plain-language explanations, no jargon, and always available to answer questions." },
             ].map((item) => (
-              <div key={item.title} className="text-center p-6 bg-[#FAF8F4] rounded-lg">
+              <div key={item.title} className="text-center p-6 bg-[#F4F6F8] rounded-2xl">
                 <div className="text-4xl mb-4">{item.icon}</div>
                 <h3
                   className="text-lg font-bold text-[#0D2137] mb-2"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   {item.title}
                 </h3>
@@ -246,15 +245,16 @@ export default function BuyerPage() {
         </div>
       </section>
 
+      <PullQuote quote="mengju" align="right" className="py-12 md:py-16" />
+
       {/* Buying Process */}
-      <section className="py-20 bg-[#FAF8F4]">
+      <section className="py-20 bg-[#F7F8FA]">
         <div className="container">
           <div className="text-center mb-14">
             <span className="gold-rule mx-auto" />
             <p className="section-label mb-2">The Buying Process</p>
             <h2
               className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-5"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               How We Guide You Home
             </h2>
@@ -269,7 +269,7 @@ export default function BuyerPage() {
                 {/* Agent */}
                 <div className="flex-1 bg-[#0D2137] text-white rounded-t-lg md:rounded-l-lg md:rounded-tr-none p-6 text-center">
                   <div className="text-3xl mb-2">🏃</div>
-                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Will & Team</p>
+                  <p className="font-display font-bold text-lg mb-1">Will & Team</p>
                   <p className="text-white/60 text-sm font-body mb-3">Search → Offer → Inspections</p>
                   <p className="text-white/80 text-sm font-body leading-relaxed">We find the home, craft the winning offer, and guide you through due diligence.</p>
                 </div>
@@ -282,7 +282,7 @@ export default function BuyerPage() {
                 {/* Attorney - P&S */}
                 <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
                   <div className="text-3xl mb-2">⚖️</div>
-                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Attorney</p>
+                  <p className="font-display font-bold text-lg mb-1">Attorney</p>
                   <p className="text-white/60 text-sm font-body mb-3">Purchase & Sale Agreement</p>
                   <p className="text-white/80 text-sm font-body leading-relaxed">Your attorney prepares and reviews the binding P&S contract.</p>
                 </div>
@@ -295,7 +295,7 @@ export default function BuyerPage() {
                 {/* Lender */}
                 <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
                   <div className="text-3xl mb-2">🏦</div>
-                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Lender</p>
+                  <p className="font-display font-bold text-lg mb-1">Lender</p>
                   <p className="text-white/60 text-sm font-body mb-3">Mortgage Commitment</p>
                   <p className="text-white/80 text-sm font-body leading-relaxed">Your lender takes the lead to secure your mortgage commitment.</p>
                 </div>
@@ -308,7 +308,7 @@ export default function BuyerPage() {
                 {/* Attorney - Closing */}
                 <div className="flex-1 bg-[#1A3A5C] text-white rounded-b-lg md:rounded-r-lg md:rounded-bl-none p-6 text-center">
                   <div className="text-3xl mb-2">🎉</div>
-                  <p className="font-display font-bold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Attorney</p>
+                  <p className="font-display font-bold text-lg mb-1">Attorney</p>
                   <p className="text-white/60 text-sm font-body mb-3">Closing Table</p>
                   <p className="text-white/80 text-sm font-body leading-relaxed">Your attorney handles the closing. You walk away with the keys.</p>
                 </div>
@@ -316,9 +316,9 @@ export default function BuyerPage() {
               </div>
 
               {/* Guide thread */}
-              <div className="mt-4 bg-[#C89B3C]/10 border border-[#C89B3C]/30 rounded-lg px-6 py-4 text-center">
+              <div className="mt-4 bg-[#F4F6F8] border border-[#0D2137]/30 rounded-2xl px-6 py-4 text-center">
                 <p className="text-[#0D2137] font-body text-sm">
-                  <span className="font-semibold text-[#C89B3C]">Will & his team</span> guide you through every handoff — keeping the process on track from the first showing all the way to the closing table.
+                  <span className="font-semibold text-[#0D2137]">Will & his team</span> guide you through every handoff — keeping the process on track from the first showing all the way to the closing table.
                 </p>
               </div>
             </div>
@@ -328,18 +328,17 @@ export default function BuyerPage() {
             {buyingSteps.map((step) => {
               const Icon = step.icon;
               return (
-                <div key={step.step} className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
+                <div key={step.step} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 rounded-full bg-[#0D2137] flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5 text-[#C89B3C]" />
+                      <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-sm font-body text-[#C89B3C] font-semibold tracking-wider">
+                      <p className="text-sm font-body text-[#0D2137] font-semibold tracking-wider">
                         STEP {step.step}
                       </p>
                       <h3
                         className="text-lg font-bold text-[#0D2137]"
-                        style={{ fontFamily: "'Playfair Display', serif" }}
                       >
                         {step.title}
                       </h3>
@@ -351,7 +350,7 @@ export default function BuyerPage() {
                   <ul className="space-y-1.5">
                     {step.tips.map((tip) => (
                       <li key={tip} className="flex items-start gap-2 text-sm text-gray-500 font-body">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#C89B3C] mt-0.5 shrink-0" />
+                        <CheckCircle className="w-3.5 h-3.5 text-[#0D2137] mt-0.5 shrink-0" />
                         {tip}
                       </li>
                     ))}
@@ -363,6 +362,8 @@ export default function BuyerPage() {
         </div>
       </section>
 
+      <PullQuote quote="mark" align="left" className="py-12 md:py-16" />
+
       {/* FAQ */}
       <section className="py-20 bg-white">
         <div className="container max-w-3xl">
@@ -370,28 +371,26 @@ export default function BuyerPage() {
             <span className="gold-rule mx-auto" />
             <h2
               className="text-4xl font-bold text-[#0D2137]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Frequently Asked Questions
             </h2>
           </div>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-100 rounded-lg overflow-hidden">
+              <div key={i} className="border border-gray-100 rounded-2xl overflow-hidden">
                 <button
-                  className="w-full flex items-center justify-between p-5 text-left bg-[#FAF8F4] hover:bg-[#F0EDE6] transition-colors"
+                  className="w-full flex items-center justify-between p-5 text-left bg-[#F4F6F8] hover:bg-[#EEF1F4] transition-colors"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
                   <span
                     className="font-semibold text-[#0D2137] text-base pr-4"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {faq.q}
                   </span>
                   {openFaq === i ? (
-                    <ChevronUp className="w-4 h-4 text-[#C89B3C] shrink-0" />
+                    <ChevronUp className="w-4 h-4 text-[#0D2137] shrink-0" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-[#C89B3C] shrink-0" />
+                    <ChevronDown className="w-4 h-4 text-[#0D2137] shrink-0" />
                   )}
                 </button>
                 {openFaq === i && (
@@ -410,10 +409,9 @@ export default function BuyerPage() {
         <div className="container max-w-2xl">
           <div className="text-center mb-10">
             <span className="gold-rule mx-auto" />
-            <p className="section-label mb-2">Get Started</p>
+            <p className="text-sm font-semibold text-[#C89B3C] mb-2">Get Started</p>
             <h2
               className="text-4xl font-bold text-white"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Tell Will About Your Home Search
             </h2>
@@ -423,7 +421,7 @@ export default function BuyerPage() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 space-y-5">
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">
@@ -434,7 +432,7 @@ export default function BuyerPage() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="Your full name"
                 />
               </div>
@@ -447,7 +445,7 @@ export default function BuyerPage() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="your@email.com"
                 />
               </div>
@@ -461,7 +459,7 @@ export default function BuyerPage() {
                   type="tel"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="(xxx) xxx-xxxx"
                 />
               </div>
@@ -472,7 +470,7 @@ export default function BuyerPage() {
                 <select
                   value={form.budget}
                   onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                 >
                   <option value="">Select range</option>
                   <option value="under-500k">Under $500K</option>
@@ -492,7 +490,7 @@ export default function BuyerPage() {
                   type="text"
                   value={form.towns}
                   onChange={(e) => setForm({ ...form, towns: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="e.g. Newton, Natick, Wellesley"
                 />
               </div>
@@ -503,7 +501,7 @@ export default function BuyerPage() {
                 <select
                   value={form.timeline}
                   onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                 >
                   <option value="">Select timeline</option>
                   <option value="asap">ASAP</option>
@@ -542,7 +540,7 @@ export default function BuyerPage() {
                 rows={3}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                 placeholder="School districts, commute requirements, must-haves..."
               />
             </div>
@@ -558,11 +556,10 @@ export default function BuyerPage() {
           </form>
 
           {/* Calendar booking */}
-          <div className="mt-8 bg-[#1A3A5C] rounded-lg p-6 text-center">
+          <div className="mt-8 bg-[#1A3A5C] rounded-2xl p-6 text-center">
             <Calendar className="w-8 h-8 text-[#C89B3C] mx-auto mb-3" />
             <h3
               className="text-white font-bold text-lg mb-2"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Prefer to Schedule Directly?
             </h3>
@@ -573,7 +570,7 @@ export default function BuyerPage() {
               href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold text-sm"
+              className="btn-light text-sm"
             >
               Book a Free Consultation
             </a>

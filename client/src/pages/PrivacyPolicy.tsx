@@ -17,15 +17,14 @@ export default function PrivacyPolicyPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       <section className="bg-[#0D2137] pt-32 pb-16">
         <div className="container text-center">
-          <p className="section-label mb-3">Legal</p>
+          <p className="text-sm font-semibold text-[#C89B3C] mb-3">Legal</p>
           <h1
             className="text-4xl md:text-5xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Privacy Policy
           </h1>
@@ -35,7 +34,7 @@ export default function PrivacyPolicyPage() {
 
       <section className="py-16">
         <div className="container max-w-3xl">
-          <div className="bg-white rounded-lg p-8 md:p-10 border border-gray-100 shadow-sm space-y-8 font-body text-base text-gray-600 leading-relaxed">
+          <div className="bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-sm space-y-8 font-body text-base text-gray-600 leading-relaxed">
             <p>
               This Privacy Policy explains how BostonHomeGuide.com ("we," "us," or "our"), operated by
               Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty (969 Concord Street,
@@ -45,7 +44,7 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Information We Collect
               </h2>
               <p>
@@ -57,7 +56,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 How We Use Your Information
               </h2>
               <p>We use the information you provide to:</p>
@@ -70,7 +69,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 We Do Not Sell Your Information
               </h2>
               <p>
@@ -89,7 +88,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 SMS / Text Messaging
               </h2>
               <p>
@@ -106,8 +105,8 @@ export default function PrivacyPolicyPage() {
               <p className="mt-3">
                 If you are experiencing issues with the messaging program, you can reply with the
                 keyword <strong>HELP</strong> for more assistance, or you can get help directly at{" "}
-                <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a>{" "}
-                or <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>.
+                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
+                or <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>.
               </p>
               <p className="mt-3">Carriers are not liable for delayed or undelivered messages.</p>
               <p className="mt-3">
@@ -123,7 +122,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Cookies & Analytics
               </h2>
               <p>
@@ -134,19 +133,19 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Your Choices
               </h2>
               <p>
                 You may ask us to delete your information, stop contacting you, or unsubscribe from
                 marketing emails or texts at any time by contacting us at{" "}
-                <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a>{" "}
-                or <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>.
+                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
+                or <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Changes to This Policy
               </h2>
               <p>
@@ -156,19 +155,19 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl font-bold text-[#0D2137] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-xl font-bold text-[#0D2137] mb-3">
                 Contact Us
               </h2>
               <p>
                 Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty<br />
                 969 Concord Street, Framingham, MA 01701<br />
-                <a href="mailto:will@willshao.com" className="text-[#C89B3C] hover:underline">will@willshao.com</a>{" "}
-                · <a href="tel:+17814563541" className="text-[#C89B3C] hover:underline">(781) 456-3541</a>
+                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
+                · <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>
               </p>
             </div>
 
             <p className="text-sm text-gray-400 pt-4 border-t border-gray-100">
-              See also our <Link href="/terms" className="text-[#C89B3C] hover:underline">Terms &amp; Conditions</Link>, including our SMS terms.
+              See also our <Link href="/terms" className="text-[#0D2137] hover:underline">Terms &amp; Conditions</Link>, including our SMS terms.
             </p>
           </div>
         </div>

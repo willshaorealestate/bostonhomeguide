@@ -16,7 +16,6 @@ export default function Footer() {
             <div className="mb-4">
               <span
                 className="font-display text-2xl font-bold text-white"
-                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Boston<span style={{ color: "#C89B3C" }}>Home</span>Guide
               </span>
@@ -29,7 +28,7 @@ export default function Footer() {
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className="w-4 h-4 fill-[#C89B3C] text-[#C89B3C]" />
               ))}
-              <span className="text-sm text-white/70 ml-1">5.0 · 48 Reviews</span>
+              <span className="text-sm text-white/70 ml-1">5.0 · 50 Reviews</span>
             </div>
             <p className="text-sm text-white/50">Zillow · Google · Realtor.com</p>
           </div>
@@ -140,10 +139,6 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-5">
-              <p className="text-sm text-white/40 mb-1">Language</p>
-              <p className="text-base text-white/60">English · Conversational Mandarin</p>
-            </div>
           </div>
         </div>
       </div>

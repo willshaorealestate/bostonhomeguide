@@ -8,29 +8,18 @@ import { useSEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { ArrowRight, Star } from "lucide-react";
 
-declare global {
-  namespace React.JSX {
-    interface IntrinsicElements {
-      "realscout-your-listings": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        "agent-encoded-id": string;
-        "sort-order": string;
-        "listing-status": string;
-        "property-types": string;
-      };
-    }
-  }
-}
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import FloatingCTA from "@/components/FloatingCTA";
+import PullQuote from "@/components/PullQuote";
 import { toast } from "sonner";
 import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
 const HEADSHOT = "/images/site/photo.jpg";
-const SELL_IMAGE = "/images/marketing/marketing-after-1.jpg";
+const SELL_IMAGE = "/images/towns/belmont.jpeg"; // same house as the Sell page banner
 
 const INK = "#0D2137";
 
@@ -96,20 +85,20 @@ function useRealScoutSearch() {
 }
 
 function SectionHeader({
-  id, title, subtitle, linkLabel, href,
-}: { id: string; title: string; subtitle?: string; linkLabel?: string; href?: string }) {
+  id, title, subtitle, linkLabel, href, dark = false,
+}: { id: string; title: string; subtitle?: string; linkLabel?: string; href?: string; dark?: boolean }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8 md:mb-10">
       <div>
-        <h2 id={id} className="font-body text-3xl md:text-4xl font-bold tracking-tight text-[#0D2137]">
+        <h2 id={id} className={`font-body text-3xl md:text-4xl font-bold tracking-tight ${dark ? "text-white" : "text-[#0D2137]"}`}>
           {title}
         </h2>
-        {subtitle && <p className="text-base md:text-lg text-[#5B6270] mt-2">{subtitle}</p>}
+        {subtitle && <p className={`text-base md:text-lg mt-2 ${dark ? "text-white/70" : "text-[#5B6270]"}`}>{subtitle}</p>}
       </div>
       {linkLabel && href && (
         <Link
           href={href}
-          className="inline-flex items-center gap-1.5 py-2 text-base font-semibold text-[#0D2137] hover:gap-2.5 transition-all shrink-0"
+          className={`inline-flex items-center gap-1.5 py-2 text-base font-semibold hover:gap-2.5 transition-all shrink-0 ${dark ? "text-[#E2C27A]" : "text-[#0D2137]"}`}
         >
           {linkLabel} <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
@@ -144,7 +133,7 @@ export default function HomePage() {
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "16:00" }
       ],
       "priceRange": "$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "48", "bestRating": "5" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "50", "bestRating": "5" },
       "areaServed": [
         "Boston","Newton","Wellesley","Brookline","Natick","Lexington","Needham","Framingham",
         "Waltham","Concord","Cambridge","Somerville","Arlington","Belmont","Medford","Quincy",
@@ -267,7 +256,7 @@ export default function HomePage() {
             <SectionHeader
               id="towns-heading"
               title="Explore communities"
-              subtitle="Schools, prices, and local character for 70+ towns."
+              subtitle="Schools, prices, and local character, town by town."
               linkLabel="See all towns"
               href="/neighborhoods"
             />
@@ -292,8 +281,10 @@ export default function HomePage() {
           </div>
         </section>
 
+        <PullQuote quote="jake" align="right" className="pt-16 md:pt-20" />
+
         {/* ── MARKET ── */}
-        <section aria-labelledby="market-heading" className="pt-20 md:pt-28">
+        <section aria-labelledby="market-heading" className="mt-20 md:mt-28 py-16 md:py-24 bg-[#0D2137]">
           <div className="container">
             <SectionHeader
               id="market-heading"
@@ -301,40 +292,16 @@ export default function HomePage() {
               subtitle={MARKET_PERIOD}
               linkLabel="Full market report"
               href="/market"
+              dark
             />
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {marketStats.map((s) => (
-                <div key={s.label} className="rounded-2xl bg-[#F4F6F8] p-6 md:p-8">
-                  <p className="text-3xl md:text-4xl font-bold tracking-tight">{s.value}</p>
-                  <p className="mt-1.5 text-sm md:text-base text-[#5B6270]">{s.label}</p>
+                <div key={s.label} className="rounded-2xl bg-white/[0.07] border border-white/10 p-6 md:p-8">
+                  <p className="text-3xl md:text-4xl font-bold tracking-tight text-white">{s.value}</p>
+                  <p className="mt-1.5 text-sm md:text-base text-white/70">{s.label}</p>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ── LISTINGS ── */}
-        <section aria-labelledby="listings-heading" className="pt-20 md:pt-28">
-          <div className="container">
-            <SectionHeader
-              id="listings-heading"
-              title="Will's listings"
-              subtitle="For sale, in contract, and recently sold."
-              linkLabel="Search all homes"
-              href="/search"
-            />
-            <style>{`
-              realscout-your-listings {
-                --rs-listing-divider-color: #E6E9ED;
-                width: 100%;
-              }
-            `}</style>
-            <realscout-your-listings
-              agent-encoded-id="QWdlbnQtMTUzMjg1"
-              sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
-              listing-status="For Sale,For Rent,In Contract,Sold"
-              property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
-            />
           </div>
         </section>
 
@@ -371,6 +338,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <PullQuote quote="shang" align="left" className="pt-16 md:pt-20" />
+
         {/* ── HOME VALUE ── */}
         <section aria-labelledby="sell-heading" className="pt-20 md:pt-28">
           <div className="container">
@@ -378,7 +347,7 @@ export default function HomePage() {
               <div className="aspect-[4/3] md:aspect-auto md:min-h-[400px]">
                 <img
                   src={SELL_IMAGE}
-                  alt="Living room photographed for one of Will's listings"
+                  alt="Brick colonial home with a landscaped front lawn"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
@@ -388,7 +357,7 @@ export default function HomePage() {
                   What's your home worth?
                 </h2>
                 <p className="mt-3 text-base md:text-lg text-[#5B6270]">
-                  A clear pricing plan and marketing built to sell.
+                  See an instant estimate based on recent sales near you.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
@@ -397,13 +366,13 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="fello-cta inline-flex items-center px-6 py-3.5 rounded-full bg-[#0D2137] text-white text-base font-semibold hover:bg-[#1A3A5C] transition-colors"
                   >
-                    Get a home valuation
+                    Check your home's value
                   </a>
                   <Link
                     href="/sell"
                     className="inline-flex items-center px-6 py-3.5 rounded-full border border-[#C9CFD6] bg-white text-base font-semibold hover:border-[#0D2137] transition-colors"
                   >
-                    How Will sells
+                    Seller's guide
                   </Link>
                 </div>
               </div>
@@ -412,36 +381,30 @@ export default function HomePage() {
         </section>
 
         {/* ── MEET WILL ── */}
-        <section aria-labelledby="will-heading" className="pt-20 md:pt-28">
+        <section aria-labelledby="will-heading" className="mt-20 md:mt-28 py-16 md:py-24 bg-[#0D2137]">
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-8 md:gap-14 items-center">
-              <div className="aspect-[4/5] max-w-sm w-full rounded-3xl overflow-hidden bg-[#EEF1F4]">
+              <div className="aspect-[4/5] max-w-sm w-full rounded-3xl overflow-hidden bg-[#1A3A5C]">
                 <img src={HEADSHOT} alt="Will Shao" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h2 id="will-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight">
-                  Hi, I'm Will.
+                <h2 id="will-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight text-white">
+                  Meet Will &amp; the team
                 </h2>
-                <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#3A4049]">
-                  Nearly 20 years and $120M+ in sales across Greater Boston. I keep clients informed so
-                  they can make confident decisions. English and Mandarin.
+                <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
+                  Nearly 20 years and $120M+ in sales across Greater Boston. We keep you informed at
+                  every step, market every home to stand out, and negotiate for the result you deserve.
                 </p>
-                <p className="mt-5 flex items-center gap-2 text-base">
+                <p className="mt-5 flex items-center gap-2 text-base text-white">
                   <Star className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" aria-hidden="true" />
                   <span className="font-semibold">5.0</span>
-                  <span className="text-[#5B6270]">· 48 reviews on Zillow and Google</span>
+                  <span className="text-white/70">· 50 reviews on Zillow and Google</span>
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center px-6 py-3.5 rounded-full bg-[#0D2137] text-white text-base font-semibold hover:bg-[#1A3A5C] transition-colors"
-                  >
-                    Talk to Will
+                  <Link href="/contact" className="btn-light text-base">
+                    Get in touch
                   </Link>
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center px-6 py-3.5 rounded-full border border-[#C9CFD6] text-base font-semibold hover:border-[#0D2137] transition-colors"
-                  >
+                  <Link href="/about" className="btn-outline-light text-base">
                     About &amp; reviews
                   </Link>
                 </div>
@@ -459,7 +422,7 @@ export default function HomePage() {
                   Thinking about a move?
                 </h2>
                 <p className="mt-3 text-base md:text-lg text-[#5B6270]">
-                  Tell Will what you're looking for. He'll reply within 24 hours.
+                  Tell us what you're looking for. We'll reply within 24 hours.
                 </p>
               </div>
               <form onSubmit={handleFubSubmit} className="rounded-3xl bg-[#F4F6F8] p-6 md:p-8 space-y-4">

@@ -5,14 +5,13 @@ import Footer from "@/components/Footer";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       <section className="min-h-[80vh] flex items-center justify-center">
         <div className="container text-center max-w-2xl py-24">
           <p
             className="text-[120px] md:text-[160px] font-bold leading-none text-[#0D2137]/10 select-none"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             404
           </p>
@@ -20,7 +19,6 @@ export default function NotFound() {
             <span className="gold-rule mx-auto" />
             <h1
               className="text-3xl md:text-4xl font-bold text-[#0D2137] mb-4 mt-4"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Page Not Found
             </h1>

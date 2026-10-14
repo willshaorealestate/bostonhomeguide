@@ -72,7 +72,7 @@ export default function ExitIntentPopup() {
         <div
           className="relative h-40 bg-[#0D2137] flex flex-col items-center justify-center text-center px-6"
           style={{
-            backgroundImage: `url(https://images.unsplash.com/photo-1549728968-5aaff42193ab?w=1400&q=80)`,
+            backgroundImage: `url(/images/towns/wellesley.jpeg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -84,7 +84,6 @@ export default function ExitIntentPopup() {
             </p>
             <h3
               className="text-white text-2xl font-bold leading-tight"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Before You Go...
             </h3>

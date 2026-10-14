@@ -11,6 +11,7 @@ import { useSEO } from "@/lib/seo";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import { QuoteCard } from "@/components/PullQuote";
 
 const WILL_BG = "/images/site/photo.jpg";
 const INTRO_VIDEO_ID = "CnKe6hT361g";
@@ -19,20 +20,19 @@ const INTRO_VIDEO_ID = "CnKe6hT361g";
 function IntroVideo() {
   const [playing, setPlaying] = useState(false);
   return (
-    <section className="py-20 bg-[#FAF8F4]">
+    <section className="py-20 bg-[#F7F8FA]">
       <div className="container">
         <div className="text-center mb-10">
           <span className="gold-rule mx-auto" />
           <p className="section-label mb-2">Video Introduction</p>
           <h2
             className="text-4xl md:text-5xl font-bold text-[#0D2137]"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Hear From Will Directly
           </h2>
         </div>
         <div className="max-w-3xl mx-auto">
-          <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0D2137] shadow-xl">
+          <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#0D2137] shadow-xl">
             {playing ? (
               <iframe
                 src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}?autoplay=1`}
@@ -54,7 +54,7 @@ function IntroVideo() {
                   className="w-full h-full object-cover opacity-70 group-hover:opacity-60 transition-opacity"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
                     <Play className="w-8 h-8 text-[#0D2137] ml-1" />
                   </div>
                   <p className="text-white font-body text-sm mt-4 opacity-80">Watch Will's Introduction</p>
@@ -70,13 +70,13 @@ function IntroVideo() {
 
 const testimonials = [
   {
-    name: "Jake Uminski",
+    name: "Jake U.",
     stars: 5,
     text: "Will Shao is attentive, knowledgeable, and tenacious. Not only did he curate an extensive list of homes catered to our needs and wants, but he was able to help us easily navigate all the complexities of the home buying process. We were so grateful to have Will in our corner!",
     date: "February 2025 · Google",
   },
   {
-    name: "Meng-Ju Wu",
+    name: "Meng-Ju W.",
     stars: 5,
     text: "This was our first time purchasing a single-family home and we were quite nervous. From the start, Will provided clear, honest guidance and helped us understand every step, from house hunting to closing. He took the time to visit every property and patiently explained the pros and cons of each one. What really stood out was the personal touch — Will was genuinely invested in helping us find not just a house, but the right home for our family.",
     date: "October 2024 · Google",
@@ -94,13 +94,13 @@ const testimonials = [
     date: "August 2012 · Yelp",
   },
   {
-    name: "Michael Baker",
+    name: "Michael B.",
     stars: 5,
     text: "Truly exceptional service by Will and his teammate Rachael. Our move was from out of state during an extremely difficult market for buyers. Will's expert advice, patience, and dedication to finding our next home made all the difference. His professionalism is second to none — I wouldn't want to purchase a home with anyone else.",
     date: "October 2021 · Google",
   },
   {
-    name: "Mark Fung-a-fat",
+    name: "Mark F.",
     stars: 5,
     text: "Will's mantra was 'be prepared, be patient, and be persistent — all of my clients will get a house.' I was skeptical but his calm confidence and sound advice landed us a home in one of the best school districts in a fantastic neighborhood. In fact, the seller said 'you got this house because of your agent — he really knows what he is doing.' Thank you Will for helping us remain calm in this nutty market.",
     date: "June 2021 · Google",
@@ -125,9 +125,9 @@ const stats = [
   { value: "$120M+", label: "In Transactions" },
   { value: "~20 yrs", label: "Experience" },
   { value: "5.0★", label: "Zillow Rating" },
-  { value: "48", label: "Reviews" },
-  { value: "70+", label: "Towns Served" },
-  { value: "103.4%", label: "Avg. List-to-Sale" },
+  { value: "50", label: "Reviews" },
+  { value: "200+", label: "Homes Sold" },
+  { value: "101%", label: "Avg. Sale-to-List" },
 ];
 
 export default function AboutPage() {
@@ -148,7 +148,7 @@ export default function AboutPage() {
     }
   });
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -158,10 +158,9 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
             {/* Text */}
             <div className="py-12 lg:py-16 pr-0 lg:pr-12">
-              <p className="section-label mb-3">Meet Your Agent</p>
+              <p className="text-sm font-semibold text-[#C89B3C] mb-3">Meet Your Agent</p>
               <h1
                 className="text-4xl md:text-5xl font-bold text-white mb-4"
-                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Will Shao
               </h1>
@@ -173,10 +172,10 @@ export default function AboutPage() {
                 Serving Greater Boston and MetroWest MA with integrity and expertise.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-gold text-sm">
+                <Link href="/contact" className="btn-light text-sm">
                   Send a Message
                 </Link>
-                <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+                <a href="tel:+17814563541" className="btn-outline-light text-sm">
                   Call (781) 456-3541
                 </a>
               </div>
@@ -202,7 +201,6 @@ export default function AboutPage() {
               <div key={s.label}>
                 <p
                   className="text-2xl md:text-3xl font-bold text-[#C89B3C]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   {s.value}
                 </p>
@@ -222,7 +220,6 @@ export default function AboutPage() {
               <p className="section-label mb-2">Will's Story</p>
               <h2
                 className="text-4xl font-bold text-[#0D2137] mb-6"
-                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 A Trusted Guide for Greater Boston Buyers &amp; Sellers
               </h2>
@@ -257,51 +254,35 @@ export default function AboutPage() {
 
             <div className="space-y-5">
               {/* Credentials */}
-              <div className="bg-[#FAF8F4] rounded-lg p-6 border border-gray-100">
+              <div className="bg-[#F4F6F8] rounded-2xl p-6 border border-gray-100">
                 <h3
                   className="text-lg font-bold text-[#0D2137] mb-4"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Credentials & Certifications
                 </h3>
                 <div className="space-y-2.5">
                   {credentials.map((c) => (
                     <div key={c} className="flex items-center gap-2.5">
-                      <CheckCircle className="w-4 h-4 text-[#C89B3C] shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-[#0D2137] shrink-0" />
                       <span className="text-base text-gray-600 font-body">{c}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Languages */}
-              <div className="bg-[#0D2137] rounded-lg p-6">
-                <Globe className="w-6 h-6 text-[#C89B3C] mb-3" />
-                <h3
-                  className="text-white font-bold text-lg mb-2"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  Language
-                </h3>
-                <p className="text-white/70 font-body text-base leading-relaxed">
-                  Will conducts all real estate services in <strong className="text-white">English</strong> and
-                  has conversational <strong className="text-white">Mandarin</strong> ability —
-                  helpful for clients who prefer some Mandarin communication during the process.
-                </p>
-              </div>
+              <QuoteCard quote="mark" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-[#FAF8F4]">
+      <section className="py-20 bg-[#F7F8FA]">
         <div className="container">
           <div className="text-center mb-12">
             <span className="gold-rule mx-auto" />
             <h2
               className="text-4xl font-bold text-[#0D2137]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Will's Core Values
             </h2>
@@ -331,13 +312,12 @@ export default function AboutPage() {
             ].map((v) => {
               const Icon = v.icon;
               return (
-                <div key={v.title} className="bg-white rounded-lg p-6 border border-gray-100 text-center">
+                <div key={v.title} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
                   <div className="w-12 h-12 rounded-full bg-[#0D2137] flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-5 h-5 text-[#C89B3C]" />
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
                   <h3
                     className="font-bold text-[#0D2137] text-base mb-2"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {v.title}
                   </h3>
@@ -359,7 +339,6 @@ export default function AboutPage() {
             <p className="section-label mb-2">Client Reviews</p>
             <h2
               className="text-4xl font-bold text-[#0D2137]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               What Clients Say About Will
             </h2>
@@ -367,13 +346,13 @@ export default function AboutPage() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" />
               ))}
-              <span className="text-[#0D2137] font-semibold font-body ml-1">5.0 · 48 Reviews on Zillow &amp; Google</span>
+              <span className="text-[#0D2137] font-semibold font-body ml-1">5.0 · 50 Reviews on Zillow &amp; Google</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.map((t) => (
-              <div key={t.name} className="bg-[#FAF8F4] rounded-lg p-6 border border-gray-100 relative">
-                <Quote className="w-6 h-6 text-[#C89B3C]/30 absolute top-4 right-4" />
+              <div key={t.name} className="bg-[#F4F6F8] rounded-2xl p-6 border border-gray-100 relative">
+                <Quote className="w-6 h-6 text-[#0D2137]/30 absolute top-4 right-4" />
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(t.stars)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-[#C89B3C] text-[#C89B3C]" />
@@ -415,7 +394,6 @@ export default function AboutPage() {
         <div className="container text-center">
           <h2
             className="text-2xl md:text-3xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Ready to Work with Will?
           </h2>
@@ -424,10 +402,10 @@ export default function AboutPage() {
             Will is ready to guide you every step of the way.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/contact" className="btn-gold text-sm">
+            <Link href="/contact" className="btn-light text-sm">
               Send a Message
             </Link>
-            <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+            <a href="tel:+17814563541" className="btn-outline-light text-sm">
               Call (781) 456-3541
             </a>
           </div>

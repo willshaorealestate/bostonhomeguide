@@ -1,6 +1,6 @@
 /*
  * Navigation.tsx — BostonHomeGuide.com
- * Refined Coastal Luxury: Sticky transparent-to-navy nav, gold accents, Playfair logo
+ * Clean white nav (transparent over the homepage hero), sans wordmark
  */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
@@ -67,9 +67,12 @@ export default function Navigation() {
     setOpenDropdown(null);
   }, [location]);
 
-  const navBg = isHome && !scrolled
-    ? "bg-transparent"
-    : "bg-[#0D2137] shadow-lg";
+  // Transparent over the homepage hero; white everywhere else (and once you scroll).
+  const solid = !(isHome && !scrolled && !mobileOpen);
+  const navBg = solid
+    ? "bg-white/95 backdrop-blur border-b border-[#E6E9ED]"
+    : "bg-transparent";
+  const linkColor = solid ? "text-[#0D2137] hover:text-[#1A3A5C]" : "text-white/90 hover:text-white";
 
   return (
     <header
@@ -81,12 +84,11 @@ export default function Navigation() {
           <Link href="/" className="flex items-center gap-2 group">
             <div className="flex flex-col leading-none">
               <span
-                className="font-display text-xl font-bold text-white tracking-tight"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className={`font-display text-xl font-bold tracking-tight ${solid ? "text-[#0D2137]" : "text-white"}`}
               >
                 Boston<span style={{ color: "#C89B3C" }}>Home</span>Guide
               </span>
-              <span className="text-[10px] font-body text-white/60 tracking-widest uppercase">
+              <span className={`text-[10px] font-body tracking-widest uppercase ${solid ? "text-[#5B6270]" : "text-white/70"}`}>
                 Greater Boston & MetroWest
               </span>
             </div>
@@ -104,14 +106,14 @@ export default function Navigation() {
                 >
                   <button
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                    className="flex items-center gap-1 px-3 py-2 text-white/90 hover:text-white text-base font-medium font-body transition-colors"
+                    className={`flex items-center gap-1 px-3 py-2 text-base font-medium font-body transition-colors ${linkColor}`}
                   >
                     {link.label}
                     <ChevronDown className="w-3.5 h-3.5" />
                   </button>
                   {openDropdown === link.label && (
                     <div className="absolute top-full left-0 w-52 pt-2 z-50">
-                      <div className="bg-white rounded shadow-xl border border-gray-100 py-1">
+                      <div className="bg-white rounded-2xl shadow-xl border border-[#E6E9ED] py-2">
                         {link.children.map((child) => {
                           const [path, hash] = child.href.split("#");
                           if (hash) {
@@ -125,7 +127,7 @@ export default function Navigation() {
                                     document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
                                   }, 120);
                                 }}
-                                className="block w-full text-left px-4 py-2.5 text-base text-[#0D2137] hover:bg-[#FAF8F4] hover:text-[#C89B3C] font-body transition-colors"
+                                className="block w-full text-left px-4 py-2.5 text-base text-[#0D2137] hover:bg-[#F4F6F8] font-body transition-colors"
                               >
                                 {child.label}
                               </button>
@@ -135,7 +137,7 @@ export default function Navigation() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-4 py-2.5 text-base text-[#0D2137] hover:bg-[#FAF8F4] hover:text-[#C89B3C] font-body transition-colors"
+                              className="block px-4 py-2.5 text-base text-[#0D2137] hover:bg-[#F4F6F8] font-body transition-colors"
                             >
                               {child.label}
                             </Link>
@@ -149,10 +151,10 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-white/90 hover:text-white text-base font-medium font-body transition-colors relative group"
+                  className={`px-3 py-2 text-base font-medium font-body transition-colors relative group ${linkColor}`}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#C89B3C] scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                  <span className={`absolute bottom-0 left-3 right-3 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left ${solid ? "bg-[#0D2137]" : "bg-white"}`} />
                 </Link>
               )
             )}
@@ -162,14 +164,16 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="tel:+17814563541"
-              className="flex items-center gap-1.5 text-white/80 hover:text-white text-base font-body transition-colors"
+              className={`flex items-center gap-1.5 text-base font-body transition-colors ${linkColor}`}
             >
               <Phone className="w-3.5 h-3.5" />
               (781) 456-3541
             </a>
             <Link
               href="/contact"
-              className="btn-gold text-sm py-2 px-4"
+              className={`text-sm font-semibold rounded-full py-2.5 px-5 transition-colors ${
+                solid ? "bg-[#0D2137] text-white hover:bg-[#1A3A5C]" : "bg-white text-[#0D2137] hover:bg-[#EEF1F4]"
+              }`}
             >
               Talk to Will
             </Link>
@@ -177,7 +181,7 @@ export default function Navigation() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden text-white p-2"
+            className={`lg:hidden p-2 ${solid ? "text-[#0D2137]" : "text-white"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -188,13 +192,13 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#0D2137] border-t border-white/10">
+        <div className="lg:hidden bg-white border-t border-[#E6E9ED]">
           <div className="container py-4 flex flex-col gap-1">
             {navLinks.map((link) =>
               link.children ? (
                 <div key={link.label}>
                   <button
-                    className="w-full flex items-center justify-between px-3 py-3 text-white/90 text-base font-medium font-body"
+                    className="w-full flex items-center justify-between px-3 py-3 text-[#0D2137] text-base font-medium font-body"
                     onClick={() =>
                       setOpenDropdown(openDropdown === link.label ? null : link.label)
                     }
@@ -219,7 +223,7 @@ export default function Navigation() {
                                   document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
                                 }, 120);
                               }}
-                              className="px-3 py-2.5 text-base text-left text-white/70 hover:text-[#C89B3C] font-body"
+                              className="px-3 py-2.5 text-base text-left text-[#3A4049] hover:text-[#0D2137] font-body"
                             >
                               {child.label}
                             </button>
@@ -229,7 +233,7 @@ export default function Navigation() {
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="px-3 py-2.5 text-base text-white/70 hover:text-[#C89B3C] font-body"
+                            className="px-3 py-2.5 text-base text-[#3A4049] hover:text-[#0D2137] font-body"
                           >
                             {child.label}
                           </Link>
@@ -242,16 +246,16 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-3 text-white/90 hover:text-[#C89B3C] text-base font-medium font-body transition-colors"
+                  className="px-3 py-3 text-[#0D2137] hover:text-[#1A3A5C] text-base font-medium font-body transition-colors"
                 >
                   {link.label}
                 </Link>
               )
             )}
-            <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-3">
+            <div className="mt-4 pt-4 border-t border-[#E6E9ED] flex flex-col gap-3">
               <a
                 href="tel:+17814563541"
-                className="flex items-center gap-2 text-white/80 text-base font-body"
+                className="flex items-center gap-2 text-[#0D2137] text-base font-body"
               >
                 <Phone className="w-4 h-4" />
                 (781) 456-3541

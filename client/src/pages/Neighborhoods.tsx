@@ -8,13 +8,14 @@ import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, Exter
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import { QuoteCard } from "@/components/PullQuote";
 import { toast } from "sonner";
 import { isValidEmail } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 
-const NEIGHBORHOOD_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
+const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
 // TypeScript declaration for RealScout web component
 declare global {
@@ -82,10 +83,10 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
 
   if (!neighborhood) {
     return (
-      <div className="min-h-screen bg-[#FAF8F4]">
+      <div className="min-h-screen bg-white">
         <Navigation />
         <div className="container pt-40 pb-20 text-center">
-          <h1 className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-3xl font-bold text-[#0D2137]">
             Neighborhood Not Found
           </h1>
           <Link href="/neighborhoods" className="mt-6 btn-gold inline-block">
@@ -109,7 +110,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -118,13 +119,13 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         className="relative pt-32 pb-20 min-h-[45vh] flex items-center"
         style={{ backgroundImage: `url(${neighborhood.img})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/75" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
           <Link href="/neighborhoods" className="flex items-center gap-2 text-white/60 hover:text-white text-sm font-body mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" /> All Neighborhoods
           </Link>
-          <p className="section-label mb-2">{neighborhood.region}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold text-white/85 mb-2">{neighborhood.region}</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {neighborhood.name}, MA
           </h1>
           <p className="text-white/80 font-body text-lg max-w-xl">{neighborhood.description}</p>
@@ -145,7 +146,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
               return (
                 <div key={s.label}>
                   <Icon className="w-5 h-5 text-[#C89B3C] mx-auto mb-1.5" />
-                  <p className="text-2xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{s.value}</p>
+                  <p className="text-2xl font-bold text-white">{s.value}</p>
                   <p className="text-sm text-white/50 font-body mt-0.5">{s.label}</p>
                 </div>
               );
@@ -160,14 +161,14 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 space-y-8">
               {/* Highlights */}
-              <div className="bg-white rounded-lg p-6 border border-gray-100">
-                <h2 className="text-xl font-bold text-[#0D2137] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-white rounded-2xl p-6 border border-gray-100">
+                <h2 className="text-xl font-bold text-[#0D2137] mb-4">
                   Why {neighborhood.name}?
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {neighborhood.highlights.map((h) => (
                     <div key={h} className="flex items-center gap-2">
-                      <Star className="w-4 h-4 text-[#C89B3C] shrink-0" />
+                      <Star className="w-4 h-4 text-[#0D2137] shrink-0" />
                       <span className="text-base text-gray-600 font-body">{h}</span>
                     </div>
                   ))}
@@ -175,26 +176,26 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
               </div>
 
               {/* Market data */}
-              <div className="bg-white rounded-lg p-6 border border-gray-100">
-                <h2 className="text-xl font-bold text-[#0D2137] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-white rounded-2xl p-6 border border-gray-100">
+                <h2 className="text-xl font-bold text-[#0D2137] mb-4">
                   {neighborhood.name} Real Estate Market
                 </h2>
-                <div className="bg-[#FAF8F4] rounded p-4 mb-4 inline-block">
-                  <p className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{neighborhood.medianPrice}</p>
+                <div className="bg-[#F4F6F8] rounded-xl p-4 mb-4 inline-block">
+                  <p className="text-2xl font-bold text-[#0D2137]">{neighborhood.medianPrice}</p>
                   <p className="text-sm text-gray-500 font-body mt-0.5">Average Home Value</p>
                 </div>
                 <p className="text-sm text-gray-500 font-body">
                   For current pricing trends, inventory, and days on market,{" "}
-                  <a href="/market" className="text-[#C89B3C] font-semibold hover:underline">
+                  <a href="/market" className="text-[#0D2137] font-semibold hover:underline">
                     see the Monthly Market Report
                   </a>.
                 </p>
               </div>
 
               {/* Live listings from RealScout */}
-              <div className="bg-white rounded-lg p-6 border border-gray-100">
+              <div className="bg-white rounded-2xl p-6 border border-gray-100">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  <h2 className="text-xl font-bold text-[#0D2137]">
                     Homes for Sale in Greater Boston and MetroWest
                   </h2>
                   {neighborhood.geoId && (
@@ -202,13 +203,13 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                       href={`https://willshao.realscout.com/homesearch/map?geo_type=township&geo_id=${neighborhood.geoId}&for_sale=1&for_rent=0`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#C89B3C] text-sm font-semibold font-body hover:underline"
+                      className="text-[#0D2137] text-sm font-semibold font-body hover:underline"
                     >
                       View All →
                     </a>
                   )}
                   {!neighborhood.geoId && (
-                    <Link href="/search" className="text-[#C89B3C] text-sm font-semibold font-body hover:underline">
+                    <Link href="/search" className="text-[#0D2137] text-sm font-semibold font-body hover:underline">
                       View All →
                     </Link>
                   )}
@@ -232,8 +233,8 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
             {/* Sidebar */}
             <div className="space-y-5">
               {/* Lead capture */}
-              <div className="bg-[#0D2137] rounded-lg p-6">
-                <h3 className="text-white font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-[#0D2137] rounded-2xl p-6">
+                <h3 className="text-white font-bold text-lg mb-3">
                   Get New Listings in {neighborhood.name}
                 </h3>
                 <p className="text-white/60 text-base font-body mb-4">
@@ -246,17 +247,17 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
                     required
-                    className="w-full bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
+                    className="w-full bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-white/60"
                   />
-                  <button type="submit" className="btn-gold w-full text-sm text-center">
+                  <button type="submit" className="btn-light w-full text-sm text-center">
                     Get Listing Alerts
                   </button>
                 </form>
               </div>
 
               {/* Talk to Will */}
-              <div className="bg-white rounded-lg p-6 border border-gray-100">
-                <h3 className="text-[#0D2137] font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-white rounded-2xl p-6 border border-gray-100">
+                <h3 className="text-[#0D2137] font-bold text-lg mb-3">
                   Ask Will About {neighborhood.name}
                 </h3>
                 <p className="text-gray-500 text-base font-body mb-4">
@@ -272,10 +273,12 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 </div>
               </div>
 
+              <QuoteCard quote="baker" />
+
               {/* Town resources */}
               {neighborhood.resources && neighborhood.resources.length > 0 && (
-                <div className="bg-white rounded-lg p-6 border border-gray-100">
-                  <h3 className="text-[#0D2137] font-bold text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <div className="bg-white rounded-2xl p-6 border border-gray-100">
+                  <h3 className="text-[#0D2137] font-bold text-base mb-3">
                     {neighborhood.name} Resources
                   </h3>
                   <div className="space-y-2.5">
@@ -287,10 +290,10 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                         rel="noopener noreferrer"
                         className="flex items-center justify-between group"
                       >
-                        <span className="text-sm text-[#0D2137] group-hover:text-[#C89B3C] transition-colors font-body font-medium">
+                        <span className="text-sm text-[#0D2137] group-hover:text-[#1A3A5C] transition-colors font-body font-medium">
                           {r.label}
                         </span>
-                        <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#C89B3C] transition-colors shrink-0" />
+                        <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#1A3A5C] transition-colors shrink-0" />
                       </a>
                     ))}
                   </div>
@@ -298,8 +301,8 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
               )}
 
               {/* Nearby towns */}
-              <div className="bg-[#FAF8F4] rounded-lg p-6 border border-gray-100">
-                <h3 className="text-[#0D2137] font-bold text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div className="bg-[#F4F6F8] rounded-2xl p-6 border border-gray-100">
+                <h3 className="text-[#0D2137] font-bold text-base mb-3">
                   Explore Nearby Towns
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -311,7 +314,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                       <Link
                         key={n.slug}
                         href={`/neighborhoods/${n.slug}`}
-                        className="text-xs text-[#0D2137] bg-white border border-gray-200 px-3 py-1.5 rounded hover:border-[#C89B3C] hover:text-[#C89B3C] transition-colors font-body"
+                        className="text-xs text-[#0D2137] bg-white border border-gray-200 px-3 py-1.5 rounded-xl hover:border-[#0D2137] hover:text-[#1A3A5C] transition-colors font-body"
                       >
                         {n.name}
                       </Link>
@@ -353,7 +356,7 @@ export default function NeighborhoodsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -362,14 +365,14 @@ export default function NeighborhoodsPage() {
         className="relative pt-32 pb-20 min-h-[40vh] flex items-center"
         style={{ backgroundImage: `url(${NEIGHBORHOOD_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/80" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container text-center">
-          <p className="section-label mb-3">Explore Greater Boston</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold text-white/85 mb-3">Explore Greater Boston</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">
             Neighborhood Guides
           </h1>
           <p className="text-white/80 font-body text-lg max-w-2xl mx-auto mb-8">
-            Like ice cream flavors, every Greater Boston town has its own unique character. Explore hyper-local guides for 70+ communities — with school ratings, market data, commute times, and local flavor.
+            Like ice cream flavors, every Greater Boston town has its own unique character. Explore hyper-local guides with school ratings, market data, commute times, and local flavor.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
             <div className="flex-1 relative">
@@ -379,7 +382,7 @@ export default function NeighborhoodsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search a town..."
-                className="w-full pl-10 pr-4 py-3 rounded text-[#0D2137] font-body text-sm focus:outline-none"
+                className="w-full pl-10 pr-4 py-3.5 rounded-full bg-white text-[#0D2137] font-body text-base focus:outline-none"
               />
             </div>
           </div>
@@ -393,10 +396,10 @@ export default function NeighborhoodsPage() {
             <button
               key={r}
               onClick={() => setRegion(r)}
-              className={`px-4 py-1.5 rounded text-sm font-body font-medium transition-colors ${
+              className={`px-4 py-1.5 rounded-xl text-sm font-body font-medium transition-colors ${
                 region === r
                   ? "bg-[#0D2137] text-white"
-                  : "bg-[#FAF8F4] text-[#0D2137] hover:bg-gray-100"
+                  : "bg-[#F4F6F8] text-[#0D2137] hover:bg-gray-100"
               }`}
             >
               {r}
@@ -414,7 +417,7 @@ export default function NeighborhoodsPage() {
               <Link
                 key={n.slug}
                 href={`/neighborhoods/${n.slug}`}
-                className="group bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm card-hover"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm card-hover"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -424,13 +427,13 @@ export default function NeighborhoodsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0D2137]/70 to-transparent" />
                   <div className="absolute bottom-3 left-3">
-                    <span className="text-xs bg-[#C89B3C] text-[#0D2137] font-bold px-2 py-0.5 rounded font-body">
+                    <span className="text-xs bg-[#0D2137] text-white font-bold px-2 py-0.5 rounded-xl font-body">
                       {n.region}
                     </span>
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-[#0D2137] text-base mb-2 group-hover:text-[#1976A8] transition-colors" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  <h3 className="font-bold text-[#0D2137] text-base mb-2 group-hover:text-[#1976A8] transition-colors">
                     {n.name}
                   </h3>
                   <div className="space-y-1">
@@ -464,13 +467,13 @@ export default function NeighborhoodsPage() {
       {/* CTA */}
       <section className="py-16 bg-[#0D2137]">
         <div className="container text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Not Sure Which Town is Right for You?
           </h2>
           <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
             Every town has its own unique flavor — and Will knows them all. With nearly 20 years exploring Greater Boston's communities, he'll help you find the one that's just right for your family.
           </p>
-          <Link href="/contact" className="btn-gold text-sm">
+          <Link href="/contact" className="btn-light text-sm">
             Ask About a Neighborhood
           </Link>
         </div>

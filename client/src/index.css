@@ -2,7 +2,7 @@
  * BostonHomeGuide.com — Design System
  * Philosophy: Refined Coastal Luxury
  * Full-bleed photography, generous whitespace, Navy/Gold/Cream palette
- * Typography: Playfair Display (headings) + DM Sans (body)
+ * Typography: DM Sans (headings and body)
  * Diagonal clip-path section transitions, parallax hero, staggered card animations
  */
 
@@ -105,7 +105,8 @@
     font-family: 'DM Sans', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -151,7 +152,8 @@
 
   /* Brand utility classes */
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
   }
 
   .font-body {
@@ -176,11 +178,7 @@
 
   /* Gold accent line */
   .gold-rule {
-    display: block;
-    width: 3rem;
-    height: 2px;
-    background-color: #C89B3C;
-    margin-bottom: 1rem;
+    display: none;
   }
 
   /* Section diagonal divider */
@@ -201,58 +199,67 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(13, 33, 55, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(13, 33, 55, 0.08);
   }
 
-  /* Gold button */
-  .btn-gold {
-    background-color: #C89B3C;
-    color: #0D2137;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    padding: 0.75rem 1.75rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    display: inline-block;
-  }
-  .btn-gold:hover {
-    background-color: #D4AF5A;
-    transform: translateY(-1px);
-  }
-
-  /* Navy button */
+  /* Primary button (navy pill). Kept as .btn-gold so existing markup picks up the new style. */
+  .btn-gold,
   .btn-navy {
     background-color: #0D2137;
-    color: #FAF8F4;
+    color: #FFFFFF;
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    padding: 0.75rem 1.75rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
     display: inline-block;
   }
+  .btn-gold:hover,
   .btn-navy:hover {
     background-color: #1A3A5C;
-    transform: translateY(-1px);
   }
 
-  /* Outline button */
+  /* Secondary button (outline pill) */
   .btn-outline-gold {
-    background-color: transparent;
-    color: #C89B3C;
-    border: 1.5px solid #C89B3C;
+    background-color: #FFFFFF;
+    color: #0D2137;
+    border: 1px solid #C9CFD6;
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    padding: 0.75rem 1.75rem;
-    border-radius: 0.25rem;
-    transition: all 0.2s ease;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    transition: border-color 0.2s ease;
     display: inline-block;
   }
   .btn-outline-gold:hover {
-    background-color: #C89B3C;
-    color: #0D2137;
+    border-color: #0D2137;
   }
+
+  /* Buttons on a photo or dark background */
+  .btn-light {
+    background-color: #FFFFFF;
+    color: #0D2137;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+  }
+  .btn-light:hover { background-color: #EEF1F4; }
+  .btn-outline-light {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+  }
+  .btn-outline-light:hover { background-color: rgba(255, 255, 255, 0.12); }
 
   /* Scrolling ticker */
   @keyframes ticker {
@@ -287,16 +294,15 @@
   /* Section label */
   .section-label {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #C89B3C;
+    color: #5B6270;
   }
 
   /* Prose overrides */
   .prose h2, .prose h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.02em;
     color: #0D2137;
   }
 }

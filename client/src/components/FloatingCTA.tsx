@@ -23,7 +23,6 @@ export default function FloatingCTA() {
         <div className="bg-white rounded-lg shadow-2xl border border-gray-100 p-4 w-56 animate-fade-up">
           <p
             className="text-[#0D2137] font-semibold text-sm mb-3"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Connect with Will
           </p>

@@ -73,7 +73,7 @@ function CaseStudyVideo() {
             className="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+            <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
               <Play className="w-8 h-8 text-[#0D2137] ml-1" />
             </div>
           </div>
@@ -84,7 +84,7 @@ function CaseStudyVideo() {
 }
 
 const inputClass =
-  "w-full border border-gray-200 rounded-lg px-4 py-3 text-base text-[#0D2137] focus:outline-none focus:border-[#C89B3C]";
+  "w-full border border-gray-200 rounded-2xl px-4 py-3 text-base text-[#0D2137] focus:outline-none focus:border-[#0D2137]";
 const labelClass = "block text-sm font-semibold text-[#0D2137] mb-1.5 uppercase tracking-wide";
 
 function ListingReviewForm() {
@@ -134,7 +134,6 @@ function ListingReviewForm() {
       <div className="bg-white rounded-2xl p-8 md:p-10 text-center">
         <p
           className="text-[#0D2137] text-2xl md:text-3xl font-bold mb-3"
-          style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Thanks, {form.name.trim().split(" ")[0]}.
         </p>
@@ -186,15 +185,15 @@ function ListingReviewForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full bg-[#C89B3C] hover:bg-[#b8893a] text-[#0D2137] font-bold px-8 py-4 rounded-xl text-lg transition-colors disabled:opacity-60"
+        className="w-full bg-[#0D2137] hover:bg-[#1A3A5C] text-white rounded-full font-bold px-8 py-4 rounded-xl text-lg transition-colors disabled:opacity-60"
       >
         {status === "sending" ? "Sending..." : "Find Out Why It Didn't Sell"}
       </button>
       <p className="text-xs text-gray-400 text-center leading-relaxed">
         By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
-        <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
+        <Link href="/privacy-policy" className="underline hover:text-[#1A3A5C]">Privacy Policy</Link>{" "}
         and{" "}
-        <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.
+        <Link href="/terms" className="underline hover:text-[#1A3A5C]">Terms &amp; Conditions</Link>.
       </p>
     </form>
   );
@@ -244,7 +243,6 @@ export default function SoldPage() {
 
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-balance mt-6 mb-4"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Your home didn't sell. Let's find out why.
             </h1>
@@ -253,7 +251,7 @@ export default function SoldPage() {
               honestly which one it was.
             </p>
 
-            <p className="text-2xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <p className="text-2xl font-bold mb-3">
               Same house. <span className="text-[#C89B3C]">A different result.</span>
             </p>
             <div className="grid grid-cols-2 gap-2.5 md:gap-3.5 mb-8">
@@ -274,7 +272,6 @@ export default function SoldPage() {
                   <figcaption className="absolute inset-x-0 bottom-0 px-3 pt-7 pb-2.5 md:px-4 md:pt-9 md:pb-3.5 bg-gradient-to-b from-transparent via-[#0D2137]/85 to-[#0D2137]/95">
                     <span
                       className={`block text-3xl md:text-4xl font-bold leading-none ${r.sold ? "text-[#C89B3C]" : ""}`}
-                      style={{ fontFamily: "'Playfair Display', serif" }}
                     >
                       {r.days}
                     </span>
@@ -286,7 +283,7 @@ export default function SoldPage() {
 
             <a
               href="#review"
-              className="inline-block bg-[#C89B3C] hover:bg-[#b8893a] text-[#0D2137] font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-xl"
+              className="inline-block bg-white hover:bg-[#EEF1F4] text-[#0D2137] rounded-full font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-xl"
             >
               Find Out Why It Didn't Sell
             </a>
@@ -311,12 +308,11 @@ export default function SoldPage() {
       <section className="py-24 md:py-32 bg-white px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-[#C89B3C] uppercase tracking-[0.2em] text-sm font-semibold mb-5">
+            <p className="text-[#0D2137] uppercase tracking-[0.2em] text-sm font-semibold mb-5">
               A home that didn't sell the first time
             </p>
             <h2
               className="text-4xl md:text-6xl font-bold text-[#0D2137] leading-tight tracking-tight"
-              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               An honest plan, and the buyer it was waiting for.
             </h2>
@@ -344,8 +340,7 @@ export default function SoldPage() {
           </div>
 
           <p
-            className="mt-14 text-center text-[#C89B3C] text-2xl md:text-4xl font-bold"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="mt-14 text-center text-[#0D2137] text-2xl md:text-4xl font-bold"
           >
             Upfront · Strategic · Responsive
           </p>
@@ -357,7 +352,6 @@ export default function SoldPage() {
 
           <p
             className="mt-16 text-center text-[#0D2137] text-2xl md:text-3xl leading-snug max-w-2xl mx-auto"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             You'll always know where things stand. I stay in close contact until your home sells.
           </p>
@@ -365,21 +359,20 @@ export default function SoldPage() {
       </section>
 
       {/* ── TRACK RECORD + REVIEWS ── */}
-      <section className="py-20 md:py-28 bg-[#FAF8F4] px-6">
+      <section className="py-20 md:py-28 bg-[#F7F8FA] px-6">
         <div className="max-w-4xl mx-auto">
-          <p className="text-[#C89B3C] uppercase tracking-[0.2em] text-sm font-semibold text-center mb-10">
+          <p className="text-[#0D2137] uppercase tracking-[0.2em] text-sm font-semibold text-center mb-10">
             Track record
           </p>
           <div className="grid grid-cols-3 gap-6 md:gap-16 text-center">
             {[
-              { value: "103.4%", label: "Avg. List-to-Sale" },
+              { value: "101%", label: "Avg. Sale-to-List" },
               { value: "$120M+", label: "In Transactions" },
-              { value: "5.0★", label: "48 Zillow Reviews" },
+              { value: "5.0★", label: "50 Reviews" },
             ].map((s) => (
               <div key={s.label}>
                 <p
                   className="text-[#0D2137] text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   {s.value}
                 </p>
@@ -390,7 +383,7 @@ export default function SoldPage() {
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 mt-16">
             {testimonials.map((t) => (
-              <div key={t.name} className="border-t-2 border-[#C89B3C] pt-6">
+              <div key={t.name} className="border-t-2 border-[#0D2137] pt-6">
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-[#C89B3C] text-[#C89B3C]" />
@@ -398,7 +391,6 @@ export default function SoldPage() {
                 </div>
                 <p
                   className="text-[#0D2137] text-xl leading-relaxed mb-5"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   "{t.quote}"
                 </p>
@@ -421,7 +413,6 @@ export default function SoldPage() {
           </p>
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-8"
-            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Let's find out why it didn't sell.
           </h2>

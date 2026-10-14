@@ -12,12 +12,13 @@ import { TrendingUp, Mail, BarChart2, Calendar } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import PullQuote from "@/components/PullQuote";
 import { toast } from "sonner";
 import { submitToFub } from "@/lib/fub";
 import { useSEO } from "@/lib/seo";
 import { trackLead } from "@/lib/analytics";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1549728968-5aaff42193ab?w=1400&q=80";
+const HERO_IMAGE = "/images/towns/newton.jpeg";
 
 // Last updated: September 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [
@@ -781,7 +782,7 @@ export default function MarketPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <FloatingCTA />
 
@@ -790,11 +791,11 @@ export default function MarketPage() {
         className="relative pt-32 pb-20 min-h-[40vh] flex items-center"
         style={{ backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/85" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
           <div className="max-w-2xl">
-            <p className="section-label mb-3">Market Intelligence</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <p className="text-sm font-semibold text-white/85 mb-3">Market Intelligence</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Greater Boston Real Estate Market Report
             </h1>
             <p className="text-white/80 font-body text-lg mb-6">
@@ -809,7 +810,7 @@ export default function MarketPage() {
       </section>
 
       {/* Key metrics */}
-      <section className="bg-[#C89B3C] py-8">
+      <section className="bg-[#F4F6F8] py-8">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
@@ -819,9 +820,9 @@ export default function MarketPage() {
               { value: "1,622", label: "Closed Sales", change: "MLSPIN, Sep 2026" },
             ].map((m) => (
               <div key={m.label}>
-                <p className="text-3xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>{m.value}</p>
-                <p className="text-sm text-[#0D2137]/70 font-body mt-0.5">{m.label}</p>
-                <p className="text-sm font-semibold text-[#0D2137]/80 font-body mt-0.5">{m.change}</p>
+                <p className="text-3xl font-bold text-[#0D2137]">{m.value}</p>
+                <p className="text-sm text-[#5B6270] font-body mt-0.5">{m.label}</p>
+                <p className="text-sm font-semibold text-[#5B6270] font-body mt-0.5">{m.change}</p>
               </div>
             ))}
           </div>
@@ -833,7 +834,7 @@ export default function MarketPage() {
         <div className="container">
           <div className="mb-8">
             <span className="gold-rule" />
-            <h2 className="text-2xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-2xl font-bold text-[#0D2137]">
               Market Trends — Greater Boston
             </h2>
           </div>
@@ -850,7 +851,7 @@ export default function MarketPage() {
                 onClick={() => setActiveTab(tab.key as typeof activeTab)}
                 className={`px-4 py-2.5 text-sm font-body font-medium border-b-2 transition-colors ${
                   activeTab === tab.key
-                    ? "border-[#C89B3C] text-[#C89B3C]"
+                    ? "border-[#0D2137] text-[#0D2137]"
                     : "border-transparent text-gray-500 hover:text-[#0D2137]"
                 }`}
               >
@@ -938,7 +939,7 @@ export default function MarketPage() {
                   ].map(({ label, value, color, setter, other }) => (
                     <div
                       key={label}
-                      className="flex-1 min-h-[56px] rounded-lg border-2 border-dashed flex items-center justify-between px-4 py-3 transition-colors"
+                      className="flex-1 min-h-[56px] rounded-2xl border-2 border-dashed flex items-center justify-between px-4 py-3 transition-colors"
                       style={{ borderColor: color, background: `${color}0d` }}
                       onDragOver={e => e.preventDefault()}
                       onDrop={e => {
@@ -967,7 +968,7 @@ export default function MarketPage() {
                           setTownB(townA);
                           setTownA(t);
                         }}
-                        className="px-3 py-1.5 rounded text-sm font-body font-medium border transition-all cursor-grab active:cursor-grabbing select-none"
+                        className="px-3 py-1.5 rounded-xl text-sm font-body font-medium border transition-all cursor-grab active:cursor-grabbing select-none"
                         style={
                           isA ? { background: "#0D2137", color: "#fff", borderColor: "#0D2137" }
                           : isB ? { background: "#C89B3C", color: "#0D2137", borderColor: "#C89B3C" }
@@ -989,12 +990,12 @@ export default function MarketPage() {
                     { town: townA, data: dataA, sold: soldA, pending: pendingA, color: "#0D2137" },
                     { town: townB, data: dataB, sold: soldB, pending: pendingB, color: "#C89B3C" },
                   ].map(({ town, data, sold, pending, color }) => (
-                    <div key={town} className="bg-[#FAF8F4] rounded-lg p-5 border border-gray-100">
+                    <div key={town} className="bg-[#F4F6F8] rounded-2xl p-5 border border-gray-100">
                       <div className="flex items-center gap-2 mb-1">
                         <div className="w-3 h-3 rounded-full" style={{ background: color }} />
                         <p className="text-sm font-semibold text-gray-500 font-body uppercase tracking-wide">{town}</p>
                       </div>
-                      <p className="text-2xl font-bold text-[#0D2137] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      <p className="text-2xl font-bold text-[#0D2137] mb-1">
                         {formatFullPrice(data.medianPrice)}
                       </p>
                       {sold < 8 && (
@@ -1065,17 +1066,19 @@ export default function MarketPage() {
         </div>
       </section>
 
+      <PullQuote quote="jason" align="center" className="py-12 md:py-16" />
+
       {/* Will's Commentary */}
-      <section className="py-16 bg-[#FAF8F4]">
+      <section className="py-16 bg-[#F7F8FA]">
         <div className="container max-w-3xl">
-          <div className="bg-white rounded-lg p-8 border border-gray-100 shadow-sm">
+          <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
             <div className="flex items-start gap-4 mb-5">
               <div className="w-12 h-12 rounded-full bg-[#0D2137] flex items-center justify-center shrink-0">
-                <TrendingUp className="w-5 h-5 text-[#C89B3C]" />
+                <TrendingUp className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="text-sm text-[#C89B3C] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
-                <h3 className="text-xl font-bold text-[#0D2137]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <p className="text-sm text-[#0D2137] font-body font-semibold tracking-wider uppercase mb-1">Will's Market Commentary</p>
+                <h3 className="text-xl font-bold text-[#0D2137]">
 September 2026 — What This Means for You
                 </h3>
               </div>
@@ -1113,7 +1116,7 @@ September 2026 — What This Means for You
       <section className="py-16 bg-[#0D2137]">
         <div className="container max-w-xl text-center">
           <Mail className="w-10 h-10 text-[#C89B3C] mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className="text-2xl font-bold text-white mb-3">
             Get the Monthly Market Report
           </h2>
           <p className="text-white/60 font-body text-base mb-6">
@@ -1126,9 +1129,9 @@ September 2026 — What This Means for You
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               required
-              className="flex-1 bg-[#1A3A5C] border border-white/20 rounded px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
+              className="flex-1 bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
             />
-            <button type="submit" disabled={submitting} className="btn-gold text-sm whitespace-nowrap">
+            <button type="submit" disabled={submitting} className="btn-light text-sm whitespace-nowrap">
               {submitting ? "Subscribing..." : "Subscribe Free"}
             </button>
           </form>
