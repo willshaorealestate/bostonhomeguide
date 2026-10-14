@@ -127,7 +127,7 @@ const stats = [
   { value: "5.0★", label: "Zillow Rating" },
   { value: "48", label: "Reviews" },
   { value: "70+", label: "Towns Served" },
-  { value: "103.4%", label: "Avg. List-to-Sale" },
+  { value: "101%", label: "Avg. Sale-to-List" },
 ];
 
 export default function AboutPage() {
@@ -367,7 +367,7 @@ export default function AboutPage() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" />
               ))}
-              <span className="text-[#0D2137] font-semibold font-body ml-1">5.0 · 48 Reviews on Zillow &amp; Google</span>
+              <span className="text-[#0D2137] font-semibold font-body ml-1">5.0 · 50 Reviews on Zillow &amp; Google</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

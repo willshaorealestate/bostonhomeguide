@@ -155,7 +155,7 @@ export default function ContactPage() {
                 </h3>
                 <div className="space-y-2.5">
                   {[
-                    { label: "Zillow Profile", href: "https://zillow.com/profile/willshao", desc: "48 Reviews · 5.0★" },
+                    { label: "Zillow Profile", href: "https://zillow.com/profile/willshao", desc: "50 Reviews · 5.0★" },
                     { label: "Google Reviews", href: "https://www.google.com/maps/place/Will+Shao+-+Greater+Boston+Real+Estate+Agent/@42.396144,-71.5891231,10z/data=!4m16!1m9!3m8!1s0x89e389477f2c7b09:0x6c87515ce456b0de!2sWill+Shao+-+Greater+Boston+Real+Estate+Agent!8m2!3d42.396109!4d-71.2594615!9m1!1b1!16s%2Fg%2F11qswmf7zz!3m5!1s0x89e389477f2c7b09:0x6c87515ce456b0de!8m2!3d42.396109!4d-71.2594615!16s%2Fg%2F11qswmf7zz?hl=en-US&entry=ttu", desc: "5.0★ on Google" },
                     { label: "Instagram", href: "https://www.instagram.com/willshaorealestate/", desc: "@willshaorealestate" },
                     { label: "Facebook", href: "https://facebook.com/shaorealestate", desc: "shaorealestate" },

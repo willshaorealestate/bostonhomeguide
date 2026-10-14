@@ -29,7 +29,7 @@ export default function Footer() {
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className="w-4 h-4 fill-[#C89B3C] text-[#C89B3C]" />
               ))}
-              <span className="text-sm text-white/70 ml-1">5.0 · 48 Reviews</span>
+              <span className="text-sm text-white/70 ml-1">5.0 · 50 Reviews</span>
             </div>
             <p className="text-sm text-white/50">Zillow · Google · Realtor.com</p>
           </div>
