@@ -333,7 +333,7 @@ export default function HomePage() {
             <SectionHeader
               id="results-heading"
               title="Proven results"
-              subtitle="Same home, same room. Different marketing."
+              subtitle="Same home. Better marketing. A different result."
               linkLabel="See the full story"
               href="/sold"
             />
