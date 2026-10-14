@@ -8,18 +8,6 @@ import { useSEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { ArrowRight, Star } from "lucide-react";
 
-declare global {
-  namespace React.JSX {
-    interface IntrinsicElements {
-      "realscout-your-listings": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        "agent-encoded-id": string;
-        "sort-order": string;
-        "listing-status": string;
-        "property-types": string;
-      };
-    }
-  }
-}
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
@@ -30,7 +18,34 @@ import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
 const HEADSHOT = "/images/site/photo.jpg";
-const SELL_IMAGE = "/images/marketing/marketing-after-1.jpg";
+const SELL_IMAGE = "/images/marketing/marketing-after3.jpg";
+
+// The same living room from the 346-day listing and from Will's relisting (see Sold.tsx).
+const caseStudy = [
+  {
+    badge: "Another agent",
+    img: "/images/marketing/marketing-before-1-cropped.jpg", // white bars trimmed from the original
+    alt: "Living room photo from the original listing",
+    days: "346 days",
+    label: "On the market. Didn't sell.",
+    highlight: false,
+  },
+  {
+    badge: "With Will",
+    img: "/images/marketing/marketing-after-1.jpg",
+    alt: "The same living room, photographed for Will's relisting",
+    days: "32 days",
+    label: "Relisted. Sold.",
+    highlight: true,
+  },
+];
+
+// TODO before merging: confirm homes sold with Will.
+const trackRecord = [
+  { value: "101%", label: "Sale-to-list price" },
+  { value: "[#]", label: "Homes sold" },
+  { value: "5.0★", label: "48 reviews" },
+];
 
 const INK = "#0D2137";
 
@@ -313,28 +328,46 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── LISTINGS ── */}
-        <section aria-labelledby="listings-heading" className="pt-20 md:pt-28">
+        {/* ── RESULTS ── */}
+        <section aria-labelledby="results-heading" className="pt-20 md:pt-28">
           <div className="container">
             <SectionHeader
-              id="listings-heading"
-              title="Will's listings"
-              subtitle="For sale, in contract, and recently sold."
-              linkLabel="Search all homes"
-              href="/search"
+              id="results-heading"
+              title="Proven results"
+              subtitle="Same home, same room. Different marketing."
+              linkLabel="See the full story"
+              href="/sold"
             />
-            <style>{`
-              realscout-your-listings {
-                --rs-listing-divider-color: #E6E9ED;
-                width: 100%;
-              }
-            `}</style>
-            <realscout-your-listings
-              agent-encoded-id="QWdlbnQtMTUzMjg1"
-              sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
-              listing-status="For Sale,For Rent,In Contract,Sold"
-              property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {caseStudy.map((c) => (
+                <figure key={c.badge} className="m-0">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#EEF1F4]">
+                    <img src={c.img} alt={c.alt} loading="lazy" className="w-full h-full object-cover" />
+                    <span
+                      className={`absolute top-4 left-4 px-3.5 py-1.5 rounded-full text-sm font-semibold ${
+                        c.highlight ? "bg-[#0D2137] text-white" : "bg-white text-[#3A4049]"
+                      }`}
+                    >
+                      {c.badge}
+                    </span>
+                  </div>
+                  <figcaption className="mt-4">
+                    <p className={`text-3xl md:text-4xl font-bold tracking-tight ${c.highlight ? "text-[#0D2137]" : "text-[#5B6270]"}`}>
+                      {c.days}
+                    </p>
+                    <p className="mt-1 text-base text-[#5B6270]">{c.label}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="mt-10 grid grid-cols-3 gap-3 md:gap-5">
+              {trackRecord.map((s) => (
+                <div key={s.label} className="rounded-2xl bg-[#F4F6F8] p-4 md:p-8">
+                  <p className="text-2xl md:text-4xl font-bold tracking-tight">{s.value}</p>
+                  <p className="mt-1.5 text-sm md:text-base text-[#5B6270]">{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
