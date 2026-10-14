@@ -18,7 +18,7 @@ import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
 const HEADSHOT = "/images/site/photo.jpg";
-const SELL_IMAGE = "/images/marketing/marketing-after3.jpg";
+const SELL_IMAGE = "/images/towns/belmont.jpeg"; // same house as the Sell page banner
 
 const INK = "#0D2137";
 
@@ -342,7 +342,7 @@ export default function HomePage() {
               <div className="aspect-[4/3] md:aspect-auto md:min-h-[400px]">
                 <img
                   src={SELL_IMAGE}
-                  alt="Living room photographed for one of Will's listings"
+                  alt="Brick colonial home with a landscaped front lawn"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
@@ -384,11 +384,12 @@ export default function HomePage() {
               </div>
               <div>
                 <h2 id="will-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight text-white">
-                  Hi, I'm Will.
+                  Meet Will &amp; the team
                 </h2>
                 <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
-                  Nearly 20 years and $120M+ in sales across Greater Boston. I keep clients informed so
-                  they can make confident decisions. English and Mandarin.
+                  Nearly 20 years and $120M+ in sales across Greater Boston. Will and our transaction
+                  coordinator keep you informed at every step, so you can make confident decisions. We
+                  work in English and Mandarin.
                 </p>
                 <p className="mt-5 flex items-center gap-2 text-base text-white">
                   <Star className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" aria-hidden="true" />
@@ -397,7 +398,7 @@ export default function HomePage() {
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <Link href="/contact" className="btn-light text-base">
-                    Talk to Will
+                    Get in touch
                   </Link>
                   <Link href="/about" className="btn-outline-light text-base">
                     About &amp; reviews
@@ -417,7 +418,7 @@ export default function HomePage() {
                   Thinking about a move?
                 </h2>
                 <p className="mt-3 text-base md:text-lg text-[#5B6270]">
-                  Tell Will what you're looking for. He'll reply within 24 hours.
+                  Tell us what you're looking for. We'll reply within 24 hours.
                 </p>
               </div>
               <form onSubmit={handleFubSubmit} className="rounded-3xl bg-[#F4F6F8] p-6 md:p-8 space-y-4">
