@@ -126,7 +126,7 @@ const stats = [
   { value: "~20 yrs", label: "Experience" },
   { value: "5.0★", label: "Zillow Rating" },
   { value: "50", label: "Reviews" },
-  { value: "70+", label: "Towns Served" },
+  { value: "200+", label: "Homes Sold" },
   { value: "101%", label: "Avg. Sale-to-List" },
 ];
 

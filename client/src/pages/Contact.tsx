@@ -330,7 +330,7 @@ export default function ContactPage() {
                   Service Area
                 </h3>
                 <p className="text-base text-gray-500 font-body mb-5">
-                  Will serves buyers and sellers across Greater Boston and surrounding communities — 70+ towns spanning six regions.
+                  Will serves buyers and sellers across Greater Boston and MetroWest.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -351,7 +351,7 @@ export default function ContactPage() {
                   href="/neighborhoods"
                   className="mt-4 inline-block text-sm text-[#0D2137] font-semibold font-body hover:underline"
                 >
-                  Explore all 70+ neighborhood guides →
+                  Explore the neighborhood guides →
                 </a>
               </div>
             </div>

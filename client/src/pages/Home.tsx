@@ -256,7 +256,7 @@ export default function HomePage() {
             <SectionHeader
               id="towns-heading"
               title="Explore communities"
-              subtitle="Schools, prices, and local character for 70+ towns."
+              subtitle="Schools, prices, and local character, town by town."
               linkLabel="See all towns"
               href="/neighborhoods"
             />

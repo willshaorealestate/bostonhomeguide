@@ -372,7 +372,7 @@ export default function NeighborhoodsPage() {
             Neighborhood Guides
           </h1>
           <p className="text-white/80 font-body text-lg max-w-2xl mx-auto mb-8">
-            Like ice cream flavors, every Greater Boston town has its own unique character. Explore hyper-local guides for 70+ communities — with school ratings, market data, commute times, and local flavor.
+            Like ice cream flavors, every Greater Boston town has its own unique character. Explore hyper-local guides with school ratings, market data, commute times, and local flavor.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
             <div className="flex-1 relative">
