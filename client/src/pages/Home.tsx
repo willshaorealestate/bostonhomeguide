@@ -10,7 +10,6 @@ import { ArrowRight, Star } from "lucide-react";
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
 import FloatingCTA from "@/components/FloatingCTA";
 import PullQuote from "@/components/PullQuote";
 import { toast } from "sonner";
@@ -197,7 +196,6 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white font-body text-[#0D2137]">
       <Navigation />
-      <ExitIntentPopup />
       <FloatingCTA />
 
       {/* ── HERO ── */}
