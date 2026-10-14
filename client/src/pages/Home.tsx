@@ -40,10 +40,9 @@ const caseStudy = [
   },
 ];
 
-// TODO before merging: confirm homes sold with Will.
 const trackRecord = [
   { value: "101%", label: "Sale-to-list price" },
-  { value: "[#]", label: "Homes sold" },
+  { value: "200+", label: "Homes sold" },
   { value: "5.0★", label: "48 reviews" },
 ];
 
