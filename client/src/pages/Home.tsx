@@ -34,18 +34,20 @@ const SELL_IMAGE = "/images/marketing/marketing-after-1.jpg";
 
 const INK = "#0D2137";
 
+// Order matters: the first cards get the most attention, especially on phones.
+// Prices and school grades match client/src/data/neighborhoods.ts.
 const neighborhoods = [
-  { name: "Newton", medianPrice: "$1.7M", schools: "A+", img: "/images/towns/newton.jpeg" },
-  { name: "Wellesley", medianPrice: "$2.95M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
   { name: "Lexington", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/lexington.jpeg" },
-  { name: "Brookline", medianPrice: "$1.43M", schools: "A", img: "/images/towns/brookline.jpeg" },
+  { name: "Bedford", medianPrice: "$998K", schools: "A", img: "/images/towns/bedford.jpeg" },
   { name: "Concord", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Needham", medianPrice: "$1.57M", schools: "A", img: "/images/towns/needham.jpeg" },
-  { name: "Natick", medianPrice: "$874K", schools: "A", img: "/images/towns/natick.jpeg" },
-  { name: "Framingham", medianPrice: "$705K", schools: "B+", img: "/images/towns/framingham.jpeg" },
+  { name: "Acton", medianPrice: "$850K", schools: "A+", img: "/images/towns/acton.jpeg" },
+  { name: "Arlington", medianPrice: "$1.1M", schools: "A-", img: "/images/towns/arlington.jpeg" },
+  { name: "Winchester", medianPrice: "$1.5M", schools: "A+", img: "/images/towns/winchester.jpeg" },
+  { name: "Lincoln", medianPrice: "$1.5M", schools: "A+", img: "/images/towns/lincoln.jpeg" },
+  { name: "Cambridge", medianPrice: "$1.31M", schools: "B+", img: "/images/towns/cambridge.jpeg" },
 ];
 
-const heroTowns = ["Newton", "Wellesley", "Lexington", "Brookline", "Natick"];
+const heroTowns = ["Lexington", "Bedford", "Concord", "Acton", "Arlington"];
 
 // Update monthly alongside Market.tsx
 const marketStats = [
@@ -282,7 +284,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="font-body mt-3 text-lg font-semibold">{n.name}</h3>
                   <p className="text-sm text-[#5B6270]">
-                    Avg. {n.medianPrice} · Schools {n.schools}
+                    Median {n.medianPrice} · Schools {n.schools}
                   </p>
                 </Link>
               ))}
