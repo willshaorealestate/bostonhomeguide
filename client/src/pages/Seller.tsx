@@ -93,7 +93,7 @@ const marketingItems = [
 export default function SellerPage() {
   useSEO({
     title: "Sell Your Greater Boston Home | Will Shao, REMAX",
-    description: "Will Shao's proven marketing strategy gets sellers maximum value — 101% sale-to-list ratio, avg 18 days on market, $120M+ in transactions. Free home valuation. Greater Boston & MetroWest MA.",
+    description: "Will Shao's proven marketing strategy gets sellers maximum value — 101% sale-to-list ratio, $120M+ in transactions. Free home valuation. Greater Boston & MetroWest MA.",
     canonical: "https://bostonhomeguide.com/sell",
     schema: {
       "@context": "https://schema.org",
@@ -230,15 +230,14 @@ export default function SellerPage() {
       {/* Stats */}
       <section className="bg-[#F4F6F8] py-8">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-3 gap-6 text-center">
             {[
               { value: "101%", label: "Avg. Sale-to-List Ratio" },
-              { value: "18 days", label: "Avg. Days on Market" },
               { value: "$120M+", label: "In Transactions" },
               { value: "5.0★", label: "50 Reviews" },
             ].map((s) => (
               <div key={s.label}>
-                <p className="text-3xl font-bold text-[#0D2137]">{s.value}</p>
+                <p className="text-2xl md:text-3xl font-bold text-[#0D2137]">{s.value}</p>
                 <p className="text-sm text-[#5B6270] font-body mt-1">{s.label}</p>
               </div>
             ))}
