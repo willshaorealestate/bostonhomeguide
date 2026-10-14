@@ -49,7 +49,7 @@ export default function SearchPage() {
         className="relative pt-32 pb-20 min-h-[45vh] flex items-center"
         style={{ backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/55" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container text-center">
           <p className="text-sm font-semibold text-white/85 mb-3">Live MLS Search</p>
           <h1
@@ -101,21 +101,21 @@ export default function SearchPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0D2137]">
         <div className="container text-center">
           <h2
-            className="text-2xl font-bold text-[#0D2137] mb-3"
+            className="text-2xl font-bold text-white mb-3"
           >
             Need Help Finding the Right Home?
           </h2>
-          <p className="text-[#5B6270] font-body text-sm mb-6 max-w-lg mx-auto">
+          <p className="text-white/70 font-body text-sm mb-6 max-w-lg mx-auto">
             Will knows every town across Greater Boston. Get personalized guidance and access to off-market opportunities.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/contact" className="btn-gold text-sm">
+            <Link href="/contact" className="btn-light text-sm">
               Send a Message →
             </Link>
-            <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+            <a href="tel:+17814563541" className="btn-outline-light text-sm">
               Call (781) 456-3541
             </a>
           </div>

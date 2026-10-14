@@ -17,7 +17,7 @@ import { submitToFub } from "@/lib/fub";
 import { useSEO } from "@/lib/seo";
 import { trackLead } from "@/lib/analytics";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1549728968-5aaff42193ab?w=1400&q=80";
+const HERO_IMAGE = "/images/towns/newton.jpeg";
 
 // Last updated: September 2026 — Source: MLSPIN Area Market Survey (SF + CC), individual town reports
 const priceData = [
@@ -790,7 +790,7 @@ export default function MarketPage() {
         className="relative pt-32 pb-20 min-h-[40vh] flex items-center"
         style={{ backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/55" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold text-white/85 mb-3">Market Intelligence</p>
@@ -1110,13 +1110,13 @@ September 2026 — What This Means for You
       </section>
 
       {/* Email signup */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0D2137]">
         <div className="container max-w-xl text-center">
-          <Mail className="w-10 h-10 text-[#0D2137] mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-[#0D2137] mb-3">
+          <Mail className="w-10 h-10 text-[#C89B3C] mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-white mb-3">
             Get the Monthly Market Report
           </h2>
-          <p className="text-[#5B6270] font-body text-base mb-6">
+          <p className="text-white/60 font-body text-base mb-6">
             Data-driven insights delivered to your inbox every month. Free, no spam, unsubscribe anytime.
           </p>
           <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3">
@@ -1126,9 +1126,9 @@ September 2026 — What This Means for You
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               required
-              className="flex-1 bg-[#F4F6F8] border border-[#E6E9ED] rounded-xl px-4 py-3 text-base font-body text-[#0D2137] placeholder:text-[#8A919B] focus:outline-none focus:border-[#0D2137]"
+              className="flex-1 bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
             />
-            <button type="submit" disabled={submitting} className="btn-gold text-sm whitespace-nowrap">
+            <button type="submit" disabled={submitting} className="btn-light text-sm whitespace-nowrap">
               {submitting ? "Subscribing..." : "Subscribe Free"}
             </button>
           </form>

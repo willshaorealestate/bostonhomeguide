@@ -152,29 +152,29 @@ export default function AboutPage() {
       <FloatingCTA />
 
       {/* Hero */}
-      <section className="bg-white pt-28 pb-0">
+      <section className="bg-[#0D2137] pt-28 pb-0">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-end">
             {/* Text */}
             <div className="py-12 lg:py-16 pr-0 lg:pr-12">
-              <p className="section-label mb-3">Meet Your Agent</p>
+              <p className="text-sm font-semibold text-[#C89B3C] mb-3">Meet Your Agent</p>
               <h1
-                className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-4"
+                className="text-4xl md:text-5xl font-bold text-white mb-4"
               >
                 Will Shao
               </h1>
-              <p className="text-[#0D2137] font-body text-lg font-semibold mb-2">
+              <p className="text-[#C89B3C] font-body text-lg font-semibold mb-2">
                 REALTOR® · Buyer &amp; Seller Representation · REMAX Executive Realty
               </p>
-              <p className="text-[#5B6270] font-body text-base leading-relaxed mb-6">
+              <p className="text-white/80 font-body text-base leading-relaxed mb-6">
                 Nearly 20 years of experience. $120M+ in transactions.
                 Serving Greater Boston and MetroWest MA with integrity and expertise.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-gold text-sm">
+                <Link href="/contact" className="btn-light text-sm">
                   Send a Message
                 </Link>
-                <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+                <a href="tel:+17814563541" className="btn-outline-light text-sm">
                   Call (781) 456-3541
                 </a>
               </div>
@@ -193,17 +193,17 @@ export default function AboutPage() {
       </section>
 
       {/* Stats bar */}
-      <section className="bg-white py-8">
+      <section className="bg-[#0D2137] py-8">
         <div className="container">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-4 text-center">
             {stats.map((s) => (
               <div key={s.label}>
                 <p
-                  className="text-2xl md:text-3xl font-bold text-[#0D2137]"
+                  className="text-2xl md:text-3xl font-bold text-[#C89B3C]"
                 >
                   {s.value}
                 </p>
-                <p className="text-sm text-[#5B6270] font-body mt-0.5">{s.label}</p>
+                <p className="text-sm text-white/50 font-body mt-0.5">{s.label}</p>
               </div>
             ))}
           </div>
@@ -402,22 +402,22 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0D2137]">
         <div className="container text-center">
           <h2
-            className="text-2xl md:text-3xl font-bold text-[#0D2137] mb-4"
+            className="text-2xl md:text-3xl font-bold text-white mb-4"
           >
             Ready to Work with Will?
           </h2>
-          <p className="text-[#5B6270] font-body text-base mb-6 max-w-xl mx-auto">
+          <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
             Whether you're buying your first home or selling a longtime family property,
             Will is ready to guide you every step of the way.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/contact" className="btn-gold text-sm">
+            <Link href="/contact" className="btn-light text-sm">
               Send a Message
             </Link>
-            <a href="tel:+17814563541" className="btn-outline-gold text-sm">
+            <a href="tel:+17814563541" className="btn-outline-light text-sm">
               Call (781) 456-3541
             </a>
           </div>

@@ -18,7 +18,7 @@ import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub"
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
+const HERO_IMAGE = "/images/towns/belmont.jpeg";
 
 const sellingSteps = [
   {
@@ -101,7 +101,7 @@ export default function SellerPage() {
       "mainEntity": [
         { "@type": "Question", "name": "When is the best time to sell in Greater Boston?", "acceptedAnswer": { "@type": "Answer", "text": "Spring (March–June) is traditionally the strongest selling season in Greater Boston, with high buyer demand and multiple offers common. However, the right time to sell is when you're ready." } },
         { "@type": "Question", "name": "How does Will determine my home's value?", "acceptedAnswer": { "@type": "Answer", "text": "Will uses a Comparative Market Analysis (CMA) that analyzes recent sales of similar homes in your neighborhood, current active listings, market trends, and your home's specific features." } },
-        { "@type": "Question", "name": "How long will it take to sell my home?", "acceptedAnswer": { "@type": "Answer", "text": "In Greater Boston's current market, well-priced homes in high demand areas can sell in 7–21 days. Our strategic pricing and marketing approach is designed to attract qualified buyers as efficiently as possible." } },
+        { "@type": "Question", "name": "How long will it take to sell my home?", "acceptedAnswer": { "@type": "Answer", "text": "Timing depends on your home's price, location, and type, and on market conditions at the time you list. Will gives every seller an honest estimate for their specific home, backed by recent sales nearby, and a pricing and marketing plan designed to attract qualified buyers." } },
         { "@type": "Question", "name": "What is your marketing strategy?", "acceptedAnswer": { "@type": "Answer", "text": "Professional photography, MLS listing, syndication across Zillow, Realtor.com, and Homes.com, social media marketing, and global reach through the REMAX network spanning 110 countries." } }
       ]
     }
@@ -171,7 +171,7 @@ export default function SellerPage() {
     { q: "When is the best time to sell in Greater Boston?", a: "Spring (March–June) is traditionally the strongest selling season in Greater Boston, with high buyer demand and multiple offers common. However, Will has successfully sold homes in every season. The right time to sell is when you're ready." },
     { q: "How does Will determine my home's value?", a: "Will uses a Comparative Market Analysis (CMA) that analyzes recent sales of similar homes in your neighborhood, current active listings, market trends, and your home's specific features. This data-driven approach ensures accurate pricing." },
     { q: "What is your marketing strategy?", a: "Our goal is to cast the widest possible net to reach the most qualified buyers for your home. Every element of our marketing is designed with that in mind — professional photography, MLS listing, and syndication across Zillow, Realtor.com, and Homes.com puts your home in front of active buyers locally. And as part of REMAX — present in 110 countries — your listing has global reach that few independent agents can match. We pair that exposure with targeted social media advertising and direct outreach to our buyer database to make sure the right buyers find your home." },
-    { q: "How long will it take to sell my home?", a: "In Greater Boston's current market, well-priced homes in high demand areas can sell in 7–21 days. However, timing varies depending on the type of property, location, and current market conditions — some homes take longer, and the market can shift. Our team's strategic pricing and marketing approach is designed to attract qualified buyers as efficiently as possible, but we'll always give you an honest assessment of what to expect for your specific home." },
+    { q: "How long will it take to sell my home?", a: "Timing depends on your home's price, location, and type, and on market conditions at the time you list. Some homes sell quickly; others take longer, and the market can shift. Will gives every seller an honest estimate for their specific home, backed by recent sales nearby, and a pricing and marketing plan designed to attract qualified buyers." },
   ];
 
   return (
@@ -188,7 +188,7 @@ export default function SellerPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/55" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold text-white/85 mb-3">Seller's Guide</p>
@@ -331,32 +331,32 @@ export default function SellerPage() {
       </section>
 
       {/* Marketing Plan */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#0D2137]">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="gold-rule" />
-              <p className="section-label mb-2">Marketing Plan</p>
+              <p className="text-sm font-semibold text-[#C89B3C] mb-2">Marketing Plan</p>
               <h2
-                className="text-4xl font-bold text-[#0D2137] mb-5"
+                className="text-4xl font-bold text-white mb-5"
               >
                 Maximum Exposure for Your Home
               </h2>
-              <p className="text-[#5B6270] font-body text-base leading-relaxed mb-6">
+              <p className="text-white/70 font-body text-base leading-relaxed mb-6">
                 Our comprehensive marketing strategy ensures your home reaches every qualified buyer — locally and globally. As part of REMAX, your listing is backed by a network spanning 110 countries. Throughout the process, you'll receive a weekly property report with showings, buyer feedback, and online activity so you're always in the loop.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {marketingItems.map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#0D2137] shrink-0" />
-                    <span className="text-base text-[#5B6270] font-body">{item}</span>
+                    <CheckCircle className="w-4 h-4 text-[#C89B3C] shrink-0" />
+                    <span className="text-base text-white/70 font-body">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-[#F4F6F8] rounded-2xl p-8">
+            <div className="bg-[#1A3A5C] rounded-2xl p-8">
               <h3
-                className="text-[#0D2137] font-bold text-xl mb-6"
+                className="text-white font-bold text-xl mb-6"
               >
                 Net Proceeds Calculator
               </h3>
@@ -368,28 +368,28 @@ export default function SellerPage() {
                   { label: "Closing Costs (%)", key: "closingCosts", placeholder: "2" },
                 ].map((field) => (
                   <div key={field.key}>
-                    <label className="block text-sm text-[#5B6270] font-body mb-1">{field.label}</label>
+                    <label className="block text-sm text-white/60 font-body mb-1">{field.label}</label>
                     <input
                       type="text"
                       value={netCalc[field.key as keyof typeof netCalc]}
                       onChange={(e) => setNetCalc({ ...netCalc, [field.key]: e.target.value })}
                       placeholder={field.placeholder}
-                      className="w-full bg-white border border-[#D5DAE0] rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
+                      className="w-full bg-[#0D2137] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white focus:outline-none focus:border-[#C89B3C]"
                     />
                   </div>
                 ))}
-                <div className="border-t border-[#E6E9ED] pt-4 mt-4">
+                <div className="border-t border-white/20 pt-4 mt-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-[#5B6270] font-body text-base">Estimated Net Proceeds</span>
+                    <span className="text-white/70 font-body text-base">Estimated Net Proceeds</span>
                     <span
-                      className="text-3xl font-bold text-[#0D2137]"
+                      className="text-3xl font-bold text-[#C89B3C]"
                     >
                       {netProceeds > 0
                         ? `$${netProceeds.toLocaleString("en-US", { maximumFractionDigits: 0 })}`
                         : "—"}
                     </span>
                   </div>
-                  <p className="text-sm text-[#5B6270] font-body mt-2">
+                  <p className="text-sm text-white/40 font-body mt-2">
                     Estimate only. Contact Will for a precise analysis.
                   </p>
                 </div>
@@ -538,15 +538,15 @@ export default function SellerPage() {
       </section>
 
       {/* Valuation Form */}
-      <section id="valuation" className="py-20 bg-white">
+      <section id="valuation" className="py-20 bg-[#0D2137]">
         <div className="container max-w-2xl">
           <div className="text-center mb-10">
             <span className="gold-rule mx-auto" />
-            <p className="section-label mb-2">Free Valuation</p>
-            <h2 className="text-4xl font-bold text-[#0D2137]">
+            <p className="text-sm font-semibold text-[#C89B3C] mb-2">Free Valuation</p>
+            <h2 className="text-4xl font-bold text-white">
               What's Your Home Worth?
             </h2>
-            <p className="text-[#5B6270] font-body text-base mt-3">
+            <p className="text-white/60 font-body text-base mt-3">
               Get a free, no-obligation home valuation from Will. No pressure, just data.
             </p>
           </div>
@@ -556,24 +556,24 @@ export default function SellerPage() {
               <div>
                 <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Full Name *</label>
                 <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]" placeholder="Your name" />
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="Your name" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Email *</label>
                 <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]" placeholder="your@email.com" />
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="your@email.com" />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Phone</label>
                 <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]" placeholder="(xxx) xxx-xxxx" />
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="(xxx) xxx-xxxx" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Timeline to Sell</label>
                 <select value={form.timeline} onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]">
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
                   <option value="">Select timeline</option>
                   <option value="asap">ASAP</option>
                   <option value="1-3months">1–3 months</option>
@@ -586,7 +586,7 @@ export default function SellerPage() {
             <div>
               <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Property Address *</label>
               <input type="text" required value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]" placeholder="Street address" />
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder="Street address" />
             </div>
             <div className="grid grid-cols-3 gap-4">
               {[
@@ -597,14 +597,14 @@ export default function SellerPage() {
                 <div key={f.key}>
                   <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">{f.label}</label>
                   <input type="text" value={form[f.key as keyof typeof form]} onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]" placeholder={f.placeholder} />
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]" placeholder={f.placeholder} />
                 </div>
               ))}
             </div>
             <div>
               <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Additional Notes</label>
               <textarea rows={3} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137] resize-none"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                 placeholder="Recent renovations, unique features, reason for selling..." />
             </div>
             <button type="submit" disabled={submitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
@@ -612,21 +612,21 @@ export default function SellerPage() {
             </button>
             <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
               By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
-              <Link href="/privacy-policy" className="underline hover:text-[#1A3A5C]">Privacy Policy</Link>{" "}
+              <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
               and{" "}
-              <Link href="/terms" className="underline hover:text-[#1A3A5C]">Terms &amp; Conditions</Link>.
+              <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.
             </p>
           </form>
 
-          <div className="mt-8 bg-[#F4F6F8] rounded-2xl p-6 text-center">
-            <Calendar className="w-8 h-8 text-[#0D2137] mx-auto mb-3" />
-            <h3 className="text-[#0D2137] font-bold text-lg mb-2">
+          <div className="mt-8 bg-[#1A3A5C] rounded-2xl p-6 text-center">
+            <Calendar className="w-8 h-8 text-[#C89B3C] mx-auto mb-3" />
+            <h3 className="text-white font-bold text-lg mb-2">
               Prefer to Schedule Directly?
             </h3>
-            <p className="text-[#5B6270] text-base font-body mb-4">
+            <p className="text-white/60 text-base font-body mb-4">
               Book a free, no-obligation listing consultation with Will at a time that works for you.
             </p>
-            <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-gold text-sm">
+            <a href="https://calendar.app.google/sGPHDTZGiH9zdE8x5" target="_blank" rel="noopener noreferrer" className="btn-light text-sm">
               Schedule Now
             </a>
           </div>

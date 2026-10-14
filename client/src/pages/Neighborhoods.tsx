@@ -14,7 +14,7 @@ import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 
-const NEIGHBORHOOD_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
+const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
 // TypeScript declaration for RealScout web component
 declare global {
@@ -118,7 +118,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         className="relative pt-32 pb-20 min-h-[45vh] flex items-center"
         style={{ backgroundImage: `url(${neighborhood.img})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/55" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
           <Link href="/neighborhoods" className="flex items-center gap-2 text-white/60 hover:text-white text-sm font-body mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" /> All Neighborhoods
@@ -132,7 +132,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
       </section>
 
       {/* Stats bar */}
-      <section className="bg-white py-8">
+      <section className="bg-[#0D2137] py-8">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
@@ -144,9 +144,9 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
               const Icon = s.icon;
               return (
                 <div key={s.label}>
-                  <Icon className="w-5 h-5 text-[#0D2137] mx-auto mb-1.5" />
-                  <p className="text-2xl font-bold text-[#0D2137]">{s.value}</p>
-                  <p className="text-sm text-[#5B6270] font-body mt-0.5">{s.label}</p>
+                  <Icon className="w-5 h-5 text-[#C89B3C] mx-auto mb-1.5" />
+                  <p className="text-2xl font-bold text-white">{s.value}</p>
+                  <p className="text-sm text-white/50 font-body mt-0.5">{s.label}</p>
                 </div>
               );
             })}
@@ -362,7 +362,7 @@ export default function NeighborhoodsPage() {
         className="relative pt-32 pb-20 min-h-[40vh] flex items-center"
         style={{ backgroundImage: `url(${NEIGHBORHOOD_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/55" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container text-center">
           <p className="text-sm font-semibold text-white/85 mb-3">Explore Greater Boston</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">
@@ -462,15 +462,15 @@ export default function NeighborhoodsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0D2137]">
         <div className="container text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0D2137] mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Not Sure Which Town is Right for You?
           </h2>
-          <p className="text-[#5B6270] font-body text-base mb-6 max-w-xl mx-auto">
+          <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
             Every town has its own unique flavor — and Will knows them all. With nearly 20 years exploring Greater Boston's communities, he'll help you find the one that's just right for your family.
           </p>
-          <Link href="/contact" className="btn-gold text-sm">
+          <Link href="/contact" className="btn-light text-sm">
             Ask About a Neighborhood
           </Link>
         </div>

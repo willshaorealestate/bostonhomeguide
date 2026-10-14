@@ -379,7 +379,7 @@ export default function BlogPage() {
         className="relative pt-32 pb-20 min-h-[40vh] flex items-center"
         style={{ backgroundImage: `url(${HERO_IMAGE})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/55" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container text-center">
           <p className="text-sm font-semibold text-white/85 mb-3">Knowledge Center</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">

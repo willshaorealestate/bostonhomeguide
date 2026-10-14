@@ -16,7 +16,7 @@ import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
+const HERO_IMAGE = "/images/towns/wellesley.jpeg";
 
 const buyingSteps = [
   {
@@ -196,7 +196,7 @@ export default function BuyerPage() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#0D2137]/55" />
+        <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold text-white/85 mb-3">Buyer's Guide</p>
@@ -400,17 +400,17 @@ export default function BuyerPage() {
       </section>
 
       {/* Questionnaire */}
-      <section id="questionnaire" className="py-20 bg-white">
+      <section id="questionnaire" className="py-20 bg-[#0D2137]">
         <div className="container max-w-2xl">
           <div className="text-center mb-10">
             <span className="gold-rule mx-auto" />
-            <p className="section-label mb-2">Get Started</p>
+            <p className="text-sm font-semibold text-[#C89B3C] mb-2">Get Started</p>
             <h2
-              className="text-4xl font-bold text-[#0D2137]"
+              className="text-4xl font-bold text-white"
             >
               Tell Will About Your Home Search
             </h2>
-            <p className="text-[#5B6270] font-body text-base mt-3">
+            <p className="text-white/60 font-body text-base mt-3">
               Complete this questionnaire and Will will reach out within 1 business day
               with personalized recommendations.
             </p>
@@ -427,7 +427,7 @@ export default function BuyerPage() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="Your full name"
                 />
               </div>
@@ -440,7 +440,7 @@ export default function BuyerPage() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="your@email.com"
                 />
               </div>
@@ -454,7 +454,7 @@ export default function BuyerPage() {
                   type="tel"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="(xxx) xxx-xxxx"
                 />
               </div>
@@ -465,7 +465,7 @@ export default function BuyerPage() {
                 <select
                   value={form.budget}
                   onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                 >
                   <option value="">Select range</option>
                   <option value="under-500k">Under $500K</option>
@@ -485,7 +485,7 @@ export default function BuyerPage() {
                   type="text"
                   value={form.towns}
                   onChange={(e) => setForm({ ...form, towns: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                   placeholder="e.g. Newton, Natick, Wellesley"
                 />
               </div>
@@ -496,7 +496,7 @@ export default function BuyerPage() {
                 <select
                   value={form.timeline}
                   onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
                 >
                   <option value="">Select timeline</option>
                   <option value="asap">ASAP</option>
@@ -535,7 +535,7 @@ export default function BuyerPage() {
                 rows={3}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#0D2137] resize-none"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
                 placeholder="School districts, commute requirements, must-haves..."
               />
             </div>
@@ -544,28 +544,28 @@ export default function BuyerPage() {
             </button>
             <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
               By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
-              <Link href="/privacy-policy" className="underline hover:text-[#1A3A5C]">Privacy Policy</Link>{" "}
+              <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
               and{" "}
-              <Link href="/terms" className="underline hover:text-[#1A3A5C]">Terms &amp; Conditions</Link>.
+              <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.
             </p>
           </form>
 
           {/* Calendar booking */}
-          <div className="mt-8 bg-[#F4F6F8] rounded-2xl p-6 text-center">
-            <Calendar className="w-8 h-8 text-[#0D2137] mx-auto mb-3" />
+          <div className="mt-8 bg-[#1A3A5C] rounded-2xl p-6 text-center">
+            <Calendar className="w-8 h-8 text-[#C89B3C] mx-auto mb-3" />
             <h3
-              className="text-[#0D2137] font-bold text-lg mb-2"
+              className="text-white font-bold text-lg mb-2"
             >
               Prefer to Schedule Directly?
             </h3>
-            <p className="text-[#5B6270] text-base font-body mb-4">
+            <p className="text-white/60 text-base font-body mb-4">
               Book a free 30-minute consultation with Will at a time that works for you.
             </p>
             <a
               href="https://calendar.app.google/sGPHDTZGiH9zdE8x5"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold text-sm"
+              className="btn-light text-sm"
             >
               Book a Free Consultation
             </a>

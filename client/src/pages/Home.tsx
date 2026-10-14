@@ -84,20 +84,20 @@ function useRealScoutSearch() {
 }
 
 function SectionHeader({
-  id, title, subtitle, linkLabel, href,
-}: { id: string; title: string; subtitle?: string; linkLabel?: string; href?: string }) {
+  id, title, subtitle, linkLabel, href, dark = false,
+}: { id: string; title: string; subtitle?: string; linkLabel?: string; href?: string; dark?: boolean }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8 md:mb-10">
       <div>
-        <h2 id={id} className="font-body text-3xl md:text-4xl font-bold tracking-tight text-[#0D2137]">
+        <h2 id={id} className={`font-body text-3xl md:text-4xl font-bold tracking-tight ${dark ? "text-white" : "text-[#0D2137]"}`}>
           {title}
         </h2>
-        {subtitle && <p className="text-base md:text-lg text-[#5B6270] mt-2">{subtitle}</p>}
+        {subtitle && <p className={`text-base md:text-lg mt-2 ${dark ? "text-white/70" : "text-[#5B6270]"}`}>{subtitle}</p>}
       </div>
       {linkLabel && href && (
         <Link
           href={href}
-          className="inline-flex items-center gap-1.5 py-2 text-base font-semibold text-[#0D2137] hover:gap-2.5 transition-all shrink-0"
+          className={`inline-flex items-center gap-1.5 py-2 text-base font-semibold hover:gap-2.5 transition-all shrink-0 ${dark ? "text-[#E2C27A]" : "text-[#0D2137]"}`}
         >
           {linkLabel} <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </Link>
@@ -281,7 +281,7 @@ export default function HomePage() {
         </section>
 
         {/* ── MARKET ── */}
-        <section aria-labelledby="market-heading" className="pt-20 md:pt-28">
+        <section aria-labelledby="market-heading" className="mt-20 md:mt-28 py-16 md:py-24 bg-[#0D2137]">
           <div className="container">
             <SectionHeader
               id="market-heading"
@@ -289,12 +289,13 @@ export default function HomePage() {
               subtitle={MARKET_PERIOD}
               linkLabel="Full market report"
               href="/market"
+              dark
             />
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {marketStats.map((s) => (
-                <div key={s.label} className="rounded-2xl bg-[#F4F6F8] p-6 md:p-8">
-                  <p className="text-3xl md:text-4xl font-bold tracking-tight">{s.value}</p>
-                  <p className="mt-1.5 text-sm md:text-base text-[#5B6270]">{s.label}</p>
+                <div key={s.label} className="rounded-2xl bg-white/[0.07] border border-white/10 p-6 md:p-8">
+                  <p className="text-3xl md:text-4xl font-bold tracking-tight text-white">{s.value}</p>
+                  <p className="mt-1.5 text-sm md:text-base text-white/70">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -375,36 +376,30 @@ export default function HomePage() {
         </section>
 
         {/* ── MEET WILL ── */}
-        <section aria-labelledby="will-heading" className="pt-20 md:pt-28">
+        <section aria-labelledby="will-heading" className="mt-20 md:mt-28 py-16 md:py-24 bg-[#0D2137]">
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-8 md:gap-14 items-center">
-              <div className="aspect-[4/5] max-w-sm w-full rounded-3xl overflow-hidden bg-[#EEF1F4]">
+              <div className="aspect-[4/5] max-w-sm w-full rounded-3xl overflow-hidden bg-[#1A3A5C]">
                 <img src={HEADSHOT} alt="Will Shao" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h2 id="will-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight">
+                <h2 id="will-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight text-white">
                   Hi, I'm Will.
                 </h2>
-                <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#3A4049]">
+                <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
                   Nearly 20 years and $120M+ in sales across Greater Boston. I keep clients informed so
                   they can make confident decisions. English and Mandarin.
                 </p>
-                <p className="mt-5 flex items-center gap-2 text-base">
+                <p className="mt-5 flex items-center gap-2 text-base text-white">
                   <Star className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" aria-hidden="true" />
                   <span className="font-semibold">5.0</span>
-                  <span className="text-[#5B6270]">· 50 reviews on Zillow and Google</span>
+                  <span className="text-white/70">· 50 reviews on Zillow and Google</span>
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center px-6 py-3.5 rounded-full bg-[#0D2137] text-white text-base font-semibold hover:bg-[#1A3A5C] transition-colors"
-                  >
+                  <Link href="/contact" className="btn-light text-base">
                     Talk to Will
                   </Link>
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center px-6 py-3.5 rounded-full border border-[#C9CFD6] text-base font-semibold hover:border-[#0D2137] transition-colors"
-                  >
+                  <Link href="/about" className="btn-outline-light text-base">
                     About &amp; reviews
                   </Link>
                 </div>

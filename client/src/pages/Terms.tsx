@@ -20,15 +20,15 @@ export default function TermsPage() {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      <section className="bg-white pt-32 pb-16">
+      <section className="bg-[#0D2137] pt-32 pb-16">
         <div className="container text-center">
-          <p className="section-label mb-3">Legal</p>
+          <p className="text-sm font-semibold text-[#C89B3C] mb-3">Legal</p>
           <h1
-            className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             Terms &amp; Conditions
           </h1>
-          <p className="text-[#5B6270] font-body text-base">Last updated: {LAST_UPDATED}</p>
+          <p className="text-white/70 font-body text-base">Last updated: {LAST_UPDATED}</p>
         </div>
       </section>
 

@@ -225,13 +225,13 @@ export default function MortgagePage() {
       <FloatingCTA />
 
       {/* Hero */}
-      <section className="bg-white pt-32 pb-16">
+      <section className="bg-[#0D2137] pt-32 pb-16">
         <div className="container text-center">
-          <p className="section-label mb-3">Planning Tools</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-4">
+          <p className="text-sm font-semibold text-[#C89B3C] mb-3">Planning Tools</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Mortgage Calculator
           </h1>
-          <p className="text-[#5B6270] font-body text-lg max-w-xl mx-auto">
+          <p className="text-white/70 font-body text-lg max-w-xl mx-auto">
             Estimate your monthly payment, total interest, and amortization schedule for any
             Greater Boston home.
           </p>

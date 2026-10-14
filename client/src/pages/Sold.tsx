@@ -225,17 +225,17 @@ export default function SoldPage() {
     <div className="min-h-screen bg-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
       {/* ── HERO ── */}
-      <section className="bg-white text-[#0D2137] px-5 pt-12 pb-14 md:px-8 md:pt-20 md:pb-20">
+      <section className="bg-[#0D2137] text-white px-5 pt-12 pb-14 md:px-8 md:pt-20 md:pb-20">
         <div className="max-w-6xl mx-auto grid gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-16 items-center">
           <div>
             <div className="flex items-center gap-4">
               <img
                 src={HEADSHOT}
                 alt="Will Shao"
-                className="lg:hidden w-24 h-24 rounded-full object-cover object-[50%_20%] border-[3px] border-[#0D2137] shrink-0"
+                className="lg:hidden w-24 h-24 rounded-full object-cover object-[50%_20%] border-[3px] border-[#C89B3C] shrink-0"
               />
-              <p className="text-[#5B6270] text-sm leading-relaxed">
-                <span className="block text-[#0D2137] text-lg font-semibold">Will Shao</span>
+              <p className="text-white/70 text-sm leading-relaxed">
+                <span className="block text-white text-lg font-semibold">Will Shao</span>
                 REMAX Executive Realty
                 <span className="block">Nearly 20 years of experience</span>
               </p>
@@ -246,17 +246,17 @@ export default function SoldPage() {
             >
               Your home didn't sell. Let's find out why.
             </h1>
-            <p className="text-[#5B6270] text-lg lg:text-xl leading-relaxed mb-8">
+            <p className="text-white/65 text-lg lg:text-xl leading-relaxed mb-8">
               Most homes that don't sell have a fixable problem: the price, the marketing, or the plan. I'll tell you
               honestly which one it was.
             </p>
 
             <p className="text-2xl font-bold mb-3">
-              Same house. <span className="text-[#0D2137]">A different result.</span>
+              Same house. <span className="text-[#C89B3C]">A different result.</span>
             </p>
             <div className="grid grid-cols-2 gap-2.5 md:gap-3.5 mb-8">
               {RESULT.map((r) => (
-                <figure key={r.badge} className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#F4F6F8]">
+                <figure key={r.badge} className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#1A3A5C]">
                   <img
                     src={r.img}
                     alt={r.alt}
@@ -264,14 +264,14 @@ export default function SoldPage() {
                   />
                   <span
                     className={`absolute top-2 left-2 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] px-2 py-1 rounded-md ${
-                      r.sold ? "bg-[#0D2137] text-white" : "bg-[#0D2137]/75 text-white/85"
+                      r.sold ? "bg-[#C89B3C] text-[#0D2137]" : "bg-[#0D2137]/75 text-white/80"
                     }`}
                   >
                     {r.badge}
                   </span>
-                  <figcaption className="absolute inset-x-0 bottom-0 px-3 pt-7 pb-2.5 md:px-4 md:pt-9 md:pb-3.5 bg-gradient-to-b from-transparent via-[#0D2137]/85 to-[#0D2137]/95 text-white">
+                  <figcaption className="absolute inset-x-0 bottom-0 px-3 pt-7 pb-2.5 md:px-4 md:pt-9 md:pb-3.5 bg-gradient-to-b from-transparent via-[#0D2137]/85 to-[#0D2137]/95">
                     <span
-                      className={`block text-3xl md:text-4xl font-bold leading-none ${r.sold ? "text-white" : "text-white/80"}`}
+                      className={`block text-3xl md:text-4xl font-bold leading-none ${r.sold ? "text-[#C89B3C]" : ""}`}
                     >
                       {r.days}
                     </span>
@@ -283,13 +283,13 @@ export default function SoldPage() {
 
             <a
               href="#review"
-              className="inline-block bg-[#0D2137] hover:bg-[#1A3A5C] text-white rounded-full font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-xl"
+              className="inline-block bg-white hover:bg-[#EEF1F4] text-[#0D2137] rounded-full font-bold px-8 py-4 rounded-xl text-lg transition-colors shadow-xl"
             >
               Find Out Why It Didn't Sell
             </a>
-            <p className="text-[#5B6270] text-sm mt-4">
+            <p className="text-white/40 text-sm mt-4">
               No pressure. No obligation. Or{" "}
-              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#1A3A5C]">
+              <a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
                 book a free 30-minute call
               </a>
               .
@@ -406,46 +406,46 @@ export default function SoldPage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section id="review" className="py-24 md:py-36 bg-white px-6 scroll-mt-4">
+      <section id="review" className="py-24 md:py-36 bg-[#0D2137] px-6 scroll-mt-4">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[#0D2137] uppercase tracking-[0.2em] text-sm font-semibold mb-8">
+          <p className="text-[#C89B3C] uppercase tracking-[0.2em] text-sm font-semibold mb-8">
             Let's talk
           </p>
           <h2
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0D2137] leading-tight tracking-tight mb-8"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-8"
           >
             Let's find out why it didn't sell.
           </h2>
-          <p className="text-[#5B6270] text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/60 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
             Send me the address and I'll look at how your home was listed, including the price, the photos, and
             the marketing. Then I'll reach out to talk through what held it back and what I'd do differently.
           </p>
           <div className="mb-10">
             <ListingReviewForm />
           </div>
-          <p className="text-[#5B6270] text-base mb-4">Rather talk it through?</p>
+          <p className="text-white/50 text-base mb-4">Rather talk it through?</p>
           <a
             href={CALENDAR_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 border-2 border-[#0D2137] text-[#0D2137] hover:bg-[#F4F6F8] font-bold px-8 py-4 rounded-xl text-base transition-colors mb-8"
+            className="inline-flex items-center gap-3 border-2 border-[#C89B3C] text-[#C89B3C] hover:bg-[#C89B3C] hover:text-[#0D2137] font-bold px-8 py-4 rounded-xl text-base transition-colors mb-8"
           >
             <Calendar className="w-5 h-5" />
             Book a Free 30-Min Call
           </a>
-          <div className="flex items-center justify-center gap-2 text-[#5B6270] text-base">
+          <div className="flex items-center justify-center gap-2 text-white/40 text-base">
             <Phone className="w-4 h-4" />
             <span>
               Or call / text:{" "}
               <a
                 href="tel:+17814563541"
-                className="text-[#0D2137] font-semibold hover:text-[#1A3A5C] transition-colors"
+                className="text-white font-semibold hover:text-[#C89B3C] transition-colors"
               >
                 (781) 456-3541
               </a>
             </span>
           </div>
-          <p className="text-[#5B6270] text-sm mt-12">
+          <p className="text-white/20 text-sm mt-12">
             <a
               href="https://bostonhomeguide.com/sell"
               className="hover:text-white/40 transition-colors"
