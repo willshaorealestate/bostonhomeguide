@@ -43,7 +43,7 @@ const caseStudy = [
 const trackRecord = [
   { value: "101%", label: "Sale-to-list price" },
   { value: "200+", label: "Homes sold" },
-  { value: "5.0★", label: "48 reviews" },
+  { value: "5.0★", label: "50 reviews" },
 ];
 
 const INK = "#0D2137";
@@ -158,7 +158,7 @@ export default function HomePage() {
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "16:00" }
       ],
       "priceRange": "$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "48", "bestRating": "5" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "50", "bestRating": "5" },
       "areaServed": [
         "Boston","Newton","Wellesley","Brookline","Natick","Lexington","Needham","Framingham",
         "Waltham","Concord","Cambridge","Somerville","Arlington","Belmont","Medford","Quincy",
@@ -461,7 +461,7 @@ export default function HomePage() {
                 <p className="mt-5 flex items-center gap-2 text-base">
                   <Star className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" aria-hidden="true" />
                   <span className="font-semibold">5.0</span>
-                  <span className="text-[#5B6270]">· 48 reviews on Zillow and Google</span>
+                  <span className="text-[#5B6270]">· 50 reviews on Zillow and Google</span>
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <Link
