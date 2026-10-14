@@ -1,14 +1,12 @@
 /*
  * Home.tsx — BostonHomeGuide.com
- * Refined Coastal Luxury: Full-bleed hero, social proof, neighborhoods, listings, CTAs, testimonials
+ * Modern local guide: full-bleed hero with search, then short photo-led sections.
+ * Each section is a heading, one line, and a "See all" link — depth lives on the inner pages.
  */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useSEO } from "@/lib/seo";
 import { Link } from "wouter";
-import {
-  Search, Star, Home, TrendingUp, MapPin, ChevronRight,
-  ArrowRight, Play, Users, Award, Clock, CheckCircle
-} from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 
 declare global {
   namespace React.JSX {
@@ -24,99 +22,66 @@ declare global {
 }
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import SocialProofTicker from "@/components/SocialProofTicker";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import FloatingCTA from "@/components/FloatingCTA";
-import BuyingProcessGuide from "@/components/BuyingProcessGuide";
 import { toast } from "sonner";
 import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
-const NEIGHBORHOOD_IMAGE = "https://images.unsplash.com/photo-1599136115254-f3fa567872ae?w=1400&q=80";
-const CONSULT_IMAGE = "/images/site/photo.jpg";
-const INTRO_VIDEO_ID = "CnKe6hT361g";
-const METROWEST_IMAGE = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1400&q=80";
+const HEADSHOT = "/images/site/photo.jpg";
+const SELL_IMAGE = "/images/marketing/marketing-after-1.jpg";
 
+const INK = "#0D2137";
+
+// Order matters: the first cards get the most attention, especially on phones.
+// Prices and school grades match client/src/data/neighborhoods.ts.
 const neighborhoods = [
-  { name: "Newton", type: "City", medianPrice: "$1.7M", schools: "A+", img: "/images/towns/newton.jpeg" },
-  { name: "Wellesley", type: "Town", medianPrice: "$2.95M", schools: "A+", img: "/images/towns/wellesley.jpeg" },
-  { name: "Brookline", type: "Town", medianPrice: "$1.43M", schools: "A", img: "/images/towns/brookline.jpeg" },
-  { name: "Natick", type: "Town", medianPrice: "$874K", schools: "A", img: "/images/towns/natick.jpeg" },
-  { name: "Lexington", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/lexington.jpeg" },
-  { name: "Concord", type: "Town", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Needham", type: "Town", medianPrice: "$1.57M", schools: "A", img: "/images/towns/needham.jpeg" },
-  { name: "Framingham", type: "City", medianPrice: "$705K", schools: "B+", img: "/images/towns/framingham.jpeg" },
+  { name: "Lexington", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/lexington.jpeg" },
+  { name: "Bedford", medianPrice: "$998K", schools: "A", img: "/images/towns/bedford.jpeg" },
+  { name: "Concord", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
+  { name: "Acton", medianPrice: "$850K", schools: "A+", img: "/images/towns/acton.jpeg" },
+  { name: "Arlington", medianPrice: "$1.1M", schools: "A-", img: "/images/towns/arlington.jpeg" },
+  { name: "Winchester", medianPrice: "$1.5M", schools: "A+", img: "/images/towns/winchester.jpeg" },
+  { name: "Waltham", medianPrice: "$768K", schools: "B+", img: "/images/towns/waltham.jpeg" },
+  { name: "Cambridge", medianPrice: "$1.31M", schools: "B+", img: "/images/towns/cambridge.jpeg" },
 ];
 
+const heroTowns = ["Lexington", "Bedford", "Concord", "Acton", "Arlington"];
 
-const testimonials = [
-  {
-    name: "Jake Uminski",
-    rating: 5,
-    text: "Will Shao is attentive, knowledgeable, and tenacious. Not only did he curate an extensive list of homes catered to our needs and wants, but he was able to help us easily navigate all the complexities of the home buying process. We were so grateful to have Will in our corner!",
-    source: "Google",
-  },
-  {
-    name: "Tackle2thePeople",
-    rating: 5,
-    text: "Will helped us navigate an incredibly competitive market in the Spring of 2024 — it ended with us purchasing our very first home! As someone who entered the real estate industry during the 2008 Housing Crisis, he has seen everything under the sun. Will had loads of expertise on everything that could go right or wrong, and helped us navigate a fairly unique situation that resulted in us purchasing our dream house.",
-    source: "Google",
-  },
-  {
-    name: "Jason Hou",
-    rating: 5,
-    text: "Will helped us so much in our home buying experience in this crazy market. He is patient, calm, knowledgeable, and honest. He won't push you to do something you are not comfortable doing. I feel he takes the customer's requirements extremely seriously. Thanks Will!",
-    source: "Google",
-  },
+// Update monthly alongside Market.tsx
+const marketStats = [
+  { value: "$790K", label: "Median sale price" },
+  { value: "46 days", label: "Average days on market" },
+  { value: "99%", label: "Sale-to-list price" },
+  { value: "2,749", label: "Homes for sale" },
 ];
+const MARKET_PERIOD = "Greater Boston · September 2026";
 
-const stats = [
-  { value: "20", label: "Years Experience", icon: Clock },
-  { value: "$120M+", label: "In Transactions", icon: Home },
-  { value: "5.0★", label: "48 Zillow Reviews", icon: Star },
-  { value: "70+", label: "Towns Served", icon: MapPin },
-];
-
-const blogPosts = [
+// Kept inline (not imported from data/blogPosts) so the full article text isn't bundled into the homepage.
+const latestGuides = [
   {
-    title: "Best Neighborhoods for Families in Greater Boston",
-    excerpt: "From top-rated schools to community parks, we break down the best towns for raising a family in the Boston metro area.",
-    category: "Buyer Guide",
-    readTime: "8 min read",
     href: "/blog/best-neighborhoods-families",
+    title: "Best Neighborhoods for Families in Greater Boston",
+    category: "Buyer Guide",
+    minutes: 8,
+    img: "https://images.unsplash.com/photo-1785301694927-bca6526554b9?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0",
   },
   {
-    title: "How Much Do I Need to Buy a Home in Massachusetts?",
-    excerpt: "A detailed breakdown of down payments, closing costs, and monthly expenses for Boston-area home buyers in 2024.",
-    category: "Finance",
-    readTime: "6 min read",
     href: "/blog/how-much-to-buy-home-massachusetts",
+    title: "How Much Do I Need to Buy a Home in Massachusetts?",
+    category: "Finance",
+    minutes: 6,
+    img: "https://images.unsplash.com/photo-1578091436046-ecd3f4fe6992?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0",
   },
   {
-    title: "How to Win a Bidding War in Greater Boston",
-    excerpt: "Proven strategies that have helped Will's clients win competitive offers — without overpaying.",
-    category: "Strategy",
-    readTime: "5 min read",
     href: "/blog/win-bidding-war-boston",
+    title: "How to Win a Bidding War in Greater Boston",
+    category: "Strategy",
+    minutes: 5,
+    img: "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0",
   },
 ];
-
-function useIntersection(threshold = 0.1) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return { ref, visible };
-}
 
 function useRealScoutSearch() {
   useEffect(() => {
@@ -128,6 +93,29 @@ function useRealScoutSearch() {
     script.src = "https://em.realscout.com/assets/em/v3/all.js";
     document.head.appendChild(script);
   }, []);
+}
+
+function SectionHeader({
+  id, title, subtitle, linkLabel, href,
+}: { id: string; title: string; subtitle?: string; linkLabel?: string; href?: string }) {
+  return (
+    <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8 md:mb-10">
+      <div>
+        <h2 id={id} className="font-body text-3xl md:text-4xl font-bold tracking-tight text-[#0D2137]">
+          {title}
+        </h2>
+        {subtitle && <p className="text-base md:text-lg text-[#5B6270] mt-2">{subtitle}</p>}
+      </div>
+      {linkLabel && href && (
+        <Link
+          href={href}
+          className="inline-flex items-center gap-1.5 py-2 text-base font-semibold text-[#0D2137] hover:gap-2.5 transition-all shrink-0"
+        >
+          {linkLabel} <ArrowRight className="w-4 h-4" aria-hidden="true" />
+        </Link>
+      )}
+    </div>
+  );
 }
 
 export default function HomePage() {
@@ -176,10 +164,6 @@ export default function HomePage() {
     firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: ""
   });
   const [fubSubmitting, setFubSubmitting] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState(false);
-  const { ref: statsRef, visible: statsVisible } = useIntersection();
-  const { ref: neighborhoodsRef, visible: neighborhoodsVisible } = useIntersection();
-  const { ref: listingsRef, visible: listingsVisible } = useIntersection();
 
   const handleFubSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -217,664 +201,343 @@ export default function HomePage() {
     }
   };
 
+  const inputClass =
+    "w-full rounded-xl border border-[#D5DAE0] bg-white px-4 py-3 text-base text-[#0D2137] focus:outline-none focus:border-[#0D2137] focus:ring-2 focus:ring-[#0D2137]/10";
+  const labelClass = "block text-sm font-medium text-[#3A4049] mb-1.5";
+
   return (
-    <div className="min-h-screen bg-[#FAF8F4]">
+    <div className="min-h-screen bg-white font-body text-[#0D2137]">
       <Navigation />
       <ExitIntentPopup />
       <FloatingCTA />
 
       {/* ── HERO ── */}
       <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        aria-labelledby="hero-heading"
+        className="relative flex items-center justify-center min-h-[640px] md:min-h-[740px]"
         style={{
           backgroundImage: `url(${HERO_IMAGE})`,
           backgroundSize: "cover",
           backgroundPosition: "center 30%",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0D2137]/75 via-[#0D2137]/55 to-[#0D2137]/80" />
-
-        <div className="relative z-10 container text-center pt-24 pb-16">
-          <div className="max-w-4xl mx-auto">
-            <p className="section-label text-[#C89B3C] mb-4 animate-fade-up">
-              Greater Boston & MetroWest Massachusetts
-            </p>
+        <div className="absolute inset-0 bg-[#0D2137]/55" aria-hidden="true" />
+        <div className="relative z-10 container pt-28 pb-20">
+          <div className="max-w-3xl mx-auto text-center">
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 animate-fade-up delay-100"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              id="hero-heading"
+              className="font-body text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white"
             >
-              Your Complete Guide to
-              <span className="block text-[#C89B3C] italic">Buying & Selling</span>
-              in Greater Boston
+              Find your place in Greater Boston
             </h1>
-            <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto font-body animate-fade-up delay-200">
-              Expert guidance from Will Shao — nearly 20 years, $120M+ in transactions, serving Greater Boston's most sought-after towns.
+            <p className="mt-5 text-lg md:text-xl text-white/85">
+              Homes, towns, and market insight from a local agent.
             </p>
 
             {/* RealScout Search Widget */}
-            <div className="relative z-10 max-w-2xl mx-auto mb-6 animate-fade-up delay-300">
+            <div className="mt-9 max-w-2xl mx-auto">
               <div
                 className="realscout-search simple"
                 data-rep="willshao"
-                data-button-color="#C89B3C"
-                data-button-font="#0D2137"
-                data-background-color="rgba(255,255,255,0.95)"
+                data-button-color={INK}
+                data-button-font="#FFFFFF"
+                data-background-color="rgba(255,255,255,0.97)"
               />
             </div>
 
-            {/* Quick links */}
-            <div className="flex flex-wrap justify-center gap-3 animate-fade-up delay-400">
-              {[
-                { label: "Buy a Home", href: "/buy" },
-                { label: "Sell Your Home", href: "/sell" },
-                { label: "Market Reports", href: "/market" },
-                { label: "Neighborhood Guides", href: "/neighborhoods" },
-              ].map((link) => (
+            <div className="mt-6 flex flex-wrap justify-center gap-2.5">
+              {heroTowns.map((town) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-5 py-2 bg-white/15 hover:bg-white/25 text-white text-sm font-body rounded border border-white/30 transition-all backdrop-blur-sm"
+                  key={town}
+                  href={`/neighborhoods/${town.toLowerCase()}`}
+                  className="px-4 py-2.5 rounded-full bg-white text-[#0D2137] text-sm font-medium hover:bg-[#EEF1F4] transition-colors"
                 >
-                  {link.label}
+                  {town}
                 </Link>
               ))}
             </div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <div className="w-px h-8 bg-white/40" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#C89B3C]" />
-        </div>
       </section>
 
-      {/* ── SOCIAL PROOF TICKER ── */}
-      <SocialProofTicker />
-
-      {/* ── STATS BAR ── */}
-      <section className="bg-[#0D2137] py-10" ref={statsRef}>
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-white/10">
-            {stats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={stat.label}
-                  className={`flex flex-col items-center text-center px-6 ${
-                    statsVisible ? "animate-fade-up" : "opacity-0"
-                  }`}
-                  style={{ animationDelay: `${i * 100}ms` }}
-                >
-                  <Icon className="w-6 h-6 text-[#C89B3C] mb-2" />
-                  <span
-                    className="text-3xl font-bold text-white mb-1"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {stat.value}
-                  </span>
-                  <span className="text-sm text-white/50 font-body uppercase tracking-wider">
-                    {stat.label}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── MARKET SNAPSHOT ── */}
-      <section className="bg-[#FAF8F4] py-12 border-b border-gray-100">
-        <div className="container">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <p className="section-label mb-1">Live Market Data</p>
-              <h2
-                className="text-2xl font-bold text-[#0D2137]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Greater Boston Market Snapshot
-              </h2>
-              <p className="text-sm text-gray-500 font-body mt-1">Updated September 2026</p>
-            </div>
-            <div className="flex flex-wrap gap-6 md:gap-10">
-              {[
-                { label: "Median Sale Price", value: "$790,000", change: "Sep 2026", up: true },
-                { label: "Days on Market", value: "46 days", change: "Greater Boston", up: false },
-                { label: "List-to-Sale Ratio", value: "99%", change: "Just under asking", up: false },
-                { label: "Active Inventory", value: "2,749", change: "Sep 2026", up: false },
-              ].map((metric) => (
-                <div key={metric.label} className="text-center">
-                  <p
-                    className="text-2xl font-bold text-[#0D2137]"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {metric.value}
-                  </p>
-                  <p className="text-sm text-gray-500 font-body">{metric.label}</p>
-                  <p
-                    className={`text-xs font-semibold mt-0.5 ${
-                      metric.up ? "text-green-600" : "text-red-500"
-                    }`}
-                  >
-                    {metric.change}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <Link href="/market" className="btn-outline-gold text-sm whitespace-nowrap">
-              Full Report →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── NEIGHBORHOODS ── */}
-      <section className="py-20 bg-white" ref={neighborhoodsRef}>
-        <div className="container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <span className="gold-rule" />
-              <p className="section-label mb-2">Explore Communities</p>
-              <h2
-                className="text-4xl md:text-5xl font-bold text-[#0D2137]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Find Your Perfect Neighborhood
-              </h2>
-              <p className="text-gray-500 font-body mt-3 max-w-xl">
-                Like ice cream flavors, every Greater Boston town has its own unique character — explore guides for 70+ communities with school ratings, market data, and local flavor.
-              </p>
-            </div>
-            <Link
+      <main>
+        {/* ── COMMUNITIES ── */}
+        <section aria-labelledby="towns-heading" className="pt-20 md:pt-28">
+          <div className="container">
+            <SectionHeader
+              id="towns-heading"
+              title="Explore communities"
+              subtitle="Schools, prices, and local character for 70+ towns."
+              linkLabel="See all towns"
               href="/neighborhoods"
-              className="mt-6 md:mt-0 flex items-center gap-2 text-[#C89B3C] font-semibold text-sm font-body hover:gap-3 transition-all"
-            >
-              View All Communities <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {neighborhoods.map((n, i) => (
-              <Link
-                key={n.name}
-                href={`/neighborhoods/${n.name.toLowerCase()}`}
-                className={`group relative overflow-hidden rounded-lg aspect-[4/3] card-hover ${
-                  neighborhoodsVisible ? "animate-fade-up" : "opacity-0"
-                }`}
-                style={{ animationDelay: `${i * 75}ms` }}
-              >
-                <img
-                  src={n.img}
-                  alt={n.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D2137]/85 via-[#0D2137]/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3
-                    className="text-white font-bold text-lg leading-tight"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {n.name}
-                  </h3>
-                  <div className="flex items-center justify-between mt-1">
-                    <span className="text-white/70 text-sm font-body">{n.medianPrice} avg.</span>
-                    <span className="text-[#C89B3C] text-sm font-semibold font-body">
-                      Schools: {n.schools}
-                    </span>
+            />
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6">
+              {neighborhoods.map((n) => (
+                <Link key={n.name} href={`/neighborhoods/${n.name.toLowerCase()}`} className="group block">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EEF1F4]">
+                    <img
+                      src={n.img}
+                      alt={n.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FEATURED LISTINGS ── */}
-      <section className="py-20 bg-[#FAF8F4]" ref={listingsRef}>
-        <div className="container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <span className="gold-rule" />
-              <p className="section-label mb-2">Featured Properties</p>
-              <h2
-                className="text-4xl md:text-5xl font-bold text-[#0D2137]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Homes for Sale in Greater Boston
-              </h2>
-            </div>
-            <Link
-              href="/search"
-              className="mt-6 md:mt-0 flex items-center gap-2 text-[#C89B3C] font-semibold text-sm font-body hover:gap-3 transition-all"
-            >
-              View All Listings <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <style>{`
-            realscout-your-listings {
-              --rs-listing-divider-color: rgb(101, 141, 172);
-              width: 100%;
-            }
-          `}</style>
-          <realscout-your-listings
-            agent-encoded-id="QWdlbnQtMTUzMjg1"
-            sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
-            listing-status="For Sale,For Rent,In Contract,Sold"
-            property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
-          />
-        </div>
-      </section>
-
-      {/* ── DUAL CTA ── */}
-      <section className="py-20 bg-[#0D2137]">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Buyer CTA */}
-            <div
-              className="relative overflow-hidden rounded-lg p-8 md:p-10"
-              style={{
-                backgroundImage: `url(${NEIGHBORHOOD_IMAGE})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="absolute inset-0 bg-[#0D2137]/80" />
-              <div className="relative z-10">
-                <Home className="w-8 h-8 text-[#C89B3C] mb-4" />
-                <h3
-                  className="text-2xl md:text-3xl font-bold text-white mb-3"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  Find Your Dream Home
-                </h3>
-                <p className="text-white/70 font-body text-base mb-6 leading-relaxed">
-                  Access the complete Greater Boston MLS, get personalized neighborhood
-                  recommendations, and work with a buyer's agent who knows every street.
-                </p>
-                <Link href="/buy" className="btn-gold text-sm">
-                  Start Your Search →
+                  <h3 className="font-body mt-3 text-lg font-semibold">{n.name}</h3>
+                  <p className="text-sm text-[#5B6270]">
+                    Median {n.medianPrice} · Schools {n.schools}
+                  </p>
                 </Link>
-              </div>
+              ))}
             </div>
+          </div>
+        </section>
 
-            {/* Seller CTA */}
-            <div
-              className="relative overflow-hidden rounded-lg p-8 md:p-10"
-              style={{
-                backgroundImage: `url(${METROWEST_IMAGE})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="absolute inset-0 bg-[#1A3A5C]/85" />
-              <div className="relative z-10">
-                <TrendingUp className="w-8 h-8 text-[#C89B3C] mb-4" />
-                <h3
-                  className="text-2xl md:text-3xl font-bold text-white mb-3"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  What's My Home Worth?
-                </h3>
-                <p className="text-white/70 font-body text-base mb-6 leading-relaxed">
-                  Get a free, no-obligation home valuation based on real-time market data
-                  and Will's nearly 20 years of local expertise.
+        {/* ── MARKET ── */}
+        <section aria-labelledby="market-heading" className="pt-20 md:pt-28">
+          <div className="container">
+            <SectionHeader
+              id="market-heading"
+              title="The market right now"
+              subtitle={MARKET_PERIOD}
+              linkLabel="Full market report"
+              href="/market"
+            />
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+              {marketStats.map((s) => (
+                <div key={s.label} className="rounded-2xl bg-[#F4F6F8] p-6 md:p-8">
+                  <p className="text-3xl md:text-4xl font-bold tracking-tight">{s.value}</p>
+                  <p className="mt-1.5 text-sm md:text-base text-[#5B6270]">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── LISTINGS ── */}
+        <section aria-labelledby="listings-heading" className="pt-20 md:pt-28">
+          <div className="container">
+            <SectionHeader
+              id="listings-heading"
+              title="Will's listings"
+              subtitle="For sale, in contract, and recently sold."
+              linkLabel="Search all homes"
+              href="/search"
+            />
+            <style>{`
+              realscout-your-listings {
+                --rs-listing-divider-color: #E6E9ED;
+                width: 100%;
+              }
+            `}</style>
+            <realscout-your-listings
+              agent-encoded-id="QWdlbnQtMTUzMjg1"
+              sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
+              listing-status="For Sale,For Rent,In Contract,Sold"
+              property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
+            />
+          </div>
+        </section>
+
+        {/* ── GUIDES ── */}
+        <section aria-labelledby="guides-heading" className="pt-20 md:pt-28">
+          <div className="container">
+            <SectionHeader
+              id="guides-heading"
+              title="Local guides"
+              subtitle="Straight answers for buying and selling here."
+              linkLabel="All guides"
+              href="/blog"
+            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+              {latestGuides.map((g) => (
+                <Link key={g.href} href={g.href} className="group block">
+                  <div className="aspect-[16/10] rounded-2xl overflow-hidden bg-[#EEF1F4]">
+                    <img
+                      src={g.img}
+                      alt=""
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="mt-4 text-sm font-semibold text-[#5B6270]">
+                    {g.category} · {g.minutes} min read
+                  </p>
+                  <h3 className="font-body mt-1 text-xl font-semibold leading-snug group-hover:underline underline-offset-4">
+                    {g.title}
+                  </h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── HOME VALUE ── */}
+        <section aria-labelledby="sell-heading" className="pt-20 md:pt-28">
+          <div className="container">
+            <div className="rounded-3xl bg-[#F4F6F8] overflow-hidden grid grid-cols-1 md:grid-cols-2">
+              <div className="aspect-[4/3] md:aspect-auto md:min-h-[400px]">
+                <img
+                  src={SELL_IMAGE}
+                  alt="Living room photographed for one of Will's listings"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-8 md:p-14 flex flex-col justify-center">
+                <h2 id="sell-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight">
+                  What's your home worth?
+                </h2>
+                <p className="mt-3 text-base md:text-lg text-[#5B6270]">
+                  A clear pricing plan and marketing built to sell.
                 </p>
-                <div className="flex flex-col gap-3">
+                <div className="mt-7 flex flex-wrap gap-3">
                   <a
                     href={getFelloUrl()}
-                    className="btn-gold text-sm fello-cta"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="fello-cta inline-flex items-center px-6 py-3.5 rounded-full bg-[#0D2137] text-white text-base font-semibold hover:bg-[#1A3A5C] transition-colors"
                   >
-                    Get Your Free Home Valuation →
+                    Get a home valuation
                   </a>
-                  <p className="text-sm text-white/50 font-body">Instant market analysis · Powered by Fello</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ABOUT WILL ── */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
-                <img
-                  src={CONSULT_IMAGE}
-                  alt="Will Shao — Real Estate Expert"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-5 -right-5 bg-[#C89B3C] text-[#0D2137] rounded-lg p-4 shadow-xl">
-                <p
-                  className="text-3xl font-bold leading-none"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  18
-                </p>
-                <p className="text-xs font-semibold font-body mt-1">Years of<br />Excellence</p>
-              </div>
-            </div>
-
-            <div>
-              <span className="gold-rule" />
-              <p className="section-label mb-2">Meet Your Agent</p>
-              <h2
-                className="text-4xl md:text-5xl font-bold text-[#0D2137] mb-5"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Will Shao — Your Greater Boston Expert
-              </h2>
-              <p className="text-gray-600 font-body leading-relaxed mb-4">
-                With nearly 20 years of experience and $120M+ in closed transactions, Will Shao has
-                built a reputation as the trusted guide for buyers and sellers across Greater
-                Boston and MetroWest Massachusetts.
-              </p>
-              <p className="text-gray-600 font-body leading-relaxed mb-6">
-                Will serves the diverse communities of Greater Boston — from first-time buyers
-                to experienced home sellers. His approach is educational first: he believes
-                an informed client makes the best decisions.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                {[
-                  "REMAX Executive Realty",
-                  "REMAX Executive Realty",
-                  "70+ Towns Served",
-                  "5.0★ Zillow · 48 Reviews",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#C89B3C] shrink-0" />
-                    <span className="text-base text-gray-600 font-body">{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                <Link href="/about" className="btn-navy text-sm">
-                  Learn More About Will
-                </Link>
-                <Link href="/contact" className="btn-outline-gold text-sm">
-                  Send a Message
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── VIDEO INTRO ── */}
-      <section className="py-20 bg-[#FAF8F4]">
-        <div className="container">
-          <div className="text-center mb-10">
-            <span className="gold-rule mx-auto" />
-            <p className="section-label mb-2">Video Introduction</p>
-            <h2
-              className="text-4xl md:text-5xl font-bold text-[#0D2137]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Hear From Will Directly
-            </h2>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0D2137] shadow-xl">
-              {videoPlaying ? (
-                <iframe
-                  src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}?autoplay=1`}
-                  title="Will Shao video introduction"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => setVideoPlaying(true)}
-                  className="absolute inset-0 w-full h-full cursor-pointer group"
-                  aria-label="Play video introduction"
-                >
-                  <img
-                    src={`https://img.youtube.com/vi/${INTRO_VIDEO_ID}/hqdefault.jpg`}
-                    alt="Will Shao video introduction"
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-60 transition-opacity"
-                  />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                      <Play className="w-8 h-8 text-[#0D2137] ml-1" />
-                    </div>
-                    <p className="text-white font-body text-sm mt-4 opacity-80">
-                      Watch Will's Introduction
-                    </p>
-                  </div>
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ── */}
-      <section className="py-20 bg-[#0D2137]">
-        <div className="container">
-          <div className="text-center mb-12">
-            <span className="gold-rule mx-auto" />
-            <p className="section-label mb-2">Client Stories</p>
-            <h2
-              className="text-4xl md:text-5xl font-bold text-white"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              What Clients Say About Will
-            </h2>
-            <div className="flex items-center justify-center gap-2 mt-3">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" />
-              ))}
-              <span className="text-white/70 font-body text-sm ml-1">
-                5.0 · 48 Reviews on Zillow &amp; Google
-              </span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div
-                key={t.name}
-                className="bg-[#1A3A5C] rounded-lg p-6 border border-white/10"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-4 h-4 fill-[#C89B3C] text-[#C89B3C]" />
-                  ))}
-                  <span className="text-white/40 text-xs ml-2 font-body">{t.source}</span>
-                </div>
-                <p className="text-white/80 font-body text-base leading-relaxed mb-5 italic">
-                  "{t.text}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#C89B3C]/20 flex items-center justify-center">
-                    <Users className="w-4 h-4 text-[#C89B3C]" />
-                  </div>
-                  <p className="text-white text-base font-semibold font-body">{t.name}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3 mt-10">
-            <a
-              href="https://zillow.com/profile/willshao"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline-gold text-sm"
-            >
-              Read Reviews on Zillow →
-            </a>
-            <a
-              href="https://www.google.com/maps/place/Will+Shao+-+Greater+Boston+Real+Estate+Agent/@42.396144,-71.5891231,10z/data=!4m16!1m9!3m8!1s0x89e389477f2c7b09:0x6c87515ce456b0de!2sWill+Shao+-+Greater+Boston+Real+Estate+Agent!8m2!3d42.396109!4d-71.2594615!9m1!1b1!16s%2Fg%2F11qswmf7zz!3m5!1s0x89e389477f2c7b09:0x6c87515ce456b0de!8m2!3d42.396109!4d-71.2594615!16s%2Fg%2F11qswmf7zz?hl=en-US&entry=ttu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline-gold text-sm"
-            >
-              Read Reviews on Google →
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ── BUYING PROCESS GUIDE ── */}
-      <BuyingProcessGuide />
-
-      {/* ── BLOG POSTS ── */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <span className="gold-rule" />
-              <p className="section-label mb-2">Resources & Insights</p>
-              <h2
-                className="text-4xl md:text-5xl font-bold text-[#0D2137]"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Greater Boston Real Estate Guides
-              </h2>
-            </div>
-            <Link
-              href="/blog"
-              className="mt-6 md:mt-0 flex items-center gap-2 text-[#C89B3C] font-semibold text-sm font-body hover:gap-3 transition-all"
-            >
-              View All Articles <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
-              <Link
-                key={post.href}
-                href={post.href}
-                className="group bg-[#FAF8F4] rounded-lg overflow-hidden border border-gray-100 card-hover"
-              >
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xs font-semibold font-body text-[#C89B3C] bg-[#C89B3C]/10 px-2.5 py-1 rounded">
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-gray-400 font-body">{post.readTime}</span>
-                  </div>
-                  <h3
-                    className="text-lg font-bold text-[#0D2137] mb-3 group-hover:text-[#1976A8] transition-colors leading-snug"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  <Link
+                    href="/sell"
+                    className="inline-flex items-center px-6 py-3.5 rounded-full border border-[#C9CFD6] bg-white text-base font-semibold hover:border-[#0D2137] transition-colors"
                   >
-                    {post.title}
-                  </h3>
-                  <p className="text-base text-gray-500 font-body leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-4 flex items-center gap-1 text-[#C89B3C] text-sm font-semibold font-body">
-                    Read Article <ChevronRight className="w-4 h-4" />
-                  </div>
+                    How Will sells
+                  </Link>
                 </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FUB LEAD FORM ── */}
-      <section className="py-16 bg-[#FAF8F4] border-t border-gray-100">
-        <div className="container">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-8">
-              <Award className="w-10 h-10 text-[#C89B3C] mx-auto mb-4" />
-              <h2
-                className="text-2xl md:text-3xl font-bold text-[#0D2137] mb-3"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Ready to Make Your Move?
-              </h2>
-              <p className="text-gray-500 font-body text-base">
-                Tell Will a bit about what you're looking for and he'll reach out within 24 hours.
-              </p>
+              </div>
             </div>
-            <form onSubmit={handleFubSubmit} className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">First Name *</label>
-                  <input type="text" required value={fubForm.firstName}
-                    onChange={(e) => setFubForm({ ...fubForm, firstName: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
-                    placeholder="Jane" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Last Name</label>
-                  <input type="text" value={fubForm.lastName}
-                    onChange={(e) => setFubForm({ ...fubForm, lastName: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
-                    placeholder="Smith" />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Email *</label>
-                  <input type="email" required value={fubForm.email}
-                    onChange={(e) => setFubForm({ ...fubForm, email: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
-                    placeholder="jane@email.com" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Phone</label>
-                  <input type="tel" value={fubForm.phone}
-                    onChange={(e) => setFubForm({ ...fubForm, phone: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]"
-                    placeholder="(617) 000-0000" />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">I'm Interested In</label>
-                  <select value={fubForm.interest} onChange={(e) => setFubForm({ ...fubForm, interest: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
-                    <option value="">Select one</option>
-                    <option value="buying">Buying a Home</option>
-                    <option value="selling">Selling My Home</option>
-                    <option value="both">Buying &amp; Selling</option>
-                    <option value="investing">Investment Property</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Preferred Language</label>
-                  <select value={fubForm.language} onChange={(e) => setFubForm({ ...fubForm, language: e.target.value })}
-                    className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C]">
-                    <option value="english">English</option>
-                    <option value="mandarin">Mandarin 普通话</option>
-                  </select>
-                </div>
+          </div>
+        </section>
+
+        {/* ── MEET WILL ── */}
+        <section aria-labelledby="will-heading" className="pt-20 md:pt-28">
+          <div className="container">
+            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-8 md:gap-14 items-center">
+              <div className="aspect-[4/5] max-w-sm w-full rounded-3xl overflow-hidden bg-[#EEF1F4]">
+                <img src={HEADSHOT} alt="Will Shao" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-[#0D2137] mb-1.5 font-body uppercase tracking-wide">Message (optional)</label>
-                <textarea rows={3} value={fubForm.message}
-                  onChange={(e) => setFubForm({ ...fubForm, message: e.target.value })}
-                  className="w-full border border-gray-200 rounded px-4 py-3 text-base font-body text-[#0D2137] focus:outline-none focus:border-[#C89B3C] resize-none"
-                  placeholder="Tell Will a bit about what you're looking for..." />
+                <h2 id="will-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight">
+                  Hi, I'm Will.
+                </h2>
+                <p className="mt-4 max-w-xl text-lg leading-relaxed text-[#3A4049]">
+                  Nearly 20 years and $120M+ in sales across Greater Boston. I keep clients informed so
+                  they can make confident decisions. English and Mandarin.
+                </p>
+                <p className="mt-5 flex items-center gap-2 text-base">
+                  <Star className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" aria-hidden="true" />
+                  <span className="font-semibold">5.0</span>
+                  <span className="text-[#5B6270]">· 48 reviews on Zillow and Google</span>
+                </p>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center px-6 py-3.5 rounded-full bg-[#0D2137] text-white text-base font-semibold hover:bg-[#1A3A5C] transition-colors"
+                  >
+                    Talk to Will
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center px-6 py-3.5 rounded-full border border-[#C9CFD6] text-base font-semibold hover:border-[#0D2137] transition-colors"
+                  >
+                    About &amp; reviews
+                  </Link>
+                </div>
               </div>
-              <button type="submit" disabled={fubSubmitting} className="btn-gold w-full text-center text-sm py-3 disabled:opacity-60">
-                {fubSubmitting ? "Sending..." : "Send Message — Will Responds Within 24 Hours"}
-              </button>
-              <p className="text-xs text-gray-400 font-body text-center leading-relaxed">
-                By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
-                <Link href="/privacy-policy" className="underline hover:text-[#C89B3C]">Privacy Policy</Link>{" "}
-                and{" "}
-                <Link href="/terms" className="underline hover:text-[#C89B3C]">Terms &amp; Conditions</Link>.
-              </p>
-            </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* ── CONTACT FORM ── */}
+        <section aria-labelledby="contact-heading" className="py-20 md:py-28">
+          <div className="container">
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 id="contact-heading" className="font-body text-3xl md:text-4xl font-bold tracking-tight">
+                  Thinking about a move?
+                </h2>
+                <p className="mt-3 text-base md:text-lg text-[#5B6270]">
+                  Tell Will what you're looking for. He'll reply within 24 hours.
+                </p>
+              </div>
+              <form onSubmit={handleFubSubmit} className="rounded-3xl bg-[#F4F6F8] p-6 md:p-8 space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="home-first" className={labelClass}>First name *</label>
+                    <input id="home-first" type="text" required autoComplete="given-name" value={fubForm.firstName}
+                      onChange={(e) => setFubForm({ ...fubForm, firstName: e.target.value })}
+                      className={inputClass} />
+                  </div>
+                  <div>
+                    <label htmlFor="home-last" className={labelClass}>Last name</label>
+                    <input id="home-last" type="text" autoComplete="family-name" value={fubForm.lastName}
+                      onChange={(e) => setFubForm({ ...fubForm, lastName: e.target.value })}
+                      className={inputClass} />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="home-email" className={labelClass}>Email *</label>
+                    <input id="home-email" type="email" required autoComplete="email" value={fubForm.email}
+                      onChange={(e) => setFubForm({ ...fubForm, email: e.target.value })}
+                      className={inputClass} />
+                  </div>
+                  <div>
+                    <label htmlFor="home-phone" className={labelClass}>Phone</label>
+                    <input id="home-phone" type="tel" autoComplete="tel" value={fubForm.phone}
+                      onChange={(e) => setFubForm({ ...fubForm, phone: e.target.value })}
+                      className={inputClass} />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="home-interest" className={labelClass}>I'm interested in</label>
+                    <select id="home-interest" value={fubForm.interest}
+                      onChange={(e) => setFubForm({ ...fubForm, interest: e.target.value })}
+                      className={inputClass}>
+                      <option value="">Select one</option>
+                      <option value="buying">Buying a Home</option>
+                      <option value="selling">Selling My Home</option>
+                      <option value="both">Buying &amp; Selling</option>
+                      <option value="investing">Investment Property</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="home-language" className={labelClass}>Preferred language</label>
+                    <select id="home-language" value={fubForm.language}
+                      onChange={(e) => setFubForm({ ...fubForm, language: e.target.value })}
+                      className={inputClass}>
+                      <option value="english">English</option>
+                      <option value="mandarin">Mandarin 普通话</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="home-message" className={labelClass}>Message (optional)</label>
+                  <textarea id="home-message" rows={3} value={fubForm.message}
+                    onChange={(e) => setFubForm({ ...fubForm, message: e.target.value })}
+                    className={`${inputClass} resize-none`} />
+                </div>
+                <button
+                  type="submit"
+                  disabled={fubSubmitting}
+                  className="w-full rounded-full bg-[#0D2137] py-3.5 text-base font-semibold text-white hover:bg-[#1A3A5C] transition-colors disabled:opacity-60"
+                >
+                  {fubSubmitting ? "Sending..." : "Send message"}
+                </button>
+                <p className="text-xs text-[#5B6270] text-center leading-relaxed">
+                  By submitting this form, you agree to be contacted by Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty, by phone, text message, and email regarding your real estate inquiry. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to unsubscribe, HELP for help. Your information will never be sold or shared with third parties for promotional purposes. See our{" "}
+                  <Link href="/privacy-policy" className="underline hover:text-[#0D2137]">Privacy Policy</Link>{" "}
+                  and{" "}
+                  <Link href="/terms" className="underline hover:text-[#0D2137]">Terms &amp; Conditions</Link>.
+                </p>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>

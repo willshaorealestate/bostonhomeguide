@@ -2,9 +2,10 @@
  * About.tsx — BostonHomeGuide.com
  * About Will Shao — story, credentials, testimonials, and community involvement
  */
+import { useState } from "react";
 import { Link } from "wouter";
 import {
-  Award, Star, Users, Globe, Heart, CheckCircle, Quote
+  Award, Star, Users, Globe, Heart, CheckCircle, Quote, Play
 } from "lucide-react";
 import { useSEO } from "@/lib/seo";
 import Navigation from "@/components/Navigation";
@@ -12,6 +13,60 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 
 const WILL_BG = "/images/site/photo.jpg";
+const INTRO_VIDEO_ID = "CnKe6hT361g";
+
+// Moved here from the homepage so the intro video still has a home.
+function IntroVideo() {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <section className="py-20 bg-[#FAF8F4]">
+      <div className="container">
+        <div className="text-center mb-10">
+          <span className="gold-rule mx-auto" />
+          <p className="section-label mb-2">Video Introduction</p>
+          <h2
+            className="text-4xl md:text-5xl font-bold text-[#0D2137]"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Hear From Will Directly
+          </h2>
+        </div>
+        <div className="max-w-3xl mx-auto">
+          <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0D2137] shadow-xl">
+            {playing ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}?autoplay=1`}
+                title="Will Shao video introduction"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setPlaying(true)}
+                className="absolute inset-0 w-full h-full cursor-pointer group"
+                aria-label="Play video introduction"
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${INTRO_VIDEO_ID}/hqdefault.jpg`}
+                  alt=""
+                  className="w-full h-full object-cover opacity-70 group-hover:opacity-60 transition-opacity"
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-[#C89B3C] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                    <Play className="w-8 h-8 text-[#0D2137] ml-1" />
+                  </div>
+                  <p className="text-white font-body text-sm mt-4 opacity-80">Watch Will's Introduction</p>
+                </div>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const testimonials = [
   {
@@ -293,6 +348,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <IntroVideo />
 
       {/* Testimonials */}
       <section className="py-20 bg-white">
