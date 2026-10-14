@@ -5,10 +5,10 @@
 import { Star } from "lucide-react";
 
 export const QUOTES = {
-  jake: { text: "Will Shao is attentive, knowledgeable, and tenacious.", name: "Jake Uminski", role: "Buyer · Google review" },
+  jake: { text: "Will Shao is attentive, knowledgeable, and tenacious.", name: "Jake U.", role: "Buyer · Google review" },
   mengju: {
     text: "From the start, Will provided clear, honest guidance and helped us understand every step, from house hunting to closing.",
-    name: "Meng-Ju Wu",
+    name: "Meng-Ju W.",
     role: "First-time buyer · Google review",
   },
   vr: { text: "Throughout this process, Will was super engaged, prompt, and courteous.", name: "V.R.", role: "Buyer · Google review" },
@@ -19,12 +19,12 @@ export const QUOTES = {
   },
   baker: {
     text: "His professionalism is second to none — I wouldn't want to purchase a home with anyone else.",
-    name: "Michael Baker",
+    name: "Michael B.",
     role: "Buyer · Google review",
   },
   mark: {
     text: "The seller said 'you got this house because of your agent — he really knows what he is doing.'",
-    name: "Mark Fung-a-fat",
+    name: "Mark F.",
     role: "Buyer · Google review",
   },
   philip: {
@@ -34,7 +34,7 @@ export const QUOTES = {
   },
   jason: {
     text: "He is patient, calm, knowledgeable, and honest. He won't push you to do something you are not comfortable doing.",
-    name: "Jason Hou",
+    name: "Jason H.",
     role: "Buyer · Google review",
   },
 } as const;

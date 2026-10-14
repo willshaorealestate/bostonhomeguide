@@ -70,13 +70,13 @@ function IntroVideo() {
 
 const testimonials = [
   {
-    name: "Jake Uminski",
+    name: "Jake U.",
     stars: 5,
     text: "Will Shao is attentive, knowledgeable, and tenacious. Not only did he curate an extensive list of homes catered to our needs and wants, but he was able to help us easily navigate all the complexities of the home buying process. We were so grateful to have Will in our corner!",
     date: "February 2025 · Google",
   },
   {
-    name: "Meng-Ju Wu",
+    name: "Meng-Ju W.",
     stars: 5,
     text: "This was our first time purchasing a single-family home and we were quite nervous. From the start, Will provided clear, honest guidance and helped us understand every step, from house hunting to closing. He took the time to visit every property and patiently explained the pros and cons of each one. What really stood out was the personal touch — Will was genuinely invested in helping us find not just a house, but the right home for our family.",
     date: "October 2024 · Google",
@@ -94,13 +94,13 @@ const testimonials = [
     date: "August 2012 · Yelp",
   },
   {
-    name: "Michael Baker",
+    name: "Michael B.",
     stars: 5,
     text: "Truly exceptional service by Will and his teammate Rachael. Our move was from out of state during an extremely difficult market for buyers. Will's expert advice, patience, and dedication to finding our next home made all the difference. His professionalism is second to none — I wouldn't want to purchase a home with anyone else.",
     date: "October 2021 · Google",
   },
   {
-    name: "Mark Fung-a-fat",
+    name: "Mark F.",
     stars: 5,
     text: "Will's mantra was 'be prepared, be patient, and be persistent — all of my clients will get a house.' I was skeptical but his calm confidence and sound advice landed us a home in one of the best school districts in a fantastic neighborhood. In fact, the seller said 'you got this house because of your agent — he really knows what he is doing.' Thank you Will for helping us remain calm in this nutty market.",
     date: "June 2021 · Google",
