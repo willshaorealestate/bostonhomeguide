@@ -43,7 +43,7 @@ const neighborhoods = [
   { name: "Acton", medianPrice: "$850K", schools: "A+", img: "/images/towns/acton.jpeg" },
   { name: "Arlington", medianPrice: "$1.1M", schools: "A-", img: "/images/towns/arlington.jpeg" },
   { name: "Winchester", medianPrice: "$1.5M", schools: "A+", img: "/images/towns/winchester.jpeg" },
-  { name: "Lincoln", medianPrice: "$1.5M", schools: "A+", img: "/images/towns/lincoln.jpeg" },
+  { name: "Waltham", medianPrice: "$768K", schools: "B+", img: "/images/towns/waltham.jpeg" },
   { name: "Cambridge", medianPrice: "$1.31M", schools: "B+", img: "/images/towns/cambridge.jpeg" },
 ];
 
