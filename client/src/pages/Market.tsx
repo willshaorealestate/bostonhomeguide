@@ -12,6 +12,7 @@ import { TrendingUp, Mail, BarChart2, Calendar } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import PullQuote from "@/components/PullQuote";
 import { toast } from "sonner";
 import { submitToFub } from "@/lib/fub";
 import { useSEO } from "@/lib/seo";
@@ -1064,6 +1065,8 @@ export default function MarketPage() {
           })()}
         </div>
       </section>
+
+      <PullQuote quote="jason" align="center" className="py-12 md:py-16" />
 
       {/* Will's Commentary */}
       <section className="py-16 bg-[#F7F8FA]">

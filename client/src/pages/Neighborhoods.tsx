@@ -8,6 +8,7 @@ import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, Exter
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import { QuoteCard } from "@/components/PullQuote";
 import { toast } from "sonner";
 import { isValidEmail } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
@@ -271,6 +272,8 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   </a>
                 </div>
               </div>
+
+              <QuoteCard quote="baker" />
 
               {/* Town resources */}
               {neighborhood.resources && neighborhood.resources.length > 0 && (

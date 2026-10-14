@@ -11,6 +11,7 @@ import { useSEO } from "@/lib/seo";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import { QuoteCard } from "@/components/PullQuote";
 
 const WILL_BG = "/images/site/photo.jpg";
 const INTRO_VIDEO_ID = "CnKe6hT361g";
@@ -269,20 +270,7 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Languages */}
-              <div className="bg-[#0D2137] rounded-2xl p-6">
-                <Globe className="w-6 h-6 text-[#0D2137] mb-3" />
-                <h3
-                  className="text-white font-bold text-lg mb-2"
-                >
-                  Language
-                </h3>
-                <p className="text-white/70 font-body text-base leading-relaxed">
-                  Will conducts all real estate services in <strong className="text-white">English</strong> and
-                  has conversational <strong className="text-white">Mandarin</strong> ability —
-                  helpful for clients who prefer some Mandarin communication during the process.
-                </p>
-              </div>
+              <QuoteCard quote="mark" />
             </div>
           </div>
         </div>

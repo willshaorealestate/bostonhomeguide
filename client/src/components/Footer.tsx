@@ -139,10 +139,6 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-5">
-              <p className="text-sm text-white/40 mb-1">Language</p>
-              <p className="text-base text-white/60">English · Conversational Mandarin</p>
-            </div>
           </div>
         </div>
       </div>

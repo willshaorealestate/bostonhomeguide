@@ -11,6 +11,7 @@ import {
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import PullQuote from "@/components/PullQuote";
 import { toast } from "sonner";
 import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
@@ -244,6 +245,8 @@ export default function BuyerPage() {
         </div>
       </section>
 
+      <PullQuote quote="mengju" align="right" className="py-12 md:py-16" />
+
       {/* Buying Process */}
       <section className="py-20 bg-[#F7F8FA]">
         <div className="container">
@@ -358,6 +361,8 @@ export default function BuyerPage() {
           </div>
         </div>
       </section>
+
+      <PullQuote quote="mark" align="left" className="py-12 md:py-16" />
 
       {/* FAQ */}
       <section className="py-20 bg-white">

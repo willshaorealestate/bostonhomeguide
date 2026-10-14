@@ -7,6 +7,7 @@ import { Phone, Mail, MapPin, Clock, Calendar, ExternalLink } from "lucide-react
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { QuoteCard } from "@/components/PullQuote";
 import { toast } from "sonner";
 import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
@@ -178,13 +179,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Languages */}
-              <div className="bg-[#0D2137] rounded-2xl p-6">
-                <p className="text-[#0D2137] text-sm font-body uppercase tracking-wider mb-2">Languages</p>
-                <p className="text-white font-body text-base">
-                  Will works primarily in <strong>English</strong> and has conversational <strong>Mandarin</strong> ability for clients who prefer some Mandarin communication.
-                </p>
-              </div>
+              <QuoteCard quote="vr" />
             </div>
 
             {/* Contact form */}

@@ -11,6 +11,7 @@ import {
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import PullQuote from "@/components/PullQuote";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import PhotoComparisonCarousel from "@/components/PhotoComparisonCarousel";
 import { toast } from "sonner";
@@ -296,6 +297,8 @@ export default function SellerPage() {
         </div>
       </section>
 
+      <PullQuote quote="philip" align="right" className="py-12 md:py-16" />
+
       {/* Selling Process */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -398,6 +401,8 @@ export default function SellerPage() {
           </div>
         </div>
       </section>
+
+      <PullQuote quote="shang" align="left" className="py-12 md:py-16" />
 
       {/* Marketing Comparison */}
       <section className="py-20 bg-[#F7F8FA]">

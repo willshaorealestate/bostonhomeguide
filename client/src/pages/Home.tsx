@@ -12,6 +12,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import FloatingCTA from "@/components/FloatingCTA";
+import PullQuote from "@/components/PullQuote";
 import { toast } from "sonner";
 import { submitToFub, getFelloUrl, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
@@ -280,6 +281,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <PullQuote quote="jake" align="right" className="pt-16 md:pt-20" />
+
         {/* ── MARKET ── */}
         <section aria-labelledby="market-heading" className="mt-20 md:mt-28 py-16 md:py-24 bg-[#0D2137]">
           <div className="container">
@@ -335,6 +338,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <PullQuote quote="shang" align="left" className="pt-16 md:pt-20" />
+
         {/* ── HOME VALUE ── */}
         <section aria-labelledby="sell-heading" className="pt-20 md:pt-28">
           <div className="container">
@@ -387,9 +392,8 @@ export default function HomePage() {
                   Meet Will &amp; the team
                 </h2>
                 <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
-                  Nearly 20 years and $120M+ in sales across Greater Boston. Will and our transaction
-                  coordinator keep you informed at every step, so you can make confident decisions. We
-                  work in English and Mandarin.
+                  Nearly 20 years and $120M+ in sales across Greater Boston. We keep you informed at
+                  every step, market every home to stand out, and negotiate for the result you deserve.
                 </p>
                 <p className="mt-5 flex items-center gap-2 text-base text-white">
                   <Star className="w-5 h-5 fill-[#C89B3C] text-[#C89B3C]" aria-hidden="true" />
