@@ -68,10 +68,11 @@ export default function Footer() {
             </h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
               {[
-                "Newton", "Brookline", "Natick", "Framingham",
-                "Wayland", "Wellesley", "Needham", "Dedham",
-                "Westwood", "Concord", "Lexington", "Waltham",
-                "Belmont", "Arlington", "Winchester", "Acton",
+                // Focus towns first, in the same order as the homepage.
+                "Lexington", "Bedford", "Concord", "Acton",
+                "Arlington", "Winchester", "Waltham", "Cambridge",
+                "Belmont", "Newton", "Brookline", "Wellesley",
+                "Needham", "Natick", "Wayland", "Framingham",
               ].map((town) => (
                 <Link
                   key={town}
