@@ -11,6 +11,7 @@ import FloatingCTA from "@/components/FloatingCTA";
 import { toast } from "sonner";
 import { useSEO } from "@/lib/seo";
 import { trackLead } from "@/lib/analytics";
+import { submitToFub, isValidEmail } from "@/lib/fub";
 import { articles } from "@/data/blogPosts";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
@@ -71,6 +72,7 @@ const townLinks: Record<string, string> = {
 function ArticleDetail({ slug }: { slug: string }) {
   const article = articles.find((a) => a.slug === slug);
   const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   if (!article) {
     return (
@@ -87,11 +89,29 @@ function ArticleDetail({ slug }: { slug: string }) {
     );
   }
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("You're subscribed to Will's Boston Real Estate Newsletter!");
-    trackLead("blog-newsletter-signup");
-    setEmail("");
+    if (!isValidEmail(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await submitToFub({
+        source: "Website — Blog Newsletter",
+        firstName: email.split("@")[0],
+        email,
+        interest: "market-report",
+        extraNote: `Signed up from article: ${article.title}`,
+      });
+      toast.success("You're subscribed! The next market report will be in your inbox.");
+      trackLead("blog-newsletter-signup");
+      setEmail("");
+    } catch {
+      toast.error("Something went wrong. Please try again or call (781) 456-3541.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const cta = ctaForCategory(article.category);
@@ -283,10 +303,14 @@ function ArticleDetail({ slug }: { slug: string }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
+                    aria-label="Email address"
+                    autoComplete="email"
                     required
                     className="w-full bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-white/60"
                   />
-                  <button type="submit" className="btn-light w-full text-sm text-center">Subscribe Free</button>
+                  <button type="submit" disabled={submitting} className="btn-light w-full text-sm text-center disabled:opacity-60">
+                    {submitting ? "Subscribing..." : "Subscribe Free"}
+                  </button>
                 </form>
               </div>
 

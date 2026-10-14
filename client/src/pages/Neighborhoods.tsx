@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { QuoteCard } from "@/components/PullQuote";
 import { toast } from "sonner";
-import { isValidEmail } from "@/lib/fub";
+import { isValidEmail, submitToFub } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
@@ -38,6 +38,7 @@ declare global {
 function NeighborhoodDetail({ slug }: { slug: string }) {
   const neighborhood = allNeighborhoods.find((n) => n.slug === slug);
   const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   useSEO({
     title: neighborhood
       ? `${neighborhood.name}, MA Homes for Sale | Will Shao`
@@ -98,15 +99,29 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
     );
   }
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValidEmail(email)) {
       toast.error("Please enter a valid email address.");
       return;
     }
-    toast.success(`You'll receive new listings in ${neighborhood.name} directly to your inbox!`);
-    trackLead("neighborhood-listing-alert");
-    setEmail("");
+    setSubmitting(true);
+    try {
+      await submitToFub({
+        source: `Website — Listing Alerts (${neighborhood.name})`,
+        firstName: email.split("@")[0],
+        email,
+        interest: "listing-alerts",
+        extraNote: `Wants new listings in ${neighborhood.name}`,
+      });
+      toast.success(`You're signed up. Will will be in touch about new listings in ${neighborhood.name}.`);
+      trackLead("neighborhood-listing-alert");
+      setEmail("");
+    } catch {
+      toast.error("Something went wrong. Please try again or call (781) 456-3541.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -246,11 +261,13 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
+                    aria-label="Email address"
+                    autoComplete="email"
                     required
                     className="w-full bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-white/60"
                   />
-                  <button type="submit" className="btn-light w-full text-sm text-center">
-                    Get Listing Alerts
+                  <button type="submit" disabled={submitting} className="btn-light w-full text-sm text-center disabled:opacity-60">
+                    {submitting ? "Signing up..." : "Get Listing Alerts"}
                   </button>
                 </form>
               </div>
