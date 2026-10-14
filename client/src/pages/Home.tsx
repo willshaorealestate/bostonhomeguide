@@ -20,32 +20,6 @@ const HERO_IMAGE = "/images/site/boston-hero.webp";
 const HEADSHOT = "/images/site/photo.jpg";
 const SELL_IMAGE = "/images/marketing/marketing-after3.jpg";
 
-// The same living room from the 346-day listing and from Will's relisting (see Sold.tsx).
-const caseStudy = [
-  {
-    badge: "Another agent",
-    img: "/images/marketing/marketing-before-1-cropped.jpg", // white bars trimmed from the original
-    alt: "Living room photo from the original listing",
-    days: "346 days",
-    label: "On the market. Didn't sell.",
-    highlight: false,
-  },
-  {
-    badge: "With Will",
-    img: "/images/marketing/marketing-after-1.jpg",
-    alt: "The same living room, photographed for Will's relisting",
-    days: "32 days",
-    label: "Relisted. Sold.",
-    highlight: true,
-  },
-];
-
-const trackRecord = [
-  { value: "101%", label: "Sale-to-list price" },
-  { value: "200+", label: "Homes sold" },
-  { value: "5.0★", label: "50 reviews" },
-];
-
 const INK = "#0D2137";
 
 // Order matters: the first cards get the most attention, especially on phones.
@@ -327,49 +301,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── RESULTS ── */}
-        <section aria-labelledby="results-heading" className="pt-20 md:pt-28">
-          <div className="container">
-            <SectionHeader
-              id="results-heading"
-              title="Proven results"
-              subtitle="Same home. Better marketing. A different result."
-              linkLabel="See the full story"
-              href="/sold"
-            />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {caseStudy.map((c) => (
-                <figure key={c.badge} className="m-0">
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#EEF1F4]">
-                    <img src={c.img} alt={c.alt} loading="lazy" className="w-full h-full object-cover" />
-                    <span
-                      className={`absolute top-4 left-4 px-3.5 py-1.5 rounded-full text-sm font-semibold ${
-                        c.highlight ? "bg-[#0D2137] text-white" : "bg-white text-[#3A4049]"
-                      }`}
-                    >
-                      {c.badge}
-                    </span>
-                  </div>
-                  <figcaption className="mt-4">
-                    <p className={`text-3xl md:text-4xl font-bold tracking-tight ${c.highlight ? "text-[#0D2137]" : "text-[#5B6270]"}`}>
-                      {c.days}
-                    </p>
-                    <p className="mt-1 text-base text-[#5B6270]">{c.label}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <div className="mt-10 grid grid-cols-3 gap-3 md:gap-5">
-              {trackRecord.map((s) => (
-                <div key={s.label} className="rounded-2xl bg-[#F4F6F8] p-4 md:p-8">
-                  <p className="text-2xl md:text-4xl font-bold tracking-tight">{s.value}</p>
-                  <p className="mt-1.5 text-sm md:text-base text-[#5B6270]">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ── GUIDES ── */}
         <section aria-labelledby="guides-heading" className="pt-20 md:pt-28">
           <div className="container">
@@ -420,7 +351,7 @@ export default function HomePage() {
                   What's your home worth?
                 </h2>
                 <p className="mt-3 text-base md:text-lg text-[#5B6270]">
-                  A clear pricing plan and marketing built to sell.
+                  See an instant estimate based on recent sales near you.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
@@ -429,13 +360,13 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="fello-cta inline-flex items-center px-6 py-3.5 rounded-full bg-[#0D2137] text-white text-base font-semibold hover:bg-[#1A3A5C] transition-colors"
                   >
-                    Get a home valuation
+                    Check your home's value
                   </a>
                   <Link
                     href="/sell"
                     className="inline-flex items-center px-6 py-3.5 rounded-full border border-[#C9CFD6] bg-white text-base font-semibold hover:border-[#0D2137] transition-colors"
                   >
-                    How Will sells
+                    Seller's guide
                   </Link>
                 </div>
               </div>
