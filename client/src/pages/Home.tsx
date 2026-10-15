@@ -117,7 +117,6 @@ export default function HomePage() {
       "name": "Will Shao — REMAX Executive Realty",
       "url": "https://bostonhomeguide.com",
       "telephone": "(781) 456-3541",
-      "email": "will@willshao.com",
       "description": "Nearly 20 years of experience, $120M+ in transactions across Greater Boston and MetroWest MA.",
       "address": {
         "@type": "PostalAddress",

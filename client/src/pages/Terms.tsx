@@ -80,7 +80,7 @@ export default function TermsPage() {
               <ul className="list-disc pl-6 mt-3 space-y-1.5">
                 <li>Consent to receive text messages is <strong>not</strong> a condition of using our services or submitting any form on this site.</li>
                 <li>You can cancel the SMS service at any time by texting <strong>STOP</strong>. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time, and we will start sending SMS messages to you again.</li>
-                <li>If you are experiencing issues with the messaging program, reply with the keyword <strong>HELP</strong> for more assistance, or get help directly at <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a> or <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>.</li>
+                <li>If you are experiencing issues with the messaging program, reply with the keyword <strong>HELP</strong> for more assistance, or get help directly at <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a> or through <Link href="/contact" className="text-[#0D2137] hover:underline">our contact form</Link>.</li>
                 <li>Carriers are not liable for delayed or undelivered messages.</li>
                 <li>As always, message and data rates may apply for any messages sent to you from us and to us from you. Message frequency may vary. If you have any questions about your text plan or data plan, it is best to contact your wireless provider.</li>
                 <li>No mobile opt-in data or phone numbers will be shared with, or sold to, any third party or affiliate for marketing or promotional purposes.</li>
@@ -140,8 +140,7 @@ export default function TermsPage() {
               <p>
                 Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty<br />
                 969 Concord Street, Framingham, MA 01701<br />
-                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
-                · <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>
+                <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a> · <Link href="/contact" className="text-[#0D2137] hover:underline">Contact form</Link>
               </p>
             </div>
           </div>

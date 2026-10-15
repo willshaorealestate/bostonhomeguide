@@ -142,7 +142,6 @@ export default function AboutPage() {
       "jobTitle": "Real Estate Agent",
       "url": "https://bostonhomeguide.com/about",
       "telephone": "(781) 456-3541",
-      "email": "will@willshao.com",
       "knowsLanguage": ["en", "zh"],
       "worksFor": { "@type": "Organization", "name": "REMAX Executive Realty" }
     }

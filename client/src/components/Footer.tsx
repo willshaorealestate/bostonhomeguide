@@ -104,13 +104,13 @@ export default function Footer() {
                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-[#C89B3C]" />
                 (781) 456-3541
               </a>
-              <a
-                href="mailto:will@willshao.com"
+              <Link
+                href="/contact"
                 className="flex items-start gap-2.5 text-base text-white/60 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 mt-0.5 shrink-0 text-[#C89B3C]" />
-                will@willshao.com
-              </a>
+                Send a message
+              </Link>
               <div className="flex items-start gap-2.5 text-base text-white/60">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#C89B3C]" />
                 Greater Boston & MetroWest, MA
