@@ -3,7 +3,7 @@
  * Contact page with form, phone, calendar embed, social links, and map
  */
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Calendar, ExternalLink } from "lucide-react";
+import { Phone, MapPin, Clock, Calendar, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -104,20 +104,6 @@ export default function ContactPage() {
                       <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Phone</p>
                       <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#1A3A5C] transition-colors font-body">
                         (781) 456-3541
-                      </p>
-                    </div>
-                  </a>
-                  <a
-                    href="mailto:will@willshao.com"
-                    className="flex items-start gap-3 group"
-                  >
-                    <div className="w-9 h-9 rounded-full bg-[#F4F6F8] flex items-center justify-center shrink-0">
-                      <Mail className="w-4 h-4 text-[#0D2137]" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-400 font-body uppercase tracking-wide mb-0.5">Email</p>
-                      <p className="text-base font-semibold text-[#0D2137] group-hover:text-[#1A3A5C] transition-colors font-body">
-                        will@willshao.com
                       </p>
                     </div>
                   </a>

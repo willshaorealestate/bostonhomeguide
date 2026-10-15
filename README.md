@@ -32,6 +32,6 @@ Pushing to `main` deploys automatically through `.github/workflows/deploy.yml`: 
 ## Contact
 
 - **Phone:** (781) 456-3541
-- **Email:** will@willshao.com
+- **Contact form:** https://bostonhomeguide.com/contact
 - **Calendar:** https://calendar.app.google/rp3dJPWTjzaV9W1W7
 - **Zillow:** https://zillow.com/profile/willshao

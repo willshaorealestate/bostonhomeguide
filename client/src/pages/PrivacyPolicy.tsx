@@ -105,8 +105,7 @@ export default function PrivacyPolicyPage() {
               <p className="mt-3">
                 If you are experiencing issues with the messaging program, you can reply with the
                 keyword <strong>HELP</strong> for more assistance, or you can get help directly at{" "}
-                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
-                or <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>.
+                <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a> or through <Link href="/contact" className="text-[#0D2137] hover:underline">our contact form</Link>.
               </p>
               <p className="mt-3">Carriers are not liable for delayed or undelivered messages.</p>
               <p className="mt-3">
@@ -139,8 +138,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 You may ask us to delete your information, stop contacting you, or unsubscribe from
                 marketing emails or texts at any time by contacting us at{" "}
-                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
-                or <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>.
+                <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a> or through <Link href="/contact" className="text-[#0D2137] hover:underline">our contact form</Link>.
               </p>
             </div>
 
@@ -161,8 +159,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 Firefly Real Estate, Inc., d/b/a Will Shao at REMAX Executive Realty<br />
                 969 Concord Street, Framingham, MA 01701<br />
-                <a href="mailto:will@willshao.com" className="text-[#0D2137] hover:underline">will@willshao.com</a>{" "}
-                · <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a>
+                <a href="tel:+17814563541" className="text-[#0D2137] hover:underline">(781) 456-3541</a> · <Link href="/contact" className="text-[#0D2137] hover:underline">Contact form</Link>
               </p>
             </div>
 
