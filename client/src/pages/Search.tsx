@@ -2,11 +2,12 @@
  * Search.tsx — BostonHomeGuide.com
  * Live MLS search powered by RealScout
  */
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
+import { useSEO } from "@/lib/seo";
 
 const HERO_IMAGE = "/images/towns/boston.jpeg";
 
@@ -14,30 +15,20 @@ const HERO_IMAGE = "/images/towns/boston.jpeg";
 declare global {
   namespace React.JSX {
     interface IntrinsicElements {
-      "realscout-office-listings": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+      "realscout-advanced-search": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         "agent-encoded-id": string;
-        "sort-order": string;
-        "listing-status": string;
-        "property-types": string;
       };
     }
   }
 }
 
-function useRealScoutSearch() {
-  useEffect(() => {
-    const existing = document.querySelector(".rs-embedded-script");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.className = "rs-embedded-script";
-    script.async = true;
-    script.src = "https://em.realscout.com/assets/em/v3/all.js";
-    document.head.appendChild(script);
-  }, []);
-}
-
 export default function SearchPage() {
-  useRealScoutSearch();
+  useSEO({
+    title: "Search Greater Boston Homes for Sale",
+    description:
+      "Search current MLS listings across Greater Boston and MetroWest, Massachusetts. Save homes and get new-listing alerts with Will Shao, REMAX Executive Realty.",
+    canonical: "https://bostonhomeguide.com/search",
+  });
 
   return (
     <div className="min-h-screen bg-white">
@@ -61,42 +52,10 @@ export default function SearchPage() {
             Browse current listings across Greater Boston's unique towns and neighborhoods.
           </p>
 
-          {/* RealScout Search Widget */}
-          <div className="relative z-50 max-w-2xl mx-auto">
-            <div
-              className="realscout-search simple"
-              data-rep="willshao"
-              data-button-color="#0D2137"
-              data-button-font="#FFFFFF"
-              data-background-color="rgba(255,255,255,0.95)"
-            />
+          {/* RealScout advanced search (web component loaded in index.html) */}
+          <div className="relative z-50 max-w-3xl mx-auto bg-white/95 rounded-2xl p-4 text-left">
+            <realscout-advanced-search agent-encoded-id="QWdlbnQtMTUzMjg1" />
           </div>
-        </div>
-      </section>
-
-      {/* RealScout Office Listings */}
-      <section className="py-12">
-        <div className="container">
-          <h2
-            className="text-2xl font-bold text-[#0D2137] mb-2"
-          >
-            Greater Boston Listings
-          </h2>
-          <p className="text-sm text-gray-500 font-body mb-8">
-            Live MLS data · Click any listing to view full details on RealScout
-          </p>
-          <style>{`
-            realscout-office-listings {
-              --rs-listing-divider-color: rgb(101, 141, 172);
-              width: 100%;
-            }
-          `}</style>
-          <realscout-office-listings
-            agent-encoded-id="QWdlbnQtMTUzMjg1"
-            sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
-            listing-status="For Sale,For Rent,In Contract,Sold,Rented"
-            property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
-          />
         </div>
       </section>
 

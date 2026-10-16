@@ -17,21 +17,6 @@ import { useSEO } from "@/lib/seo";
 
 const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
-// TypeScript declaration for RealScout web component
-declare global {
-  namespace React.JSX {
-    interface IntrinsicElements {
-      "realscout-office-listings": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        "agent-encoded-id": string;
-        "sort-order": string;
-        "listing-status": string;
-        "property-types": string;
-        "market-areas"?: string;
-      };
-    }
-  }
-}
-
 // All neighborhoods imported from data file
 
 // Individual neighborhood detail page
@@ -207,41 +192,28 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 </p>
               </div>
 
-              {/* Live listings from RealScout */}
+              {/* Search homes in this town */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-[#0D2137]">
-                    Homes for Sale in Greater Boston and MetroWest
-                  </h2>
-                  {neighborhood.geoId && (
-                    <a
-                      href={`https://willshao.realscout.com/homesearch/map?geo_type=township&geo_id=${neighborhood.geoId}&for_sale=1&for_rent=0`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#0D2137] text-sm font-semibold font-body hover:underline"
-                    >
-                      View All →
-                    </a>
-                  )}
-                  {!neighborhood.geoId && (
-                    <Link href="/search" className="text-[#0D2137] text-sm font-semibold font-body hover:underline">
-                      View All →
-                    </Link>
-                  )}
-                </div>
-                <style>{`
-                  realscout-office-listings {
-                    --rs-listing-divider-color: rgb(101, 141, 172);
-                    width: 100%;
-                  }
-                `}</style>
-                <realscout-office-listings
-                  agent-encoded-id="QWdlbnQtMTUzMjg1"
-                  sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
-                  listing-status="For Sale,In Contract"
-                  property-types="SFR,MF,TC,LAL,MOBILE,OTHER"
-                  market-areas={`${neighborhood.name}, MA`}
-                />
+                <h2 className="text-xl font-bold text-[#0D2137] mb-2">
+                  Homes for Sale in {neighborhood.name}
+                </h2>
+                <p className="text-sm text-gray-500 font-body mb-4">
+                  Browse current MLS listings in {neighborhood.name} and save the homes you like.
+                </p>
+                {neighborhood.geoId ? (
+                  <a
+                    href={`https://willshao.realscout.com/homesearch/map?geo_type=township&geo_id=${neighborhood.geoId}&for_sale=1&for_rent=0`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-navy text-sm inline-block"
+                  >
+                    Search {neighborhood.name} Homes →
+                  </a>
+                ) : (
+                  <Link href="/search" className="btn-navy text-sm inline-block">
+                    Search {neighborhood.name} Homes →
+                  </Link>
+                )}
               </div>
             </div>
 

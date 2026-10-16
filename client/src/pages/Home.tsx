@@ -3,7 +3,7 @@
  * Modern local guide: full-bleed hero with search, then short photo-led sections.
  * Each section is a heading, one line, and a "See all" link — depth lives on the inner pages.
  */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { ArrowRight, Star } from "lucide-react";
@@ -20,7 +20,6 @@ const HERO_IMAGE = "/images/site/boston-hero.webp";
 const HEADSHOT = "/images/site/photo.jpg";
 const SELL_IMAGE = "/images/towns/belmont.jpeg"; // same house as the Sell page banner
 
-const INK = "#0D2137";
 
 // Order matters: the first cards get the most attention, especially on phones.
 // Prices and school grades match client/src/data/neighborhoods.ts.
@@ -70,18 +69,6 @@ const latestGuides = [
     img: "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0",
   },
 ];
-
-function useRealScoutSearch() {
-  useEffect(() => {
-    const existing = document.querySelector(".rs-embedded-script");
-    if (existing) existing.remove();
-    const script = document.createElement("script");
-    script.className = "rs-embedded-script";
-    script.async = true;
-    script.src = "https://em.realscout.com/assets/em/v3/all.js";
-    document.head.appendChild(script);
-  }, []);
-}
 
 function SectionHeader({
   id, title, subtitle, linkLabel, href, dark = false,
@@ -146,7 +133,6 @@ export default function HomePage() {
       "sameAs": ["https://zillow.com/profile/willshao"]
     }
   });
-  useRealScoutSearch();
   const [fubForm, setFubForm] = useState({
     firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: ""
   });
@@ -220,15 +206,9 @@ export default function HomePage() {
               Homes, towns, and market insight from a local agent.
             </p>
 
-            {/* RealScout Search Widget */}
-            <div className="mt-9 max-w-2xl mx-auto">
-              <div
-                className="realscout-search simple"
-                data-rep="willshao"
-                data-button-color={INK}
-                data-button-font="#FFFFFF"
-                data-background-color="rgba(255,255,255,0.97)"
-              />
+            {/* RealScout advanced search (web component loaded in index.html; type declared in Search.tsx) */}
+            <div className="mt-9 max-w-2xl mx-auto bg-white/95 rounded-2xl p-4 text-left">
+              <realscout-advanced-search agent-encoded-id="QWdlbnQtMTUzMjg1" />
             </div>
 
             <div className="mt-6 flex flex-wrap justify-center gap-2.5">
