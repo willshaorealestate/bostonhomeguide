@@ -41,7 +41,7 @@ CNAME             # bostonhomeguide.com
 ## SEO Setup
 - Custom `useSEO` hook at `client/src/lib/seo.ts` — handles title, meta tags, OG tags, canonical, and JSON-LD schema via DOM manipulation
 - Every page calls `useSEO()` — do not remove or bypass this
-- Home: RealEstateAgent JSON-LD with aggregateRating (5.0★, 48 reviews). About: Person JSON-LD with no rating — Google rejects aggregateRating on a Person and flags it as an invalid Review snippets item
+- Business entity: one RealEstateAgent JSON-LD in `client/index.html` (on every page, `@id` https://bostonhomeguide.com/#agent) with aggregateRating, areaServed towns and sameAs profiles. No street address on purpose — Will is a service-area business and doesn't want the office shown. Don't add a second business entity in a page's useSEO schema. About: Person JSON-LD with no rating — Google rejects aggregateRating on a Person and flags it as an invalid Review snippets item
 - Buyer + Seller: FAQPage JSON-LD schema
 - Neighborhoods: dynamic per-town title/description/canonical
 - Sitemap submitted to Google Search Console
