@@ -98,40 +98,7 @@ export default function HomePage() {
     title: "Greater Boston & MetroWest Real Estate | Will Shao",
     description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, REMAX Executive Realty. 5.0★ Zillow.",
     canonical: "https://bostonhomeguide.com/",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Will Shao — REMAX Executive Realty",
-      "url": "https://bostonhomeguide.com",
-      "telephone": "(781) 456-3541",
-      "description": "Nearly 20 years of experience, $120M+ in transactions across Greater Boston and MetroWest MA.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "969 Concord Street",
-        "addressLocality": "Framingham",
-        "addressRegion": "MA",
-        "postalCode": "01701",
-        "addressCountry": "US"
-      },
-      "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "16:00" }
-      ],
-      "priceRange": "$$",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "50", "bestRating": "5" },
-      "areaServed": [
-        "Boston","Newton","Wellesley","Brookline","Natick","Lexington","Needham","Framingham",
-        "Waltham","Concord","Cambridge","Somerville","Arlington","Belmont","Medford","Quincy",
-        "Dedham","Westwood","Weston","Lincoln","Sudbury","Shrewsbury","Winchester","Andover",
-        "Acton","Westford","Chelmsford","Billerica","Woburn","Stoneham","Melrose","Wakefield",
-        "Reading","Lynnfield","Ashland","Hopkinton","Holliston","Medway","Millis","Milford",
-        "Hudson","Marlborough","Southborough","Westborough","Northborough","Dover","Medfield",
-        "Canton","Sharon","Stoughton","Norwood","Milton","Braintree"
-      ],
-      "knowsLanguage": ["en", "zh"],
-      "memberOf": { "@type": "Organization", "name": "REMAX Executive Realty" },
-      "sameAs": ["https://zillow.com/profile/willshao"]
-    }
+    // Business schema lives once in index.html (shared by every page) so there is only one entity.
   });
   const [fubForm, setFubForm] = useState({
     firstName: "", lastName: "", email: "", phone: "", interest: "", language: "english", message: ""
