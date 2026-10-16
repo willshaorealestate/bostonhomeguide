@@ -460,7 +460,7 @@ export default function NeighborhoodsPage() {
             Not Sure Which Town is Right for You?
           </h2>
           <p className="text-white/70 font-body text-base mb-6 max-w-xl mx-auto">
-            Every town has its own unique flavor — and Will knows them all. With nearly 20 years exploring Greater Boston's communities, he'll help you find the one that's just right for your family.
+            Every town has its own unique flavor — and Will knows them all. With nearly 20 years exploring Greater Boston's communities, he'll help you find the one that's right for you.
           </p>
           <Link href="/contact" className="btn-light text-sm">
             Ask About a Neighborhood

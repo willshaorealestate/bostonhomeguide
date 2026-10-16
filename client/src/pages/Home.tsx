@@ -49,7 +49,7 @@ const MARKET_PERIOD = "Greater Boston · September 2026";
 const latestGuides = [
   {
     href: "/blog/best-neighborhoods-families",
-    title: "Best Neighborhoods for Families in Greater Boston",
+    title: "Choosing a Town in Greater Boston: Newton, Lexington, Natick and Wellesley",
     category: "Buyer Guide",
     minutes: 8,
     img: "https://images.unsplash.com/photo-1785301694927-bca6526554b9?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0",
