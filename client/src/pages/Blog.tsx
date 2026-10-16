@@ -13,6 +13,7 @@ import { useSEO } from "@/lib/seo";
 import { trackLead } from "@/lib/analytics";
 import { submitToFub, isValidEmail } from "@/lib/fub";
 import { articles } from "@/data/blogPosts";
+import { AUTHOR, authorPerson } from "@/lib/author";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
 
@@ -142,6 +143,27 @@ function ArticleDetail({ slug }: { slug: string }) {
           <h1 className="text-4xl md:text-5xl font-bold text-white max-w-3xl">
             {article.title}
           </h1>
+          <div className="mt-6 flex items-center gap-3">
+            <img
+              src={AUTHOR.headshot}
+              alt=""
+              className="w-11 h-11 rounded-full object-cover border-2 border-white/80"
+            />
+            <p className="text-sm md:text-base text-white/85 font-body leading-snug">
+              By{" "}
+              <Link href="/about" rel="author" className="font-semibold text-white hover:underline">
+                {AUTHOR.name}
+              </Link>
+              <span className="text-white/60"> · {AUTHOR.brokerage}</span>
+              {article.date && (
+                <>
+                  <br className="sm:hidden" />
+                  <span className="hidden sm:inline text-white/60"> · </span>
+                  <time dateTime={isoDate(article.date)} className="text-white/70">{article.date}</time>
+                </>
+              )}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -269,6 +291,26 @@ function ArticleDetail({ slug }: { slug: string }) {
                 })}
               </div>
 
+              {/* About the author */}
+              <aside aria-label="About the author" className="mt-8 bg-[#F4F6F8] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row gap-5 sm:items-center">
+                <img
+                  src={AUTHOR.headshot}
+                  alt={AUTHOR.name}
+                  loading="lazy"
+                  className="w-20 h-20 rounded-full object-cover shrink-0"
+                />
+                <div>
+                  <p className="text-sm font-semibold text-[#5B6270]">About the author</p>
+                  <p className="mt-1 text-lg font-bold text-[#0D2137]">
+                    {AUTHOR.name} · {AUTHOR.brokerage}
+                  </p>
+                  <p className="mt-1.5 text-base text-[#3A4049] leading-relaxed">{AUTHOR.bio}</p>
+                  <Link href="/about" rel="author" className="mt-2 inline-block text-base font-semibold text-[#0D2137] hover:underline">
+                    More about Will →
+                  </Link>
+                </div>
+              </aside>
+
               {/* Article CTA */}
               <div className="mt-8 bg-[#0D2137] rounded-2xl p-8">
                 <h3 className="text-white font-bold text-xl mb-3">
@@ -344,6 +386,11 @@ function ArticleDetail({ slug }: { slug: string }) {
 
 const SITE_URL = "https://bostonhomeguide.com";
 
+function isoDate(date: string) {
+  const d = new Date(date);
+  return isNaN(d.getTime()) ? undefined : d.toISOString().slice(0, 10);
+}
+
 function absoluteUrl(src: string) {
   return src.startsWith("http") ? src : `${SITE_URL}${src}`;
 }
@@ -359,7 +406,7 @@ function blogPostingSchema(post: (typeof articles)[number]) {
     ...(isNaN(published.getTime()) ? {} : { datePublished: published.toISOString().slice(0, 10) }),
     articleSection: post.category,
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
-    author: { "@type": "Person", name: "Will Shao", url: `${SITE_URL}/about` },
+    author: authorPerson(),
     publisher: { "@type": "Organization", name: "BostonHomeGuide.com", url: SITE_URL },
   };
 }
