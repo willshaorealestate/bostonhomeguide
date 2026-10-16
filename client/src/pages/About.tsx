@@ -127,7 +127,7 @@ const stats = [
   { value: "~20 yrs", label: "Experience" },
   { value: "5.0★", label: "Zillow Rating" },
   { value: "50", label: "Reviews" },
-  { value: "200+", label: "Homes Sold" },
+  { value: "Top 100", label: "MA Agents · 2025" },
   { value: "101%", label: "Avg. Sale-to-List" },
 ];
 

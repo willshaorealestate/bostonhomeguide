@@ -9,7 +9,7 @@ export const AUTHOR = {
   brokerage: "REMAX Executive Realty",
   url: "https://bostonhomeguide.com/about",
   headshot: "/images/site/photo.jpg",
-  bio: "Will Shao has helped buyers and sellers across Greater Boston for nearly 20 years, with 200+ homes sold and $120M+ in transactions.",
+  bio: "Will Shao has helped buyers and sellers across Greater Boston for nearly 20 years, with $120M+ in transactions.",
   sameAs: [
     "https://zillow.com/profile/willshao",
     "https://www.google.com/maps?cid=7820308737361883358",
