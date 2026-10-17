@@ -28,9 +28,9 @@ const priceData = [
   { month: "Apr '26", median: 857500, sales: 1597 },
   { month: "May '26", median: 850000, sales: 2116 },
   { month: "Jun '26", median: 860000, sales: 2761 },
-  { month: "Jul '26", median: 850000, sales: 2703 },
-  { month: "Aug '26", median: 860000, sales: 2040 },
-  { month: "Sep '26", median: 790000, sales: 1622 },
+  { month: "Jul '26", median: 850000, sales: 2709 },
+  { month: "Aug '26", median: 857000, sales: 2083 },
+  { month: "Sep '26", median: 790000, sales: 1647 },
 ];
 
 const domData = [
@@ -45,35 +45,77 @@ const domData = [
 ];
 
 const townData = [
-  { town: "Boston",    medianPrice:  785000, dom: 60, listToSale: 98.0 },
+  { town: "Boston",    medianPrice:  787500, dom: 61, listToSale: 98.0 },
   { town: "Cambridge", medianPrice:  862500, dom: 50, listToSale: 99.0 },
-  { town: "Somerville", medianPrice:  852000, dom: 43, listToSale: 101.0 },
-  { town: "Brookline", medianPrice: 1425000, dom: 83, listToSale: 97.0 },
-  { town: "Newton",    medianPrice: 1700000, dom: 47, listToSale: 99.0 },
-  { town: "Needham",   medianPrice: 1570000, dom: 80, listToSale: 98.0 },
-  { town: "Waltham",   medianPrice:  767500, dom: 42, listToSale: 99.0 },
-  { town: "Watertown", medianPrice:  716250, dom: 43, listToSale: 102.0 },
-  { town: "Medford",   medianPrice:  760000, dom: 57, listToSale: 100.0 },
+  { town: "Somerville", medianPrice:  879000, dom: 44, listToSale: 101.0 },
+  { town: "Brookline", medianPrice: 1275000, dom: 83, listToSale: 97.0 },
+  { town: "Medford",   medianPrice:  745000, dom: 57, listToSale: 100.0 },
+  { town: "Malden",    medianPrice:  645000, dom: 39, listToSale: 100.0 },
+  { town: "Quincy",    medianPrice:  732000, dom: 36, listToSale: 99.0 },
   { town: "Arlington", medianPrice: 1340000, dom: 33, listToSale: 103.0 },
   { town: "Belmont",   medianPrice: 1525000, dom: 61, listToSale: 97.0 },
-  { town: "Lexington", medianPrice: 1422000, dom: 48, listToSale: 98.0 },
-  { town: "Winchester", medianPrice: 1900000, dom: 60, listToSale: 100.0 },
-  { town: "Bedford",   medianPrice: 1088000, dom: 47, listToSale: 101.0 },
-  { town: "Concord",   medianPrice: 1437500, dom: 59, listToSale: 102.0 },
-  { town: "Burlington", medianPrice:  899950, dom: 55, listToSale: 102.0 },
-  { town: "Woburn",    medianPrice:  710000, dom: 28, listToSale: 100.0 },
-  { town: "Acton",     medianPrice:  850000, dom: 50, listToSale: 100.0 },
-  { town: "Westford",  medianPrice:  894500, dom: 32, listToSale: 100.0 },
-  { town: "Chelmsford", medianPrice:  670000, dom: 36, listToSale: 101.0 },
+  { town: "Waltham",   medianPrice:  767500, dom: 42, listToSale: 99.0 },
+  { town: "Newton",    medianPrice: 1647500, dom: 47, listToSale: 99.0 },
   { town: "Wellesley", medianPrice: 2950000, dom: 62, listToSale: 97.0 },
   { town: "Natick",    medianPrice:  873500, dom: 41, listToSale: 100.0 },
   { town: "Framingham", medianPrice:  705000, dom: 34, listToSale: 100.0 },
-  { town: "Hopkinton", medianPrice: 1005000, dom: 51, listToSale: 100.0 },
-  { town: "Milton",    medianPrice: 1140000, dom: 27, listToSale: 100.0 },
-  { town: "Dedham",    medianPrice:  831000, dom: 33, listToSale: 101.0 },
+  { town: "Wayland",   medianPrice:  827500, dom: 42, listToSale: 100.0 },
+  { town: "Needham",   medianPrice: 1570000, dom: 80, listToSale: 98.0 },
+  { town: "Dedham",    medianPrice:  830000, dom: 33, listToSale: 101.0 },
   { town: "Westwood",  medianPrice: 1255000, dom: 81, listToSale: 99.0 },
+  { town: "Weston",    medianPrice: 1742925, dom: 91, listToSale: 96.0 },
+  { town: "Sudbury",   medianPrice:  957500, dom: 41, listToSale: 99.0 },
+  { town: "Shrewsbury", medianPrice:  670000, dom: 37, listToSale: 101.0 },
+  { town: "Lexington", medianPrice: 1422000, dom: 48, listToSale: 98.0 },
+  { town: "Concord",   medianPrice: 1437500, dom: 59, listToSale: 102.0 },
+  { town: "Winchester", medianPrice: 2021000, dom: 64, listToSale: 99.0 },
+  { town: "Bedford",   medianPrice: 1088000, dom: 47, listToSale: 101.0 },
+  { town: "Carlisle",  medianPrice: 1080000, dom: 91, listToSale: 94.0 },
+  { town: "Acton",     medianPrice:  850000, dom: 50, listToSale: 100.0 },
+  { town: "Stow",      medianPrice:  724500, dom: 62, listToSale: 100.0 },
+  { town: "Boxborough", medianPrice: 1200000, dom: 46, listToSale: 99.0 },
+  { town: "Bolton",    medianPrice:  811000, dom: 71, listToSale: 100.0 },
+  { town: "Harvard",   medianPrice: 1335000, dom: 80, listToSale: 97.0 },
+  { town: "Maynard",   medianPrice:  575000, dom: 25, listToSale: 100.0 },
+  { town: "Littleton", medianPrice:  890000, dom: 28, listToSale: 102.0 },
+  { town: "Groton",    medianPrice:  803777, dom: 27, listToSale: 102.0 },
+  { town: "Ayer",      medianPrice:  336000, dom: 21, listToSale: 105.0 },
+  { town: "Westford",  medianPrice:  894500, dom: 32, listToSale: 100.0 },
+  { town: "Chelmsford", medianPrice:  670000, dom: 36, listToSale: 101.0 },
+  { town: "Billerica", medianPrice:  677500, dom: 35, listToSale: 101.0 },
+  { town: "Tewksbury", medianPrice:  616700, dom: 27, listToSale: 102.0 },
+  { town: "Wilmington", medianPrice:  775000, dom: 26, listToSale: 103.0 },
+  { town: "Woburn",    medianPrice:  710000, dom: 28, listToSale: 100.0 },
+  { town: "Stoneham",  medianPrice:  875000, dom: 33, listToSale: 101.0 },
+  { town: "Melrose",   medianPrice:  870000, dom: 41, listToSale: 103.0 },
+  { town: "Wakefield", medianPrice:  810000, dom: 38, listToSale: 101.0 },
+  { town: "Reading",   medianPrice:  860000, dom: 32, listToSale: 100.0 },
+  { town: "North Reading", medianPrice:  732500, dom: 39, listToSale: 99.0 },
+  { town: "Lynnfield", medianPrice: 1353500, dom: 33, listToSale: 104.0 },
+  { town: "Andover",   medianPrice:  932500, dom: 34, listToSale: 100.0 },
+  { town: "North Andover", medianPrice:  675000, dom: 50, listToSale: 100.0 },
+  { town: "Ashland",   medianPrice:  669500, dom: 21, listToSale: 102.0 },
+  { town: "Hopkinton", medianPrice: 1000000, dom: 50, listToSale: 100.0 },
+  { town: "Sherborn",  medianPrice:  800000, dom: 94, listToSale: 94.0 },
+  { town: "Holliston", medianPrice:  967500, dom: 34, listToSale: 97.0 },
+  { town: "Medway",    medianPrice:  720000, dom: 50, listToSale: 99.0 },
+  { town: "Millis",    medianPrice:  532500, dom: 47, listToSale: 99.0 },
+  { town: "Milford",   medianPrice:  570000, dom: 44, listToSale: 100.0 },
+  { town: "Hudson",    medianPrice:  599950, dom: 31, listToSale: 101.0 },
+  { town: "Marlborough", medianPrice:  612500, dom: 51, listToSale: 99.0 },
+  { town: "Southborough", medianPrice:  940000, dom: 46, listToSale: 97.0 },
+  { town: "Westborough", medianPrice:  607450, dom: 55, listToSale: 98.0 },
+  { town: "Northborough", medianPrice:  750000, dom: 73, listToSale: 96.0 },
+  { town: "Dover",     medianPrice: 1782500, dom: 59, listToSale: 98.0 },
+  { town: "Medfield",  medianPrice: 1085000, dom: 44, listToSale: 100.0 },
   { town: "Canton",    medianPrice:  792500, dom: 49, listToSale: 100.0 },
-  { town: "Quincy",    medianPrice:  733500, dom: 35, listToSale: 99.0 },
+  { town: "Sharon",    medianPrice: 1002000, dom: 42, listToSale: 99.0 },
+  { town: "Stoughton", medianPrice:  607500, dom: 29, listToSale: 99.0 },
+  { town: "Norwood",   medianPrice:  675000, dom: 35, listToSale: 99.0 },
+  { town: "Milton",    medianPrice: 1170000, dom: 28, listToSale: 100.0 },
+  { town: "Braintree", medianPrice:  745000, dom: 37, listToSale: 101.0 },
+  { town: "Watertown", medianPrice:  716250, dom: 43, listToSale: 102.0 },
+  { town: "Burlington", medianPrice:  899900, dom: 56, listToSale: 102.0 },
 ];
 
 // Per-town rolling 12-month history — scraper appends each month
@@ -83,10 +125,10 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Mar '26", median:  775000, dom: 67, listToSale: 98, sold: 303, pending: 3 },
     { month: "Apr '26", median:  813000, dom: 61, listToSale: 99, sold: 351, pending: 9 },
     { month: "May '26", median:  820000, dom: 44, listToSale: 100, sold: 451, pending: 31 },
-    { month: "Jun '26", median:  850000, dom: 40, listToSale: 100, sold: 532, pending: 47 },
-    { month: "Jul '26", median:  805000, dom: 45, listToSale: 100, sold: 540, pending: 88 },
-    { month: "Aug '26", median:  822500, dom: 49, listToSale: 98, sold: 372, pending: 236 },
-    { month: "Sep '26", median:  785000, dom: 60, listToSale: 98, sold: 302, pending: 273 },
+    { month: "Jun '26", median:  850000, dom: 40, listToSale: 100, sold: 532, pending: 17 },
+    { month: "Jul '26", median:  805000, dom: 45, listToSale: 100, sold: 542, pending: 28 },
+    { month: "Aug '26", median:  815000, dom: 51, listToSale: 99, sold: 391, pending: 52 },
+    { month: "Sep '26", median:  787500, dom: 61, listToSale: 98, sold: 310, pending: 220 },
   ],
   "Newton": [
     { month: "Feb '26", median: 1550000, dom: 74, listToSale: 99, sold: 36, pending: 0 },
@@ -94,9 +136,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1763900, dom: 44, listToSale: 100, sold: 67, pending: 2 },
     { month: "May '26", median: 1695000, dom: 40, listToSale: 102, sold: 85, pending: 1 },
     { month: "Jun '26", median: 1553180, dom: 41, listToSale: 101, sold: 111, pending: 5 },
-    { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102, sold: 116, pending: 21 },
+    { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102, sold: 116, pending: 2 },
     { month: "Aug '26", median: 1731500, dom: 48, listToSale: 99, sold: 63, pending: 31 },
-    { month: "Sep '26", median: 1700000, dom: 47, listToSale: 99, sold: 37, pending: 65 },
+    { month: "Sep '26", median: 1647500, dom: 47, listToSale: 99, sold: 38, pending: 54 },
   ],
   "Wellesley": [
     { month: "Feb '26", median: 1180000, dom: 87, listToSale: 100, sold: 7, pending: 0 },
@@ -104,19 +146,19 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1902500, dom: 34, listToSale: 102, sold: 33, pending: 1 },
     { month: "May '26", median: 2628000, dom: 62, listToSale: 102, sold: 23, pending: 2 },
     { month: "Jun '26", median: 2225000, dom: 28, listToSale: 101, sold: 51, pending: 2 },
-    { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101, sold: 36, pending: 7 },
+    { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101, sold: 36, pending: 1 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97, sold: 42, pending: 13 },
-    { month: "Sep '26", median: 2950000, dom: 62, listToSale: 97, sold: 19, pending: 30 },
+    { month: "Sep '26", median: 2950000, dom: 62, listToSale: 97, sold: 19, pending: 28 },
   ],
   "Brookline": [
     { month: "Feb '26", median: 1325000, dom: 67, listToSale: 100, sold: 16, pending: 1 },
     { month: "Mar '26", median: 1675000, dom: 60, listToSale: 100, sold: 36, pending: 0 },
     { month: "Apr '26", median: 1350000, dom: 46, listToSale: 101, sold: 51, pending: 0 },
     { month: "May '26", median: 1280000, dom: 43, listToSale: 100, sold: 63, pending: 2 },
-    { month: "Jun '26", median: 1127500, dom: 36, listToSale: 99, sold: 72, pending: 6 },
-    { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100, sold: 56, pending: 9 },
+    { month: "Jun '26", median: 1127500, dom: 36, listToSale: 99, sold: 72, pending: 5 },
+    { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100, sold: 56, pending: 2 },
     { month: "Aug '26", median: 1148000, dom: 51, listToSale: 99, sold: 46, pending: 22 },
-    { month: "Sep '26", median: 1425000, dom: 83, listToSale: 97, sold: 26, pending: 39 },
+    { month: "Sep '26", median: 1275000, dom: 83, listToSale: 97, sold: 27, pending: 32 },
   ],
   "Natick": [
     { month: "Feb '26", median:  950000, dom: 46, listToSale: 99, sold: 17, pending: 0 },
@@ -124,9 +166,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  960000, dom: 32, listToSale: 103, sold: 41, pending: 1 },
     { month: "May '26", median:  775000, dom: 38, listToSale: 99, sold: 39, pending: 0 },
     { month: "Jun '26", median:  942500, dom: 29, listToSale: 101, sold: 62, pending: 3 },
-    { month: "Jul '26", median:  900000, dom: 24, listToSale: 100, sold: 55, pending: 8 },
+    { month: "Jul '26", median:  900000, dom: 24, listToSale: 100, sold: 55, pending: 0 },
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100, sold: 36, pending: 27 },
-    { month: "Sep '26", median:  873500, dom: 41, listToSale: 100, sold: 31, pending: 23 },
+    { month: "Sep '26", median:  873500, dom: 41, listToSale: 100, sold: 31, pending: 20 },
   ],
   "Lexington": [
     { month: "Feb '26", median: 1065300, dom: 61, listToSale: 99, sold: 9, pending: 0 },
@@ -134,7 +176,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 2005000, dom: 61, listToSale: 100, sold: 30, pending: 0 },
     { month: "May '26", median: 1685000, dom: 29, listToSale: 104, sold: 31, pending: 3 },
     { month: "Jun '26", median: 1570000, dom: 37, listToSale: 101, sold: 52, pending: 2 },
-    { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101, sold: 51, pending: 6 },
+    { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101, sold: 51, pending: 3 },
     { month: "Aug '26", median: 1706000, dom: 58, listToSale: 99, sold: 38, pending: 19 },
     { month: "Sep '26", median: 1422000, dom: 48, listToSale: 98, sold: 18, pending: 20 },
   ],
@@ -144,9 +186,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1800000, dom: 38, listToSale: 101, sold: 32, pending: 0 },
     { month: "May '26", median: 1615000, dom: 36, listToSale: 101, sold: 33, pending: 1 },
     { month: "Jun '26", median: 1758000, dom: 38, listToSale: 102, sold: 35, pending: 3 },
-    { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100, sold: 41, pending: 9 },
+    { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100, sold: 41, pending: 1 },
     { month: "Aug '26", median: 1490750, dom: 38, listToSale: 99, sold: 40, pending: 19 },
-    { month: "Sep '26", median: 1570000, dom: 80, listToSale: 98, sold: 21, pending: 23 },
+    { month: "Sep '26", median: 1570000, dom: 80, listToSale: 98, sold: 21, pending: 17 },
   ],
   "Framingham": [
     { month: "Feb '26", median:  676000, dom: 48, listToSale: 99, sold: 29, pending: 0 },
@@ -154,9 +196,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  720000, dom: 52, listToSale: 102, sold: 31, pending: 0 },
     { month: "May '26", median:  700000, dom: 26, listToSale: 103, sold: 46, pending: 2 },
     { month: "Jun '26", median:  660000, dom: 36, listToSale: 101, sold: 84, pending: 1 },
-    { month: "Jul '26", median:  675000, dom: 24, listToSale: 101, sold: 57, pending: 7 },
+    { month: "Jul '26", median:  675000, dom: 24, listToSale: 101, sold: 57, pending: 1 },
     { month: "Aug '26", median:  675000, dom: 29, listToSale: 101, sold: 49, pending: 51 },
-    { month: "Sep '26", median:  705000, dom: 34, listToSale: 100, sold: 51, pending: 41 },
+    { month: "Sep '26", median:  705000, dom: 34, listToSale: 100, sold: 51, pending: 38 },
   ],
   "Waltham": [
     { month: "Feb '26", median:  774383, dom: 69, listToSale: 99, sold: 17, pending: 0 },
@@ -164,19 +206,19 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  822500, dom: 47, listToSale: 101, sold: 24, pending: 0 },
     { month: "May '26", median:  813300, dom: 32, listToSale: 100, sold: 33, pending: 0 },
     { month: "Jun '26", median:  780000, dom: 23, listToSale: 101, sold: 47, pending: 0 },
-    { month: "Jul '26", median:  800000, dom: 30, listToSale: 102, sold: 31, pending: 6 },
+    { month: "Jul '26", median:  800000, dom: 30, listToSale: 102, sold: 31, pending: 1 },
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100, sold: 39, pending: 26 },
-    { month: "Sep '26", median:  767500, dom: 42, listToSale: 99, sold: 22, pending: 25 },
+    { month: "Sep '26", median:  767500, dom: 42, listToSale: 99, sold: 22, pending: 21 },
   ],
   "Cambridge": [
     { month: "Feb '26", median:  817500, dom: 65, listToSale: 99, sold: 32, pending: 1 },
     { month: "Mar '26", median: 1190000, dom: 85, listToSale: 101, sold: 23, pending: 2 },
     { month: "Apr '26", median: 1025000, dom: 44, listToSale: 104, sold: 51, pending: 1 },
     { month: "May '26", median: 1150000, dom: 40, listToSale: 103, sold: 83, pending: 2 },
-    { month: "Jun '26", median: 1050000, dom: 34, listToSale: 102, sold: 102, pending: 3 },
-    { month: "Jul '26", median: 1287500, dom: 36, listToSale: 103, sold: 86, pending: 9 },
-    { month: "Aug '26", median: 1045000, dom: 42, listToSale: 102, sold: 65, pending: 25 },
-    { month: "Sep '26", median:  862500, dom: 50, listToSale: 99, sold: 28, pending: 53 },
+    { month: "Jun '26", median: 1050000, dom: 34, listToSale: 102, sold: 102, pending: 1 },
+    { month: "Jul '26", median: 1287500, dom: 36, listToSale: 103, sold: 86, pending: 2 },
+    { month: "Aug '26", median: 1045000, dom: 42, listToSale: 102, sold: 67, pending: 6 },
+    { month: "Sep '26", median:  862500, dom: 50, listToSale: 99, sold: 28, pending: 46 },
   ],
   "Arlington": [
     { month: "Feb '26", median:  863000, dom: 29, listToSale: 104, sold: 15, pending: 0 },
@@ -184,9 +226,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1204500, dom: 24, listToSale: 105, sold: 34, pending: 0 },
     { month: "May '26", median: 1072500, dom: 27, listToSale: 105, sold: 46, pending: 1 },
     { month: "Jun '26", median:  986000, dom: 24, listToSale: 105, sold: 53, pending: 2 },
-    { month: "Jul '26", median: 1180000, dom: 28, listToSale: 104, sold: 48, pending: 4 },
+    { month: "Jul '26", median: 1160000, dom: 28, listToSale: 103, sold: 49, pending: 0 },
     { month: "Aug '26", median: 1130000, dom: 31, listToSale: 102, sold: 38, pending: 19 },
-    { month: "Sep '26", median: 1340000, dom: 33, listToSale: 103, sold: 21, pending: 26 },
+    { month: "Sep '26", median: 1340000, dom: 33, listToSale: 103, sold: 21, pending: 18 },
   ],
   "Belmont": [
     { month: "Feb '26", median: 1310000, dom: 85, listToSale: 99, sold: 10, pending: 0 },
@@ -194,29 +236,29 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1678500, dom: 32, listToSale: 102, sold: 10, pending: 0 },
     { month: "May '26", median: 1317500, dom: 18, listToSale: 102, sold: 14, pending: 1 },
     { month: "Jun '26", median: 1516000, dom: 24, listToSale: 103, sold: 18, pending: 0 },
-    { month: "Jul '26", median: 1540000, dom: 23, listToSale: 101, sold: 23, pending: 8 },
+    { month: "Jul '26", median: 1540000, dom: 23, listToSale: 101, sold: 23, pending: 0 },
     { month: "Aug '26", median: 1377000, dom: 21, listToSale: 101, sold: 14, pending: 16 },
-    { month: "Sep '26", median: 1525000, dom: 61, listToSale: 97, sold: 18, pending: 16 },
+    { month: "Sep '26", median: 1525000, dom: 61, listToSale: 97, sold: 18, pending: 14 },
   ],
   "Somerville": [
     { month: "Feb '26", median: 1006000, dom: 51, listToSale: 100, sold: 31, pending: 0 },
     { month: "Mar '26", median:  752745, dom: 60, listToSale: 100, sold: 27, pending: 0 },
     { month: "Apr '26", median:  945000, dom: 41, listToSale: 101, sold: 45, pending: 0 },
     { month: "May '26", median: 1027500, dom: 36, listToSale: 101, sold: 50, pending: 0 },
-    { month: "Jun '26", median: 1000000, dom: 34, listToSale: 101, sold: 72, pending: 4 },
-    { month: "Jul '26", median:  805000, dom: 41, listToSale: 100, sold: 61, pending: 12 },
-    { month: "Aug '26", median:  859500, dom: 32, listToSale: 100, sold: 36, pending: 17 },
-    { month: "Sep '26", median:  852000, dom: 43, listToSale: 101, sold: 26, pending: 33 },
+    { month: "Jun '26", median: 1000000, dom: 34, listToSale: 101, sold: 72, pending: 1 },
+    { month: "Jul '26", median:  805000, dom: 41, listToSale: 100, sold: 61, pending: 6 },
+    { month: "Aug '26", median:  854000, dom: 35, listToSale: 100, sold: 39, pending: 2 },
+    { month: "Sep '26", median:  879000, dom: 44, listToSale: 101, sold: 29, pending: 26 },
   ],
   "Medford": [
     { month: "Feb '26", median:  762500, dom: 87, listToSale: 101, sold: 24, pending: 1 },
     { month: "Mar '26", median:  850000, dom: 48, listToSale: 101, sold: 30, pending: 0 },
     { month: "Apr '26", median:  738500, dom: 43, listToSale: 101, sold: 24, pending: 2 },
     { month: "May '26", median:  835000, dom: 37, listToSale: 102, sold: 36, pending: 0 },
-    { month: "Jun '26", median:  780000, dom: 23, listToSale: 102, sold: 41, pending: 2 },
-    { month: "Jul '26", median:  873000, dom: 28, listToSale: 103, sold: 44, pending: 9 },
+    { month: "Jun '26", median:  780000, dom: 23, listToSale: 102, sold: 41, pending: 1 },
+    { month: "Jul '26", median:  873000, dom: 28, listToSale: 103, sold: 44, pending: 2 },
     { month: "Aug '26", median:  862500, dom: 53, listToSale: 100, sold: 45, pending: 26 },
-    { month: "Sep '26", median:  760000, dom: 57, listToSale: 100, sold: 28, pending: 36 },
+    { month: "Sep '26", median:  745000, dom: 57, listToSale: 100, sold: 29, pending: 28 },
   ],
   "Watertown": [
     { month: "Feb '26", median:  780000, dom: 55, listToSale: 101, sold: 15, pending: 0 },
@@ -224,9 +266,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  785000, dom: 28, listToSale: 102, sold: 33, pending: 0 },
     { month: "May '26", median:  775000, dom: 38, listToSale: 100, sold: 31, pending: 1 },
     { month: "Jun '26", median:  825000, dom: 41, listToSale: 100, sold: 29, pending: 0 },
-    { month: "Jul '26", median:  825000, dom: 35, listToSale: 100, sold: 37, pending: 8 },
+    { month: "Jul '26", median:  825000, dom: 35, listToSale: 100, sold: 37, pending: 3 },
     { month: "Aug '26", median:  558000, dom: 33, listToSale: 102, sold: 22, pending: 9 },
-    { month: "Sep '26", median:  716250, dom: 43, listToSale: 102, sold: 14, pending: 22 },
+    { month: "Sep '26", median:  716250, dom: 43, listToSale: 102, sold: 14, pending: 18 },
   ],
   "Winchester": [
     { month: "Feb '26", median: 1335000, dom: 32, listToSale: 101, sold: 15, pending: 1 },
@@ -234,9 +276,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1530000, dom: 44, listToSale: 102, sold: 13, pending: 0 },
     { month: "May '26", median: 1400000, dom: 34, listToSale: 102, sold: 29, pending: 0 },
     { month: "Jun '26", median: 1608500, dom: 32, listToSale: 100, sold: 28, pending: 0 },
-    { month: "Jul '26", median: 1924500, dom: 30, listToSale: 101, sold: 30, pending: 1 },
+    { month: "Jul '26", median: 1924500, dom: 30, listToSale: 101, sold: 30, pending: 0 },
     { month: "Aug '26", median: 1737000, dom: 36, listToSale: 99, sold: 18, pending: 12 },
-    { month: "Sep '26", median: 1900000, dom: 60, listToSale: 100, sold: 11, pending: 17 },
+    { month: "Sep '26", median: 2021000, dom: 64, listToSale: 99, sold: 12, pending: 10 },
   ],
   "Woburn": [
     { month: "Feb '26", median:  810000, dom: 55, listToSale: 100, sold: 19, pending: 0 },
@@ -244,9 +286,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  707498, dom: 44, listToSale: 102, sold: 20, pending: 0 },
     { month: "May '26", median:  870000, dom: 23, listToSale: 104, sold: 30, pending: 0 },
     { month: "Jun '26", median:  775000, dom: 30, listToSale: 104, sold: 35, pending: 1 },
-    { month: "Jul '26", median:  770000, dom: 29, listToSale: 101, sold: 39, pending: 4 },
+    { month: "Jul '26", median:  770000, dom: 29, listToSale: 101, sold: 39, pending: 0 },
     { month: "Aug '26", median:  749500, dom: 29, listToSale: 102, sold: 32, pending: 18 },
-    { month: "Sep '26", median:  710000, dom: 28, listToSale: 100, sold: 26, pending: 25 },
+    { month: "Sep '26", median:  710000, dom: 28, listToSale: 100, sold: 26, pending: 19 },
   ],
   "Burlington": [
     { month: "Feb '26", median:  859944, dom: 72, listToSale: 98, sold: 6, pending: 0 },
@@ -254,9 +296,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  876111, dom: 40, listToSale: 101, sold: 14, pending: 0 },
     { month: "May '26", median:  870000, dom: 25, listToSale: 104, sold: 20, pending: 0 },
     { month: "Jun '26", median:  879500, dom: 29, listToSale: 103, sold: 28, pending: 1 },
-    { month: "Jul '26", median:  932500, dom: 32, listToSale: 103, sold: 28, pending: 4 },
+    { month: "Jul '26", median:  932500, dom: 32, listToSale: 103, sold: 28, pending: 0 },
     { month: "Aug '26", median:  815000, dom: 35, listToSale: 102, sold: 14, pending: 14 },
-    { month: "Sep '26", median:  899950, dom: 55, listToSale: 102, sold: 14, pending: 14 },
+    { month: "Sep '26", median:  899900, dom: 56, listToSale: 102, sold: 15, pending: 9 },
   ],
   "Chelmsford": [
     { month: "Feb '26", median:  690000, dom: 59, listToSale: 100, sold: 11, pending: 0 },
@@ -264,9 +306,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  586500, dom: 36, listToSale: 101, sold: 28, pending: 0 },
     { month: "May '26", median:  632500, dom: 26, listToSale: 104, sold: 38, pending: 0 },
     { month: "Jun '26", median:  670000, dom: 24, listToSale: 104, sold: 46, pending: 0 },
-    { month: "Jul '26", median:  677500, dom: 28, listToSale: 102, sold: 40, pending: 7 },
+    { month: "Jul '26", median:  677500, dom: 28, listToSale: 102, sold: 40, pending: 0 },
     { month: "Aug '26", median:  619000, dom: 31, listToSale: 100, sold: 37, pending: 33 },
-    { month: "Sep '26", median:  670000, dom: 36, listToSale: 101, sold: 33, pending: 24 },
+    { month: "Sep '26", median:  670000, dom: 36, listToSale: 101, sold: 33, pending: 18 },
   ],
   "Acton": [
     { month: "Feb '26", median:  500000, dom: 34, listToSale: 102, sold: 7, pending: 0 },
@@ -276,7 +318,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Jun '26", median:  982500, dom: 30, listToSale: 104, sold: 40, pending: 3 },
     { month: "Jul '26", median:  805000, dom: 30, listToSale: 102, sold: 39, pending: 1 },
     { month: "Aug '26", median:  870000, dom: 32, listToSale: 100, sold: 19, pending: 12 },
-    { month: "Sep '26", median:  850000, dom: 50, listToSale: 100, sold: 17, pending: 20 },
+    { month: "Sep '26", median:  850000, dom: 50, listToSale: 100, sold: 17, pending: 16 },
   ],
   "Bedford": [
     { month: "Feb '26", median:  605000, dom: 26, listToSale: 99, sold: 5, pending: 0 },
@@ -284,7 +326,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  999900, dom: 16, listToSale: 101, sold: 7, pending: 0 },
     { month: "May '26", median: 1058000, dom: 39, listToSale: 101, sold: 14, pending: 0 },
     { month: "Jun '26", median: 1150000, dom: 26, listToSale: 103, sold: 11, pending: 1 },
-    { month: "Jul '26", median: 1068000, dom: 44, listToSale: 103, sold: 21, pending: 1 },
+    { month: "Jul '26", median: 1068000, dom: 44, listToSale: 103, sold: 21, pending: 0 },
     { month: "Aug '26", median:  955000, dom: 31, listToSale: 101, sold: 12, pending: 17 },
     { month: "Sep '26", median: 1088000, dom: 47, listToSale: 101, sold: 13, pending: 8 },
   ],
@@ -294,9 +336,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1741250, dom: 63, listToSale: 102, sold: 20, pending: 1 },
     { month: "May '26", median: 1767500, dom: 49, listToSale: 101, sold: 26, pending: 1 },
     { month: "Jun '26", median: 1650000, dom: 56, listToSale: 100, sold: 23, pending: 3 },
-    { month: "Jul '26", median: 1775000, dom: 54, listToSale: 99, sold: 12, pending: 6 },
+    { month: "Jul '26", median: 1775000, dom: 54, listToSale: 99, sold: 12, pending: 2 },
     { month: "Aug '26", median: 1725000, dom: 64, listToSale: 98, sold: 23, pending: 10 },
-    { month: "Sep '26", median: 1437500, dom: 59, listToSale: 102, sold: 12, pending: 18 },
+    { month: "Sep '26", median: 1437500, dom: 59, listToSale: 102, sold: 12, pending: 15 },
   ],
   "Westford": [
     { month: "Feb '26", median:  730000, dom: 40, listToSale: 100, sold: 13, pending: 2 },
@@ -304,9 +346,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  722500, dom: 42, listToSale: 99, sold: 19, pending: 1 },
     { month: "May '26", median:  805000, dom: 38, listToSale: 102, sold: 12, pending: 0 },
     { month: "Jun '26", median:  828400, dom: 46, listToSale: 101, sold: 27, pending: 0 },
-    { month: "Jul '26", median:  942500, dom: 24, listToSale: 102, sold: 30, pending: 6 },
+    { month: "Jul '26", median:  942500, dom: 24, listToSale: 102, sold: 30, pending: 1 },
     { month: "Aug '26", median:  799900, dom: 28, listToSale: 101, sold: 33, pending: 16 },
-    { month: "Sep '26", median:  894500, dom: 32, listToSale: 100, sold: 26, pending: 11 },
+    { month: "Sep '26", median:  894500, dom: 32, listToSale: 100, sold: 26, pending: 9 },
   ],
   "Hopkinton": [
     { month: "Feb '26", median:  995000, dom: 129, listToSale: 98, sold: 7, pending: 0 },
@@ -314,9 +356,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1187000, dom: 17, listToSale: 104, sold: 10, pending: 0 },
     { month: "May '26", median:  857500, dom: 36, listToSale: 101, sold: 24, pending: 1 },
     { month: "Jun '26", median: 1215000, dom: 34, listToSale: 101, sold: 35, pending: 1 },
-    { month: "Jul '26", median: 1156000, dom: 40, listToSale: 102, sold: 38, pending: 4 },
+    { month: "Jul '26", median: 1156000, dom: 40, listToSale: 102, sold: 38, pending: 1 },
     { month: "Aug '26", median: 1030000, dom: 59, listToSale: 102, sold: 27, pending: 20 },
-    { month: "Sep '26", median: 1005000, dom: 51, listToSale: 100, sold: 19, pending: 13 },
+    { month: "Sep '26", median: 1000000, dom: 50, listToSale: 100, sold: 20, pending: 11 },
   ],
   "Milton": [
     { month: "Feb '26", median: 1200000, dom: 30, listToSale: 105, sold: 10, pending: 0 },
@@ -324,9 +366,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1280000, dom: 50, listToSale: 106, sold: 11, pending: 0 },
     { month: "May '26", median: 1010000, dom: 57, listToSale: 106, sold: 20, pending: 1 },
     { month: "Jun '26", median: 1027500, dom: 29, listToSale: 104, sold: 28, pending: 3 },
-    { month: "Jul '26", median: 1010000, dom: 25, listToSale: 105, sold: 21, pending: 5 },
+    { month: "Jul '26", median: 1010000, dom: 25, listToSale: 105, sold: 21, pending: 0 },
     { month: "Aug '26", median: 1015000, dom: 34, listToSale: 100, sold: 27, pending: 10 },
-    { month: "Sep '26", median: 1140000, dom: 27, listToSale: 100, sold: 17, pending: 19 },
+    { month: "Sep '26", median: 1170000, dom: 28, listToSale: 100, sold: 18, pending: 16 },
   ],
   "Westwood": [
     { month: "Jan '26", median:  830000, dom: 56, listToSale: 98, sold: 5, pending: 0 },
@@ -334,7 +376,7 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median: 1146000, dom: 42, listToSale: 104, sold: 11, pending: 0 },
     { month: "May '26", median: 1150000, dom: 42, listToSale: 105, sold: 13, pending: 0 },
     { month: "Jun '26", median: 1526000, dom: 30, listToSale: 103, sold: 18, pending: 1 },
-    { month: "Jul '26", median: 1200000, dom: 94, listToSale: 101, sold: 11, pending: 3 },
+    { month: "Jul '26", median: 1200000, dom: 94, listToSale: 101, sold: 11, pending: 0 },
     { month: "Aug '26", median: 1395000, dom: 32, listToSale: 100, sold: 20, pending: 9 },
     { month: "Sep '26", median: 1255000, dom: 81, listToSale: 99, sold: 10, pending: 8 },
   ],
@@ -344,9 +386,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  820000, dom: 44, listToSale: 103, sold: 18, pending: 0 },
     { month: "May '26", median:  746000, dom: 21, listToSale: 102, sold: 16, pending: 0 },
     { month: "Jun '26", median:  755000, dom: 29, listToSale: 103, sold: 37, pending: 2 },
-    { month: "Jul '26", median:  778000, dom: 37, listToSale: 101, sold: 38, pending: 6 },
+    { month: "Jul '26", median:  778000, dom: 37, listToSale: 101, sold: 38, pending: 0 },
     { month: "Aug '26", median:  680000, dom: 38, listToSale: 102, sold: 29, pending: 17 },
-    { month: "Sep '26", median:  831000, dom: 33, listToSale: 101, sold: 20, pending: 23 },
+    { month: "Sep '26", median:  830000, dom: 33, listToSale: 101, sold: 21, pending: 17 },
   ],
   "Canton": [
     { month: "Feb '26", median:  712500, dom: 26, listToSale: 101, sold: 17, pending: 4 },
@@ -354,9 +396,9 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  745900, dom: 40, listToSale: 100, sold: 17, pending: 8 },
     { month: "May '26", median:  665000, dom: 30, listToSale: 102, sold: 21, pending: 4 },
     { month: "Jun '26", median:  750000, dom: 42, listToSale: 101, sold: 31, pending: 9 },
-    { month: "Jul '26", median:  715000, dom: 24, listToSale: 102, sold: 25, pending: 8 },
+    { month: "Jul '26", median:  715000, dom: 24, listToSale: 102, sold: 25, pending: 5 },
     { month: "Aug '26", median:  685850, dom: 40, listToSale: 101, sold: 30, pending: 23 },
-    { month: "Sep '26", median:  792500, dom: 49, listToSale: 100, sold: 22, pending: 18 },
+    { month: "Sep '26", median:  792500, dom: 49, listToSale: 100, sold: 22, pending: 14 },
   ],
   "Quincy": [
     { month: "Feb '26", median:  577350, dom: 47, listToSale: 99, sold: 26, pending: 1 },
@@ -364,9 +406,180 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
     { month: "Apr '26", median:  664000, dom: 37, listToSale: 101, sold: 48, pending: 0 },
     { month: "May '26", median:  630000, dom: 36, listToSale: 102, sold: 54, pending: 2 },
     { month: "Jun '26", median:  659500, dom: 31, listToSale: 102, sold: 74, pending: 9 },
-    { month: "Jul '26", median:  655000, dom: 27, listToSale: 101, sold: 63, pending: 20 },
+    { month: "Jul '26", median:  642500, dom: 27, listToSale: 101, sold: 64, pending: 2 },
     { month: "Aug '26", median:  660000, dom: 35, listToSale: 100, sold: 57, pending: 53 },
-    { month: "Sep '26", median:  733500, dom: 35, listToSale: 99, sold: 68, pending: 50 },
+    { month: "Sep '26", median:  732000, dom: 36, listToSale: 99, sold: 69, pending: 43 },
+  ],
+  "Malden": [
+    { month: "Jul '26", median:  602500, dom: 41, listToSale: 102, sold: 28, pending: 0 },
+    { month: "Sep '26", median:  645000, dom: 39, listToSale: 100, sold: 22, pending: 18 },
+  ],
+  "Wayland": [
+    { month: "Jul '26", median: 1185000, dom: 37, listToSale: 100, sold: 20, pending: 0 },
+    { month: "Sep '26", median:  827500, dom: 42, listToSale: 100, sold: 10, pending: 13 },
+  ],
+  "Weston": [
+    { month: "Jul '26", median: 2600000, dom: 76, listToSale: 98, sold: 15, pending: 1 },
+    { month: "Sep '26", median: 1742925, dom: 91, listToSale: 96, sold: 14, pending: 7 },
+  ],
+  "Sudbury": [
+    { month: "Jul '26", median: 1137500, dom: 28, listToSale: 102, sold: 34, pending: 0 },
+    { month: "Sep '26", median:  957500, dom: 41, listToSale: 99, sold: 14, pending: 14 },
+  ],
+  "Shrewsbury": [
+    { month: "Jul '26", median:  639950, dom: 34, listToSale: 99, sold: 48, pending: 1 },
+    { month: "Sep '26", median:  670000, dom: 37, listToSale: 101, sold: 35, pending: 23 },
+  ],
+  "Carlisle": [
+    { month: "Jul '26", median: 1250000, dom: 27, listToSale: 102, sold: 7, pending: 1 },
+    { month: "Sep '26", median: 1080000, dom: 91, listToSale: 94, sold: 1, pending: 3 },
+  ],
+  "Stow": [
+    { month: "Jul '26", median: 1085000, dom: 26, listToSale: 103, sold: 9, pending: 0 },
+    { month: "Sep '26", median:  724500, dom: 62, listToSale: 100, sold: 8, pending: 4 },
+  ],
+  "Boxborough": [
+    { month: "Jul '26", median: 1080000, dom: 25, listToSale: 102, sold: 7, pending: 0 },
+    { month: "Sep '26", median: 1200000, dom: 46, listToSale: 99, sold: 7, pending: 5 },
+  ],
+  "Bolton": [
+    { month: "Jul '26", median: 1035000, dom: 25, listToSale: 103, sold: 12, pending: 0 },
+    { month: "Sep '26", median:  811000, dom: 71, listToSale: 100, sold: 5, pending: 8 },
+  ],
+  "Harvard": [
+    { month: "Jul '26", median:  837500, dom: 30, listToSale: 102, sold: 8, pending: 0 },
+    { month: "Sep '26", median: 1335000, dom: 80, listToSale: 97, sold: 7, pending: 1 },
+  ],
+  "Maynard": [
+    { month: "Jul '26", median:  691000, dom: 25, listToSale: 103, sold: 14, pending: 0 },
+    { month: "Sep '26", median:  575000, dom: 25, listToSale: 100, sold: 7, pending: 4 },
+  ],
+  "Littleton": [
+    { month: "Jul '26", median:  851000, dom: 21, listToSale: 103, sold: 19, pending: 0 },
+    { month: "Sep '26", median:  890000, dom: 28, listToSale: 102, sold: 11, pending: 4 },
+  ],
+  "Groton": [
+    { month: "Jul '26", median:  950000, dom: 40, listToSale: 101, sold: 19, pending: 1 },
+    { month: "Sep '26", median:  803777, dom: 27, listToSale: 102, sold: 11, pending: 6 },
+  ],
+  "Ayer": [
+    { month: "Jul '26", median:  590000, dom: 45, listToSale: 101, sold: 16, pending: 1 },
+    { month: "Sep '26", median:  336000, dom: 21, listToSale: 105, sold: 5, pending: 6 },
+  ],
+  "Billerica": [
+    { month: "Jul '26", median:  703500, dom: 31, listToSale: 104, sold: 40, pending: 2 },
+    { month: "Sep '26", median:  677500, dom: 35, listToSale: 101, sold: 28, pending: 25 },
+  ],
+  "Tewksbury": [
+    { month: "Jul '26", median:  662500, dom: 31, listToSale: 102, sold: 44, pending: 2 },
+    { month: "Sep '26", median:  616700, dom: 27, listToSale: 102, sold: 28, pending: 22 },
+  ],
+  "Wilmington": [
+    { month: "Jul '26", median:  763000, dom: 28, listToSale: 105, sold: 38, pending: 0 },
+    { month: "Sep '26", median:  775000, dom: 26, listToSale: 103, sold: 15, pending: 12 },
+  ],
+  "Stoneham": [
+    { month: "Jul '26", median:  790000, dom: 23, listToSale: 105, sold: 26, pending: 1 },
+    { month: "Sep '26", median:  875000, dom: 33, listToSale: 101, sold: 25, pending: 15 },
+  ],
+  "Melrose": [
+    { month: "Jul '26", median:  995000, dom: 25, listToSale: 106, sold: 37, pending: 1 },
+    { month: "Sep '26", median:  870000, dom: 41, listToSale: 103, sold: 24, pending: 24 },
+  ],
+  "Wakefield": [
+    { month: "Jul '26", median:  695000, dom: 25, listToSale: 103, sold: 22, pending: 0 },
+    { month: "Sep '26", median:  810000, dom: 38, listToSale: 101, sold: 22, pending: 20 },
+  ],
+  "Reading": [
+    { month: "Jul '26", median:  990000, dom: 30, listToSale: 103, sold: 45, pending: 1 },
+    { month: "Sep '26", median:  860000, dom: 32, listToSale: 100, sold: 15, pending: 16 },
+  ],
+  "North Reading": [
+    { month: "Jul '26", median:  869995, dom: 20, listToSale: 102, sold: 31, pending: 1 },
+    { month: "Sep '26", median:  732500, dom: 39, listToSale: 99, sold: 23, pending: 15 },
+  ],
+  "Lynnfield": [
+    { month: "Jul '26", median: 1249000, dom: 31, listToSale: 103, sold: 21, pending: 3 },
+    { month: "Sep '26", median: 1353500, dom: 33, listToSale: 104, sold: 10, pending: 16 },
+  ],
+  "Andover": [
+    { month: "Jul '26", median: 1009900, dom: 34, listToSale: 103, sold: 53, pending: 0 },
+    { month: "Sep '26", median:  932500, dom: 34, listToSale: 100, sold: 44, pending: 30 },
+  ],
+  "North Andover": [
+    { month: "Jul '26", median:  860000, dom: 20, listToSale: 105, sold: 26, pending: 0 },
+    { month: "Sep '26", median:  675000, dom: 50, listToSale: 100, sold: 29, pending: 21 },
+  ],
+  "Ashland": [
+    { month: "Jul '26", median:  661000, dom: 22, listToSale: 102, sold: 30, pending: 0 },
+    { month: "Sep '26", median:  669500, dom: 21, listToSale: 102, sold: 22, pending: 16 },
+  ],
+  "Sherborn": [
+    { month: "Jul '26", median: 1297750, dom: 19, listToSale: 103, sold: 10, pending: 1 },
+    { month: "Sep '26", median:  800000, dom: 94, listToSale: 94, sold: 3, pending: 1 },
+  ],
+  "Holliston": [
+    { month: "Jul '26", median:  820000, dom: 31, listToSale: 101, sold: 29, pending: 0 },
+    { month: "Sep '26", median:  967500, dom: 34, listToSale: 97, sold: 10, pending: 13 },
+  ],
+  "Medway": [
+    { month: "Jul '26", median:  715500, dom: 28, listToSale: 104, sold: 14, pending: 0 },
+    { month: "Sep '26", median:  720000, dom: 50, listToSale: 99, sold: 11, pending: 4 },
+  ],
+  "Millis": [
+    { month: "Jul '26", median:  739500, dom: 41, listToSale: 101, sold: 10, pending: 2 },
+    { month: "Sep '26", median:  532500, dom: 47, listToSale: 99, sold: 8, pending: 5 },
+  ],
+  "Milford": [
+    { month: "Jul '26", median:  580000, dom: 27, listToSale: 101, sold: 35, pending: 0 },
+    { month: "Sep '26", median:  570000, dom: 44, listToSale: 100, sold: 29, pending: 13 },
+  ],
+  "Hudson": [
+    { month: "Jul '26", median:  710000, dom: 37, listToSale: 103, sold: 35, pending: 0 },
+    { month: "Sep '26", median:  599950, dom: 31, listToSale: 101, sold: 14, pending: 11 },
+  ],
+  "Marlborough": [
+    { month: "Jul '26", median:  700000, dom: 32, listToSale: 101, sold: 27, pending: 0 },
+    { month: "Sep '26", median:  612500, dom: 51, listToSale: 99, sold: 27, pending: 20 },
+  ],
+  "Southborough": [
+    { month: "Jul '26", median:  852450, dom: 39, listToSale: 98, sold: 12, pending: 0 },
+    { month: "Sep '26", median:  940000, dom: 46, listToSale: 97, sold: 7, pending: 4 },
+  ],
+  "Westborough": [
+    { month: "Jul '26", median:  574000, dom: 39, listToSale: 100, sold: 32, pending: 2 },
+    { month: "Sep '26", median:  607450, dom: 55, listToSale: 98, sold: 16, pending: 9 },
+  ],
+  "Northborough": [
+    { month: "Jul '26", median:  725000, dom: 28, listToSale: 102, sold: 23, pending: 1 },
+    { month: "Sep '26", median:  750000, dom: 73, listToSale: 96, sold: 13, pending: 8 },
+  ],
+  "Dover": [
+    { month: "Jul '26", median: 2000000, dom: 59, listToSale: 98, sold: 12, pending: 0 },
+    { month: "Sep '26", median: 1782500, dom: 59, listToSale: 98, sold: 6, pending: 3 },
+  ],
+  "Medfield": [
+    { month: "Jul '26", median: 1216000, dom: 24, listToSale: 102, sold: 22, pending: 0 },
+    { month: "Sep '26", median: 1085000, dom: 44, listToSale: 100, sold: 4, pending: 5 },
+  ],
+  "Sharon": [
+    { month: "Jul '26", median: 1025000, dom: 38, listToSale: 100, sold: 25, pending: 0 },
+    { month: "Sep '26", median: 1002000, dom: 42, listToSale: 99, sold: 17, pending: 12 },
+  ],
+  "Stoughton": [
+    { month: "Jul '26", median:  592500, dom: 37, listToSale: 102, sold: 36, pending: 0 },
+    { month: "Sep '26", median:  607500, dom: 29, listToSale: 99, sold: 30, pending: 8 },
+  ],
+  "Norwood": [
+    { month: "Jul '26", median:  625000, dom: 26, listToSale: 102, sold: 23, pending: 0 },
+    { month: "Sep '26", median:  675000, dom: 35, listToSale: 99, sold: 20, pending: 13 },
+  ],
+  "Braintree": [
+    { month: "Jul '26", median:  755000, dom: 33, listToSale: 102, sold: 33, pending: 0 },
+    { month: "Sep '26", median:  745000, dom: 37, listToSale: 101, sold: 29, pending: 31 },
+  ],
+  "Lincoln": [
+    { month: "Jul '26", median: 1452500, dom: 23, listToSale: 102, sold: 6, pending: 0 },
   ],
 };
 
@@ -441,8 +654,8 @@ export default function MarketPage() {
             {[
               { value: "$790,000", label: "Median Sale Price", change: "MLSPIN, Sep 2026" },
               { value: "46 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
-              { value: "99%", label: "List-to-Sale Ratio", change: "Just under asking, on average" },
-              { value: "1,622", label: "Closed Sales", change: "MLSPIN, Sep 2026" },
+              { value: "100%", label: "List-to-Sale Ratio", change: "At asking, on average" },
+              { value: "1,647", label: "Closed Sales", change: "MLSPIN, Sep 2026" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-3xl font-bold text-[#0D2137]">{m.value}</p>
@@ -663,16 +876,16 @@ September 2026 — What This Means for You
             <div className="space-y-4 text-base text-gray-600 font-body leading-relaxed">
               {/* COMMENTARY:START — generated by scripts/mlspin/commentary.mjs */}
               <p>
-                September brought 1,622 closed sales across Greater Boston, down 20% from August. The median sale price came in at $790,000, down 8% from August, and homes took an average of 46 days to sell, up from 40 days in August. On average, sellers received 99% of their list price. Fall typically brings a seasonal slowdown after the busy spring and summer months.
+                September brought 1,647 closed sales across Greater Boston, down 21% from August. The median sale price came in at $790,000, down 8% from August, and homes took an average of 46 days to sell, up from 40 days in August. On average, sellers received 100% of their list price. Fall typically brings a seasonal slowdown after the busy spring and summer months.
               </p>
               <p>
-                <strong className="text-[#0D2137]">For Buyers:</strong> Homes are sitting a little longer than they were last month, which gives you more time to make decisions and a bit more room to negotiate. The most negotiating room right now is in Brookline (97% of list, 83 days on market), Wellesley (97% of list, 62 days on market), and Belmont (97% of list, 61 days on market). Across the region, most homes are still selling close to asking, so don't expect deep discounts, even in the softer towns.
+                <strong className="text-[#0D2137]">For Buyers:</strong> Homes are sitting a little longer than they were last month, which gives you more time to make decisions and a bit more room to negotiate. The most negotiating room right now is in Sherborn (94% of list, 94 days on market), Carlisle (94% of list, 91 days on market), and Weston (96% of list, 91 days on market). Across the region, homes are still selling at or above asking on average, so a strong first offer still matters.
               </p>
               <p>
-                <strong className="text-[#0D2137]">For Sellers:</strong> Arlington, Watertown, and Burlington are the most competitive markets we track this month, with homes selling at 102% of list price or better. With homes taking a bit longer to sell overall, pricing your home right from day one matters more than usual. A listing that starts too high tends to sit, and buyers notice.
+                <strong className="text-[#0D2137]">For Sellers:</strong> Ayer, Lynnfield, and Wilmington are the most competitive markets we track this month, with homes selling at 103% of list price or better. With homes taking a bit longer to sell overall, pricing your home right from day one matters more than usual. A listing that starts too high tends to sit, and buyers notice.
               </p>
               <p>
-                <strong className="text-[#0D2137]">Notable Standout:</strong> Milton was one of the fastest-moving markets we track, with homes selling in 27 days on average at 100% of list. On the other end, homes in Westwood averaged 81 days on market, so buyers there have more time to weigh their options.
+                <strong className="text-[#0D2137]">Notable Standout:</strong> Ashland was one of the fastest-moving markets we track, with homes selling in 21 days on average at 102% of list. On the other end, homes in Brookline averaged 83 days on market, so buyers there have more time to weigh their options.
               </p>
               {/* COMMENTARY:END */}
             </div>

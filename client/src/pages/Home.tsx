@@ -29,7 +29,7 @@ const neighborhoods = [
   { name: "Concord", medianPrice: "$1.44M", schools: "A+", img: "/images/towns/concord.jpeg" },
   { name: "Acton", medianPrice: "$850K", schools: "A+", img: "/images/towns/acton.jpeg" },
   { name: "Arlington", medianPrice: "$1.34M", schools: "A-", img: "/images/towns/arlington.jpeg" },
-  { name: "Winchester", medianPrice: "$1.9M", schools: "A+", img: "/images/towns/winchester.jpeg" },
+  { name: "Winchester", medianPrice: "$2.02M", schools: "A+", img: "/images/towns/winchester.jpeg" },
   { name: "Waltham", medianPrice: "$768K", schools: "B+", img: "/images/towns/waltham.jpeg" },
   { name: "Cambridge", medianPrice: "$863K", schools: "B+", img: "/images/towns/cambridge.jpeg" },
 ];
