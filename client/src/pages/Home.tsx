@@ -22,16 +22,16 @@ const SELL_IMAGE = "/images/towns/belmont.jpeg"; // same house as the Sell page 
 
 
 // Order matters: the first cards get the most attention, especially on phones.
-// Prices and school grades match client/src/data/neighborhoods.ts.
+// Prices (MLS PIN) and high school ranks (Boston Magazine 2026) match client/src/data/neighborhoods.ts.
 const neighborhoods = [
-  { name: "Lexington", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/lexington.jpeg" },
-  { name: "Bedford", medianPrice: "$1.09M", schools: "A", img: "/images/towns/bedford.jpeg" },
-  { name: "Concord", medianPrice: "$1.44M", schools: "A+", img: "/images/towns/concord.jpeg" },
-  { name: "Acton", medianPrice: "$850K", schools: "A+", img: "/images/towns/acton.jpeg" },
-  { name: "Arlington", medianPrice: "$1.34M", schools: "A-", img: "/images/towns/arlington.jpeg" },
-  { name: "Winchester", medianPrice: "$2.02M", schools: "A+", img: "/images/towns/winchester.jpeg" },
-  { name: "Waltham", medianPrice: "$768K", schools: "B+", img: "/images/towns/waltham.jpeg" },
-  { name: "Cambridge", medianPrice: "$863K", schools: "B+", img: "/images/towns/cambridge.jpeg" },
+  { name: "Lexington", medianPrice: "$1.42M", schoolRank: "#3", img: "/images/towns/lexington.jpeg" },
+  { name: "Bedford", medianPrice: "$1.09M", schoolRank: "#14", img: "/images/towns/bedford.jpeg" },
+  { name: "Concord", medianPrice: "$1.44M", schoolRank: "#15", img: "/images/towns/concord.jpeg" },
+  { name: "Acton", medianPrice: "$850K", schoolRank: "#25", img: "/images/towns/acton.jpeg" },
+  { name: "Arlington", medianPrice: "$1.34M", schoolRank: "#23", img: "/images/towns/arlington.jpeg" },
+  { name: "Winchester", medianPrice: "$2.02M", schoolRank: "#27", img: "/images/towns/winchester.jpeg" },
+  { name: "Waltham", medianPrice: "$768K", schoolRank: "#113", img: "/images/towns/waltham.jpeg" },
+  { name: "Cambridge", medianPrice: "$863K", schoolRank: "#62", img: "/images/towns/cambridge.jpeg" },
 ];
 
 const heroTowns = ["Lexington", "Bedford", "Concord", "Acton", "Arlington"];
@@ -217,7 +217,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="font-body mt-3 text-lg font-semibold">{n.name}</h3>
                   <p className="text-sm text-[#5B6270]">
-                    Median {n.medianPrice} · Schools {n.schools}
+                    Median {n.medianPrice} · High school {n.schoolRank}
                   </p>
                 </Link>
               ))}

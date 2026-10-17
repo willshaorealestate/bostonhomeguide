@@ -14,6 +14,7 @@ import { isValidEmail, submitToFub } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
+import { SCHOOL_RANK_SOURCE, COMMUTE_SOURCE, RAIL_SOURCE, schoolRankLabel } from "@/data/townSources";
 
 const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
@@ -137,17 +138,49 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { label: neighborhood.priceSource ? "Median Sale Price" : "Avg. Home Value", value: neighborhood.medianPrice, icon: Home },
-              { label: "School Rating", value: neighborhood.schools, icon: School },
-              { label: "Commute to Boston", value: neighborhood.commute, icon: Train },
-              { label: "Walk Score", value: `${neighborhood.walkScore}/100`, icon: MapPin },
+              {
+                label: neighborhood.priceSource ? "Median Sale Price" : "Avg. Home Value",
+                value: neighborhood.medianPrice,
+                source: neighborhood.priceSource,
+                icon: Home,
+              },
+              {
+                label: "High School Rank",
+                value: schoolRankLabel(neighborhood.schoolRanks, neighborhood.highSchool),
+                source: `${neighborhood.highSchool} · ${SCHOOL_RANK_SOURCE.label}`,
+                href: SCHOOL_RANK_SOURCE.url,
+                icon: School,
+              },
+              {
+                label: "Avg. Commute (Residents)",
+                value: `${Math.round(neighborhood.commuteMinutes)} min`,
+                source: COMMUTE_SOURCE.label,
+                href: COMMUTE_SOURCE.url,
+                icon: Train,
+              },
+              {
+                label: "Rail Station",
+                value: neighborhood.rail,
+                source: RAIL_SOURCE.label,
+                href: RAIL_SOURCE.url,
+                icon: MapPin,
+              },
             ].map((s) => {
               const Icon = s.icon;
               return (
                 <div key={s.label}>
                   <Icon className="w-5 h-5 text-[#C89B3C] mx-auto mb-1.5" />
-                  <p className="text-2xl font-bold text-white">{s.value}</p>
-                  <p className="text-sm text-white/50 font-body mt-0.5">{s.label}</p>
+                  <p className={`${s.value.length > 12 ? "text-lg" : "text-2xl"} font-bold text-white`}>{s.value}</p>
+                  <p className="text-sm text-white/60 font-body mt-0.5">{s.label}</p>
+                  {s.source && (
+                    s.href ? (
+                      <a href={s.href} target="_blank" rel="noopener noreferrer" className="block text-xs text-white/45 font-body mt-0.5 hover:text-white/80 underline-offset-2 hover:underline">
+                        {s.source}
+                      </a>
+                    ) : (
+                      <p className="text-xs text-white/45 font-body mt-0.5">{s.source}</p>
+                    )
+                  )}
                 </div>
               );
             })}
@@ -432,16 +465,16 @@ export default function NeighborhoodsPage() {
                   </h3>
                   <div className="space-y-1">
                     <div className="flex justify-between text-sm font-body">
-                      <span className="text-gray-500">Avg. Home Value</span>
+                      <span className="text-gray-500">{n.priceSource ? "Median sale price" : "Avg. home value"}</span>
                       <span className="font-semibold text-[#0D2137]">{n.medianPrice}</span>
                     </div>
                     <div className="flex justify-between text-sm font-body">
-                      <span className="text-gray-500">Schools</span>
-                      <span className="font-semibold text-green-600">{n.schools}</span>
+                      <span className="text-gray-500">High school rank</span>
+                      <span className="font-semibold text-[#0D2137]">{n.schoolRanks.length ? n.schoolRanks.map((r) => `#${r}`).join(" & ") : n.highSchool.startsWith("Boston Public Schools") ? "Varies" : "Not listed"}</span>
                     </div>
                     <div className="flex justify-between text-sm font-body">
-                      <span className="text-gray-500">Commute</span>
-                      <span className="font-semibold text-[#0D2137]">{n.commute}</span>
+                      <span className="text-gray-500">Avg. commute</span>
+                      <span className="font-semibold text-[#0D2137]">{Math.round(n.commuteMinutes)} min</span>
                     </div>
                   </div>
                 </div>
