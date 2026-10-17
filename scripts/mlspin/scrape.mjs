@@ -56,9 +56,21 @@ export async function scrapeMonth(username, password, year, month) {
     const towns = {};
     for (const town of TOWNS) {
       console.log(`  Scraping ${town}...`);
+      const pull = async () => parseTownReport(
+        await runReport(page, 'BostonHomeGuide - Towns monthly', startDate, endDate, town, `town-${town.toLowerCase()}`)
+      );
       try {
-        const text = await runReport(page, 'BostonHomeGuide - Towns monthly', startDate, endDate, town, `town-${town.toLowerCase()}`);
-        towns[town] = parseTownReport(text);
+        try {
+          towns[town] = await pull();
+        } catch (err) {
+          // Usually a lost session (the same login was used in another browser).
+          // If we're back on the login page, sign in again and retry this town once.
+          const onLoginPage = (await page.locator('input[type="password"]:visible').count()) > 0;
+          if (!onLoginPage && !/Date fill failed|Section not found/.test(err.message)) throw err;
+          console.warn(`    ↻ ${town}: signed out mid-run — signing in again and retrying`);
+          await login(page, username, password);
+          towns[town] = await pull();
+        }
         const t = towns[town];
         console.log(`    ✓ median=$${t.medianPrice.toLocaleString()}, sold=${t.soldCount}, pending=${t.pending}, DOM=${t.dom}, SP:LP=${t.spLp}%, SP:OP=${t.spOp}%`);
       } catch (err) {
