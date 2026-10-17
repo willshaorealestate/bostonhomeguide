@@ -14,13 +14,7 @@ import { scrapeMonth } from './scrape.mjs';
 import { updateMarketTsx, updateHomeTsx, updateNeighborhoodTs, updateTownHistory } from './update.mjs';
 import { updateCommentary } from './commentary.mjs';
 
-// Must contain every town in scrape.mjs TOWNS — order determines townData row order in Market.tsx
-const TOWN_ORDER = [
-  'Boston', 'Cambridge', 'Somerville', 'Brookline', 'Newton', 'Needham', 'Waltham', 'Watertown',
-  'Medford', 'Arlington', 'Belmont', 'Lexington', 'Winchester', 'Bedford', 'Concord', 'Burlington', 'Woburn', 'Acton', 'Westford', 'Chelmsford',
-  'Wellesley', 'Natick', 'Framingham', 'Hopkinton',
-  'Milton', 'Dedham', 'Westwood', 'Canton', 'Quincy',
-];
+import { TOWNS as TOWN_ORDER } from './towns.mjs';
 
 async function main() {
   const username = process.env.MLSPIN_USER;
@@ -60,10 +54,15 @@ async function main() {
     }));
 
     console.log('\n  Updating source files...');
-    updateMarketTsx(area, townRows, year, month);
+    const isLatest = updateMarketTsx(area, townRows, year, month);
     updateTownHistory(towns, year, month);
-    updateHomeTsx(area, towns, year, month);
-    updateNeighborhoodTs(towns);
+    // Home cards and town-page prices show the current month only — skip them when backfilling older months.
+    if (isLatest) {
+      updateHomeTsx(area, towns, year, month);
+      updateNeighborhoodTs(towns, year, month);
+    } else {
+      console.log('  (skipping Home.tsx and neighborhoods.ts — backfilled month is not the latest)');
+    }
 
     console.log(`  Done: ${year}-${String(month).padStart(2, '0')}`);
   }

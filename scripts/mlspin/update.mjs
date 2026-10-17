@@ -18,6 +18,11 @@ function parseMonthLabel(label) {
 }
 function sortByMonth(entries) { return entries.slice().sort((a, b) => parseMonthLabel(a.month) - parseMonthLabel(b.month)); }
 
+// Rolling window kept for every chart and town history (months).
+const WINDOW = 12;
+// Sort chronologically and keep the most recent WINDOW months, so backfilling older months never drops newer ones.
+function keepWindow(entries) { return sortByMonth(entries).slice(-WINDOW); }
+
 function shortLabel(year, month) { return `${SHORT[month - 1]} '${String(year).slice(2)}`; }
 function longLabel(year, month)  { return `${LONG[month - 1]} ${year}`; }
 
@@ -79,10 +84,9 @@ export function updateMarketTsx(area, townRows, year, month) {
   if (priceIdx !== -1) {
     priceEntries[priceIdx] = { month: short, median: area.medianPrice, sales: area.soldCount };
   } else {
-    if (priceEntries.length >= 8) priceEntries.shift();
     priceEntries.push({ month: short, median: area.medianPrice, sales: area.soldCount });
   }
-  const sortedPriceEntries = sortByMonth(priceEntries);
+  const sortedPriceEntries = keepWindow(priceEntries);
   const firstMonth = sortedPriceEntries[0].month;  // used for chart label below
   const newPriceRows = sortedPriceEntries
     .map(e => `  { month: "${e.month}", median: ${e.median}, sales: ${e.sales} }`)
@@ -97,10 +101,9 @@ export function updateMarketTsx(area, townRows, year, month) {
   if (domIdx !== -1) {
     domEntries[domIdx] = { month: short, dom: area.dom };
   } else {
-    if (domEntries.length >= 8) domEntries.shift();
     domEntries.push({ month: short, dom: area.dom });
   }
-  const newDomRows = sortByMonth(domEntries)
+  const newDomRows = keepWindow(domEntries)
     .map(e => `  { month: "${e.month}", dom: ${e.dom} }`)
     .join(',\n');
   c = c.replace(/const domData = \[[\s\S]*?\n\];/, `const domData = [\n${newDomRows},\n];`);
@@ -163,12 +166,11 @@ export function updateMarketTsx(area, townRows, year, month) {
 
   writeFileSync(MARKET_TSX, c, 'utf8');
   console.log(`  ✓ Market.tsx → ${long}`);
+  return isLatestMonth;
 }
 
 // ─── Home.tsx ──────────────────────────────────────────────────────────────────
 
-// Towns that appear in Home.tsx neighborhood cards (Concord and Waltham excluded)
-const HOME_TOWNS = ['Newton', 'Wellesley', 'Brookline', 'Natick', 'Lexington', 'Needham', 'Framingham'];
 
 export function updateHomeTsx(area, townMap, year, month) {
   let c = readFileSync(HOME_TSX, 'utf8').replace(/\r\n/g, '\n');
@@ -176,15 +178,10 @@ export function updateHomeTsx(area, townMap, year, month) {
   const long  = longLabel(year, month);
   const abbr  = `${SHORT[month - 1]} ${year}`;  // "Jul 2026"
 
-  // Neighborhood card prices
-  for (const town of HOME_TOWNS) {
-    if (!townMap[town]) continue;
-    const price = formatPriceShort(townMap[town].medianPrice);
-    c = c.replace(
-      new RegExp(`(\\{ name: "${town}", type: "[^"]+", medianPrice: )"[^"]+"`),
-      (_, prefix) => `${prefix}"${price}"`
-    );
-  }
+  // Neighborhood card prices — every card whose town has data this month
+  c = c.replace(/(\{ name: "([^"]+)", medianPrice: )"[^"]+"/g, (whole, prefix, town) =>
+    townMap[town] ? `${prefix}"${formatPriceShort(townMap[town].medianPrice)}"` : whole
+  );
 
   // Market stats strip (label first, then value)
   c = c.replace(
@@ -213,17 +210,19 @@ export function updateHomeTsx(area, townMap, year, month) {
 
 // ─── neighborhoods.ts ──────────────────────────────────────────────────────────
 
-const SLUG_MAP = {
-  boston: 'Boston', newton: 'Newton', wellesley: 'Wellesley',
-  brookline: 'Brookline', natick: 'Natick', lexington: 'Lexington',
-  needham: 'Needham', framingham: 'Framingham', waltham: 'Waltham',
-};
 
 export function updateTownHistory(townMap, year, month) {
   let c = readFileSync(MARKET_TSX, 'utf8').replace(/\r\n/g, '\n');
   const short = shortLabel(year, month);
 
   for (const [town, data] of Object.entries(townMap)) {
+    // New town: add an empty array at the end of townHistoryData so the upsert below fills it
+    if (!c.includes(`  "${town}": [\n`)) {
+      c = c.replace(
+        /(const townHistoryData[^=]*=\s*\{[\s\S]*?\n)(\};)/,
+        (_, body, end) => `${body}  "${town}": [\n  ],\n${end}`
+      );
+    }
     // Find this town's array in townHistoryData and roll it forward
     const entryRe = new RegExp(
       `("${town}":\\s*\\[\\n)([\\s\\S]*?)(\\s*\\],)`,
@@ -236,18 +235,17 @@ export function updateTownHistory(townMap, year, month) {
       while ((m = lineRe.exec(body)) !== null) {
         entries.push({ month: m[1], median: Number(m[2]), dom: Number(m[3]), listToSale: Number(m[4]), sold: m[5] ? Number(m[5]) : 0, pending: m[6] ? Number(m[6]) : 0 });
       }
-      // Upsert: replace existing entry for this month, or roll 8-month window forward
+      // Upsert: replace existing entry for this month, or add it and keep the latest WINDOW months
       const existingIdx = entries.findIndex(e => e.month === short);
       if (existingIdx !== -1) {
         entries[existingIdx] = { month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spOp), sold: data.soldCount, pending: data.pending };
       } else {
-        if (entries.length >= 8) entries.shift();
         entries.push({ month: short, median: data.medianPrice, dom: data.dom, listToSale: Math.round(data.spOp), sold: data.soldCount, pending: data.pending });
       }
-      const newBody = sortByMonth(entries)
+      const newBody = keepWindow(entries)
         .map(e => `    { month: "${e.month}", median: ${String(e.median).padStart(7)}, dom: ${e.dom}, listToSale: ${e.listToSale}, sold: ${e.sold}, pending: ${e.pending} }`)
         .join(',\n');
-      return `${open}${newBody},\n  ${close}`;
+      return `${open}${newBody},\n  ],`;
     });
   }
 
@@ -255,21 +253,26 @@ export function updateTownHistory(townMap, year, month) {
   console.log(`  ✓ townHistoryData → ${short}`);
 }
 
-export function updateNeighborhoodTs(townMap) {
+export function updateNeighborhoodTs(townMap, year, month) {
   let c = readFileSync(NEIGHBORHOODS_TS, 'utf8').replace(/\r\n/g, '\n');
+  const source = `MLS PIN, ${SHORT[month - 1]} ${year}`;
+  let updated = 0;
 
-  for (const [slug, town] of Object.entries(SLUG_MAP)) {
-    if (!townMap[town]) continue;
-    const price = formatPriceFull(townMap[town].medianPrice);
-    // Match slug field, then find medianPrice within the same object (within 300 chars)
-    c = c.replace(
-      new RegExp(`(slug:\\s*"${slug}"[\\s\\S]{0,300}?medianPrice:\\s*)"[^"]+"`),
-      (_, prefix) => `${prefix}"${price}"`
-    );
-  }
+  // Each town object: find it by name, then set medianPrice and priceSource inside the same object
+  c = c.replace(/\n  \{\n[\s\S]*?\n  \},/g, (obj) => {
+    const name = (obj.match(/\n    name: "([^"]+)",/) || [])[1];
+    if (!name || !townMap[name]) return obj;
+    updated++;
+    // Function replacers: a price like "$1,050,000" would otherwise be read as a $1 back-reference
+    const price = formatPriceFull(townMap[name].medianPrice);
+    let o = obj.replace(/(\n    medianPrice: )"[^"]+"/, (_, p) => `${p}"${price}"`);
+    if (/\n    priceSource: "/.test(o)) o = o.replace(/(\n    priceSource: )"[^"]+"/, (_, p) => `${p}"${source}"`);
+    else o = o.replace(/(\n    medianPrice: "[^"]+",)/, (_, p) => `${p}\n    priceSource: "${source}",`);
+    return o;
+  });
 
   writeFileSync(NEIGHBORHOODS_TS, c, 'utf8');
-  console.log(`  ✓ neighborhoods.ts`);
+  console.log(`  ✓ neighborhoods.ts (${updated} towns, ${source})`);
 }
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────

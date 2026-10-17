@@ -7,6 +7,7 @@ import { mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { parseAreaReport, parseTownReport } from './parse.mjs';
+import { TOWNS } from './towns.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEBUG = process.env.DEBUG === '1';
@@ -20,12 +21,7 @@ const REPORT_EDIT_URLS = {
   'BostonHomeGuide - Towns monthly':  `${BASE_URL}/tools/mshare/search.asp?ReportId=678032`,
 };
 
-const TOWNS = [
-  'Boston', 'Cambridge', 'Somerville', 'Brookline', 'Newton', 'Needham', 'Waltham', 'Watertown',
-  'Medford', 'Arlington', 'Belmont', 'Lexington', 'Winchester', 'Bedford', 'Concord', 'Burlington', 'Woburn', 'Acton', 'Westford', 'Chelmsford',
-  'Wellesley', 'Natick', 'Framingham', 'Hopkinton',
-  'Milton', 'Dedham', 'Westwood', 'Canton', 'Quincy',
-];
+// Town list lives in towns.mjs (every town page on the site, plus a few extras).
 
 async function shot(page, name) {
   if (!DEBUG) return;
