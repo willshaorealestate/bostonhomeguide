@@ -22,6 +22,10 @@ on:
         description: 'Second month number (optional)'
         required: false
         default: ''
+      extra_months:
+        description: 'More months to backfill, as YEAR MONTH pairs (optional, e.g. "2025 10 2025 11"). About 30 min per month for all towns.'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -29,6 +33,8 @@ permissions:
 jobs:
   update-market:
     runs-on: ubuntu-latest
+    # ~30 min per month for every town page; leaves room for a 4-month backfill in one run
+    timeout-minutes: 300
 
     steps:
       - name: Checkout
@@ -63,6 +69,10 @@ jobs:
             if [ -n "${{ inputs.second_month }}" ]; then
               ARGS="$ARGS ${{ inputs.second_year }} ${{ inputs.second_month }}"
               LABEL="$LABEL and ${{ inputs.second_month }}/${{ inputs.second_year }}"
+            fi
+            if [ -n "${{ inputs.extra_months }}" ]; then
+              ARGS="$ARGS ${{ inputs.extra_months }}"
+              LABEL="$LABEL plus backfill (${{ inputs.extra_months }})"
             fi
             echo "args=$ARGS" >> $GITHUB_OUTPUT
             echo "label=$LABEL" >> $GITHUB_OUTPUT
