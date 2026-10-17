@@ -1251,7 +1251,7 @@ export default function MarketPage() {
           {activeTab === "price" && (
             <div>
               <p className="text-sm text-gray-500 font-body mb-6">
-                Median sale price trend across Greater Boston — Feb '26 through Sep '26
+                Median sale price trend across Greater Boston — Oct '25 through Sep '26
               </p>
               <ResponsiveContainer width="100%" height={320}>
                 <LineChart data={priceData}>
