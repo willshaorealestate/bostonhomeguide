@@ -137,7 +137,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { label: "Avg. Home Value", value: neighborhood.medianPrice, icon: Home },
+              { label: neighborhood.priceSource ? "Median Sale Price" : "Avg. Home Value", value: neighborhood.medianPrice, icon: Home },
               { label: "School Rating", value: neighborhood.schools, icon: School },
               { label: "Commute to Boston", value: neighborhood.commute, icon: Train },
               { label: "Walk Score", value: `${neighborhood.walkScore}/100`, icon: MapPin },
@@ -182,7 +182,12 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 </h2>
                 <div className="bg-[#F4F6F8] rounded-xl p-4 mb-4 inline-block">
                   <p className="text-2xl font-bold text-[#0D2137]">{neighborhood.medianPrice}</p>
-                  <p className="text-sm text-gray-500 font-body mt-0.5">Average Home Value</p>
+                  <p className="text-sm text-gray-500 font-body mt-0.5">
+                    {neighborhood.priceSource ? "Median Sale Price" : "Average Home Value"}
+                  </p>
+                  {neighborhood.priceSource && (
+                    <p className="text-xs text-gray-400 font-body mt-0.5">Source: {neighborhood.priceSource}</p>
+                  )}
                 </div>
                 <p className="text-sm text-gray-500 font-body">
                   For current pricing trends, inventory, and days on market,{" "}

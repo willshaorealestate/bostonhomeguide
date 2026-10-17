@@ -25,13 +25,13 @@ const SELL_IMAGE = "/images/towns/belmont.jpeg"; // same house as the Sell page 
 // Prices and school grades match client/src/data/neighborhoods.ts.
 const neighborhoods = [
   { name: "Lexington", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/lexington.jpeg" },
-  { name: "Bedford", medianPrice: "$998K", schools: "A", img: "/images/towns/bedford.jpeg" },
-  { name: "Concord", medianPrice: "$1.42M", schools: "A+", img: "/images/towns/concord.jpeg" },
+  { name: "Bedford", medianPrice: "$1.09M", schools: "A", img: "/images/towns/bedford.jpeg" },
+  { name: "Concord", medianPrice: "$1.44M", schools: "A+", img: "/images/towns/concord.jpeg" },
   { name: "Acton", medianPrice: "$850K", schools: "A+", img: "/images/towns/acton.jpeg" },
-  { name: "Arlington", medianPrice: "$1.1M", schools: "A-", img: "/images/towns/arlington.jpeg" },
-  { name: "Winchester", medianPrice: "$1.5M", schools: "A+", img: "/images/towns/winchester.jpeg" },
+  { name: "Arlington", medianPrice: "$1.34M", schools: "A-", img: "/images/towns/arlington.jpeg" },
+  { name: "Winchester", medianPrice: "$1.9M", schools: "A+", img: "/images/towns/winchester.jpeg" },
   { name: "Waltham", medianPrice: "$768K", schools: "B+", img: "/images/towns/waltham.jpeg" },
-  { name: "Cambridge", medianPrice: "$1.31M", schools: "B+", img: "/images/towns/cambridge.jpeg" },
+  { name: "Cambridge", medianPrice: "$863K", schools: "B+", img: "/images/towns/cambridge.jpeg" },
 ];
 
 const heroTowns = ["Lexington", "Bedford", "Concord", "Acton", "Arlington"];
