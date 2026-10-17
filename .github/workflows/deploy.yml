@@ -32,7 +32,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.ref }}
+          # For workflow_run, build the latest main: the data workflow's head_sha is the commit it
+          # started from, not the commit it just pushed, so using it deployed one update behind.
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
