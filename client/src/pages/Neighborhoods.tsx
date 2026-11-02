@@ -15,11 +15,14 @@ import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 import { SCHOOL_RANK_SOURCE, COMMUTE_SOURCE, RAIL_SOURCE, schoolRankLabel } from "@/data/townSources";
-import { townHistoryData } from "@/data/townMarketHistory";
-import { summarizeTown, shortPrice } from "@/lib/townMarket";
+import { townAnnual, townQuarterly } from "@/data/townTrends";
+import { summarizeQuarters, summarizeYears, quarterLong } from "@/lib/townMarket";
 
 // recharts is large; only download it when a town page actually shows the chart
-const TownMarketChart = lazy(() => import("@/components/TownMarketChart"));
+const DaysOnMarketChart = lazy(() => import("@/components/TownMarketChart").then((m) => ({ default: m.DaysOnMarketChart })));
+const AnnualPriceChart = lazy(() => import("@/components/TownMarketChart").then((m) => ({ default: m.AnnualPriceChart })));
+const MONTHS: Record<string, string> = { Jan: "January", Feb: "February", Mar: "March", Apr: "April", May: "May", Jun: "June", Jul: "July", Aug: "August", Sep: "September", Oct: "October", Nov: "November", Dec: "December" };
+const monthLong = (m: string) => MONTHS[m] ?? m;
 
 const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
@@ -28,8 +31,10 @@ const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 // Individual neighborhood detail page
 function NeighborhoodDetail({ slug }: { slug: string }) {
   const neighborhood = allNeighborhoods.find((n) => n.slug === slug);
-  const marketHistory = neighborhood ? townHistoryData[neighborhood.name] : undefined;
-  const marketSummary = neighborhood && marketHistory ? summarizeTown(neighborhood.name, marketHistory) : null;
+  const quarters = neighborhood ? townQuarterly[neighborhood.name] : undefined;
+  const years = neighborhood ? townAnnual[neighborhood.name] : undefined;
+  const quarterSummary = neighborhood && quarters ? summarizeQuarters(neighborhood.name, quarters) : null;
+  const annualSummary = neighborhood && years ? summarizeYears(neighborhood.name, years) : null;
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   useSEO({
@@ -216,48 +221,90 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
               </div>
 
               {/* Market data */}
-              {marketSummary && marketHistory ? (
+              {quarterSummary || annualSummary ? (
                 <div className="bg-white rounded-2xl p-6 border border-gray-100">
                   <h2 className="text-xl font-bold text-[#0D2137] mb-1">
                     {neighborhood.name} Real Estate Market
                   </h2>
-                  <p className="text-sm text-gray-500 font-body mb-5">
-                    {marketSummary.latestLabel} · Source: MLS PIN closed sales
-                  </p>
+                  <p className="text-sm text-gray-500 font-body mb-6">Source: MLS PIN closed sales</p>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                    {[
-                      { value: marketSummary.latest.sold > 0 ? shortPrice(marketSummary.latest.median) : "—", label: "Median sale price" },
-                      { value: `${marketSummary.latest.dom}`, label: "Avg. days on market" },
-                      { value: `${marketSummary.latest.listToSale}%`, label: "Sale-to-list ratio" },
-                      { value: `${marketSummary.latest.sold}`, label: "Homes sold" },
-                    ].map((s) => (
-                      <div key={s.label} className="bg-[#F4F6F8] rounded-xl p-3.5">
-                        <p className="text-xl font-bold text-[#0D2137]">{s.value}</p>
-                        <p className="text-xs text-gray-500 font-body mt-0.5">{s.label}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider font-body mb-2">
-                    Median sale price — last {marketHistory.length} months
-                  </p>
-                  <Suspense fallback={<div className="h-[300px] bg-[#F4F6F8] rounded-xl" />}>
-                    <TownMarketChart history={marketHistory} />
-                  </Suspense>
-
-                  <div className="mt-5 space-y-2.5 text-base text-gray-600 font-body leading-relaxed">
-                    {marketSummary.sentences.map((s) => <p key={s}>{s}</p>)}
-                    {marketSummary.fewestSold < 6 && (
-                      <p className="text-sm text-gray-500">
-                        Some months in {neighborhood.name} had as few as {marketSummary.fewestSold} {marketSummary.fewestSold === 1 ? "sale" : "sales"}, so a single month's median can swing a lot. The 3-month average gives a steadier picture.
+                  {quarterSummary && quarters && (
+                    <div>
+                      <h3 className="text-base font-bold text-[#0D2137]">How fast homes are selling</h3>
+                      <p className="text-sm text-gray-500 font-body mb-4">
+                        {quarterLong(quarterSummary.latest.quarter)}
+                        {quarterSummary.yearAgo && <>, compared with {quarterLong(quarterSummary.yearAgo.quarter).split(" (")[0]}</>}
                       </p>
-                    )}
-                  </div>
+                      <div className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-5">
+                        {[
+                          {
+                            value: `${quarterSummary.dom.now}`,
+                            unit: "days",
+                            label: "Avg. days on market",
+                            note: quarterSummary.dom.delta === null ? null
+                              : quarterSummary.dom.delta === 0 ? "Same as a year ago"
+                              : `${Math.abs(quarterSummary.dom.delta)} ${Math.abs(quarterSummary.dom.delta) === 1 ? "day" : "days"} ${quarterSummary.dom.delta < 0 ? "faster" : "slower"} than a year ago`,
+                          },
+                          {
+                            value: `${quarterSummary.ratio.now}%`,
+                            unit: "",
+                            label: "Sale-to-list ratio",
+                            note: quarterSummary.ratio.then === null ? null : `${quarterSummary.ratio.then}% a year ago`,
+                          },
+                          {
+                            value: `${quarterSummary.sold.now}`,
+                            unit: "",
+                            label: "Homes sold",
+                            note: quarterSummary.sold.then === null ? null : `${quarterSummary.sold.then} a year ago`,
+                          },
+                        ].map((s) => (
+                          <div key={s.label} className="bg-[#F4F6F8] rounded-xl p-3 sm:p-4">
+                            <p className="text-xl sm:text-2xl font-bold text-[#0D2137] leading-tight">
+                              {s.value}
+                              {s.unit && <span className="text-sm font-semibold text-gray-500 ml-1">{s.unit}</span>}
+                            </p>
+                            <p className="text-xs sm:text-sm text-gray-600 font-body mt-1 leading-snug">{s.label}</p>
+                            {s.note && <p className="text-xs text-gray-400 font-body mt-1 leading-snug">{s.note}</p>}
+                          </div>
+                        ))}
+                      </div>
 
-                  <p className="text-sm text-gray-500 font-body mt-5">
+                      <p className="text-sm font-semibold text-gray-700 font-body">Average days on market by quarter</p>
+                      <p className="text-xs text-gray-500 font-body mb-1">Shorter bars mean homes are selling faster.</p>
+                      <Suspense fallback={<div className="h-[220px] bg-[#F4F6F8] rounded-xl" />}>
+                        <DaysOnMarketChart quarters={quarters} />
+                      </Suspense>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 font-body mt-1">
+                        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0D2137]" />Latest quarter</span>
+                        {quarterSummary.yearAgo && (
+                          <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#6F87A6]" />Same quarter last year</span>
+                        )}
+                      </div>
+                      <p className="text-base text-gray-600 font-body leading-relaxed mt-4">{quarterSummary.sentence}</p>
+                    </div>
+                  )}
+
+                  {annualSummary && years && (
+                    <div className={quarterSummary ? "border-t border-gray-100 mt-8 pt-7" : ""}>
+                      <h3 className="text-base font-bold text-[#0D2137]">Median sale price by year</h3>
+                      <p className="text-sm text-gray-500 font-body mb-3">
+                        Each bar is the median of every sale that year
+                      </p>
+                      <Suspense fallback={<div className="h-[240px] bg-[#F4F6F8] rounded-xl" />}>
+                        <AnnualPriceChart years={years} />
+                      </Suspense>
+                      {annualSummary.ytd && (
+                        <p className="text-xs text-gray-500 font-body mt-1">
+                          *{annualSummary.ytd.year} is year to date (January–{monthLong(annualSummary.ytd.through!)}), so it can still change.
+                        </p>
+                      )}
+                      <p className="text-base text-gray-600 font-body leading-relaxed mt-4">{annualSummary.sentence}</p>
+                    </div>
+                  )}
+
+                  <p className="text-sm font-body mt-6">
                     <Link href="/market" className="text-[#0D2137] font-semibold hover:underline">
-                      Compare {neighborhood.name} with other towns in the Monthly Market Report →
+                      Compare {neighborhood.name} with other towns in the Market Report →
                     </Link>
                   </p>
                 </div>

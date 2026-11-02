@@ -1,67 +1,100 @@
 /*
- * TownMarketChart.tsx — 12-month price chart for a town page.
- * Loaded lazily from Neighborhoods.tsx so recharts only downloads when a town page is opened.
+ * TownMarketChart.tsx — the two charts in a town page's market section.
+ * Lazy-loaded from Neighborhoods.tsx so recharts only downloads on town pages.
  *
- * Small towns can have 1–5 sales in a month, so a single month's median jumps around.
- * The line is a 3-month sales-weighted average of the monthly medians; each month's own
- * median is shown as a dot, and homes sold are bars so readers can see the sample size.
+ * DaysOnMarketChart: last 8 quarters. Latest quarter in navy, the same quarter a year
+ *   earlier in mid-blue, so the year-over-year comparison in the tiles is easy to find.
+ * AnnualPriceChart: true annual MLS PIN medians, current year-to-date in a lighter shade.
  */
-import {
-  ComposedChart, Bar, Line, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
-} from "recharts";
-import type { TownMonth } from "@/data/townMarketHistory";
-import { rollingMedianAvg, shortPrice } from "@/lib/townMarket";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
+import type { TownYear, TownQuarter } from "@/data/townTrends";
+import { shortPrice, quarterLong } from "@/lib/townMarket";
 
-export default function TownMarketChart({ history }: { history: TownMonth[] }) {
-  const avg = rollingMedianAvg(history);
-  const prices = history.filter((h) => h.sold > 0).map((h) => h.median);
-  // Pad the price axis so the lowest and highest months don't sit on the chart edges
-  const lo = Math.floor((Math.min(...prices) * 0.92) / 50_000) * 50_000;
-  const hi = Math.ceil((Math.max(...prices) * 1.04) / 50_000) * 50_000;
-  const tick = { fontSize: 11, fill: "#6B7280" };
-  const data = history.map((h, i) => ({
-    month: h.month,
-    sold: h.sold,
-    monthly: h.sold > 0 ? h.median : undefined,
-    avg3: avg[i] ?? undefined,
+const NAVY = "#0D2137";
+const MID = "#6F87A6";
+const LIGHT = "#D5DCE5";
+const tick = { fontSize: 11, fill: "#6B7280" };
+
+export function DaysOnMarketChart({ quarters }: { quarters: TownQuarter[] }) {
+  const last = quarters.length - 1;
+  const data = quarters.map((q) => ({ ...q, label: q.quarter.replace(" '", " ’") }));
+  return (
+    <div className="font-body">
+      <ResponsiveContainer width="100%" height={220}>
+        <BarChart data={data} margin={{ top: 22, right: 0, bottom: 0, left: 0 }}>
+          <XAxis dataKey="label" tick={tick} tickLine={false} axisLine={{ stroke: "#E5E7EB" }} interval={0} />
+          <YAxis hide domain={[0, "dataMax"]} />
+          <Tooltip
+            cursor={{ fill: "#F4F6F8" }}
+            formatter={(v: number) => [`${v} days`, "Avg. days on market"]}
+            labelFormatter={(_, p) => (p?.[0] ? `${quarterLong(p[0].payload.quarter)} · ${p[0].payload.sold} sales` : "")}
+            contentStyle={{ fontSize: 13, borderRadius: 8 }}
+          />
+          <Bar dataKey="dom" radius={[4, 4, 0, 0]} maxBarSize={44}>
+            {data.map((_, i) => (
+              <Cell key={i} fill={i === last ? NAVY : i === last - 4 ? MID : LIGHT} />
+            ))}
+            <LabelList dataKey="dom" position="top" style={{ fontSize: 11, fill: "#374151", fontWeight: 600 }} />
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+export function AnnualPriceChart({ years }: { years: TownYear[] }) {
+  const data = years.map((y) => ({
+    ...y,
+    label: y.through ? `${y.year}*` : `’${String(y.year).slice(2)}`,
+    yearLabel: y.through ? `${y.year}*` : String(y.year),
+    price: shortPrice(y.median),
   }));
+  const tooltip = (
+    <Tooltip
+      cursor={{ fill: "#F4F6F8" }}
+      formatter={(v: number) => [`$${v.toLocaleString()}`, "Median sale price"]}
+      labelFormatter={(_, p) => {
+        const y = p?.[0]?.payload as TownYear | undefined;
+        return y ? `${y.year}${y.through ? ` (Jan–${y.through})` : ""} · ${y.sold} sales` : "";
+      }}
+      contentStyle={{ fontSize: 13, borderRadius: 8 }}
+    />
+  );
+  const cells = data.map((y, i) => (
+    <Cell key={i} fill={y.through ? LIGHT : NAVY} stroke={y.through ? MID : undefined} strokeDasharray={y.through ? "3 2" : undefined} />
+  ));
+  const labelStyle = { fontSize: 11, fill: "#374151", fontWeight: 600, stroke: "none" };
 
   return (
     <div className="font-body">
-    <ResponsiveContainer width="100%" height={300}>
-      <ComposedChart data={data} margin={{ top: 8, right: 4, bottom: 0, left: 4 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#EEF0F3" vertical={false} />
-        <XAxis dataKey="month" tick={tick} interval="preserveStartEnd" minTickGap={8} />
-        <YAxis
-          yAxisId="price"
-          tickFormatter={(v: number) => shortPrice(v)}
-          tick={tick}
-          width={56}
-          domain={[lo, hi]}
-          allowDataOverflow={false}
-        />
-        <YAxis yAxisId="sold" orientation="right" tick={tick} width={28} allowDecimals={false} />
-        <Tooltip
-          formatter={(value: number, name: string) =>
-            name === "Homes sold" ? [value, name] : [`$${Math.round(value).toLocaleString()}`, name]
-          }
-          contentStyle={{ fontSize: 13, borderRadius: 8 }}
-        />
-        <Legend wrapperStyle={{ fontSize: 12 }} formatter={(value: string) => <span style={{ color: "#4B5563" }}>{value}</span>} />
-        <Bar yAxisId="sold" dataKey="sold" name="Homes sold" fill="#DCE1E8" radius={[3, 3, 0, 0]} barSize={18} />
-        <Scatter yAxisId="price" dataKey="monthly" name="Monthly median" fill="#C89B3C" />
-        <Line
-          yAxisId="price"
-          type="monotone"
-          dataKey="avg3"
-          name="3-month average"
-          stroke="#0D2137"
-          strokeWidth={2.5}
-          dot={false}
-          connectNulls
-        />
-      </ComposedChart>
-    </ResponsiveContainer>
+      {/* Phones: one row per year, so every price label has room */}
+      <div className="sm:hidden">
+        <ResponsiveContainer width="100%" height={data.length * 28 + 8}>
+          <BarChart data={data} layout="vertical" margin={{ top: 0, right: 52, bottom: 0, left: 0 }} barCategoryGap={5}>
+            <XAxis type="number" hide domain={[0, "dataMax"]} />
+            <YAxis type="category" dataKey="yearLabel" tick={tick} tickLine={false} axisLine={{ stroke: "#E5E7EB" }} width={44} />
+            {tooltip}
+            <Bar dataKey="median" radius={[0, 4, 4, 0]}>
+              {cells}
+              <LabelList dataKey="price" position="right" style={labelStyle} />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+      {/* Wider screens: a column per year */}
+      <div className="hidden sm:block">
+        <ResponsiveContainer width="100%" height={240}>
+          <BarChart data={data} margin={{ top: 22, right: 0, bottom: 0, left: 0 }}>
+            <XAxis dataKey="label" tick={tick} tickLine={false} axisLine={{ stroke: "#E5E7EB" }} interval={0} />
+            <YAxis hide domain={[0, "dataMax"]} />
+            {tooltip}
+            <Bar dataKey="median" radius={[4, 4, 0, 0]} maxBarSize={44}>
+              {cells}
+              <LabelList dataKey="price" position="top" style={{ ...labelStyle, fontSize: 10 }} />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
