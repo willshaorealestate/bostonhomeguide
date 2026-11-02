@@ -16,7 +16,7 @@ import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 import { SCHOOL_RANK_SOURCE, COMMUTE_SOURCE, RAIL_SOURCE, schoolRankLabel } from "@/data/townSources";
 import { townAnnual, townQuarterly } from "@/data/townTrends";
-import { summarizeQuarters, summarizeYears, quarterLong } from "@/lib/townMarket";
+import { summarizeQuarters, summarizeYears, quarterMonths, supplyMarket } from "@/lib/townMarket";
 
 // recharts is large; only download it when a town page actually shows the chart
 const DaysOnMarketChart = lazy(() => import("@/components/TownMarketChart").then((m) => ({ default: m.DaysOnMarketChart })));
@@ -27,6 +27,49 @@ const monthLong = (m: string) => MONTHS[m] ?? m;
 const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
 // All neighborhoods imported from data file
+
+// Months of supply on a seller's / balanced / buyer's scale (0–8+ months)
+function SupplyGauge({ months, sentence }: { months: number; sentence: string | null }) {
+  const MAX = 8;
+  // Keep the marker label inside the card at the extremes
+  const pos = Math.max(7, Math.min(93, (Math.min(months, MAX) / MAX) * 100));
+  const market = supplyMarket(months);
+  const bands = [
+    { key: "seller", label: "Seller's market", short: "Seller's", range: "Under 4 mo.", width: 50, bg: "bg-[#0D2137]", text: "text-white" },
+    { key: "balanced", label: "Balanced", short: "Balanced", range: "4–6 mo.", width: 25, bg: "bg-[#6F87A6]", text: "text-white" },
+    { key: "buyer", label: "Buyer's market", short: "Buyer's", range: "6+ mo.", width: 25, bg: "bg-[#D5DCE5]", text: "text-[#0D2137]" },
+  ];
+  return (
+    <div className="mb-7">
+      <p className="text-sm font-semibold text-gray-700 font-body">Supply and demand: {market.label.toLowerCase()}</p>
+      <p className="text-xs text-gray-500 font-body mb-3">
+        Months of supply is how long it would take to sell every home for sale at the recent pace of sales.
+      </p>
+      <div className="relative pt-7">
+        <div
+          className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
+          style={{ left: `${pos}%` }}
+        >
+          <span className="text-xs font-bold text-[#0D2137] font-body whitespace-nowrap">{months} months</span>
+          <span className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-[#C89B3C] mt-0.5" />
+        </div>
+        <div className="flex h-7 rounded-lg overflow-hidden">
+          {bands.map((b) => (
+            <div key={b.key} className={`${b.bg} ${b.text} flex items-center justify-center text-[11px] font-semibold font-body ${b.key === market.band ? "" : "opacity-60"}`} style={{ width: `${b.width}%` }}>
+              <span className="truncate px-1"><span className="sm:hidden">{b.short}</span><span className="hidden sm:inline">{b.label}</span></span>
+            </div>
+          ))}
+        </div>
+        <div className="flex text-[11px] text-gray-500 font-body mt-1">
+          {bands.map((b) => (
+            <div key={b.key} className="text-center" style={{ width: `${b.width}%` }}>{b.range}</div>
+          ))}
+        </div>
+      </div>
+      {sentence && <p className="text-base text-gray-600 font-body leading-relaxed mt-4">{sentence}</p>}
+    </div>
+  );
+}
 
 // Individual neighborhood detail page
 function NeighborhoodDetail({ slug }: { slug: string }) {
@@ -241,10 +284,10 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                     <div>
                       <h3 className="text-base font-bold text-[#0D2137]">How fast homes are selling</h3>
                       <p className="text-sm text-gray-500 font-body mb-4">
-                        {quarterLong(quarterSummary.latest.quarter)}
-                        {quarterSummary.yearAgo && <>, compared with {quarterLong(quarterSummary.yearAgo.quarter).split(" (")[0]}</>}
+                        {quarterMonths(quarterSummary.latest.quarter)}
+                        {quarterSummary.yearAgo && <>, compared with the same months in 20{quarterSummary.yearAgo.quarter.split(" '")[1]}</>}
                       </p>
-                      <div className="grid grid-cols-3 gap-2.5 sm:gap-3 mb-5">
+                      <div className={`grid ${quarterSummary.supply ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"} gap-2.5 sm:gap-3 mb-5`}>
                         {[
                           {
                             value: `${quarterSummary.dom.now}`,
@@ -266,6 +309,12 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                             label: "Homes sold",
                             note: quarterSummary.sold.then === null ? null : `${quarterSummary.sold.then} a year ago`,
                           },
+                          ...(quarterSummary.supply ? [{
+                            value: `${quarterSummary.supply.now}`,
+                            unit: "months",
+                            label: "Months of supply",
+                            note: quarterSummary.supply.then === null ? null : `${quarterSummary.supply.then} a year ago`,
+                          }] : []),
                         ].map((s) => (
                           <div key={s.label} className="bg-[#F4F6F8] rounded-xl p-3 sm:p-4">
                             <p className="text-xl sm:text-2xl font-bold text-[#0D2137] leading-tight">
@@ -278,17 +327,17 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                         ))}
                       </div>
 
+                      {quarterSummary.supply && (
+                        <SupplyGauge months={quarterSummary.supply.now} sentence={quarterSummary.supplySentence} />
+                      )}
+
                       <p className="text-sm font-semibold text-gray-700 font-body">Average days on market by quarter{domYrs ? `, ${domYrs.previous} vs. ${domYrs.current}` : ""}</p>
                       <p className="text-xs text-gray-500 font-body mb-1">Shorter bars mean homes are selling faster.</p>
                       <Suspense fallback={<div className="h-[230px] bg-[#F4F6F8] rounded-xl" />}>
                         <DaysOnMarketChart quarters={quarters} />
                       </Suspense>
-                      {domYrs && (
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500 font-body mt-1">
-                          <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#D5DCE5]" />{domYrs.previous}</span>
-                          <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0D2137]" />{domYrs.current}</span>
-                          {pendingQuarters && <span className="text-gray-400">{pendingQuarters} {domYrs.current} will be added as those sales close.</span>}
-                        </div>
+                      {pendingQuarters && domYrs && (
+                        <p className="text-xs text-gray-400 font-body mt-1">{pendingQuarters} {domYrs.current} will be added as those sales close.</p>
                       )}
                       <p className="text-base text-gray-600 font-body leading-relaxed mt-4">{quarterSummary.sentence}</p>
                     </div>

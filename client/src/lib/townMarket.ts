@@ -9,14 +9,32 @@ export function shortPrice(n: number): string {
   return n >= 1_000_000 ? `$${(n / 1_000_000).toFixed(2)}M` : `$${Math.round(n / 1000)}K`;
 }
 
-/** "Q3 '26" → "Q3 2026 (Jul–Sep)" */
-export function quarterLong(q: string): string {
+/** "Q3 '26" → "July–September 2026" (plain months; visitors don't think in quarters) */
+export function quarterMonths(q: string): string {
   const [qq, yy] = q.split(" '");
-  const months = { Q1: "Jan–Mar", Q2: "Apr–Jun", Q3: "Jul–Sep", Q4: "Oct–Dec" }[qq] ?? "";
-  return `${qq} 20${yy}${months ? ` (${months})` : ""}`;
+  const months = { Q1: "January–March", Q2: "April–June", Q3: "July–September", Q4: "October–December" }[qq] ?? qq;
+  return `${months} 20${yy}`;
 }
 
+const yearOf = (q: string) => `20${q.split(" '")[1]}`;
 const pct = (a: number, b: number) => Math.round(((a - b) / b) * 100);
+
+/**
+ * Months of supply (the absorption rate expressed in months): homes for sale at the end of the
+ * quarter ÷ average monthly sales in that quarter. How long current listings would last at the
+ * recent pace of sales if nothing new came on the market.
+ */
+export function monthsOfSupply(q: TownQuarter): number | null {
+  if (q.active == null || q.sold <= 0) return null;
+  return Math.round((q.active / (q.sold / 3)) * 10) / 10;
+}
+
+/** Common rule of thumb: under 4 months favors sellers, 4–6 is balanced, over 6 favors buyers. */
+export function supplyMarket(m: number): { label: string; band: "seller" | "balanced" | "buyer" } {
+  if (m < 4) return { label: "Seller's market", band: "seller" };
+  if (m <= 6) return { label: "Balanced market", band: "balanced" };
+  return { label: "Buyer's market", band: "buyer" };
+}
 
 export type Compare = { now: number; then: number | null; delta: number | null };
 
@@ -26,7 +44,9 @@ export type QuarterSummary = {
   dom: Compare;
   ratio: Compare;
   sold: Compare;
+  supply: { now: number; then: number | null } | null;
   sentence: string;
+  supplySentence: string | null;
 };
 
 export function summarizeQuarters(town: string, qs: TownQuarter[]): QuarterSummary | null {
@@ -38,14 +58,25 @@ export function summarizeQuarters(town: string, qs: TownQuarter[]): QuarterSumma
   const ratio = cmp(latest.listToSale, yearAgo?.listToSale);
   const sold = cmp(latest.sold, yearAgo?.sold);
 
-  let sentence = `In ${quarterLong(latest.quarter)}, ${latest.sold} homes sold in ${town}, averaging ${latest.dom} days on market and ${latest.listToSale}% of list price.`;
+  let sentence = `From ${quarterMonths(latest.quarter).replace("–", " through ")}, ${latest.sold} homes sold in ${town}, averaging ${latest.dom} days on market and ${latest.listToSale}% of list price.`;
   if (yearAgo && dom.delta !== null) {
     const pace =
       Math.abs(dom.delta) <= 3 ? `about the same pace as` :
       dom.delta < 0 ? `${-dom.delta} days faster than` : `${dom.delta} days slower than`;
-    sentence += ` That's ${pace} the same quarter a year earlier (${yearAgo.dom} days).`;
+    sentence += ` That's ${pace} the same months in ${yearOf(yearAgo.quarter)} (${yearAgo.dom} days).`;
   }
-  return { latest, yearAgo, dom, ratio, sold, sentence };
+  const supplyNow = monthsOfSupply(latest);
+  const supply = supplyNow === null ? null : { now: supplyNow, then: yearAgo ? monthsOfSupply(yearAgo) : null };
+  let supplySentence: string | null = null;
+  if (supply && latest.active != null) {
+    const endMonth = quarterMonths(latest.quarter).split("–")[1];
+    const perMonth = Math.round(latest.sold / 3);
+    supplySentence =
+      `At the end of ${endMonth}, ${latest.active} ${latest.active === 1 ? "home was" : "homes were"} for sale in ${town}. ` +
+      `At the recent pace of about ${perMonth} ${perMonth === 1 ? "sale" : "sales"} a month, that's ${supply.now} months of supply, ` +
+      `which points to a ${supplyMarket(supply.now).label.toLowerCase()}.`;
+  }
+  return { latest, yearAgo, dom, ratio, sold, supply, sentence, supplySentence };
 }
 
 export type AnnualSummary = {

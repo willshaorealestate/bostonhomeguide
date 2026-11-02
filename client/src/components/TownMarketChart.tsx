@@ -35,11 +35,24 @@ export function DaysOnMarketChart({ quarters }: { quarters: TownQuarter[] }) {
     return { label: MONTHS[qq], qq, previous: prev?.dom, current: cur?.dom, prevSold: prev?.sold, curSold: cur?.sold };
   });
   const labelStyle = { fontSize: 11, fill: "#374151", fontWeight: 600 };
+  // Year written directly under each bar (below the baseline), so no color legend is needed
+  const yearUnder = (year: number, color: string) => (props: { x?: number | string; y?: number | string; width?: number | string; height?: number | string; value?: unknown }) => {
+    if (props.value == null) return null;
+    const x = Number(props.x) + Number(props.width) / 2;
+    const base = Number(props.y) + Number(props.height);
+    // Narrow bars (phones) get the short form so neighboring years don't run together
+    const narrow = Number(props.width) < 38;
+    return (
+      <text x={x} y={base + 15} textAnchor="middle" fontSize={11} fontWeight={600} fill={color}>
+        {narrow ? `’${String(year).slice(2)}` : year}
+      </text>
+    );
+  };
   return (
     <div className="font-body">
-      <ResponsiveContainer width="100%" height={230}>
-        <BarChart data={data} margin={{ top: 22, right: 0, bottom: 0, left: 0 }} barGap={4} barCategoryGap="22%">
-          <XAxis dataKey="label" tick={tick} tickLine={false} axisLine={{ stroke: "#E5E7EB" }} interval={0} />
+      <ResponsiveContainer width="100%" height={250}>
+        <BarChart data={data} margin={{ top: 22, right: 0, bottom: 4, left: 0 }} barGap={6} barCategoryGap="22%">
+          <XAxis dataKey="label" tick={{ ...tick, fontSize: 12, fill: "#374151", dy: 20 }} height={44} tickLine={false} axisLine={{ stroke: "#E5E7EB" }} interval={0} />
           <YAxis hide domain={[0, "dataMax"]} />
           <Tooltip
             cursor={{ fill: "#F4F6F8" }}
@@ -59,9 +72,11 @@ export function DaysOnMarketChart({ quarters }: { quarters: TownQuarter[] }) {
           />
           <Bar dataKey="previous" name={String(yrs.previous)} fill={LIGHT} radius={[4, 4, 0, 0]} maxBarSize={40}>
             <LabelList dataKey="previous" position="top" style={{ ...labelStyle, fill: "#6B7280" }} />
+            <LabelList dataKey="previous" content={yearUnder(yrs.previous, "#9CA3AF")} />
           </Bar>
           <Bar dataKey="current" name={String(yrs.current)} fill={NAVY} radius={[4, 4, 0, 0]} maxBarSize={40}>
             <LabelList dataKey="current" position="top" style={labelStyle} />
+            <LabelList dataKey="current" content={yearUnder(yrs.current, NAVY)} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
