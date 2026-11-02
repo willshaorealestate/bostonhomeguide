@@ -23,15 +23,6 @@ const DaysOnMarketChart = lazy(() => import("@/components/TownMarketChart").then
 const AnnualPriceChart = lazy(() => import("@/components/TownMarketChart").then((m) => ({ default: m.AnnualPriceChart })));
 const MONTHS: Record<string, string> = { Jan: "January", Feb: "February", Mar: "March", Apr: "April", May: "May", Jun: "June", Jul: "July", Aug: "August", Sep: "September", Oct: "October", Nov: "November", Dec: "December" };
 const monthLong = (m: string) => MONTHS[m] ?? m;
-// Legend label for a 4-quarter span ending `fromEnd - 3` quarters back, e.g. "Oct 2025 – Sep 2026"
-const Q_START: Record<string, string> = { Q1: "Jan", Q2: "Apr", Q3: "Jul", Q4: "Oct" };
-const Q_END: Record<string, string> = { Q1: "Mar", Q2: "Jun", Q3: "Sep", Q4: "Dec" };
-function yearSpan(qs: { quarter: string }[], fromEnd: number) {
-  const first = qs[qs.length - fromEnd], last = qs[qs.length - fromEnd + 3];
-  if (!first || !last) return "";
-  const [q1, y1] = first.quarter.split(" '"), [q2, y2] = last.quarter.split(" '");
-  return `${Q_START[q1]} 20${y1} – ${Q_END[q2]} 20${y2}`;
-}
 
 const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
@@ -44,6 +35,15 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
   const years = neighborhood ? townAnnual[neighborhood.name] : undefined;
   const quarterSummary = neighborhood && quarters ? summarizeQuarters(neighborhood.name, quarters) : null;
   const annualSummary = neighborhood && years ? summarizeYears(neighborhood.name, years) : null;
+  // Calendar years for the days-on-market chart (kept here, not in the lazy chart module, for the legend)
+  const domYrs = quarters?.length ? (() => { const c = 2000 + Number(quarters[quarters.length - 1].quarter.split(" '")[1]); return { current: c, previous: c - 1 }; })() : null;
+  const pendingQuarters = (() => {
+    if (!quarters?.length || !domYrs) return "";
+    const done = new Set(quarters.filter((q) => q.quarter.endsWith(`'${String(domYrs.current).slice(2)}`)).map((q) => q.quarter.split(" ")[0]));
+    const names: Record<string, string> = { Q1: "Jan–Mar", Q2: "Apr–Jun", Q3: "Jul–Sep", Q4: "Oct–Dec" };
+    const left = ["Q1", "Q2", "Q3", "Q4"].filter((q) => !done.has(q)).map((q) => names[q]);
+    return left.length ? left.join(", ") : "";
+  })();
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   useSEO({
@@ -278,15 +278,18 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                         ))}
                       </div>
 
-                      <p className="text-sm font-semibold text-gray-700 font-body">Average days on market, this year vs. last year</p>
+                      <p className="text-sm font-semibold text-gray-700 font-body">Average days on market by quarter{domYrs ? `, ${domYrs.previous} vs. ${domYrs.current}` : ""}</p>
                       <p className="text-xs text-gray-500 font-body mb-1">Shorter bars mean homes are selling faster.</p>
                       <Suspense fallback={<div className="h-[230px] bg-[#F4F6F8] rounded-xl" />}>
                         <DaysOnMarketChart quarters={quarters} />
                       </Suspense>
-                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 font-body mt-1">
-                        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#D5DCE5]" />{yearSpan(quarters, 8)}</span>
-                        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0D2137]" />{yearSpan(quarters, 4)}</span>
-                      </div>
+                      {domYrs && (
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-500 font-body mt-1">
+                          <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#D5DCE5]" />{domYrs.previous}</span>
+                          <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0D2137]" />{domYrs.current}</span>
+                          {pendingQuarters && <span className="text-gray-400">{pendingQuarters} {domYrs.current} will be added as those sales close.</span>}
+                        </div>
+                      )}
                       <p className="text-base text-gray-600 font-body leading-relaxed mt-4">{quarterSummary.sentence}</p>
                     </div>
                   )}

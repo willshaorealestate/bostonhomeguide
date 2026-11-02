@@ -2,39 +2,37 @@
  * TownMarketChart.tsx — the two charts in a town page's market section.
  * Lazy-loaded from Neighborhoods.tsx so recharts only downloads on town pages.
  *
- * DaysOnMarketChart: the latest 4 quarters (navy) side by side with the same quarters a
- *   year earlier (light), so each pair reads as "this year vs last year".
+ * DaysOnMarketChart: calendar quarters, this year (navy) next to last year (gray).
+ *   Quarters of this year that haven't closed yet have no navy bar.
  * AnnualPriceChart: true annual MLS PIN medians, current year-to-date in a lighter shade.
  */
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
 import type { TownYear, TownQuarter } from "@/data/townTrends";
-import { shortPrice, quarterLong } from "@/lib/townMarket";
+import { shortPrice } from "@/lib/townMarket";
 
 const NAVY = "#0D2137";
 const MID = "#6F87A6";
 const LIGHT = "#D5DCE5";
 const tick = { fontSize: 11, fill: "#6B7280" };
 
+/** Calendar years shown in the days-on-market chart: the latest quarter's year and the year before. */
+export function domYears(quarters: TownQuarter[]): { current: number; previous: number } | null {
+  const last = quarters[quarters.length - 1];
+  if (!last) return null;
+  const current = 2000 + Number(last.quarter.split(" '")[1]);
+  return { current, previous: current - 1 };
+}
+
 export function DaysOnMarketChart({ quarters }: { quarters: TownQuarter[] }) {
-  // Pair each of the latest 4 quarters with the same quarter a year earlier.
-  const recent = quarters.slice(-4);
-  const byQuarter = new Map(quarters.map((q) => [q.quarter, q]));
-  const priorOf = (q: string) => {
-    const [qq, yy] = q.split(" '");
-    return byQuarter.get(`${qq} '${String(Number(yy) - 1).padStart(2, "0")}`);
-  };
+  // Q1–Q4 across the bottom; for each, last year's bar (gray) next to this year's (navy).
+  // Quarters this year that haven't happened yet simply have no navy bar.
+  const yrs = domYears(quarters);
+  if (!yrs) return null;
+  const get = (qq: string, year: number) => quarters.find((q) => q.quarter === `${qq} '${String(year).slice(2)}`);
   const MONTHS: Record<string, string> = { Q1: "Jan–Mar", Q2: "Apr–Jun", Q3: "Jul–Sep", Q4: "Oct–Dec" };
-  const data = recent.map((q) => {
-    const prior = priorOf(q.quarter);
-    return {
-      label: MONTHS[q.quarter.split(" ")[0]],
-      now: q.dom,
-      before: prior?.dom,
-      nowName: quarterLong(q.quarter).split(" (")[0],
-      beforeName: prior ? quarterLong(prior.quarter).split(" (")[0] : "",
-      nowSold: q.sold,
-      beforeSold: prior?.sold,
-    };
+  const data = ["Q1", "Q2", "Q3", "Q4"].map((qq) => {
+    const prev = get(qq, yrs.previous), cur = get(qq, yrs.current);
+    return { label: MONTHS[qq], qq, previous: prev?.dom, current: cur?.dom, prevSold: prev?.sold, curSold: cur?.sold };
   });
   const labelStyle = { fontSize: 11, fill: "#374151", fontWeight: 600 };
   return (
@@ -50,17 +48,20 @@ export function DaysOnMarketChart({ quarters }: { quarters: TownQuarter[] }) {
               if (!active || !d) return null;
               return (
                 <div className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-[13px] shadow-sm">
-                  {d.before != null && <p className="text-gray-500">{d.beforeName}: <b className="text-gray-700">{d.before} days</b> · {d.beforeSold} sales</p>}
-                  <p className="text-[#0D2137]">{d.nowName}: <b>{d.now} days</b> · {d.nowSold} sales</p>
+                  <p className="font-semibold text-gray-700 mb-0.5">{d.label}</p>
+                  {d.previous != null && <p className="text-gray-500">{yrs.previous}: <b className="text-gray-700">{d.previous} days</b> · {d.prevSold} sales</p>}
+                  {d.current != null
+                    ? <p className="text-[#0D2137]">{yrs.current}: <b>{d.current} days</b> · {d.curSold} sales</p>
+                    : <p className="text-gray-400">{yrs.current}: not yet available</p>}
                 </div>
               );
             }}
           />
-          <Bar dataKey="before" fill={LIGHT} radius={[4, 4, 0, 0]} maxBarSize={40}>
-            <LabelList dataKey="before" position="top" style={{ ...labelStyle, fill: "#6B7280" }} />
+          <Bar dataKey="previous" name={String(yrs.previous)} fill={LIGHT} radius={[4, 4, 0, 0]} maxBarSize={40}>
+            <LabelList dataKey="previous" position="top" style={{ ...labelStyle, fill: "#6B7280" }} />
           </Bar>
-          <Bar dataKey="now" fill={NAVY} radius={[4, 4, 0, 0]} maxBarSize={40}>
-            <LabelList dataKey="now" position="top" style={labelStyle} />
+          <Bar dataKey="current" name={String(yrs.current)} fill={NAVY} radius={[4, 4, 0, 0]} maxBarSize={40}>
+            <LabelList dataKey="current" position="top" style={labelStyle} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
