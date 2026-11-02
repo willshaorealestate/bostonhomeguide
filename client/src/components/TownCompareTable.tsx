@@ -30,7 +30,6 @@ const REGION_ORDER = [
   "South of Boston",
 ];
 const ALL = "All towns";
-const FOCUS = new Set(["Lexington", "Bedford", "Concord", "Acton"]);
 
 type SortKey = "town" | "medianPrice" | "dom" | "listToSale" | "sold";
 
@@ -170,10 +169,10 @@ export default function TownCompareTable({
             </tr>
           </thead>
           <tbody>
-            {visible.map((t) => {
+            {visible.map((t, i) => {
               const isA = t.name === townA, isB = t.name === townB;
               return (
-                <tr key={t.name} className={`border-t border-gray-100 ${FOCUS.has(t.name) ? "bg-[#FBF6EA]" : ""}`}>
+                <tr key={t.name} className={`border-t border-gray-100 ${i % 2 === 1 ? "bg-[#F4F6F9]" : "bg-white"}`}>
                   <td className="px-1 sm:px-2 py-2.5 text-center">
                     {t.data && (
                       <button
