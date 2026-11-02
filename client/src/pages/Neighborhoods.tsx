@@ -23,6 +23,15 @@ const DaysOnMarketChart = lazy(() => import("@/components/TownMarketChart").then
 const AnnualPriceChart = lazy(() => import("@/components/TownMarketChart").then((m) => ({ default: m.AnnualPriceChart })));
 const MONTHS: Record<string, string> = { Jan: "January", Feb: "February", Mar: "March", Apr: "April", May: "May", Jun: "June", Jul: "July", Aug: "August", Sep: "September", Oct: "October", Nov: "November", Dec: "December" };
 const monthLong = (m: string) => MONTHS[m] ?? m;
+// Legend label for a 4-quarter span ending `fromEnd - 3` quarters back, e.g. "Oct 2025 – Sep 2026"
+const Q_START: Record<string, string> = { Q1: "Jan", Q2: "Apr", Q3: "Jul", Q4: "Oct" };
+const Q_END: Record<string, string> = { Q1: "Mar", Q2: "Jun", Q3: "Sep", Q4: "Dec" };
+function yearSpan(qs: { quarter: string }[], fromEnd: number) {
+  const first = qs[qs.length - fromEnd], last = qs[qs.length - fromEnd + 3];
+  if (!first || !last) return "";
+  const [q1, y1] = first.quarter.split(" '"), [q2, y2] = last.quarter.split(" '");
+  return `${Q_START[q1]} 20${y1} – ${Q_END[q2]} 20${y2}`;
+}
 
 const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
@@ -269,16 +278,14 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                         ))}
                       </div>
 
-                      <p className="text-sm font-semibold text-gray-700 font-body">Average days on market by quarter</p>
+                      <p className="text-sm font-semibold text-gray-700 font-body">Average days on market, this year vs. last year</p>
                       <p className="text-xs text-gray-500 font-body mb-1">Shorter bars mean homes are selling faster.</p>
-                      <Suspense fallback={<div className="h-[220px] bg-[#F4F6F8] rounded-xl" />}>
+                      <Suspense fallback={<div className="h-[230px] bg-[#F4F6F8] rounded-xl" />}>
                         <DaysOnMarketChart quarters={quarters} />
                       </Suspense>
                       <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500 font-body mt-1">
-                        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0D2137]" />Latest quarter</span>
-                        {quarterSummary.yearAgo && (
-                          <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#6F87A6]" />Same quarter last year</span>
-                        )}
+                        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#D5DCE5]" />{yearSpan(quarters, 8)}</span>
+                        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-sm bg-[#0D2137]" />{yearSpan(quarters, 4)}</span>
                       </div>
                       <p className="text-base text-gray-600 font-body leading-relaxed mt-4">{quarterSummary.sentence}</p>
                     </div>
