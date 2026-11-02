@@ -1,5 +1,5 @@
 /**
- * update.mjs — Rewrite Market.tsx, Home.tsx, and neighborhoods.ts with new market data.
+ * update.mjs — Rewrite Market.tsx, Home.tsx, neighborhoods.ts and townMarketHistory.ts with new market data.
  */
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
@@ -8,6 +8,7 @@ const ROOT = resolve(import.meta.dirname, '../..');
 const MARKET_TSX      = resolve(ROOT, 'client/src/pages/Market.tsx');
 const HOME_TSX        = resolve(ROOT, 'client/src/pages/Home.tsx');
 const NEIGHBORHOODS_TS = resolve(ROOT, 'client/src/data/neighborhoods.ts');
+const TOWN_HISTORY_TS = resolve(ROOT, 'client/src/data/townMarketHistory.ts');
 
 const SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const LONG  = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -212,14 +213,14 @@ export function updateHomeTsx(area, townMap, year, month) {
 
 
 export function updateTownHistory(townMap, year, month) {
-  let c = readFileSync(MARKET_TSX, 'utf8').replace(/\r\n/g, '\n');
+  let c = readFileSync(TOWN_HISTORY_TS, 'utf8').replace(/\r\n/g, '\n');
   const short = shortLabel(year, month);
 
   for (const [town, data] of Object.entries(townMap)) {
     // New town: add an empty array at the end of townHistoryData so the upsert below fills it
     if (!c.includes(`  "${town}": [\n`)) {
       c = c.replace(
-        /(const townHistoryData[^=]*=\s*\{[\s\S]*?\n)(\};)/,
+        /(export const townHistoryData[^=]*=\s*\{[\s\S]*?\n)(\};)/,
         (_, body, end) => `${body}  "${town}": [\n  ],\n${end}`
       );
     }
@@ -249,7 +250,7 @@ export function updateTownHistory(townMap, year, month) {
     });
   }
 
-  writeFileSync(MARKET_TSX, c, 'utf8');
+  writeFileSync(TOWN_HISTORY_TS, c, 'utf8');
   console.log(`  ✓ townHistoryData → ${short}`);
 }
 

@@ -88,7 +88,7 @@ jobs:
         run: |
           git config user.name "willshaorealestate"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add client/src/pages/Market.tsx client/src/pages/Home.tsx client/src/data/neighborhoods.ts
+          git add client/src/pages/Market.tsx client/src/pages/Home.tsx client/src/data/neighborhoods.ts client/src/data/townMarketHistory.ts
           if git diff --cached --quiet; then
             echo "No changes detected — data may already be current."
             exit 0

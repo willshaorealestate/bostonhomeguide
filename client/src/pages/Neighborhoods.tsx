@@ -2,7 +2,7 @@
  * Neighborhoods.tsx — BostonHomeGuide.com
  * Neighborhood Guides index + individual town pages
  */
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Link, useParams } from "wouter";
 import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -15,6 +15,11 @@ import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 import { SCHOOL_RANK_SOURCE, COMMUTE_SOURCE, RAIL_SOURCE, schoolRankLabel } from "@/data/townSources";
+import { townHistoryData } from "@/data/townMarketHistory";
+import { summarizeTown, shortPrice } from "@/lib/townMarket";
+
+// recharts is large; only download it when a town page actually shows the chart
+const TownMarketChart = lazy(() => import("@/components/TownMarketChart"));
 
 const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
@@ -23,6 +28,8 @@ const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 // Individual neighborhood detail page
 function NeighborhoodDetail({ slug }: { slug: string }) {
   const neighborhood = allNeighborhoods.find((n) => n.slug === slug);
+  const marketHistory = neighborhood ? townHistoryData[neighborhood.name] : undefined;
+  const marketSummary = neighborhood && marketHistory ? summarizeTown(neighborhood.name, marketHistory) : null;
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   useSEO({
@@ -209,6 +216,52 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
               </div>
 
               {/* Market data */}
+              {marketSummary && marketHistory ? (
+                <div className="bg-white rounded-2xl p-6 border border-gray-100">
+                  <h2 className="text-xl font-bold text-[#0D2137] mb-1">
+                    {neighborhood.name} Real Estate Market
+                  </h2>
+                  <p className="text-sm text-gray-500 font-body mb-5">
+                    {marketSummary.latestLabel} · Source: MLS PIN closed sales
+                  </p>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    {[
+                      { value: marketSummary.latest.sold > 0 ? shortPrice(marketSummary.latest.median) : "—", label: "Median sale price" },
+                      { value: `${marketSummary.latest.dom}`, label: "Avg. days on market" },
+                      { value: `${marketSummary.latest.listToSale}%`, label: "Sale-to-list ratio" },
+                      { value: `${marketSummary.latest.sold}`, label: "Homes sold" },
+                    ].map((s) => (
+                      <div key={s.label} className="bg-[#F4F6F8] rounded-xl p-3.5">
+                        <p className="text-xl font-bold text-[#0D2137]">{s.value}</p>
+                        <p className="text-xs text-gray-500 font-body mt-0.5">{s.label}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider font-body mb-2">
+                    Median sale price — last {marketHistory.length} months
+                  </p>
+                  <Suspense fallback={<div className="h-[300px] bg-[#F4F6F8] rounded-xl" />}>
+                    <TownMarketChart history={marketHistory} />
+                  </Suspense>
+
+                  <div className="mt-5 space-y-2.5 text-base text-gray-600 font-body leading-relaxed">
+                    {marketSummary.sentences.map((s) => <p key={s}>{s}</p>)}
+                    {marketSummary.fewestSold < 6 && (
+                      <p className="text-sm text-gray-500">
+                        Some months in {neighborhood.name} had as few as {marketSummary.fewestSold} {marketSummary.fewestSold === 1 ? "sale" : "sales"}, so a single month's median can swing a lot. The 3-month average gives a steadier picture.
+                      </p>
+                    )}
+                  </div>
+
+                  <p className="text-sm text-gray-500 font-body mt-5">
+                    <Link href="/market" className="text-[#0D2137] font-semibold hover:underline">
+                      Compare {neighborhood.name} with other towns in the Monthly Market Report →
+                    </Link>
+                  </p>
+                </div>
+              ) : (
               <div className="bg-white rounded-2xl p-6 border border-gray-100">
                 <h2 className="text-xl font-bold text-[#0D2137] mb-4">
                   {neighborhood.name} Real Estate Market
@@ -229,6 +282,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   </a>.
                 </p>
               </div>
+              )}
 
               {/* Search homes in this town */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100">
