@@ -59,4 +59,6 @@ export const townQuarterly: Record<string, TownQuarter[]> = {
 };
 
 export const townInventory: Record<string, TownInventory> = {
+  "Lexington": { asOf: "2026-11-02", active: 77 },
+  "Bedford": { asOf: "2026-11-02", active: 36 },
 };
