@@ -90,7 +90,7 @@ export default function TownProfile({ name, profile }: { name: string; profile: 
             {profile.feel.map((para) => <p key={para.slice(0, 40)}>{para}</p>)}
           </div>
           {photos.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 content-start">
+            <div className={`grid ${photos.length === 1 ? "grid-cols-1" : "grid-cols-2"} sm:grid-cols-1 gap-3 content-start`}>
               {photos.map((p) => <SidePhoto key={p.caption} photo={p} />)}
             </div>
           )}

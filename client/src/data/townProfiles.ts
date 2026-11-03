@@ -5,9 +5,11 @@
  * Fair housing: describe places, amenities, history and getting around — never the people
  * who live in a town (no "great for families", "safe", demographics, etc.).
  *
- * Photos must be licensed for reuse (Wikimedia Commons with credit + license link, public-domain
- * government photos, Will's own photos, or written permission). `credit` is shown under the photo.
- * A photo with no `src` yet renders as a labeled placeholder.
+ * Photos must be licensed for reuse: Unsplash/Pexels (no credit needed), Wikimedia Commons (credit +
+ * license link unless public domain), government photos, Will's own photos, or written permission.
+ * `credit` is shown under the photo when set. A photo with no `src` is left off the page.
+ * Current photos: Lexington statue and Wilson Farm from Unsplash (Unsplash License); Bedford bikeway
+ * from Wikimedia Commons, Tim Pierce, public domain.
  */
 export type ProfileFact = { label: string; value: string; note?: string };
 export type ProfileHighlight = { icon: "history" | "trail" | "tree" | "store" | "school" | "plane" | "river" | "farm" | "museum"; title: string; text: string };
@@ -62,8 +64,8 @@ export const townProfiles: Record<string, TownProfile> = {
       "No commuter rail station in town",
     ],
     photos: [
-      { caption: "The Battle Green" },
-      { caption: "Lexington Center on Massachusetts Avenue" },
+      { caption: "Minuteman statue on the Battle Green", src: "/images/towns/profiles/lexington-minuteman-statue.jpg" },
+      { caption: "Wilson Farm", src: "/images/towns/profiles/lexington-wilson-farm.jpg" },
     ],
     sources: [
       { label: "Town of Lexington: tax rates", url: "https://www.lexingtonma.gov/526/Tax-Rates" },
@@ -105,7 +107,7 @@ export const townProfiles: Record<string, TownProfile> = {
       "No commuter rail station in town",
     ],
     photos: [
-      { caption: "Bedford Depot Park" },
+      { caption: "Minuteman Bikeway in Bedford", src: "/images/towns/profiles/bedford-minuteman-bikeway.jpg" },
       { caption: "Great Road" },
     ],
     sources: [
