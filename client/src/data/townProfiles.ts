@@ -68,11 +68,13 @@ export const townProfiles: Record<string, TownProfile> = {
       { caption: "Minuteman statue on the Battle Green", src: "/images/towns/profiles/lexington-minuteman-statue.jpg" },
       { caption: "Wilson Farm", src: "/images/towns/profiles/lexington-wilson-farm.jpg" },
     ],
+    localTake: "Lexington is where the American Revolution began, on the Battle Green in 1775, and that history is part of daily life in town. Lexington Center along Massachusetts Avenue is a busy town center with shops, restaurants and Cary Memorial Library, and the Minuteman Bikeway runs right through it. Lexington High School ranks #3 of 148 in Boston Magazine's 2026 high school rankings.",
     sources: [
       { label: "Town of Lexington: tax rates", url: "https://www.lexingtonma.gov/526/Tax-Rates" },
       { label: "Lexington History Museums: Patriots' Day", url: "https://lexingtonhistory.org/patriotsday" },
       { label: "Lexington, Massachusetts (Wikipedia): census, area, government, landmarks", url: "https://en.wikipedia.org/wiki/Lexington,_Massachusetts" },
       { label: "Lexington High School project vote (LHS Musket)", url: "https://lhsmusket.com/2510/news/passed-lexington-residents-vote-yes-on-debt-exclusion-vote/" },
+      { label: "Boston Magazine: 2026 high school rankings", url: "https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/" },
     ],
   },
 
@@ -111,12 +113,14 @@ export const townProfiles: Record<string, TownProfile> = {
       { caption: "Minuteman Bikeway in Bedford", src: "/images/towns/profiles/bedford-minuteman-bikeway.jpg" },
       { caption: "Town seal, with the Bedford Flag", src: "/images/towns/profiles/bedford-town-seal.jpg" },
     ],
+    localTake: "Unlike many towns in the area, Bedford has one school for each grade range: Davis Elementary for kindergarten through 2nd grade, Lane Elementary for 3rd through 5th, John Glenn Middle School for 6th through 8th, and Bedford High School. Every student in town moves through the same four schools, from kindergarten through graduation.",
     sources: [
       { label: "Town of Bedford: About Bedford", url: "https://bedfordma.gov/398/About-Bedford" },
       { label: "Town of Bedford: tax rate", url: "https://bedfordma.gov/712/Tax-Rate" },
       { label: "Friends of Bedford Depot Park: rail trails", url: "https://bedforddepot.org/?p=240648" },
       { label: "The Bedford Citizen: Bedford Day", url: "https://thebedfordcitizen.org/2024/09/get-ready-for-a-bedford-day-filled-with-lots-of-fun-activities-a-parade-and-fireworks/" },
       { label: "Hanscom AFB: Bedford's annual founding celebration", url: "https://www.hanscom.af.mil/News/Article-Display/Article/1312341/bedford-prepares-for-annual-founding-celebration/" },
+      { label: "Bedford Public Schools (Wikipedia): schools and grades", url: "https://en.wikipedia.org/wiki/Bedford_Public_Schools_(Massachusetts)" },
       { label: "Bedford, Massachusetts (Wikipedia): area, rivers, transit, Bedford Flag", url: "https://en.wikipedia.org/wiki/Bedford,_Massachusetts" },
     ],
   },
