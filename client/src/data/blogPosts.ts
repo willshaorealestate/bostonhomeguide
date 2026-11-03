@@ -489,4 +489,57 @@ Does living near a trail actually affect home value or desirability? It's a genu
 
 If having trail access nearby is a priority for your next home, that's worth mentioning early in your search, so [reach out](/contact) and we can help you find towns and neighborhoods that put you close to the network.`,
   },
+  {
+    slug: "home-improvements-that-add-value",
+    title: "Which Home Improvements Actually Add Value Before You Sell (and Which Don't)",
+    seoTitle: "Home Improvements That Add Value Before You Sell",
+    excerpt: "Sellers often spend on the wrong things right before listing. Here's what tends to actually pay off, and what rarely does.",
+    category: "Seller Guide",
+    date: "November 3, 2026",
+    img: "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0",
+    images: ["https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0"],
+    content: `One of the most common questions sellers ask is some version of: "Should I fix this up before I list?" The instinct to invest before selling makes sense, but not every dollar spent comes back at closing, and some projects can even work against you. Here's how to think about it.
+
+**The Improvements That Tend to Pay Off**
+As a general rule, the highest-return projects before a sale are the ones that remove reasons for a buyer to hesitate or negotiate down, rather than the ones that add luxury:
+- Fresh, neutral paint throughout, one of the most consistently high-return projects there is
+- Deep cleaning, decluttering, and staging to help buyers picture themselves in the space
+- Landscaping and curb appeal, since the first impression happens before a buyer walks in the door
+- Fixing small, obvious defects: leaky faucets, cracked tiles, squeaky doors, torn screens
+- A light refresh of a dated kitchen or bathroom (updated hardware, lighting, a fresh coat on cabinets) rather than a full gut renovation
+
+**The Improvements That Often Don't Pay Off**
+Just as important is knowing what tends to be a poor use of pre-sale budget:
+- A full kitchen or bathroom remodel done right before listing: you rarely recoup the full cost, and buyers may have wanted different finishes anyway
+- Highly personalized or high-end finishes that don't match the rest of the home or the neighborhood norm
+- Major structural additions undertaken purely to sell, rather than because you needed the space
+- In this climate, in-ground pools are a notoriously mixed bag, since some buyers see them as a maintenance burden rather than a feature
+
+The general pattern: cosmetic, move-in-ready-feeling improvements tend to recoup a much larger share of their cost than major remodels, which are better justified by your own enjoyment of the home than by resale math.
+
+**Why Over-Improving Can Backfire**
+If your home ends up significantly nicer, and more expensive, than everything else on the street, you may struggle to get the price to reflect it. Buyers, and appraisers, tend to value a home relative to its neighborhood. It's worth asking what similar recently-sold homes nearby actually looked like before investing heavily beyond that standard.
+
+**New England-Specific Priorities**
+A few things buyers in this region tend to scrutinize closely, worth addressing before you list if they're an issue:
+- The age and condition of the heating system, not optional in a New England winter
+- Visible basement moisture or water intrusion, even minor
+- Roof age and condition, especially with the region's freeze-thaw cycles
+- Any obvious knob-and-tube wiring or outdated electrical panels
+
+**A Simple Way to Prioritize**
+Walk through your home as if you were a buyer touring it for the first time. Anything that would make you personally hesitate, or make you mentally start subtracting from your offer, is worth addressing. Anything that's simply "not to your exact taste" is probably not worth the investment. The next owner will likely want to make some choices of their own anyway.
+
+**Frequently Asked Questions**
+
+Should I remodel my kitchen before selling? Usually not a full remodel. A lighter refresh (paint, hardware, lighting) tends to offer a much better return than a full renovation right before listing.
+
+Is staging really worth it? Most sellers find it worthwhile. It's a relatively low cost that helps buyers connect with the space, and photos (where most buyers start their search) benefit significantly.
+
+What's the single highest-return project? Fresh paint and thorough decluttering consistently rank among the best returns for the cost, across almost any market.
+
+Should I fix things a buyer might ask me to fix anyway? Generally yes, for small items. It's often cheaper to fix a minor issue yourself than to have it become a negotiating point after inspection.
+
+Not sure what your specific home needs before listing? [We provide a pre-listing walkthrough](/sell) and can tell you exactly where your money is best spent, and where it isn't.`,
+  },
 ];
