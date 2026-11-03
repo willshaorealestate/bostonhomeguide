@@ -51,6 +51,8 @@ export interface FubLeadPayload {
   message?: string;
   /** Extra fields merged into the note */
   extraNote?: string;
+  /** Tags added alongside the interest tag, e.g. the town a listing-alert signup came from */
+  extraTags?: string[];
 }
 
 export async function submitToFub(payload: FubLeadPayload): Promise<void> {
@@ -74,7 +76,7 @@ export async function submitToFub(payload: FubLeadPayload): Promise<void> {
       lastName:  payload.lastName || '',
       emails:    [{ value: payload.email }],
       phones:    payload.phone ? [{ value: payload.phone }] : [],
-      tags:      [payload.interest || 'website-lead'],
+      tags:      [payload.interest || 'website-lead', ...(payload.extraTags ?? [])],
     },
   };
 

@@ -168,6 +168,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         email,
         interest: "listing-alerts",
         extraNote: `Wants new listings in ${neighborhood.name}`,
+        extraTags: [neighborhood.name],
       });
       toast.success(`You're signed up. Will will be in touch about new listings in ${neighborhood.name}.`);
       trackLead("neighborhood-listing-alert");
@@ -288,6 +289,24 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 </div>
               </div>
               )}
+
+              {/* Ask Will, right under the town information so it's seen before the market data */}
+              <div className="bg-[#F4F6F8] rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-[#0D2137] font-bold text-lg">Ask Will About {neighborhood.name}</h3>
+                  <p className="text-gray-600 text-base font-body mt-1">
+                    Questions about living in {neighborhood.name}, or about buying or selling here? Will can help you find the right fit.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+                  <Link href="/contact" className="btn-navy text-sm text-center whitespace-nowrap">
+                    Send a Message
+                  </Link>
+                  <a href="tel:+17814563541" className="btn-outline-gold text-sm text-center whitespace-nowrap">
+                    Call (781) 456-3541
+                  </a>
+                </div>
+              </div>
 
               {/* Market data */}
               {quarterSummary || annualSummary ? (
@@ -457,24 +476,6 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                     {submitting ? "Signing up..." : "Get Listing Alerts"}
                   </button>
                 </form>
-              </div>
-
-              {/* Talk to Will */}
-              <div className="bg-white rounded-2xl p-6 border border-gray-100">
-                <h3 className="text-[#0D2137] font-bold text-lg mb-3">
-                  Ask Will About {neighborhood.name}
-                </h3>
-                <p className="text-gray-500 text-base font-body mb-4">
-                  Will has helped many clients navigate the market in {neighborhood.name}. Every town has its own unique flavor — let Will help you find the right fit.
-                </p>
-                <div className="space-y-2">
-                  <Link href="/contact" className="btn-navy w-full text-sm text-center block">
-                    Send a Message
-                  </Link>
-                  <a href="tel:+17814563541" className="btn-outline-gold w-full text-sm text-center block">
-                    Call (781) 456-3541
-                  </a>
-                </div>
               </div>
 
               <QuoteCard quote="baker" />

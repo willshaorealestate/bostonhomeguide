@@ -26,7 +26,7 @@ export type TownProfile = {
   gettingAround: string[];
   /** Up to two small photos, shown beside the "What it's like" text. About 600px wide is plenty. */
   photos: ProfilePhoto[];
-  /** Will's own words about the town. Empty until he writes it. */
+  /** A short note in Will's words: something the rest of the profile doesn't already say. Leave out when there isn't one. */
   localTake?: string;
   sources: ProfileSource[];
 };
@@ -68,7 +68,6 @@ export const townProfiles: Record<string, TownProfile> = {
       { caption: "Minuteman statue on the Battle Green", src: "/images/towns/profiles/lexington-minuteman-statue.jpg" },
       { caption: "Wilson Farm", src: "/images/towns/profiles/lexington-wilson-farm.jpg" },
     ],
-    localTake: "Lexington is where the American Revolution began, on the Battle Green in 1775, and that history is part of daily life in town. Lexington Center along Massachusetts Avenue is a busy town center with shops, restaurants and Cary Memorial Library, and the Minuteman Bikeway runs right through it. Lexington High School ranks #3 of 148 in Boston Magazine's 2026 high school rankings.",
     sources: [
       { label: "Town of Lexington: tax rates", url: "https://www.lexingtonma.gov/526/Tax-Rates" },
       { label: "Lexington History Museums: Patriots' Day", url: "https://lexingtonhistory.org/patriotsday" },
@@ -113,7 +112,7 @@ export const townProfiles: Record<string, TownProfile> = {
       { caption: "Minuteman Bikeway in Bedford", src: "/images/towns/profiles/bedford-minuteman-bikeway.jpg" },
       { caption: "Town seal, with the Bedford Flag", src: "/images/towns/profiles/bedford-town-seal.jpg" },
     ],
-    localTake: "Unlike many towns in the area, Bedford has one school for each grade range: Davis Elementary for kindergarten through 2nd grade, Lane Elementary for 3rd through 5th, John Glenn Middle School for 6th through 8th, and Bedford High School. Every student in town moves through the same four schools, from kindergarten through graduation.",
+    localTake: "Unlike many towns in the area, Bedford has one school per grade range (Davis, Lane, John Glenn Middle and Bedford High), so every student moves through the same four schools from kindergarten through graduation.",
     sources: [
       { label: "Town of Bedford: About Bedford", url: "https://bedfordma.gov/398/About-Bedford" },
       { label: "Town of Bedford: tax rate", url: "https://bedfordma.gov/712/Tax-Rate" },

@@ -97,13 +97,15 @@ export default function TownProfile({ name, profile }: { name: string; profile: 
         </div>
       </div>
 
-      {/* Local take */}
+      {/* Local take: a short note in Will's words */}
       {profile.localTake && (
-        <div className="px-6 pt-6">
-          <blockquote className="relative bg-[#0D2137] text-white rounded-xl p-5 pl-12">
-            <Quote className="absolute left-4 top-5 w-5 h-5 text-[#C89B3C]" />
-            <p className="text-base font-body leading-relaxed">{profile.localTake}</p>
-            <footer className="text-sm text-white/60 font-body mt-2">Will Shao, REMAX Executive Realty</footer>
+        <div className="px-6 pt-5">
+          <blockquote className="flex gap-3 border-l-4 border-[#C89B3C] bg-[#FBF6EA] rounded-r-lg px-4 py-3">
+            <Quote className="w-4 h-4 text-[#C89B3C] shrink-0 mt-1" />
+            <div className="min-w-0">
+              <p className="text-[15px] text-[#0D2137] font-body leading-relaxed">{profile.localTake}</p>
+              <footer className="text-xs text-gray-500 font-body mt-1">Will Shao, REMAX Executive Realty</footer>
+            </div>
           </blockquote>
         </div>
       )}
