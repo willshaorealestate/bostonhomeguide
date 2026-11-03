@@ -19,6 +19,8 @@ function getApiKey(): string {
   return window.FUB_CONFIG?.apiKey || import.meta.env.VITE_FUB_API_KEY || '';
 }
 
+import { pageTrail, visitStart } from './pageTrail';
+
 export function getFelloUrl(): string {
   return window.FUB_CONFIG?.felloUrl || import.meta.env.VITE_FELLO_URL || 'https://consumer.hifello.com/lp/69a0591ae983dff8dafd6b6f';
 }
@@ -67,6 +69,14 @@ export async function submitToFub(payload: FubLeadPayload): Promise<void> {
   if (payload.message)   noteParts.push('Message: ' + payload.message);
   if (payload.extraNote) noteParts.push(payload.extraNote);
 
+  // How the visitor got to this form (every form on the site)
+  const start = visitStart();
+  const trail = pageTrail();
+  if (start) noteParts.push('Visit started from: ' + start.label);
+  if (trail.landing && trail.landing !== trail.current && trail.landing !== trail.previous) noteParts.push('First page this visit: ' + trail.landing);
+  if (trail.previous) noteParts.push('Page before the form: ' + trail.previous);
+  if (trail.current) noteParts.push('Form submitted on: ' + trail.current);
+
   const note = noteParts.join(' | ');
 
   const body: Record<string, unknown> = {
@@ -76,7 +86,7 @@ export async function submitToFub(payload: FubLeadPayload): Promise<void> {
       lastName:  payload.lastName || '',
       emails:    [{ value: payload.email }],
       phones:    payload.phone ? [{ value: payload.phone }] : [],
-      tags:      [payload.interest || 'website-lead', ...(payload.extraTags ?? [])],
+      tags:      [payload.interest || 'website-lead', ...(payload.extraTags ?? []), ...(start?.isAI ? ['AI referral'] : [])],
     },
   };
 

@@ -12,7 +12,6 @@ import { toast } from "sonner";
 import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
-import { pageTrail } from "@/lib/pageTrail";
 import { allNeighborhoods } from "@/data/neighborhoods";
 
 export default function ContactPage() {
@@ -50,15 +49,6 @@ export default function ContactPage() {
     }
     setSubmitting(true);
     try {
-      // How they got here, so the lead in Follow Up Boss shows the path to this form
-      const trail = pageTrail();
-      const how = [
-        town && `Came from the ${town} town page`,
-        !town && trail.previous && trail.previous !== "/contact" && `Came from page: ${trail.previous}`,
-        !town && !trail.previous && "Opened the contact page directly",
-        trail.entryFrom && `Visit started from: ${trail.entryFrom}`,
-        trail.landing && trail.landing !== "/contact" && `First page this visit: ${trail.landing}`,
-      ].filter(Boolean).join(" | ");
       await submitToFub({
         source: town ? `Website — Contact Page (${town})` : "Website — Contact Page",
         firstName,
@@ -68,7 +58,7 @@ export default function ContactPage() {
         interest: form.subject,
         language: form.language,
         message: form.message,
-        extraNote: how || undefined,
+        extraNote: town ? `Came from the ${town} town page` : undefined,
         extraTags: town ? [town] : [],
       });
       toast.success("Message sent! Will responds within 1 business day.");
