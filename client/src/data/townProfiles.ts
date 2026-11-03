@@ -9,7 +9,8 @@
  * license link unless public domain), government photos, Will's own photos, or written permission.
  * `credit` is shown under the photo when set. A photo with no `src` is left off the page.
  * Current photos: Lexington statue and Wilson Farm from Unsplash (Unsplash License); Bedford bikeway
- * from Wikimedia Commons, Tim Pierce, public domain.
+ * from Wikimedia Commons, Tim Pierce, public domain; Bedford town seal from Wikimedia Commons, public
+ * domain (Will chose to use it; some towns restrict seal use, so remove it if Bedford asks).
  */
 export type ProfileFact = { label: string; value: string; note?: string };
 export type ProfileHighlight = { icon: "history" | "trail" | "tree" | "store" | "school" | "plane" | "river" | "farm" | "museum"; title: string; text: string };
@@ -108,7 +109,7 @@ export const townProfiles: Record<string, TownProfile> = {
     ],
     photos: [
       { caption: "Minuteman Bikeway in Bedford", src: "/images/towns/profiles/bedford-minuteman-bikeway.jpg" },
-      { caption: "Great Road" },
+      { caption: "Town seal, with the Bedford Flag", src: "/images/towns/profiles/bedford-town-seal.jpg" },
     ],
     sources: [
       { label: "Town of Bedford: About Bedford", url: "https://bedfordma.gov/398/About-Bedford" },
