@@ -1,9 +1,9 @@
 /*
  * TownProfile.tsx — the visual "what it's like to live here" card at the top of a town page.
  * Content lives in data/townProfiles.ts. The tagline is shown in the page banner, not repeated here.
- * Up to two photos sit inside the text: the first after the opening paragraph of "What it's like",
- * the second after the highlights. A photo without a `src` is left out, except in a preview build
- * (VITE_PHOTO_PLACEHOLDERS=1), where it shows as a labeled placeholder to show the placement.
+ * Up to two small photos sit beside the "What it's like" text (side by side under it on phones),
+ * so they never display larger than about 200px wide. A photo without a `src` is left out, except
+ * in a preview build (VITE_PHOTO_PLACEHOLDERS=1), where it shows as a placeholder.
  */
 import {
   Flag, Landmark, Bike, Trees, Store, School, Plane, Waves, Tractor, CalendarDays, Car,
@@ -18,28 +18,26 @@ const HIGHLIGHT_ICONS: Record<ProfileHighlight["icon"], typeof Flag> = {
 
 const SHOW_PLACEHOLDERS = import.meta.env.VITE_PHOTO_PLACEHOLDERS === "1";
 
-/** A full-width photo with caption and credit, placed between blocks of text. */
-function InlinePhoto({ photo }: { photo?: ProfilePhoto }) {
-  if (!photo || (!photo.src && !SHOW_PLACEHOLDERS)) return null;
+/** A small photo with caption and credit, shown beside the text (never large, so modest-resolution photos still look sharp). */
+function SidePhoto({ photo }: { photo: ProfilePhoto }) {
   return (
-    <figure className="my-1">
+    <figure className="min-w-0">
       {photo.src ? (
-        <img src={photo.src} alt={photo.caption} loading="lazy" className="w-full aspect-[16/9] object-cover rounded-xl" />
+        <img src={photo.src} alt={photo.caption} loading="lazy" className="w-full aspect-[4/3] object-cover rounded-lg" />
       ) : (
-        <div className="w-full aspect-[16/9] rounded-xl bg-gradient-to-br from-[#E8ECF1] to-[#D5DCE5] flex flex-col items-center justify-center text-[#6F87A6]">
-          <Camera className="w-6 h-6" />
-          <span className="text-xs font-body mt-1.5">Photo: {photo.caption}</span>
+        <div className="w-full aspect-[4/3] rounded-lg bg-gradient-to-br from-[#E8ECF1] to-[#D5DCE5] flex flex-col items-center justify-center text-[#6F87A6] px-2 text-center">
+          <Camera className="w-5 h-5" />
+          <span className="text-[10px] font-body mt-1 leading-tight">Photo spot</span>
         </div>
       )}
-      <figcaption className="mt-1.5 text-xs text-gray-500 font-body">
+      <figcaption className="mt-1 text-[11px] text-gray-500 font-body leading-snug">
         {photo.caption}
         {photo.credit && (
-          <>
-            {" · "}
+          <span className="block text-gray-400">
             {photo.licenseUrl
-              ? <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">{photo.credit}</a>
-              : <span className="text-gray-400">{photo.credit}</span>}
-          </>
+              ? <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">{photo.credit}</a>
+              : photo.credit}
+          </span>
         )}
       </figcaption>
     </figure>
@@ -56,6 +54,8 @@ const GLANCE_ICONS: Record<string, typeof Flag> = {
 };
 
 export default function TownProfile({ name, profile }: { name: string; profile: Profile }) {
+  // Photos without a src are left out on the site; a preview build shows where they go
+  const photos = profile.photos.slice(0, 2).filter((p) => p.src || SHOW_PLACEHOLDERS);
   return (
     <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
       <div className="p-6 pb-2">
@@ -82,16 +82,18 @@ export default function TownProfile({ name, profile }: { name: string; profile: 
         </div>
       </div>
 
-      {/* What it's like */}
+      {/* What it's like: text, with up to two small photos beside it (below it on phones) */}
       <div className="px-6 pt-7">
         <h3 className="text-base font-bold text-[#0D2137] mb-2">What it's like</h3>
-        <div className="space-y-3 text-base text-gray-600 font-body leading-relaxed">
-          {profile.feel.map((para, i) => (
-            <div key={para.slice(0, 40)} className="space-y-3">
-              <p>{para}</p>
-              {i === 0 && <InlinePhoto photo={profile.photos[0]} />}
+        <div className={photos.length ? "grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_200px] gap-4 sm:gap-6" : ""}>
+          <div className="space-y-3 text-base text-gray-600 font-body leading-relaxed min-w-0">
+            {profile.feel.map((para) => <p key={para.slice(0, 40)}>{para}</p>)}
+          </div>
+          {photos.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 content-start">
+              {photos.map((p) => <SidePhoto key={p.caption} photo={p} />)}
             </div>
-          ))}
+          )}
         </div>
       </div>
 
@@ -126,13 +128,6 @@ export default function TownProfile({ name, profile }: { name: string; profile: 
           })}
         </div>
       </div>
-
-      {/* Second photo, between the highlights and the events */}
-      {profile.photos[1] && (profile.photos[1].src || SHOW_PLACEHOLDERS) && (
-        <div className="px-6 pt-6">
-          <InlinePhoto photo={profile.photos[1]} />
-        </div>
-      )}
 
       {/* Events + getting around */}
       <div className="px-6 pt-7 grid grid-cols-1 sm:grid-cols-2 gap-6">

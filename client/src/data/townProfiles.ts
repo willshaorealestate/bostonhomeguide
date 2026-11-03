@@ -21,7 +21,7 @@ export type TownProfile = {
   highlights: ProfileHighlight[];
   events: { name: string; when: string; text: string }[];
   gettingAround: string[];
-  /** Up to two: the first goes after the opening paragraph, the second after the highlights. */
+  /** Up to two small photos, shown beside the "What it's like" text. About 600px wide is plenty. */
   photos: ProfilePhoto[];
   /** Will's own words about the town. Empty until he writes it. */
   localTake?: string;
