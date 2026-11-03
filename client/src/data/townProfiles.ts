@@ -86,7 +86,7 @@ export const townProfiles: Record<string, TownProfile> = {
     ],
     feel: [
       "Bedford is a smaller town with a lot of trails and open space for its size. It sits right at the junction of Route 3 and Route 128, which makes it an easy base for getting around the region.",
-      "The Great Road is the main street for shops, restaurants and town services, and Bedford Depot Park is where three rail trails meet. The history runs deep: the Bedford Flag, considered the oldest intact battle flag in the country, is on display at the Bedford Free Public Library.",
+      "Great Road is the main street for shops, restaurants and town services, and Bedford Depot Park is where three rail trails meet. The history runs deep: the Bedford Flag, considered the oldest intact battle flag in the country, is on display at the Bedford Free Public Library.",
     ],
     highlights: [
       { icon: "trail", title: "Three rail trails at Bedford Depot", text: "The Minuteman Bikeway (to Lexington, Arlington and Cambridge), the Narrow Gauge Rail Trail (north to Billerica) and the Reformatory Branch Trail (to Concord Center) all start here." },
@@ -96,7 +96,7 @@ export const townProfiles: Record<string, TownProfile> = {
       { icon: "plane", title: "Hanscom Field and Hanscom Air Force Base", text: "A civilian airport next to the Air Force base, partly in Bedford. The base is one of the area's major employers." },
     ],
     events: [
-      { name: "Bedford Day", when: "A Saturday in September", text: "The town's founding celebration: a 5K, a parade along the Great Road, a fair by Town Hall and fireworks in the evening." },
+      { name: "Bedford Day", when: "A Saturday in September", text: "The town's founding celebration: a 5K, a parade along Great Road, a fair by Town Hall and fireworks in the evening." },
     ],
     gettingAround: [
       "Route 3 and Route 128 (I-95)",
@@ -107,7 +107,7 @@ export const townProfiles: Record<string, TownProfile> = {
     ],
     photos: [
       { caption: "Bedford Depot Park" },
-      { caption: "The Great Road" },
+      { caption: "Great Road" },
       { caption: "Minuteman Bikeway in Bedford" },
       { caption: "Job Lane House" },
     ],
