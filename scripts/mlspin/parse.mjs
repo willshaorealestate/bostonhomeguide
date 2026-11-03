@@ -58,6 +58,18 @@ export function parseTownReport(text) {
   return { medianPrice, soldCount, pending, dom, spLp, spOp, inventory };
 }
 
+/**
+ * Parse only the active listing count from a town report (used for a one-day report at the
+ * end of a quarter, where there may be no sales and the sold section can be empty).
+ */
+export function parseActiveCount(text) {
+  const si = text.indexOf('Active Listings');
+  if (si === -1) return 0;
+  const activeSection = extractSection(text, 'Active Listings', ['Price Changed Listings', 'Pending']);
+  const activeMatch = activeSection.match(/Total Properties\s+([\d,]+)/);
+  return activeMatch ? toInt(activeMatch[1]) : 0;
+}
+
 function extractSection(text, start, endings, optional = false) {
   const si = text.indexOf(start);
   if (si === -1) {

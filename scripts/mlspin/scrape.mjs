@@ -6,7 +6,7 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { parseAreaReport, parseTownReport } from './parse.mjs';
+import { parseAreaReport, parseTownReport, parseActiveCount } from './parse.mjs';
 import { TOWNS } from './towns.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -83,6 +83,55 @@ export async function scrapeMonth(username, password, year, month) {
 
     return { area, towns };
 
+  } finally {
+    await browser.close();
+  }
+}
+
+/**
+ * Run the town report for arbitrary date ranges, for a list of towns, in one login session.
+ * periods: [{ key, start: 'MM/DD/YYYY', end: 'MM/DD/YYYY', kind: 'sales' | 'active' }]
+ *   'sales'  → full parse (median, sold count, DOM, SP:LP, SP:OP, active count for the range)
+ *   'active' → active listing count only (for a one-day report at the end of a quarter)
+ * Returns { [town]: { [key]: result } }. A failed report is logged and left out.
+ */
+export async function scrapeTownPeriods(username, password, towns, periods) {
+  const browser = await chromium.launch({ headless: true });
+  const ctx  = await browser.newContext();
+  const page = await ctx.newPage();
+  const out = {};
+
+  try {
+    await login(page, username, password);
+    for (const town of towns) {
+      out[town] = {};
+      for (const p of periods) {
+        const tag = `trend-${town.toLowerCase()}-${p.key}`;
+        const pull = async () => {
+          const text = await runReport(page, 'BostonHomeGuide - Towns monthly', p.start, p.end, town, tag);
+          return p.kind === 'active' ? { active: parseActiveCount(text) } : parseTownReport(text);
+        };
+        try {
+          try {
+            out[town][p.key] = await pull();
+          } catch (err) {
+            const onLoginPage = (await page.locator('input[type="password"]:visible').count()) > 0;
+            if (!onLoginPage && !/Date fill failed|Section not found/.test(err.message)) throw err;
+            console.warn(`    ↻ ${town} ${p.key}: signed out mid-run — signing in again and retrying`);
+            await login(page, username, password);
+            out[town][p.key] = await pull();
+          }
+          const r = out[town][p.key];
+          console.log(p.kind === 'active'
+            ? `    ✓ ${town} ${p.key} (${p.start}): active=${r.active}`
+            : `    ✓ ${town} ${p.key} (${p.start}–${p.end}): median=$${r.medianPrice.toLocaleString()}, sold=${r.soldCount}, DOM=${r.dom}, SP:OP=${r.spOp}%, active-in-range=${r.inventory}`);
+        } catch (err) {
+          console.error(`  ✗ ${town} ${p.key} FAILED: ${err.message}`);
+        }
+      }
+    }
+    await signOut(page);
+    return out;
   } finally {
     await browser.close();
   }
