@@ -1,0 +1,71 @@
+name: Update Town Trends (MLSPIN)
+
+# Quarterly and annual figures for the town pages (client/src/data/townTrends.ts).
+# Run by hand for now. Commits back to whichever branch it was started on, so it can
+# be tested on a preview branch without touching the live site.
+
+on:
+  workflow_dispatch:
+    inputs:
+      towns:
+        description: 'Towns, comma-separated (blank = every town). e.g. "Lexington, Bedford"'
+        required: false
+        default: ''
+      years:
+        description: 'Full calendar years of median prices'
+        required: false
+        default: '5'
+      quarters:
+        description: 'Quarters of days on market / sale-to-list / months of supply'
+        required: false
+        default: '8'
+
+permissions:
+  contents: write
+
+concurrency:
+  # One MLS PIN session at a time; the monthly job and this one share a login
+  group: mlspin
+  cancel-in-progress: false
+
+jobs:
+  update-trends:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Run MLSPIN town trends
+        env:
+          MLSPIN_USER: ${{ secrets.MLSPIN_USER }}
+          MLSPIN_PASS: ${{ secrets.MLSPIN_PASS }}
+          TOWNS: ${{ inputs.towns }}
+        run: node scripts/mlspin/trends.mjs --towns "$TOWNS" --years "${{ inputs.years }}" --quarters "${{ inputs.quarters }}"
+
+      - name: Commit and push
+        run: |
+          git config user.name "willshaorealestate"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add client/src/data/townTrends.ts
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "Update town trends (MLSPIN): ${{ inputs.towns || 'all towns' }}"
+          git push origin HEAD:${{ github.ref_name }}
