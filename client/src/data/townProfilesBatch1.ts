@@ -41,7 +41,7 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "Yankee Line commuter buses to Boston",
     ],
     photos: [
-      { caption: "Old North Bridge" },
+      { caption: "Old North Bridge", src: "/images/towns/profiles/concord-old-north-bridge.jpg" },
       { caption: "Walden Pond", src: "/images/towns/profiles/concord-walden-pond.jpg", credit: "Photo: ptwo from Allahabad, India, CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0" },
     ],
     sources: [
