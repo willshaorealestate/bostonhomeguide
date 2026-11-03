@@ -1133,6 +1133,20 @@ const townHistoryData: Record<string, Array<{ month: string; median: number; dom
   ],
 };
 
+// Tight y-axis for the median price chart: starting at $0 made a ~15% swing look flat.
+// Computed from the data so it keeps working as the monthly job adds new months.
+const priceMedians = priceData.map((d) => d.median);
+const PRICE_STEP = 50_000;
+const priceDomain: [number, number] = [
+  Math.floor((Math.min(...priceMedians) * 0.97) / PRICE_STEP) * PRICE_STEP,
+  Math.ceil((Math.max(...priceMedians) * 1.02) / PRICE_STEP) * PRICE_STEP,
+];
+// Even $50K gridlines ($700K, $750K, ...) instead of whatever recharts picks
+const priceTicks = Array.from(
+  { length: (priceDomain[1] - priceDomain[0]) / PRICE_STEP + 1 },
+  (_, i) => priceDomain[0] + i * PRICE_STEP,
+);
+
 const formatPrice = (v: number) => `$${(v / 1000).toFixed(0)}K`;
 const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
@@ -1257,7 +1271,7 @@ export default function MarketPage() {
                 <LineChart data={priceData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0ede6" />
                   <XAxis dataKey="month" tick={{ fontSize: 12, fontFamily: "DM Sans" }} />
-                  <YAxis tickFormatter={formatPrice} tick={{ fontSize: 12, fontFamily: "DM Sans" }} />
+                  <YAxis tickFormatter={formatPrice} tick={{ fontSize: 12, fontFamily: "DM Sans" }} domain={priceDomain} ticks={priceTicks} interval={0} />
                   <Tooltip
                     formatter={(value: number) => [formatFullPrice(value), "Median Price"]}
                     contentStyle={{ fontFamily: "DM Sans", fontSize: 12, border: "1px solid #e5e7eb" }}
