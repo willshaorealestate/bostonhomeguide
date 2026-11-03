@@ -3,12 +3,13 @@
  * Arlington and Belmont. Same rules as townProfiles.ts: facts from the listed sources, in our own
  * words; describe places, amenities, history and getting around, never the people who live there.
  *
- * Tax rates are FY2026 residential rates per $1,000 (Massachusetts Department of Revenue data).
+ * Tax rates are residential rates per $1,000 from the Massachusetts DOR Division of Local Services:
+ * the latest certified fiscal year for each town (FY2027 once certified, otherwise FY2026).
  * Photos list the planned photo spots; a photo with no `src` is left off the live page.
  */
 import type { TownProfile } from "./townProfiles";
 
-const DOR_TAX = { label: "Massachusetts Department of Revenue: FY2026 tax rates", url: "https://www.mass.gov/info-details/fy2026-tax-levies-assessed-values-and-tax-rates" };
+const DOR_TAX = { label: "Massachusetts Department of Revenue, Division of Local Services: tax rates by class", url: "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=PropertyTaxInformation.taxratesbyclass.taxratesbyclass_main" };
 
 export const batch1Profiles: Record<string, TownProfile> = {
   concord: {
@@ -58,7 +59,7 @@ export const batch1Profiles: Record<string, TownProfile> = {
       { label: "From Boston", value: "~21 miles", note: "west-northwest" },
       { label: "Incorporated", value: "1735" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board and Town Manager" },
-      { label: "Property tax rate", value: "$16.23", note: "per $1,000, residential, FY2026" },
+      { label: "Property tax rate", value: "$16.54", note: "per $1,000, residential, FY2027" },
     ],
     feel: [
       "Acton is made up of five villages: Acton Center, the town's civic center, plus West, South, East and North Acton, most of them named for their old railroad stations. West Acton has a small commercial area along Route 111, and South Acton has the town's commuter rail station.",
@@ -135,7 +136,7 @@ export const batch1Profiles: Record<string, TownProfile> = {
       { label: "From Boston", value: "~20 miles", note: "west, by road" },
       { label: "Incorporated", value: "1754" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board" },
-      { label: "Property tax rate", value: "$12.31", note: "per $1,000, residential, FY2026" },
+      { label: "Property tax rate", value: "$12.27", note: "per $1,000, residential, FY2027" },
     ],
     feel: [
       "Green space takes up a large share of Lincoln, much of it public conservation land, and many homes sit on an acre or more. Trails wind around Farrar Pond and across the 227-acre Mount Misery conservation area.",
