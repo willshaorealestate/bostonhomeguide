@@ -21,6 +21,7 @@ export type TownProfile = {
   highlights: ProfileHighlight[];
   events: { name: string; when: string; text: string }[];
   gettingAround: string[];
+  /** Up to two: the first goes after the opening paragraph, the second after the highlights. */
   photos: ProfilePhoto[];
   /** Will's own words about the town. Empty until he writes it. */
   localTake?: string;
@@ -63,8 +64,6 @@ export const townProfiles: Record<string, TownProfile> = {
     photos: [
       { caption: "The Battle Green" },
       { caption: "Lexington Center on Massachusetts Avenue" },
-      { caption: "Buckman Tavern" },
-      { caption: "Minuteman Bikeway" },
     ],
     sources: [
       { label: "Town of Lexington: tax rates", url: "https://www.lexingtonma.gov/526/Tax-Rates" },
@@ -108,8 +107,6 @@ export const townProfiles: Record<string, TownProfile> = {
     photos: [
       { caption: "Bedford Depot Park" },
       { caption: "Great Road" },
-      { caption: "Minuteman Bikeway in Bedford" },
-      { caption: "Job Lane House" },
     ],
     sources: [
       { label: "Town of Bedford: About Bedford", url: "https://bedfordma.gov/398/About-Bedford" },

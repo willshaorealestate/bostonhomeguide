@@ -1,18 +1,50 @@
 /*
  * TownProfile.tsx — the visual "what it's like to live here" card at the top of a town page.
- * Content lives in data/townProfiles.ts. The tagline is shown in the page banner, not repeated here. Photos without a `src` show a labeled placeholder
- * until a licensed photo is added.
+ * Content lives in data/townProfiles.ts. The tagline is shown in the page banner, not repeated here.
+ * Up to two photos sit inside the text: the first after the opening paragraph of "What it's like",
+ * the second after the highlights. A photo without a `src` is left out, except in a preview build
+ * (VITE_PHOTO_PLACEHOLDERS=1), where it shows as a labeled placeholder to show the placement.
  */
 import {
   Flag, Landmark, Bike, Trees, Store, School, Plane, Waves, Tractor, CalendarDays, Car,
   Users, Ruler, Navigation, Building2, Receipt, Quote, Camera, ExternalLink, Clock,
 } from "lucide-react";
-import type { TownProfile as Profile, ProfileHighlight } from "@/data/townProfiles";
+import type { TownProfile as Profile, ProfileHighlight, ProfilePhoto } from "@/data/townProfiles";
 
 const HIGHLIGHT_ICONS: Record<ProfileHighlight["icon"], typeof Flag> = {
   history: Flag, museum: Landmark, trail: Bike, tree: Trees, store: Store,
   school: School, plane: Plane, river: Waves, farm: Tractor,
 };
+
+const SHOW_PLACEHOLDERS = import.meta.env.VITE_PHOTO_PLACEHOLDERS === "1";
+
+/** A full-width photo with caption and credit, placed between blocks of text. */
+function InlinePhoto({ photo }: { photo?: ProfilePhoto }) {
+  if (!photo || (!photo.src && !SHOW_PLACEHOLDERS)) return null;
+  return (
+    <figure className="my-1">
+      {photo.src ? (
+        <img src={photo.src} alt={photo.caption} loading="lazy" className="w-full aspect-[16/9] object-cover rounded-xl" />
+      ) : (
+        <div className="w-full aspect-[16/9] rounded-xl bg-gradient-to-br from-[#E8ECF1] to-[#D5DCE5] flex flex-col items-center justify-center text-[#6F87A6]">
+          <Camera className="w-6 h-6" />
+          <span className="text-xs font-body mt-1.5">Photo: {photo.caption}</span>
+        </div>
+      )}
+      <figcaption className="mt-1.5 text-xs text-gray-500 font-body">
+        {photo.caption}
+        {photo.credit && (
+          <>
+            {" · "}
+            {photo.licenseUrl
+              ? <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:underline">{photo.credit}</a>
+              : <span className="text-gray-400">{photo.credit}</span>}
+          </>
+        )}
+      </figcaption>
+    </figure>
+  );
+}
 
 const GLANCE_ICONS: Record<string, typeof Flag> = {
   Population: Users,
@@ -50,39 +82,16 @@ export default function TownProfile({ name, profile }: { name: string; profile: 
         </div>
       </div>
 
-      {/* Photos: a compact row (2 across on phones, 4 on wider screens) */}
-      {profile.photos.length > 0 && (
-        <div className="px-6 pt-5">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
-            {profile.photos.map((p) => (
-              <figure key={p.caption}>
-                {p.src ? (
-                  <img src={p.src} alt={p.caption} loading="lazy" className="w-full aspect-[4/3] object-cover rounded-lg" />
-                ) : (
-                  <div className="w-full aspect-[4/3] rounded-lg bg-gradient-to-br from-[#E8ECF1] to-[#D5DCE5] flex flex-col items-center justify-center text-[#6F87A6]">
-                    <Camera className="w-5 h-5" />
-                    <span className="text-[10px] font-body mt-1">Photo to come</span>
-                  </div>
-                )}
-                <figcaption className="mt-1 text-[11px] text-gray-600 font-body leading-snug">
-                  {p.caption}
-                  {p.credit && (
-                    <span className="block text-gray-400">
-                      {p.licenseUrl ? <a href={p.licenseUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">{p.credit}</a> : p.credit}
-                    </span>
-                  )}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* What it's like */}
       <div className="px-6 pt-7">
         <h3 className="text-base font-bold text-[#0D2137] mb-2">What it's like</h3>
         <div className="space-y-3 text-base text-gray-600 font-body leading-relaxed">
-          {profile.feel.map((para) => <p key={para.slice(0, 40)}>{para}</p>)}
+          {profile.feel.map((para, i) => (
+            <div key={para.slice(0, 40)} className="space-y-3">
+              <p>{para}</p>
+              {i === 0 && <InlinePhoto photo={profile.photos[0]} />}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -117,6 +126,13 @@ export default function TownProfile({ name, profile }: { name: string; profile: 
           })}
         </div>
       </div>
+
+      {/* Second photo, between the highlights and the events */}
+      {profile.photos[1] && (profile.photos[1].src || SHOW_PLACEHOLDERS) && (
+        <div className="px-6 pt-6">
+          <InlinePhoto photo={profile.photos[1]} />
+        </div>
+      )}
 
       {/* Events + getting around */}
       <div className="px-6 pt-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
