@@ -12,6 +12,8 @@
  * from Wikimedia Commons, Tim Pierce, public domain; Bedford town seal from Wikimedia Commons, public
  * domain (Will chose to use it; some towns restrict seal use, so remove it if Bedford asks).
  */
+import { batch1Profiles } from "./townProfilesBatch1";
+
 export type ProfileFact = { label: string; value: string; note?: string };
 export type ProfileHighlight = { icon: "history" | "trail" | "tree" | "store" | "school" | "plane" | "river" | "farm" | "museum"; title: string; text: string };
 export type ProfilePhoto = { caption: string; src?: string; credit?: string; licenseUrl?: string };
@@ -31,7 +33,7 @@ export type TownProfile = {
   sources: ProfileSource[];
 };
 
-export const townProfiles: Record<string, TownProfile> = {
+const baseProfiles: Record<string, TownProfile> = {
   lexington: {
     tagline: "Where the Revolution began, with a walkable town center and miles of trails",
     glance: [
@@ -124,3 +126,6 @@ export const townProfiles: Record<string, TownProfile> = {
     ],
   },
 };
+
+// Profiles are added in batches; each batch lives in its own file
+export const townProfiles: Record<string, TownProfile> = { ...baseProfiles, ...batch1Profiles };
