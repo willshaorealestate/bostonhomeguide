@@ -28,16 +28,21 @@ const NEIGHBORHOOD_IMAGE = "/images/towns/somerville.jpeg";
 
 // All neighborhoods imported from data file
 
-// Months of supply on a seller's / balanced / buyer's scale (0–8+ months)
+// Months of supply on a seller's / balanced / buyer's scale. The three ranges get equal width
+// (under 4, 4–6, 6+ months), and the marker is placed proportionally within its own range.
 function SupplyGauge({ months, sentence }: { months: number; sentence: string | null }) {
-  const MAX = 8;
+  const third = 100 / 3;
+  const raw =
+    months < 4 ? (months / 4) * third :
+    months <= 6 ? third + ((months - 4) / 2) * third :
+    2 * third + (Math.min(months - 6, 4) / 4) * third;
   // Keep the marker label inside the card at the extremes
-  const pos = Math.max(7, Math.min(93, (Math.min(months, MAX) / MAX) * 100));
+  const pos = Math.max(7, Math.min(93, raw));
   const market = supplyMarket(months);
   const bands = [
-    { key: "seller", label: "Seller's market", short: "Seller's", range: "Under 4 mo.", width: 50, bg: "bg-[#0D2137]", text: "text-white" },
-    { key: "balanced", label: "Balanced", short: "Balanced", range: "4–6 mo.", width: 25, bg: "bg-[#6F87A6]", text: "text-white" },
-    { key: "buyer", label: "Buyer's market", short: "Buyer's", range: "6+ mo.", width: 25, bg: "bg-[#D5DCE5]", text: "text-[#0D2137]" },
+    { key: "seller", label: "Seller's market", short: "Seller's", range: "Under 4 mo.", bg: "bg-[#0D2137]", text: "text-white" },
+    { key: "balanced", label: "Balanced", short: "Balanced", range: "4–6 mo.", bg: "bg-[#6F87A6]", text: "text-white" },
+    { key: "buyer", label: "Buyer's market", short: "Buyer's", range: "6+ mo.", bg: "bg-[#D5DCE5]", text: "text-[#0D2137]" },
   ];
   return (
     <div className="mb-7">
@@ -46,23 +51,20 @@ function SupplyGauge({ months, sentence }: { months: number; sentence: string | 
         Months of supply is how long it would take to sell every home for sale at the recent pace of sales.
       </p>
       <div className="relative pt-7">
-        <div
-          className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
-          style={{ left: `${pos}%` }}
-        >
+        <div className="absolute top-0 -translate-x-1/2 flex flex-col items-center" style={{ left: `${pos}%` }}>
           <span className="text-xs font-bold text-[#0D2137] font-body whitespace-nowrap">{months} months</span>
           <span className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-[#C89B3C] mt-0.5" />
         </div>
-        <div className="flex h-7 rounded-lg overflow-hidden">
+        <div className="grid grid-cols-3 h-7 rounded-lg overflow-hidden">
           {bands.map((b) => (
-            <div key={b.key} className={`${b.bg} ${b.text} flex items-center justify-center text-[11px] font-semibold font-body ${b.key === market.band ? "" : "opacity-60"}`} style={{ width: `${b.width}%` }}>
+            <div key={b.key} className={`${b.bg} ${b.text} flex items-center justify-center text-[11px] font-semibold font-body ${b.key === market.band ? "" : "opacity-60"}`}>
               <span className="truncate px-1"><span className="sm:hidden">{b.short}</span><span className="hidden sm:inline">{b.label}</span></span>
             </div>
           ))}
         </div>
-        <div className="flex text-[11px] text-gray-500 font-body mt-1">
+        <div className="grid grid-cols-3 text-[11px] text-gray-500 font-body mt-1">
           {bands.map((b) => (
-            <div key={b.key} className="text-center" style={{ width: `${b.width}%` }}>{b.range}</div>
+            <div key={b.key} className="text-center">{b.range}</div>
           ))}
         </div>
       </div>
@@ -347,9 +349,9 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                     <div className={quarterSummary ? "border-t border-gray-100 mt-8 pt-7" : ""}>
                       <h3 className="text-base font-bold text-[#0D2137]">Median sale price by year</h3>
                       <p className="text-sm text-gray-500 font-body mb-3">
-                        Each bar is the median of every sale that year
+                        Each point is the median of every sale that year
                       </p>
-                      <Suspense fallback={<div className="h-[240px] bg-[#F4F6F8] rounded-xl" />}>
+                      <Suspense fallback={<div className="h-[250px] bg-[#F4F6F8] rounded-xl" />}>
                         <AnnualPriceChart years={years} />
                       </Suspense>
                       {annualSummary.ytd && (
