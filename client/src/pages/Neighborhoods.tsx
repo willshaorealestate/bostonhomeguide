@@ -299,7 +299,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 shrink-0">
-                  <Link href="/contact" className="btn-navy text-sm text-center whitespace-nowrap">
+                  <Link href={`/contact?town=${encodeURIComponent(neighborhood.name)}`} className="btn-navy text-sm text-center whitespace-nowrap">
                     Send a Message
                   </Link>
                   <a href="tel:+17814563541" className="btn-outline-gold text-sm text-center whitespace-nowrap">

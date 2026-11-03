@@ -1,3 +1,4 @@
+import { recordPage } from "@/lib/pageTrail";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -8,6 +9,10 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 function ScrollToTop() {
   const [location] = useLocation();
+  // Remember the path so contact forms can say which page a visitor came from
+  useEffect(() => {
+    recordPage(location);
+  }, [location]);
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {

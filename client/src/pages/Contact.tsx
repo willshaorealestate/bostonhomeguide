@@ -12,6 +12,8 @@ import { toast } from "sonner";
 import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
+import { pageTrail } from "@/lib/pageTrail";
+import { allNeighborhoods } from "@/data/neighborhoods";
 
 export default function ContactPage() {
   useSEO({
@@ -23,6 +25,13 @@ export default function ContactPage() {
     name: "", email: "", phone: "", subject: "general", message: "", language: "english"
   });
   const [submitting, setSubmitting] = useState(false);
+  // Set when the visitor came from a town page's "Send a Message" button (?town=Bedford);
+  // only real town names are accepted
+  const [town] = useState(() => {
+    if (typeof window === "undefined") return "";
+    const t = new URLSearchParams(window.location.search).get("town") ?? "";
+    return allNeighborhoods.some((n) => n.name === t) ? t : "";
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,8 +50,17 @@ export default function ContactPage() {
     }
     setSubmitting(true);
     try {
+      // How they got here, so the lead in Follow Up Boss shows the path to this form
+      const trail = pageTrail();
+      const how = [
+        town && `Came from the ${town} town page`,
+        !town && trail.previous && trail.previous !== "/contact" && `Came from page: ${trail.previous}`,
+        !town && !trail.previous && "Opened the contact page directly",
+        trail.entryFrom && `Visit started from: ${trail.entryFrom}`,
+        trail.landing && trail.landing !== "/contact" && `First page this visit: ${trail.landing}`,
+      ].filter(Boolean).join(" | ");
       await submitToFub({
-        source: "Website — Contact Page",
+        source: town ? `Website — Contact Page (${town})` : "Website — Contact Page",
         firstName,
         lastName: rest.join(" "),
         email: form.email,
@@ -50,6 +68,8 @@ export default function ContactPage() {
         interest: form.subject,
         language: form.language,
         message: form.message,
+        extraNote: how || undefined,
+        extraTags: town ? [town] : [],
       });
       toast.success("Message sent! Will responds within 1 business day.");
       trackLead("contact-form");
@@ -176,6 +196,11 @@ export default function ContactPage() {
                 >
                   Send Will a Message
                 </h2>
+                {town && (
+                  <p className="-mt-4 mb-6 text-sm text-gray-500 font-body">
+                    About: <span className="font-semibold text-[#0D2137]">{town}</span>
+                  </p>
+                )}
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
