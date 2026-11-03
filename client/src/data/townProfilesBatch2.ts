@@ -42,8 +42,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "Mass Pike (I-90), Route 9 and I-95/Route 128",
     ],
     photos: [
-      { caption: "Newton City Hall", src: "/images/towns/profiles/newton-city-hall.jpg", credit: "Photo: Kenneth C. Zirkel, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
-      { caption: "Newton's city seal", src: "/images/towns/profiles/newton-city-seal.jpg", credit: "Photo: Pikiwedia3000, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Newton City Hall", src: "/images/towns/profiles/newton-city-hall.jpg", credit: "© Kenneth C. Zirkel · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Newton's city seal", src: "/images/towns/profiles/newton-city-seal.jpg", credit: "© Pikiwedia3000 · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
     ],
     sources: [
       { label: "Newton, Massachusetts (Wikipedia): census, area, history, government, villages, landmarks, transit", url: "https://en.wikipedia.org/wiki/Newton,_Massachusetts" },
@@ -82,8 +82,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "MetroWest Regional Transit Authority buses",
     ],
     photos: [
-      { caption: "Wellesley Town Hall", src: "/images/towns/profiles/wellesley-town-hall.jpg", credit: "Photo: Jameslwoodward, CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0" },
-      { caption: "Entering Wellesley on Route 16", src: "/images/towns/profiles/wellesley-route-16-sign.jpg", credit: "Photo: John Phelan, CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0" },
+      { caption: "Wellesley Town Hall", src: "/images/towns/profiles/wellesley-town-hall.jpg", credit: "© Jameslwoodward · CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0" },
+      { caption: "Entering Wellesley on Route 16", src: "/images/towns/profiles/wellesley-route-16-sign.jpg", credit: "© John Phelan · CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0" },
     ],
     sources: [
       { label: "Wellesley, Massachusetts (Wikipedia): census, area, government, colleges, transit", url: "https://en.wikipedia.org/wiki/Wellesley,_Massachusetts" },
@@ -122,8 +122,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "Route 135",
     ],
     photos: [
-      { caption: "Needham Town Hall", src: "/images/towns/profiles/needham-town-hall.jpg", credit: "Photo: Magicpiano, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
-      { caption: "Needham Junction commuter rail station", src: "/images/towns/profiles/needham-junction-station.jpg", credit: "Photo: John Phelan, CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0" },
+      { caption: "Needham Town Hall", src: "/images/towns/profiles/needham-town-hall.jpg", credit: "© Magicpiano · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Needham Junction commuter rail station", src: "/images/towns/profiles/needham-junction-station.jpg", credit: "© John Phelan · CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0" },
     ],
     sources: [
       { label: "Needham, Massachusetts (Wikipedia): census, area, government, landmarks, events, transit", url: "https://en.wikipedia.org/wiki/Needham,_Massachusetts" },
@@ -159,8 +159,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "Mass Central Rail Trail–Wayside",
     ],
     photos: [
-      { caption: "Mass Central Rail Trail–Wayside in Weston", src: "/images/towns/profiles/weston-rail-trail.jpg", credit: "Photo: John Phelan, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
-      { caption: "Weston Reservoir", src: "/images/towns/profiles/weston-reservoir.jpg", credit: "Photo: NewtonCourt, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Mass Central Rail Trail–Wayside in Weston", src: "/images/towns/profiles/weston-rail-trail.jpg", credit: "© John Phelan · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Weston Reservoir", src: "/images/towns/profiles/weston-reservoir.jpg", credit: "© NewtonCourt · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
     ],
     sources: [
       { label: "Weston, Massachusetts (Wikipedia): census, area, government, history, conservation land, transit", url: "https://en.wikipedia.org/wiki/Weston,_Massachusetts" },
@@ -195,8 +195,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "Mass Central Rail Trail–Wayside",
     ],
     photos: [
-      { caption: "Poor Farm Meadow conservation land", src: "/images/towns/profiles/sudbury-poor-farm-meadow.jpg", credit: "Photo: John Phelan, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
-      { caption: "Mass Central Rail Trail bridge over Hop Brook", src: "/images/towns/profiles/sudbury-rail-trail-bridge.jpg", credit: "Photo: John Phelan, CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0" },
+      { caption: "Poor Farm Meadow conservation land", src: "/images/towns/profiles/sudbury-poor-farm-meadow.jpg", credit: "© John Phelan · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Mass Central Rail Trail bridge over Hop Brook", src: "/images/towns/profiles/sudbury-rail-trail-bridge.jpg", credit: "© John Phelan · CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0" },
     ],
     sources: [
       { label: "Sudbury, Massachusetts (Wikipedia): census, area, government, Wayside Inn, rail trail", url: "https://en.wikipedia.org/wiki/Sudbury,_Massachusetts" },
@@ -232,8 +232,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "Mass Central Rail Trail–Wayside",
     ],
     photos: [
-      { caption: "Wayland High School", src: "/images/towns/profiles/wayland-high-school.jpg", credit: "Photo: John Phelan, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
-      { caption: "Wayland Public Library", src: "/images/towns/profiles/wayland-public-library.jpg", credit: "Photo: John Phelan, CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0" },
+      { caption: "Wayland High School", src: "/images/towns/profiles/wayland-high-school.jpg", credit: "© John Phelan · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Wayland Public Library", src: "/images/towns/profiles/wayland-public-library.jpg", credit: "© John Phelan · CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0" },
     ],
     sources: [
       { label: "Wayland, Massachusetts (Wikipedia): census, area, history, government", url: "https://en.wikipedia.org/wiki/Wayland,_Massachusetts" },
@@ -272,8 +272,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "Cochituate Rail Trail",
     ],
     photos: [
-      { caption: "Natick Center", src: "/images/towns/profiles/natick-center.jpg", credit: "Photo: Rames1651, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
-      { caption: "MathWorks' Lakeside campus", src: "/images/towns/profiles/natick-mathworks.jpg", credit: "Photo: 4300streetcar, CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0" },
+      { caption: "Natick Center", src: "/images/towns/profiles/natick-center.jpg", credit: "© Rames1651 · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "MathWorks' Lakeside campus", src: "/images/towns/profiles/natick-mathworks.jpg", credit: "© 4300streetcar · CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0" },
     ],
     sources: [
       { label: "Natick, Massachusetts (Wikipedia): census, area, government, villages, marathon route, transit", url: "https://en.wikipedia.org/wiki/Natick,_Massachusetts" },
@@ -309,8 +309,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       "MBTA bus routes",
     ],
     photos: [
-      { caption: "Charles River at the Moody Street Dam", src: "/images/towns/profiles/waltham-moody-street-dam.jpg", credit: "Photo: 4300streetcar, CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0" },
-      { caption: "Historic Moody Street Fire Station", src: "/images/towns/profiles/waltham-moody-street-fire-station.jpg", credit: "Photo: Magicpiano, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Charles River at the Moody Street Dam", src: "/images/towns/profiles/waltham-moody-street-dam.jpg", credit: "© 4300streetcar · CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0" },
+      { caption: "Historic Moody Street Fire Station", src: "/images/towns/profiles/waltham-moody-street-fire-station.jpg", credit: "© Magicpiano · CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
     ],
     sources: [
       { label: "Waltham, Massachusetts (Wikipedia): census, area, history, government, landmarks, transit", url: "https://en.wikipedia.org/wiki/Waltham,_Massachusetts" },
