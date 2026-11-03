@@ -42,7 +42,7 @@ export const batch1Profiles: Record<string, TownProfile> = {
     ],
     photos: [
       { caption: "Old North Bridge" },
-      { caption: "Walden Pond" },
+      { caption: "Walden Pond", src: "/images/towns/profiles/concord-walden-pond.jpg", credit: "Photo: ptwo from Allahabad, India, CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0" },
     ],
     sources: [
       { label: "Concord, Massachusetts (Wikipedia): census, area, government, landmarks, transit", url: "https://en.wikipedia.org/wiki/Concord,_Massachusetts" },
@@ -81,8 +81,8 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "Assabet River and Bruce Freeman rail trails",
     ],
     photos: [
-      { caption: "Acton Monument in Acton Center" },
-      { caption: "NARA Park" },
+      { caption: "Route 111 through West Acton", src: "/images/towns/profiles/acton-west-acton.jpg", credit: "Photo: John Phelan, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Bruce Freeman Rail Trail bridge over Route 2A", src: "/images/towns/profiles/acton-bruce-freeman-bridge.jpg", credit: "Photo: John Phelan, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
     ],
     sources: [
       { label: "Acton, Massachusetts (Wikipedia): census, area, government, villages, parks, events, transit", url: "https://en.wikipedia.org/wiki/Acton,_Massachusetts" },
@@ -118,8 +118,8 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "No commuter rail station in town",
     ],
     photos: [
-      { caption: "Great Brook Farm State Park" },
-      { caption: "Carlisle town center" },
+      { caption: "Great Brook Farm State Park", src: "/images/towns/profiles/carlisle-great-brook-farm.jpg", credit: "Photo: NewtonCourt, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
+      { caption: "Carlisle Town Forest", src: "/images/towns/profiles/carlisle-town-forest.jpg", credit: "Photo: John Phelan, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
     ],
     sources: [
       { label: "Carlisle, Massachusetts (Wikipedia): census, area, zoning, parks, Old Home Day", url: "https://en.wikipedia.org/wiki/Carlisle,_Massachusetts" },
@@ -156,8 +156,8 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "Hanscom Field, partly in Lincoln",
     ],
     photos: [
-      { caption: "deCordova Sculpture Park" },
-      { caption: "Drumlin Farm" },
+      { caption: "deCordova Sculpture Park and Museum", src: "/images/towns/profiles/lincoln-decordova.jpg", credit: "Photo: Jeff Egnaczyk from Brookline, MA, CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0" },
+      { caption: "Codman Community Farm", src: "/images/towns/profiles/lincoln-codman-farm.jpg", credit: "Photo: John Phelan, CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0" },
     ],
     sources: [
       { label: "Lincoln, Massachusetts (Wikipedia): census, area, government, landmarks, transit", url: "https://en.wikipedia.org/wiki/Lincoln,_Massachusetts" },
@@ -196,8 +196,8 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "MBTA Lowell Line at North Billerica",
     ],
     photos: [
-      { caption: "Nutting's Lake" },
-      { caption: "Concord River in Billerica" },
+      { caption: "Nutting's Lake", src: "/images/towns/profiles/billerica-nuttings-lake.jpg", credit: "Photo: John Phelan, CC BY 3.0", licenseUrl: "https://creativecommons.org/licenses/by/3.0" },
+      { caption: "Civil War cannon on the Town Common", src: "/images/towns/profiles/billerica-town-common-cannon.jpg" },
     ],
     sources: [
       { label: "Billerica, Massachusetts (Wikipedia): census, area, government, rivers, employers, transit", url: "https://en.wikipedia.org/wiki/Billerica,_Massachusetts" },
@@ -233,8 +233,8 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "I-93 nearby, with Amtrak's Downeaster at the Anderson Regional Transportation Center",
     ],
     photos: [
-      { caption: "Mystic Lakes" },
-      { caption: "Winchester Center" },
+      { caption: "Winchester Town Hall", src: "/images/towns/profiles/winchester-town-hall.jpg" },
+      { caption: "Chefalo Park", src: "/images/towns/profiles/winchester-chefalo-park.jpg" },
     ],
     sources: [
       { label: "Winchester, Massachusetts (Wikipedia): census, area, government, parks, transit, events", url: "https://en.wikipedia.org/wiki/Winchester,_Massachusetts" },
@@ -271,8 +271,8 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "No commuter rail station in town",
     ],
     photos: [
-      { caption: "Spy Pond" },
-      { caption: "Arlington Center" },
+      { caption: "Arlington Reservoir", src: "/images/towns/profiles/arlington-reservoir.jpg" },
+      { caption: "Arlington Center", src: "/images/towns/profiles/arlington-center.jpg" },
     ],
     sources: [
       { label: "Arlington, Massachusetts (Wikipedia): census, area, government, neighborhoods, parks, transit", url: "https://en.wikipedia.org/wiki/Arlington,_Massachusetts" },
@@ -307,8 +307,8 @@ export const batch1Profiles: Record<string, TownProfile> = {
       "Route 2 along the northern border, Route 60 through town",
     ],
     photos: [
-      { caption: "Belmont Center" },
-      { caption: "Rock Meadow" },
+      { caption: "Belmont Town Hall", src: "/images/towns/profiles/belmont-town-hall.jpg" },
+      { caption: "World War I Memorial", src: "/images/towns/profiles/belmont-wwi-memorial.jpg" },
     ],
     sources: [
       { label: "Belmont, Massachusetts (Wikipedia): census, area, government, centers, open space, transit", url: "https://en.wikipedia.org/wiki/Belmont,_Massachusetts" },
