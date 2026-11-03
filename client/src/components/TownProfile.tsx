@@ -23,23 +23,24 @@ function SidePhoto({ photo }: { photo: ProfilePhoto }) {
   return (
     <figure className="min-w-0">
       {photo.src ? (
-        <img src={photo.src} alt={photo.caption} loading="lazy" className="w-full aspect-[4/3] object-cover rounded-lg" />
+        <div className="relative">
+          <img src={photo.src} alt={photo.caption} loading="lazy" className="w-full aspect-[4/3] object-cover rounded-lg" />
+          {/* Photographer credit sits on the photo itself, so it reads as a credit rather than part of the caption */}
+          {photo.credit && (
+            <span className="absolute bottom-0 right-0 max-w-full truncate rounded-tl-md rounded-br-lg bg-black/55 px-1.5 py-0.5 text-[9px] leading-tight text-white/90 font-body" title={photo.credit}>
+              {photo.licenseUrl
+                ? <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">{photo.credit}</a>
+                : photo.credit}
+            </span>
+          )}
+        </div>
       ) : (
         <div className="w-full aspect-[4/3] rounded-lg bg-gradient-to-br from-[#E8ECF1] to-[#D5DCE5] flex flex-col items-center justify-center text-[#6F87A6] px-2 text-center">
           <Camera className="w-5 h-5" />
           <span className="text-[10px] font-body mt-1 leading-tight">Photo spot</span>
         </div>
       )}
-      <figcaption className="mt-1 text-[11px] text-gray-500 font-body leading-snug">
-        {photo.caption}
-        {photo.credit && (
-          <span className="block text-gray-400">
-            {photo.licenseUrl
-              ? <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">{photo.credit}</a>
-              : photo.credit}
-          </span>
-        )}
-      </figcaption>
+      <figcaption className="mt-1 text-[11px] text-gray-500 font-body leading-snug">{photo.caption}</figcaption>
     </figure>
   );
 }
