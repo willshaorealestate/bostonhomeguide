@@ -1,10 +1,14 @@
 name: Update Town Trends (MLSPIN)
 
 # Quarterly and annual figures for the town pages (client/src/data/townTrends.ts).
-# Run by hand for now. Commits back to whichever branch it was started on, so it can
-# be tested on a preview branch without touching the live site.
+# Runs monthly for every town, the day after the monthly market update, so homes-for-sale
+# counts (months of supply) stay current and each new quarter and year appear on their own.
+# Can also be run by hand; it commits back to whichever branch it was started on.
 
 on:
+  schedule:
+    # 6th of each month, about 11am ET (15:00 UTC)
+    - cron: '0 15 6 * *'
   workflow_dispatch:
     inputs:
       towns:
