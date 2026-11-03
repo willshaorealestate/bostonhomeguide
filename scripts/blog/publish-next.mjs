@@ -33,9 +33,10 @@ function serializePost(post) {
     `  {`,
     `    slug: ${jsString(post.slug)},`,
     `    title: ${jsString(post.title)},`,
+    // Shorter search-result title, when the post has one
+    ...(post.seoTitle ? [`    seoTitle: ${jsString(post.seoTitle)},`] : []),
     `    excerpt: ${jsString(post.excerpt)},`,
     `    category: ${jsString(post.category)},`,
-    `    readTime: ${jsString(post.readTime)},`,
     `    date: ${jsString(post.date)},`,
     `    img: ${jsString(post.img)},`,
   ];
