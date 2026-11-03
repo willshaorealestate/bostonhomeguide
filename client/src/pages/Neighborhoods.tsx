@@ -15,7 +15,7 @@ import { trackLead } from "@/lib/analytics";
 import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 import { SCHOOL_RANK_SOURCE, COMMUTE_SOURCE, RAIL_SOURCE, schoolRankLabel } from "@/data/townSources";
-import { townAnnual, townQuarterly } from "@/data/townTrends";
+import { townAnnual, townQuarterly, townInventory } from "@/data/townTrends";
 import { summarizeQuarters, summarizeYears, quarterMonths, supplyMarket } from "@/lib/townMarket";
 
 // recharts is large; only download it when a town page actually shows the chart
@@ -78,7 +78,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
   const neighborhood = allNeighborhoods.find((n) => n.slug === slug);
   const quarters = neighborhood ? townQuarterly[neighborhood.name] : undefined;
   const years = neighborhood ? townAnnual[neighborhood.name] : undefined;
-  const quarterSummary = neighborhood && quarters ? summarizeQuarters(neighborhood.name, quarters) : null;
+  const quarterSummary = neighborhood && quarters ? summarizeQuarters(neighborhood.name, quarters, townInventory[neighborhood.name]) : null;
   const annualSummary = neighborhood && years ? summarizeYears(neighborhood.name, years) : null;
   // Calendar years for the days-on-market chart (kept here, not in the lazy chart module, for the legend)
   const domYrs = quarters?.length ? (() => { const c = 2000 + Number(quarters[quarters.length - 1].quarter.split(" '")[1]); return { current: c, previous: c - 1 }; })() : null;
@@ -315,7 +315,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                             value: `${quarterSummary.supply.now}`,
                             unit: "months",
                             label: "Months of supply",
-                            note: quarterSummary.supply.then === null ? null : `${quarterSummary.supply.then} a year ago`,
+                            note: `As of ${new Date(`${quarterSummary.supply.asOf}T12:00:00`).toLocaleDateString("en-US", { month: "short", day: "numeric" })}`,
                           }] : []),
                         ].map((s) => (
                           <div key={s.label} className="bg-[#F4F6F8] rounded-xl p-3 sm:p-4">

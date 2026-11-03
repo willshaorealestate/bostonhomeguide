@@ -2,7 +2,7 @@
  * townMarket.ts — helpers for the town-page market section (no chart library here,
  * so the summary text renders without loading recharts).
  */
-import type { TownYear, TownQuarter } from "@/data/townTrends";
+import type { TownYear, TownQuarter, TownInventory } from "@/data/townTrends";
 
 /** 1090000 → "$1.09M", 1001000 → "$1.00M", 875000 → "$875K" */
 export function shortPrice(n: number): string {
@@ -20,13 +20,13 @@ const yearOf = (q: string) => `20${q.split(" '")[1]}`;
 const pct = (a: number, b: number) => Math.round(((a - b) / b) * 100);
 
 /**
- * Months of supply (the absorption rate expressed in months): homes for sale at the end of the
- * quarter ÷ average monthly sales in that quarter. How long current listings would last at the
- * recent pace of sales if nothing new came on the market.
+ * Months of supply (the absorption rate expressed in months): homes for sale now ÷ average
+ * monthly sales in the latest quarter. How long current listings would last at the recent pace
+ * of sales if nothing new came on the market.
  */
-export function monthsOfSupply(q: TownQuarter): number | null {
-  if (q.active == null || q.sold <= 0) return null;
-  return Math.round((q.active / (q.sold / 3)) * 10) / 10;
+export function monthsOfSupply(inv: TownInventory | undefined, q: TownQuarter): number | null {
+  if (!inv || q.sold <= 0) return null;
+  return Math.round((inv.active / (q.sold / 3)) * 10) / 10;
 }
 
 /** Common rule of thumb: under 4 months favors sellers, 4–6 is balanced, over 6 favors buyers. */
@@ -44,12 +44,12 @@ export type QuarterSummary = {
   dom: Compare;
   ratio: Compare;
   sold: Compare;
-  supply: { now: number; then: number | null } | null;
+  supply: { now: number; asOf: string } | null;
   sentence: string;
   supplySentence: string | null;
 };
 
-export function summarizeQuarters(town: string, qs: TownQuarter[]): QuarterSummary | null {
+export function summarizeQuarters(town: string, qs: TownQuarter[], inv?: TownInventory): QuarterSummary | null {
   if (!qs.length) return null;
   const latest = qs[qs.length - 1];
   const yearAgo = qs.length >= 5 ? qs[qs.length - 5] : null;
@@ -65,16 +65,16 @@ export function summarizeQuarters(town: string, qs: TownQuarter[]): QuarterSumma
       dom.delta < 0 ? `${-dom.delta} days faster than` : `${dom.delta} days slower than`;
     sentence += ` That's ${pace} the same months in ${yearOf(yearAgo.quarter)} (${yearAgo.dom} days).`;
   }
-  const supplyNow = monthsOfSupply(latest);
-  const supply = supplyNow === null ? null : { now: supplyNow, then: yearAgo ? monthsOfSupply(yearAgo) : null };
+  const supplyNow = monthsOfSupply(inv, latest);
+  const supply = supplyNow === null || !inv ? null : { now: supplyNow, asOf: inv.asOf };
   let supplySentence: string | null = null;
-  if (supply && latest.active != null) {
-    const endMonth = quarterMonths(latest.quarter).split("–")[1];
+  if (supply && inv) {
     const perMonth = Math.round(latest.sold / 3);
+    const asOf = new Date(`${inv.asOf}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
     supplySentence =
-      `At the end of ${endMonth}, ${latest.active} ${latest.active === 1 ? "home was" : "homes were"} for sale in ${town}. ` +
-      `At the recent pace of about ${perMonth} ${perMonth === 1 ? "sale" : "sales"} a month, that's ${supply.now} months of supply, ` +
-      `which points to a ${supplyMarket(supply.now).label.toLowerCase()}.`;
+      `As of ${asOf}, ${inv.active} ${inv.active === 1 ? "home was" : "homes were"} for sale in ${town}. ` +
+      `At the recent pace of about ${perMonth} ${perMonth === 1 ? "sale" : "sales"} a month (${quarterMonths(latest.quarter).replace(/ \d{4}$/, "")}), ` +
+      `that's ${supply.now} months of supply, which points to a ${supplyMarket(supply.now).label.toLowerCase()}.`;
   }
   return { latest, yearAgo, dom, ratio, sold, supply, sentence, supplySentence };
 }

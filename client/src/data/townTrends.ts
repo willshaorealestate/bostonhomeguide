@@ -3,14 +3,18 @@
  *
  * annual:    one MLS PIN report per calendar year (true annual median, not an average of months).
  *            The current year is year-to-date and carries `through` (e.g. "Sep").
- * quarterly: one MLS PIN report per calendar quarter, last 8 quarters. `active` is the number
- *            of homes for sale at the end of the quarter, used for months of supply (absorption).
+ * quarterly: one MLS PIN report per calendar quarter, last 8 quarters.
+ * inventory: homes for sale on the day the job ran (`asOf`), for months of supply. MLS PIN's report
+ *            counts listings from its date range that are still active today, so a range covering
+ *            the last 5 years gives the current number for sale. It can't reconstruct a past date,
+ *            so each run records its own figure.
  *
  * Written by the market job (scripts/mlspin). A town with no entry keeps the simple
  * median-price box on its page.
  */
 export type TownYear = { year: number; median: number; sold: number; through?: string };
-export type TownQuarter = { quarter: string; dom: number; listToSale: number; sold: number; active?: number };
+export type TownQuarter = { quarter: string; dom: number; listToSale: number; sold: number };
+export type TownInventory = { asOf: string; active: number };
 
 export const townAnnual: Record<string, TownYear[]> = {
   "Lexington": [
@@ -33,23 +37,26 @@ export const townAnnual: Record<string, TownYear[]> = {
 
 export const townQuarterly: Record<string, TownQuarter[]> = {
   "Lexington": [
-    { quarter: "Q4 '24", dom: 46, listToSale: 102, sold: 57, active: 0 },
-    { quarter: "Q1 '25", dom: 54, listToSale: 102, sold: 42, active: 0 },
-    { quarter: "Q2 '25", dom: 27, listToSale: 104, sold: 94, active: 0 },
-    { quarter: "Q3 '25", dom: 32, listToSale: 102, sold: 119, active: 0 },
-    { quarter: "Q4 '25", dom: 53, listToSale: 101, sold: 71, active: 0 },
-    { quarter: "Q1 '26", dom: 48, listToSale: 100, sold: 34, active: 0 },
-    { quarter: "Q2 '26", dom: 41, listToSale: 101, sold: 113, active: 0 },
-    { quarter: "Q3 '26", dom: 58, listToSale: 100, sold: 108, active: 0 },
+    { quarter: "Q4 '24", dom: 46, listToSale: 102, sold: 57 },
+    { quarter: "Q1 '25", dom: 54, listToSale: 102, sold: 42 },
+    { quarter: "Q2 '25", dom: 27, listToSale: 104, sold: 94 },
+    { quarter: "Q3 '25", dom: 32, listToSale: 102, sold: 119 },
+    { quarter: "Q4 '25", dom: 53, listToSale: 101, sold: 71 },
+    { quarter: "Q1 '26", dom: 48, listToSale: 100, sold: 34 },
+    { quarter: "Q2 '26", dom: 41, listToSale: 101, sold: 113 },
+    { quarter: "Q3 '26", dom: 58, listToSale: 100, sold: 108 },
   ],
   "Bedford": [
-    { quarter: "Q4 '24", dom: 43, listToSale: 100, sold: 22, active: 0 },
-    { quarter: "Q1 '25", dom: 33, listToSale: 103, sold: 17, active: 0 },
-    { quarter: "Q2 '25", dom: 35, listToSale: 102, sold: 33, active: 0 },
-    { quarter: "Q3 '25", dom: 39, listToSale: 101, sold: 42, active: 0 },
-    { quarter: "Q4 '25", dom: 54, listToSale: 100, sold: 32, active: 0 },
-    { quarter: "Q1 '26", dom: 55, listToSale: 100, sold: 29, active: 0 },
-    { quarter: "Q2 '26", dom: 29, listToSale: 102, sold: 32, active: 0 },
-    { quarter: "Q3 '26", dom: 41, listToSale: 102, sold: 46, active: 1 },
+    { quarter: "Q4 '24", dom: 43, listToSale: 100, sold: 22 },
+    { quarter: "Q1 '25", dom: 33, listToSale: 103, sold: 17 },
+    { quarter: "Q2 '25", dom: 35, listToSale: 102, sold: 33 },
+    { quarter: "Q3 '25", dom: 39, listToSale: 101, sold: 42 },
+    { quarter: "Q4 '25", dom: 54, listToSale: 100, sold: 32 },
+    { quarter: "Q1 '26", dom: 55, listToSale: 100, sold: 29 },
+    { quarter: "Q2 '26", dom: 29, listToSale: 102, sold: 32 },
+    { quarter: "Q3 '26", dom: 41, listToSale: 102, sold: 46 },
   ],
+};
+
+export const townInventory: Record<string, TownInventory> = {
 };

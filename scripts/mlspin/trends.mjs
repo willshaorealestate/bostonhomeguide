@@ -7,13 +7,11 @@
  *
  * For each town:
  *   - the last N complete calendar quarters (days on market, sale-to-list, homes sold)
- *   - a one-day report on the last day of each of those quarters, for the number of homes
- *     for sale on that day (months of supply)
+ *   - the number of homes for sale today (months of supply): MLS PIN's report counts listings
+ *     from its date range that are still active now, so a range covering the last 5 years gives
+ *     the current inventory. Past dates can't be reconstructed, so each run records its own.
  *   - the last Y complete calendar years plus the current year to date (true annual medians)
- *
- * The full-quarter report's own "active" count is logged next to the one-day count so we
- * can see whether MLS PIN counts listings active at any time in the range (it would be
- * much higher) or only those active on the end date.
+
  *
  * Without --towns, every town in towns.mjs is pulled.
  * Set DEBUG=1 to save screenshots at each step into debug-screenshots/.
@@ -59,7 +57,13 @@ export function planPeriods(today, years = 5, quarters = 8) {
   // Current year to date, through the last settled month (skip if that month is December — then it's a full year)
   const ytd = sm === 12 ? null : { year: sy, through: SHORT[sm - 1], start: mmddyyyy(sy, 1, 1), end: mmddyyyy(sy, sm, lastDay(sy, sm)) };
 
-  return { quarters: qs, years: ys, ytd };
+  // Current inventory: listings from the last 5 years that are still active today
+  // Dates in Boston time (the runner is on UTC, which is already "tomorrow" in the evening)
+  const asOf = today.toLocaleDateString('en-CA', { timeZone: 'America/New_York' }); // YYYY-MM-DD
+  const [ay, am, ad] = asOf.split('-').map(Number);
+  const inventory = { asOf, start: mmddyyyy(ay - 5, 1, 1), end: mmddyyyy(ay, am, ad) };
+
+  return { quarters: qs, years: ys, ytd, inventory };
 }
 
 /** Replace or insert one town's entry inside an `export const <name> ... = { ... };` block. */
@@ -71,6 +75,18 @@ export function upsertTown(source, exportName, town, rows) {
   const entry = `  ${JSON.stringify(town)}: [\n${rows.map((r) => `    ${r},`).join('\n')}\n  ],`;
   const townRe = new RegExp(`  ${JSON.stringify(town).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}: \\[\\n[\\s\\S]*?\\n  \\],`);
   body = townRe.test(body) ? body.replace(townRe, entry) : (body.trim() ? `${body.replace(/\n$/, '')}\n${entry}` : entry);
+  return source.replace(blockRe, `${m[1]}${body}\n};`);
+}
+
+/** Replace or insert one town's single-object entry, e.g. "Bedford": { asOf: ..., active: 21 }, */
+export function upsertObject(source, exportName, town, value) {
+  const blockRe = new RegExp(`(export const ${exportName}[^=]*=\\s*\\{\\n)([\\s\\S]*?)(\\n?\\};)`);
+  const m = source.match(blockRe);
+  if (!m) throw new Error(`${exportName} not found in townTrends.ts`);
+  const line = `  ${JSON.stringify(town)}: ${value},`;
+  const lineRe = new RegExp(`  ${JSON.stringify(town).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}: \\{[^\\n]*\\},`);
+  let body = m[2];
+  body = lineRe.test(body) ? body.replace(lineRe, line) : (body.trim() ? `${body.replace(/\n$/, '')}\n${line}` : line);
   return source.replace(blockRe, `${m[1]}${body}\n};`);
 }
 
@@ -90,11 +106,12 @@ async function main() {
   const plan = planPeriods(new Date(), Number(arg('years', 5)), Number(arg('quarters', 8)));
   console.log(`Quarters: ${plan.quarters.map((q) => q.label).join(', ')}`);
   console.log(`Years: ${plan.years.map((y) => y.year).join(', ')}${plan.ytd ? `, ${plan.ytd.year} through ${plan.ytd.through}` : ''}`);
+  console.log(`Inventory: listings ${plan.inventory.start}–${plan.inventory.end} still active (as of ${plan.inventory.asOf})`);
   console.log(`Towns (${list.length}): ${list.join(', ')}\n`);
 
   const periods = [
     ...plan.quarters.map((q) => ({ key: `q:${q.label}`, start: q.start, end: q.end, kind: 'sales' })),
-    ...plan.quarters.map((q) => ({ key: `a:${q.label}`, start: q.end, end: q.end, kind: 'active' })),
+    { key: 'now', start: plan.inventory.start, end: plan.inventory.end, kind: 'active' },
     ...plan.years.map((y) => ({ key: `y:${y.year}`, start: y.start, end: y.end, kind: 'sales' })),
     ...(plan.ytd ? [{ key: `y:${plan.ytd.year}`, start: plan.ytd.start, end: plan.ytd.end, kind: 'sales' }] : []),
   ];
@@ -107,9 +124,8 @@ async function main() {
     const qRows = plan.quarters
       .filter((q) => r[`q:${q.label}`])
       .map((q) => {
-        const s = r[`q:${q.label}`], a = r[`a:${q.label}`];
-        const active = a ? `, active: ${a.active}` : '';
-        return `{ quarter: "${q.label}", dom: ${s.dom}, listToSale: ${Math.round(s.spOp)}, sold: ${s.soldCount}${active} }`;
+        const s = r[`q:${q.label}`];
+        return `{ quarter: "${q.label}", dom: ${s.dom}, listToSale: ${Math.round(s.spOp)}, sold: ${s.soldCount} }`;
       });
     const yRows = [...plan.years, ...(plan.ytd ? [plan.ytd] : [])]
       .filter((y) => r[`y:${y.year}`])
@@ -123,6 +139,8 @@ async function main() {
     else console.warn(`  ⚠ ${town}: ${qRows.length}/${plan.quarters.length} quarters — quarterly data not written`);
     if (yRows.length === plan.years.length + (plan.ytd ? 1 : 0)) src = upsertTown(src, 'townAnnual', town, yRows);
     else console.warn(`  ⚠ ${town}: ${yRows.length} years — annual data not written`);
+    if (r.now) src = upsertObject(src, 'townInventory', town, `{ asOf: "${plan.inventory.asOf}", active: ${r.now.active} }`);
+    else console.warn(`  ⚠ ${town}: no current inventory — months of supply not written`);
   }
   writeFileSync(TRENDS_TS, src, 'utf8');
   console.log('\n  ✓ townTrends.ts updated');
