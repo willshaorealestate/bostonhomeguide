@@ -4,13 +4,15 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  # market-update.yml and blog-post.yml push to main using the default
+  # market-update.yml, blog-post.yml and town-trends.yml push to main using the default
   # GITHUB_TOKEN, and GitHub deliberately does not let GITHUB_TOKEN pushes
   # trigger other workflows (anti-loop protection) - so their commits never
   # reached this `push` trigger. Picking them up here via workflow_run instead.
   workflow_run:
-    workflows: ["Update Market Data (MLSPIN)", "Publish Next Blog Post"]
+    workflows: ["Update Market Data (MLSPIN)", "Publish Next Blog Post", "Update Town Trends (MLSPIN)"]
     types: [completed]
+    # Only runs on main reach the live site (a test run on a preview branch shouldn't redeploy)
+    branches: [main]
 
 permissions:
   contents: read
