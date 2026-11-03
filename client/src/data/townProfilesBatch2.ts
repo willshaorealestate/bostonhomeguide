@@ -3,13 +3,14 @@
  * and Waltham. Same rules as townProfiles.ts: facts from the listed sources, in our own words;
  * describe places, amenities, history and getting around, never the people who live there.
  *
- * Tax rates are FY2026 residential rates per $1,000 (Massachusetts Department of Revenue data).
+ * Tax rates are residential rates per $1,000 from the Massachusetts DOR Division of Local Services:
+ * the latest certified fiscal year for each town (FY2027 once certified, otherwise FY2026).
  * "From Boston" marked straight-line is measured from the town center to downtown Boston.
  * Photos list the planned photo spots; a photo with no `src` is left off the live page.
  */
 import type { TownProfile } from "./townProfiles";
 
-const DOR_TAX = { label: "Massachusetts Department of Revenue: FY2026 tax rates", url: "https://www.mass.gov/info-details/fy2026-tax-levies-assessed-values-and-tax-rates" };
+const DOR_TAX = { label: "Massachusetts Department of Revenue, Division of Local Services: tax rates by class", url: "https://dls-gw.dor.state.ma.us/reports/rdPage.aspx?rdReport=PropertyTaxInformation.taxratesbyclass.taxratesbyclass_main" };
 
 export const batch2Profiles: Record<string, TownProfile> = {
   newton: {
