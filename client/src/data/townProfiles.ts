@@ -13,6 +13,7 @@
  * domain (Will chose to use it; some towns restrict seal use, so remove it if Bedford asks).
  */
 import { batch1Profiles } from "./townProfilesBatch1";
+import { batch2Profiles } from "./townProfilesBatch2";
 
 export type ProfileFact = { label: string; value: string; note?: string };
 export type ProfileHighlight = { icon: "history" | "trail" | "tree" | "store" | "school" | "plane" | "river" | "farm" | "museum"; title: string; text: string };
@@ -128,4 +129,4 @@ const baseProfiles: Record<string, TownProfile> = {
 };
 
 // Profiles are added in batches; each batch lives in its own file
-export const townProfiles: Record<string, TownProfile> = { ...baseProfiles, ...batch1Profiles };
+export const townProfiles: Record<string, TownProfile> = { ...baseProfiles, ...batch1Profiles, ...batch2Profiles };
