@@ -16,6 +16,8 @@ import { allNeighborhoods, regions } from "@/data/neighborhoods";
 import { useSEO } from "@/lib/seo";
 import { SCHOOL_RANK_SOURCE, COMMUTE_SOURCE, RAIL_SOURCE, schoolRankLabel } from "@/data/townSources";
 import { townAnnual, townQuarterly, townInventory } from "@/data/townTrends";
+import { townProfiles } from "@/data/townProfiles";
+import TownProfile from "@/components/TownProfile";
 import { summarizeQuarters, summarizeYears, quarterMonths, supplyMarket } from "@/lib/townMarket";
 
 // recharts is large; only download it when a town page actually shows the chart
@@ -76,6 +78,7 @@ function SupplyGauge({ months, sentence }: { months: number; sentence: string | 
 // Individual neighborhood detail page
 function NeighborhoodDetail({ slug }: { slug: string }) {
   const neighborhood = allNeighborhoods.find((n) => n.slug === slug);
+  const profile = neighborhood ? townProfiles[neighborhood.slug] : undefined;
   const quarters = neighborhood ? townQuarterly[neighborhood.name] : undefined;
   const years = neighborhood ? townAnnual[neighborhood.name] : undefined;
   const quarterSummary = neighborhood && quarters ? summarizeQuarters(neighborhood.name, quarters, townInventory[neighborhood.name]) : null;
@@ -195,7 +198,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {neighborhood.name}, MA
           </h1>
-          <p className="text-white/80 font-body text-lg max-w-xl">{neighborhood.description}</p>
+          <p className="text-white/80 font-body text-lg max-w-xl">{profile?.tagline ?? neighborhood.description}</p>
         </div>
       </section>
 
@@ -204,12 +207,20 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              {
-                label: neighborhood.priceSource ? "Median Sale Price" : "Avg. Home Value",
-                value: neighborhood.medianPrice,
-                source: neighborhood.priceSource,
-                icon: Home,
-              },
+              // With annual data, show the year's median (steadier than one month in a small town)
+              annualSummary
+                ? {
+                    label: annualSummary.ytd ? `Median Sale Price, ${annualSummary.ytd.year}` : `Median Sale Price, ${annualSummary.lastFull.year}`,
+                    value: `$${(annualSummary.ytd ?? annualSummary.lastFull).median.toLocaleString()}`,
+                    source: annualSummary.ytd ? `MLS PIN, Jan–${annualSummary.ytd.through} ${annualSummary.ytd.year}` : `MLS PIN, ${annualSummary.lastFull.year}`,
+                    icon: Home,
+                  }
+                : {
+                    label: neighborhood.priceSource ? "Median Sale Price" : "Avg. Home Value",
+                    value: neighborhood.medianPrice,
+                    source: neighborhood.priceSource,
+                    icon: Home,
+                  },
               {
                 label: "High School Rank",
                 value: schoolRankLabel(neighborhood.schoolRanks, neighborhood.highSchool),
@@ -259,7 +270,10 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 space-y-8">
-              {/* Highlights */}
+              {/* Town profile (towns that have one), otherwise the short highlights list */}
+              {profile ? (
+                <TownProfile name={neighborhood.name} profile={profile} />
+              ) : (
               <div className="bg-white rounded-2xl p-6 border border-gray-100">
                 <h2 className="text-xl font-bold text-[#0D2137] mb-4">
                   Why {neighborhood.name}?
@@ -273,6 +287,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   ))}
                 </div>
               </div>
+              )}
 
               {/* Market data */}
               {quarterSummary || annualSummary ? (
