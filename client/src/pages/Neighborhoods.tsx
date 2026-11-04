@@ -48,7 +48,7 @@ function SupplyGauge({ months, sentence }: { months: number; sentence: string | 
   ];
   return (
     <div className="mb-7">
-      <p className="text-sm font-semibold text-gray-700 font-body">Supply and demand: {market.label.toLowerCase()}</p>
+      <p className="text-sm font-semibold text-gray-700 font-body">Supply and demand</p>
       <p className="text-xs text-gray-500 font-body mb-3">
         Months of supply is how long it would take to sell every home for sale at the recent pace of sales.
       </p>
