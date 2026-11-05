@@ -192,7 +192,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
       {/* Hero */}
       <section
         className="relative pt-32 pb-20 min-h-[45vh] flex items-center"
-        style={{ backgroundImage: `url(${neighborhood.img})`, backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ backgroundImage: `url(${neighborhood.img})`, backgroundSize: "cover", backgroundPosition: neighborhood.imgPosition ?? "center" }}
       >
         <div className="absolute inset-0 bg-[#0D2137]/65" />
         <div className="relative z-10 container">
