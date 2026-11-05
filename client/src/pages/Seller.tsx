@@ -93,8 +93,8 @@ const marketingItems = [
 
 export default function SellerPage() {
   useSEO({
-    title: "Sell Your Greater Boston Home | Will Shao, REMAX",
-    description: "Will Shao's proven marketing strategy gets sellers maximum value — 101% sale-to-list ratio, $120M+ in transactions. Free home valuation. Greater Boston & MetroWest MA.",
+    title: "Selling a Home in Greater Boston: Free Home Valuation",
+    description: "What is your home worth? Get a free home valuation from REMAX agent Will Shao: 101% sale-to-list, $120M+ in transactions across Greater Boston and MetroWest MA.",
     canonical: "https://bostonhomeguide.com/sell",
     schema: {
       "@context": "https://schema.org",

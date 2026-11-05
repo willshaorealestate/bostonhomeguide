@@ -2,7 +2,7 @@
  * Neighborhoods.tsx — BostonHomeGuide.com
  * Neighborhood Guides index + individual town pages
  */
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, useMemo, lazy, Suspense } from "react";
 import TownMap, { useTownMap } from "@/components/TownMap";
 import { Link, Redirect, useParams } from "wouter";
 import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, ExternalLink } from "lucide-react";
@@ -19,6 +19,7 @@ import { SCHOOL_RANK_SOURCE, COMMUTE_SOURCE, RAIL_SOURCE, schoolRankLabel } from
 import { townAnnual, townQuarterly, townInventory } from "@/data/townTrends";
 import { townProfiles } from "@/data/townProfiles";
 import TownProfile from "@/components/TownProfile";
+import { townTitle, townDescription, townQuestions, faqSchema } from "@/lib/townSeo";
 import { summarizeQuarters, summarizeYears, quarterMonths, supplyMarket } from "@/lib/townMarket";
 
 // recharts is large; only download it when a town page actually shows the chart
@@ -96,13 +97,15 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
   const townMap = useTownMap(neighborhood?.slug ?? "");
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  // Common questions (same facts as the page, phrased the way people search) + their FAQPage markup
+  const questions = useMemo(() => (neighborhood ? townQuestions(neighborhood, profile, annualSummary) : []), [slug]);
+  const questionSchema = useMemo(() => (questions.length ? faqSchema(questions) : undefined), [questions]);
   useSEO({
-    title: neighborhood
-      ? `${neighborhood.name}, MA Homes for Sale | Will Shao`
-      : "Neighborhood Guide | BostonHomeGuide.com",
+    title: neighborhood ? townTitle(neighborhood) : "Neighborhood Guide | BostonHomeGuide.com",
     description: neighborhood
-      ? `Explore homes for sale in ${neighborhood.name}, MA. ${neighborhood.description?.slice(0, 120) ?? "Local market data, school info, and expert guidance from Will Shao, REMAX Executive Realty."}`
+      ? townDescription(neighborhood, profile, annualSummary)
       : "Find homes in Greater Boston and MetroWest neighborhoods.",
+    schema: questionSchema,
     canonical: neighborhood
       ? `https://bostonhomeguide.com/neighborhoods/${neighborhood.slug}`
       : "https://bostonhomeguide.com/neighborhoods",
@@ -453,6 +456,32 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                   </Link>
                 )}
               </div>
+
+              {/* Common questions: short, sourced answers in the words people search with */}
+              {questions.length > 0 && (
+                <div className="bg-white rounded-2xl p-6 border border-gray-100">
+                  <h2 className="text-xl font-bold text-[#0D2137] mb-4">
+                    Common Questions About {neighborhood.name}, MA
+                  </h2>
+                  <dl className="divide-y divide-gray-100">
+                    {questions.map(({ q, a }) => (
+                      <div key={q} className="py-4 first:pt-0 last:pb-0">
+                        <dt className="font-semibold text-[#0D2137] font-body">{q}</dt>
+                        <dd className="mt-1.5 text-base text-gray-600 font-body leading-relaxed">
+                          {a.endsWith("send him a message.") ? (
+                            <>
+                              {a.replace(/ Call \(781\) 456-3541 or send him a message\.$/, " ")}
+                              <a href="tel:+17814563541" className="text-[#0D2137] font-semibold hover:underline">Call (781) 456-3541</a>
+                              {" or "}
+                              <Link href={`/contact?town=${encodeURIComponent(neighborhood.name)}`} className="text-[#0D2137] font-semibold hover:underline">send him a message</Link>.
+                            </>
+                          ) : a}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}
