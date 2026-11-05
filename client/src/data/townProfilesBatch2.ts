@@ -64,7 +64,7 @@ export const batch2Profiles: Record<string, TownProfile> = {
     ],
     feel: [
       "Wellesley has three village centers on the MBTA Worcester Line, Wellesley Square, Wellesley Hills and Wellesley Farms, each with its own station. Wellesley Square, along Central Street and Washington Street, is the main shopping district.",
-      "Three colleges have campuses in town: Wellesley College, founded in 1870, whose campus borders Lake Waban; Babson College, founded in 1919; and MassBay Community College. The Boston Marathon passes through the center of town each April.",
+      "Three colleges have campuses in town: Wellesley College, whose campus borders Lake Waban, Babson College and MassBay Community College. The path around Lake Waban is a popular walk, and the Boston Marathon passes through the center of town each April.",
     ],
     highlights: [
       { icon: "river", title: "Lake Waban", text: "A lake on the edge of the Wellesley College campus." },
@@ -104,7 +104,7 @@ export const batch2Profiles: Record<string, TownProfile> = {
       { label: "Property tax rate", value: "$10.83", note: "per $1,000, residential, FY2026" },
     ],
     feel: [
-      "Needham Center is built around the Town Common, where the town hall, dedicated in 1903, stands. The town has four stations on the MBTA Needham Line, at Needham Heights, Needham Center, Needham Junction and Hersey.",
+      "Needham Center is built around the Town Common and town hall, with shops and restaurants nearby, and Needham Heights has a second business district along Highland Avenue. The town has four stations on the MBTA Needham Line, at Needham Heights, Needham Center, Needham Junction and Hersey.",
       "The Charles River forms nearly all of the town's southern and northeastern boundaries, with Cutler Park along the river. Olin College of Engineering has its campus in Needham, and office parks sit along I-95/Route 128, which has three exits in town.",
     ],
     highlights: [
@@ -143,7 +143,7 @@ export const batch2Profiles: Record<string, TownProfile> = {
       { label: "Property tax rate", value: "$10.88", note: "per $1,000, residential, FY2026" },
     ],
     feel: [
-      "Weston's town center is built around the Town Green, with the Town Hall, completed in 1917, facing it. The Boston Post Road Historic District runs along Route 20 and includes the Golden Ball Tavern, now a museum.",
+      "Weston's town center is built around the Town Green, with the Town Hall facing it and a small cluster of shops nearby. Route 20, the old Boston Post Road, runs through a historic district that includes the Golden Ball Tavern museum.",
       "Conservation land covers more than 2,000 acres, about 18 percent of the town, with trails throughout. The Weston Reservoir, the aqueduct paths, the Case Estates and the Mass Central Rail Trail–Wayside are all in town.",
     ],
     highlights: [
@@ -179,8 +179,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       { label: "Property tax rate", value: "$14.27", note: "per $1,000, residential, FY2026" },
     ],
     feel: [
-      "Sudbury was incorporated in 1639, and Sudbury Center keeps a historic district around its town common. In the south of town, Longfellow's Wayside Inn, which claims to be the country's oldest operating inn, sits beside a grist mill and the Martha-Mary Chapel that Henry Ford built there after he bought the inn in 1923, and the Redstone Schoolhouse he moved to the site.",
-      "Much of the town is open land. Great Meadows National Wildlife Refuge lines the Sudbury River, Nobscot Hill holds the town's highest point, and the Mass Central Rail Trail–Wayside crosses town on a 7.6-mile paved section. Most of the town's businesses are along Route 20.",
+      "Sudbury is a large, wooded town of conservation land, wetlands and old farms, with a historic town center around its common and most of its shops and businesses along Route 20. Great Meadows National Wildlife Refuge lines the Sudbury River on the east side of town, and Nobscot Hill rises in the south.",
+      "The Mass Central Rail Trail–Wayside crosses town on a 7.6-mile paved section, and conservation land has trails throughout. In South Sudbury, Longfellow's Wayside Inn still serves meals and rents rooms, with a working grist mill on its grounds. Sudbury has no commuter rail station; Routes 20 and 117 lead toward I-95 and I-495.",
     ],
     highlights: [
       { icon: "history", title: "Longfellow's Wayside Inn", text: "An inn serving meals and lodging since the early 1700s, named for Longfellow's Tales of a Wayside Inn." },
@@ -216,8 +216,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       { label: "Property tax rate", value: "$14.83", note: "per $1,000, residential, FY2026" },
     ],
     feel: [
-      "Wayland was incorporated in 1780 as East Sudbury and took the name Wayland in 1835. The town has two centers: Wayland Center, where Routes 20, 27 and 126 meet, and the village of Cochituate to the south, near Lake Cochituate.",
-      "The Sudbury River runs about 10 miles through town, and its meadows have been left in their natural state. The town beach and boat launch are on Lake Cochituate, the Mass Central Rail Trail–Wayside ends in Wayland Center, and conservation land across town has trails, some open to horseback riding.",
+      "Wayland is a wooded town with two centers: Wayland Center, where Routes 20, 27 and 126 meet, and the village of Cochituate to the south, near Lake Cochituate. The Sudbury River runs about 10 miles through town, with its meadows left in their natural state.",
+      "The town beach and boat launch are on Lake Cochituate, the Mass Central Rail Trail–Wayside ends in Wayland Center, and conservation land across town has trails, some open to horseback riding. There is no commuter rail station; Routes 20 and 30 are the main roads east toward Boston.",
     ],
     highlights: [
       { icon: "river", title: "Sudbury River", text: "About 10 miles of river and meadows running through town." },
@@ -293,8 +293,8 @@ export const batch2Profiles: Record<string, TownProfile> = {
       { label: "Property tax rate", value: "$10.32", note: "per $1,000, residential, FY2026" },
     ],
     feel: [
-      "Waltham grew up around its mills on the Charles River. The Boston Manufacturing Company, the first integrated textile mill in the United States, opened here, and the city's later watchmaking industry gave it the nickname the Watch City.",
-      "Downtown runs along Main Street and Moody Street, known for its long stretch of restaurants, and the Charles River Riverwalk follows the river through the center of the city. Brandeis University and Bentley University have their campuses in Waltham.",
+      "Waltham is a small city on the Charles River, with a lively downtown along Main Street and Moody Street, neighborhoods on the hills around it, and office parks along Route 128.",
+      "Moody Street is known for its long stretch of restaurants, and the Charles River Riverwalk follows the river through the center of the city. Gore Place and the Lyman Estate have grounds open to visitors, Brandeis University and Bentley University have their campuses here, and the city has two commuter rail stations on the Fitchburg Line.",
     ],
     highlights: [
       { icon: "river", title: "Charles River Riverwalk", text: "A path along the Charles River through downtown Waltham." },

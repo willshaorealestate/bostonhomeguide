@@ -18,13 +18,13 @@ export const batch9Profiles: Record<string, TownProfile> = {
       pop("675,647"),
       { label: "Size", value: "89.6 sq mi", note: "48.3 sq mi of land" },
       { label: "Neighborhoods", value: "23" },
-      { label: "Incorporated", value: "1630", note: "as a town; a city since 1822" },
+      { label: "Incorporated", value: "1630", note: "a city since 1822" },
       { label: "Government", value: "Mayor and City Council" },
       tax("$12.40"),
     ],
     feel: [
-      "Boston was founded in 1630 and became a city in 1822. It is made up of 23 neighborhoods, from the historic North End, Beacon Hill and Back Bay to Jamaica Plain, Roslindale and West Roxbury, each with its own main streets and character. Boston Common, set aside in 1634, is the oldest public park in the country, and the Freedom Trail links 16 Revolutionary-era sites.",
-      "Green space runs through the city: the Emerald Necklace, a chain of parks designed by Frederick Law Olmsted, stretches from the Common to Franklin Park, and the Charles River Esplanade follows the river along Back Bay. Every MBTA subway line runs through Boston, along with commuter rail from North and South stations and Logan Airport in East Boston.",
+      "Boston is a city of 23 neighborhoods, each with its own main streets and feel: the historic North End and Beacon Hill, Back Bay's brownstones, the waterfront Seaport, and neighborhoods with more yards and space such as Jamaica Plain, Roslindale and West Roxbury.",
+      "Green space runs through the city: Boston Common, the Emerald Necklace of parks from the Common to Franklin Park, and the Charles River Esplanade along Back Bay. Every MBTA subway line runs through Boston, with commuter rail from North and South stations and Logan Airport in East Boston.",
     ],
     highlights: [
       { icon: "history", title: "Freedom Trail", text: "A walking route linking 16 Revolutionary-era sites, starting at Boston Common." },
@@ -50,13 +50,12 @@ export const batch9Profiles: Record<string, TownProfile> = {
     glance: [
       { label: "Part of", value: "City of Boston", note: "two neighborhoods, Allston and Brighton" },
       from(5, "west"),
-      { label: "Incorporated", value: "1807", note: "as the town of Brighton; part of Boston since 1874" },
       { label: "Government", value: "Boston Mayor and City Council" },
       tax("$12.40"),
     ],
     feel: [
-      "Brighton was its own town from 1807 until Boston annexed it in 1874. Allston, its eastern section, took its name in 1868 from the painter Washington Allston, when the railroad depot there opened. Today the two Boston neighborhoods are still known together as Allston-Brighton.",
-      "Allston Village, along Harvard Avenue and Brighton Avenue, is packed with restaurants and shops. Brighton has the Brighton Center Historic District, Oak Square and Cleveland Circle, part of Boston College's campus, and the path around the Chestnut Hill Reservoir. Boston Landing, home to the commuter rail stop and New Balance's headquarters, sits beside the Mass Pike.",
+      "Allston-Brighton is Boston's northwest corner, bordered by the Charles River, Brookline and Newton, with neighborhood centers at Allston Village, Union Square, Brighton Center, Oak Square and Cleveland Circle.",
+      "Allston Village, along Harvard and Brighton avenues, is packed with restaurants, shops and music venues, and the Allston Village Street Fair takes over Harvard Avenue each year. The path around the Chestnut Hill Reservoir and the Charles River bike path are local favorites, and Boston Landing has a commuter rail stop beside the Mass Pike.",
     ],
     highlights: [
       { icon: "store", title: "Allston Village", text: "Restaurants and shops along Harvard and Brighton avenues." },
@@ -64,7 +63,9 @@ export const batch9Profiles: Record<string, TownProfile> = {
       { icon: "river", title: "Chestnut Hill Reservoir", text: "A popular walking and running loop near Cleveland Circle." },
       { icon: "river", title: "Charles River", text: "Separates Allston-Brighton from Cambridge and Watertown." },
     ],
-    events: [],
+    events: [
+      { name: "Allston Village Street Fair", when: "Yearly", text: "Live music, food and local businesses on Harvard Avenue." },
+    ],
     gettingAround: [
       "MBTA Green Line B branch along Commonwealth Avenue; C and D branches at Cleveland Circle and Reservoir",
       "MBTA Framingham/Worcester Line at Boston Landing",
@@ -84,13 +85,13 @@ export const batch9Profiles: Record<string, TownProfile> = {
       pop("118,403"),
       { label: "Size", value: "7.1 sq mi" },
       from(4, "west-northwest"),
-      { label: "Incorporated", value: "1636", note: "founded 1630; a city since 1846" },
+      { label: "Incorporated", value: "1636", note: "a city since 1846" },
       { label: "Government", value: "City Manager and City Council", note: "the council elects the mayor" },
       tax("$6.95", "FY2027"),
     ],
     feel: [
-      "Cambridge was founded in 1630, and George Washington took command of the Continental Army on Cambridge Common in July 1775. Harvard, founded here in 1636, is the oldest university in the country, and MIT's campus runs along the Charles River. Kendall Square, next to MIT, is one of the world's densest clusters of biotech and technology companies.",
-      "The city is organized around its squares, among them Harvard, Central, Kendall, Porter and Inman, and it officially has 13 neighborhoods. Fresh Pond Reservation, with 162 acres of land around a kettle-hole lake, is its largest green space, and Mount Auburn Cemetery, the country's first garden cemetery, sits on the western edge.",
+      "Cambridge is a dense, walkable city on the Charles River organized around its squares, including Harvard, Central, Kendall, Porter and Inman, with 13 neighborhoods between them.",
+      "Each square has its own mix of restaurants, bars, music venues and shops, and Harvard and MIT anchor the city with museums open to the public. Fresh Pond Reservation, with a path around a 155-acre lake, is the largest green space, Mount Auburn Cemetery is a landscaped garden and arboretum, and the Red Line links most of the squares.",
     ],
     highlights: [
       { icon: "school", title: "Harvard and MIT", text: "Harvard, founded in 1636, and MIT, along the Charles River." },
@@ -114,13 +115,13 @@ export const batch9Profiles: Record<string, TownProfile> = {
       pop("81,045"),
       { label: "Size", value: "4.2 sq mi" },
       from(2, "northwest"),
-      { label: "Incorporated", value: "1842", note: "formerly part of Charlestown; a city since 1872" },
+      { label: "Incorporated", value: "1842", note: "a city since 1872" },
       { label: "Government", value: "Mayor and City Council" },
       tax("$10.98"),
     ],
     feel: [
-      "Somerville separated from Charlestown in 1842 and became a city in 1872. It is the most densely populated municipality in New England, built as a streetcar suburb on a series of drumlins known as the \"Seven Hills.\" Life in the city centers on its squares, including Davis, Union, Ball and Assembly.",
-      "Davis Square is home to the Somerville Theatre, and Assembly Row on the Mystic River has shops, restaurants and an Orange Line station. Every May, Porchfest brings around 200 bands to front porches across the city, and the Community Path links Davis Square toward the Minuteman Bikeway and the new Green Line stations.",
+      "Somerville is a dense, walkable city of hills and squares just north of Cambridge. Instead of one downtown, its shops and restaurants are spread across squares such as Davis, Union, Ball, Magoun and Assembly.",
+      "Davis Square has the Somerville Theatre and live music, and Assembly Row on the Mystic River has shops, restaurants and an Orange Line stop. Every May, Porchfest brings around 200 bands to porches across the city, and the Community Path and the new Green Line stations link the squares.",
     ],
     highlights: [
       { icon: "store", title: "Davis Square", text: "Shops, restaurants and the Somerville Theatre, on the Red Line." },
@@ -147,13 +148,13 @@ export const batch9Profiles: Record<string, TownProfile> = {
       pop("63,191"),
       { label: "Size", value: "6.8 sq mi" },
       from(5, "southwest"),
-      { label: "Incorporated", value: "1705", note: "formerly the Boston hamlet of Muddy River" },
+      { label: "Incorporated", value: "1705" },
       { label: "Government", value: "Representative Town Meeting", note: "with a Select Board and Town Administrator" },
       tax("$10.24"),
     ],
     feel: [
-      "Brookline was the Boston hamlet of Muddy River until it became its own town in 1705. North of Route 9 (Boylston Street), it is urban and walkable, with business districts at Coolidge Corner and Brookline Village; the south of town is more open, with large parks and estates.",
-      "Three branches of the Green Line serve the town. The birthplace of John F. Kennedy and Fairsted, the home office of landscape architect Frederick Law Olmsted, are both national historic sites in Brookline, and Larz Anderson Park has wide lawns and the country's oldest automobile collection.",
+      "Brookline is two places in one: north of Route 9 (Boylston Street) it is urban and walkable, with business districts at Coolidge Corner and Brookline Village on the Green Line; to the south it opens up into larger lots, parks and golf courses.",
+      "Coolidge Corner has the Coolidge Corner Theatre, shops and restaurants, and Brookline Village has the Puppet Showplace Theater across from its Green Line stop. Larz Anderson Park has hilltop lawns and an auto museum, and the John F. Kennedy birthplace and Olmsted's Fairsted are both open to visitors.",
     ],
     highlights: [
       { icon: "store", title: "Coolidge Corner", text: "A business district around the Coolidge Corner Theatre on Beacon Street." },
@@ -177,19 +178,19 @@ export const batch9Profiles: Record<string, TownProfile> = {
       pop("26,377"),
       { label: "Size", value: "11.9 sq mi" },
       from(12, "northwest"),
-      { label: "Incorporated", value: "1799", note: "formerly part of Woburn" },
+      { label: "Incorporated", value: "1799" },
       { label: "Government", value: "Representative Town Meeting", note: "with a Select Board and Town Administrator" },
       tax("$8.69"),
     ],
     feel: [
-      "Burlington was settled in 1641 and set off from Woburn in 1799. Several early homesteads still stand, including the Francis Wyman House from 1666. The Town Common and Simonds Park are in the center of town, with the public library and the 18th-century meeting house nearby.",
-      "Route 128 (I-95) and Route 3 meet in Burlington. The Burlington Sculpture Park sits across from the Common, and the Mill Pond Conservation Area, the town's largest, has trails for hiking and biking on the east side of town.",
+      "Burlington is a suburban town where Route 128 and Route 3 meet, with the Town Common and Simonds Park at its center, neighborhoods around them, and large shopping and office areas near the highways, including the Burlington Mall.",
+      "Simonds Park has fields, courts and a playground next to the library, the Burlington Sculpture Park sits across from the Common, and the Mill Pond Conservation Area has trails for hiking and biking. The town has an indoor ice rink and a skatepark, and B-Line and MBTA buses run through town.",
     ],
     highlights: [
       { icon: "history", title: "Town Common and Simonds Park", text: "The center of town, with fields, courts and the library nearby." },
       { icon: "museum", title: "Burlington Sculpture Park", text: "Sculptures from around the world, with a picnic area, across from the Common." },
       { icon: "tree", title: "Mill Pond Conservation Area", text: "The town's largest conservation area, with hiking and biking trails." },
-      { icon: "history", title: "Francis Wyman House", text: "A homestead from 1666." },
+      { icon: "store", title: "Burlington Mall", text: "A regional shopping mall at Route 128." },
     ],
     events: [],
     gettingAround: [
@@ -212,8 +213,8 @@ export const batch9Profiles: Record<string, TownProfile> = {
       tax("$12.20"),
     ],
     feel: [
-      "Watertown was one of the first Massachusetts Bay Colony settlements, organized in 1630. Watertown Square, where the town grew up beside the Charles River, is still its center, and its neighborhoods include Bemis, Coolidge Square, East Watertown and the West End.",
-      "The Watertown Arsenal produced armaments from 1816 through World War II. Its riverside grounds now include Arsenal Park and the Mosesian Center for the Arts, home of the New Repertory Theatre. The Armenian Library and Museum of America and the Perkins School for the Blind are also in Watertown.",
+      "Watertown is a compact city along the Charles River, with Watertown Square at its center and neighborhoods such as Coolidge Square, East Watertown, Bemis and the West End.",
+      "The former Arsenal along the river is now a center for shopping, dining and the arts, with Arsenal Park and the Mosesian Center for the Arts, home of the New Repertory Theatre. Paths follow the Charles toward Boston, the Armenian Library and Museum of America is on Main Street, and MBTA buses run from Watertown Square and Watertown Yard.",
     ],
     highlights: [
       { icon: "store", title: "Watertown Square", text: "The city's center on the Charles River." },

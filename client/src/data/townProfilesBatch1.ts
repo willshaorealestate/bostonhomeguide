@@ -254,7 +254,7 @@ export const batch1Profiles: Record<string, TownProfile> = {
     ],
     feel: [
       "Arlington sits about six miles northwest of Boston, between Cambridge and Lexington. Its main neighborhoods are Arlington Center, East Arlington and Arlington Heights, each with its own shops and restaurants along Massachusetts Avenue.",
-      "Spy Pond and the Mystic Lakes border the town, and the Minuteman Bikeway runs through it, connecting to the Red Line at Alewife. The history goes back to 1635, when the area was settled as Menotomy.",
+      "Spy Pond and the Mystic Lakes border the town, and the Minuteman Bikeway runs through it, connecting to the Red Line at Alewife. Robbins Farm Park in Arlington Heights has wide views of the Boston skyline.",
     ],
     highlights: [
       { icon: "river", title: "Spy Pond", text: "A large pond near Arlington Center, next to the Minuteman Bikeway." },
