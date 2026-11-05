@@ -1,5 +1,5 @@
 /*
- * townProfilesBatch9.ts — Boston, Allston-Brighton, Cambridge, Somerville and Brookline (city-level
+ * townProfilesBatch9.ts — Boston, Cambridge, Somerville and Brookline (city-level
  * profiles; neighborhood-by-neighborhood pages can come later), plus Burlington and Watertown, which
  * are ready for when those towns get pages. Same rules and sources as townProfilesBatch3.ts.
  */
@@ -23,7 +23,8 @@ export const batch9Profiles: Record<string, TownProfile> = {
       tax("$12.40"),
     ],
     feel: [
-      "Boston is a city of 23 neighborhoods, each with its own main streets and feel: the historic North End and Beacon Hill, Back Bay's brownstones, the waterfront Seaport, and neighborhoods with more yards and space such as Jamaica Plain, Roslindale and West Roxbury.",
+      "Boston is a city of 23 neighborhoods, each with its own main streets and feel: Allston, Back Bay, Bay Village, Beacon Hill, Brighton, Charlestown, Chinatown, Dorchester, Downtown, East Boston, the Fenway, Hyde Park, Jamaica Plain, Mattapan, Mission Hill, the North End, Roslindale, Roxbury, South Boston, the South Boston Waterfront (the Seaport), the South End, the West End and West Roxbury.",
+      "They range from the brick streets of Beacon Hill and the North End and the brownstones of Back Bay and the South End to neighborhoods with more yards and green space, such as Jamaica Plain, Roslindale, West Roxbury and Hyde Park. Allston and Brighton sit along the Charles River on the city's northwest side, and East Boston and Charlestown look across the harbor at downtown.",
       "Green space runs through the city: Boston Common, the Emerald Necklace of parks from the Common to Franklin Park, and the Charles River Esplanade along Back Bay. Every MBTA subway line runs through Boston, with commuter rail from North and South stations and Logan Airport in East Boston.",
     ],
     highlights: [
@@ -45,39 +46,6 @@ export const batch9Profiles: Record<string, TownProfile> = {
     sources: [{ label: "Boston (Wikipedia): census, area, history, neighborhoods, parks, transportation", url: "https://en.wikipedia.org/wiki/Boston" }, DOR_TAX],
   },
 
-  "allston-brighton": {
-    tagline: "Boston's northwest corner, from Brighton Center and Oak Square to Allston Village and the Charles",
-    glance: [
-      { label: "Part of", value: "City of Boston", note: "two neighborhoods, Allston and Brighton" },
-      from(5, "west"),
-      { label: "Government", value: "Boston Mayor and City Council" },
-      tax("$12.40"),
-    ],
-    feel: [
-      "Allston-Brighton is Boston's northwest corner, bordered by the Charles River, Brookline and Newton, with neighborhood centers at Allston Village, Union Square, Brighton Center, Oak Square and Cleveland Circle.",
-      "Allston Village, along Harvard and Brighton avenues, is packed with restaurants, shops and music venues, and the Allston Village Street Fair takes over Harvard Avenue each year. The path around the Chestnut Hill Reservoir and the Charles River bike path are local favorites, and Boston Landing has a commuter rail stop beside the Mass Pike.",
-    ],
-    highlights: [
-      { icon: "store", title: "Allston Village", text: "Restaurants and shops along Harvard and Brighton avenues." },
-      { icon: "history", title: "Brighton Center Historic District", text: "The historic center of the former town of Brighton." },
-      { icon: "river", title: "Chestnut Hill Reservoir", text: "A popular walking and running loop near Cleveland Circle." },
-      { icon: "river", title: "Charles River", text: "Separates Allston-Brighton from Cambridge and Watertown." },
-    ],
-    events: [
-      { name: "Allston Village Street Fair", when: "Yearly", text: "Live music, food and local businesses on Harvard Avenue." },
-    ],
-    gettingAround: [
-      "MBTA Green Line B branch along Commonwealth Avenue; C and D branches at Cleveland Circle and Reservoir",
-      "MBTA Framingham/Worcester Line at Boston Landing",
-      "Mass Pike and MBTA bus routes",
-    ],
-    photos: [],
-    sources: [
-      { label: "Allston (Wikipedia): history, culture, transportation", url: "https://en.wikipedia.org/wiki/Allston,_Boston" },
-      { label: "Brighton (Wikipedia): history, geography, transportation", url: "https://en.wikipedia.org/wiki/Brighton,_Boston" },
-      DOR_TAX,
-    ],
-  },
 
   cambridge: {
     tagline: "Harvard, MIT and Kendall Square, with a string of squares on the Red Line",
