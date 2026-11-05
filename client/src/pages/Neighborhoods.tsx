@@ -3,6 +3,7 @@
  * Neighborhood Guides index + individual town pages
  */
 import { useState, useEffect, lazy, Suspense } from "react";
+import TownMap, { useTownMap } from "@/components/TownMap";
 import { Link, useParams } from "wouter";
 import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -92,6 +93,7 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
     const left = ["Q1", "Q2", "Q3", "Q4"].filter((q) => !done.has(q)).map((q) => names[q]);
     return left.length ? left.join(", ") : "";
   })();
+  const townMap = useTownMap(neighborhood?.slug ?? "");
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   useSEO({
@@ -505,26 +507,32 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
                 </div>
               )}
 
-              {/* Nearby towns */}
+              {/* Nearby towns: a clickable map when the town has one, otherwise a list */}
               <div className="bg-[#F4F6F8] rounded-2xl p-6 border border-gray-100">
                 <h3 className="text-[#0D2137] font-bold text-base mb-3">
                   Explore Nearby Towns
                 </h3>
-                <div className="flex flex-wrap gap-2">
-                  {(neighborhood.nearby ?? [])
-                    .map((nearSlug) => allNeighborhoods.find((n) => n.slug === nearSlug))
-                    .filter((n): n is typeof allNeighborhoods[0] => !!n)
-                    .slice(0, 6)
-                    .map((n) => (
-                      <Link
-                        key={n.slug}
-                        href={`/neighborhoods/${n.slug}`}
-                        className="text-xs text-[#0D2137] bg-white border border-gray-200 px-3 py-1.5 rounded-xl hover:border-[#0D2137] hover:text-[#1A3A5C] transition-colors font-body"
-                      >
-                        {n.name}
-                      </Link>
-                    ))}
-                </div>
+                {townMap ? (
+                  <TownMap data={townMap} townName={neighborhood.name} />
+                ) : townMap === undefined ? (
+                  <div className="w-full aspect-[5/4] rounded-xl bg-white" aria-hidden="true" />
+                ) : (
+                  <div className="flex flex-wrap gap-2">
+                    {(neighborhood.nearby ?? [])
+                      .map((nearSlug) => allNeighborhoods.find((n) => n.slug === nearSlug))
+                      .filter((n): n is typeof allNeighborhoods[0] => !!n)
+                      .slice(0, 6)
+                      .map((n) => (
+                        <Link
+                          key={n.slug}
+                          href={`/neighborhoods/${n.slug}`}
+                          className="text-xs text-[#0D2137] bg-white border border-gray-200 px-3 py-1.5 rounded-xl hover:border-[#0D2137] hover:text-[#1A3A5C] transition-colors font-body"
+                        >
+                          {n.name}
+                        </Link>
+                      ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
