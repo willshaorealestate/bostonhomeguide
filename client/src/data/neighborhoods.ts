@@ -264,7 +264,7 @@ export const allNeighborhoods: Neighborhood[] = [
     description: "A small city on the Charles River, with Watertown Square, the Arsenal grounds and the Mosesian Center for the Arts.",
     highlights: ["Watertown Square", "Charles River paths", "Arsenal Park", "Mosesian Center for the Arts"],
     img: "/images/towns/watertown-house.jpeg",
-    imgPosition: "center 4%",
+    imgPosition: "center 30%",
     nearby: ["newton", "waltham", "belmont", "cambridge", "boston"],
     resources: [
       { label: "City Website", url: "https://www.watertown-ma.gov" },
