@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import {
   CheckCircle, Home, FileText, Key, Search, DollarSign,
-  Calendar, ChevronDown, ChevronUp, ArrowRight, Phone
+  Calendar, ChevronDown, ChevronUp, ArrowRight, Phone, Scale, Landmark
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -89,8 +89,8 @@ const buyingSteps = [
     title: "Closing Day & Celebration!",
     icon: Key,
     description:
-      "This is what you've been working toward! Your attorney handles the closing table while Will and his team are with you to make sure everything goes smoothly. Sign the final documents, hand over your funds, and get the keys to your new home. Time to celebrate! 🎉",
-    tips: ["Attorney handles all closing documents", "Bring a certified check or wire funds in advance", "🎉 Celebrate — you're a homeowner!"],
+      "This is what you've been working toward! Your attorney handles the closing table while Will and his team are with you to make sure everything goes smoothly. Sign the final documents, hand over your funds, and get the keys to your new home. Time to celebrate!",
+    tips: ["Attorney handles all closing documents", "Bring a certified check or wire funds in advance", "Celebrate — you're a homeowner!"],
   },
 ];
 
@@ -115,6 +115,14 @@ const faqs = [
     q: "Can Will help Mandarin-speaking buyers?",
     a: "Yes. Will can conduct his part of the process in Mandarin, and works with a network of fluent Mandarin-speaking attorneys and lenders who can explain the financing and legal aspects of the transaction in detail. Mandarin-speaking buyers are well supported throughout the entire process.",
   },
+];
+
+// Who leads each stage of a Massachusetts purchase (the "How We Guide You Home" section)
+const handoffs = [
+  { who: "Will & Team", stage: "Search, Offer & Inspections", text: "We find the home, craft a strong offer and guide you through inspections and due diligence.", icon: Search, lead: true },
+  { who: "Your Attorney", stage: "Purchase & Sale Agreement", text: "Your attorney prepares and reviews the binding P&S contract.", icon: Scale, lead: false },
+  { who: "Your Lender", stage: "Mortgage Commitment", text: "Your lender takes the lead on securing your mortgage commitment.", icon: Landmark, lead: false },
+  { who: "Your Attorney", stage: "Closing", text: "Your attorney handles the closing, and you walk away with the keys.", icon: Key, lead: false },
 ];
 
 export default function BuyerPage() {
@@ -262,61 +270,33 @@ export default function BuyerPage() {
               Buying a home is a team effort — like a relay race where every handoff matters.
             </p>
 
-            {/* Relay Race Visual */}
-            <div className="max-w-4xl mx-auto mb-14">
-              <div className="flex flex-col md:flex-row items-stretch gap-0">
+            {/* Who leads each stage: four numbered stages joined by a line */}
+            <ol className="relative max-w-5xl mx-auto mb-6 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5 text-left">
+              {/* Connector line behind the step badges (desktop) */}
+              <span aria-hidden="true" className="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] h-px bg-[#0D2137]/15" />
+              {handoffs.map((h, i) => {
+                const Icon = h.icon;
+                return (
+                  <li key={h.stage} className="relative bg-white rounded-2xl border border-[#E6E9ED] p-6 md:pt-0 md:px-5 md:pb-6 md:bg-transparent md:border-0">
+                    <div className="flex md:flex-col items-center gap-4 md:gap-0">
+                      <div className={`relative shrink-0 w-14 h-14 rounded-full flex items-center justify-center ring-4 ring-white md:ring-[#F7F8FA] ${h.lead ? "bg-[#0D2137] text-[#C89B3C]" : "bg-white text-[#0D2137] border border-[#D5DCE5]"}`}>
+                        <Icon className="w-6 h-6" strokeWidth={1.75} />
+                        <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#C89B3C] text-white text-xs font-bold font-body flex items-center justify-center">{i + 1}</span>
+                      </div>
+                      <div className="md:text-center md:mt-4">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#C89B3C] font-body">{h.who}</p>
+                        <p className="font-display font-bold text-lg text-[#0D2137] leading-snug mt-1">{h.stage}</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm font-body leading-relaxed mt-3 md:text-center">{h.text}</p>
+                  </li>
+                );
+              })}
+            </ol>
 
-                {/* Agent */}
-                <div className="flex-1 bg-[#0D2137] text-white rounded-t-lg md:rounded-l-lg md:rounded-tr-none p-6 text-center">
-                  <div className="text-3xl mb-2">🏃</div>
-                  <p className="font-display font-bold text-lg mb-1">Will & Team</p>
-                  <p className="text-white/60 text-sm font-body mb-3">Search → Offer → Inspections</p>
-                  <p className="text-white/80 text-sm font-body leading-relaxed">We find the home, craft the winning offer, and guide you through due diligence.</p>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex items-center justify-center bg-[#C89B3C] px-3 py-2 md:py-0">
-                  <span className="text-white font-bold text-lg rotate-90 md:rotate-0">→</span>
-                </div>
-
-                {/* Attorney - P&S */}
-                <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
-                  <div className="text-3xl mb-2">⚖️</div>
-                  <p className="font-display font-bold text-lg mb-1">Attorney</p>
-                  <p className="text-white/60 text-sm font-body mb-3">Purchase & Sale Agreement</p>
-                  <p className="text-white/80 text-sm font-body leading-relaxed">Your attorney prepares and reviews the binding P&S contract.</p>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex items-center justify-center bg-[#C89B3C] px-3 py-2 md:py-0">
-                  <span className="text-white font-bold text-lg rotate-90 md:rotate-0">→</span>
-                </div>
-
-                {/* Lender */}
-                <div className="flex-1 bg-[#1A3A5C] text-white p-6 text-center">
-                  <div className="text-3xl mb-2">🏦</div>
-                  <p className="font-display font-bold text-lg mb-1">Lender</p>
-                  <p className="text-white/60 text-sm font-body mb-3">Mortgage Commitment</p>
-                  <p className="text-white/80 text-sm font-body leading-relaxed">Your lender takes the lead to secure your mortgage commitment.</p>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex items-center justify-center bg-[#C89B3C] px-3 py-2 md:py-0">
-                  <span className="text-white font-bold text-lg rotate-90 md:rotate-0">→</span>
-                </div>
-
-                {/* Attorney - Closing */}
-                <div className="flex-1 bg-[#1A3A5C] text-white rounded-b-lg md:rounded-r-lg md:rounded-bl-none p-6 text-center">
-                  <div className="text-3xl mb-2">🎉</div>
-                  <p className="font-display font-bold text-lg mb-1">Attorney</p>
-                  <p className="text-white/60 text-sm font-body mb-3">Closing Table</p>
-                  <p className="text-white/80 text-sm font-body leading-relaxed">Your attorney handles the closing. You walk away with the keys.</p>
-                </div>
-
-              </div>
-
+            <div className="max-w-5xl mx-auto mb-14">
               {/* Guide thread */}
-              <div className="mt-4 bg-[#F4F6F8] border border-[#0D2137]/30 rounded-2xl px-6 py-4 text-center">
+              <div className="bg-white border border-[#E6E9ED] rounded-2xl px-6 py-4 text-center">
                 <p className="text-[#0D2137] font-body text-sm">
                   <span className="font-semibold text-[#0D2137]">Will & his team</span> guide you through every handoff — keeping the process on track from the first showing all the way to the closing table.
                 </p>
