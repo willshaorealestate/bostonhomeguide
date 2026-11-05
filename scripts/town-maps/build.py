@@ -144,13 +144,16 @@ def main(shp_path):
             return affinity.rotate(r, angle, origin=(x, y)) if angle else r
 
         def spots(gs):
-            """Points well inside the shape, roomiest first."""
+            """Points inside the shape, nearest the middle of its visible part first, so each name sits
+            centered in its town; the fitting loop then takes the most central point where the name fits."""
             polys = [p for p in getattr(gs, "geoms", [gs]) if p.geom_type == "Polygon" and not p.is_empty]
             if not polys:
                 return []
-            pts = [polylabel(max(polys, key=lambda p: p.area), tolerance=0.5)]
+            main = max(polys, key=lambda p: p.area)
+            center = main.centroid if main.contains(main.centroid) else polylabel(main, tolerance=0.5)
+            pts = [center]
             x0, y0, x1, y1 = gs.bounds
-            step = max(3.0, min(x1 - x0, y1 - y0) / 12)
+            step = max(2.5, min(x1 - x0, y1 - y0) / 16)
             y = y0 + step / 2
             while y < y1:
                 x = x0 + step / 2
@@ -160,9 +163,8 @@ def main(shp_path):
                         pts.append(pt)
                     x += step
                 y += step
-            bnd = gs.boundary
-            pts.sort(key=lambda pt: -bnd.distance(pt))
-            return pts[:40]
+            pts.sort(key=lambda pt: pt.distance(center))
+            return pts[:160]
 
         out_shapes, placed = [], []
         has_page = lambda j: by_name.get(names[j].upper()) is not None
