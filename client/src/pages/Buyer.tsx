@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import {
   CheckCircle, Home, FileText, Key, Search, DollarSign,
-  Calendar, ChevronDown, ChevronUp, ArrowRight, Phone, Scale, Landmark
+  Calendar, ChevronDown, ChevronUp, ArrowRight, Phone, Scale, Landmark, Award, Handshake, MessagesSquare
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -235,12 +235,14 @@ export default function BuyerPage() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: "🏆", title: "Nearly 20 Years of Expertise", desc: "Deep knowledge of every neighborhood, school district, and market trend across Greater Boston's most sought-after towns." },
-              { icon: "🤝", title: "Buyer-First Advocacy", desc: "As your dedicated buyer's agent, Will represents only your interests — never the seller's. Your goals come first." },
-              { icon: "🗣️", title: "Clear Communication", desc: "Will keeps you informed at every step — plain-language explanations, no jargon, and always available to answer questions." },
+              { icon: Award, title: "Nearly 20 Years of Expertise", desc: "Deep knowledge of every neighborhood, school district, and market trend across Greater Boston's most sought-after towns." },
+              { icon: Handshake, title: "Buyer-First Advocacy", desc: "As your dedicated buyer's agent, Will represents only your interests — never the seller's. Your goals come first." },
+              { icon: MessagesSquare, title: "Clear Communication", desc: "Will keeps you informed at every step — plain-language explanations, no jargon, and always available to answer questions." },
             ].map((item) => (
               <div key={item.title} className="text-center p-6 bg-[#F4F6F8] rounded-2xl">
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[#0D2137] text-[#C89B3C] flex items-center justify-center">
+                  <item.icon className="w-6 h-6" strokeWidth={1.75} />
+                </div>
                 <h3
                   className="text-lg font-bold text-[#0D2137] mb-2"
                 >
