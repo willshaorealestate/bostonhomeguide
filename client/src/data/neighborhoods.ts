@@ -263,7 +263,7 @@ export const allNeighborhoods: Neighborhood[] = [
     rail: "None in town",
     description: "A small city on the Charles River, with Watertown Square, the Arsenal grounds and the Mosesian Center for the Arts.",
     highlights: ["Watertown Square", "Charles River paths", "Arsenal Park", "Mosesian Center for the Arts"],
-    img: "/images/towns/watertown.jpeg",
+    img: "/images/towns/watertown-banner.jpeg",
     imgPosition: "center bottom",
     nearby: ["newton", "waltham", "belmont", "cambridge", "boston"],
     resources: [
@@ -641,7 +641,7 @@ export const allNeighborhoods: Neighborhood[] = [
     rail: "None in town",
     description: "A town where Route 128 meets Route 3, with a town common, a sculpture park and the Mill Pond conservation area.",
     highlights: ["Town Common and Simonds Park", "Mill Pond Conservation Area", "Burlington Sculpture Park", "Route 128 and Route 3"],
-    img: "/images/towns/burlington.jpeg",
+    img: "/images/towns/burlington-banner.jpeg",
     imgPosition: "center bottom",
     nearby: ["bedford", "lexington", "woburn", "billerica", "wilmington"],
     resources: [
