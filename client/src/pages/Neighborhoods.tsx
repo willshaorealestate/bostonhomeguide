@@ -607,20 +607,36 @@ export default function NeighborhoodsPage() {
       {/* Filter tabs */}
       <section className="bg-white border-b border-gray-100 sticky top-16 md:top-20 z-30">
         <div className="container py-3 flex items-center gap-3">
-          {regions.map((r) => (
-            <button
-              key={r}
-              onClick={() => setRegion(r)}
-              className={`px-4 py-1.5 rounded-xl text-sm font-body font-medium transition-colors ${
-                region === r
-                  ? "bg-[#0D2137] text-white"
-                  : "bg-[#F4F6F8] text-[#0D2137] hover:bg-gray-100"
-              }`}
+          {/* One line of region chips; on narrow screens the row swipes sideways instead of widening the page */}
+          <div className="relative flex-1 min-w-0">
+            <div
+              className="flex gap-2 overflow-x-auto pr-10 xl:pr-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              role="tablist"
+              aria-label="Filter towns by region"
             >
-              {r}
-            </button>
-          ))}
-          <span className="ml-auto text-sm text-gray-400 font-body">{filtered.length} communities</span>
+              {regions.map((r) => (
+                <button
+                  key={r}
+                  role="tab"
+                  aria-selected={region === r}
+                  onClick={(e) => {
+                    setRegion(r);
+                    e.currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+                  }}
+                  className={`shrink-0 whitespace-nowrap px-4 py-1.5 rounded-xl text-sm font-body font-medium transition-colors ${
+                    region === r
+                      ? "bg-[#0D2137] text-white"
+                      : "bg-[#F4F6F8] text-[#0D2137] hover:bg-gray-100"
+                  }`}
+                >
+                  {r}
+                </button>
+              ))}
+            </div>
+            {/* Fade at the right edge hints that there are more regions to swipe to */}
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent xl:hidden" />
+          </div>
+          <span className="hidden sm:inline shrink-0 text-sm text-gray-400 font-body">{filtered.length} communities</span>
         </div>
       </section>
 
