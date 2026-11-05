@@ -24,14 +24,14 @@ const SELL_IMAGE = "/images/towns/belmont.jpeg"; // same house as the Sell page 
 // Order matters: the first cards get the most attention, especially on phones.
 // Prices (MLS PIN) and high school ranks (Boston Magazine 2026) match client/src/data/neighborhoods.ts.
 const neighborhoods = [
-  { name: "Lexington", medianPrice: "$1.42M", schoolRank: "#3", img: "/images/towns/lexington.jpeg" },
-  { name: "Bedford", medianPrice: "$1.09M", schoolRank: "#14", img: "/images/towns/bedford.jpeg" },
-  { name: "Concord", medianPrice: "$1.44M", schoolRank: "#15", img: "/images/towns/concord.jpeg" },
-  { name: "Acton", medianPrice: "$850K", schoolRank: "#25", img: "/images/towns/acton.jpeg" },
-  { name: "Arlington", medianPrice: "$1.34M", schoolRank: "#23", img: "/images/towns/arlington.jpeg" },
-  { name: "Winchester", medianPrice: "$2.02M", schoolRank: "#27", img: "/images/towns/winchester.jpeg" },
-  { name: "Waltham", medianPrice: "$768K", schoolRank: "#113", img: "/images/towns/waltham.jpeg" },
-  { name: "Cambridge", medianPrice: "$863K", schoolRank: "#62", img: "/images/towns/cambridge.jpeg" },
+  { name: "Lexington", medianPrice: "$1.89M", schoolRank: "#3", img: "/images/towns/lexington.jpeg" },
+  { name: "Bedford", medianPrice: "$921K", schoolRank: "#14", img: "/images/towns/bedford.jpeg" },
+  { name: "Concord", medianPrice: "$1.25M", schoolRank: "#15", img: "/images/towns/concord.jpeg" },
+  { name: "Acton", medianPrice: "$805K", schoolRank: "#25", img: "/images/towns/acton.jpeg" },
+  { name: "Arlington", medianPrice: "$1.05M", schoolRank: "#23", img: "/images/towns/arlington.jpeg" },
+  { name: "Winchester", medianPrice: "$1.56M", schoolRank: "#27", img: "/images/towns/winchester.jpeg" },
+  { name: "Waltham", medianPrice: "$787K", schoolRank: "#113", img: "/images/towns/waltham.jpeg" },
+  { name: "Cambridge", medianPrice: "$1.08M", schoolRank: "#62", img: "/images/towns/cambridge.jpeg" },
 ];
 
 const heroTowns = ["Lexington", "Bedford", "Concord", "Acton", "Arlington"];
