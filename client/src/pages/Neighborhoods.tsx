@@ -4,7 +4,7 @@
  */
 import { useState, useEffect, lazy, Suspense } from "react";
 import TownMap, { useTownMap } from "@/components/TownMap";
-import { Link, useParams } from "wouter";
+import { Link, Redirect, useParams } from "wouter";
 import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -139,6 +139,8 @@ function NeighborhoodDetail({ slug }: { slug: string }) {
     return () => { document.getElementById("breadcrumb-schema")?.remove(); };
   }, [neighborhood]);
 
+  // Allston/Brighton is part of Boston; its old page now goes to the Boston page
+  if (slug === "allston-brighton") return <Redirect to="/neighborhoods/boston" replace />;
   if (!neighborhood) {
     return (
       <div className="min-h-screen bg-white">

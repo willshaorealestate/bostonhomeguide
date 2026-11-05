@@ -6,7 +6,9 @@ import { useLocation } from "wouter";
  * The map files are made once by scripts/town-maps/build.py from MassGIS town boundaries and
  * served from /data/town-maps/<slug>.json (a few KB each), so they stay out of the JS bundle.
  */
-type MapShape = { name: string; slug?: string | null; self: boolean; neighbor: boolean; d: string; label: [number, number] | null };
+/** Label layout chosen by the build script so the name fits inside the town: size, angle and line breaks */
+type MapLabel = { x: number; y: number; size: number; angle: number; lines: string[] };
+type MapShape = { name: string; slug?: string | null; self: boolean; neighbor: boolean; d: string; label: MapLabel | null };
 type TownMapData = { w: number; h: number; shapes: MapShape[] };
 
 const cache = new Map<string, TownMapData | null>();
@@ -26,21 +28,14 @@ export function useTownMap(slug: string) {
   return data; // undefined while loading, null if this town has no map
 }
 
-/** Long two-word names go on two lines so they fit inside their town */
-function labelLines(name: string, self: boolean) {
-  if (self || name.length <= 9 || !name.includes(" ")) return [name];
-  const i = name.indexOf(" ");
-  return [name.slice(0, i), name.slice(i + 1)];
-}
-
-function Label({ shape, x, y }: { shape: MapShape; x: number; y: number }) {
-  const lines = labelLines(shape.name, shape.self);
-  const size = shape.self ? 17 : 13;
+function Label({ shape }: { shape: MapShape }) {
+  const { x, y, size, angle, lines } = shape.label!;
   const fill = shape.self ? "#FFFFFF" : shape.slug ? "#0D2137" : "#9CA3AF";
   return (
     <text
       x={x}
       y={y - ((lines.length - 1) * size * 0.55)}
+      transform={angle ? `rotate(${angle} ${x} ${y})` : undefined}
       textAnchor="middle"
       dominantBaseline="central"
       fontSize={size}
@@ -91,7 +86,7 @@ export default function TownMap({ data, townName }: { data: TownMapData; townNam
           return <path key={s.name} d={s.d} fill="#F4F6F8" stroke="#FFFFFF" strokeWidth={1.5} strokeLinejoin="round" />;
         })}
         {/* Labels last, so no town's fill covers a neighbor's name */}
-        {data.shapes.map((s) => (s.label ? <Label key={`l-${s.name}`} shape={s} x={s.label[0]} y={s.label[1]} /> : null))}
+        {data.shapes.map((s) => (s.label ? <Label key={`l-${s.name}`} shape={s} /> : null))}
       </svg>
       <figcaption className="mt-2 flex items-center justify-between gap-2 text-[11px] text-gray-500 font-body">
         <span className="flex items-center gap-1.5">

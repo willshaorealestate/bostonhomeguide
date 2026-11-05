@@ -17,13 +17,13 @@ export const batch6Profiles: Record<string, TownProfile> = {
       pop("72,362"),
       { label: "Size", value: "26.5 sq mi" },
       from(20, "west"),
-      { label: "Incorporated", value: "1700", note: "as a town; a city since 2018" },
+      { label: "Incorporated", value: "1700", note: "a city since 2018" },
       { label: "Government", value: "Mayor and City Council" },
       tax("$11.83"),
     ],
     feel: [
-      "Framingham was incorporated in 1700 and was the largest town in Massachusetts until it became a city in 2018. It has two historic centers: Framingham Centre, around the town common, and downtown Framingham, around the commuter rail station near Farm Pond.",
-      "Framingham State University, which traces its roots to the country's first public teachers college in 1839, is in Framingham Centre, and the Danforth Art Museum is downtown. The Golden Triangle along Route 9 and Route 30 is one of the region's biggest shopping areas, and Callahan State Park has trails on the city's north side.",
+      "Framingham is a large city with several business districts: downtown around the commuter rail station, the historic Framingham Centre around the common, and the Golden Triangle shopping area along Route 9. Between them are neighborhoods, ponds and parkland, including Farm Pond near downtown and Callahan State Park on the north side.",
+      "Downtown has restaurants and shops with food from many cuisines, city hall in the Memorial Building, the library and the Amazing Things Arts Center, and the commuter rail runs to Boston and Worcester. Framingham State University is in Framingham Centre, Garden in the Woods and the Danforth Art Museum add gardens and art, and Route 9 and the Mass Pike carry most car trips.",
     ],
     highlights: [
       { icon: "history", title: "Framingham Centre Common", text: "The historic common and the buildings around it." },
@@ -47,13 +47,13 @@ export const batch6Profiles: Record<string, TownProfile> = {
       pop("18,832"),
       { label: "Size", value: "12.9 sq mi" },
       from(22, "west-southwest"),
-      { label: "Incorporated", value: "1846", note: "named for Henry Clay's Kentucky estate" },
+      { label: "Incorporated", value: "1846" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board and Town Manager" },
       tax("$12.71"),
     ],
     feel: [
-      "Ashland, once called Unionville, was formed in 1846 from parts of Framingham, Hopkinton and Holliston and named for Henry Clay's estate. The Boston Marathon started in Ashland until the start line moved to Hopkinton in 1924. The town has a stop on the Framingham/Worcester commuter rail line.",
-      "Open land covers a large part of town. Ashland State Park has a reservoir with a beach and a loop trail, part of Hopkinton State Park is in Ashland, and the Ashland Town Forest and Warren Woods have hiking trails.",
+      "Ashland is a suburban town in the hills west of Boston, with a small downtown near the commuter rail station and large areas of state park and town forest. Route 135 runs through the center as part of the Boston Marathon course.",
+      "Ashland State Park has a reservoir with a beach and loop trail, part of Hopkinton State Park offers swimming, boating and riding trails, and the Ashland Town Forest and Warren Woods have hiking trails. A farmers market runs Saturdays from June to October with about two dozen vendors and live music, and the commuter rail station connects to Boston and Worcester.",
     ],
     highlights: [
       { icon: "river", title: "Ashland State Park", text: "A reservoir with a beach, boat launch and loop trail." },
@@ -84,8 +84,8 @@ export const batch6Profiles: Record<string, TownProfile> = {
       tax("$14.10"),
     ],
     feel: [
-      "Hopkinton has been the starting point of the Boston Marathon since 1924, with the start line on Main Street in the town center. The town was incorporated in 1715 on land bought with a fund left by Edward Hopkins for the benefit of Harvard.",
-      "Hopkinton village sits at the center of town on Route 135, and the village of Woodville is a historic district. Hopkinton State Park and Whitehall State Park both grew out of old reservoirs, and I-495 runs north-south through the town.",
+      "Hopkinton is a large, wooded town on hills west of Boston, split east and west by I-495, with a classic New England center at Main Street and the Town Common. Much of the town is woods, reservoirs and state parkland.",
+      "The center, with the library, shops and the common, is where the Boston Marathon starts every April. Hopkinton State Park offers swimming, boat rentals and riding trails, and Whitehall State Park surrounds a former reservoir. There is no commuter rail station in town; Southborough and Ashland stations are nearby.",
     ],
     highlights: [
       { icon: "trail", title: "Boston Marathon start", text: "The start line on Main Street, used every Patriots' Day since 1924." },
@@ -116,8 +116,8 @@ export const batch6Profiles: Record<string, TownProfile> = {
       tax("$15.66"),
     ],
     feel: [
-      "Sherborn was settled in 1652 and incorporated in 1674. Its small town center sits where Routes 16 and 27 cross, and the town shares a regional school system with Dover.",
-      "Most of the town's water is in Farm Pond, and the Charles River runs along its eastern side, where Rocky Narrows Reservation has trails above the river.",
+      "Sherborn is a small rural town of woods, farms and fields, with a tiny town center where Routes 16 and 27 cross. Farm Pond holds most of the town's water, and the Charles River runs along its eastern side.",
+      "Rocky Narrows Reservation has trails and lookouts above the Charles, and Farm Pond is the town's swimming spot. Sherborn shares its school system with Dover, and with no commuter rail station, Routes 16 and 27 are the main way in and out.",
     ],
     highlights: [
       { icon: "river", title: "Farm Pond", text: "The town's largest pond." },
@@ -144,14 +144,14 @@ export const batch6Profiles: Record<string, TownProfile> = {
       tax("$14.29"),
     ],
     feel: [
-      "Holliston was incorporated in 1724 and grew as a string of villages along the Boston and Albany Railroad's Milford line. The old rail bed is now the Upper Charles Trail, and Fiske's General Store, open since 1863, is the oldest business in town.",
-      "The Bogastow Brook Viaduct, known locally as the Arch Bridge, is a stone railroad bridge off Woodland Street. Bullard Farm, settled by one of the town's first families in 1652, and Lake Winthrop are also in Holliston.",
+      "Holliston is a suburban town with a small downtown along Washington Street and a mix of neighborhoods, farmland and woods. Lake Winthrop sits near the center, and the Upper Charles Trail crosses town on an old rail line.",
+      "Downtown has Fiske's General Store, open since 1863, along with local shops and restaurants. Pleasure Point on Lake Winthrop has a beach, picnic area, playground and boat launch, and the lake is open for fishing, kayaking and swimming. The rail trail is used for biking, walking and cross-country skiing, and Pinecrest Golf Club is in town.",
     ],
     highlights: [
       { icon: "store", title: "Fiske's General Store", text: "Founded in 1863, the oldest retail business in town." },
       { icon: "history", title: "Arch Bridge", text: "The stone Bogastow Brook Viaduct, off Woodland Street." },
       { icon: "trail", title: "Upper Charles Trail", text: "A rail trail on the old Milford branch line." },
-      { icon: "farm", title: "Bullard Farm", text: "A homestead established in 1652 and farmed until 1916." },
+      { icon: "river", title: "Pleasure Point", text: "A beach, picnic area, playground and boat launch on Lake Winthrop." },
     ],
     events: [],
     gettingAround: [
@@ -169,13 +169,13 @@ export const batch6Profiles: Record<string, TownProfile> = {
       pop("10,450"),
       { label: "Size", value: "15.7 sq mi" },
       from(24, "west"),
-      { label: "Incorporated", value: "1727", note: "formerly part of Marlborough" },
+      { label: "Incorporated", value: "1727" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board and Town Administrator" },
       tax("$14.36"),
     ],
     feel: [
-      "Southborough split off as the \"south borough\" of Marlborough in 1727. It includes the villages of Cordaville, Fayville and Southville, and its name is often written \"Southboro\" on signs and maps.",
-      "About 35 percent of the town is open space, and a tenth of its area is covered by the Sudbury Reservoir, which has a trail along its shore. The commuter rail stops at Southborough station in Cordaville, and I-495 and the Mass Pike both pass through town.",
+      "Southborough is a town of villages, open space and reservoir land: about 35 percent of the town is open space, and the Sudbury Reservoir covers a tenth of it. Its downtown and the villages of Cordaville, Fayville and Southville sit along Routes 9, 30 and 85.",
+      "School campuses frame the small downtown, and trails such as the Sudbury Reservoir Trail, the Boroughs Loop and Breakneck Hill wind through conservation land. Heritage Day on Columbus Day weekend brings a parade, and Southborough station in Cordaville has commuter trains to Boston and Worcester.",
     ],
     highlights: [
       { icon: "river", title: "Sudbury Reservoir", text: "A reservoir covering a tenth of the town, with a shoreline trail." },
@@ -205,8 +205,8 @@ export const batch6Profiles: Record<string, TownProfile> = {
       tax("$15.93"),
     ],
     feel: [
-      "Westborough sits beside the interchange of I-495 and the Mass Pike. Its town center is a rotary where Route 30 (Main Street) meets Route 135, and the West Main Street Historic District runs west from it. Inventor Eli Whitney was born in Westborough.",
-      "The Sudbury and Assabet rivers both begin in Westborough, and the town has many lakes and ponds. Lake Chauncy is open for swimming, boating and fishing, and Fay Mountain is the town's high point.",
+      "Westborough is a suburban town at the junction of I-495 and the Mass Pike, with a downtown along Route 30 around a rotary at the center and the Route 9 commercial corridor on its north side. Lakes, ponds and reservoirs dot the town, and the Sudbury and Assabet rivers begin here.",
+      "Lake Chauncy has a summer beach for swimming, boating and fishing, and the Westborough Charm Bracelet links trails through conservation land around town. Downtown has shops and restaurants near the West Main Street Historic District, and the commuter rail station on the Framingham/Worcester Line serves Boston and Worcester.",
     ],
     highlights: [
       { icon: "river", title: "Lake Chauncy", text: "A lake with swimming, boating and fishing." },
@@ -230,13 +230,13 @@ export const batch6Profiles: Record<string, TownProfile> = {
       pop("15,741"),
       { label: "Size", value: "18.8 sq mi" },
       from(30, "west"),
-      { label: "Incorporated", value: "1766", note: "as a district of Westborough; a town since 1775" },
+      { label: "Incorporated", value: "1766" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board and Town Administrator" },
       tax("$14.82"),
     ],
     feel: [
-      "Northborough began as the northern district of Westborough in 1766 and became its own town in 1775. Its name is often written \"Northboro.\" The town center sits on Route 20, the old Boston Post Road.",
-      "The Assabet River flows through town, and farms and orchards, including Tougas Family Farm, are part of the landscape. The New England Baseball Complex is at the junction of Routes 9 and 20.",
+      "Northborough is a suburban town along Route 20, the old Boston Post Road, with a small town center where Routes 20 and 135 meet and farms and orchards on the hills around it. The Assabet River runs through town.",
+      "Farms such as Tougas Family Farm offer pick-your-own fruit in season, the New England Baseball Complex at Routes 9 and 20 hosts games and tournaments, and Routes 9 and 20 carry most of the town's shopping. I-290 and I-495 are close by, and the nearest commuter rail is in Westborough.",
     ],
     highlights: [
       { icon: "farm", title: "Tougas Family Farm", text: "A pick-your-own fruit farm." },

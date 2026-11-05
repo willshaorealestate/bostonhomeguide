@@ -12,7 +12,7 @@ const pop = (n: string) => ({ label: "Population", value: n, note: "2020 Census"
 
 export const batch8Profiles: Record<string, TownProfile> = {
   dedham: {
-    tagline: "The Fairbanks House, Dedham Square and Legacy Place, on Boston's southwest border",
+    tagline: "Dedham Square, Legacy Place and the Charles River, on Boston's southwest border",
     glance: [
       pop("25,364"),
       { label: "Size", value: "10.6 sq mi" },
@@ -22,13 +22,13 @@ export const batch8Profiles: Record<string, TownProfile> = {
       tax("$12.30"),
     ],
     feel: [
-      "Dedham was incorporated in 1636 and is called the \"mother of towns\" because 14 present-day communities were once inside its borders. It is the Norfolk County seat, and the courthouse in Dedham Square hosted the Sacco and Vanzetti trial in 1921. The Fairbanks House is the oldest surviving timber-frame house in the United States.",
-      "Dedham voted in 1643 to fund the first taxpayer-supported public school in America, and Mother Brook, dug in 1639, was the first canal in North America. Today the town has two centers, historic Dedham Square and East Dedham, plus Legacy Place, an outdoor shopping center near Route 128.",
+      "Dedham sits on Boston's southwest border along the Charles River, with two historic centers, Dedham Square and East Dedham, and neighborhoods spreading out between them. Legacy Place and the Route 1 corridor are its main shopping areas.",
+      "Dedham Square has shops, restaurants, the Dedham Community Theatre and the Norfolk County courthouse, and the town-owned Endicott Estate hosts events in its gardens. Two commuter rail stations, Endicott and Dedham Corporate Center, run to Boston, and MBTA buses connect to Forest Hills.",
     ],
     highlights: [
       { icon: "history", title: "Fairbanks House", text: "The oldest surviving timber-frame house in the United States." },
       { icon: "store", title: "Dedham Square", text: "The historic town center around the Norfolk County Courthouse." },
-      { icon: "river", title: "Mother Brook", text: "Dug in 1639, the first canal in North America." },
+      { icon: "tree", title: "Endicott Estate", text: "A town-owned estate whose house and gardens host events." },
       { icon: "store", title: "Legacy Place", text: "An outdoor shopping and dining center." },
     ],
     events: [],
@@ -42,24 +42,23 @@ export const batch8Profiles: Record<string, TownProfile> = {
   },
 
   westwood: {
-    tagline: "The 1,137-acre Hale reservation and University Station, beside Route 128 station",
+    tagline: "The 1,137-acre Hale reservation, wooded neighborhoods and Route 128 station",
     glance: [
       pop("16,266"),
       { label: "Size", value: "11.1 sq mi" },
       from(12, "southwest"),
-      { label: "Incorporated", value: "1897", note: "formerly West Dedham" },
+      { label: "Incorporated", value: "1897" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board and Town Administrator" },
       tax("$12.87"),
     ],
     feel: [
-      "Westwood was West Dedham until 1897, the last town to split from Dedham. The Colburn School, built in 1877, is on the National Register of Historic Places.",
-      "Hale, a 1,137-acre nonprofit reservation with beaches and walking trails, covers a large part of town. In the far eastern corner, University Station has shops and restaurants next to Route 128 station, which has both Amtrak and commuter rail service.",
+      "Westwood is a wooded suburban town with a small town center, neighborhoods set among trees, and a large share of open land, including the 1,137-acre Hale reservation. Its far eastern corner is a transportation hub at Route 128 station.",
+      "Hale has ponds, beaches and miles of walking trails, and Buckmaster Pond is another local spot. University Station, beside Route 128 station, has shops and restaurants. Commuters can take Amtrak or the Providence Line from Route 128 station, the Franklin Line from Islington, or I-95/Route 128.",
     ],
     highlights: [
       { icon: "tree", title: "Hale", text: "A 1,137-acre reservation with ponds, beaches and walking trails." },
       { icon: "store", title: "University Station", text: "Shops and restaurants next to Route 128 station." },
       { icon: "river", title: "Buckmaster Pond", text: "One of the town's ponds." },
-      { icon: "history", title: "Colburn School", text: "An 1877 school building on the National Register." },
     ],
     events: [],
     gettingAround: [
@@ -77,18 +76,18 @@ export const batch8Profiles: Record<string, TownProfile> = {
       pop("31,611"),
       { label: "Size", value: "10.6 sq mi" },
       from(14, "south-southwest"),
-      { label: "Incorporated", value: "1872", note: "formerly part of Dedham" },
+      { label: "Incorporated", value: "1872" },
       { label: "Government", value: "Representative Town Meeting", note: "with a Select Board" },
       tax("$9.82"),
     ],
     feel: [
-      "Norwood was part of Dedham until 1872. It was first settled in 1678 when Ezra Morse built a sawmill in what is now South Norwood. The town center and downtown run along Washington Street.",
-      "The Neponset River runs along the town on its way from Foxborough to Boston Harbor. Norwood has three stations on the Franklin/Foxboro commuter rail line, Route 1 runs through town, and Norwood Memorial Airport serves small planes. The F. Holland Day House, home of the photographer, is a historic house museum.",
+      "Norwood is a suburban town along the Neponset River, with a busy downtown on Washington Street around the town common and neighborhoods spreading out from it. US Route 1 runs through the east side of town, lined with shopping and car dealerships.",
+      "Downtown has shops and restaurants near Norwood Central, one of three commuter rail stations in town. The Skating Club of Boston's rink and training center opened in Norwood in 2020, Norwood Memorial Airport serves small planes, and I-95 has an exit in town.",
     ],
     highlights: [
       { icon: "store", title: "Norwood Center", text: "The downtown along Washington Street." },
       { icon: "river", title: "Neponset River", text: "Runs along the town on its way to Boston Harbor." },
-      { icon: "museum", title: "F. Holland Day House", text: "A historic house museum on Day Street." },
+      { icon: "tree", title: "Skating Club of Boston", text: "A rink and training center that opened in Norwood in 2020." },
       { icon: "plane", title: "Norwood Memorial Airport", text: "A general aviation airport." },
     ],
     events: [],
@@ -107,19 +106,19 @@ export const batch8Profiles: Record<string, TownProfile> = {
       pop("24,370"),
       { label: "Size", value: "19.6 sq mi" },
       from(13, "south-southwest"),
-      { label: "Incorporated", value: "1797", note: "formerly part of Stoughton" },
+      { label: "Incorporated", value: "1797" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board and Town Administrator" },
       tax("$9.75"),
     ],
     feel: [
-      "Canton lies at the foot of Great Blue Hill. The Canton River runs through the center of town, linking Bolivar and Forge ponds before flowing into the Neponset River, which forms the town's western border.",
-      "The Canton Viaduct, built in 1835, is one of the two oldest multiple-arch stone railroad bridges still in mainline use in the United States. The Canton Corner Historic District holds some of the town's oldest houses, and Mass Audubon's Museum of American Bird Art sits on a wildlife sanctuary in town.",
+      "Canton sits at the foot of Great Blue Hill, with the Blue Hills Reservation along its northern edge and the Canton River linking a chain of ponds through the center of town. Neighborhoods spread out from Canton Center and Canton Corner, and the Neponset River forms the western border.",
+      "The Blue Hills offer hiking, and the Blue Hills Ski Area runs in winter. Mass Audubon's Museum of American Bird Art and the Bradley Estate's gardens are open to visitors. Two commuter rail stations, Canton Junction and Canton Center, run to Boston, and I-93, I-95 and Route 128 all meet in town.",
     ],
     highlights: [
       { icon: "history", title: "Canton Viaduct", text: "An 1835 stone railroad bridge still carrying trains." },
       { icon: "tree", title: "Blue Hills Reservation", text: "Great Blue Hill and its trails rise along the town's northern edge." },
       { icon: "museum", title: "Museum of American Bird Art", text: "Mass Audubon's art museum and wildlife sanctuary." },
-      { icon: "history", title: "Canton Corner Historic District", text: "Historic houses, including the nearly 300-year-old David Tilden House." },
+      { icon: "tree", title: "Blue Hills Ski Area", text: "A ski area on the Blue Hills." },
     ],
     events: [],
     gettingAround: [
@@ -137,13 +136,13 @@ export const batch8Profiles: Record<string, TownProfile> = {
       pop("18,575"),
       { label: "Size", value: "24.2 sq mi" },
       from(18, "south-southwest"),
-      { label: "Incorporated", value: "1775", note: "as Stoughtonham; renamed Sharon in 1783" },
+      { label: "Incorporated", value: "1775" },
       { label: "Government", value: "Open Town Meeting", note: "with a Select Board and Town Administrator" },
       tax("$17.15"),
     ],
     feel: [
-      "Sharon began as a precinct of Stoughton, was incorporated as Stoughtonham in 1775 and took the name Sharon in 1783. Lake Massapoag, popular for swimming and boating, made the town a summer resort in its early years.",
-      "A large share of the town is conservation land, with trails including the Massapoag Trail, the Warner Trail and part of the Bay Circuit Trail. Moose Hill Wildlife Sanctuary and part of Borderland State Park are in Sharon, and the commuter rail station on the Providence/Stoughton Line has stopped here since 1835.",
+      "Sharon is a wooded town built around Lake Massapoag, with a small town center on Route 27 and a large share of conservation land.",
+      "The lake has a town beach for swimming and boating, and trails cross the town, including the Massapoag Trail, the Warner Trail and the Bay Circuit Trail. Moose Hill Wildlife Sanctuary and part of Borderland State Park are here, and the commuter rail station runs trains to Boston and Providence.",
     ],
     highlights: [
       { icon: "river", title: "Lake Massapoag", text: "A lake with a town beach, swimming and boating." },
@@ -167,13 +166,13 @@ export const batch8Profiles: Record<string, TownProfile> = {
       pop("29,281"),
       { label: "Size", value: "16.3 sq mi" },
       from(17, "south"),
-      { label: "Incorporated", value: "1726", note: "formerly part of Dorchester" },
+      { label: "Incorporated", value: "1726" },
       { label: "Government", value: "Representative Town Meeting", note: "with a Select Board and Town Manager" },
       tax("$11.81"),
     ],
     feel: [
-      "Stoughton was settled in 1713 and incorporated in 1726 from the southwestern part of Dorchester. At first it included what are now Sharon, Canton and Avon. The commuter rail's Stoughton Branch ends at the station in the town center.",
-      "The town runs swimming programs at Ames Long Pond, and Halloran Park has courts and picnic areas. Stoughton holds parades on the Fourth of July and Veterans Day, a holiday Parade of Lights in December, and summer outdoor concerts.",
+      "Stoughton is a suburban town with a downtown around Stoughton Center and its commuter rail station, neighborhoods spreading out from it, and protected open space including Ames Long Pond, the Bird Street Sanctuary and a municipal golf course.",
+      "Town traditions include a Fourth of July parade and fireworks, a Veterans Day parade, summer outdoor concerts and a holiday Parade of Lights in December. Ames Long Pond has town swimming programs, Halloran Park has courts and picnic areas, and the train runs from downtown to South Station.",
     ],
     highlights: [
       { icon: "river", title: "Ames Long Pond", text: "The town's swimming spot." },
@@ -204,8 +203,8 @@ export const batch8Profiles: Record<string, TownProfile> = {
       tax("$11.81"),
     ],
     feel: [
-      "Milton sits on hilly ground between the Neponset River to the north and the Blue Hills to the south, bounded by Brush Hill and Milton Hill. Kettle ponds left by glaciers dot the town.",
-      "The Mattapan trolley, a light-rail extension of the Red Line, has four stops in Milton, and the Neponset River Greenway connects the town with Boston Harbor by bike. Great Blue Hill, with the historic Blue Hill weather observatory at its summit, rises on the town's southern edge.",
+      "Milton is a hilly, green town between the Neponset River and the Blue Hills, with village centers at Milton Village, East Milton Square and Central Avenue, and kettle ponds such as Turner's Pond scattered through it.",
+      "The Blue Hills Reservation covers the south of town, with Great Blue Hill and its historic weather observatory at the top. The Neponset River Greenway runs to Boston Harbor for biking and walking, the Mattapan trolley stops four times in town, and the Milton Arts Center is in East Milton.",
     ],
     highlights: [
       { icon: "tree", title: "Blue Hills Reservation", text: "Great Blue Hill and miles of trails along the south of town." },
@@ -234,14 +233,13 @@ export const batch8Profiles: Record<string, TownProfile> = {
       tax("$10.06"),
     ],
     feel: [
-      "Braintree was incorporated in 1640, and both Quincy and Randolph were later split off from it. It is still officially called a town, though it has a mayor and council. General Sylvanus Thayer, the \"father of West Point,\" was born here.",
-      "The Red Line ends at Braintree station, which also serves the commuter rail, and I-93 and Route 3 split in town. Pond Meadow Park, Sunset Lake and part of the Blue Hills offer open space, and the South Shore Plaza is a regional shopping center.",
+      "Braintree is a suburban town south of Boston where I-93 and Route 3 meet, with a town center along Washington Street and the South Shore Plaza shopping area near the highways. Pond Meadow Park, Sunset Lake and part of the Blue Hills give it open space.",
+      "Pond Meadow Park has trails around its pond, and Sunset Lake is a neighborhood park. Braintree station, at the end of the Red Line, also has commuter rail service, and the South Shore Plaza is one of the region's largest malls.",
     ],
     highlights: [
       { icon: "tree", title: "Pond Meadow Park", text: "A park with a pond and walking trails." },
       { icon: "river", title: "Sunset Lake", text: "A lake and park in town." },
       { icon: "store", title: "South Shore Plaza", text: "A regional shopping mall." },
-      { icon: "history", title: "General Sylvanus Thayer Birthplace", text: "Birthplace of the \"father of West Point.\"" },
     ],
     events: [],
     gettingAround: [
@@ -259,19 +257,19 @@ export const batch8Profiles: Record<string, TownProfile> = {
       pop("101,636"),
       { label: "Size", value: "26.9 sq mi", note: "16.6 sq mi of land" },
       from(8, "south-southeast"),
-      { label: "Incorporated", value: "1792", note: "as a town; a city since 1888" },
+      { label: "Incorporated", value: "1792", note: "a city since 1888" },
       { label: "Government", value: "Mayor and City Council" },
       tax("$11.78"),
     ],
     feel: [
-      "Quincy is known as the City of Presidents: John Adams and John Quincy Adams were both born here, as was John Hancock. It split from Braintree in 1792 and became a city in 1888. For more than a century it was a granite-quarrying city, and the Granite Railway was the first commercial railroad in the United States.",
-      "The city stretches along Quincy Bay, from Squantum and Wollaston Beach to Marina Bay, and the Fore River Shipyard built ships here for generations. Quincy has four Red Line stations: North Quincy, Wollaston, Quincy Center and Quincy Adams.",
+      "Quincy is a large city on Quincy Bay, with a busy downtown at Quincy Center, neighborhoods from Wollaston and North Quincy to Squantum and Houghs Neck, and miles of shoreline.",
+      "Wollaston Beach, the largest beach on Boston Harbor, runs along Quincy Shore Drive, and Marina Bay has restaurants and a large marina. Four Red Line stations and commuter rail at Quincy Center connect the city to Boston, and Adams National Historical Park preserves the birthplaces of two presidents.",
     ],
     highlights: [
       { icon: "history", title: "Adams National Historical Park", text: "The birthplaces and homes of John Adams and John Quincy Adams." },
       { icon: "river", title: "Wollaston Beach", text: "A long public beach on Quincy Bay." },
       { icon: "store", title: "Quincy Center", text: "The downtown around the Quincy Center Red Line station." },
-      { icon: "history", title: "Granite Railway", text: "The first commercial railroad in the United States." },
+      { icon: "river", title: "Marina Bay", text: "Restaurants and a large marina on the bay." },
     ],
     events: [],
     gettingAround: [
