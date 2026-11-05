@@ -542,4 +542,61 @@ Should I fix things a buyer might ask me to fix anyway? Generally yes, for small
 
 Not sure what your specific home needs before listing? [We provide a pre-listing walkthrough](/sell) and can tell you exactly where your money is best spent, and where it isn't.`,
   },
+  {
+    slug: "fixer-upper-or-move-in-ready",
+    title: "Fixer-Upper or Move-In Ready? How to Decide What's Right for You",
+    seoTitle: "Fixer-Upper or Move-In Ready? How to Decide",
+    excerpt: "A lower price tag on a fixer-upper can be tempting — but it's only a good deal if you're actually set up to handle what comes with it.",
+    category: "Buyer Guide",
+    date: "November 5, 2026",
+    img: "https://images.unsplash.com/photo-1773430272653-375174373c4f?q=80&w=626&auto=format&fit=crop&ixlib=rb-4.1.0",
+    images: ["https://images.unsplash.com/photo-1785484267229-a9ceb2eee58d?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.1.0"],
+    content: `Greater Boston's housing stock skews old. Plenty of the region's most charming towns are full of Colonials, Capes, and Victorians built well before modern building codes existed. That means the "fixer-upper vs. move-in ready" question comes up constantly, and the right answer depends far more on your own bandwidth than on the house itself.
+
+**What "Fixer-Upper" Actually Covers**
+It's a broad category. On one end, it's a dated kitchen and some cosmetic updates. On the other, it's knob-and-tube wiring, an aging oil tank, and a roof that needs replacing. Before deciding a fixer-upper is right for you, get clear on which kind you're actually looking at. A home inspection is what turns "fixer-upper" from a vague label into a real, prioritized list.
+
+**When a Fixer-Upper Makes Sense**
+A fixer-upper tends to be the right call when:
+- You have real budget flexibility beyond the purchase price for renovations
+- You're not on a tight timeline and can tolerate living through some amount of work
+- You have the bandwidth (or the right contractor relationships) to manage a renovation project
+- You're buying in a competitive town where move-in-ready homes draw the most competition, and a home needing work is your way into the neighborhood at a more reachable price
+
+Renovation-specific financing, like an FHA 203(k) loan, can also make a fixer-upper more accessible by rolling renovation costs into your mortgage. It's worth discussing with a lender who's done these before.
+
+**When Move-In Ready Is the Better Call**
+Move-in ready tends to be the smarter choice when:
+- You're relocating for a job and need to be settled quickly
+- This is your first home and you don't yet have a network of trusted contractors
+- Your budget is fully allocated to the purchase, with little cushion for surprises
+- You value predictability over the potential upside of "sweat equity"
+
+There's no downside to being honest with yourself here. A fixer-upper that turns into a stalled, over-budget project is a worse outcome than paying more upfront for a home that's ready to live in.
+
+**New England-Specific Things to Watch For**
+Older homes in this region come with some recurring issues worth budgeting for regardless of how "fixed up" a home appears:
+- Knob-and-tube wiring or outdated electrical panels
+- Underground oil tanks, which can be costly to remove or remediate if leaking
+- Lead paint, which has specific disclosure and remediation rules for homes built before 1978
+- Basement moisture, common in homes with older foundations
+- Aging heating systems, which matter a lot given New England winters
+
+None of these are reasons to avoid an older home. They're simply costs to plan for rather than be surprised by.
+
+**A Practical Way to Decide**
+After the inspection, separate the issue list into three buckets: safety and structural items that need addressing regardless, cosmetic items you can live with for a while, and "nice to have" upgrades you can do on your own timeline. If the first bucket is small and everything else is cosmetic, you likely have more flexibility than the word "fixer-upper" implies.
+
+**Frequently Asked Questions**
+
+Is a fixer-upper always cheaper in the end? Not necessarily. A lower purchase price can be entirely offset, or even exceeded, by renovation costs, especially if issues are more extensive than expected. Get a thorough inspection before assuming you're getting a deal.
+
+What's a reasonable renovation budget cushion? A common rule of thumb is to budget 10-20% above your renovation estimates for unexpected issues, particularly in older homes.
+
+Can I finance renovations into my mortgage? Yes, in many cases — renovation loan products exist specifically for this. Ask your lender what's available for the type of work you're planning.
+
+Should a first-time buyer ever consider a fixer-upper? It depends entirely on bandwidth and support system, not experience level. A first-time buyer with a contractor in the family may be better positioned than a repeat buyer with none.
+
+Not sure whether a specific property is a manageable project or a money pit? [We can walk the home with you](/contact) and help you think through what you're actually taking on before you write an offer.`,
+  },
 ];
