@@ -22,7 +22,7 @@ const navLinks = [
     children: [
       { label: "Seller's Guide", href: "/sell" },
       { label: "Free Home Valuation", href: "/sell#valuation" },
-      { label: "Market Reports", href: "/market" },
+      { label: "Market Report", href: "/market" },
     ],
   },
   {
@@ -38,12 +38,11 @@ const navLinks = [
     ],
   },
   {
-    label: "Resources",
-    href: "/blog",
+    label: "Market & Insights",
+    href: "/market",
     children: [
+      { label: "Market Report", href: "/market" },
       { label: "Blog & Guides", href: "/blog" },
-      { label: "Market Reports", href: "/market" },
-      { label: "Mortgage Calculator", href: "/mortgage" },
     ],
   },
   { label: "About Will", href: "/about" },
@@ -82,14 +81,14 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
             <div className="flex flex-col leading-none">
               <span
                 className={`font-display text-xl font-bold tracking-tight ${solid ? "text-[#0D2137]" : "text-white"}`}
               >
                 Boston<span style={{ color: "#C89B3C" }}>Home</span>Guide
               </span>
-              <span className={`text-[10px] font-body tracking-widest uppercase ${solid ? "text-[#5B6270]" : "text-white/70"}`}>
+              <span className={`text-[10px] font-body tracking-widest uppercase whitespace-nowrap ${solid ? "text-[#5B6270]" : "text-white/70"}`}>
                 Greater Boston & MetroWest
               </span>
             </div>
@@ -107,7 +106,7 @@ export default function Navigation() {
                 >
                   <button
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
-                    className={`flex items-center gap-1 px-3 py-2 text-base font-medium font-body transition-colors ${linkColor}`}
+                    className={`flex items-center gap-1 px-2 xl:px-3 py-2 text-base font-medium font-body whitespace-nowrap transition-colors ${linkColor}`}
                   >
                     {link.label}
                     <ChevronDown className="w-3.5 h-3.5" />
@@ -152,7 +151,7 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 text-base font-medium font-body transition-colors relative group ${linkColor}`}
+                  className={`px-2 xl:px-3 py-2 text-base font-medium font-body whitespace-nowrap transition-colors relative group ${linkColor}`}
                 >
                   {link.label}
                   <span className={`absolute bottom-0 left-3 right-3 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform origin-left ${solid ? "bg-[#0D2137]" : "bg-white"}`} />
@@ -165,14 +164,16 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="tel:+17814563541"
-              className={`flex items-center gap-1.5 text-base font-body transition-colors ${linkColor}`}
+              aria-label="Call (781) 456-3541"
+              className={`flex items-center gap-1.5 text-base font-body whitespace-nowrap transition-colors ${linkColor}`}
             >
               <Phone className="w-3.5 h-3.5" />
-              (781) 456-3541
+              {/* On narrower laptop screens the number collapses to its icon so the menu stays on one line */}
+              <span className="hidden xl:inline">(781) 456-3541</span>
             </a>
             <Link
               href="/contact"
-              className={`text-sm font-semibold rounded-full py-2.5 px-5 transition-colors ${
+              className={`text-sm font-semibold rounded-full py-2.5 px-5 whitespace-nowrap transition-colors ${
                 solid ? "bg-[#0D2137] text-white hover:bg-[#1A3A5C]" : "bg-white text-[#0D2137] hover:bg-[#EEF1F4]"
               }`}
             >

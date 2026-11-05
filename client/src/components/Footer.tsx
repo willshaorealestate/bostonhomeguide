@@ -46,7 +46,7 @@ export default function Footer() {
                 { label: "Neighborhood Guides", href: "/neighborhoods" },
                 { label: "Market Reports", href: "/market" },
                 { label: "Mortgage Calculator", href: "/mortgage" },
-                { label: "Blog & Resources", href: "/blog" },
+                { label: "Blog & Guides", href: "/blog" },
                 { label: "About Will", href: "/about" },
               ].map((link) => (
                 <li key={link.href}>
