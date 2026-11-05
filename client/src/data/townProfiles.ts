@@ -14,6 +14,13 @@
  */
 import { batch1Profiles } from "./townProfilesBatch1";
 import { batch2Profiles } from "./townProfilesBatch2";
+import { batch3Profiles } from "./townProfilesBatch3";
+import { batch4Profiles } from "./townProfilesBatch4";
+import { batch5Profiles } from "./townProfilesBatch5";
+import { batch6Profiles } from "./townProfilesBatch6";
+import { batch7Profiles } from "./townProfilesBatch7";
+import { batch8Profiles } from "./townProfilesBatch8";
+import { batch9Profiles } from "./townProfilesBatch9";
 
 export type ProfileFact = { label: string; value: string; note?: string };
 export type ProfileHighlight = { icon: "history" | "trail" | "tree" | "store" | "school" | "plane" | "river" | "farm" | "museum"; title: string; text: string };
@@ -129,4 +136,7 @@ const baseProfiles: Record<string, TownProfile> = {
 };
 
 // Profiles are added in batches; each batch lives in its own file
-export const townProfiles: Record<string, TownProfile> = { ...baseProfiles, ...batch1Profiles, ...batch2Profiles };
+export const townProfiles: Record<string, TownProfile> = {
+  ...baseProfiles, ...batch1Profiles, ...batch2Profiles, ...batch3Profiles, ...batch4Profiles,
+  ...batch5Profiles, ...batch6Profiles, ...batch7Profiles, ...batch8Profiles, ...batch9Profiles,
+};
