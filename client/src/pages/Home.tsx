@@ -38,12 +38,12 @@ const heroTowns = ["Lexington", "Bedford", "Concord", "Acton", "Arlington"];
 
 // Update monthly alongside Market.tsx
 const marketStats = [
-  { value: "$790K", label: "Median sale price" },
+  { value: "$810K", label: "Median sale price" },
   { value: "46 days", label: "Average days on market" },
-  { value: "99%", label: "Sale-to-list price" },
-  { value: "2,749", label: "Homes for sale" },
+  { value: "100%", label: "Sale-to-list price" },
+  { value: "1,737", label: "Homes for sale" },
 ];
-const MARKET_PERIOD = "Greater Boston · September 2026";
+const MARKET_PERIOD = "Greater Boston · October 2026";
 
 // Kept inline (not imported from data/blogPosts) so the full article text isn't bundled into the homepage.
 const latestGuides = [

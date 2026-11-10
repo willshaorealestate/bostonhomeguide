@@ -177,33 +177,48 @@ export function updateHomeTsx(area, townMap, year, month) {
   let c = readFileSync(HOME_TSX, 'utf8').replace(/\r\n/g, '\n');
 
   const long  = longLabel(year, month);
-  const abbr  = `${SHORT[month - 1]} ${year}`;  // "Jul 2026"
 
   // Neighborhood card prices — every card whose town has data this month
   c = c.replace(/(\{ name: "([^"]+)", medianPrice: )"[^"]+"/g, (whole, prefix, town) =>
     townMap[town] ? `${prefix}"${formatPriceShort(townMap[town].medianPrice)}"` : whole
   );
 
-  // Market stats strip (label first, then value)
-  c = c.replace(
-    /\{ label: "Median Sale Price", value: "\$[\d,]+", change: ".+?", up: true \}/,
-    `{ label: "Median Sale Price", value: "${formatPriceFull(area.medianPrice)}", change: "${abbr}", up: true }`
-  );
-  c = c.replace(
-    /\{ label: "Days on Market", value: "\d+ days", change: "Greater Boston", up: false \}/,
-    `{ label: "Days on Market", value: "${area.dom} days", change: "Greater Boston", up: false }`
-  );
-  c = c.replace(
-    /\{ label: "List-to-Sale Ratio", value: "\d+%", change: "[^"]*", up: (?:true|false) \}/,
-    `{ label: "List-to-Sale Ratio", value: "${area.spLp}%", change: "${askingLabel(area.spLp)}", up: ${area.spLp >= 100} }`
-  );
-  c = c.replace(
-    /\{ label: "Active Inventory", value: "[\d,]+", change: ".+?", up: false \}/,
-    `{ label: "Active Inventory", value: "${area.activeListings.toLocaleString('en-US')}", change: "${abbr}", up: false }`
-  );
+  // Each pattern must match the homepage as it's written now. If a redesign changes the
+  // wording, warn loudly in the Actions run instead of silently leaving last month's numbers.
+  const replaceOrWarn = (pattern, replacement, what) => {
+    if (!pattern.test(c)) {
+      console.log(`::warning file=client/src/pages/Home.tsx::Market update couldn't find the homepage ${what} — it still shows last month's value. Update the pattern in scripts/mlspin/update.mjs.`);
+      return;
+    }
+    c = c.replace(pattern, replacement);
+  };
 
-  // "Updated June 2026" stamp
-  c = c.replace(/Updated \w+ \d{4}/, `Updated ${long}`);
+  // "The market right now" section: four stats plus the period label under the heading
+  replaceOrWarn(
+    /\{ value: "[^"]+", label: "Median sale price" \}/,
+    `{ value: "${formatPriceShort(area.medianPrice)}", label: "Median sale price" }`,
+    'median sale price'
+  );
+  replaceOrWarn(
+    /\{ value: "\d+ days", label: "Average days on market" \}/,
+    `{ value: "${area.dom} days", label: "Average days on market" }`,
+    'days on market'
+  );
+  replaceOrWarn(
+    /\{ value: "\d+%", label: "Sale-to-list price" \}/,
+    `{ value: "${area.spLp}%", label: "Sale-to-list price" }`,
+    'sale-to-list ratio'
+  );
+  if (area.activeListings > 0) replaceOrWarn(
+    /\{ value: "[\d,]+", label: "Homes for sale" \}/,
+    `{ value: "${area.activeListings.toLocaleString('en-US')}", label: "Homes for sale" }`,
+    'homes-for-sale count'
+  );
+  replaceOrWarn(
+    /const MARKET_PERIOD = "Greater Boston · [A-Za-z]+ \d{4}";/,
+    `const MARKET_PERIOD = "Greater Boston · ${long}";`,
+    'market period label'
+  );
 
   writeFileSync(HOME_TSX, c, 'utf8');
   console.log(`  ✓ Home.tsx → ${long}`);
