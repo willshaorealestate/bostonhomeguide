@@ -2,7 +2,7 @@
  * Market.tsx — BostonHomeGuide.com
  * Monthly Greater Boston Market Reports with charts and email signup
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, Legend
@@ -146,7 +146,34 @@ const priceTicks = Array.from(
 const formatPrice = (v: number) => `$${(v / 1000).toFixed(0)}K`;
 const formatFullPrice = (v: number) => `$${v.toLocaleString()}`;
 
+// Month labels on the trend charts. Recharts hides any label it thinks would touch its
+// neighbor, which on phones and tablets silently dropped months (e.g. Sep '26). Show every
+// month, and slant the labels on narrower screens so all twelve fit.
+const SLANT_BELOW = 1024;
+function useSlantMonths() {
+  const [slant, setSlant] = useState(() => typeof window !== "undefined" && window.innerWidth < SLANT_BELOW);
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${SLANT_BELOW - 1}px)`);
+    const onChange = () => setSlant(mql.matches);
+    onChange();
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+  return slant;
+}
+const SLANT_HEIGHT = 44; // room the slanted labels take below the plot
+function monthAxisProps(slant: boolean, fontSize: number) {
+  return {
+    dataKey: "month",
+    interval: 0,
+    padding: { left: 16, right: 24 }, // keeps the first and last month labels from being cut off
+    tick: { fontSize, fontFamily: "DM Sans" },
+    ...(slant ? { angle: -40, textAnchor: "end" as const, height: SLANT_HEIGHT, tickMargin: 4 } : {}),
+  } as const;
+}
+
 export default function MarketPage() {
+  const slantMonths = useSlantMonths();
   useSEO({
     title: "Greater Boston Market Report: October 2026 | Will Shao",
     description: "Monthly market data for Greater Boston and MetroWest MA. Median prices, days on market, and list-to-sale ratios for Newton, Wellesley, Natick, Lexington, and more.",
@@ -263,10 +290,10 @@ export default function MarketPage() {
               <p className="text-sm text-gray-500 font-body mb-6">
                 Median sale price trend across Greater Boston — Nov '25 through Oct '26
               </p>
-              <ResponsiveContainer width="100%" height={320}>
+              <ResponsiveContainer width="100%" height={320 + (slantMonths ? SLANT_HEIGHT - 30 : 0)}>
                 <LineChart data={priceData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0ede6" />
-                  <XAxis dataKey="month" tick={{ fontSize: 12, fontFamily: "DM Sans" }} />
+                  <XAxis {...monthAxisProps(slantMonths, 12)} />
                   <YAxis tickFormatter={formatPrice} tick={{ fontSize: 12, fontFamily: "DM Sans" }} domain={priceDomain} ticks={priceTicks} interval={0} />
                   <Tooltip
                     formatter={(value: number) => [formatFullPrice(value), "Median Price"]}
@@ -290,10 +317,10 @@ export default function MarketPage() {
               <p className="text-sm text-gray-500 font-body mb-6">
                 Average days on market — lower is a hotter market
               </p>
-              <ResponsiveContainer width="100%" height={320}>
+              <ResponsiveContainer width="100%" height={320 + (slantMonths ? SLANT_HEIGHT - 30 : 0)}>
                 <BarChart data={domData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0ede6" />
-                  <XAxis dataKey="month" tick={{ fontSize: 12, fontFamily: "DM Sans" }} />
+                  <XAxis {...monthAxisProps(slantMonths, 12)} />
                   <YAxis tick={{ fontSize: 12, fontFamily: "DM Sans" }} />
                   <Tooltip
                     formatter={(value: number) => [`${value} days`, "Days on Market"]}
@@ -377,10 +404,10 @@ export default function MarketPage() {
 
                 {/* Median price trend chart */}
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider font-body mb-2">Median Sale Price — {trendLabel}</p>
-                <ResponsiveContainer width="100%" height={220}>
+                <ResponsiveContainer width="100%" height={220 + (slantMonths ? SLANT_HEIGHT - 30 : 0)}>
                   <LineChart data={priceChartData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f0ede6" />
-                    <XAxis dataKey="month" tick={{ fontSize: 11, fontFamily: "DM Sans" }} />
+                    <XAxis {...monthAxisProps(slantMonths, 11)} />
                     <YAxis tickFormatter={formatPrice} tick={{ fontSize: 11, fontFamily: "DM Sans" }} width={55} />
                     <Tooltip
                       formatter={(value: number, name: string) => [formatFullPrice(value), name]}
@@ -394,10 +421,10 @@ export default function MarketPage() {
 
                 {/* DOM trend chart */}
                 <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider font-body mt-6 mb-2">Days on Market — {trendLabel}</p>
-                <ResponsiveContainer width="100%" height={180}>
+                <ResponsiveContainer width="100%" height={180 + (slantMonths ? SLANT_HEIGHT - 30 : 0)}>
                   <BarChart data={domChartData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f0ede6" />
-                    <XAxis dataKey="month" tick={{ fontSize: 11, fontFamily: "DM Sans" }} />
+                    <XAxis {...monthAxisProps(slantMonths, 11)} />
                     <YAxis tick={{ fontSize: 11, fontFamily: "DM Sans" }} width={35} />
                     <Tooltip
                       formatter={(value: number, name: string) => [`${value} days`, name]}
