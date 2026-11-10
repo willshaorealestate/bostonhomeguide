@@ -13,6 +13,7 @@ import { useSEO } from "@/lib/seo";
 import { trackLead } from "@/lib/analytics";
 import { submitToFub, isValidEmail } from "@/lib/fub";
 import { articles } from "@/data/blogPosts";
+import { allNeighborhoods } from "@/data/neighborhoods";
 import { AUTHOR, authorPerson } from "@/lib/author";
 
 const HERO_IMAGE = "/images/site/boston-hero.webp";
@@ -53,22 +54,29 @@ function ctaForCategory(category: string) {
   }
 }
 
-const townLinks: Record<string, string> = {
-  "Newton": "/neighborhoods/newton",
-  "Wellesley": "/neighborhoods/wellesley",
-  "Brookline": "/neighborhoods/brookline",
-  "Natick": "/neighborhoods/natick",
-  "Lexington": "/neighborhoods/lexington",
-  "Needham": "/neighborhoods/needham",
-  "Framingham": "/neighborhoods/framingham",
-  "Waltham": "/neighborhoods/waltham",
-  "Concord": "/neighborhoods/concord",
-  "Cambridge": "/neighborhoods/cambridge",
-  "Arlington": "/neighborhoods/arlington",
-  "Belmont": "/neighborhoods/belmont",
-  "Medford": "/neighborhoods/medford",
-  "Quincy": "/neighborhoods/quincy",
-};
+// Every town with a page on the site gets linked from blog posts, at its first mention in
+// each article (linking every mention reads as spammy). "Reading" and "Harvard" are left
+// out because they're also an everyday word and the university.
+const TOWN_LINK_SKIP = new Set(["Reading", "Harvard"]);
+const townSlugByName = new Map(
+  allNeighborhoods.filter((n) => !TOWN_LINK_SKIP.has(n.name)).map((n) => [n.name, n.slug] as const)
+);
+const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// Longest names first so "North Andover" wins over "Andover". "Boston" only links as the city
+// itself, not inside names like "Greater Boston", "South Boston" or "Boston Magazine".
+const townPattern = new RegExp(
+  "\\b(" +
+    Array.from(townSlugByName.keys())
+      .sort((a, b) => b.length - a.length)
+      .map((name) =>
+        name === "Boston"
+          ? "(?<!(?:Greater|South|East|North) )Boston(?! (?:Marathon|Magazine|Home Guide|Globe|Public|Common|College|University|Harbor))"
+          : escapeRegExp(name)
+      )
+      .join("|") +
+    ")\\b",
+  "g"
+);
 
 function ArticleDetail({ slug }: { slug: string }) {
   const article = articles.find((a) => a.slug === slug);
@@ -117,6 +125,10 @@ function ArticleDetail({ slug }: { slug: string }) {
 
   const cta = ctaForCategory(article.category);
   const paragraphs = article.content.split("\n\n");
+  // Towns already linked in this article. Seeded with towns the post links by hand.
+  const linkedTowns = new Set(
+    Array.from(article.content.matchAll(/\]\(\/neighborhoods\/([a-z-]+)\)/g), (m) => m[1])
+  );
   const faqHeadingIndex = paragraphs.findIndex((p) => p.trim() === "**Frequently Asked Questions**");
   const inlineImages = article.images ?? [];
   const imageAfterIndex = new Map(
@@ -188,11 +200,11 @@ function ArticleDetail({ slug }: { slug: string }) {
                       return `@@LINK${manualLinks.length - 1}@@`;
                     });
 
-                    Object.entries(townLinks).forEach(([town, href]) => {
-                      formatted = formatted.replace(
-                        new RegExp(`\\b${town}\\b`, "g"),
-                        `<a href="${href}" class="text-[#0D2137] font-semibold hover:underline">${town}</a>`
-                      );
+                    formatted = formatted.replace(townPattern, (town) => {
+                      const slug = townSlugByName.get(town);
+                      if (!slug || linkedTowns.has(slug)) return town;
+                      linkedTowns.add(slug);
+                      return `<a href="/neighborhoods/${slug}" class="text-[#0D2137] font-semibold hover:underline">${town}</a>`;
                     });
 
                     formatted = formatted.replace(/@@LINK(\d+)@@/g, (_m, idx) => manualLinks[Number(idx)]);

@@ -30,15 +30,15 @@ export const articles: BlogPost[] = [
     ],
     content: `Greater Boston offers highly rated school districts, a wide range of housing, and plenty of parks and recreation. Whether you're relocating from out of state or moving from the city to the suburbs, choosing the right town is one of the most important decisions you'll make.
 
-**Newton** has a highly rated public school system, Green Line access, and multiple village centers with restaurants, shops, and community events, combining suburban space with city convenience. Median home prices hover around $1.73M.
+**Newton** has a highly rated public school system, Green Line access, and multiple village centers with restaurants, shops, and community events, combining suburban space with city convenience.
 
-**Lexington** offers schools consistently ranked among the top in Massachusetts, along with a charming historic town center and Revolutionary War landmarks like the Battle Green and Minuteman National Historical Park. Median prices are around $1.71M.
+**Lexington** offers schools consistently ranked among the top in Massachusetts, along with a charming historic town center and Revolutionary War landmarks like the Battle Green and Minuteman National Historical Park.
 
-**Natick** is one of the best values in MetroWest. With strong schools, the Natick Collection mall, Lake Cochituate for recreation, and commuter rail access to South Station, Natick offers a lot at a more accessible price point, with median prices around $858K.
+**Natick** is one of the best values in MetroWest. With strong schools, the Natick Collection mall, Lake Cochituate for recreation, and commuter rail access to South Station, Natick offers a lot at a more accessible price point.
 
 **Wellesley** is known for a school district that consistently ranks among the top in Massachusetts, along with beautiful residential neighborhoods, the Wellesley College campus, and upscale shopping.
 
-When comparing towns, weigh these key factors: school district information (the Massachusetts DESE school profiles and GreatSchools.org are good resources), commute time to your workplace, proximity to parks and recreation, the types of homes available in your price range, and what you want close by day to day. We've helped hundreds of buyers find the right Greater Boston town. Contact us for personalized guidance.`,
+When comparing towns, weigh these key factors: school district information (the Massachusetts DESE school profiles and GreatSchools.org are good resources), commute time to your workplace, proximity to parks and recreation, the types of homes available in your price range, and what you want close by day to day. Each [town guide](/neighborhoods) on this site lists the current MLS PIN median price, high school ranking and average commute, so you can compare towns side by side.`,
   },
   {
     slug: "how-much-to-buy-home-massachusetts",
@@ -54,12 +54,12 @@ When comparing towns, weigh these key factors: school district information (the 
 
 **Down Payment**
 The minimum down payment depends on your loan type:
-- Conventional loan: 5-20% (less than 20% requires PMI)
+- Conventional loan: as little as 3% for some first-time buyers, more often 5-20% (less than 20% requires PMI)
 - FHA loan: 3.5% with 580+ credit score
 - VA loan: 0% for eligible veterans
 - MassHousing: As low as 3% for first-time buyers
 
-For a median-priced Boston home at $822,500, a 20% down payment is $164,500. Many buyers in the $500K-$800K range put down 10-15%.
+On an $800,000 home, for example, 20% down is $160,000 and 5% down is $40,000. Our [market report](/market) has current median prices across Greater Boston.
 
 **Closing Costs**
 Massachusetts closing costs typically run 2-4% of the purchase price:
@@ -71,53 +71,51 @@ Massachusetts closing costs typically run 2-4% of the purchase price:
 
 **Monthly Expenses**
 Beyond your mortgage payment, budget for:
-- Property taxes: Massachusetts averages 1.0-1.5% of assessed value annually
+- Property taxes: each town sets its own rate per $1,000 of assessed value, and rates vary a lot from town to town, so check the current rate for any town you're considering
 - Homeowner's insurance: $1,200-$2,500/year
 - HOA fees (if applicable): $0-$800/month
 - Maintenance: Budget 1% of home value annually
 
 **First-Time Buyer Programs**
 Massachusetts offers several programs for first-time buyers:
-- MassHousing: Below-market rate mortgages with low down payments
+- MassHousing mortgages: low down payment loans for first-time and income-eligible buyers
+- MassHousing Down Payment Assistance: help with the down payment for eligible buyers
 - ONE Mortgage: 3% down, no PMI for income-eligible buyers
-- MHFA Down Payment Assistance: Down payment assistance for eligible buyers
 
-Will can connect you with trusted local lenders who specialize in Massachusetts first-time buyer programs. Contact him for a free consultation.`,
+Our guide to [first-time buyer programs in Massachusetts](/blog/first-time-buyer-programs-massachusetts) covers each one in more detail.`,
   },
   {
     slug: "win-bidding-war-boston",
     title: "How to Win a Bidding War in Greater Boston",
-    excerpt: "Proven strategies that have helped Will's clients win competitive offers — without overpaying.",
+    excerpt: "Strategies that help buyers win competitive offers in Greater Boston, without overpaying.",
     category: "Strategy",
     date: "September 3, 2026",
     img: "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
       "https://images.unsplash.com/photo-1648712898089-4435bc87b587?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
-    content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here are the strategies Will uses to help his clients win.
+    content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here's what actually makes an offer stand out.
 
 **1. Get Fully Pre-Approved Before You Start**
-A pre-approval letter from a reputable local lender signals to sellers that you're a serious, qualified buyer. Will recommends working with local lenders who can close quickly and communicate directly with listing agents.
+A pre-approval letter from a reputable local lender signals to sellers that you're a serious, qualified buyer. A local lender who closes on time and picks up the phone when the listing agent calls is worth more than a slightly lower rate from a lender nobody can reach.
 
 **2. Move Fast**
-In Greater Boston's market, hesitation costs you homes. When Will identifies a strong property, he moves quickly — scheduling showings within hours and preparing offers the same day if needed.
+In Greater Boston's market, hesitation costs you homes. Well-priced listings often collect offers over their first weekend, so be ready to see a home within a day or two of it going live and to write an offer the same day if it's the one.
 
 **3. Offer a Strong Price**
-In competitive situations, offering at or above asking price is often necessary. Will analyzes recent comparable sales to help you understand true market value and make an informed offer.
+In competitive situations, offering at or above asking price is often necessary. Recent comparable sales, not the list price, are the best guide to what the home is worth and how far above asking you're comfortable going. Decide your ceiling before you're in the moment.
 
 **4. Use an Escalation Clause**
 An escalation clause automatically increases your offer by a set amount above competing offers, up to a maximum. This can be effective in multiple-offer situations while protecting you from overpaying.
 
 **5. Minimize Contingencies Strategically**
-While contingencies protect buyers, excessive contingencies can make your offer less competitive. Will helps clients understand which contingencies are essential (inspection, financing) and which can be modified.
+While contingencies protect buyers, excessive contingencies can make your offer less competitive. Know which ones matter most to you, usually inspection and financing, and where you can give ground, such as shorter deadlines or covering part of a gap if the appraisal comes in low.
 
-**6. Write a Personal Letter**
-In some situations, a heartfelt letter to the sellers about why you love their home can make a difference — particularly with long-time homeowners who care about who buys their home.
+**6. Make Your Offer Easy to Accept**
+A solid earnest money deposit, a lender who can close on time, and short, clear deadlines all reduce the seller's risk. When offers are close on price, the one most likely to close smoothly often wins. We don't recommend personal letters to sellers: they can raise fair housing concerns, and many listing agents no longer pass them along.
 
 **7. Be Flexible on Closing Date**
-Offering flexibility on the closing date — whether a quick close or a leaseback to give sellers time to move — can make your offer stand out.
-
-Will has helped dozens of clients win competitive offers in Greater Boston. Contact him to discuss your specific situation.`,
+Offering flexibility on the closing date — whether a quick close or a leaseback to give sellers time to move — can make your offer stand out.`,
   },
   {
     slug: "first-time-buyer-programs-massachusetts",
@@ -147,17 +145,17 @@ The ONE Mortgage Program, administered by MHP (Massachusetts Housing Partnership
 **Federal Programs**
 - FHA Loans: 3.5% down with 580+ credit score, more flexible qualification requirements
 - VA Loans: 0% down for eligible veterans and active military
-- USDA Loans: 0% down for eligible rural areas (some MetroWest towns qualify)
+- USDA Loans: 0% down in areas USDA considers rural. Eligibility is by address; most of Greater Boston doesn't qualify, but some more rural Massachusetts towns do
 
-**First-Time Buyer Tax Benefits**
-- Mortgage Interest Deduction: Deduct mortgage interest on your federal taxes
-- Property Tax Deduction: Deduct property taxes paid
-- Capital Gains Exclusion: Exclude a portion of gains when you sell your primary residence
+**Tax Benefits of Owning**
+- Mortgage interest deduction: if you itemize, mortgage interest is deductible on your federal taxes
+- Property tax deduction: if you itemize, property taxes count toward the federal state and local tax (SALT) deduction, which is capped
+- Capital gains exclusion: when you sell a primary residence you've lived in for 2 of the last 5 years, up to $250,000 of gain ($500,000 for married couples filing jointly) is generally tax-free
+
+A tax professional can tell you which of these applies to you.
 
 **How to Qualify**
-Most first-time buyer programs define "first-time buyer" as someone who hasn't owned a home in the past 3 years. Income and purchase price limits vary by program and location.
-
-Will works closely with lenders who specialize in first-time buyer programs. Contact him for a free consultation and lender referrals.`,
+Most first-time buyer programs define "first-time buyer" as someone who hasn't owned a home in the past 3 years. Income and purchase price limits vary by program and location.`,
   },
   {
     slug: "boston-vs-suburbs",
@@ -169,7 +167,7 @@ Will works closely with lenders who specialize in first-time buyer programs. Con
     images: [
       "https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
-    content: `One of the most common questions Will hears from buyers is: "Should we buy in Boston or move to the suburbs?" The answer depends on your priorities, lifestyle, and life stage.
+    content: `One of the most common questions we hear from buyers is: "Should we buy in Boston or move to the suburbs?" The answer depends on your priorities, lifestyle, and life stage.
 
 **The Case for Boston**
 Boston proper offers walkability, cultural amenities, and proximity to world-class restaurants, museums, and entertainment. Neighborhoods like South End, Back Bay, and Jamaica Plain offer vibrant urban lifestyles. However, space comes at a premium in the city's most walkable neighborhoods.
@@ -178,16 +176,21 @@ Boston proper offers walkability, cultural amenities, and proximity to world-cla
 For buyers who want more space, the suburbs offer compelling advantages: more space for the money, top-rated school districts, and a quieter lifestyle. The same budget that buys a condo in Boston can often buy a single-family colonial in towns like Natick or Framingham.
 
 **The Commute Question**
-Greater Boston's commuter rail network connects many suburbs directly to South Station and North Station. Newton, Wellesley, and Natick offer Green Line or commuter rail access. Many MetroWest towns are 35-50 minutes from downtown Boston by train.
+Greater Boston's commuter rail runs into two separate downtown terminals, North Station and South Station, and they aren't connected by rail. Getting from one to the other means a transfer on the T or about a mile on foot, so it's worth knowing which station your commute actually needs before you choose a town.
+- Commuting to North Station: buyers typically stay along Route 2, northwest of Boston, in towns like Belmont, Lincoln, Concord and Acton, which are served by the Fitchburg Line.
+- Commuting to South Station: buyers typically stay along Route 9, west of Boston, in towns like Newton, Wellesley, Natick and Framingham, which are served by the Framingham/Worcester Line. Newton also has the Green Line.
+- The Mass Pike (I-90) is the rough dividing line: north of the Pike, commutes tend to run to North Station; south of it, to South Station.
+
+Many MetroWest towns are 35-50 minutes from downtown Boston by train.
 
 **School Districts**
-This is often the deciding factor for many buyers. Greater Boston's suburban school districts are among the best in the country. Newton, Wellesley, Lexington, and Concord consistently rank in the top 10 in Massachusetts.
+This is often the deciding factor for many buyers. Greater Boston's suburban school districts are among the best in the country. In [Boston Magazine's 2026 ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) of Greater Boston public high schools, Lexington (#3), Newton South (#6) and Wellesley (#8) are all in the top 10, with Concord-Carlisle at #15.
 
 **Value Comparison**
 For the same budget, you'll get significantly more space in the suburbs than in Boston's most in-demand neighborhoods — the tradeoff is commute time and a different day-to-day lifestyle.
 
-**Will's Recommendation**
-There's no universal right answer. Will helps clients evaluate their priorities — commute, schools, lifestyle, budget — and find the community that fits their life. Contact him for a personalized consultation.`,
+**The Bottom Line**
+There's no universal right answer. It comes down to how you weigh commute, schools, lifestyle and budget, and which tradeoffs you're comfortable making for the life you want.`,
   },
   {
     slug: "top-school-districts-metrowest",
@@ -202,25 +205,25 @@ There's no universal right answer. Will helps clients evaluate their priorities 
     content: `MetroWest Massachusetts is home to some of the best school districts in the state. Here's a comprehensive overview.
 
 **Acton-Boxborough Regional**
-Consistently ranked #1 or #2 in Massachusetts, Acton-Boxborough offers exceptional academics, strong STEM programs, and a wide range of electives.
+Acton-Boxborough Regional High School is #25 in Boston Magazine's 2026 ranking of Greater Boston public high schools. The district is known for strong academics, STEM programs and a wide range of electives.
 
 **Wellesley Public Schools**
-Wellesley's schools are legendary — the district consistently ranks among the top 5 in Massachusetts. The high school offers dozens of AP courses and a very high college acceptance rate.
+Wellesley High School is #8 in Boston Magazine's 2026 ranking, and the district is one of the most sought-after in the region.
 
 **Sudbury-Lincoln (Lincoln-Sudbury Regional)**
-Lincoln-Sudbury Regional High School is one of the most respected high schools in Massachusetts, known for its academic rigor and strong arts programs.
+Lincoln-Sudbury Regional High School is #17 in Boston Magazine's 2026 ranking and is known for its academic rigor and strong arts programs.
 
 **Natick Public Schools**
-Natick offers excellent schools at a more accessible price point than Wellesley or Newton. The district has strong academic programs and excellent extracurricular activities.
+Natick High School is #39 in Boston Magazine's 2026 ranking. Natick offers strong schools at a more accessible price point than Wellesley or Newton, with good academic programs and extracurricular activities.
 
 **Hopkinton Public Schools**
-Hopkinton has rapidly improved its school system over the past decade. The district offers excellent academics, newer school facilities, and great value relative to nearby towns.
+Hopkinton High School is #29 in Boston Magazine's 2026 ranking. The district has newer school facilities and offers good value relative to some nearby towns.
 
 **Framingham Public Schools**
-Framingham's schools have improved significantly in recent years. The district offers strong bilingual programs and a wide range of academic offerings, and remains one of the best values in MetroWest.
+Framingham High School is #106 in Boston Magazine's 2026 ranking. The district offers strong bilingual programs and a wide range of academic offerings, and Framingham remains one of the more affordable towns in MetroWest.
 
 **Choosing Based on Schools**
-When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. Will can provide detailed school data for any community you're considering.`,
+When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. The [Massachusetts DESE school profiles](https://profiles.doe.mass.edu) have official data for every district, and the full [Boston Magazine ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) is worth a look too.`,
   },
   {
     slug: "selling-home-massachusetts-guide",
@@ -230,13 +233,13 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     date: "December 20, 2025",
     img: "https://images.unsplash.com/photo-1728649054288-61f332ee389b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: ["https://images.unsplash.com/photo-1728649060658-8e64dccf2711?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0"],
-    content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's Will's complete guide.
+    content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's how the process works, step by step.
 
 **Step 1: Determine Your Home's Value**
-The most important decision in selling your home is pricing. Price too high and you'll sit on the market; price too low and you'll leave money on the table. Will provides a comprehensive Comparative Market Analysis (CMA) using real-time MLSPIN data.
+The most important decision in selling your home is pricing. Price too high and you'll sit on the market; price too low and you'll leave money on the table. A Comparative Market Analysis (CMA) based on recent MLS PIN sales near you is the best starting point.
 
 **Step 2: Prepare Your Home**
-First impressions matter enormously. Will's pre-listing checklist includes:
+First impressions matter enormously. A typical pre-listing checklist includes:
 - Deep cleaning and decluttering
 - Fresh paint in neutral colors
 - Landscaping and curb appeal improvements
@@ -247,21 +250,19 @@ First impressions matter enormously. Will's pre-listing checklist includes:
 In today's market, the vast majority of buyers start their search online. Professional photography — including 3D virtual tours — is essential for maximizing your home's digital presence.
 
 **Step 4: Strategic Pricing**
-Will uses a data-driven pricing strategy that considers recent comparable sales, current market conditions, and your home's unique features. The goal is to attract maximum buyer interest while achieving top dollar.
+A data-driven pricing strategy weighs recent comparable sales, current market conditions, and your home's unique features. The goal is to attract maximum buyer interest while achieving top dollar.
 
 **Step 5: Marketing Launch**
-Will's marketing plan includes MLS listing, Zillow/Realtor.com syndication, social media advertising, email campaigns to his buyer database, and Chinese-language marketing materials.
+A strong launch includes the MLS listing, syndication to Zillow and Realtor.com, social media, and outreach to agents with active buyers.
 
 **Step 6: Reviewing Offers**
-In Greater Boston's competitive market, well-priced homes often receive multiple offers. Will helps you evaluate each offer based on price, contingencies, financing, and closing timeline.
+In Greater Boston's competitive market, well-priced homes often receive multiple offers. Evaluate each offer on price, contingencies, financing, and closing timeline, not price alone.
 
 **Step 7: The Purchase & Sale Agreement**
-The P&S Agreement is the binding contract for your sale. Will works with your attorney to ensure all terms protect your interests.
+In Massachusetts, the accepted Offer to Purchase is usually followed by a Purchase and Sale Agreement about two weeks later. The P&S is the detailed, binding contract for your sale, and both sides typically have an attorney review it.
 
 **Step 8: Closing**
-Massachusetts closings typically take 30-60 days from accepted offer. Will coordinates inspections, appraisal, and all closing logistics to ensure a smooth transaction.
-
-Contact Will for a free listing consultation and home valuation.`,
+Massachusetts closings typically take 30-60 days from accepted offer. Before closing, sellers need a smoke and carbon monoxide detector certificate from the local fire department, and homes with a septic system need a Title 5 inspection. Your agent coordinates access for the buyer's inspection and appraisal and keeps the closing on schedule.`,
   },
   {
     slug: "home-inspection-massachusetts",
@@ -291,7 +292,7 @@ A licensed Massachusetts home inspector examines:
 - Oil tank inspection: Many older homes have underground oil tanks
 - Sewer scope: Recommended for homes with older sewer lines
 - Chimney inspection: Important for homes with fireplaces
-- Lead paint inspection: Required for homes built before 1978 in certain situations
+- Lead paint inspection: homes built before 1978 come with a lead paint disclosure and the option to inspect, and Massachusetts law requires deleading if a child under 6 lives in the home
 
 **Common Issues in Greater Boston Homes**
 - Older electrical panels (Federal Pacific, Zinsco)
@@ -302,12 +303,10 @@ A licensed Massachusetts home inspector examines:
 - Aging HVAC systems
 
 **How to Negotiate After an Inspection**
-The inspection report gives buyers leverage to negotiate repairs or price reductions. Will helps clients distinguish between major issues (structural, safety) and minor cosmetic items, and advises on appropriate negotiation strategies.
+The inspection report gives buyers leverage to negotiate repairs or price reductions. Separate major issues (structural, safety, major systems) from minor cosmetic items, and focus your negotiation on the major ones. A long list of small fixes rarely goes over well with sellers.
 
 **Massachusetts-Specific Considerations**
-Massachusetts has a unique inspection contingency period. Buyers typically have 7-10 days to complete inspections and either accept the property, request repairs, or withdraw. Will manages this timeline carefully to protect your interests.
-
-Contact Will for referrals to trusted home inspectors in Greater Boston.`,
+In Massachusetts, the inspection contingency is usually written into the Offer to Purchase and typically gives buyers 7-10 days to complete inspections and then accept the property, negotiate repairs or a credit, or withdraw. The deadline is firm, so book inspectors as soon as your offer is accepted.`,
   },
   {
     slug: "why-new-england-towns-arent-like-anywhere-else",
@@ -350,9 +349,7 @@ Why do neighboring towns have such different property tax rates? Because each to
 
 What's the difference between Town Meeting and a Town Council? Town Meeting is direct democracy: residents themselves vote on the budget and bylaws at an open meeting. A council is representative, so residents elect councilors who vote on their behalf. Massachusetts has both models, depending on the town.
 
-Does this affect how long it takes to get a building permit? Yes, significantly. Permitting speed and requirements vary by town, since each town's building department and boards operate independently.
-
-If you're relocating to the area and trying to figure out which town actually fits how you want to live, not just what you can afford, that's exactly the kind of question we help people work through every day. [Reach out](/contact) for guidance on the differences between towns you're considering.`,
+Does this affect how long it takes to get a building permit? Yes, significantly. Permitting speed and requirements vary by town, since each town's building department and boards operate independently.`,
   },
   {
     slug: "buying-vs-renting-greater-boston",
@@ -398,9 +395,7 @@ Is it okay to rent for a while before buying? Absolutely, especially early on. R
 
 Why can't I just rent the kind of house I want? Because that type of home, single-family, with a yard, in a good school district, is usually listed for sale rather than offered as a long-term rental. The rental market and the for-sale market skew toward different kinds of housing.
 
-Is renting a good long-term option for a family? Generally not. Families benefit most from the stability, control, and equity-building that ownership provides, especially once school districts and community ties are part of the picture.
-
-If you're weighing whether it's time to make the move from renting to owning, that's exactly the conversation to have. [Reach out to us](/contact) for an honest, no-pressure look at what buying could look like for you.`,
+Is renting a good long-term option for a family? Generally not. Families benefit most from the stability, control, and equity-building that ownership provides, especially once school districts and community ties are part of the picture.`,
   },
   {
     slug: "how-to-know-when-its-time-to-sell",
@@ -445,9 +440,7 @@ How do I know what my home is actually worth right now? A [comparative market an
 
 What if I'm not sure where I'd move next? That's worth working through before listing, not after. Understanding your next step, even roughly, makes the whole process smoother.
 
-Is there a "wrong" time of year to sell? Timing can affect how long a home takes to sell, but a well-prepared, well-priced home can sell successfully in any season if your personal timing is right.
-
-If you're wondering whether now is your right time, not the market's, that's exactly the conversation to have before listing. [Reach out to us](/contact) for a straightforward, no-pressure assessment.`,
+Is there a "wrong" time of year to sell? Timing can affect how long a home takes to sell, but a well-prepared, well-priced home can sell successfully in any season if your personal timing is right.`,
   },
   {
     slug: "best-bike-trails-greater-boston-metrowest",
@@ -485,9 +478,7 @@ Which trail is best for a casual weekend ride? The Minuteman Bikeway is the most
 
 Do these trails connect to each other? Some do, and regional trail networks continue to expand connections between them. It's worth checking current trail maps for the most up-to-date connections.
 
-Does living near a trail actually affect home value or desirability? It's a genuine amenity that many buyers specifically look for, particularly in towns like Arlington where the trail runs through the heart of town.
-
-If having trail access nearby is a priority for your next home, that's worth mentioning early in your search, so [reach out](/contact) and we can help you find towns and neighborhoods that put you close to the network.`,
+Does living near a trail actually affect home value or desirability? It's a genuine amenity that many buyers specifically look for, particularly in towns like Arlington where the trail runs through the heart of town.`,
   },
   {
     slug: "home-improvements-that-add-value",
@@ -538,9 +529,7 @@ Is staging really worth it? Most sellers find it worthwhile. It's a relatively l
 
 What's the single highest-return project? Fresh paint and thorough decluttering consistently rank among the best returns for the cost, across almost any market.
 
-Should I fix things a buyer might ask me to fix anyway? Generally yes, for small items. It's often cheaper to fix a minor issue yourself than to have it become a negotiating point after inspection.
-
-Not sure what your specific home needs before listing? [We provide a pre-listing walkthrough](/sell) and can tell you exactly where your money is best spent, and where it isn't.`,
+Should I fix things a buyer might ask me to fix anyway? Generally yes, for small items. It's often cheaper to fix a minor issue yourself than to have it become a negotiating point after inspection.`,
   },
   {
     slug: "fixer-upper-or-move-in-ready",
@@ -595,9 +584,7 @@ What's a reasonable renovation budget cushion? A common rule of thumb is to budg
 
 Can I finance renovations into my mortgage? Yes, in many cases — renovation loan products exist specifically for this. Ask your lender what's available for the type of work you're planning.
 
-Should a first-time buyer ever consider a fixer-upper? It depends entirely on bandwidth and support system, not experience level. A first-time buyer with a contractor in the family may be better positioned than a repeat buyer with none.
-
-Not sure whether a specific property is a manageable project or a money pit? [We can walk the home with you](/contact) and help you think through what you're actually taking on before you write an offer.`,
+Should a first-time buyer ever consider a fixer-upper? It depends entirely on bandwidth and support system, not experience level. A first-time buyer with a contractor in the family may be better positioned than a repeat buyer with none.`,
   },
   {
     slug: "when-downsizing-makes-sense",
@@ -649,8 +636,6 @@ Will downsizing definitely save me money? Not automatically. It depends on the t
 
 What are the alternatives to a full downsize? Some homeowners choose to stay in their current home and simply close off or repurpose unused rooms, or make accessibility updates instead of moving entirely.
 
-How do I decide between a condo and a smaller single-family home? It largely comes down to how much yard work and exterior maintenance you want to keep doing versus hand off through an HOA.
-
-If you're weighing whether downsizing actually makes sense for your situation, that's a conversation worth having before you decide either way. [Reach out to us](/contact) for an honest read on the real numbers and options for your town.`,
+How do I decide between a condo and a smaller single-family home? It largely comes down to how much yard work and exterior maintenance you want to keep doing versus hand off through an HOA.`,
   },
 ];
