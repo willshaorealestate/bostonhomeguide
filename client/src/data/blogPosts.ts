@@ -196,36 +196,70 @@ There's no universal right answer. It comes down to how you weigh commute, schoo
   },
   {
     slug: "top-school-districts-metrowest",
-    title: "Top School Districts in MetroWest Massachusetts",
-    excerpt: "A comprehensive overview of MetroWest school districts, with context on programs, reputation, and the towns behind them.",
+    title: "Top School Districts West of Boston: 2026 Rankings",
+    excerpt: "The top-ranked public high schools west of Boston, in order, based on Boston Magazine's 2026 ranking, with a quick look at each town.",
     category: "Neighborhoods",
     date: "September 1, 2026",
     img: "https://images.unsplash.com/photo-1761266158207-26a70892763d?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: [
       "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
-    content: `MetroWest Massachusetts is home to some of the best school districts in the state. Here's a comprehensive overview.
+    content: `Strong public schools are one of the biggest reasons buyers look west of Boston. To keep this list objective, it follows [Boston Magazine's 2026 ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) of Greater Boston public high schools, which scores 148 schools on measures like MCAS, SAT and AP results, graduation rate, and class size. Here are the top-ranked high schools in towns west of Boston, from the inner suburbs out to MetroWest, in ranking order.
 
-**Acton-Boxborough Regional**
-Acton-Boxborough Regional High School is #25 in Boston Magazine's 2026 ranking of Greater Boston public high schools. The district is known for strong academics, STEM programs and a wide range of electives.
+**1. Dover-Sherborn High School (#1)**
+A regional high school shared by Dover and Sherborn, two small, quiet towns with larger lots and plenty of open space. It holds the #1 spot in Greater Boston this year.
 
-**Wellesley Public Schools**
-Wellesley High School is #8 in Boston Magazine's 2026 ranking, and the district is one of the most sought-after in the region.
+**2. Weston High School (#2)**
+Weston is a small town just west of Newton and Wellesley, known for large lots and extensive conservation land, with commuter rail service into Boston.
 
-**Sudbury-Lincoln (Lincoln-Sudbury Regional)**
-Lincoln-Sudbury Regional High School is #17 in Boston Magazine's 2026 ranking and is known for its academic rigor and strong arts programs.
+**3. Lexington High School (#3)**
+Lexington is consistently near the top of these rankings. Beyond the schools, the town has a historic center around the Battle Green and direct access to the Minuteman Bikeway.
 
-**Natick Public Schools**
-Natick High School is #39 in Boston Magazine's 2026 ranking. Natick offers strong schools at a more accessible price point than Wellesley or Newton, with good academic programs and extracurricular activities.
+**4. Wayland High School (#4)**
+Wayland sits between Weston and Sudbury along Route 20, with a quiet, residential feel. There's no commuter rail station in town.
 
-**Hopkinton Public Schools**
-Hopkinton High School is #29 in Boston Magazine's 2026 ranking. The district has newer school facilities and offers good value relative to some nearby towns.
+**5. The Bromfield School (#5)**
+[Harvard](/neighborhoods/harvard)'s public school serves grades 6 through 12 in one building. Harvard itself is a small, rural town near Route 2 and I-495.
 
-**Framingham Public Schools**
-Framingham High School is #106 in Boston Magazine's 2026 ranking. The district offers strong bilingual programs and a wide range of academic offerings, and Framingham remains one of the more affordable towns in MetroWest.
+**6. Newton South High School (#6)**
+Newton has two public high schools, and which one a home is assigned to depends on the address: Newton South is #6 and Newton North is #18. Newton also has Green Line and commuter rail access.
 
-**Choosing Based on Schools**
-When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. The [Massachusetts DESE school profiles](https://profiles.doe.mass.edu) have official data for every district, and each [town guide](/neighborhoods) on this site shows its high school's ranking alongside current prices and commute times, and the full [Boston Magazine ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) is worth a look too.`,
+**7. Wellesley High School (#8)**
+Wellesley pairs its schools with a walkable town center and commuter rail service to South Station.
+
+**8. Westwood High School (#9)**
+Westwood sits along Route 128, with commuter rail and Amtrak service at the Route 128 station.
+
+**9. Brookline High School (#10)**
+Brookline borders Boston and offers the most urban setting on this list, with Green Line access and walkable neighborhoods like Coolidge Corner.
+
+**10. Bedford High School (#14)**
+Bedford is a smaller town next to Lexington and Concord, where the Minuteman Bikeway ends.
+
+**11. Concord-Carlisle High School (#15)**
+A regional high school serving Concord, with commuter rail to North Station, and Carlisle, a more rural town with larger lots.
+
+**12. Needham High School (#16)**
+Needham borders Wellesley and Newton and has commuter rail service to South Station.
+
+**13. Lincoln-Sudbury Regional High School (#17)**
+A regional high school serving Lincoln, a small town with commuter rail and lots of conservation land, and Sudbury, a larger residential town.
+
+**Also in the Top 30**
+- Algonquin Regional High School (#19): Southborough and Northborough
+- Arlington High School (#23)
+- Westborough High School (#24)
+- Acton-Boxborough Regional High School (#25): Acton and Boxborough
+- Millis High School (#26)
+- Winchester High School (#27)
+- Hopkinton High School (#29)
+- Holliston High School (#30)
+
+**How to Use These Rankings**
+- A ranking is one input, not the whole picture. Visit the schools and ask about the programs that matter to your family, like special education, arts, athletics, or world languages.
+- The [Massachusetts DESE school profiles](https://profiles.doe.mass.edu) have official MCAS results, enrollment, and more for every district.
+- In towns with more than one high school, such as Newton, confirm which school a specific address is assigned to before you buy.
+- Top-ranked districts usually come with higher home prices. Our [town guides](/neighborhoods) show each town's school ranking alongside current median prices and commute times, so you can compare them side by side.`,
   },
   {
     slug: "selling-home-massachusetts-guide",

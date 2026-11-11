@@ -63,14 +63,15 @@ const townSlugByName = new Map(
 );
 const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 // Longest names first so "North Andover" wins over "Andover". "Boston" only links as the city
-// itself, not inside names like "Greater Boston", "South Boston" or "Boston Magazine".
+// itself, not inside names like "Greater Boston", "South Boston" or "Boston Magazine", or in
+// directions like "west of Boston", "into Boston" or "downtown Boston".
 const townPattern = new RegExp(
   "\\b(" +
     Array.from(townSlugByName.keys())
       .sort((a, b) => b.length - a.length)
       .map((name) =>
         name === "Boston"
-          ? "(?<!(?:Greater|South|East|North) )Boston(?! (?:Marathon|Magazine|Home Guide|Globe|Public|Common|College|University|Harbor))"
+          ? "(?<!(?:Greater|South|East|North|of|into|downtown) )Boston(?! (?:Marathon|Magazine|Home Guide|Globe|Public|Common|College|University|Harbor))"
           : escapeRegExp(name)
       )
       .join("|") +
