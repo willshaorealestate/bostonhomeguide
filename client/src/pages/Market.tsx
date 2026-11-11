@@ -195,8 +195,9 @@ export default function MarketPage() {
         firstName: email.split("@")[0],
         email,
         interest: "market-report",
+        extraNote: "Wants to be notified when new market reports and guides are posted",
       });
-      toast.success("You're subscribed! The next market report will be in your inbox.");
+      toast.success("Thanks! We'll let you know when new market reports and guides are posted.");
       trackLead("market-report-signup");
       setEmail("");
     } catch {
@@ -494,10 +495,10 @@ October 2026 — What This Means for You
         <div className="container max-w-xl text-center">
           <Mail className="w-10 h-10 text-[#C89B3C] mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-white mb-3">
-            Get the Monthly Market Report
+            Get Notified About New Reports
           </h2>
           <p className="text-white/60 font-body text-base mb-6">
-            Data-driven insights delivered to your inbox every month. Free, no spam, unsubscribe anytime.
+            Get notified when new market reports and guides are posted. Free, and no spam.
           </p>
           <form onSubmit={handleSignup} className="flex flex-col sm:flex-row gap-3">
             <input
@@ -509,7 +510,7 @@ October 2026 — What This Means for You
               className="flex-1 bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-[#C89B3C]"
             />
             <button type="submit" disabled={submitting} className="btn-light text-sm whitespace-nowrap">
-              {submitting ? "Subscribing..." : "Subscribe Free"}
+              {submitting ? "Signing up..." : "Notify Me"}
             </button>
           </form>
         </div>

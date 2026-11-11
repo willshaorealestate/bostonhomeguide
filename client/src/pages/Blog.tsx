@@ -112,9 +112,9 @@ function ArticleDetail({ slug }: { slug: string }) {
         firstName: email.split("@")[0],
         email,
         interest: "market-report",
-        extraNote: `Signed up from article: ${article.title}`,
+        extraNote: `Wants to be notified when new market reports and guides are posted. Signed up from article: ${article.title}`,
       });
-      toast.success("You're subscribed! The next market report will be in your inbox.");
+      toast.success("Thanks! We'll let you know when new market reports and guides are posted.");
       trackLead("blog-newsletter-signup");
       setEmail("");
     } catch {
@@ -345,7 +345,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                   Get More Insights
                 </h3>
                 <p className="text-white/60 text-base font-body mb-4">
-                  Subscribe to Will's monthly market report and real estate guides.
+                  Get notified when new market reports and guides are posted.
                 </p>
                 <form onSubmit={handleSignup} className="space-y-3">
                   <input
@@ -359,7 +359,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                     className="w-full bg-[#1A3A5C] border border-white/20 rounded-xl px-4 py-3 text-base font-body text-white placeholder-white/40 focus:outline-none focus:border-white/60"
                   />
                   <button type="submit" disabled={submitting} className="btn-light w-full text-sm text-center disabled:opacity-60">
-                    {submitting ? "Subscribing..." : "Subscribe Free"}
+                    {submitting ? "Signing up..." : "Notify Me"}
                   </button>
                 </form>
               </div>
