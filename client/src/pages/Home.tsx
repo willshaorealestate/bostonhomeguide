@@ -95,8 +95,8 @@ function SectionHeader({
 
 export default function HomePage() {
   useSEO({
-    title: "Boston Home Guide: Greater Boston Real Estate | Will Shao",
-    description: "Nearly 20 years experience, $120M+ in transactions across Greater Boston and MetroWest MA. Expert buyer and seller representation. Will Shao, REMAX Executive Realty. 5.0★ Zillow.",
+    title: "Boston Home Guide: Greater Boston Town & Neighborhood Guides",
+    description: "Thinking about a move to Greater Boston? Compare towns, explore neighborhoods, and see current market data, with local guidance for anyone relocating.",
     canonical: "https://bostonhomeguide.com/",
     // Business schema lives once in index.html (shared by every page) so there is only one entity.
   });
