@@ -54,9 +54,9 @@ function ctaForCategory(category: string) {
   }
 }
 
-// Every town with a page on the site gets linked from blog posts, at its first mention in
-// each article (linking every mention reads as spammy). "Reading" and "Harvard" are left
-// out because they're also an everyday word and the university.
+// Every mention of a town with a page on the site links to that town's page (Will wants
+// town names to read as links throughout a post). "Reading" and "Harvard" are left out
+// because they're also an everyday word and the university.
 const TOWN_LINK_SKIP = new Set(["Reading", "Harvard"]);
 const townSlugByName = new Map(
   allNeighborhoods.filter((n) => !TOWN_LINK_SKIP.has(n.name)).map((n) => [n.name, n.slug] as const)
@@ -125,10 +125,6 @@ function ArticleDetail({ slug }: { slug: string }) {
 
   const cta = ctaForCategory(article.category);
   const paragraphs = article.content.split("\n\n");
-  // Towns already linked in this article. Seeded with towns the post links by hand.
-  const linkedTowns = new Set(
-    Array.from(article.content.matchAll(/\]\(\/neighborhoods\/([a-z-]+)\)/g), (m) => m[1])
-  );
   const faqHeadingIndex = paragraphs.findIndex((p) => p.trim() === "**Frequently Asked Questions**");
   const inlineImages = article.images ?? [];
   const imageAfterIndex = new Map(
@@ -195,16 +191,15 @@ function ArticleDetail({ slug }: { slug: string }) {
                     formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
                       const external = /^https?:\/\//.test(href);
                       manualLinks.push(
-                        `<a href="${href}" class="text-[#0D2137] font-semibold underline decoration-[#C9A84C] decoration-2 underline-offset-4 hover:decoration-[#0D2137]"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
+                        `<a href="${href}" class="text-[#1D5C9E] font-semibold underline-offset-4 hover:underline"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
                       );
                       return `@@LINK${manualLinks.length - 1}@@`;
                     });
 
                     formatted = formatted.replace(townPattern, (town) => {
                       const slug = townSlugByName.get(town);
-                      if (!slug || linkedTowns.has(slug)) return town;
-                      linkedTowns.add(slug);
-                      return `<a href="/neighborhoods/${slug}" class="text-[#0D2137] font-semibold underline decoration-[#C9A84C] decoration-2 underline-offset-4 hover:decoration-[#0D2137]">${town}</a>`;
+                      if (!slug) return town;
+                      return `<a href="/neighborhoods/${slug}" class="text-[#1D5C9E] font-semibold underline-offset-4 hover:underline">${town}</a>`;
                     });
 
                     formatted = formatted.replace(/@@LINK(\d+)@@/g, (_m, idx) => manualLinks[Number(idx)]);
