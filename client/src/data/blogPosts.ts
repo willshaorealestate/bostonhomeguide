@@ -204,45 +204,45 @@ There's no universal right answer. It comes down to how you weigh commute, schoo
     images: [
       "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
-    content: `Strong public schools are one of the biggest reasons buyers look west of Boston. To keep this list objective, it follows [Boston Magazine's 2026 ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) of Greater Boston public high schools, which scores 148 schools on measures like MCAS, SAT and AP results, graduation rate, and class size. Here are the top-ranked high schools in towns west of Boston, from the inner suburbs out to MetroWest, in ranking order.
+    content: `Strong public schools are one of the biggest reasons buyers look west of Boston. To keep this list objective, it follows [Boston Magazine's 2026 ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) of Greater Boston public high schools, which scores 148 schools on measures like MCAS, SAT and AP results, graduation rate, and class size. Here are the top-ranked high schools in towns west of Boston, from the inner suburbs out to MetroWest, in ranking order, with each school's 2026 rank in parentheses.
 
-**1. Dover-Sherborn High School (#1)**
+**Dover-Sherborn High School (#1)**
 A regional high school shared by Dover and Sherborn, two small, quiet towns with larger lots and plenty of open space. It holds the #1 spot in Greater Boston this year.
 
-**2. Weston High School (#2)**
+**Weston High School (#2)**
 Weston is a small town just west of Newton and Wellesley, known for large lots and extensive conservation land, with commuter rail service into Boston.
 
-**3. Lexington High School (#3)**
+**Lexington High School (#3)**
 Lexington is consistently near the top of these rankings. Beyond the schools, the town has a historic center around the Battle Green and direct access to the Minuteman Bikeway.
 
-**4. Wayland High School (#4)**
+**Wayland High School (#4)**
 Wayland sits between Weston and Sudbury along Route 20, with a quiet, residential feel. There's no commuter rail station in town.
 
-**5. The Bromfield School (#5)**
+**The Bromfield School (#5)**
 [Harvard](/neighborhoods/harvard)'s public school serves grades 6 through 12 in one building. Harvard itself is a small, rural town near Route 2 and I-495.
 
-**6. Newton South High School (#6)**
+**Newton South High School (#6)**
 Newton has two public high schools, and which one a home is assigned to depends on the address: Newton South is #6 and Newton North is #18. Newton also has Green Line and commuter rail access.
 
-**7. Wellesley High School (#8)**
+**Wellesley High School (#8)**
 Wellesley pairs its schools with a walkable town center and commuter rail service to South Station.
 
-**8. Westwood High School (#9)**
+**Westwood High School (#9)**
 Westwood sits along Route 128, with commuter rail and Amtrak service at the Route 128 station.
 
-**9. Brookline High School (#10)**
+**Brookline High School (#10)**
 Brookline borders Boston and offers the most urban setting on this list, with Green Line access and walkable neighborhoods like Coolidge Corner.
 
-**10. Bedford High School (#14)**
+**Bedford High School (#14)**
 Bedford is a smaller town next to Lexington and Concord, where the Minuteman Bikeway ends.
 
-**11. Concord-Carlisle High School (#15)**
+**Concord-Carlisle High School (#15)**
 A regional high school serving Concord, with commuter rail to North Station, and Carlisle, a more rural town with larger lots.
 
-**12. Needham High School (#16)**
+**Needham High School (#16)**
 Needham borders Wellesley and Newton and has commuter rail service to South Station.
 
-**13. Lincoln-Sudbury Regional High School (#17)**
+**Lincoln-Sudbury Regional High School (#17)**
 A regional high school serving Lincoln, a small town with commuter rail and lots of conservation land, and Sudbury, a larger residential town.
 
 **Also in the Top 30**
