@@ -195,7 +195,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                     formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, href) => {
                       const external = /^https?:\/\//.test(href);
                       manualLinks.push(
-                        `<a href="${href}" class="text-[#0D2137] font-semibold hover:underline"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
+                        `<a href="${href}" class="text-[#0D2137] font-semibold underline decoration-[#C9A84C] decoration-2 underline-offset-4 hover:decoration-[#0D2137]"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`
                       );
                       return `@@LINK${manualLinks.length - 1}@@`;
                     });
@@ -204,7 +204,7 @@ function ArticleDetail({ slug }: { slug: string }) {
                       const slug = townSlugByName.get(town);
                       if (!slug || linkedTowns.has(slug)) return town;
                       linkedTowns.add(slug);
-                      return `<a href="/neighborhoods/${slug}" class="text-[#0D2137] font-semibold hover:underline">${town}</a>`;
+                      return `<a href="/neighborhoods/${slug}" class="text-[#0D2137] font-semibold underline decoration-[#C9A84C] decoration-2 underline-offset-4 hover:decoration-[#0D2137]">${town}</a>`;
                     });
 
                     formatted = formatted.replace(/@@LINK(\d+)@@/g, (_m, idx) => manualLinks[Number(idx)]);

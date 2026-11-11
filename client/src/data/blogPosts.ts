@@ -28,7 +28,7 @@ export const articles: BlogPost[] = [
     images: [
       "https://images.unsplash.com/photo-1460788150444-d9dc07fa9dba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
-    content: `Greater Boston offers highly rated school districts, a wide range of housing, and plenty of parks and recreation. Whether you're relocating from out of state or moving from the city to the suburbs, choosing the right town is one of the most important decisions you'll make.
+    content: `Greater Boston offers highly rated school districts, a wide range of housing, and plenty of parks and recreation. Whether you're relocating from out of state or moving from the city to the suburbs, [choosing the right town](/neighborhoods) is one of the most important decisions you'll make.
 
 **Newton** has a highly rated public school system, Green Line access, and multiple village centers with restaurants, shops, and community events, combining suburban space with city convenience.
 
@@ -38,7 +38,7 @@ export const articles: BlogPost[] = [
 
 **Wellesley** is known for a school district that consistently ranks among the top in Massachusetts, along with beautiful residential neighborhoods, the Wellesley College campus, and upscale shopping.
 
-When comparing towns, weigh these key factors: school district information (the Massachusetts DESE school profiles and GreatSchools.org are good resources), commute time to your workplace, proximity to parks and recreation, the types of homes available in your price range, and what you want close by day to day. Each [town guide](/neighborhoods) on this site lists the current MLS PIN median price, high school ranking and average commute, so you can compare towns side by side.`,
+When comparing towns, weigh these key factors: [school district information](/blog/top-school-districts-metrowest) (the Massachusetts DESE school profiles and GreatSchools.org are good resources), [commute time to your workplace](/blog/boston-vs-suburbs), proximity to parks and recreation, the types of homes available in your price range, and what you want close by day to day. Each [town guide](/neighborhoods) on this site lists the current MLS PIN median price, high school ranking and average commute, so you can compare towns side by side.`,
   },
   {
     slug: "how-much-to-buy-home-massachusetts",
@@ -70,7 +70,7 @@ Massachusetts closing costs typically run 2-4% of the purchase price:
 - Prepaid items (taxes, insurance): $3,000-$6,000
 
 **Monthly Expenses**
-Beyond your mortgage payment, budget for:
+Beyond your [mortgage payment](/mortgage), budget for:
 - Property taxes: each town sets its own rate per $1,000 of assessed value, and rates vary a lot from town to town, so check the current rate for any town you're considering
 - Homeowner's insurance: $1,200-$2,500/year
 - HOA fees (if applicable): $0-$800/month
@@ -94,10 +94,10 @@ Our guide to [first-time buyer programs in Massachusetts](/blog/first-time-buyer
     images: [
       "https://images.unsplash.com/photo-1648712898089-4435bc87b587?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
-    content: `Greater Boston's real estate market is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here's what actually makes an offer stand out.
+    content: `[Greater Boston's real estate market](/market) is consistently competitive, with well-priced homes in desirable communities often receiving multiple offers within days of listing. Here's what actually makes an offer stand out.
 
 **1. Get Fully Pre-Approved Before You Start**
-A pre-approval letter from a reputable local lender signals to sellers that you're a serious, qualified buyer. A local lender who closes on time and picks up the phone when the listing agent calls is worth more than a slightly lower rate from a lender nobody can reach.
+A [pre-approval letter](/buy) from a reputable local lender signals to sellers that you're a serious, qualified buyer. A local lender who closes on time and picks up the phone when the listing agent calls is worth more than a slightly lower rate from a lender nobody can reach.
 
 **2. Move Fast**
 In Greater Boston's market, hesitation costs you homes. Well-priced listings often collect offers over their first weekend, so be ready to see a home within a day or two of it going live and to write an offer the same day if it's the one.
@@ -109,7 +109,7 @@ In competitive situations, offering at or above asking price is often necessary.
 An escalation clause automatically increases your offer by a set amount above competing offers, up to a maximum. This can be effective in multiple-offer situations while protecting you from overpaying.
 
 **5. Minimize Contingencies Strategically**
-While contingencies protect buyers, excessive contingencies can make your offer less competitive. Know which ones matter most to you, usually inspection and financing, and where you can give ground, such as shorter deadlines or covering part of a gap if the appraisal comes in low.
+While contingencies protect buyers, excessive contingencies can make your offer less competitive. Know which ones matter most to you, usually [inspection](/blog/home-inspection-massachusetts) and financing, and where you can give ground, such as shorter deadlines or covering part of a gap if the appraisal comes in low.
 
 **6. Make Your Offer Easy to Accept**
 A solid earnest money deposit, a lender who can close on time, and short, clear deadlines all reduce the seller's risk. When offers are close on price, the one most likely to close smoothly often wins. We don't recommend personal letters to sellers: they can raise fair housing concerns, and many listing agents no longer pass them along.
@@ -130,13 +130,13 @@ Offering flexibility on the closing date — whether a quick close or a leasebac
     content: `Massachusetts offers several excellent programs to help first-time home buyers enter the market. Here's what you need to know.
 
 **MassHousing**
-MassHousing is Massachusetts' affordable housing bank, offering below-market interest rates and down payment assistance to first-time buyers. Key programs include:
+[MassHousing](https://www.masshousing.com) is Massachusetts' affordable housing bank, offering below-market interest rates and down payment assistance to first-time buyers. Key programs include:
 - MassHousing Mortgage: Competitive rates with as little as 3% down
 - Down Payment Assistance: Assistance for eligible buyers in certain communities
 - MI Plus: Mortgage insurance that includes job loss protection
 
 **ONE Mortgage Program**
-The ONE Mortgage Program, administered by MHP (Massachusetts Housing Partnership), offers:
+The [ONE Mortgage Program](https://www.mhp.net/one-mortgage), administered by MHP (Massachusetts Housing Partnership), offers:
 - 3% down payment
 - No private mortgage insurance (PMI)
 - Below-market interest rates
@@ -155,7 +155,9 @@ The ONE Mortgage Program, administered by MHP (Massachusetts Housing Partnership
 A tax professional can tell you which of these applies to you.
 
 **How to Qualify**
-Most first-time buyer programs define "first-time buyer" as someone who hasn't owned a home in the past 3 years. Income and purchase price limits vary by program and location.`,
+Most first-time buyer programs define "first-time buyer" as someone who hasn't owned a home in the past 3 years. Income and purchase price limits vary by program and location.
+
+For a full picture of upfront and monthly costs, see [how much you need to buy a home in Massachusetts](/blog/how-much-to-buy-home-massachusetts), and try our [mortgage calculator](/mortgage) with your own numbers.`,
   },
   {
     slug: "boston-vs-suburbs",
@@ -173,7 +175,7 @@ Most first-time buyer programs define "first-time buyer" as someone who hasn't o
 Boston proper offers walkability, cultural amenities, and proximity to world-class restaurants, museums, and entertainment. Neighborhoods like South End, Back Bay, and Jamaica Plain offer vibrant urban lifestyles. However, space comes at a premium in the city's most walkable neighborhoods.
 
 **The Case for the Suburbs**
-For buyers who want more space, the suburbs offer compelling advantages: more space for the money, top-rated school districts, and a quieter lifestyle. The same budget that buys a condo in Boston can often buy a single-family colonial in towns like Natick or Framingham.
+For buyers who want more space, the suburbs offer compelling advantages: more space for the money, [top-rated school districts](/blog/top-school-districts-metrowest), and a quieter lifestyle. The same budget that buys a condo in Boston can often buy a single-family colonial in towns like Natick or Framingham.
 
 **The Commute Question**
 Greater Boston's commuter rail runs into two separate downtown terminals, North Station and South Station, and they aren't connected by rail. Getting from one to the other means a transfer on the T or about a mile on foot, so it's worth knowing which station your commute actually needs before you choose a town.
@@ -181,7 +183,7 @@ Greater Boston's commuter rail runs into two separate downtown terminals, North 
 - Commuting to South Station: buyers typically stay along Route 9, west of Boston, in towns like Newton, Wellesley, Natick and Framingham, which are served by the Framingham/Worcester Line. Newton also has the Green Line.
 - The Mass Pike (I-90) is the rough dividing line: north of the Pike, commutes tend to run to North Station; south of it, to South Station.
 
-Many MetroWest towns are 35-50 minutes from downtown Boston by train.
+Many MetroWest towns are 35-50 minutes from downtown Boston by train. Each [town guide](/neighborhoods) lists the average commute time and rail access.
 
 **School Districts**
 This is often the deciding factor for many buyers. Greater Boston's suburban school districts are among the best in the country. In [Boston Magazine's 2026 ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) of Greater Boston public high schools, Lexington (#3), Newton South (#6) and Wellesley (#8) are all in the top 10, with Concord-Carlisle at #15.
@@ -223,7 +225,7 @@ Hopkinton High School is #29 in Boston Magazine's 2026 ranking. The district has
 Framingham High School is #106 in Boston Magazine's 2026 ranking. The district offers strong bilingual programs and a wide range of academic offerings, and Framingham remains one of the more affordable towns in MetroWest.
 
 **Choosing Based on Schools**
-When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. The [Massachusetts DESE school profiles](https://profiles.doe.mass.edu) have official data for every district, and the full [Boston Magazine ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) is worth a look too.`,
+When choosing a town based on schools, consider: GreatSchools ratings, MCAS scores, AP course offerings, extracurricular programs, and special education services. The [Massachusetts DESE school profiles](https://profiles.doe.mass.edu) have official data for every district, and each [town guide](/neighborhoods) on this site shows its high school's ranking alongside current prices and commute times, and the full [Boston Magazine ranking](https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/) is worth a look too.`,
   },
   {
     slug: "selling-home-massachusetts-guide",
@@ -236,10 +238,10 @@ When choosing a town based on schools, consider: GreatSchools ratings, MCAS scor
     content: `Selling a home in Massachusetts involves several unique steps and considerations. Here's how the process works, step by step.
 
 **Step 1: Determine Your Home's Value**
-The most important decision in selling your home is pricing. Price too high and you'll sit on the market; price too low and you'll leave money on the table. A Comparative Market Analysis (CMA) based on recent MLS PIN sales near you is the best starting point.
+The most important decision in selling your home is pricing. Price too high and you'll sit on the market; price too low and you'll leave money on the table. A [Comparative Market Analysis (CMA)](/sell) based on recent MLS PIN sales near you is the best starting point.
 
 **Step 2: Prepare Your Home**
-First impressions matter enormously. A typical pre-listing checklist includes:
+First impressions matter enormously. A typical [pre-listing checklist](/blog/home-improvements-that-add-value) includes:
 - Deep cleaning and decluttering
 - Fresh paint in neutral colors
 - Landscaping and curb appeal improvements
@@ -250,7 +252,7 @@ First impressions matter enormously. A typical pre-listing checklist includes:
 In today's market, the vast majority of buyers start their search online. Professional photography — including 3D virtual tours — is essential for maximizing your home's digital presence.
 
 **Step 4: Strategic Pricing**
-A data-driven pricing strategy weighs recent comparable sales, current market conditions, and your home's unique features. The goal is to attract maximum buyer interest while achieving top dollar.
+A data-driven pricing strategy weighs recent comparable sales, [current market conditions](/market), and your home's unique features. The goal is to attract maximum buyer interest while achieving top dollar.
 
 **Step 5: Marketing Launch**
 A strong launch includes the MLS listing, syndication to Zillow and Realtor.com, social media, and outreach to agents with active buyers.
@@ -274,7 +276,7 @@ Massachusetts closings typically take 30-60 days from accepted offer. Before clo
     images: [
       "https://images.unsplash.com/photo-1782353921981-bb73a53a7482?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
     ],
-    content: `A home inspection is one of the most important steps in the Massachusetts home buying process. Here's what you need to know.
+    content: `A home inspection is one of the most important steps in the [Massachusetts home buying process](/buy). Here's what you need to know.
 
 **What Does a Home Inspector Check?**
 A licensed Massachusetts home inspector examines:
@@ -289,7 +291,7 @@ A licensed Massachusetts home inspector examines:
 
 **Additional Inspections to Consider**
 - Radon testing: Massachusetts has elevated radon levels in many areas
-- Oil tank inspection: Many older homes have underground oil tanks
+- Oil tank inspection: Many [older homes](/blog/fixer-upper-or-move-in-ready) have underground oil tanks
 - Sewer scope: Recommended for homes with older sewer lines
 - Chimney inspection: Important for homes with fireplaces
 - Lead paint inspection: homes built before 1978 come with a lead paint disclosure and the option to inspect, and Massachusetts law requires deleading if a child under 6 lives in the home
@@ -337,7 +339,7 @@ None of this happens by accident. It comes from towns having real control over t
 **What This Means If You're House Hunting**
 Here's the practical takeaway: you're not just choosing a house. You're choosing a town government, a school system, and a civic culture, and the town half a mile away may run very differently from the one you're standing in. A few things worth doing because of this:
 
-1. Don't assume "the area" has one answer to questions like school quality, property tax rate, or how strict zoning enforcement is. Ask town by town.
+1. Don't assume "the area" has one answer to questions like [school quality](/blog/top-school-districts-metrowest), property tax rate, or how strict zoning enforcement is. Ask town by town; our [town guides](/neighborhoods) are a good place to start.
 2. Look at whether a town uses Town Meeting or a council, and whether that matters to you. Some residents love the direct-democracy involvement Town Meeting offers; others prefer a council's efficiency.
 3. If civic involvement matters to you, know that it's genuinely accessible here. Serving on a town board or committee as a resident volunteer is a real, normal path in New England towns in a way it often isn't in county-run systems elsewhere.
 
@@ -363,7 +365,7 @@ Does this affect how long it takes to get a building permit? Yes, significantly.
     content: `Renting and buying get treated like two equally valid lifestyle choices. But over the long run, they're not the same decision with different flavors. They're different outcomes. When you rent, your monthly payment builds someone else's equity. When you own, it builds yours. For most people planning to put down roots here, buying is the stronger move, and it's worth being clear-eyed about why, rather than treating the two as a coin flip.
 
 **Why Ownership Wins Over Time**
-A mortgage payment and a rent payment can look similar on paper, but they do very different things. Every payment on a mortgage builds equity that's yours to keep. Every rent payment is gone the moment you pay it; it covers your housing for the month and nothing more. Over years, that difference compounds into real wealth for owners and none for renters, on top of whatever appreciation the home itself sees.
+A [mortgage payment](/mortgage) and a rent payment can look similar on paper, but they do very different things. Every payment on a mortgage builds equity that's yours to keep. Every rent payment is gone the moment you pay it; it covers your housing for the month and nothing more. Over years, that difference compounds into real wealth for owners and none for renters, on top of whatever appreciation the home itself sees.
 
 Ownership also gives you something renting structurally can't: control. You're not subject to a landlord's decision to sell, renovate, or not renew your lease. You can actually make the home yours, renovating the kitchen, painting the walls, putting down real roots in a school district and a community, without asking permission or worrying it'll be undone by a move you didn't choose.
 
@@ -383,8 +385,8 @@ That means for a lot of buyers, the choice isn't really "rent this home or buy t
 **Getting Ready to Buy**
 None of this is an argument to buy before you're actually ready. It's an argument for treating ownership as the goal you're working toward, not an optional upgrade. A few things worth having in place:
 - A stable income and a reasonable sense it'll continue
-- A down payment saved, with a real emergency fund still intact afterward
-- A sense of which towns fit what you actually want in your life, not just a budget number
+- A [down payment](/blog/how-much-to-buy-home-massachusetts) saved, with a real emergency fund still intact afterward
+- A sense of [which towns fit](/neighborhoods) what you actually want in your life, not just a budget number
 - A plan to stay long enough for the upfront costs of buying to pay for themselves, typically a few years at minimum
 
 **Frequently Asked Questions**
@@ -405,13 +407,13 @@ Is renting a good long-term option for a family? Generally not. Families benefit
     date: "September 11, 2026",
     img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0",
     images: ["https://images.unsplash.com/photo-1512052841874-42cbf0701904?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0"],
-    content: `Sellers often ask some version of "is now a good time to sell?", hoping there's a market-timing answer. But trying to perfectly time the market is a losing game, even for professionals. The better question is whether your current home and situation are actually pointing you toward a move, regardless of what the market is doing.
+    content: `Sellers often ask some version of "is now a good time to sell?", hoping there's a market-timing answer. But trying to perfectly time the market is a losing game, even for professionals. The better question is whether your current home and situation are actually pointing you toward a move, regardless of [what the market is doing](/market).
 
 **Signs Your Home No Longer Fits**
 A few patterns come up again and again with sellers who end up glad they moved:
 - The layout no longer matches how you live: a home office you don't have, stairs that are harder to manage, a yard you no longer use
 - You've outgrown the space, whether from a growing family or simply accumulating more life than the home was built for
-- The maintenance burden has started to outweigh the enjoyment, an aging home asking for more time and money than you want to give it
+- The [maintenance burden](/blog/when-downsizing-makes-sense) has started to outweigh the enjoyment, an aging home asking for more time and money than you want to give it
 - The town itself no longer fits: schools you no longer need, a commute that's changed, wanting a different pace of life
 
 **Signs It's a Financial Green Light**
@@ -468,7 +470,7 @@ Covering ground through Hudson, Marlborough, and into Acton, the [Assabet River 
 Heading north out of the immediate MetroWest area, the [Nashua River Rail Trail](https://www.mass.gov/locations/nashua-river-rail-trail) connects several towns along the Massachusetts-New Hampshire border with a long, mostly flat ride through a more rural stretch of the region: a nice option if you want a longer ride with fewer intersections to navigate.
 
 **Why This Matters Beyond Recreation**
-For a lot of buyers, especially those relocating from areas without this kind of infrastructure, proximity to a trail is a genuine quality-of-life factor: a safe, car-free way to get exercise, get the kids out of the house, or even commute short distances by bike. It's worth asking about when you're touring towns, not just an afterthought once you've already settled somewhere.
+For a lot of buyers, especially those relocating from areas without this kind of infrastructure, proximity to a trail is a genuine quality-of-life factor: a safe, car-free way to get exercise, get the kids out of the house, or even commute short distances by bike. It's worth asking about when you're [touring towns](/neighborhoods), not just an afterthought once you've already settled somewhere.
 
 **Frequently Asked Questions**
 
@@ -509,14 +511,14 @@ Just as important is knowing what tends to be a poor use of pre-sale budget:
 The general pattern: cosmetic, move-in-ready-feeling improvements tend to recoup a much larger share of their cost than major remodels, which are better justified by your own enjoyment of the home than by resale math.
 
 **Why Over-Improving Can Backfire**
-If your home ends up significantly nicer, and more expensive, than everything else on the street, you may struggle to get the price to reflect it. Buyers, and appraisers, tend to value a home relative to its neighborhood. It's worth asking what similar recently-sold homes nearby actually looked like before investing heavily beyond that standard.
+If your home ends up significantly nicer, and more expensive, than everything else on the street, you may struggle to get the price to reflect it. Buyers, and appraisers, tend to value a home relative to its neighborhood. It's worth asking what [similar recently-sold homes nearby](/sell) actually looked like before investing heavily beyond that standard.
 
 **New England-Specific Priorities**
 A few things buyers in this region tend to scrutinize closely, worth addressing before you list if they're an issue:
 - The age and condition of the heating system, not optional in a New England winter
 - Visible basement moisture or water intrusion, even minor
 - Roof age and condition, especially with the region's freeze-thaw cycles
-- Any obvious knob-and-tube wiring or outdated electrical panels
+- Any obvious [knob-and-tube wiring](/blog/home-inspection-massachusetts) or outdated electrical panels
 
 **A Simple Way to Prioritize**
 Walk through your home as if you were a buyer touring it for the first time. Anything that would make you personally hesitate, or make you mentally start subtracting from your offer, is worth addressing. Anything that's simply "not to your exact taste" is probably not worth the investment. The next owner will likely want to make some choices of their own anyway.
@@ -543,7 +545,7 @@ Should I fix things a buyer might ask me to fix anyway? Generally yes, for small
     content: `Greater Boston's housing stock skews old. Plenty of the region's most charming towns are full of Colonials, Capes, and Victorians built well before modern building codes existed. That means the "fixer-upper vs. move-in ready" question comes up constantly, and the right answer depends far more on your own bandwidth than on the house itself.
 
 **What "Fixer-Upper" Actually Covers**
-It's a broad category. On one end, it's a dated kitchen and some cosmetic updates. On the other, it's knob-and-tube wiring, an aging oil tank, and a roof that needs replacing. Before deciding a fixer-upper is right for you, get clear on which kind you're actually looking at. A home inspection is what turns "fixer-upper" from a vague label into a real, prioritized list.
+It's a broad category. On one end, it's a dated kitchen and some cosmetic updates. On the other, it's knob-and-tube wiring, an aging oil tank, and a roof that needs replacing. Before deciding a fixer-upper is right for you, get clear on which kind you're actually looking at. A [home inspection](/blog/home-inspection-massachusetts) is what turns "fixer-upper" from a vague label into a real, prioritized list.
 
 **When a Fixer-Upper Makes Sense**
 A fixer-upper tends to be the right call when:
@@ -552,7 +554,7 @@ A fixer-upper tends to be the right call when:
 - You have the bandwidth (or the right contractor relationships) to manage a renovation project
 - You're buying in a competitive town where move-in-ready homes draw the most competition, and a home needing work is your way into the neighborhood at a more reachable price
 
-Renovation-specific financing, like an FHA 203(k) loan, can also make a fixer-upper more accessible by rolling renovation costs into your mortgage. It's worth discussing with a lender who's done these before.
+Renovation-specific financing, like an FHA 203(k) loan, can also make a fixer-upper more accessible by rolling renovation costs into your [mortgage](/mortgage). It's worth discussing with a lender who's done these before.
 
 **When Move-In Ready Is the Better Call**
 Move-in ready tends to be the smarter choice when:
@@ -611,7 +613,7 @@ It's just as important to recognize when staying put is the smarter call:
 - You're downsizing reactively, out of a sense that you "should," rather than because the space genuinely no longer serves you
 
 **Do the Real Math, Not the Assumed Math**
-A common misconception is that downsizing automatically frees up a large amount of cash. Depending on the town and the type of home you're moving to, a smaller home in a similarly desirable area isn't always dramatically cheaper. Sometimes the real savings come more from lower ongoing maintenance and utility costs than from the sale price difference itself. It's worth running actual numbers for your specific situation rather than assuming.
+A common misconception is that downsizing automatically frees up a large amount of cash. Depending on the town and the type of home you're moving to, a smaller home in a similarly desirable area isn't always dramatically cheaper. Sometimes the real savings come more from lower ongoing maintenance and utility costs than from the sale price difference itself. It's worth [running actual numbers](/sell) for your specific situation rather than assuming.
 
 **What Downsizing Can Look Like**
 Downsizing doesn't have to mean a dramatic lifestyle change. Common paths include:
@@ -619,11 +621,11 @@ Downsizing doesn't have to mean a dramatic lifestyle change. Common paths includ
 - Staying in the same town but moving to a smaller home, preserving community ties
 - Relocating to a town with more single-level living options or age-targeted communities
 - A single-family home with a smaller footprint and less land to maintain
-- Selling and renting instead of buying again
+- Selling and [renting](/blog/buying-vs-renting-greater-boston) instead of buying again
 
 That last option is worth taking seriously rather than treating as a fallback. It's one of our top recommendations for a specific kind of downsizer: someone who wants to travel more, wants zero maintenance responsibility, and doesn't want their equity tied up in another property. Renting after downsizing gives you full flexibility with none of the upkeep, which is exactly the tradeoff some homeowners are looking for at this stage of life, even though it wouldn't be the right call earlier on when raising a family.
 
-Plenty of MetroWest towns have village-center condo options that let you stay close to the same community, restaurants, and friends while meaningfully reducing the home itself.
+Plenty of MetroWest towns have [village-center condo options](/search) that let you stay close to the same community, restaurants, and friends while meaningfully reducing the home itself.
 
 **A Practical Way to Decide**
 Walk through your home room by room and ask honestly how often each space actually gets used. If the answer is "rarely, but I like having it," that's a values question, not a financial one, and there's nothing wrong with keeping space you value, even if it's not "efficient." Downsizing makes the most sense when the unused space has become a burden rather than a comfort.
