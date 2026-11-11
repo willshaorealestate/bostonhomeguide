@@ -62,7 +62,19 @@ jobs:
         run: cp dist/public/index.html dist/public/404.html
 
       - name: Install Playwright Chromium
-        run: pnpm exec playwright install chromium --with-deps
+        # GitHub's Ubuntu runners already have Chromium's system libraries, so don't use
+        # --with-deps: it pulls ~a dozen font packages from archive/security.ubuntu.com on every
+        # deploy, and when those servers are unreachable the whole deploy fails (Nov 11, 2026).
+        # Prerendering only saves HTML, so the extra fonts aren't needed. Only if Chromium can't
+        # start do we install the system packages, with retries.
+        run: |
+          for i in 1 2 3; do pnpm exec playwright install chromium && break; echo "Chromium download failed, retrying in 20s"; sleep 20; done
+          if node -e "require('playwright').chromium.launch().then(b => b.close())"; then
+            echo "Chromium starts without extra system packages"
+          else
+            for i in 1 2 3; do pnpm exec playwright install-deps chromium && break; echo "System package install failed, retrying in 30s"; sleep 30; done
+            node -e "require('playwright').chromium.launch().then(b => b.close())"
+          fi
 
       - name: Prerender pages
         run: node scripts/prerender.mjs
