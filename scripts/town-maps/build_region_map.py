@@ -145,20 +145,28 @@ def main():
                 s, t = r
                 T[b] = (sa * s, sa * t + ta)
                 queue.append(b)
-    missing = sorted(set(files) - set(T))
-    if missing:
-        raise SystemExit(f"Could not place: {missing}")
-
     def placed(rings, slug):
         s, t = T[slug]
         return [r * s + t for r in rings]
 
-    guides = {slug: poly(placed(parse(self_shape(slug)["d"]), slug)) for slug in T}
-    ctx = defaultdict(list)
+    # A town whose own file can't be matched to its neighbors' (Berlin: its map was built from its
+    # neighbors' maps, not the shapefile) is drawn from the copies of it in those neighbors' maps instead
+    missing = sorted(set(files) - set(T))
+    pieces = defaultdict(list)
     for slug in T:
         for sh in files[slug]["shapes"]:
-            if not sh["self"] and sh.get("slug") not in files:
-                ctx[sh["name"]].append(poly(placed(parse(sh["d"]), slug)))
+            if not sh["self"] and (sh.get("slug") not in T):
+                pieces[sh.get("slug") or sh["name"]].append(poly(placed(parse(sh["d"]), slug)))
+    unplaced = [m for m in missing if not pieces.get(m)]
+    if unplaced:
+        raise SystemExit(f"Could not place: {unplaced}")
+    if missing:
+        print(f"drawn from neighbors' maps: {missing}")
+
+    guides = {slug: poly(placed(parse(self_shape(slug)["d"]), slug)) for slug in T}
+    for m in missing:
+        guides[m] = shapely.union_all(pieces[m])
+    ctx = {k: v for k, v in pieces.items() if k not in files}
 
     # One frame for the whole map, 1000 units wide
     allu = shapely.union_all(list(guides.values()))

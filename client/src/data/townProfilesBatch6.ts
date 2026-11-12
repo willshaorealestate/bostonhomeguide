@@ -1,6 +1,6 @@
 /*
  * townProfilesBatch6.ts — MetroWest: Framingham, Ashland, Hopkinton, Sherborn, Holliston, Southborough,
- * Westborough and Northborough. Same rules and sources as townProfilesBatch3.ts.
+ * Westborough, Northborough and Berlin. Same rules and sources as townProfilesBatch3.ts.
  */
 import type { TownProfile } from "./townProfiles";
 
@@ -251,5 +251,42 @@ export const batch6Profiles: Record<string, TownProfile> = {
     ],
     photos: [],
     sources: [wiki("Northborough", "census, area, history, geography"), DOR_TAX],
+  },
+
+  berlin: {
+    tagline: "Orchards, horse farms and Sawyer Hill, in the hills between Hudson and Northborough",
+    glance: [
+      pop("3,158"),
+      { label: "Size", value: "13 sq mi" },
+      from(29, "west"),
+      { label: "Incorporated", value: "1812" },
+      { label: "Government", value: "Open Town Meeting" },
+      tax("$14.06"),
+    ],
+    feel: [
+      "Berlin is a small, rural town in a low range of hills between the Nashua and Assabet river valleys. Sawyer Hill, a long ridge, runs along the east side of town, and Gates Pond, the town's only natural pond, sits at its foot.",
+      "Farming here has shifted toward orchards and horse farms, which still cover much of the hillsides. The small town center sits along Route 62, and I-495 crosses the east side of town.",
+    ],
+    highlights: [
+      { icon: "farm", title: "Orchards and horse farms", text: "Apple orchards and equestrian farms across the hills." },
+      { icon: "tree", title: "Sawyer Hill", text: "A long ridge on the town's east side, with a hiking trail at Great Oak Farm." },
+      { icon: "river", title: "Gates Pond", text: "The town's one natural pond, at the eastern foot of Sawyer Hill." },
+      { icon: "trail", title: "Mass Central Rail Trail", text: "The cross-state trail's route runs through Berlin; it's on roads here for now, with an off-road section in the works." },
+    ],
+    events: [],
+    gettingAround: [
+      "I-495 on the east side of town",
+      "Route 62 through the town center",
+      "No commuter rail station in town",
+    ],
+    photos: [],
+    sources: [
+      wiki("Berlin", "census, history, geography, roads"),
+      { label: "Central Massachusetts Regional Planning Commission: Berlin community snapshot", url: "https://cmrpc.org/data-center/community-snapshots/berlin/" },
+      { label: "Mass Central Rail Trail: Berlin", url: "https://www.masscentralrailtrail.org/berlin" },
+      { label: "W. A. Houghton, History of the Town of Berlin (1895): Gates Pond and Sawyer Hill", url: "https://ldsgenealogy.com/MA/books/History-of-the-town-of-Berlin-Worcester-county-Mass-from-1784-to-1895-part-4.htm" },
+      { label: "Great Oak Farm trail on Sawyer Hill Road", url: "https://ebirdhotspots.com/birding-in-massachusetts/usma-worcester-county/usma-great-oak-farm/" },
+      { label: "Town of Berlin assessor's database: FY2026 tax rates", url: "https://gis.vgsi.com/BerlinMA" },
+    ],
   },
 };

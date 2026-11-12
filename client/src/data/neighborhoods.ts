@@ -582,6 +582,27 @@ export const allNeighborhoods: Neighborhood[] = [
       { label: "Boston Magazine School Rankings", url: "https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/" },
     ],
   },
+  {
+    slug: "berlin",
+    name: "Berlin",
+    // geoId: PENDING (Census county subdivision code, for the RealScout home search link)
+    region: "West of Boston",
+    medianPrice: "PENDING", // filled in by the MLS PIN market job (scripts/mlspin)
+    highSchool: "Tahanto Regional High School",
+    schoolRanks: [], // PENDING: Boston Magazine 2026 rank, if listed
+    commuteMinutes: 0, // PENDING: Census ACS 2020–2024 mean travel time (S0801)
+    rail: "None in town",
+    description: "A small, hilly town of orchards and horse farms between Hudson and Northborough, along I-495 and Route 62.",
+    highlights: ["Rural character", "Orchards and farms", "Quick I-495 access", "Small regional schools"],
+    img: "/images/towns/berlin.jpeg",
+    nearby: ["hudson", "bolton", "marlborough", "northborough", "shrewsbury"],
+    resources: [
+      { label: "Town Website", url: "https://www.townofberlin.com" },
+      { label: "Niche.com", url: "https://www.niche.com/places-to-live/berlin-worcester-ma/" },
+      { label: "GreatSchools", url: "https://www.greatschools.org/massachusetts/berlin/" },
+      { label: "Boston Magazine School Rankings", url: "https://www.bostonmagazine.com/news/best-public-high-schools-boston-2026-2027-chart/" },
+    ],
+  },
   // Northwest of Boston
   {
     slug: "lexington",

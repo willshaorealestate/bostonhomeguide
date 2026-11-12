@@ -19,10 +19,10 @@ client/src/
   pages/          # Route-level pages (Home, Buyer, Seller, Market, About, Contact, Mortgage, Blog, Neighborhoods)
   components/     # Shared components (Navigation, Footer, BeforeAfterSlider, PhotoComparisonCarousel, etc.)
   lib/            # Utilities — seo.ts (custom useSEO hook), fub.ts (FUB API), etc.
-  data/           # neighborhoods.ts — 67 town entries with slugs, descriptions, images
+  data/           # neighborhoods.ts — town entries (73) with slugs, descriptions, images
 
 client/public/images/
-  towns/          # 67 town .jpeg files
+  towns/          # one .jpeg per town
   staging/        # staging-before.jpg, staging-after.jpg
   marketing/      # marketing-before-1..5.jpg + afters (photo comparison pairs)
 
