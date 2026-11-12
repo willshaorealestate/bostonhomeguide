@@ -585,12 +585,12 @@ export const allNeighborhoods: Neighborhood[] = [
   {
     slug: "berlin",
     name: "Berlin",
-    // geoId: PENDING (Census county subdivision code, for the RealScout home search link)
+    geoId: "2502705490",
     region: "West of Boston",
     medianPrice: "PENDING", // filled in by the MLS PIN market job (scripts/mlspin)
     highSchool: "Tahanto Regional High School",
-    schoolRanks: [], // PENDING: Boston Magazine 2026 rank, if listed
-    commuteMinutes: 0, // PENDING: Census ACS 2020–2024 mean travel time (S0801)
+    schoolRanks: [],
+    commuteMinutes: 34.1,
     rail: "None in town",
     description: "A small, hilly town of orchards and horse farms between Hudson and Northborough, along I-495 and Route 62.",
     highlights: ["Rural character", "Orchards and farms", "Quick I-495 access", "Small regional schools"],
