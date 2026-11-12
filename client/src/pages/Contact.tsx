@@ -325,10 +325,12 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Service area */}
-              <ServiceAreaBox />
             </div>
+          </div>
+
+          {/* Service area: full width, so the map can be big enough to use */}
+          <div className="mt-10">
+            <ServiceAreaBox />
           </div>
         </div>
       </section>

@@ -15,13 +15,13 @@ export default function ServiceAreaBox() {
   const areas = regions.filter((r) => r !== "All");
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-      <h3 className="text-lg font-bold text-[#0D2137] mb-2">Service Area</h3>
+    <div className="bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 shadow-sm">
+      <h3 className="text-lg lg:text-xl font-bold text-[#0D2137] mb-2">Service Area</h3>
       <p className="text-base text-gray-500 font-body mb-5">
         Will serves buyers and sellers across Greater Boston and MetroWest.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-5 items-start">
-        <div className="bg-[#F7F8FA] rounded-xl p-2 md:sticky md:top-24">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] gap-6 items-start">
+        <div className="bg-[#F7F8FA] rounded-xl p-2 lg:p-3 w-full max-w-[680px] mx-auto lg:sticky lg:top-24">
           {data ? (
             <RegionMap
               data={data}
@@ -34,7 +34,7 @@ export default function ServiceAreaBox() {
             <div className="aspect-square" aria-hidden="true" />
           )}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-2.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {areas.map((r) => {
             const towns = allNeighborhoods.filter((n) => n.region === r).sort((a, b) => a.name.localeCompare(b.name));
             return (
