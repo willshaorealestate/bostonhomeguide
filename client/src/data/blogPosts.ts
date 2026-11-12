@@ -674,4 +674,49 @@ What are the alternatives to a full downsize? Some homeowners choose to stay in 
 
 How do I decide between a condo and a smaller single-family home? It largely comes down to how much yard work and exterior maintenance you want to keep doing versus hand off through an HOA.`,
   },
+  {
+    slug: "selling-an-inherited-home",
+    title: "Selling an Inherited Home: Where to Start",
+    excerpt: "Selling a home you've inherited is a different process from a typical sale, emotionally and legally. Here's how to approach it.",
+    category: "Seller Guide",
+    date: "November 12, 2026",
+    img: "https://images.unsplash.com/photo-1581403339300-ac621813a3b9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0",
+    images: ["https://images.unsplash.com/photo-1642522029691-029b5a432954?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0"],
+    content: `Selling a home you've inherited is rarely simple. Beyond the emotional weight of it, there are real legal and practical steps that differ from a typical sale, and getting the order of operations right matters.
+
+**Start With the Legal Basics**
+Before a home can be sold, ownership needs to be legally clear. In Massachusetts, this often involves the probate process, where a court confirms the will (or applies state law if there isn't one) and appoints an executor or personal representative with legal authority to act on the estate's behalf, including selling real estate. Until that authority is established, a sale generally can't move forward. This is a good reason to loop in a probate or estate attorney early, before you start thinking about listing timelines.
+
+**Get Clear on Ownership Among Heirs**
+If the home is inherited by multiple people, siblings, for example, everyone with an ownership stake needs to agree on selling, and ideally agree on the basics: timeline, [listing price expectations](/sell), and how proceeds will be divided. Disagreements among heirs are one of the most common things that stall an inherited home sale, so it's worth having that conversation directly and early, separate from the emotions of the loss itself.
+
+**Understand the Tax Basics**
+Inherited property generally receives what's called a "stepped-up basis," meaning the property's value is reset to its fair market value at the time of the original owner's passing, rather than what they originally paid for it decades earlier. This can significantly reduce capital gains taxes if you sell relatively soon after inheriting. The specifics depend on your situation, so this is worth a conversation with a tax professional or estate attorney rather than assuming, but it's an important reason not to delay the conversation.
+
+**Decide: Sell, Rent, or Keep**
+Before assuming a sale is the right move, it's worth briefly considering the alternatives:
+- Selling provides a clean break and immediate liquidity, especially useful when multiple heirs need to divide proceeds
+- Renting can make sense if the home has strong long-term value and someone is willing to manage it as a landlord
+- Keeping the home in the family works when one heir wants to live in it and can buy out the others' shares
+
+Most families land on selling, but it's worth a genuine conversation rather than defaulting to it.
+
+**Preparing the Home**
+Inherited homes have often been lived in for decades, sometimes with deferred maintenance the previous owner didn't get to. A few practical steps:
+- Clearing out personal belongings, often the most emotionally difficult and time-consuming step
+- An honest [inspection](/blog/home-inspection-massachusetts) to understand what condition the home is actually in
+- Deciding how much, if any, [updating makes sense before listing](/blog/home-improvements-that-add-value) versus selling as-is
+
+Selling as-is is a completely reasonable choice for an inherited home, particularly when heirs want to move quickly or don't want to manage a renovation from a distance.
+
+**Frequently Asked Questions**
+
+Do I need to go through probate to sell an inherited home? In most cases, yes. An executor or personal representative typically needs legal authority through the probate process before a sale can close. An estate attorney can confirm what applies to your specific situation.
+
+What if my siblings and I disagree about selling? This is common, and worth resolving directly and early, ideally with guidance from an attorney or mediator, since it can otherwise stall the process indefinitely.
+
+Will I owe a lot of capital gains tax on an inherited home? Often less than people expect, thanks to the stepped-up basis, but the specifics depend on your situation. A tax professional can give you a real answer.
+
+Should I renovate before selling an inherited home? Not necessarily. Many inherited homes sell successfully as-is, particularly when heirs want a simpler, faster process.`,
+  },
 ];
