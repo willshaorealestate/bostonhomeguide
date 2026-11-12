@@ -588,7 +588,7 @@ export const allNeighborhoods: Neighborhood[] = [
     geoId: "2502705490",
     region: "West of Boston",
     medianPrice: "$615,000",
-    priceSource: "MLS PIN, Oct 2026", // filled in by the MLS PIN market job (scripts/mlspin)
+    priceSource: "MLS PIN, Oct 2026",
     highSchool: "Tahanto Regional High School",
     schoolRanks: [],
     commuteMinutes: 34.1,
