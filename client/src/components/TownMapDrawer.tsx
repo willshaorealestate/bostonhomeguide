@@ -58,7 +58,7 @@ export default function TownMapDrawer({ open, onClose, data, area, onArea, activ
       id="town-map"
       aria-label="Town map"
       inert={!open}
-      className={`fixed inset-y-0 right-0 z-[60] w-full sm:w-[min(560px,100%)] bg-[#F7F8FA] overflow-y-auto [scrollbar-gutter:stable] shadow-[-16px_0_40px_rgba(13,33,55,0.18)] transition-[transform,visibility] duration-300 ${
+      className={`fixed inset-y-0 right-0 z-[60] w-full sm:w-[min(560px,100%)] lg:w-[min(1120px,76vw)] bg-[#F7F8FA] overflow-y-auto [scrollbar-gutter:stable] shadow-[-16px_0_40px_rgba(13,33,55,0.18)] transition-[transform,visibility] duration-300 ${
         open ? "translate-x-0 visible" : "translate-x-full invisible"
       }`}
     >
@@ -96,7 +96,8 @@ export default function TownMapDrawer({ open, onClose, data, area, onArea, activ
           ))}
         </div>
 
-        <div className="bg-white border border-gray-100 rounded-2xl p-2 sm:p-2.5">
+        <div className="flex flex-col gap-3.5 lg:grid lg:grid-cols-[minmax(0,1fr)_270px] lg:items-start lg:gap-4">
+        <div className="bg-white border border-gray-100 rounded-2xl p-2 sm:p-2.5 lg:sticky lg:top-[84px]">
           {data ? (
             <RegionMap
               data={data}
@@ -105,7 +106,7 @@ export default function TownMapDrawer({ open, onClose, data, area, onArea, activ
               zoomToArea
               onHover={onHover}
               onSelect={onPick}
-              className="w-full h-auto sm:max-h-[max(320px,calc(100dvh-430px))]"
+              className="w-full h-auto sm:max-h-[max(320px,calc(100dvh-430px))] lg:max-h-[max(420px,calc(100dvh-190px))]"
               label="Map of Will's town guides, colored by area"
             />
           ) : (
@@ -115,10 +116,11 @@ export default function TownMapDrawer({ open, onClose, data, area, onArea, activ
           )}
         </div>
 
+        <div className="flex flex-col gap-3.5">
         {active ? (
           <div ref={previewRef} className="bg-white border border-gray-100 rounded-2xl p-3.5 flex flex-wrap items-center gap-4 scroll-mt-24">
-            <img src={active.img} alt={active.name} className="w-full sm:w-[168px] aspect-video sm:aspect-auto sm:h-[126px] object-cover rounded-xl" />
-            <div className="flex-1 basis-full sm:basis-[170px] min-w-0">
+            <img src={active.img} alt={active.name} className="w-full sm:w-[168px] aspect-video sm:aspect-auto sm:h-[126px] lg:w-full lg:h-auto lg:aspect-[4/3] object-cover rounded-xl" />
+            <div className="flex-1 basis-full sm:basis-[170px] lg:basis-full min-w-0">
               <p className="text-2xl font-bold text-[#0D2137] leading-tight mb-2">{active.name}</p>
               <ul className="space-y-1 text-[15px] text-gray-600 font-body">
                 <li><span className="font-bold text-[#0D2137]">{active.medianPrice}</span> {active.priceSource ? "median sale" : "avg. home value"}</li>
@@ -128,7 +130,7 @@ export default function TownMapDrawer({ open, onClose, data, area, onArea, activ
             </div>
             <Link
               href={`/neighborhoods/${active.slug}`}
-              className="flex-1 basis-full sm:basis-auto sm:grow-0 inline-flex items-center justify-center gap-2 min-h-[52px] px-5 rounded-xl bg-[#0D2137] text-white font-semibold font-body hover:bg-[#1A3A5C] transition-colors"
+              className="flex-1 basis-full sm:basis-auto sm:grow-0 lg:basis-full lg:grow inline-flex items-center justify-center gap-2 min-h-[52px] px-5 rounded-xl bg-[#0D2137] text-white font-semibold font-body hover:bg-[#1A3A5C] transition-colors"
             >
               Open guide <ArrowRight className="w-4 h-4" />
             </Link>
@@ -156,6 +158,8 @@ export default function TownMapDrawer({ open, onClose, data, area, onArea, activ
             ))}
           </div>
         )}
+        </div>
+        </div>
       </div>
     </aside>
   );
