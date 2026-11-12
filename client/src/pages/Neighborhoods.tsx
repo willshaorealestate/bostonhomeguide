@@ -2,10 +2,12 @@
  * Neighborhoods.tsx — BostonHomeGuide.com
  * Neighborhood Guides index + individual town pages
  */
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import TownMap, { useTownMap } from "@/components/TownMap";
+import { AREA_COLORS, AREA_SHORT, useCanHover, useRegionMap } from "@/components/RegionMap";
+import TownMapDrawer, { townRank } from "@/components/TownMapDrawer";
 import { Link, Redirect, useParams } from "wouter";
-import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, ExternalLink } from "lucide-react";
+import { MapPin, School, TrendingUp, Train, Search, ArrowLeft, Star, Home, ExternalLink, ChevronLeft, ChevronRight, Map as MapIcon } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -563,12 +565,48 @@ export default function NeighborhoodsPage() {
 
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("All");
+  const [mapOpen, setMapOpen] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const [picked, setPicked] = useState<string | null>(null);
+  const canHover = useCanHover();
+  const mapData = useRegionMap(mapOpen);
+  const activeSlug = mapOpen ? hovered ?? picked : null;
 
   const filtered = allNeighborhoods.filter((n) => {
-    const matchSearch = n.name.toLowerCase().includes(search.toLowerCase());
+    const matchSearch = n.name.toLowerCase().includes(search.trim().toLowerCase());
     const matchRegion = region === "All" || n.region === region;
     return matchSearch && matchRegion;
   });
+
+  // Picking an area clears the search, and typing a search goes back to all towns,
+  // so the two filters never quietly cancel each other out
+  const pickArea = (r: string) => { setRegion(r); setSearch(""); setPicked(null); setHovered(null); };
+  const onSearch = (v: string) => { setSearch(v); if (v.trim()) { setRegion("All"); setPicked(null); } };
+  const closeMap = useCallback(() => { setMapOpen(false); setPicked(null); setHovered(null); }, []);
+
+  // Arrows on the area row when it's too long for the screen
+  const chipRow = useRef<HTMLDivElement>(null);
+  const [chipEdges, setChipEdges] = useState({ left: false, right: false });
+  const updateChipEdges = useCallback(() => {
+    const el = chipRow.current;
+    if (!el) return;
+    const left = el.scrollLeft > 4;
+    const right = el.scrollLeft + el.clientWidth < el.scrollWidth - 4;
+    setChipEdges((p) => (p.left === left && p.right === right ? p : { left, right }));
+  }, []);
+  useEffect(() => {
+    updateChipEdges();
+    window.addEventListener("resize", updateChipEdges);
+    return () => window.removeEventListener("resize", updateChipEdges);
+  }, [updateChipEdges]);
+  const scrollChips = (dir: 1 | -1) => {
+    const el = chipRow.current;
+    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.7, behavior: "smooth" });
+  };
+
+  const countLabel = search.trim()
+    ? `${filtered.length} ${filtered.length === 1 ? "town" : "towns"} matching "${search.trim()}"`
+    : region === "All" ? `All ${filtered.length} town guides` : `${filtered.length} towns · ${region}`;
 
   return (
     <div className="min-h-screen bg-white">
@@ -595,8 +633,9 @@ export default function NeighborhoodsPage() {
               <input
                 type="text"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => onSearch(e.target.value)}
                 placeholder="Search a town..."
+                aria-label="Search a town"
                 className="w-full pl-10 pr-4 py-3.5 rounded-full bg-white text-[#0D2137] font-body text-base focus:outline-none"
               />
             </div>
@@ -610,9 +649,11 @@ export default function NeighborhoodsPage() {
           {/* One line of region chips; on narrow screens the row swipes sideways instead of widening the page */}
           <div className="relative flex-1 min-w-0">
             <div
-              className="flex gap-2 overflow-x-auto pr-10 xl:pr-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              ref={chipRow}
+              onScroll={updateChipEdges}
+              className="flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               role="tablist"
-              aria-label="Filter towns by region"
+              aria-label="Filter towns by area"
             >
               {regions.map((r) => (
                 <button
@@ -620,23 +661,46 @@ export default function NeighborhoodsPage() {
                   role="tab"
                   aria-selected={region === r}
                   onClick={(e) => {
-                    setRegion(r);
+                    pickArea(r);
                     e.currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
                   }}
-                  className={`shrink-0 whitespace-nowrap px-4 py-1.5 rounded-xl text-sm font-body font-medium transition-colors ${
+                  className={`shrink-0 whitespace-nowrap inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-sm font-body font-medium transition-colors ${
                     region === r
                       ? "bg-[#0D2137] text-white"
                       : "bg-[#F4F6F8] text-[#0D2137] hover:bg-gray-100"
                   }`}
                 >
-                  {r}
+                  {r !== "All" && <span aria-hidden="true" className="w-2 h-2 rounded-full" style={{ background: AREA_COLORS[r]?.dot }} />}
+                  <span className="sm:hidden">{AREA_SHORT[r] ?? r}</span>
+                  <span className="hidden sm:inline">{r}</span>
                 </button>
               ))}
+              {/* Room at the end so the last area can scroll clear of the arrow */}
+              {chipEdges.right || chipEdges.left ? <span aria-hidden="true" className="shrink-0 w-8" /> : null}
             </div>
-            {/* Fade at the right edge hints that there are more regions to swipe to */}
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent xl:hidden" />
+            {/* Arrows (with a fade) show there are more areas to scroll to */}
+            <button
+              type="button"
+              onClick={() => scrollChips(-1)}
+              aria-label="Scroll areas left"
+              className={`absolute inset-y-0 left-0 w-12 flex items-center justify-start bg-gradient-to-r from-white from-50% to-transparent transition-opacity ${chipEdges.left ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            >
+              <span className="w-8 h-8 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0D2137]">
+                <ChevronLeft className="w-4 h-4" />
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollChips(1)}
+              aria-label="Scroll areas right"
+              className={`absolute inset-y-0 right-0 w-12 flex items-center justify-end bg-gradient-to-l from-white from-50% to-transparent transition-opacity ${chipEdges.right ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            >
+              <span className="w-8 h-8 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-[#0D2137]">
+                <ChevronRight className="w-4 h-4" />
+              </span>
+            </button>
           </div>
-          <span className="hidden sm:inline shrink-0 text-sm text-gray-400 font-body">{filtered.length} communities</span>
+          <span className="hidden sm:inline shrink-0 text-sm text-gray-400 font-body">{filtered.length} {filtered.length === 1 ? "community" : "communities"}</span>
         </div>
       </section>
 
@@ -647,8 +711,13 @@ export default function NeighborhoodsPage() {
             {filtered.map((n) => (
               <Link
                 key={n.slug}
+                id={`town-card-${n.slug}`}
                 href={`/neighborhoods/${n.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm card-hover"
+                onMouseEnter={canHover ? () => setHovered(n.slug) : undefined}
+                onMouseLeave={canHover ? () => setHovered(null) : undefined}
+                className={`group bg-white rounded-2xl overflow-hidden border shadow-sm card-hover transition-shadow ${
+                  activeSlug === n.slug ? "border-[#C89B3C] ring-2 ring-[#C89B3C]" : "border-gray-100"
+                }`}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -711,6 +780,38 @@ export default function NeighborhoodsPage() {
       </section>
 
       <Footer />
+
+      {/* Map tab: on the right edge on larger screens, a button at the bottom-left on phones
+          (bottom-right is the "Talk to Will" button) */}
+      <button
+        type="button"
+        onClick={() => setMapOpen(true)}
+        aria-expanded={mapOpen}
+        aria-controls="town-map"
+        className={`fixed z-40 flex items-center gap-2 bg-[#0D2137] text-white font-body font-semibold shadow-lg transition-opacity hover:bg-[#1A3A5C]
+          bottom-6 left-6 h-12 px-5 rounded-full text-sm
+          sm:bottom-auto sm:left-auto sm:right-0 sm:top-1/2 sm:-translate-y-1/2 sm:h-auto sm:flex-col sm:gap-2.5 sm:px-3 sm:py-4 sm:rounded-l-2xl sm:rounded-r-none
+          ${mapOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+      >
+        <MapIcon className="w-5 h-5" />
+        <span className="sm:[writing-mode:vertical-rl] sm:rotate-180 sm:tracking-widest sm:text-xs sm:font-bold">MAP</span>
+      </button>
+
+      <TownMapDrawer
+        open={mapOpen}
+        onClose={closeMap}
+        data={mapData}
+        area={region}
+        onArea={pickArea}
+        activeSlug={activeSlug}
+        onHover={setHovered}
+        onPick={(s) => {
+          setPicked(s);
+          setHovered(null);
+          if (canHover) document.getElementById(`town-card-${s}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }}
+        countLabel={countLabel}
+      />
     </div>
   );
 }

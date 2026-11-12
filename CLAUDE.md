@@ -68,6 +68,7 @@ CNAME             # bostonhomeguide.com
 
 ## Common Tasks
 - **Add a new neighborhood**: edit `client/src/data/neighborhoods.ts`, add a `.jpeg` to `client/public/images/towns/`, update `client/public/sitemap.xml`
+- **Area map** (slide-out map on Neighborhood Guides, Service Area box on Contact): after adding a town or moving one to another area in `neighborhoods.ts`, rerun `python3 scripts/town-maps/build_region_map.py` (needs `pip install shapely numpy`; run `build.py` first for a new town). `RegionMap.test.tsx` fails if the map and `neighborhoods.ts` disagree
 - **Run tests**: `pnpm test` (Vitest + jsdom, runs `client/src/**/*.test.tsx`)
 - **Edit a page**: pages are in `client/src/pages/` — each is a single TSX file
 - **Add a page/route**: pages are code-split. In `client/src/App.tsx`, wrap the import in `lazyPage(() => import("./pages/X"))` and add it to both `ROUTES` and `PAGES` — don't import pages directly. `main.tsx` loads the current page's chunk before the first render so React doesn't blank out the prerendered HTML, then preloads the other pages in the background. Also add the URL to `client/public/sitemap.xml` so it gets prerendered

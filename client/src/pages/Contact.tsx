@@ -13,6 +13,7 @@ import { submitToFub, isValidEmail, isValidPhone } from "@/lib/fub";
 import { trackLead } from "@/lib/analytics";
 import { useSEO } from "@/lib/seo";
 import { allNeighborhoods } from "@/data/neighborhoods";
+import ServiceAreaBox from "@/components/ServiceAreaBox";
 
 export default function ContactPage() {
   useSEO({
@@ -326,35 +327,7 @@ export default function ContactPage() {
               </div>
 
               {/* Service area */}
-              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                <h3 className="text-lg font-bold text-[#0D2137] mb-4">
-                  Service Area
-                </h3>
-                <p className="text-base text-gray-500 font-body mb-5">
-                  Will serves buyers and sellers across Greater Boston and MetroWest.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { region: "Boston & Inner Suburbs", towns: "Boston, Cambridge, Brookline, Newton, Arlington, Belmont, Waltham, Quincy" },
-                    { region: "West of Boston", towns: "Wellesley, Natick, Framingham, Needham, Wayland, Weston, Dedham, Westwood" },
-                    { region: "Northwest of Boston", towns: "Lexington, Concord, Winchester, Bedford, Acton, Westford, Chelmsford, Carlisle" },
-                    { region: "North of Boston", towns: "Andover, North Andover, Woburn, Stoneham, Melrose, Reading, Wakefield, Lynnfield" },
-                    { region: "Southwest of Boston", towns: "Ashland, Hopkinton, Holliston, Milford, Hudson, Marlborough, Southborough, Westborough" },
-                    { region: "South of Boston", towns: "Dover, Medfield, Canton, Milton, Norwood, Braintree, Sharon, Stoughton" },
-                  ].map((area) => (
-                    <div key={area.region} className="bg-[#F4F6F8] rounded-xl p-3">
-                      <p className="text-sm font-semibold text-[#0D2137] font-body uppercase tracking-wide mb-1">{area.region}</p>
-                      <p className="text-sm text-gray-500 font-body leading-relaxed">{area.towns}</p>
-                    </div>
-                  ))}
-                </div>
-                <a
-                  href="/neighborhoods"
-                  className="mt-4 inline-block text-sm text-[#0D2137] font-semibold font-body hover:underline"
-                >
-                  Explore the neighborhood guides →
-                </a>
-              </div>
+              <ServiceAreaBox />
             </div>
           </div>
         </div>
