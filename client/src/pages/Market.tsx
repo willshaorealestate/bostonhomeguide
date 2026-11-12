@@ -35,7 +35,7 @@ const priceData = [
   { month: "Jul '26", median: 850000, sales: 2709 },
   { month: "Aug '26", median: 857000, sales: 2083 },
   { month: "Sep '26", median: 790000, sales: 1647 },
-  { month: "Oct '26", median: 810000, sales: 1579 },
+  { month: "Oct '26", median: 805500, sales: 1601 },
 ];
 
 const domData = [
@@ -54,37 +54,39 @@ const domData = [
 ];
 
 const townData = [
-  { town: "Boston",    medianPrice:  864500, dom: 59, listToSale: 99.0 },
-  { town: "Cambridge", medianPrice: 1075000, dom: 63, listToSale: 102.0 },
-  { town: "Somerville", medianPrice:  870000, dom: 51, listToSale: 101.0 },
+  { town: "Boston",    medianPrice:  855000, dom: 59, listToSale: 99.0 },
+  { town: "Cambridge", medianPrice: 1062500, dom: 61, listToSale: 102.0 },
+  { town: "Somerville", medianPrice:  885000, dom: 50, listToSale: 101.0 },
   { town: "Brookline", medianPrice: 1450000, dom: 59, listToSale: 97.0 },
   { town: "Medford",   medianPrice:  790000, dom: 49, listToSale: 99.0 },
-  { town: "Malden",    medianPrice:  657000, dom: 40, listToSale: 100.0 },
-  { town: "Quincy",    medianPrice:  649900, dom: 37, listToSale: 99.0 },
-  { town: "Arlington", medianPrice: 1050000, dom: 33, listToSale: 103.0 },
+  { town: "Malden",    medianPrice:  700000, dom: 45, listToSale: 99.0 },
+  { town: "Arlington", medianPrice: 1020000, dom: 38, listToSale: 102.0 },
   { town: "Belmont",   medianPrice: 1400000, dom: 64, listToSale: 98.0 },
   { town: "Waltham",   medianPrice:  787000, dom: 36, listToSale: 100.0 },
   { town: "Watertown", medianPrice:  775000, dom: 36, listToSale: 99.0 },
-  { town: "Newton",    medianPrice: 1160000, dom: 68, listToSale: 98.0 },
+  { town: "Newton",    medianPrice: 1157500, dom: 69, listToSale: 98.0 },
   { town: "Wellesley", medianPrice: 2100000, dom: 37, listToSale: 99.0 },
-  { town: "Natick",    medianPrice:  675000, dom: 61, listToSale: 100.0 },
+  { town: "Natick",    medianPrice:  750000, dom: 56, listToSale: 100.0 },
   { town: "Framingham", medianPrice:  660000, dom: 36, listToSale: 98.0 },
   { town: "Wayland",   medianPrice:  875000, dom: 32, listToSale: 104.0 },
   { town: "Needham",   medianPrice: 1375000, dom: 59, listToSale: 99.0 },
-  { town: "Dedham",    medianPrice:  700000, dom: 50, listToSale: 98.0 },
-  { town: "Westwood",  medianPrice: 1250000, dom: 23, listToSale: 102.0 },
   { town: "Weston",    medianPrice: 2115000, dom: 43, listToSale: 102.0 },
   { town: "Lincoln",   medianPrice: 1457100, dom: 33, listToSale: 103.0 },
   { town: "Sudbury",   medianPrice: 1175000, dom: 44, listToSale: 100.0 },
   { town: "Shrewsbury", medianPrice:  622000, dom: 60, listToSale: 100.0 },
-  { town: "Lexington", medianPrice: 1889900, dom: 72, listToSale: 98.0 },
-  { town: "Concord",   medianPrice: 1252000, dom: 51, listToSale: 103.0 },
-  { town: "Winchester", medianPrice: 1564950, dom: 43, listToSale: 98.0 },
+  { town: "Hudson",    medianPrice:  640000, dom: 43, listToSale: 101.0 },
+  { town: "Marlborough", medianPrice:  584000, dom: 39, listToSale: 100.0 },
+  { town: "Southborough", medianPrice:  866000, dom: 66, listToSale: 98.0 },
+  { town: "Westborough", medianPrice:  642680, dom: 52, listToSale: 99.0 },
+  { town: "Northborough", medianPrice:  615000, dom: 43, listToSale: 98.0 },
+  { town: "Berlin",    medianPrice:  615000, dom: 45, listToSale: 101.0 },
+  { town: "Lexington", medianPrice: 1902450, dom: 72, listToSale: 98.0 },
+  { town: "Concord",   medianPrice: 1234000, dom: 53, listToSale: 102.0 },
   { town: "Bedford",   medianPrice:  921000, dom: 24, listToSale: 104.0 },
-  { town: "Burlington", medianPrice:  808000, dom: 42, listToSale: 104.0 },
+  { town: "Burlington", medianPrice:  816500, dom: 44, listToSale: 103.0 },
   { town: "Carlisle",  medianPrice: 1312500, dom: 79, listToSale: 98.0 },
   { town: "Acton",     medianPrice:  805000, dom: 26, listToSale: 100.0 },
-  { town: "Stow",      medianPrice:  867000, dom: 57, listToSale: 101.0 },
+  { town: "Stow",      medianPrice:  875000, dom: 52, listToSale: 101.0 },
   { town: "Boxborough", medianPrice:  357500, dom: 65, listToSale: 97.0 },
   { town: "Bolton",    medianPrice:  830000, dom: 38, listToSale: 102.0 },
   { town: "Harvard",   medianPrice:  620000, dom: 63, listToSale: 100.0 },
@@ -95,17 +97,20 @@ const townData = [
   { town: "Westford",  medianPrice:  750000, dom: 25, listToSale: 102.0 },
   { town: "Chelmsford", medianPrice:  670000, dom: 29, listToSale: 102.0 },
   { town: "Billerica", medianPrice:  697500, dom: 29, listToSale: 100.0 },
+  { town: "Winchester", medianPrice: 1564950, dom: 43, listToSale: 98.0 },
   { town: "Tewksbury", medianPrice:  661000, dom: 37, listToSale: 101.0 },
   { town: "Wilmington", medianPrice:  793500, dom: 44, listToSale: 101.0 },
   { town: "Woburn",    medianPrice:  650000, dom: 34, listToSale: 100.0 },
-  { town: "Stoneham",  medianPrice:  780000, dom: 45, listToSale: 101.0 },
+  { town: "Stoneham",  medianPrice:  760000, dom: 43, listToSale: 102.0 },
   { town: "Melrose",   medianPrice:  829500, dom: 40, listToSale: 103.0 },
   { town: "Wakefield", medianPrice:  710000, dom: 36, listToSale: 100.0 },
   { town: "Reading",   medianPrice:  872500, dom: 28, listToSale: 102.0 },
-  { town: "North Reading", medianPrice:  837450, dom: 39, listToSale: 102.0 },
+  { town: "North Reading", medianPrice:  799900, dom: 38, listToSale: 102.0 },
   { town: "Lynnfield", medianPrice: 1100000, dom: 37, listToSale: 99.0 },
-  { town: "Andover",   medianPrice:  960000, dom: 29, listToSale: 102.0 },
+  { town: "Andover",   medianPrice:  960000, dom: 29, listToSale: 101.0 },
   { town: "North Andover", medianPrice:  685000, dom: 22, listToSale: 102.0 },
+  { town: "Dedham",    medianPrice:  700000, dom: 50, listToSale: 98.0 },
+  { town: "Westwood",  medianPrice: 1250000, dom: 23, listToSale: 102.0 },
   { town: "Ashland",   medianPrice:  570000, dom: 27, listToSale: 100.0 },
   { town: "Hopkinton", medianPrice: 1425000, dom: 49, listToSale: 100.0 },
   { town: "Sherborn",  medianPrice: 1212500, dom: 42, listToSale: 96.0 },
@@ -113,19 +118,15 @@ const townData = [
   { town: "Medway",    medianPrice:  757500, dom: 58, listToSale: 102.0 },
   { town: "Millis",    medianPrice:  532500, dom: 29, listToSale: 97.0 },
   { town: "Milford",   medianPrice:  584000, dom: 31, listToSale: 101.0 },
-  { town: "Hudson",    medianPrice:  640000, dom: 43, listToSale: 101.0 },
-  { town: "Marlborough", medianPrice:  584000, dom: 39, listToSale: 100.0 },
-  { town: "Southborough", medianPrice:  866000, dom: 66, listToSale: 98.0 },
-  { town: "Westborough", medianPrice:  642680, dom: 52, listToSale: 99.0 },
-  { town: "Northborough", medianPrice:  615000, dom: 43, listToSale: 98.0 },
   { town: "Dover",     medianPrice: 1970000, dom: 25, listToSale: 100.0 },
   { town: "Medfield",  medianPrice: 1196350, dom: 47, listToSale: 98.0 },
+  { town: "Quincy",    medianPrice:  649900, dom: 37, listToSale: 99.0 },
   { town: "Canton",    medianPrice:  640998, dom: 32, listToSale: 101.0 },
   { town: "Sharon",    medianPrice:  937500, dom: 51, listToSale: 99.0 },
   { town: "Stoughton", medianPrice:  450000, dom: 34, listToSale: 100.0 },
-  { town: "Norwood",   medianPrice:  602500, dom: 31, listToSale: 100.0 },
-  { town: "Milton",    medianPrice: 1200000, dom: 37, listToSale: 102.0 },
-  { town: "Braintree", medianPrice:  662500, dom: 44, listToSale: 100.0 },
+  { town: "Norwood",   medianPrice:  585000, dom: 29, listToSale: 100.0 },
+  { town: "Milton",    medianPrice: 1200000, dom: 39, listToSale: 102.0 },
+  { town: "Braintree", medianPrice:  660000, dom: 43, listToSale: 100.0 },
 ];
 
 
@@ -240,10 +241,10 @@ export default function MarketPage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "$810,000", label: "Median Sale Price", change: "MLSPIN, Oct 2026" },
+              { value: "$805,500", label: "Median Sale Price", change: "MLSPIN, Oct 2026" },
               { value: "46 days", label: "Avg. Days on Market", change: "SF + Condo, Greater Boston" },
               { value: "100%", label: "List-to-Sale Ratio", change: "At asking, on average" },
-              { value: "1,579", label: "Closed Sales", change: "MLSPIN, Oct 2026" },
+              { value: "1,601", label: "Closed Sales", change: "MLSPIN, Oct 2026" },
             ].map((m) => (
               <div key={m.label}>
                 <p className="text-3xl font-bold text-[#0D2137]">{m.value}</p>
@@ -464,13 +465,13 @@ October 2026 — What This Means for You
             <div className="space-y-4 text-base text-gray-600 font-body leading-relaxed">
               {/* COMMENTARY:START — generated by scripts/mlspin/commentary.mjs */}
               <p>
-                October brought 1,579 closed sales across Greater Boston, down 4% from September. The median sale price came in at $810,000, up 3% from September, and homes took an average of 46 days to sell, the same as in September. On average, sellers received 100% of their list price. Fall typically brings a seasonal slowdown after the busy spring and summer months.
+                October brought 1,601 closed sales across Greater Boston, down 3% from September. The median sale price came in at $805,500, up 2% from September, and homes took an average of 46 days to sell, the same as in September. On average, sellers received 100% of their list price. Fall typically brings a seasonal slowdown after the busy spring and summer months.
               </p>
               <p>
                 <strong className="text-[#0D2137]">For Buyers:</strong> The pace of the market is holding steady from last month. The most negotiating room right now is in Groton (95% of list, 67 days on market), Sherborn (96% of list, 42 days on market), and Boxborough (97% of list, 65 days on market). Across the region, homes are still selling at or above asking on average, so a strong first offer still matters.
               </p>
               <p>
-                <strong className="text-[#0D2137]">For Sellers:</strong> Bedford, Wayland, and Burlington are the most competitive markets we track this month, with homes selling at 104% of list price or better. Demand is holding steady, so a well-prepared, well-priced listing remains in a strong position.
+                <strong className="text-[#0D2137]">For Sellers:</strong> Bedford, Wayland, and Ayer are the most competitive markets we track this month, with homes selling at 103% of list price or better. Demand is holding steady, so a well-prepared, well-priced listing remains in a strong position.
               </p>
               <p>
                 <strong className="text-[#0D2137]">Notable Standout:</strong> North Andover was one of the fastest-moving markets we track, with homes selling in 22 days on average at 102% of list. On the other end, homes in Carlisle averaged 79 days on market, so buyers there have more time to weigh their options.

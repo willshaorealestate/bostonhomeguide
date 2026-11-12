@@ -18,7 +18,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  805000, dom: 45, listToSale: 100, sold: 542, pending: 28 },
     { month: "Aug '26", median:  815000, dom: 51, listToSale: 99, sold: 391, pending: 52 },
     { month: "Sep '26", median:  787500, dom: 61, listToSale: 98, sold: 310, pending: 220 },
-    { month: "Oct '26", median:  864500, dom: 59, listToSale: 99, sold: 268, pending: 286 },
+    { month: "Oct '26", median:  855000, dom: 59, listToSale: 99, sold: 272, pending: 258 },
   ],
   "Newton": [
     { month: "Nov '25", median: 1452500, dom: 52, listToSale: 98, sold: 74, pending: 4 },
@@ -32,7 +32,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1402655, dom: 35, listToSale: 102, sold: 116, pending: 2 },
     { month: "Aug '26", median: 1728250, dom: 47, listToSale: 99, sold: 66, pending: 11 },
     { month: "Sep '26", median: 1647500, dom: 47, listToSale: 99, sold: 38, pending: 54 },
-    { month: "Oct '26", median: 1160000, dom: 68, listToSale: 98, sold: 49, pending: 51 },
+    { month: "Oct '26", median: 1157500, dom: 69, listToSale: 98, sold: 50, pending: 51 },
   ],
   "Wellesley": [
     { month: "Nov '25", median: 1755000, dom: 31, listToSale: 99, sold: 23, pending: 1 },
@@ -46,7 +46,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 2595000, dom: 28, listToSale: 101, sold: 36, pending: 1 },
     { month: "Aug '26", median: 2165000, dom: 33, listToSale: 97, sold: 42, pending: 2 },
     { month: "Sep '26", median: 2950000, dom: 62, listToSale: 97, sold: 19, pending: 28 },
-    { month: "Oct '26", median: 2100000, dom: 37, listToSale: 99, sold: 17, pending: 17 },
+    { month: "Oct '26", median: 2100000, dom: 37, listToSale: 99, sold: 17, pending: 13 },
   ],
   "Brookline": [
     { month: "Nov '25", median: 1220000, dom: 50, listToSale: 99, sold: 32, pending: 0 },
@@ -60,7 +60,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1440000, dom: 40, listToSale: 100, sold: 56, pending: 2 },
     { month: "Aug '26", median: 1140000, dom: 52, listToSale: 98, sold: 47, pending: 8 },
     { month: "Sep '26", median: 1275000, dom: 83, listToSale: 97, sold: 27, pending: 32 },
-    { month: "Oct '26", median: 1450000, dom: 59, listToSale: 97, sold: 35, pending: 36 },
+    { month: "Oct '26", median: 1450000, dom: 59, listToSale: 97, sold: 35, pending: 34 },
   ],
   "Natick": [
     { month: "Nov '25", median:  890000, dom: 39, listToSale: 99, sold: 24, pending: 0 },
@@ -74,7 +74,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  900000, dom: 24, listToSale: 100, sold: 55, pending: 0 },
     { month: "Aug '26", median:  857500, dom: 27, listToSale: 100, sold: 36, pending: 6 },
     { month: "Sep '26", median:  873500, dom: 41, listToSale: 100, sold: 31, pending: 20 },
-    { month: "Oct '26", median:  675000, dom: 61, listToSale: 100, sold: 17, pending: 27 },
+    { month: "Oct '26", median:  750000, dom: 56, listToSale: 100, sold: 19, pending: 25 },
   ],
   "Lexington": [
     { month: "Nov '25", median: 2068000, dom: 53, listToSale: 101, sold: 23, pending: 0 },
@@ -88,7 +88,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1580000, dom: 62, listToSale: 101, sold: 51, pending: 3 },
     { month: "Aug '26", median: 1750000, dom: 57, listToSale: 99, sold: 39, pending: 6 },
     { month: "Sep '26", median: 1422000, dom: 48, listToSale: 98, sold: 18, pending: 20 },
-    { month: "Oct '26", median: 1889900, dom: 72, listToSale: 98, sold: 25, pending: 17 },
+    { month: "Oct '26", median: 1902450, dom: 72, listToSale: 98, sold: 26, pending: 16 },
   ],
   "Needham": [
     { month: "Nov '25", median: 1700000, dom: 49, listToSale: 101, sold: 17, pending: 0 },
@@ -102,7 +102,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1700000, dom: 36, listToSale: 100, sold: 41, pending: 1 },
     { month: "Aug '26", median: 1490750, dom: 38, listToSale: 99, sold: 40, pending: 5 },
     { month: "Sep '26", median: 1570000, dom: 80, listToSale: 98, sold: 21, pending: 17 },
-    { month: "Oct '26", median: 1375000, dom: 59, listToSale: 99, sold: 22, pending: 24 },
+    { month: "Oct '26", median: 1375000, dom: 59, listToSale: 99, sold: 22, pending: 21 },
   ],
   "Framingham": [
     { month: "Nov '25", median:  585700, dom: 32, listToSale: 101, sold: 35, pending: 1 },
@@ -116,7 +116,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  675000, dom: 24, listToSale: 101, sold: 57, pending: 1 },
     { month: "Aug '26", median:  670000, dom: 30, listToSale: 101, sold: 50, pending: 5 },
     { month: "Sep '26", median:  705000, dom: 34, listToSale: 100, sold: 51, pending: 38 },
-    { month: "Oct '26", median:  660000, dom: 36, listToSale: 98, sold: 35, pending: 52 },
+    { month: "Oct '26", median:  660000, dom: 36, listToSale: 98, sold: 35, pending: 49 },
   ],
   "Waltham": [
     { month: "Nov '25", median:  792250, dom: 36, listToSale: 100, sold: 26, pending: 0 },
@@ -130,7 +130,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  800000, dom: 30, listToSale: 102, sold: 31, pending: 1 },
     { month: "Aug '26", median:  830000, dom: 39, listToSale: 100, sold: 39, pending: 5 },
     { month: "Sep '26", median:  767500, dom: 42, listToSale: 99, sold: 22, pending: 21 },
-    { month: "Oct '26", median:  787000, dom: 36, listToSale: 100, sold: 37, pending: 38 },
+    { month: "Oct '26", median:  787000, dom: 36, listToSale: 100, sold: 37, pending: 35 },
   ],
   "Cambridge": [
     { month: "Nov '25", median: 1190000, dom: 43, listToSale: 100, sold: 48, pending: 0 },
@@ -144,7 +144,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1287500, dom: 36, listToSale: 103, sold: 86, pending: 2 },
     { month: "Aug '26", median: 1045000, dom: 42, listToSale: 102, sold: 67, pending: 5 },
     { month: "Sep '26", median:  862500, dom: 50, listToSale: 99, sold: 28, pending: 46 },
-    { month: "Oct '26", median: 1075000, dom: 63, listToSale: 102, sold: 57, pending: 43 },
+    { month: "Oct '26", median: 1062500, dom: 61, listToSale: 102, sold: 58, pending: 40 },
   ],
   "Arlington": [
     { month: "Nov '25", median: 1200000, dom: 38, listToSale: 100, sold: 36, pending: 0 },
@@ -158,7 +158,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1160000, dom: 28, listToSale: 103, sold: 49, pending: 0 },
     { month: "Aug '26", median: 1145000, dom: 31, listToSale: 102, sold: 39, pending: 0 },
     { month: "Sep '26", median: 1340000, dom: 33, listToSale: 103, sold: 21, pending: 18 },
-    { month: "Oct '26", median: 1050000, dom: 33, listToSale: 103, sold: 29, pending: 31 },
+    { month: "Oct '26", median: 1020000, dom: 38, listToSale: 102, sold: 30, pending: 23 },
   ],
   "Belmont": [
     { month: "Nov '25", median: 1247500, dom: 48, listToSale: 97, sold: 20, pending: 0 },
@@ -172,7 +172,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1540000, dom: 23, listToSale: 101, sold: 23, pending: 0 },
     { month: "Aug '26", median: 1410000, dom: 21, listToSale: 101, sold: 15, pending: 1 },
     { month: "Sep '26", median: 1525000, dom: 61, listToSale: 97, sold: 18, pending: 14 },
-    { month: "Oct '26", median: 1400000, dom: 64, listToSale: 98, sold: 21, pending: 14 },
+    { month: "Oct '26", median: 1400000, dom: 64, listToSale: 98, sold: 21, pending: 12 },
   ],
   "Somerville": [
     { month: "Nov '25", median:  880000, dom: 29, listToSale: 100, sold: 35, pending: 0 },
@@ -186,7 +186,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  805000, dom: 41, listToSale: 100, sold: 61, pending: 6 },
     { month: "Aug '26", median:  854000, dom: 35, listToSale: 100, sold: 39, pending: 2 },
     { month: "Sep '26", median:  879000, dom: 44, listToSale: 101, sold: 29, pending: 26 },
-    { month: "Oct '26", median:  870000, dom: 51, listToSale: 101, sold: 24, pending: 30 },
+    { month: "Oct '26", median:  885000, dom: 50, listToSale: 101, sold: 25, pending: 26 },
   ],
   "Medford": [
     { month: "Nov '25", median:  975000, dom: 40, listToSale: 99, sold: 19, pending: 0 },
@@ -200,7 +200,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  873000, dom: 28, listToSale: 103, sold: 44, pending: 2 },
     { month: "Aug '26", median:  862500, dom: 51, listToSale: 100, sold: 47, pending: 2 },
     { month: "Sep '26", median:  745000, dom: 57, listToSale: 100, sold: 29, pending: 28 },
-    { month: "Oct '26", median:  790000, dom: 49, listToSale: 99, sold: 30, pending: 45 },
+    { month: "Oct '26", median:  790000, dom: 49, listToSale: 99, sold: 30, pending: 44 },
   ],
   "Watertown": [
     { month: "Nov '25", median:  840000, dom: 49, listToSale: 99, sold: 18, pending: 0 },
@@ -228,7 +228,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1924500, dom: 30, listToSale: 101, sold: 30, pending: 0 },
     { month: "Aug '26", median: 1737000, dom: 36, listToSale: 99, sold: 18, pending: 3 },
     { month: "Sep '26", median: 2021000, dom: 64, listToSale: 99, sold: 12, pending: 10 },
-    { month: "Oct '26", median: 1564950, dom: 43, listToSale: 98, sold: 20, pending: 12 },
+    { month: "Oct '26", median: 1564950, dom: 43, listToSale: 98, sold: 20, pending: 10 },
   ],
   "Woburn": [
     { month: "Nov '25", median:  775000, dom: 29, listToSale: 101, sold: 24, pending: 0 },
@@ -242,7 +242,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  770000, dom: 29, listToSale: 101, sold: 39, pending: 0 },
     { month: "Aug '26", median:  749500, dom: 29, listToSale: 102, sold: 32, pending: 0 },
     { month: "Sep '26", median:  710000, dom: 28, listToSale: 100, sold: 26, pending: 19 },
-    { month: "Oct '26", median:  650000, dom: 34, listToSale: 100, sold: 21, pending: 28 },
+    { month: "Oct '26", median:  650000, dom: 34, listToSale: 100, sold: 23, pending: 26 },
   ],
   "Burlington": [
     { month: "Nov '25", median:  760000, dom: 19, listToSale: 100, sold: 13, pending: 0 },
@@ -256,7 +256,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  932500, dom: 32, listToSale: 103, sold: 28, pending: 0 },
     { month: "Aug '26", median:  815000, dom: 35, listToSale: 102, sold: 14, pending: 3 },
     { month: "Sep '26", median:  899900, dom: 56, listToSale: 102, sold: 15, pending: 9 },
-    { month: "Oct '26", median:  808000, dom: 42, listToSale: 104, sold: 19, pending: 17 },
+    { month: "Oct '26", median:  816500, dom: 44, listToSale: 103, sold: 20, pending: 16 },
   ],
   "Chelmsford": [
     { month: "Nov '25", median:  550000, dom: 28, listToSale: 101, sold: 23, pending: 0 },
@@ -270,7 +270,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  677500, dom: 28, listToSale: 102, sold: 40, pending: 0 },
     { month: "Aug '26", median:  624500, dom: 31, listToSale: 100, sold: 38, pending: 0 },
     { month: "Sep '26", median:  670000, dom: 36, listToSale: 101, sold: 33, pending: 18 },
-    { month: "Oct '26", median:  670000, dom: 29, listToSale: 102, sold: 26, pending: 24 },
+    { month: "Oct '26", median:  670000, dom: 29, listToSale: 102, sold: 26, pending: 21 },
   ],
   "Acton": [
     { month: "Nov '25", median:  765000, dom: 52, listToSale: 100, sold: 26, pending: 0 },
@@ -284,7 +284,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  805000, dom: 30, listToSale: 102, sold: 39, pending: 1 },
     { month: "Aug '26", median:  870000, dom: 32, listToSale: 100, sold: 19, pending: 1 },
     { month: "Sep '26", median:  850000, dom: 50, listToSale: 100, sold: 17, pending: 16 },
-    { month: "Oct '26", median:  805000, dom: 26, listToSale: 100, sold: 21, pending: 21 },
+    { month: "Oct '26", median:  805000, dom: 26, listToSale: 100, sold: 21, pending: 19 },
   ],
   "Bedford": [
     { month: "Nov '25", median:  962250, dom: 47, listToSale: 101, sold: 10, pending: 0 },
@@ -298,7 +298,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1068000, dom: 44, listToSale: 103, sold: 21, pending: 0 },
     { month: "Aug '26", median:  955000, dom: 31, listToSale: 101, sold: 12, pending: 2 },
     { month: "Sep '26", median: 1088000, dom: 47, listToSale: 101, sold: 13, pending: 8 },
-    { month: "Oct '26", median:  921000, dom: 24, listToSale: 104, sold: 10, pending: 11 },
+    { month: "Oct '26", median:  921000, dom: 24, listToSale: 104, sold: 10, pending: 10 },
   ],
   "Concord": [
     { month: "Nov '25", median: 1757500, dom: 74, listToSale: 101, sold: 10, pending: 0 },
@@ -312,7 +312,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1775000, dom: 54, listToSale: 99, sold: 12, pending: 2 },
     { month: "Aug '26", median: 1725000, dom: 64, listToSale: 98, sold: 23, pending: 1 },
     { month: "Sep '26", median: 1437500, dom: 59, listToSale: 102, sold: 12, pending: 15 },
-    { month: "Oct '26", median: 1252000, dom: 51, listToSale: 103, sold: 26, pending: 13 },
+    { month: "Oct '26", median: 1234000, dom: 53, listToSale: 102, sold: 27, pending: 12 },
   ],
   "Westford": [
     { month: "Nov '25", median:  960000, dom: 68, listToSale: 98, sold: 12, pending: 0 },
@@ -326,7 +326,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  942500, dom: 24, listToSale: 102, sold: 30, pending: 1 },
     { month: "Aug '26", median:  799900, dom: 28, listToSale: 101, sold: 33, pending: 0 },
     { month: "Sep '26", median:  894500, dom: 32, listToSale: 100, sold: 26, pending: 9 },
-    { month: "Oct '26", median:  750000, dom: 25, listToSale: 102, sold: 13, pending: 15 },
+    { month: "Oct '26", median:  750000, dom: 25, listToSale: 102, sold: 13, pending: 13 },
   ],
   "Hopkinton": [
     { month: "Nov '25", median: 1040000, dom: 58, listToSale: 97, sold: 9, pending: 0 },
@@ -354,7 +354,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1010000, dom: 25, listToSale: 105, sold: 21, pending: 0 },
     { month: "Aug '26", median: 1015000, dom: 34, listToSale: 100, sold: 27, pending: 3 },
     { month: "Sep '26", median: 1170000, dom: 28, listToSale: 100, sold: 18, pending: 16 },
-    { month: "Oct '26", median: 1200000, dom: 37, listToSale: 102, sold: 15, pending: 17 },
+    { month: "Oct '26", median: 1200000, dom: 39, listToSale: 102, sold: 16, pending: 16 },
   ],
   "Westwood": [
     { month: "Oct '25", median: 1212500, dom: 86, listToSale: 101, sold: 14, pending: 1 },
@@ -368,7 +368,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1200000, dom: 94, listToSale: 101, sold: 11, pending: 0 },
     { month: "Aug '26", median: 1395000, dom: 32, listToSale: 100, sold: 20, pending: 1 },
     { month: "Sep '26", median: 1255000, dom: 81, listToSale: 99, sold: 10, pending: 8 },
-    { month: "Oct '26", median: 1250000, dom: 23, listToSale: 102, sold: 10, pending: 14 },
+    { month: "Oct '26", median: 1250000, dom: 23, listToSale: 102, sold: 10, pending: 12 },
   ],
   "Dedham": [
     { month: "Nov '25", median:  775000, dom: 53, listToSale: 100, sold: 23, pending: 1 },
@@ -382,7 +382,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  778000, dom: 37, listToSale: 101, sold: 38, pending: 0 },
     { month: "Aug '26", median:  682000, dom: 37, listToSale: 102, sold: 30, pending: 2 },
     { month: "Sep '26", median:  830000, dom: 33, listToSale: 101, sold: 21, pending: 17 },
-    { month: "Oct '26", median:  700000, dom: 50, listToSale: 98, sold: 21, pending: 23 },
+    { month: "Oct '26", median:  700000, dom: 50, listToSale: 98, sold: 21, pending: 19 },
   ],
   "Canton": [
     { month: "Nov '25", median:  689500, dom: 45, listToSale: 99, sold: 10, pending: 4 },
@@ -396,7 +396,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  715000, dom: 24, listToSale: 102, sold: 25, pending: 5 },
     { month: "Aug '26", median:  685850, dom: 40, listToSale: 101, sold: 30, pending: 5 },
     { month: "Sep '26", median:  792500, dom: 49, listToSale: 100, sold: 22, pending: 14 },
-    { month: "Oct '26", median:  640998, dom: 32, listToSale: 101, sold: 24, pending: 19 },
+    { month: "Oct '26", median:  640998, dom: 32, listToSale: 101, sold: 24, pending: 16 },
   ],
   "Quincy": [
     { month: "Nov '25", median:  697500, dom: 38, listToSale: 99, sold: 58, pending: 0 },
@@ -410,7 +410,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  642500, dom: 27, listToSale: 101, sold: 64, pending: 2 },
     { month: "Aug '26", median:  670000, dom: 35, listToSale: 100, sold: 58, pending: 7 },
     { month: "Sep '26", median:  732000, dom: 36, listToSale: 99, sold: 69, pending: 43 },
-    { month: "Oct '26", median:  649900, dom: 37, listToSale: 99, sold: 51, pending: 56 },
+    { month: "Oct '26", median:  649900, dom: 37, listToSale: 99, sold: 51, pending: 52 },
   ],
   "Malden": [
     { month: "Nov '25", median:  720000, dom: 29, listToSale: 103, sold: 19, pending: 0 },
@@ -424,7 +424,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  602500, dom: 41, listToSale: 102, sold: 28, pending: 0 },
     { month: "Aug '26", median:  492500, dom: 29, listToSale: 100, sold: 16, pending: 2 },
     { month: "Sep '26", median:  645000, dom: 39, listToSale: 100, sold: 22, pending: 18 },
-    { month: "Oct '26", median:  657000, dom: 40, listToSale: 100, sold: 20, pending: 13 },
+    { month: "Oct '26", median:  700000, dom: 45, listToSale: 99, sold: 21, pending: 13 },
   ],
   "Wayland": [
     { month: "Nov '25", median: 1132500, dom: 41, listToSale: 99, sold: 20, pending: 0 },
@@ -438,7 +438,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1185000, dom: 37, listToSale: 100, sold: 20, pending: 0 },
     { month: "Aug '26", median: 1150000, dom: 37, listToSale: 100, sold: 19, pending: 0 },
     { month: "Sep '26", median:  827500, dom: 42, listToSale: 100, sold: 10, pending: 13 },
-    { month: "Oct '26", median:  875000, dom: 32, listToSale: 104, sold: 11, pending: 21 },
+    { month: "Oct '26", median:  875000, dom: 32, listToSale: 104, sold: 11, pending: 18 },
   ],
   "Weston": [
     { month: "Nov '25", median: 1757500, dom: 95, listToSale: 96, sold: 12, pending: 0 },
@@ -466,7 +466,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1137500, dom: 28, listToSale: 102, sold: 34, pending: 0 },
     { month: "Aug '26", median: 1197500, dom: 36, listToSale: 100, sold: 28, pending: 2 },
     { month: "Sep '26", median:  957500, dom: 41, listToSale: 99, sold: 14, pending: 14 },
-    { month: "Oct '26", median: 1175000, dom: 44, listToSale: 100, sold: 12, pending: 12 },
+    { month: "Oct '26", median: 1175000, dom: 44, listToSale: 100, sold: 12, pending: 11 },
   ],
   "Shrewsbury": [
     { month: "Nov '25", median:  691500, dom: 46, listToSale: 98, sold: 22, pending: 0 },
@@ -480,7 +480,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  639950, dom: 34, listToSale: 99, sold: 48, pending: 1 },
     { month: "Aug '26", median:  635000, dom: 39, listToSale: 102, sold: 35, pending: 5 },
     { month: "Sep '26", median:  670000, dom: 37, listToSale: 101, sold: 35, pending: 23 },
-    { month: "Oct '26", median:  622000, dom: 60, listToSale: 100, sold: 34, pending: 18 },
+    { month: "Oct '26", median:  622000, dom: 60, listToSale: 100, sold: 34, pending: 17 },
   ],
   "Carlisle": [
     { month: "Oct '25", median:  955000, dom: 51, listToSale: 96, sold: 8, pending: 0 },
@@ -508,7 +508,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1085000, dom: 26, listToSale: 103, sold: 9, pending: 0 },
     { month: "Aug '26", median:  605000, dom: 37, listToSale: 101, sold: 6, pending: 0 },
     { month: "Sep '26", median:  724500, dom: 62, listToSale: 100, sold: 8, pending: 4 },
-    { month: "Oct '26", median:  867000, dom: 57, listToSale: 101, sold: 8, pending: 6 },
+    { month: "Oct '26", median:  875000, dom: 52, listToSale: 101, sold: 9, pending: 6 },
   ],
   "Boxborough": [
     { month: "Nov '25", median:  777500, dom: 46, listToSale: 98, sold: 4, pending: 0 },
@@ -522,7 +522,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1080000, dom: 25, listToSale: 102, sold: 7, pending: 0 },
     { month: "Aug '26", median:  800000, dom: 41, listToSale: 101, sold: 7, pending: 1 },
     { month: "Sep '26", median: 1200000, dom: 46, listToSale: 99, sold: 7, pending: 5 },
-    { month: "Oct '26", median:  357500, dom: 65, listToSale: 97, sold: 6, pending: 6 },
+    { month: "Oct '26", median:  357500, dom: 65, listToSale: 97, sold: 6, pending: 4 },
   ],
   "Bolton": [
     { month: "Nov '25", median:  787500, dom: 47, listToSale: 101, sold: 8, pending: 0 },
@@ -536,7 +536,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1035000, dom: 25, listToSale: 103, sold: 12, pending: 0 },
     { month: "Aug '26", median:  850000, dom: 30, listToSale: 106, sold: 9, pending: 1 },
     { month: "Sep '26", median:  811000, dom: 71, listToSale: 100, sold: 5, pending: 8 },
-    { month: "Oct '26", median:  830000, dom: 38, listToSale: 102, sold: 8, pending: 9 },
+    { month: "Oct '26", median:  830000, dom: 38, listToSale: 102, sold: 8, pending: 8 },
   ],
   "Harvard": [
     { month: "Oct '25", median:  900000, dom: 25, listToSale: 100, sold: 3, pending: 0 },
@@ -564,7 +564,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  691000, dom: 25, listToSale: 103, sold: 14, pending: 0 },
     { month: "Aug '26", median:  499950, dom: 42, listToSale: 101, sold: 10, pending: 1 },
     { month: "Sep '26", median:  575000, dom: 25, listToSale: 100, sold: 7, pending: 4 },
-    { month: "Oct '26", median:  655000, dom: 25, listToSale: 101, sold: 8, pending: 11 },
+    { month: "Oct '26", median:  655000, dom: 25, listToSale: 101, sold: 8, pending: 10 },
   ],
   "Littleton": [
     { month: "Nov '25", median:  675000, dom: 90, listToSale: 99, sold: 7, pending: 0 },
@@ -578,7 +578,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  851000, dom: 21, listToSale: 103, sold: 19, pending: 0 },
     { month: "Aug '26", median:  870000, dom: 29, listToSale: 101, sold: 12, pending: 0 },
     { month: "Sep '26", median:  890000, dom: 28, listToSale: 102, sold: 11, pending: 4 },
-    { month: "Oct '26", median:  750000, dom: 46, listToSale: 100, sold: 5, pending: 9 },
+    { month: "Oct '26", median:  750000, dom: 46, listToSale: 100, sold: 5, pending: 7 },
   ],
   "Groton": [
     { month: "Nov '25", median:  892500, dom: 41, listToSale: 101, sold: 10, pending: 0 },
@@ -592,7 +592,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  950000, dom: 40, listToSale: 101, sold: 19, pending: 1 },
     { month: "Aug '26", median:  805000, dom: 53, listToSale: 99, sold: 12, pending: 1 },
     { month: "Sep '26", median:  803777, dom: 27, listToSale: 102, sold: 11, pending: 6 },
-    { month: "Oct '26", median:  800000, dom: 67, listToSale: 95, sold: 9, pending: 12 },
+    { month: "Oct '26", median:  800000, dom: 67, listToSale: 95, sold: 9, pending: 10 },
   ],
   "Ayer": [
     { month: "Nov '25", median:  520000, dom: 33, listToSale: 105, sold: 7, pending: 0 },
@@ -620,7 +620,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  703500, dom: 31, listToSale: 104, sold: 40, pending: 2 },
     { month: "Aug '26", median:  720000, dom: 38, listToSale: 100, sold: 42, pending: 3 },
     { month: "Sep '26", median:  677500, dom: 35, listToSale: 101, sold: 28, pending: 25 },
-    { month: "Oct '26", median:  697500, dom: 29, listToSale: 100, sold: 28, pending: 21 },
+    { month: "Oct '26", median:  697500, dom: 29, listToSale: 100, sold: 28, pending: 18 },
   ],
   "Tewksbury": [
     { month: "Nov '25", median:  645000, dom: 32, listToSale: 102, sold: 31, pending: 0 },
@@ -634,7 +634,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  662500, dom: 31, listToSale: 102, sold: 44, pending: 2 },
     { month: "Aug '26", median:  735000, dom: 39, listToSale: 102, sold: 32, pending: 2 },
     { month: "Sep '26", median:  616700, dom: 27, listToSale: 102, sold: 28, pending: 22 },
-    { month: "Oct '26", median:  661000, dom: 37, listToSale: 101, sold: 29, pending: 29 },
+    { month: "Oct '26", median:  661000, dom: 37, listToSale: 101, sold: 29, pending: 27 },
   ],
   "Wilmington": [
     { month: "Nov '25", median:  627500, dom: 22, listToSale: 103, sold: 13, pending: 0 },
@@ -648,7 +648,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  763000, dom: 28, listToSale: 105, sold: 38, pending: 0 },
     { month: "Aug '26", median:  730000, dom: 35, listToSale: 100, sold: 19, pending: 6 },
     { month: "Sep '26", median:  775000, dom: 26, listToSale: 103, sold: 15, pending: 12 },
-    { month: "Oct '26", median:  793500, dom: 44, listToSale: 101, sold: 24, pending: 11 },
+    { month: "Oct '26", median:  793500, dom: 44, listToSale: 101, sold: 24, pending: 12 },
   ],
   "Stoneham": [
     { month: "Nov '25", median:  733000, dom: 19, listToSale: 102, sold: 21, pending: 0 },
@@ -662,7 +662,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  790000, dom: 23, listToSale: 105, sold: 26, pending: 1 },
     { month: "Aug '26", median:  825000, dom: 31, listToSale: 101, sold: 19, pending: 0 },
     { month: "Sep '26", median:  875000, dom: 33, listToSale: 101, sold: 25, pending: 15 },
-    { month: "Oct '26", median:  780000, dom: 45, listToSale: 101, sold: 13, pending: 10 },
+    { month: "Oct '26", median:  760000, dom: 43, listToSale: 102, sold: 14, pending: 7 },
   ],
   "Melrose": [
     { month: "Nov '25", median:  842500, dom: 28, listToSale: 101, sold: 16, pending: 1 },
@@ -676,7 +676,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  995000, dom: 25, listToSale: 106, sold: 37, pending: 1 },
     { month: "Aug '26", median:  855000, dom: 22, listToSale: 106, sold: 21, pending: 0 },
     { month: "Sep '26", median:  870000, dom: 41, listToSale: 103, sold: 24, pending: 24 },
-    { month: "Oct '26", median:  829500, dom: 40, listToSale: 103, sold: 22, pending: 20 },
+    { month: "Oct '26", median:  829500, dom: 40, listToSale: 103, sold: 22, pending: 18 },
   ],
   "Wakefield": [
     { month: "Nov '25", median:  700000, dom: 25, listToSale: 102, sold: 23, pending: 0 },
@@ -690,7 +690,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  695000, dom: 25, listToSale: 103, sold: 22, pending: 0 },
     { month: "Aug '26", median:  792500, dom: 33, listToSale: 103, sold: 26, pending: 1 },
     { month: "Sep '26", median:  810000, dom: 38, listToSale: 101, sold: 22, pending: 20 },
-    { month: "Oct '26", median:  710000, dom: 36, listToSale: 100, sold: 20, pending: 24 },
+    { month: "Oct '26", median:  710000, dom: 36, listToSale: 100, sold: 20, pending: 23 },
   ],
   "Reading": [
     { month: "Nov '25", median:  815000, dom: 52, listToSale: 101, sold: 17, pending: 0 },
@@ -704,7 +704,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  990000, dom: 30, listToSale: 103, sold: 45, pending: 1 },
     { month: "Aug '26", median:  937500, dom: 35, listToSale: 104, sold: 19, pending: 0 },
     { month: "Sep '26", median:  860000, dom: 32, listToSale: 100, sold: 15, pending: 16 },
-    { month: "Oct '26", median:  872500, dom: 28, listToSale: 102, sold: 20, pending: 24 },
+    { month: "Oct '26", median:  872500, dom: 28, listToSale: 102, sold: 20, pending: 22 },
   ],
   "North Reading": [
     { month: "Nov '25", median:  806180, dom: 24, listToSale: 101, sold: 15, pending: 0 },
@@ -718,7 +718,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  869995, dom: 20, listToSale: 102, sold: 31, pending: 1 },
     { month: "Aug '26", median: 1348000, dom: 32, listToSale: 102, sold: 26, pending: 1 },
     { month: "Sep '26", median:  732500, dom: 39, listToSale: 99, sold: 23, pending: 15 },
-    { month: "Oct '26", median:  837450, dom: 39, listToSale: 102, sold: 20, pending: 18 },
+    { month: "Oct '26", median:  799900, dom: 38, listToSale: 102, sold: 21, pending: 17 },
   ],
   "Lynnfield": [
     { month: "Nov '25", median:  935000, dom: 42, listToSale: 99, sold: 9, pending: 0 },
@@ -732,7 +732,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1249000, dom: 31, listToSale: 103, sold: 21, pending: 3 },
     { month: "Aug '26", median: 1001250, dom: 32, listToSale: 100, sold: 10, pending: 2 },
     { month: "Sep '26", median: 1353500, dom: 33, listToSale: 104, sold: 10, pending: 16 },
-    { month: "Oct '26", median: 1100000, dom: 37, listToSale: 99, sold: 21, pending: 13 },
+    { month: "Oct '26", median: 1100000, dom: 37, listToSale: 99, sold: 21, pending: 11 },
   ],
   "Andover": [
     { month: "Nov '25", median:  869500, dom: 43, listToSale: 102, sold: 20, pending: 0 },
@@ -746,7 +746,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1009900, dom: 34, listToSale: 103, sold: 53, pending: 0 },
     { month: "Aug '26", median:  980000, dom: 38, listToSale: 101, sold: 35, pending: 1 },
     { month: "Sep '26", median:  932500, dom: 34, listToSale: 100, sold: 44, pending: 30 },
-    { month: "Oct '26", median:  960000, dom: 29, listToSale: 102, sold: 27, pending: 20 },
+    { month: "Oct '26", median:  960000, dom: 29, listToSale: 101, sold: 28, pending: 18 },
   ],
   "North Andover": [
     { month: "Nov '25", median:  570000, dom: 48, listToSale: 101, sold: 28, pending: 0 },
@@ -760,7 +760,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  860000, dom: 20, listToSale: 105, sold: 26, pending: 0 },
     { month: "Aug '26", median:  813889, dom: 30, listToSale: 103, sold: 28, pending: 2 },
     { month: "Sep '26", median:  675000, dom: 50, listToSale: 100, sold: 29, pending: 21 },
-    { month: "Oct '26", median:  685000, dom: 22, listToSale: 102, sold: 34, pending: 34 },
+    { month: "Oct '26", median:  685000, dom: 22, listToSale: 102, sold: 34, pending: 31 },
   ],
   "Ashland": [
     { month: "Nov '25", median:  610000, dom: 41, listToSale: 99, sold: 13, pending: 0 },
@@ -774,7 +774,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  661000, dom: 22, listToSale: 102, sold: 30, pending: 0 },
     { month: "Aug '26", median:  667500, dom: 38, listToSale: 98, sold: 8, pending: 3 },
     { month: "Sep '26", median:  669500, dom: 21, listToSale: 102, sold: 22, pending: 16 },
-    { month: "Oct '26", median:  570000, dom: 27, listToSale: 100, sold: 18, pending: 21 },
+    { month: "Oct '26", median:  570000, dom: 27, listToSale: 100, sold: 18, pending: 17 },
   ],
   "Sherborn": [
     { month: "Nov '25", median: 1400000, dom: 74, listToSale: 100, sold: 5, pending: 0 },
@@ -844,7 +844,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  580000, dom: 27, listToSale: 101, sold: 35, pending: 0 },
     { month: "Aug '26", median:  580000, dom: 32, listToSale: 101, sold: 25, pending: 2 },
     { month: "Sep '26", median:  570000, dom: 44, listToSale: 100, sold: 29, pending: 13 },
-    { month: "Oct '26", median:  584000, dom: 31, listToSale: 101, sold: 15, pending: 17 },
+    { month: "Oct '26", median:  584000, dom: 31, listToSale: 101, sold: 15, pending: 13 },
   ],
   "Hudson": [
     { month: "Nov '25", median:  575000, dom: 30, listToSale: 101, sold: 17, pending: 0 },
@@ -858,7 +858,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  710000, dom: 37, listToSale: 103, sold: 35, pending: 0 },
     { month: "Aug '26", median:  642500, dom: 37, listToSale: 101, sold: 10, pending: 1 },
     { month: "Sep '26", median:  599950, dom: 31, listToSale: 101, sold: 14, pending: 11 },
-    { month: "Oct '26", median:  640000, dom: 43, listToSale: 101, sold: 18, pending: 12 },
+    { month: "Oct '26", median:  640000, dom: 43, listToSale: 101, sold: 18, pending: 11 },
   ],
   "Marlborough": [
     { month: "Nov '25", median:  605000, dom: 40, listToSale: 100, sold: 25, pending: 0 },
@@ -900,7 +900,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  574000, dom: 39, listToSale: 100, sold: 32, pending: 2 },
     { month: "Aug '26", median:  719995, dom: 89, listToSale: 98, sold: 19, pending: 6 },
     { month: "Sep '26", median:  607450, dom: 55, listToSale: 98, sold: 16, pending: 9 },
-    { month: "Oct '26", median:  642680, dom: 52, listToSale: 99, sold: 14, pending: 10 },
+    { month: "Oct '26", median:  642680, dom: 52, listToSale: 99, sold: 14, pending: 7 },
   ],
   "Northborough": [
     { month: "Nov '25", median:  657500, dom: 32, listToSale: 102, sold: 10, pending: 0 },
@@ -942,7 +942,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1216000, dom: 24, listToSale: 102, sold: 22, pending: 0 },
     { month: "Aug '26", median: 1215000, dom: 39, listToSale: 101, sold: 12, pending: 1 },
     { month: "Sep '26", median: 1085000, dom: 44, listToSale: 100, sold: 4, pending: 5 },
-    { month: "Oct '26", median: 1196350, dom: 47, listToSale: 98, sold: 6, pending: 14 },
+    { month: "Oct '26", median: 1196350, dom: 47, listToSale: 98, sold: 6, pending: 12 },
   ],
   "Sharon": [
     { month: "Nov '25", median:  677800, dom: 61, listToSale: 98, sold: 12, pending: 0 },
@@ -956,7 +956,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1025000, dom: 38, listToSale: 100, sold: 25, pending: 0 },
     { month: "Aug '26", median:  921000, dom: 27, listToSale: 100, sold: 22, pending: 3 },
     { month: "Sep '26", median: 1002000, dom: 42, listToSale: 99, sold: 17, pending: 12 },
-    { month: "Oct '26", median:  937500, dom: 51, listToSale: 99, sold: 11, pending: 11 },
+    { month: "Oct '26", median:  937500, dom: 51, listToSale: 99, sold: 11, pending: 10 },
   ],
   "Stoughton": [
     { month: "Nov '25", median:  500000, dom: 36, listToSale: 100, sold: 23, pending: 0 },
@@ -970,7 +970,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  592500, dom: 37, listToSale: 102, sold: 36, pending: 0 },
     { month: "Aug '26", median:  551000, dom: 24, listToSale: 102, sold: 28, pending: 1 },
     { month: "Sep '26", median:  607500, dom: 29, listToSale: 99, sold: 30, pending: 8 },
-    { month: "Oct '26", median:  450000, dom: 34, listToSale: 100, sold: 20, pending: 23 },
+    { month: "Oct '26", median:  450000, dom: 34, listToSale: 100, sold: 20, pending: 22 },
   ],
   "Norwood": [
     { month: "Nov '25", median:  686400, dom: 45, listToSale: 100, sold: 17, pending: 0 },
@@ -984,7 +984,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  625000, dom: 26, listToSale: 102, sold: 23, pending: 0 },
     { month: "Aug '26", median:  777500, dom: 38, listToSale: 103, sold: 20, pending: 2 },
     { month: "Sep '26", median:  675000, dom: 35, listToSale: 99, sold: 20, pending: 13 },
-    { month: "Oct '26", median:  602500, dom: 31, listToSale: 100, sold: 8, pending: 21 },
+    { month: "Oct '26", median:  585000, dom: 29, listToSale: 100, sold: 9, pending: 19 },
   ],
   "Braintree": [
     { month: "Nov '25", median:  730000, dom: 41, listToSale: 100, sold: 25, pending: 0 },
@@ -998,7 +998,7 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median:  755000, dom: 33, listToSale: 102, sold: 33, pending: 0 },
     { month: "Aug '26", median:  705000, dom: 31, listToSale: 101, sold: 27, pending: 5 },
     { month: "Sep '26", median:  745000, dom: 37, listToSale: 101, sold: 29, pending: 31 },
-    { month: "Oct '26", median:  662500, dom: 44, listToSale: 100, sold: 34, pending: 14 },
+    { month: "Oct '26", median:  660000, dom: 43, listToSale: 100, sold: 35, pending: 14 },
   ],
   "Lincoln": [
     { month: "Oct '25", median: 1595000, dom: 34, listToSale: 100, sold: 5, pending: 0 },
@@ -1013,5 +1013,8 @@ export const townHistoryData: Record<string, TownMonth[]> = {
     { month: "Jul '26", median: 1452500, dom: 23, listToSale: 102, sold: 6, pending: 0 },
     { month: "Aug '26", median: 1346750, dom: 17, listToSale: 104, sold: 3, pending: 0 },
     { month: "Oct '26", median: 1457100, dom: 33, listToSale: 103, sold: 6, pending: 2 },
+  ],
+  "Berlin": [
+    { month: "Oct '26", median:  615000, dom: 45, listToSale: 101, sold: 4, pending: 1 },
   ],
 };
