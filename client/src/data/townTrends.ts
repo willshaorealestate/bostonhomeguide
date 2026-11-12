@@ -593,6 +593,14 @@ export const townAnnual: Record<string, TownYear[]> = {
     { year: 2025, median: 860500, sold: 180 },
     { year: 2026, median: 874500, sold: 164, through: "Oct" },
   ],
+  "Berlin": [
+    { year: 2021, median: 542500, sold: 48 },
+    { year: 2022, median: 560000, sold: 71 },
+    { year: 2023, median: 729037, sold: 38 },
+    { year: 2024, median: 687250, sold: 41 },
+    { year: 2025, median: 720000, sold: 35 },
+    { year: 2026, median: 707500, sold: 36, through: "Oct" },
+  ],
 };
 
 export const townQuarterly: Record<string, TownQuarter[]> = {
@@ -1316,6 +1324,16 @@ export const townQuarterly: Record<string, TownQuarter[]> = {
     { quarter: "Q2 '26", dom: 30, listToSale: 103, sold: 62 },
     { quarter: "Q3 '26", dom: 39, listToSale: 102, sold: 57 },
   ],
+  "Berlin": [
+    { quarter: "Q4 '24", dom: 56, listToSale: 101, sold: 6 },
+    { quarter: "Q1 '25", dom: 68, listToSale: 97, sold: 10 },
+    { quarter: "Q2 '25", dom: 38, listToSale: 103, sold: 7 },
+    { quarter: "Q3 '25", dom: 49, listToSale: 100, sold: 9 },
+    { quarter: "Q4 '25", dom: 41, listToSale: 99, sold: 9 },
+    { quarter: "Q1 '26", dom: 65, listToSale: 99, sold: 5 },
+    { quarter: "Q2 '26", dom: 16, listToSale: 101, sold: 9 },
+    { quarter: "Q3 '26", dom: 41, listToSale: 98, sold: 18 },
+  ],
 };
 
 export const townInventory: Record<string, TownInventory> = {
@@ -1391,4 +1409,5 @@ export const townInventory: Record<string, TownInventory> = {
   "Braintree": { asOf: "2026-11-06", active: 58 },
   "Watertown": { asOf: "2026-11-06", active: 63 },
   "Burlington": { asOf: "2026-11-06", active: 40 },
+  "Berlin": { asOf: "2026-11-12", active: 5 },
 };
