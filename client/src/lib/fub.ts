@@ -18,7 +18,7 @@ declare global {
 }
 
 /** The Apps Script web app URL (not a secret: it can only create leads) */
-const LEAD_RELAY_URL = 'PASTE_APPS_SCRIPT_EXEC_URL_HERE';
+const LEAD_RELAY_URL = 'https://script.google.com/macros/s/AKfycbw6nuYqt7h_0RUvf3C94gUNhDz76WbDwJpcOjkVBOcxMIADJxuCklrS_aR0UoxtayXi/exec';
 
 function getRelayUrl(): string {
   return window.FUB_CONFIG?.leadRelayUrl || import.meta.env.VITE_LEAD_RELAY_URL || LEAD_RELAY_URL;
