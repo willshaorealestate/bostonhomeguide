@@ -1,6 +1,6 @@
 // fub.ts — Follow Up Boss lead submission utility
 // Leads go to a small Google Apps Script relay (scripts/lead-relay/Code.gs, in Will's
-// will@willshao.com Google account) that holds the Follow Up Boss API key and forwards the lead.
+// business Google account) that holds the Follow Up Boss API key and forwards the lead.
 // The key must never be in the website: everything in this bundle is public.
 // Other settings come from FUB_CONFIG on window (/js/fub-config.js) or Vite env vars.
 

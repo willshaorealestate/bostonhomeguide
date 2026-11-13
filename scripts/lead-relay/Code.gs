@@ -1,5 +1,5 @@
 /**
- * BostonHomeGuide.com lead relay (Google Apps Script, in Will's will@willshao.com Google account)
+ * BostonHomeGuide.com lead relay (Google Apps Script, in Will's business Google account)
  *
  * The website's forms send each new lead here instead of straight to Follow Up Boss, so the
  * Follow Up Boss API key never appears in the website's code. This script adds the key and
