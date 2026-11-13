@@ -1,12 +1,14 @@
 // fub.ts — Follow Up Boss lead submission utility
-// Reads FUB_CONFIG from window (set by /js/fub-config.js loaded in index.html)
-// Falls back to Vite env vars if window.FUB_CONFIG is not present.
+// Leads go to a small Google Apps Script relay (scripts/lead-relay/Code.gs, in Will's
+// will@willshao.com Google account) that holds the Follow Up Boss API key and forwards the lead.
+// The key must never be in the website: everything in this bundle is public.
+// Other settings come from FUB_CONFIG on window (/js/fub-config.js) or Vite env vars.
 
 declare global {
   interface Window {
     FUB_CONFIG?: {
       pixelId?: string;
-      apiKey?: string;
+      leadRelayUrl?: string;
       felloUrl?: string;
       realscoutAgentId?: string;
       calendarUrl?: string;
@@ -15,8 +17,11 @@ declare global {
   }
 }
 
-function getApiKey(): string {
-  return window.FUB_CONFIG?.apiKey || import.meta.env.VITE_FUB_API_KEY || '';
+/** The Apps Script web app URL (not a secret: it can only create leads) */
+const LEAD_RELAY_URL = 'PASTE_APPS_SCRIPT_EXEC_URL_HERE';
+
+function getRelayUrl(): string {
+  return window.FUB_CONFIG?.leadRelayUrl || import.meta.env.VITE_LEAD_RELAY_URL || LEAD_RELAY_URL;
 }
 
 import { pageTrail, visitStart } from './pageTrail';
@@ -58,9 +63,9 @@ export interface FubLeadPayload {
 }
 
 export async function submitToFub(payload: FubLeadPayload): Promise<void> {
-  const apiKey = getApiKey();
-  if (!apiKey) {
-    throw new Error('FUB API key not configured. Copy js/fub-config.EXAMPLE.js to js/fub-config.js and fill in your values.');
+  const relayUrl = getRelayUrl();
+  if (!relayUrl.startsWith('https://')) {
+    throw new Error('Lead relay URL not configured (LEAD_RELAY_URL in client/src/lib/fub.ts).');
   }
 
   const noteParts: string[] = [];
@@ -99,17 +104,15 @@ export async function submitToFub(payload: FubLeadPayload): Promise<void> {
     body.assignedTo = assignedTo;
   }
 
-  const res = await fetch('https://api.followupboss.com/v1/events', {
+  // text/plain keeps this a "simple" request, which Apps Script accepts from another site
+  const res = await fetch(relayUrl, {
     method: 'POST',
-    headers: {
-      'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + apiKey,
-    },
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(body),
   });
-
-  if (!res.ok) {
-    throw new Error('FUB API responded with status ' + res.status);
+  const result = (await res.json().catch(() => null)) as { ok?: boolean; message?: string } | null;
+  if (!res.ok || !result?.ok) {
+    throw new Error('Lead relay: ' + (result?.message || 'status ' + res.status));
   }
 
   // Fire FUB data layer event if pixel is loaded
