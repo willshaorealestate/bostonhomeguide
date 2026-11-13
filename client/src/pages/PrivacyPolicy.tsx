@@ -7,7 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/lib/seo";
 
-const LAST_UPDATED = "September 9, 2026";
+const LAST_UPDATED = "November 13, 2026";
 
 export default function PrivacyPolicyPage() {
   useSEO({
@@ -128,6 +128,13 @@ export default function PrivacyPolicyPage() {
                 This site uses Google Analytics to understand aggregate visitor behavior and improve
                 our content. Analytics data is anonymized and is not used to identify individual
                 visitors. You can control cookies through your browser settings.
+              </p>
+              <p className="mt-3">
+                We also use Follow Up Boss website tracking, which records the pages you view on this
+                site. If you submit a form, that browsing activity, including the pages you visited
+                before submitting, may be connected to your inquiry so we can better understand what
+                you're looking for. Form submissions are passed securely to Follow Up Boss through a
+                Google service.
               </p>
             </div>
 
