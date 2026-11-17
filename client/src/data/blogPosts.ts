@@ -719,4 +719,56 @@ Will I owe a lot of capital gains tax on an inherited home? Often less than peop
 
 Should I renovate before selling an inherited home? Not necessarily. Many inherited homes sell successfully as-is, particularly when heirs want a simpler, faster process.`,
   },
+  {
+    slug: "new-construction-vs-older-home",
+    title: "New Construction vs. an Older New England Home: What You're Really Trading Off",
+    seoTitle: "New Construction vs. an Older New England Home",
+    excerpt: "New builds and 100-year-old Colonials solve different problems. Here's what actually differs day to day, beyond just age.",
+    category: "Buyer Guide",
+    date: "November 17, 2026",
+    img: "https://images.unsplash.com/photo-1631458325834-8f678e48912c?q=80&w=1948&auto=format&fit=crop&ixlib=rb-4.1.0",
+    images: ["https://images.unsplash.com/photo-1593398395073-ae53c3870037?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.1.0"],
+    content: `Greater Boston is unusual in how much of its housing stock predates modern construction entirely. It's not uncommon to tour homes built in the 1800s alongside listings finished last year. The choice between them isn't really about "old vs. new" as a preference. It's a set of concrete tradeoffs worth understanding before you commit.
+
+**What You Get With an Older Home**
+Established towns across the region built their character around homes that have been there for generations. That tends to come with:
+- Mature trees, established landscaping, and often larger lots than newer developments
+- Walkable proximity to [historic town centers](/blog/why-new-england-towns-arent-like-anywhere-else), which were built around the homes, not the other way around
+- Architectural character, like real plaster walls, original woodwork, and unique layouts, that's difficult or expensive to replicate in new construction
+- Often, a lower price per square foot than comparable new construction in the same town
+
+**What You're Signing Up For**
+Older homes also come with predictable tradeoffs:
+- Systems (electrical, plumbing, heating) that may need updating even if they're currently functional
+- Smaller closets, choppier floor plans, and less of the open-concept layout many buyers now expect
+- A higher likelihood of needing a specialist for issues like [lead paint, asbestos, or an aging oil tank](/blog/home-inspection-massachusetts)
+- Ongoing maintenance that a newer home simply doesn't require yet
+
+**What You Get With New Construction**
+Newer homes solve a different set of problems:
+- Modern, efficient systems, from heating to insulation to electrical, that lower both maintenance costs and energy bills
+- Open floor plans, larger closets, and layouts designed around how people actually live today
+- A builder warranty covering workmanship and major systems for roughly the first year
+- Little to no deferred maintenance to inherit from a previous owner
+
+**What New Construction Trades Away**
+The tradeoffs run the other direction too:
+- New developments are often located farther from historic town centers and transit than older housing stock
+- Lot sizes tend to be smaller, and mature landscaping takes years to develop
+- Character and uniqueness are harder to come by — new construction often follows a more standardized design
+- Depending on the town, inventory of true new construction can be limited, since much of the region is already built out
+
+**How to Actually Decide**
+The honest framing: an older home is buying into an established place, with all its character and its maintenance needs. New construction is buying predictability and modern living, often at the cost of location and character. Neither is objectively right. It depends on whether you're the type of buyer who wants to spend a weekend refinishing original hardwood, or the type who'd rather never think about a furnace for the first decade.
+
+**Frequently Asked Questions**
+
+Is new construction always more expensive? Not always. It depends on the town and lot, but new construction often does carry a premium per square foot compared to an older home in the same area, partly for the reduced maintenance risk.
+
+Are older homes in Greater Boston hard to insure? Not necessarily, but insurers may ask more questions about the age of the electrical panel, roof, and heating system — items worth addressing if they haven't been updated.
+
+Do new construction homes hold value as well as older homes in established towns? Both can appreciate well; it tends to depend more on the town and [school district](/blog/top-school-districts-metrowest) than on the age of the specific home.
+
+Can I get the character of an older home with fewer of the maintenance headaches? Sometimes — a home that's already been [thoughtfully renovated](/blog/fixer-upper-or-move-in-ready) by a previous owner can offer a middle ground worth looking for.`,
+  },
 ];
