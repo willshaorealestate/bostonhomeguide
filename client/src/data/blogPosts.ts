@@ -771,4 +771,58 @@ Do new construction homes hold value as well as older homes in established towns
 
 Can I get the character of an older home with fewer of the maintenance headaches? Sometimes — a home that's already been [thoughtfully renovated](/blog/fixer-upper-or-move-in-ready) by a previous owner can offer a middle ground worth looking for.`,
   },
+  {
+    slug: "when-to-upsize",
+    title: "When to Upsize: The Real Signs Your Home No Longer Fits",
+    excerpt: "Upsizing is about more than square footage. Here's how to know your current home has actually become a constraint.",
+    category: "Life Stage",
+    date: "November 19, 2026",
+    img: "https://images.unsplash.com/photo-1709787627975-9cb37bbeca60?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
+    images: ["https://images.unsplash.com/photo-1623177623442-979c1e42c255?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0"],
+    content: `Upsizing decisions often get reduced to "we need another bedroom." But the real signs your home no longer fits are usually broader than that, and catching them early makes the eventual move much less stressful.
+
+**Signs You've Actually Outgrown Your Home**
+A few patterns come up again and again with families who end up upsizing:
+- Hosting family or friends immediately exposes the constraints: no guest room, kids doubling up, everyone tripping over each other
+- Kids who used to share a room are getting older and need their own space, not as a luxury but for basic privacy
+- You're using improvised spaces, like a dining table as a desk or a hallway as storage, because there's no dedicated room for how you actually live
+- Storage has become a constant stress, not an occasional inconvenience
+- Remote or hybrid work has made a dedicated office a genuine need, not a nice-to-have
+
+These patterns tend to compound over time rather than resolve on their own.
+
+**It's Not Just About Bedroom Count**
+Two homes with the same number of bedrooms can feel completely different in practice. A home that's technically "big enough" on paper but has an awkward layout, with bedrooms too close together, no separation between living and work space, and a kitchen that can't handle how your household actually cooks and gathers, can feel more cramped than a smaller home with a layout that actually matches your life.
+
+**Financial Readiness for an Upsize**
+Before starting the search, it's worth getting clear on:
+- [How much equity your current home has built](/sell), and what that gives you toward a larger purchase
+- Whether you'll need to sell before buying, or have the flexibility to buy first, since this affects both your timeline and your negotiating position
+- What your realistic budget looks like once you factor in a larger home's [higher property taxes, utilities, and maintenance costs](/mortgage), not just the purchase price
+
+**Timing the Sale and Purchase**
+One of the more stressful parts of upsizing is coordinating the sale of your current home with the purchase of your next one. A few common approaches:
+- Selling first, then renting or staying with family temporarily while you search: lower financial risk, but less convenient
+- Making a contingent offer on your next home, tied to the sale of your current one: more convenient, but can make your offer less competitive in a competitive listing
+- Buying first and selling your current home after: for buyers in a strong financial position, this is a strategy we often recommend, since it means you're never rushed on either side of the transaction and you can move once, not twice
+
+If you buy before selling, a HELOC (home equity line of credit) on your current home is a common way to access the equity you've already built for a down payment on the next one, without waiting for your current home to close first. It's not the right fit for everyone. It depends on your equity position and comfort carrying two properties briefly, but for the right buyer it's one of the smoothest ways to upsize.
+
+There's no universally right approach. It depends on your risk tolerance, your current home's likely time on market, and how competitive the town you're moving to happens to be.
+
+**What to Prioritize in the Next Home**
+It's easy to upsize into "more of the same, but bigger." Instead, it's worth getting specific about what was actually constraining you, whether it was bedrooms, storage, a dedicated workspace, entertaining space, or a yard, and prioritizing that directly, rather than just square footage in general.
+
+A useful exercise before you start touring homes: walk through your current one room by room and write down exactly where it falls short. Not "we need more space," but specifics like "no place for overnight guests" or "the kids have been sharing a room for two years and it's not working anymore." That list becomes your actual search criteria, and it'll keep you from paying for square footage that doesn't solve the problem you started with.
+
+**Frequently Asked Questions**
+
+How do I know if we need more space or just better-organized space? Reorganizing can help at the margins, but if you've already decluttered and it's still not enough, if hosting family reliably feels tight, or the kids need their own rooms and there's nowhere to put them, that's not a storage problem. That's a home that's structurally too small for how your family lives now.
+
+Should I sell my current home before buying the next one? It depends on your risk tolerance and the markets on both ends. Selling first reduces financial risk; buying first (if you can manage it) reduces the stress of a rushed search.
+
+What if we can't agree on how much space we actually need? Walking through specific scenarios, like where a home office would go or where overnight guests would stay, often clarifies this faster than an abstract conversation about square footage.
+
+Should we look to upsize in our current town, or is it worth considering somewhere new? Both are common, and it comes down to what's driving the move. If your town and school district are already working well for your family, staying local while sizing up is usually the simplest path. But since you're moving anyway, it's worth at least evaluating whether a [neighboring town](/neighborhoods) might better match what you need next: more land, a shorter commute, or a school district that's an even better fit as your kids get older.`,
+  },
 ];
