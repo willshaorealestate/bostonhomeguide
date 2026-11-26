@@ -869,4 +869,89 @@ How far is too far for a single-day trip? Most of the destinations here are unde
 
 Do any of these make sense as a short overnight rather than a day trip? Newport, the Berkshires, and Cape Cod are all strong overnight options if you want to slow the pace down rather than rushing back the same day.`,
   },
+  {
+    slug: "keep-low-rate-home-or-sell",
+    title: "Should You Keep Your Low-Rate Home or Sell It?",
+    excerpt: "Many homeowners are holding on to a low mortgage rate, some by keeping the old home as a rental. Here's how to tell whether keeping it actually pays.",
+    category: "Seller Guide",
+    date: "November 26, 2026",
+    img: "https://images.unsplash.com/photo-1615404420216-cc423164563f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0",
+    images: ["https://images.unsplash.com/photo-1633155561782-ad47bca16d0a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0"],
+    content: `If you bought or refinanced when mortgage rates were near historic lows, selling can feel like giving up something you'll never get back. That's why many homeowners are staying put instead of moving, and why others who do move keep the old home and rent it out. Holding on to a low rate can be the right call. But a low rate on its own doesn't make a home a good investment, and many owners who turn their old home into a rental find it costs them money every month, even with a tenant in it.
+
+**Why Low-Rate Homeowners Are Holding On**
+The reasoning feels simple: a mortgage at a rate well below today's is cheap money, and a new mortgage on the next home will cost more. So owners either stay longer than they planned, or move and keep the first home as a rental, expecting the rent to cover the mortgage while the home keeps appreciating.
+
+**Where the Rental Math Often Falls Short**
+Rent covering the mortgage payment isn't the same as the property paying for itself. Once the home becomes a rental, the full monthly cost usually includes:
+- The mortgage payment itself
+- Property taxes, which can rise once it's no longer your primary residence. In Boston and the other Massachusetts communities that offer a residential exemption, it only applies to owner-occupied homes, so a converted rental loses it
+- Landlord insurance, which typically costs more than a homeowner's policy
+- Repairs and maintenance, which don't stop because someone else lives there, and tenants expect them handled quickly
+- Vacancy and turnover between tenants, including cleaning, painting, and lost rent
+- Property management fees if you hire someone, or your own time if you don't
+- Broker fees: since August 1, 2025, a Massachusetts landlord who hires a broker to find a tenant pays that fee, instead of passing it on to the tenant
+
+Add those up and many owners find the rent covers most of the cost, but not all of it, so they're paying the difference out of pocket every month. That can still be worth it as a long-term investment, but it's worth knowing the number before you decide, not after.
+
+**The Equity You're Not Using**
+A low rate is only part of the picture. If your home has gained significant value, that equity stays in the old house instead of going toward your next one. That means a smaller down payment and a bigger mortgage at today's rates on the new home, which can offset much of what you save by keeping the low rate.
+
+Here's an example with round numbers. Say your current home is worth $800,000, you owe $350,000 on a 3% mortgage, and you're buying a $1,000,000 home with a new mortgage at 7%:
+- Keep the old home: you put 20% down from savings ($200,000) and borrow $800,000. Principal and interest on the new home comes to about $5,322 a month.
+- Sell the old home: after paying off the $350,000 mortgage and about $50,000 in selling costs, you walk away with roughly $400,000. Put that down and you borrow $600,000, about $3,992 a month in principal and interest, and your $200,000 in savings stays in the bank.
+
+That's about $1,330 more every month, or roughly $279,000 more in interest over 30 years, just from borrowing the $200,000 that's tied up in the old house. And that's before any monthly shortfall on the rental itself.
+
+Keeping the home does have upside: you still own an appreciating asset, and the rent pays down a loan at 3%. The question is whether that return is worth more to you than the higher payment on the home you actually live in. Every $100,000 you borrow at 7% adds about $665 a month to a 30-year mortgage, so you can run the same math with your own numbers in our [mortgage calculator](/mortgage).
+
+Some owners tap that equity with a HELOC instead, but that's new debt at today's rates too.
+
+**Taxes to Know Before You Convert**
+- The capital gains exclusion: when you sell a home you've lived in as your primary residence for at least 2 of the last 5 years, up to $250,000 of gain ($500,000 for married couples filing jointly) is generally tax-free. Rent it out for more than about three years after moving out, and you can lose that exclusion.
+- Depreciation recapture: once it's a rental, the depreciation you claimed, or were entitled to claim, is generally taxed when you sell, even if the rest of the gain is excluded.
+- Rental income and expenses are reported on your tax return every year.
+
+A tax professional can tell you how these apply to your situation before you decide.
+
+**Being a Landlord in Massachusetts**
+Massachusetts rental rules are among the more tenant-protective in the country, so it's worth knowing the basics before you become a landlord:
+- Security deposits must be held in a separate, interest-bearing account at a Massachusetts bank, with specific paperwork, and mistakes can cost you several times the deposit
+- If a child under 6 lives in a home built before 1978, the lead law requires it to be deleaded
+- Evictions go through the courts and can take months
+- Check your mortgage terms, since many loans require you to live in the home for at least the first year, and switch to a landlord insurance policy before your first tenant moves in
+
+**When Keeping the Home Makes Sense**
+- The rent covers all of the costs, not just the mortgage, or you're comfortable covering a modest gap as a long-term investment
+- You have cash reserves to handle a vacancy or a major repair
+- You can buy your next home without the equity in this one
+- You want to be a landlord, or are willing to pay a property manager
+- You expect to move back, or plan to hold the home for many years
+
+**When Selling Makes More Sense**
+- The home costs you money every month even with a tenant in it, and you don't see that changing
+- You need the equity for your next down payment
+- You don't want the responsibility of tenants, repairs, and turnover
+- You're approaching three years since you moved out and want to keep the capital gains exclusion
+
+**A Simple Way to Run the Numbers**
+1. Estimate realistic rent, based on what comparable homes nearby have actually rented for.
+2. Add up the full monthly cost: mortgage, taxes, landlord insurance, and set-asides for maintenance, vacancy, and management.
+3. Subtract the cost from the rent. If the result is negative, that's what holding the home costs you each month.
+4. Weigh that against what selling would free up: your equity, a smaller mortgage on the next home, and a tax-free gain if you sell within the exclusion window.
+
+Our [mortgage calculator](/mortgage) helps with the monthly payment side, and a [home valuation](/sell) shows what your equity looks like today.
+
+**Frequently Asked Questions**
+
+Is it smart to keep a low-rate home and rent it out? It can be, if the rent covers all the costs, not just the mortgage, and you're prepared for vacancies, repairs, and the work of being a landlord. If it costs you money every month, you're essentially paying to hold on to the low rate.
+
+How long can I rent out my old home and still avoid capital gains tax when I sell? Generally, the exclusion applies if you lived in the home for at least 2 of the 5 years before the sale, which gives you up to about three years after moving out. Depreciation recapture still applies to the rental period, so confirm the details with a tax professional.
+
+Can I take my low mortgage rate with me to a new home? Generally no, since a mortgage is tied to the property. Some loans, including FHA and VA loans, can be assumed by a qualified buyer with the lender's approval, which can make your home more attractive when you sell.
+
+Do I need to tell my lender if I turn my home into a rental? Check your mortgage terms. Many loans require you to live in the home for at least the first year. After that, converting is common, but you should also switch to a landlord insurance policy.
+
+What if I'm not sure I want to sell yet? Run the numbers first. Knowing exactly what the home would cost you to hold each month, and what selling would free up, usually makes the decision much clearer.`,
+  },
 ];
